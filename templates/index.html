@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainable Labs Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="brand-row">
+        <div class="brand-mark">SL</div>
+        <div>
+          <p class="eyebrow">Local Demo</p>
+          <h1>Sustainable Labs Chatbot</h1>
+        </div>
+      </div>
+      <p class="hero-copy">
+        Ask about your Sustainable Labs knowledge base. The assistant answers from retrieved source material only.
+      </p>
+    </section>
+
+    <section class="chat-card">
+      <div id="chatMessages" class="chat-messages">
+        <article class="message assistant">
+          <div class="message-label">Sustainable Labs</div>
+          <div class="message-bubble">
+            Hi. Ask me anything about the demo knowledge base, sustainability workflows, or your indexed docs.
+          </div>
+        </article>
+      </div>
+
+      <form id="chatForm" class="composer">
+        <label class="sr-only" for="messageInput">Enter your message</label>
+        <input
+          id="messageInput"
+          name="message"
+          type="text"
+          placeholder="Enter your message..."
+          autocomplete="off"
+          required
+        >
+        <button id="sendButton" type="submit" aria-label="Send message">
+          <span class="send-arrow">↑</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <template id="messageTemplate">
+    <article class="message">
+      <div class="message-label"></div>
+      <div class="message-bubble"></div>
+    </article>
+  </template>
+
+  <template id="loadingTemplate">
+    <article class="message assistant" id="loadingMessage">
+      <div class="message-label">Sustainable Labs</div>
+      <div class="message-bubble loading-bubble" aria-live="polite" aria-label="Assistant is thinking">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </article>
+  </template>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
