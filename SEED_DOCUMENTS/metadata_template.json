@@ -1,0 +1,196 @@
+{
+  "documents": [
+    {
+      "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+      "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+      "title": "AnnualReport2021",
+      "category": "Annual Reports",
+      "document_type": "txt",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+      "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+      "title": "UMB-SSL-2022-Annual_Report",
+      "category": "Annual Reports",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+      "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+      "title": "UMB-SSL-2025-Impact_Report",
+      "category": "Annual Reports",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+      "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+      "title": "BoardOfDirectors",
+      "category": "General",
+      "document_type": "txt",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Projects.txt",
+      "url": "",
+      "title": "Projects",
+      "category": "General",
+      "document_type": "txt",
+      "notes": "https://www.umb.edu/ssl/projects/"
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/1/",
+      "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/8/",
+      "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/10/",
+      "title": "Critical approaches to climate-induced migration research and sol",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/11/",
+      "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/13/",
+      "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/15/",
+      "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/2/",
+      "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/12/",
+      "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/14/",
+      "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/3/",
+      "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/4/",
+      "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/5/",
+      "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/6/",
+      "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+      "url": "https://scholarworks.umb.edu/ssl/7/",
+      "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+      "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+      "title": "johnson_wp21mj1",
+      "category": "Publications",
+      "document_type": "pdf",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+      "url": "https://www.umb.edu/ssl/",
+      "title": "SSLAbout",
+      "category": "General",
+      "document_type": "txt",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/Staff.txt",
+      "url": "https://www.umb.edu/ssl/people/",
+      "title": "Staff",
+      "category": "General",
+      "document_type": "txt",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+      "url": "https://www.umb.edu/ssl/people/students/",
+      "title": "StudentsInterns",
+      "category": "General",
+      "document_type": "txt",
+      "notes": ""
+    },
+    {
+      "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+      "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+      "title": "UniversityAffiliates",
+      "category": "General",
+      "document_type": "txt",
+      "notes": ""
+    }
+  ]
+}
