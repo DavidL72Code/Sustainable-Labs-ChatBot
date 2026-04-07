@@ -4,8 +4,71 @@ const sendButton = document.getElementById("sendButton");
 const chatMessages = document.getElementById("chatMessages");
 const messageTemplate = document.getElementById("messageTemplate");
 const loadingTemplate = document.getElementById("loadingTemplate");
+const recentHistory = [];
+const recentHistoryWindow = 4;
 
-function appendMessage(role, label, content) {
+function escapeHtml(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderInlineMarkdown(text) {
+  return escapeHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/__(.+?)__/g, "<strong>$1</strong>");
+}
+
+function renderAssistantContent(content) {
+  const lines = content.split("\n");
+  const htmlParts = [];
+  let currentParagraph = [];
+  let currentList = [];
+
+  function flushParagraph() {
+    if (currentParagraph.length === 0) {
+      return;
+    }
+    htmlParts.push(`<p>${currentParagraph.join("<br>")}</p>`);
+    currentParagraph = [];
+  }
+
+  function flushList() {
+    if (currentList.length === 0) {
+      return;
+    }
+    htmlParts.push(`<ul>${currentList.map((item) => `<li>${item}</li>`).join("")}</ul>`);
+    currentList = [];
+  }
+
+  lines.forEach((line) => {
+    const bulletMatch = line.match(/^\s*[*-]\s+(.*)$/);
+    if (bulletMatch) {
+      flushParagraph();
+      currentList.push(renderInlineMarkdown(bulletMatch[1]));
+      return;
+    }
+
+    if (line.trim() === "") {
+      flushParagraph();
+      flushList();
+      return;
+    }
+
+    flushList();
+    currentParagraph.push(renderInlineMarkdown(line));
+  });
+
+  flushParagraph();
+  flushList();
+
+  return htmlParts.join("") || `<p>${renderInlineMarkdown(content)}</p>`;
+}
+
+function appendMessage(role, label, content, sources = []) {
   const fragment = messageTemplate.content.cloneNode(true);
   const messageNode = fragment.querySelector(".message");
   const labelNode = fragment.querySelector(".message-label");
@@ -13,7 +76,32 @@ function appendMessage(role, label, content) {
 
   messageNode.classList.add(role);
   labelNode.textContent = label;
-  bubbleNode.textContent = content;
+  if (role === "assistant") {
+    bubbleNode.innerHTML = renderAssistantContent(content);
+  } else {
+    bubbleNode.textContent = content;
+  }
+
+  if (role === "assistant" && sources.length > 0) {
+    const sourcesNode = document.createElement("div");
+    sourcesNode.className = "message-sources";
+
+    sources.forEach((source) => {
+      const sourceLink = document.createElement("a");
+      sourceLink.className = "source-chip";
+      sourceLink.target = "_blank";
+      sourceLink.rel = "noreferrer";
+      sourceLink.href = source.url !== "URL not provided" ? source.url : "#";
+      sourceLink.textContent = source.title;
+      if (source.url === "URL not provided") {
+        sourceLink.classList.add("source-chip-disabled");
+        sourceLink.removeAttribute("href");
+      }
+      sourcesNode.appendChild(sourceLink);
+    });
+
+    messageNode.appendChild(sourcesNode);
+  }
 
   chatMessages.appendChild(fragment);
   chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -35,6 +123,7 @@ async function sendMessage(message) {
     },
     body: JSON.stringify({
       message,
+      recent_history: recentHistory.slice(-recentHistoryWindow),
     }),
   });
 
@@ -43,7 +132,7 @@ async function sendMessage(message) {
     throw new Error(payload.error || "Chat request failed.");
   }
 
-  return payload.reply;
+  return payload;
 }
 
 chatForm.addEventListener("submit", async (event) => {
@@ -62,9 +151,16 @@ chatForm.addEventListener("submit", async (event) => {
   const loadingNode = appendLoading();
 
   try {
-    const reply = await sendMessage(message);
+    const result = await sendMessage(message);
     loadingNode.remove();
-    appendMessage("assistant", "Sustainable Labs", reply);
+    appendMessage("assistant", "Sustainable Labs", result.reply, result.sources || []);
+    recentHistory.push({
+      user: message,
+      assistant: result.reply,
+    });
+    if (recentHistory.length > recentHistoryWindow) {
+      recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
+    }
   } catch (error) {
     loadingNode.remove();
     appendMessage("assistant", "Sustainable Labs", error.message);
