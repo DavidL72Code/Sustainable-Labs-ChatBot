@@ -1,0 +1,191 @@
+{
+  "single_turn": [
+    {
+      "id": "broad_001",
+      "type": "broad_overview",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "broad_002",
+      "type": "broad_overview",
+      "question": "What does SSL do?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt"]
+    },
+    {
+      "id": "broad_003",
+      "type": "broad_listing",
+      "question": "What are the major projects or initiatives SSL is currently working on?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "broad_004",
+      "type": "broad_listing",
+      "question": "Give me an overview of the people involved with SSL, including staff, affiliates, students, and board members.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "specific_001",
+      "type": "specific_fact",
+      "question": "Who is the Executive Director of SSL?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "specific_002",
+      "type": "specific_fact",
+      "question": "Where is SSL located and how can someone contact the lab?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "specific_003",
+      "type": "specific_fact",
+      "question": "What are the three main themes of the Climate Inequality and Integrative Resilience Initiative?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "specific_004",
+      "type": "specific_fact",
+      "question": "Who leads the Cape Cod Rail Resilience Project?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "specific_005",
+      "type": "specific_fact",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "specific_006",
+      "type": "specific_fact",
+      "question": "How many microcredentialed programs does the Climate Careers Curricula Initiative plan to develop, and over what time period?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "specific_007",
+      "type": "specific_fact",
+      "question": "Who is Sarah Mayorga and what does she say about her work with SSL?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt"]
+    },
+    {
+      "id": "specific_008",
+      "type": "specific_fact",
+      "question": "What does Patricio Belloy focus on in his research and practice?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "specific_009",
+      "type": "specific_fact",
+      "question": "Who is Kalila Barnett and what is her role outside of SSL?",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "specific_010",
+      "type": "specific_fact",
+      "question": "Which university affiliate focuses on public health and social determinants of health inequities?",
+      "target_sources": ["SEED_DOCUMENTS/UniversityAffiliates.txt"]
+    },
+    {
+      "id": "specific_011",
+      "type": "specific_fact",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "specific_012",
+      "type": "specific_fact",
+      "question": "How did SSL describe its mission in the 2020-21 year in review?",
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "list_001",
+      "type": "enumeration",
+      "question": "List the named SSL projects and initiatives mentioned in the source materials.",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "list_002",
+      "type": "enumeration",
+      "question": "List the main categories of work SSL says it does.",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt"]
+    },
+    {
+      "id": "list_003",
+      "type": "enumeration",
+      "question": "Name several members of the External Advisory Board and their roles.",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "list_004",
+      "type": "enumeration",
+      "question": "List the publication source documents you can identify from the Publications folder.",
+      "target_sources": ["SEED_DOCUMENTS/Publications"]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "followup_001",
+      "type": "follow_up_projects",
+      "turns": [
+        "What projects or initiatives is SSL currently working on?",
+        "Explain them in one sentence each.",
+        "Which one involves rail infrastructure?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "followup_002",
+      "type": "follow_up_board",
+      "turns": [
+        "Who is on the SSL External Advisory Board?",
+        "Tell me more about Gabriel Cira.",
+        "Who else on the board works on climate resilience?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "followup_003",
+      "type": "follow_up_students",
+      "turns": [
+        "Who are the students and interns involved with SSL?",
+        "Which of them works on the MassDOT rail resilience project?",
+        "What is that person's research background?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "followup_004",
+      "type": "follow_up_affiliates",
+      "turns": [
+        "Name some SSL university affiliates.",
+        "Which of them focus on public health or health equity?",
+        "Tell me more about one of those people."
+      ],
+      "target_sources": ["SEED_DOCUMENTS/UniversityAffiliates.txt"]
+    },
+    {
+      "id": "followup_005",
+      "type": "follow_up_about",
+      "turns": [
+        "What does SSL do?",
+        "Where is it located?",
+        "How can I contact them?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "followup_006",
+      "type": "follow_up_publications",
+      "turns": [
+        "List the publication source documents you can identify from SSL's Publications materials.",
+        "Name all of them.",
+        "How many publication source documents are there in the corpus?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Publications"]
+    }
+  ]
+}

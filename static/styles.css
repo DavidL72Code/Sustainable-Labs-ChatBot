@@ -41,29 +41,6 @@ body {
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.brand-mark {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--brand) 0%, #95d5b2 100%);
-  color: white;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  box-shadow: var(--shadow);
-}
-
-.eyebrow {
-  margin: 0 0 4px;
-  color: var(--brand);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
 }
 
 h1 {
@@ -128,6 +105,23 @@ h1 {
   border: 1px solid var(--line);
 }
 
+.message-bubble p {
+  margin: 0 0 10px;
+}
+
+.message-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.message-bubble ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.message-bubble li + li {
+  margin-top: 6px;
+}
+
 .message.assistant .message-bubble {
   background: var(--assistant);
 }
@@ -135,6 +129,39 @@ h1 {
 .message.user .message-bubble {
   background: var(--user);
   border-color: rgba(45, 106, 79, 0.18);
+}
+
+.message-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(700px, 84%);
+}
+
+.source-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(45, 106, 79, 0.16);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--brand-dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "IBM Plex Mono", monospace;
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.source-chip:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.source-chip-disabled {
+  opacity: 0.7;
+  cursor: default;
+  pointer-events: none;
 }
 
 .composer {

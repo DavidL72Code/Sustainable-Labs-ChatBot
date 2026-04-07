@@ -1,0 +1,5 @@
+.env
+.DS_Store
+*.bin
+chroma_db/
+chroma_db_backup/
