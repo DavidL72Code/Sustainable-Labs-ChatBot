@@ -37,37 +37,48 @@
       </p>
     </section>
 
-    <section class="chat-card" aria-label="Chat interface">
-      <div class="chat-card-header">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span class="chat-card-title">SSL Research Assistant</span>
-      </div>
+    <div class="chat-layout">
 
-      <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-label="Conversation">
-        <article class="message assistant">
-          <div class="message-label">
-            <span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            SSL Assistant
-          </div>
-          <div class="message-bubble">Hello. I can answer questions about the Sustainable Solutions Lab — including our research projects, publications, staff, and initiatives. How can I help you?</div>
-        </article>
-      </div>
+      <aside class="sidebar" aria-label="Recent questions">
+        <div class="sidebar-header">Recent Questions</div>
+        <ul class="sidebar-list" id="sidebarList">
+          <li class="sidebar-empty">Your questions will appear here.</li>
+        </ul>
+      </aside>
 
-      <form id="chatForm" class="composer" novalidate>
-        <label class="sr-only" for="messageInput">Ask a question</label>
-        <input
-          id="messageInput"
-          name="message"
-          type="text"
-          placeholder="Ask about SSL research, projects, staff, publications..."
-          autocomplete="off"
-          required
-        >
-        <button id="sendButton" type="submit" aria-label="Send message">
-          <span class="send-arrow" aria-hidden="true">↑</span>
-        </button>
-      </form>
-    </section>
+      <section class="chat-card" aria-label="Chat interface">
+        <div class="chat-card-header">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="chat-card-title">SSL Research Assistant</span>
+        </div>
+
+        <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-label="Conversation">
+          <article class="message assistant">
+            <div class="message-label">
+              <span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+              SSL Assistant
+            </div>
+            <div class="message-bubble">Hello. I can answer questions about the Sustainable Solutions Lab — including our research projects, publications, staff, and initiatives. How can I help you?</div>
+          </article>
+        </div>
+
+        <form id="chatForm" class="composer" novalidate>
+          <label class="sr-only" for="messageInput">Ask a question</label>
+          <input
+            id="messageInput"
+            name="message"
+            type="text"
+            placeholder="Ask about SSL research, projects, staff, publications..."
+            autocomplete="off"
+            required
+          >
+          <button id="sendButton" type="submit" aria-label="Send message">
+            <span class="send-arrow" aria-hidden="true">↑</span>
+          </button>
+        </form>
+      </section>
+
+    </div>
   </main>
 
   <footer class="site-footer">

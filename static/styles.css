@@ -109,13 +109,78 @@ body {
 
 /* ── Main shell ── */
 .shell {
-  width: min(900px, calc(100vw - 32px));
+  width: min(1100px, calc(100vw - 32px));
   margin: 0 auto;
   padding: 28px 0 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+.chat-layout {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  min-height: 0;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--header-bg) 0%, var(--header-bg-alt) 100%);
+  flex-shrink: 0;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sidebar-empty {
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #aab4be;
+  font-style: italic;
+}
+
+.sidebar-item {
+  padding: 9px 16px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-item:hover {
+  background: var(--brand-light);
+  border-left-color: var(--brand);
+  color: var(--brand-dark);
 }
 
 /* ── Hero ── */
@@ -475,7 +540,7 @@ body {
 @media (max-width: 680px) {
   .site-header { padding: 0 16px; }
   .header-logo-name { font-size: 18px; }
-  .header-divider, .header-tool-label, .header-divider--right, .header-ssl-link { display: none; }
+  .header-ssl-link { display: none; }
 
   .shell {
     width: calc(100vw - 16px);
@@ -484,9 +549,9 @@ body {
 
   .hero { padding-bottom: 20px; margin-bottom: 20px; }
 
-  .chat-card {
-    border-radius: 8px;
-  }
+  .sidebar { display: none; }
+
+  .chat-card { border-radius: 8px; }
 
   .chat-messages { padding: 16px 14px; }
 
