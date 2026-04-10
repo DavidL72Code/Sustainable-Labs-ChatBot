@@ -5,6 +5,23 @@ const chatMessages = document.getElementById("chatMessages");
 const messageTemplate = document.getElementById("messageTemplate");
 const loadingTemplate = document.getElementById("loadingTemplate");
 const statusDot = document.querySelector(".status-dot");
+const sidebarList = document.getElementById("sidebarList");
+let messageCounter = 0;
+
+function addSidebarEntry(text, messageId) {
+  const empty = sidebarList.querySelector(".sidebar-empty");
+  if (empty) empty.remove();
+
+  const item = document.createElement("li");
+  item.className = "sidebar-item";
+  item.title = text;
+  item.textContent = text;
+  item.addEventListener("click", () => {
+    const target = document.getElementById(messageId);
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  sidebarList.appendChild(item);
+}
 const recentHistory = [];
 const recentHistoryWindow = 4;
 
@@ -76,6 +93,12 @@ function appendMessage(role, label, content, sources = []) {
   const bubbleNode = fragment.querySelector(".message-bubble");
 
   messageNode.classList.add(role);
+
+  if (role === "user") {
+    const id = `msg-${++messageCounter}`;
+    messageNode.id = id;
+    addSidebarEntry(content, id);
+  }
   if (role === "assistant") {
     const iconSvg = `<span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>`;
     labelNode.innerHTML = iconSvg + label;
