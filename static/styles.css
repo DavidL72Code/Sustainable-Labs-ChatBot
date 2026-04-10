@@ -22,10 +22,13 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Inter", sans-serif;
   color: var(--text);
   background: var(--bg);
+  overflow: hidden;
 }
 
 /* ── Header ── */
@@ -42,6 +45,13 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 18px 0;
+}
+
+.header-umb-logo {
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 
 .header-logo {
@@ -80,11 +90,32 @@ body {
   letter-spacing: 0.04em;
 }
 
+.header-ssl-link {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 6px 14px;
+  transition: background 130ms ease, color 130ms ease;
+}
+
+.header-ssl-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
 /* ── Main shell ── */
 .shell {
   width: min(900px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 36px 0 28px;
+  padding: 28px 0 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 /* ── Hero ── */
@@ -115,8 +146,8 @@ body {
 .chat-card {
   display: flex;
   flex-direction: column;
-  min-height: 68vh;
-  max-height: 76vh;
+  flex: 1;
+  min-height: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--panel);
@@ -129,8 +160,8 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 20px;
-  background: var(--brand-light);
-  border-bottom: 1px solid #b9d4ee;
+  background: linear-gradient(135deg, var(--header-bg) 0%, var(--header-bg-alt) 100%);
+  border-bottom: none;
 }
 
 .status-dot {
@@ -139,12 +170,23 @@ body {
   border-radius: 50%;
   background: #28a745;
   flex-shrink: 0;
+  transition: background 200ms ease;
+}
+
+.status-dot.processing {
+  background: #f59e0b;
+  animation: blink-dot 800ms ease-in-out infinite;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
 }
 
 .chat-card-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--brand-dark);
+  color: #ffffff;
   letter-spacing: 0.02em;
 }
 
@@ -170,12 +212,30 @@ body {
 }
 
 .message-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 11px;
   font-weight: 600;
   color: var(--muted);
   letter-spacing: 0.07em;
   text-transform: uppercase;
   padding: 0 4px;
+}
+
+.assistant-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+.assistant-icon svg {
+  width: 14px;
+  height: 14px;
 }
 
 .message-bubble {
@@ -344,12 +404,47 @@ body {
 
 /* ── Footer ── */
 .site-footer {
-  margin-top: 40px;
-  padding: 18px 32px;
+  padding: 12px 32px;
   border-top: 1px solid var(--line);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   font-size: 12px;
   color: var(--muted);
+  flex-shrink: 0;
+}
+
+.footer-site-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 130ms ease;
+}
+
+.footer-site-link:hover {
+  color: var(--brand);
+}
+
+.footer-credit {
+  font-size: 11px;
+  color: #aab4be;
+  font-style: italic;
+}
+
+.footer-email-btn {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand);
+  text-decoration: none;
+  border: 1px solid var(--brand);
+  border-radius: 5px;
+  padding: 5px 13px;
+  transition: background 130ms ease, color 130ms ease;
+}
+
+.footer-email-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
 }
 
 /* ── Accessibility ── */
@@ -380,7 +475,7 @@ body {
 @media (max-width: 680px) {
   .site-header { padding: 0 16px; }
   .header-logo-name { font-size: 18px; }
-  .header-divider, .header-tool-label { display: none; }
+  .header-divider, .header-tool-label, .header-divider--right, .header-ssl-link { display: none; }
 
   .shell {
     width: calc(100vw - 16px);
@@ -390,8 +485,6 @@ body {
   .hero { padding-bottom: 20px; margin-bottom: 20px; }
 
   .chat-card {
-    min-height: 72vh;
-    max-height: 80vh;
     border-radius: 8px;
   }
 
