@@ -86,6 +86,11 @@ function appendMessage(role, label, content, sources = []) {
     const sourcesNode = document.createElement("div");
     sourcesNode.className = "message-sources";
 
+    const sourcesLabel = document.createElement("span");
+    sourcesLabel.className = "sources-label";
+    sourcesLabel.textContent = "Sources";
+    sourcesNode.appendChild(sourcesLabel);
+
     sources.forEach((source) => {
       const sourceLink = document.createElement("a");
       sourceLink.className = "source-chip";

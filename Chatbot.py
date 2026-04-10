@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import math
 import json
 import os
@@ -10,7 +13,7 @@ from typing import Callable, Optional
 
 import chromadb
 from chromadb.api.models.Collection import Collection
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 
 try:
@@ -22,9 +25,11 @@ except ImportError:  # pragma: no cover - dependency availability depends on the
     request = None
 
 try:
-    import google.generativeai as genai
+    from google import genai
+    from google.genai import types as genai_types
 except ImportError:  # pragma: no cover - dependency availability depends on the runtime
     genai = None
+    genai_types = None
 
 try:
     from pypdf import PdfReader
@@ -148,12 +153,15 @@ class RetrievalChatbot:
                     )
 
         if new_ids:
-            self.collection.add(
-                ids=new_ids,
-                documents=new_chunks,
-                embeddings=new_embeddings,
-                metadatas=new_metadatas,
-            )
+            batch_size = 500
+            for start in range(0, len(new_ids), batch_size):
+                end = start + batch_size
+                self.collection.add(
+                    ids=new_ids[start:end],
+                    documents=new_chunks[start:end],
+                    embeddings=new_embeddings[start:end],
+                    metadatas=new_metadatas[start:end],
+                )
             self.refresh_search_index()
 
     def build_chunk_text_for_embedding(self, document: SourceDocument, chunk_text: str, chunk_level: str) -> str:
@@ -658,24 +666,26 @@ Recent conversation:
 
 def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None) -> str:
     if genai is None:
-        raise ImportError("Install google-generativeai to use Gemini.")
+        raise ImportError("Install google-genai to use Gemini.")
 
     config = ChatbotConfig()
     if not config.gemini_api_key:
         raise ValueError("Set GEMINI_API_KEY before using Gemini.")
 
-    genai.configure(api_key=config.gemini_api_key)
+    client = genai.Client(api_key=config.gemini_api_key)
     model_name = model or config.gemini_model
     response_temperature = temperature if temperature is not None else config.gemini_temperature
 
-    model_obj = genai.GenerativeModel(model_name)
-    generation_config = genai.types.GenerationConfig(
-        temperature=response_temperature,
-        top_p=0.95,
-        top_k=40,
-        max_output_tokens=8192,
+    response = client.models.generate_content(
+        model=model_name,
+        contents=prompt,
+        config=genai_types.GenerateContentConfig(
+            temperature=response_temperature,
+            top_p=0.95,
+            top_k=40,
+            max_output_tokens=8192,
+        ),
     )
-    response = model_obj.generate_content(prompt, generation_config=generation_config)
     return response.text.strip()
 
 
