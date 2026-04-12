@@ -22,8 +22,20 @@ function renderInlineMarkdown(text) {
     .replace(/__(.+?)__/g, "<strong>$1</strong>");
 }
 
+function stripInlineCitations(text) {
+  return text
+    .replace(/\s*\[(?:\d+(?:\s*,\s*\d+)*)\]/g, "")
+    .replace(/[ \t]+\./g, ".")
+    .replace(/[ \t]+,/g, ",")
+    .replace(/[ \t]+:/g, ":")
+    .replace(/\(\s+/g, "(")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/\n[ \t]+/g, "\n")
+    .trim();
+}
+
 function renderAssistantContent(content) {
-  const lines = content.split("\n");
+  const lines = stripInlineCitations(content).split("\n");
   const htmlParts = [];
   let currentParagraph = [];
   let currentList = [];
@@ -68,7 +80,16 @@ function renderAssistantContent(content) {
   return htmlParts.join("") || `<p>${renderInlineMarkdown(content)}</p>`;
 }
 
-function appendMessage(role, label, content, sources = []) {
+function buildClarificationReply(option, originalQuestion) {
+  const trimmedQuestion = (originalQuestion || "").trim();
+  if (!trimmedQuestion) {
+    return option;
+  }
+
+  return `Regarding my earlier question "${trimmedQuestion}", I meant ${option}.`;
+}
+
+function appendMessage(role, label, content, sources = [], clarificationOptions = [], clarificationFor = "", onOptionSelect = null) {
   const fragment = messageTemplate.content.cloneNode(true);
   const messageNode = fragment.querySelector(".message");
   const labelNode = fragment.querySelector(".message-label");
@@ -103,6 +124,26 @@ function appendMessage(role, label, content, sources = []) {
     messageNode.appendChild(sourcesNode);
   }
 
+  if (role === "assistant" && clarificationOptions.length > 0) {
+    const optionsNode = document.createElement("div");
+    optionsNode.className = "message-options";
+
+    clarificationOptions.forEach((option) => {
+      const optionButton = document.createElement("button");
+      optionButton.type = "button";
+      optionButton.className = "option-bubble";
+      optionButton.textContent = option;
+      optionButton.addEventListener("click", () => {
+        if (typeof onOptionSelect === "function") {
+          onOptionSelect(buildClarificationReply(option, clarificationFor));
+        }
+      });
+      optionsNode.appendChild(optionButton);
+    });
+
+    messageNode.appendChild(optionsNode);
+  }
+
   chatMessages.appendChild(fragment);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
@@ -135,15 +176,12 @@ async function sendMessage(message) {
   return payload;
 }
 
-chatForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const message = messageInput.value.trim();
+async function submitMessageFlow(message, displayMessage = message) {
   if (!message) {
     return;
   }
 
-  appendMessage("user", "You", message);
+  appendMessage("user", "You", displayMessage);
   messageInput.value = "";
   messageInput.focus();
   sendButton.disabled = true;
@@ -153,7 +191,20 @@ chatForm.addEventListener("submit", async (event) => {
   try {
     const result = await sendMessage(message);
     loadingNode.remove();
-    appendMessage("assistant", "Sustainable Labs", result.reply, result.sources || []);
+    appendMessage(
+      "assistant",
+      "Sustainable Labs",
+      result.reply,
+      result.sources || [],
+      result.clarification_options || [],
+      result.clarification_for || message,
+      async (clarifiedMessage) => {
+        if (sendButton.disabled) {
+          return;
+        }
+        await submitMessageFlow(clarifiedMessage, clarifiedMessage);
+      }
+    );
     recentHistory.push({
       user: message,
       assistant: result.reply,
@@ -168,4 +219,11 @@ chatForm.addEventListener("submit", async (event) => {
     sendButton.disabled = false;
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
+}
+
+chatForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const message = messageInput.value.trim();
+  await submitMessageFlow(message);
 });
