@@ -1,0 +1,1268 @@
+{
+  "generated_at": "2026-04-10T17:06:23.672587+00:00",
+  "model": "gemini-3.1-flash-lite-preview",
+  "question_file": "questions.json",
+  "summary": {
+    "total_cases": 26,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.08,
+      "citations": 2.77
+    },
+    "classification_counts": {
+      "answered_yes": 20,
+      "answered_no": 6,
+      "hallucinated_yes": 9,
+      "hallucinated_no": 17,
+      "right_citations_yes": 10,
+      "right_citations_no": 16
+    }
+  },
+  "results": [
+    {
+      "id": "broad_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) is an interdisciplinary partnership among four schools at UMass Boston: the College of Liberal Arts, the College of Management, the McCormack Graduate School of Policy and Global Studies, and the School for the Environment [7, 8].\n\nIts mission is to work as an engine of research and action to ensure that all residents of Greater Boston and cities across the world are prepared equitably for the climate crisis [3, 8].",
+      "sources": [
+        {
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer incorrectly identifies the number of schools involved (4 instead of 6) and fails to use the provided corpus for citations, instead using arbitrary numbers [3, 7, 8] that do not correspond to the provided source documents."
+    },
+    {
+      "id": "broad_002",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What does SSL do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) works to transform the climate research and action space by bridging sectors, convening collaborators, and facilitating transdisciplinary research that is led by and centers historically and currently excluded communities [1].\n\nTheir activities include:\n\n*   **Advancing Transdisciplinary Climate Justice Research:** The SSL integrates community knowledge with multiple disciplines to develop sustainable approaches that center justice [2]. They expand the definition of climate research by including experts from outside the natural sciences and fostering a diverse research community [2].\n*   **Convening for Networking and Field-Building:** Through workshops, events, and convenings, the SSL creates spaces for people to build relationships across boundaries, learn from one another, and collaborate [5].\n*   **Driving Equitable Climate Adaptation:** The lab works toward driving equitable climate adaptation [5] and participates in specific initiatives, such as the Cape Cod Rail Resilience Project [8].",
+      "sources": [
+        {
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately summarizes the lab's activities based on the corpus. Citations are relevant, though the inclusion of source [8] (Cape Cod Rail Resilience Project) is not explicitly supported by the provided text snippet, despite being accurate to the lab's broader work."
+    },
+    {
+      "id": "broad_003",
+      "kind": "single_turn",
+      "type": "broad_listing",
+      "question": "What are the major projects or initiatives SSL is currently working on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) is involved in several projects and initiatives, including:\n\n*   **The Collaborative:** A group of researchers focused on advancing practices and policies to ensure historically excluded communities remain safe and healthy amidst climate change [1].\n*   **Cape Cod Rail Resilience Project:** A project led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT, in which the SSL is a participant [2].\n*   **CLIIR Initiative:** An initiative mentioned in the context of addressing research topics important to communities [8].\n*   **Honors College Course Collaboration:** The SSL collaborated with the Office of Campus Planning and Sustainability to design and launch the course \"Unraveling Sustainability: Can We Have It All?\" [8].",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies several projects. It missed the 'Climate Adaptation Forum' and 'Climate Careers Curricula Initiative' (C3I) mentioned in the corpus, but the information provided is accurate and well-cited."
+    },
+    {
+      "id": "broad_004",
+      "kind": "single_turn",
+      "type": "broad_listing",
+      "question": "Give me an overview of the people involved with SSL, including staff, affiliates, students, and board members.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "The people involved with SSL include a diverse group of contributors across various roles:\n\n*   **Board of Directors:** SSL is guided by committees and groups, including a Board of Directors composed of external advisers [4]. Kalila Barnett, Program Officer of Climate Resilience at the Barr Foundation, is identified as a member [4].\n*   **University Affiliates:** These are UMass Boston faculty and staff who connect their research, teaching, programs, or expertise to climate and climate justice [2].\n*   **Faculty:** SSL supports faculty through research grants [1] and collaborative projects [7]. Faculty members mentioned in relation to research teams include Bob Chen (interim dean of the SFE and professor of organic geochemistry), Rosalyn Negron (associate professor of anthropology), and Lorna Rivera [7].\n*   **Graduate Students:** Students, such as sociology PhD candidate Katsy Rivera-Kientz, participate in SSL Lab Meetings to engage with scholars and contribute to research on equitable climate adaptation [3].\n*   **Collaborators:** SSL engages with diverse groups of people to support their work and inform decision-making, such as through the Climate Resilient Initiative for Unhoused People (CRIUP) working group [5, 6].",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        },
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer hallucinates several specific faculty/student names and project associations not found in the provided corpus (e.g., Bob Chen, Katsy Rivera-Kientz's specific lab meeting role, and specific grant numbers). It also fails to utilize the provided 'StudentsInterns.txt' source effectively, relying instead on external/hallucinated information."
+    },
+    {
+      "id": "specific_001",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is the Executive Director of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The Executive Director of the Sustainable Solutions Lab (SSL) is Dr. B.R. Balachandran (also referred to as Balakrishnan Balachandran) [1, 3, 4, 6]. He assumed this role in February 2024 [1].",
+      "sources": [
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly identified the Executive Director but hallucinated the start date (February 2024) which is not in the corpus. Furthermore, it failed to use the provided 'Staff.txt' source and instead cited irrelevant documents."
+    },
+    {
+      "id": "specific_002",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where is SSL located and how can someone contact the lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "I do not have enough information in the provided context to determine the physical location of the Sustainable Solutions Lab (SSL) or how to contact them.",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the information present in the provided corpus (SSLAbout.txt), which explicitly contains the address and email contact for the lab."
+    },
+    {
+      "id": "specific_003",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are the three main themes of the Climate Inequality and Integrative Resilience Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The three main themes of the Climate Inequality and Integrative Resilience (CLIIR) Initiative are:\n\n*   Indigenous Knowledge and Governance [1]\n*   Climate Migration [1]\n*   Climate Change and Health [1]",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three themes listed in the provided corpus under the CLIIR Initiative section."
+    },
+    {
+      "id": "specific_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who leads the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "I do not have enough information to answer your question regarding the \"Cape Cod Rail Resilience Project,\" as it is not mentioned in the provided documents.",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the correct document (Projects.txt) and incorrectly stated the information was not in the corpus, despite it being explicitly present in the fourth project description."
+    },
+    {
+      "id": "specific_005",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Joining the Northeast Climate Justice Research Collaborative grants members access to the following [2]:\n\n* Seed grants to support climate justice research in the Northeast [4]\n* Workshops to support researchers' ability to leverage their work and make it actionable [4]\n* Collaborative gatherings, convenings, and networking opportunities [4]\n* SSL's climate justice literature Mendeley library [4]\n* The Collaborative listserv for sharing ideas, questions, and resources [4]",
+      "sources": [
+        {
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually accurate and matches the corpus perfectly. However, the citation numbering is incorrect; it cites source [2] and [4], which do not exist in the provided source list."
+    },
+    {
+      "id": "specific_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many microcredentialed programs does the Climate Careers Curricula Initiative plan to develop, and over what time period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) plans to develop six microcredentialed programs over a three-year period [2].",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the C3I project goals."
+    },
+    {
+      "id": "specific_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is Sarah Mayorga and what does she say about her work with SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "I do not have enough information to identify who Sarah Mayorga is or to provide any statements regarding her work with the Sustainable Solutions Lab based on the provided context.",
+      "sources": [
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the information present in the provided corpus (SSLAbout.txt), leading to an incorrect 'I do not have enough information' response."
+    },
+    {
+      "id": "specific_008",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Patricio Belloy focus on in his research and practice?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy\u2019s research and practice focus on the following areas:\n\n*   He explores how urban climate resilience policies can simultaneously meet the needs of local communities and foster equitable socioeconomic development [1].\n*   He examines how environmental, energy, and climate policies can promote needs-based community development through meaningful engagement and knowledge co-production [5].",
+      "sources": [
+        {
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the focus areas from the corpus but hallucinates citation numbers [1] and [5] which are not present in the provided text. Furthermore, the returned sources are completely irrelevant to the staff profile provided in the corpus."
+    },
+    {
+      "id": "specific_009",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is Kalila Barnett and what is her role outside of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Kalila Barnett is a member of the Sustainable Solutions Lab (SSL) Board of Directors, which is composed of external advisers [1]. Outside of her role at SSL, she serves as the Program Officer of Climate Resilience at the Barr Foundation [1].",
+      "sources": [
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        },
+        {
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Kalila Barnett's role at SSL and her external position at the Barr Foundation using the provided corpus."
+    },
+    {
+      "id": "specific_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Which university affiliate focuses on public health and social determinants of health inequities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorena Estrada-Martinez is the university affiliate who focuses on public health and social determinants of health inequities [1].",
+      "sources": [
+        {
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Lorena Estrada-Martinez. However, the corpus also lists Lorna Rivera with expertise in 'Social Determinants of Health', making the answer technically incomplete regarding the full scope of the corpus."
+    },
+    {
+      "id": "specific_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "I do not have enough information to answer this question. The provided context does not mention a MassDOT project focused on train line safety and resilience.",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the correct document (StudentsInterns.txt) and consequently claimed it did not have the information, despite the answer being explicitly present in the provided corpus."
+    },
+    {
+      "id": "specific_012",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How did SSL describe its mission in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The provided documents list \"Our Mission\" as a section within the 2020-21 Year in Review [2], but they do not contain the specific text describing the mission statement itself. I do not have enough information to provide the content of the mission.",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the mission statement present in the provided corpus (Slide 4 of AnnualReport2021.txt). It incorrectly claimed the information was missing."
+    },
+    {
+      "id": "list_001",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the named SSL projects and initiatives mentioned in the source materials.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Based on the provided documents, the following SSL projects and initiatives are mentioned:\n\n*   **The Collaborative:** A group of researchers supported by the Sustainable Solutions Lab (SSL) that focuses on networking, dialogue, funding, and resource-sharing to advance climate justice [1, 2].\n*   **Cape Cod Rail Resilience Project:** A project led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT, in which the SSL is a participant [3].\n*   **Study tour to Denmark:** A collaboration between SSL faculty, doctoral students, and the Alliance for Business Leadership to learn about green transition and climate adaptation, funded by The Barr Foundation [4].\n*   **Mattapan Food and Fitness Coalition (MFFC) community listening session:** A joint effort between SSL and the MFFC to understand the impacts of climate change on residents in Mattapan, Dorchester, and Roxbury [5].\n*   **Summer Anti-Racism Research Funding:** An initiative providing grants to faculty-led projects focused on climate justice and racial equity [7].\n*   **Climate justice literature Mendeley library:** A database created by Rosalyn Negron and Katsyris Rivera-Kientz containing over 500 research articles [1, 8].",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly identified the Cape Cod Rail Resilience Project and the Mendeley library, but hallucinated several other initiatives (Study tour to Denmark, MFFC listening session, Summer Anti-Racism Research) that are not in the provided corpus. It also missed major projects explicitly listed in the corpus, such as the Climate Adaptation Forum, Climate Careers Curricula Initiative (C3I), and the CLIIR Initiative."
+    },
+    {
+      "id": "list_002",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the main categories of work SSL says it does.",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) performs the following categories of work:\n\n*   **Advancing Transdisciplinary Climate Justice Research:** The SSL integrates community knowledge and multiple disciplines to develop sustainable, justice-centered approaches, expanding the definition of climate research to include experts outside the natural sciences [2].\n*   **Convening and Networking:** The lab facilitates collaboration and field-building by bridging sectors and organizing events, such as the Climate Adaptation Forum, to address climate adaptation and resilience challenges [4, 6].\n*   **Supporting Researchers:** Through the Northeast Climate Justice Research Collaborative, the SSL provides networking, dialogue, funding, and resource-sharing to help scholars maximize the impact of their work for historically excluded communities [1].\n*   **Providing Research Resources:** The lab offers seed grants, workshops to make research actionable, collaborative gatherings, a climate justice literature library, and a listserv for sharing resources and ideas [8].",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer includes specific details (like seed grants and the Climate Adaptation Forum) that are not present in the provided corpus reference. Additionally, the citations provided in the text (e.g., [2], [4], [6]) do not correspond to the provided source list."
+    },
+    {
+      "id": "list_003",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "Name several members of the External Advisory Board and their roles.",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Based on the provided documents, here are members of the External Advisory Board and their roles:\n\n*   **Kalila Barnett**: Program Officer of Climate Resilience at the Barr Foundation [1].\n*   **Julie**: Climate Resilience Practice Leader at HNTB and chair of the Climate Change and Air Committee for the Environmental Business Council (EBC) of New England [5].\n*   **Isabella**: A member of the Sustainable Solutions Lab Board who also serves on the Board of Visitors and Young Leaders Council of Fenway Health [3].",
+      "sources": [
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The model correctly identified Kalila Barnett but hallucinated the names 'Julie' and 'Isabella' (using only first names) and provided incorrect citation numbers. It failed to use the provided corpus to retrieve the full names and accurate roles for the board members."
+    },
+    {
+      "id": "list_004",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the publication source documents you can identify from the Publications folder.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1] (Annual Reports)\n2. UMB-SSL-2022-Annual_Report [2] (Annual Reports)\n3. UMB-SSL-2025-Impact_Report [3] (Annual Reports)\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4] (Publications)\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5] (Publications)\n6. Critical approaches to climate-induced migration research and sol [6] (Publications)\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7] (Publications)\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8] (Publications)\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9] (Publications)\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10] (Publications)\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11] (Publications)\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12] (Publications)\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13] (Publications)\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14] (Publications)\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15] (Publications)\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16] (Publications)\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17] (Publications)\n18. johnson_wp21mj1 [18] (Publications)",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately enumerated the documents found in the Publications folder. While it also included Annual Reports in the list, it correctly identified the subset belonging to the Publications folder."
+    },
+    {
+      "id": "followup_001",
+      "kind": "multi_turn",
+      "type": "follow_up_projects",
+      "question": "Which one involves rail infrastructure?",
+      "conversation": [
+        {
+          "user": "What projects or initiatives is SSL currently working on?",
+          "assistant": "The Sustainable Solutions Lab (SSL) is currently involved in the following projects and initiatives:\n\n*   **The Collaborative:** A group of researchers focused on advancing practices and policies to ensure historically excluded communities remain safe and healthy amidst climate change [1].\n*   **Cape Cod Rail Resilience Project:** A project led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT [2].\n*   **Mattapan Food and Fitness Coalition (MFFC) Partnership:** SSL and MFFC hosted a community listening session with residents and leaders in Mattapan, Dorchester, and Roxbury to understand the impacts of climate change on their lives [5].\n*   **Research Support:** SSL supports students who pursue a wide variety of research projects, such as Caitlin Connelly\u2019s comprehensive review of climate change effects on older adults [4].\n*   **Collaborative Friday Presentations:** SSL hosts presentations that feature \"insightful and boundary-pushing\" topics [7]."
+        },
+        {
+          "user": "Explain them in one sentence each.",
+          "assistant": "Can you clarify which person you mean?"
+        },
+        {
+          "user": "Which one involves rail infrastructure?",
+          "assistant": "The Cape Cod Rail Resilience Project involves rail infrastructure [4]. This initiative seeks to improve rail safety and climate resilience along the Cape Main Line [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project involves rail infrastructure [4]. This initiative seeks to improve rail safety and climate resilience along the Cape Main Line [1].",
+      "sources": [
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly identified the project, but the citation numbers [4] and [1] do not correspond to the provided corpus text, which does not use numbered references."
+    },
+    {
+      "id": "followup_002",
+      "kind": "multi_turn",
+      "type": "follow_up_board",
+      "question": "Who else on the board works on climate resilience?",
+      "conversation": [
+        {
+          "user": "Who is on the SSL External Advisory Board?",
+          "assistant": "The Sustainable Solutions Lab (SSL) Board of Directors, which is composed of external advisers, includes Kalila Barnett, who serves as the Program Officer of Climate Resilience at the Barr Foundation [1]."
+        },
+        {
+          "user": "Tell me more about Gabriel Cira.",
+          "assistant": "I do not have enough information to provide details about Gabriel Cira's professional background or role at the Sustainable Solutions Lab."
+        },
+        {
+          "user": "Who else on the board works on climate resilience?",
+          "assistant": "Based on the provided documents, the following board members and affiliates are involved in climate resilience work:\n\n*   **Kalila Barnett:** Serves as the Program Officer of Climate Resilience at the Barr Foundation [1].\n*   **Isabella:** Represents A Better City\u2019s 130 member business organizations to move equitable climate and clean energy policy agendas forward and leads the organization's extreme heat work with a focus on community resilience [2].\n*   **Julie:** Serves as the Climate Resilience Practice Leader at HNTB, where she supports public sector clients and communities in adapting to changing environments [7].\n\nAdditionally, the Sustainable Solutions Lab (SSL) facilitates the Climate Adaptation Forum, which is described as a significant forum for climate resilience practitioners in the Boston area [3]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Based on the provided documents, the following board members and affiliates are involved in climate resilience work:\n\n*   **Kalila Barnett:** Serves as the Program Officer of Climate Resilience at the Barr Foundation [1].\n*   **Isabella:** Represents A Better City\u2019s 130 member business organizations to move equitable climate and clean energy policy agendas forward and leads the organization's extreme heat work with a focus on community resilience [2].\n*   **Julie:** Serves as the Climate Resilience Practice Leader at HNTB, where she supports public sector clients and communities in adapting to changing environments [7].\n\nAdditionally, the Sustainable Solutions Lab (SSL) facilitates the Climate Adaptation Forum, which is described as a significant forum for climate resilience practitioners in the Boston area [3].",
+      "sources": [
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly identified Kalila, Isabella, and Julie from the corpus. However, it hallucinated citation numbers [2], [3], and [7] which do not exist in the provided corpus, and it failed to identify other board members mentioned in the corpus who also work on climate resilience (Gabriel Cira, Tim Cronin, Caleb Dresser, and Julia Kumari Drapkin)."
+    },
+    {
+      "id": "followup_003",
+      "kind": "multi_turn",
+      "type": "follow_up_students",
+      "question": "What is that person's research background?",
+      "conversation": [
+        {
+          "user": "Who are the students and interns involved with SSL?",
+          "assistant": "The Sustainable Solutions Lab (SSL) works with both undergraduate and graduate students to increase climate justice [3]. These students are involved in various efforts both in and outside of academia [3]. Additionally, graduate students, such as Sociology PhD candidate Katsy Rivera-Kientz, participate in SSL Lab Meetings to engage with a community of scholars focused on research and strategies for equitable climate adaptation [2]. Some graduate students also collaborate with faculty on projects, such as creating a database of climate justice research articles [5]."
+        },
+        {
+          "user": "Which of them works on the MassDOT rail resilience project?",
+          "assistant": "Can you clarify what you mean by \"Which of them works on the MassDOT rail resilience project?\"?"
+        },
+        {
+          "user": "What is that person's research background?",
+          "assistant": "I do not have enough information to identify which person you are referring to, as the previous turn did not establish a specific individual working on the MassDOT rail resilience project. Could you please clarify which person you are asking about?"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "I do not have enough information to identify which person you are referring to, as the previous turn did not establish a specific individual working on the MassDOT rail resilience project. Could you please clarify which person you are asking about?",
+      "sources": [
+        {
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        },
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        },
+        {
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to identify the person despite the information being present in the provided corpus (Vishal Verma and Jennifer Friedrich are both explicitly linked to the MassDOT/rail resilience project). The assistant claimed the previous turn did not establish a specific individual, ignoring the fact that it could have searched the corpus to answer the user's follow-up."
+    },
+    {
+      "id": "followup_004",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates",
+      "question": "Tell me more about one of those people.",
+      "conversation": [
+        {
+          "user": "Name some SSL university affiliates.",
+          "assistant": "I do not have enough information to name specific SSL university affiliates. The provided documents explain that SSL University Affiliates are UMass Boston faculty and staff who connect their expertise and research to climate and climate justice [1], but they do not provide a list of names."
+        },
+        {
+          "user": "Which of them focus on public health or health equity?",
+          "assistant": "Can you clarify what you mean by \"Which of them focus on public health or health equity?\"?"
+        },
+        {
+          "user": "Tell me more about one of those people.",
+          "assistant": "To provide more information, could you please clarify which of the following SSL university affiliates you would like to learn more about?\n\n* **Lorena Estrada-Martinez**: An Associate Professor whose expertise includes public health and social determinants of health inequities [3].\n* **Jessica Whiteley**: The Senior Associate Dean of the Manning College of Nursing and Health Sciences, whose expertise includes health equity, health promotion interventions, and digital health [2].\n* **Kerrie Wilkins**: An Associate Professor and Graduate Program Director whose expertise includes mental health, intersectionality, and social justice [2]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "To provide more information, could you please clarify which of the following SSL university affiliates you would like to learn more about?\n\n* **Lorena Estrada-Martinez**: An Associate Professor whose expertise includes public health and social determinants of health inequities [3].\n* **Jessica Whiteley**: The Senior Associate Dean of the Manning College of Nursing and Health Sciences, whose expertise includes health equity, health promotion interventions, and digital health [2].\n* **Kerrie Wilkins**: An Associate Professor and Graduate Program Director whose expertise includes mental health, intersectionality, and social justice [2].",
+      "sources": [
+        {
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        },
+        {
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the affiliates from the provided corpus and provided accurate summaries of their expertise. The response is helpful and professional."
+    },
+    {
+      "id": "followup_005",
+      "kind": "multi_turn",
+      "type": "follow_up_about",
+      "question": "How can I contact them?",
+      "conversation": [
+        {
+          "user": "What does SSL do?",
+          "assistant": "The Sustainable Solutions Lab (SSL) performs the following activities:\n\n*   **Advances Transdisciplinary Climate Justice Research:** The lab integrates multiple disciplines and community knowledge to develop sustainable, justice-centered approaches [2]. They expand the definition of climate research by involving experts from outside the natural sciences and fostering a diverse research community [2].\n*   **Convenes for Networking and Field-Building:** Through events, workshops, and convenings, the SSL creates spaces for people to collaborate, learn from one another, and build relationships across boundaries [5].\n*   **Drives Equitable Climate Adaptation:** This is a core area of their work [5].\n*   **Transforms the Climate Research and Action Space:** The lab bridges sectors and facilitates transdisciplinary research that is led by and centers historically and currently excluded communities [1]."
+        },
+        {
+          "user": "Where is it located?",
+          "assistant": "The Sustainable Solutions Lab (SSL) is located at the University of Massachusetts Boston [4, 7]."
+        },
+        {
+          "user": "How can I contact them?",
+          "assistant": "You can contact the Sustainable Solutions Lab at the following location:\n\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston [8]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "You can contact the Sustainable Solutions Lab at the following location:\n\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston [8]",
+      "sources": [
+        {
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        },
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer provides the physical address but fails to include the email address (ssl@umb.edu) explicitly provided in the corpus, which is a key contact method."
+    },
+    {
+      "id": "followup_006",
+      "kind": "multi_turn",
+      "type": "follow_up_publications",
+      "question": "How many publication source documents are there in the corpus?",
+      "conversation": [
+        {
+          "user": "List the publication source documents you can identify from SSL's Publications materials.",
+          "assistant": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1] (Annual Reports)\n2. UMB-SSL-2022-Annual_Report [2] (Annual Reports)\n3. UMB-SSL-2025-Impact_Report [3] (Annual Reports)\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4] (Publications)\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5] (Publications)\n6. Critical approaches to climate-induced migration research and sol [6] (Publications)\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7] (Publications)\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8] (Publications)\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9] (Publications)\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10] (Publications)\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11] (Publications)\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12] (Publications)\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13] (Publications)\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14] (Publications)\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15] (Publications)\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16] (Publications)\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17] (Publications)\n18. johnson_wp21mj1 [18] (Publications)"
+        },
+        {
+          "user": "Name all of them.",
+          "assistant": "I found 18 source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1] (Annual Reports)\n2. UMB-SSL-2022-Annual_Report [2] (Annual Reports)\n3. UMB-SSL-2025-Impact_Report [3] (Annual Reports)\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4] (Publications)\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5] (Publications)\n6. Critical approaches to climate-induced migration research and sol [6] (Publications)\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7] (Publications)\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8] (Publications)\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9] (Publications)\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10] (Publications)\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11] (Publications)\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12] (Publications)\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13] (Publications)\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14] (Publications)\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15] (Publications)\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16] (Publications)\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17] (Publications)\n18. johnson_wp21mj1 [18] (Publications)"
+        },
+        {
+          "user": "How many publication source documents are there in the corpus?",
+          "assistant": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1] (Annual Reports)\n2. UMB-SSL-2022-Annual_Report [2] (Annual Reports)\n3. UMB-SSL-2025-Impact_Report [3] (Annual Reports)\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4] (Publications)\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5] (Publications)\n6. Critical approaches to climate-induced migration research and sol [6] (Publications)\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7] (Publications)\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8] (Publications)\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9] (Publications)\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10] (Publications)\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11] (Publications)\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12] (Publications)\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13] (Publications)\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14] (Publications)\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15] (Publications)\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16] (Publications)\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17] (Publications)\n18. johnson_wp21mj1 [18] (Publications)"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1] (Annual Reports)\n2. UMB-SSL-2022-Annual_Report [2] (Annual Reports)\n3. UMB-SSL-2025-Impact_Report [3] (Annual Reports)\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4] (Publications)\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5] (Publications)\n6. Critical approaches to climate-induced migration research and sol [6] (Publications)\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7] (Publications)\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8] (Publications)\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9] (Publications)\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10] (Publications)\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11] (Publications)\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12] (Publications)\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13] (Publications)\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14] (Publications)\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15] (Publications)\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16] (Publications)\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17] (Publications)\n18. johnson_wp21mj1 [18] (Publications)",
+      "sources": [
+        {
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the 15 documents in the 'Publications' folder but incorrectly included 3 'Annual Reports' in the count of 'publication source documents', leading to a total of 18 instead of 15."
+    }
+  ]
+}
