@@ -314,7 +314,7 @@ async function submitMessageFlow(message, displayMessage = message) {
           "assistant",
           "Sustainable Labs",
           event.reply,
-          event.sources || [],
+          event.needs_clarification ? [] : (event.sources || []),
           event.clarification_options || [],
           event.clarification_for || message,
           async (clarifiedMessage) => {

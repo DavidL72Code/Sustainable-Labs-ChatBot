@@ -3108,7 +3108,7 @@ Question:
             )
             return {
                 "reply": fallback_question,
-                "sources": self.extract_sources(retrieved_metadata),
+                "sources": [],
                 "needs_clarification": True,
                 "clarification_for": user_message,
                 "clarification_options": (query_plan or {}).get("clarification_options", []),
@@ -3494,7 +3494,12 @@ def create_app() -> Flask:
             try:
                 yield from chatbot.answer_stream(user_message, recent_history=safe_recent_history)
             except Exception as exc:
-                yield f"data: {json.dumps({'type': 'error', 'error': str(exc)})}\n\n"
+                err_str = str(exc)
+                if any(code in err_str for code in ("503", "UNAVAILABLE", "high demand", "429", "RESOURCE_EXHAUSTED", "quota")):
+                    friendly = "The assistant is experiencing high demand right now. Please wait a moment and try again."
+                else:
+                    friendly = "Something went wrong while generating a response. Please try again."
+                yield f"data: {json.dumps({'type': 'error', 'error': friendly})}\n\n"
 
         return Response(stream_with_context(generate()), mimetype="text/event-stream", headers=sse_headers)
 
