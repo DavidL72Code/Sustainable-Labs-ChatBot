@@ -3463,6 +3463,7 @@ def create_app() -> Flask:
     chatbot = create_chatbot(config)
     app = Flask(__name__)
     app.config["JSON_SORT_KEYS"] = False
+    app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 3600  # cache static files for 1 hour
 
     @app.get("/")
     def index():
