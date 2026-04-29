@@ -329,6 +329,17 @@ body {
   margin-bottom: 0;
 }
 
+.bubble-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 130ms ease;
+}
+
+.bubble-link:hover {
+  color: var(--brand-dark);
+}
+
 .message-bubble ul {
   margin: 6px 0 0;
   padding-left: 20px;
