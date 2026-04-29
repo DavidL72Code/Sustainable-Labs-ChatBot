@@ -23,6 +23,7 @@ function addSidebarEntry(text, messageId) {
   sidebarList.appendChild(item);
   return item;
 }
+
 const recentHistory = [];
 const recentHistoryWindow = 4;
 
@@ -60,17 +61,13 @@ function renderAssistantContent(content) {
   let currentList = [];
 
   function flushParagraph() {
-    if (currentParagraph.length === 0) {
-      return;
-    }
+    if (currentParagraph.length === 0) return;
     htmlParts.push(`<p>${currentParagraph.join("<br>")}</p>`);
     currentParagraph = [];
   }
 
   function flushList() {
-    if (currentList.length === 0) {
-      return;
-    }
+    if (currentList.length === 0) return;
     htmlParts.push(`<ul>${currentList.map((item) => `<li>${item}</li>`).join("")}</ul>`);
     currentList = [];
   }
@@ -82,13 +79,11 @@ function renderAssistantContent(content) {
       currentList.push(renderInlineMarkdown(bulletMatch[1]));
       return;
     }
-
     if (line.trim() === "") {
       flushParagraph();
       flushList();
       return;
     }
-
     flushList();
     currentParagraph.push(renderInlineMarkdown(line));
   });
@@ -99,12 +94,35 @@ function renderAssistantContent(content) {
   return htmlParts.join("") || `<p>${renderInlineMarkdown(content)}</p>`;
 }
 
+function buildSourcesNode(sources) {
+  const sourcesNode = document.createElement("div");
+  sourcesNode.className = "message-sources";
+
+  const sourcesLabel = document.createElement("span");
+  sourcesLabel.className = "sources-label";
+  sourcesLabel.textContent = "Sources";
+  sourcesNode.appendChild(sourcesLabel);
+
+  sources.forEach((source) => {
+    const sourceLink = document.createElement("a");
+    sourceLink.className = "source-chip";
+    sourceLink.target = "_blank";
+    sourceLink.rel = "noreferrer";
+    sourceLink.href = source.url !== "URL not provided" ? source.url : "#";
+    sourceLink.textContent = source.title;
+    if (source.url === "URL not provided") {
+      sourceLink.classList.add("source-chip-disabled");
+      sourceLink.removeAttribute("href");
+    }
+    sourcesNode.appendChild(sourceLink);
+  });
+
+  return sourcesNode;
+}
+
 function buildClarificationReply(option, originalQuestion) {
   const trimmedQuestion = (originalQuestion || "").trim();
-  if (!trimmedQuestion) {
-    return option;
-  }
-
+  if (!trimmedQuestion) return option;
   return `Regarding my earlier question "${trimmedQuestion}", I meant ${option}.`;
 }
 
@@ -128,42 +146,23 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
   } else {
     labelNode.textContent = label;
   }
+
   if (role === "assistant") {
     bubbleNode.innerHTML = renderAssistantContent(content);
   } else {
     bubbleNode.textContent = content;
   }
 
+  chatMessages.appendChild(fragment);
+  const liveNode = chatMessages.lastElementChild;
+
   if (role === "assistant" && sources.length > 0) {
-    const sourcesNode = document.createElement("div");
-    sourcesNode.className = "message-sources";
-
-    const sourcesLabel = document.createElement("span");
-    sourcesLabel.className = "sources-label";
-    sourcesLabel.textContent = "Sources";
-    sourcesNode.appendChild(sourcesLabel);
-
-    sources.forEach((source) => {
-      const sourceLink = document.createElement("a");
-      sourceLink.className = "source-chip";
-      sourceLink.target = "_blank";
-      sourceLink.rel = "noreferrer";
-      sourceLink.href = source.url !== "URL not provided" ? source.url : "#";
-      sourceLink.textContent = source.title;
-      if (source.url === "URL not provided") {
-        sourceLink.classList.add("source-chip-disabled");
-        sourceLink.removeAttribute("href");
-      }
-      sourcesNode.appendChild(sourceLink);
-    });
-
-    messageNode.appendChild(sourcesNode);
+    liveNode.appendChild(buildSourcesNode(sources));
   }
 
   if (role === "assistant" && clarificationOptions.length > 0) {
     const optionsNode = document.createElement("div");
     optionsNode.className = "message-options";
-
     clarificationOptions.forEach((option) => {
       const optionButton = document.createElement("button");
       optionButton.type = "button";
@@ -176,91 +175,170 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
       });
       optionsNode.appendChild(optionButton);
     });
-
-    messageNode.appendChild(optionsNode);
+    liveNode.appendChild(optionsNode);
   }
 
-  chatMessages.appendChild(fragment);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   return sidebarItem;
 }
 
-function appendLoading() {
-  const fragment = loadingTemplate.content.cloneNode(true);
-  const loadingNode = fragment.querySelector("#loadingMessage");
+function appendStreamingBubble(label) {
+  const fragment = messageTemplate.content.cloneNode(true);
+  const messageNode = fragment.querySelector(".message");
+  const labelNode = fragment.querySelector(".message-label");
+  const bubbleNode = fragment.querySelector(".message-bubble");
+
+  messageNode.classList.add("assistant");
+  const iconSvg = `<span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>`;
+  labelNode.innerHTML = iconSvg + label;
+  bubbleNode.textContent = "";
+
   chatMessages.appendChild(fragment);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-  return loadingNode;
+  const liveNode = chatMessages.lastElementChild;
+  const liveBubble = liveNode.querySelector(".message-bubble");
+
+  let rawText = "";
+
+  return {
+    addChunk(text) {
+      rawText += text;
+      liveBubble.textContent = rawText;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    },
+    finalize(sources = []) {
+      liveBubble.innerHTML = renderAssistantContent(rawText);
+      if (sources.length > 0) {
+        liveNode.appendChild(buildSourcesNode(sources));
+      }
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return rawText;
+    },
+  };
 }
 
-async function sendMessage(message) {
+function appendLoading() {
+  const fragment = loadingTemplate.content.cloneNode(true);
+  chatMessages.appendChild(fragment);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return chatMessages.lastElementChild;
+}
+
+async function streamMessage(message, onEvent) {
   const response = await fetch("/api/chat", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       message,
       recent_history: recentHistory.slice(-recentHistoryWindow),
     }),
   });
 
-  const payload = await response.json();
   if (!response.ok) {
-    throw new Error(payload.error || "Chat request failed.");
+    const text = await response.text();
+    let errMsg = "Chat request failed.";
+    try { errMsg = JSON.parse(text).error || errMsg; } catch {}
+    throw new Error(errMsg);
   }
 
-  return payload;
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop();
+
+    for (const line of lines) {
+      if (!line.startsWith("data: ")) continue;
+      try {
+        onEvent(JSON.parse(line.slice(6)));
+      } catch {}
+    }
+  }
+}
+
+function restoreSidebarPlaceholder() {
+  if (!sidebarList.querySelector(".sidebar-item")) {
+    const empty = document.createElement("li");
+    empty.className = "sidebar-empty";
+    empty.textContent = "Your questions will appear here.";
+    sidebarList.appendChild(empty);
+  }
 }
 
 async function submitMessageFlow(message, displayMessage = message) {
-  if (!message) {
-    return;
-  }
+  if (!message) return;
 
   const sidebarItem = appendMessage("user", "You", displayMessage);
   messageInput.value = "";
   messageInput.focus();
   sendButton.disabled = true;
 
-  const loadingNode = appendLoading();
+  let loadingNode = appendLoading();
   statusDot.classList.add("processing");
 
+  let streaming = null;
+  let pendingSources = [];
+  let fullReply = "";
+
   try {
-    const result = await sendMessage(message);
-    loadingNode.remove();
-    if (result.blocked && sidebarItem) {
-      sidebarItem.remove();
-      if (!sidebarList.querySelector(".sidebar-item")) {
-        const empty = document.createElement("li");
-        empty.className = "sidebar-empty";
-        empty.textContent = "Your questions will appear here.";
-        sidebarList.appendChild(empty);
-      }
-    }
-    appendMessage(
-      "assistant",
-      "Sustainable Labs",
-      result.reply,
-      result.sources || [],
-      result.clarification_options || [],
-      result.clarification_for || message,
-      async (clarifiedMessage) => {
-        if (sendButton.disabled) {
-          return;
+    await streamMessage(message, (event) => {
+      if (event.done && event.reply !== undefined) {
+        // Early return: clarification, registry answer, or blocked message
+        if (loadingNode) { loadingNode.remove(); loadingNode = null; }
+
+        if (event.blocked && sidebarItem) {
+          sidebarItem.remove();
+          restoreSidebarPlaceholder();
         }
-        await submitMessageFlow(clarifiedMessage, clarifiedMessage);
+
+        appendMessage(
+          "assistant",
+          "Sustainable Labs",
+          event.reply,
+          event.sources || [],
+          event.clarification_options || [],
+          event.clarification_for || message,
+          async (clarifiedMessage) => {
+            if (sendButton.disabled) return;
+            await submitMessageFlow(clarifiedMessage, clarifiedMessage);
+          }
+        );
+
+        fullReply = event.reply;
+        if (!event.blocked) {
+          recentHistory.push({ user: message, assistant: fullReply });
+          if (recentHistory.length > recentHistoryWindow) {
+            recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
+          }
+        }
+      } else if (event.type === "meta") {
+        if (loadingNode) { loadingNode.remove(); loadingNode = null; }
+        pendingSources = event.sources || [];
+        streaming = appendStreamingBubble("Sustainable Labs");
+      } else if (event.type === "delta") {
+        if (streaming) streaming.addChunk(event.delta);
+      } else if (event.type === "done") {
+        if (streaming) {
+          fullReply = streaming.finalize(pendingSources);
+          streaming = null;
+          recentHistory.push({ user: message, assistant: fullReply });
+          if (recentHistory.length > recentHistoryWindow) {
+            recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
+          }
+        }
+      } else if (event.type === "error") {
+        if (loadingNode) { loadingNode.remove(); loadingNode = null; }
+        appendMessage("assistant", "Sustainable Labs", event.error || "An error occurred.");
       }
-    );
-    recentHistory.push({
-      user: message,
-      assistant: result.reply,
     });
-    if (recentHistory.length > recentHistoryWindow) {
-      recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
-    }
   } catch (error) {
-    loadingNode.remove();
+    if (loadingNode) { loadingNode.remove(); loadingNode = null; }
+    if (streaming) { streaming.finalize([]); streaming = null; }
     appendMessage("assistant", "Sustainable Labs", error.message);
   } finally {
     statusDot.classList.remove("processing");
@@ -271,7 +349,6 @@ async function submitMessageFlow(message, displayMessage = message) {
 
 chatForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-
   const message = messageInput.value.trim();
   await submitMessageFlow(message);
 });
