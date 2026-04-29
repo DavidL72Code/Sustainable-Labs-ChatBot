@@ -17,12 +17,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 
 try:
-    from flask import Flask, jsonify, render_template, request
+    from flask import Flask, Response, jsonify, render_template, request, stream_with_context
 except ImportError:  # pragma: no cover - dependency availability depends on the runtime
     Flask = None
+    Response = None
     jsonify = None
     render_template = None
     request = None
+    stream_with_context = None
 
 try:
     from google import genai
@@ -3125,6 +3127,36 @@ Question:
             "clarification_options": [],
         }
 
+    def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
+        """Generator yielding SSE-formatted strings. Runs all retrieval/routing
+        synchronously, then streams only the final LLM generation."""
+        _sentinel = "\x00STREAM"
+        captured: dict = {}
+
+        def capturing_llm(prompt: str, **kwargs) -> str:
+            captured["prompt"] = prompt
+            return _sentinel
+
+        old_llm = self.llm_callable
+        self.llm_callable = capturing_llm
+        try:
+            result = self.answer(user_message, recent_history)
+        finally:
+            self.llm_callable = old_llm
+
+        if result.get("reply") != _sentinel:
+            # Early return: clarification needed, registry answer, etc.
+            yield f"data: {json.dumps({**result, 'done': True})}\n\n"
+            return
+
+        sources = result.get("sources", [])
+        yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'needs_clarification': False, 'clarification_options': []})}\n\n"
+
+        for chunk in call_gemini_stream(captured["prompt"]):
+            yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
+
+        yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
         if not query_route:
             return self.config.top_k
@@ -3203,29 +3235,56 @@ Question:
         return sources
 
 
+_gemini_client: Optional[object] = None
+
+
+def _get_gemini_client():
+    global _gemini_client
+    if _gemini_client is None:
+        if genai is None:
+            raise ImportError("Install google-genai to use Gemini.")
+        cfg = ChatbotConfig()
+        if not cfg.gemini_api_key:
+            raise ValueError("Set GEMINI_API_KEY before using Gemini.")
+        _gemini_client = genai.Client(api_key=cfg.gemini_api_key)
+    return _gemini_client
+
+
+def _gemini_gen_config(temperature: float) -> "genai_types.GenerateContentConfig":
+    return genai_types.GenerateContentConfig(
+        temperature=temperature,
+        top_p=0.95,
+        top_k=40,
+        max_output_tokens=1024,
+    )
+
+
 def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None) -> str:
-    if genai is None:
-        raise ImportError("Install google-genai to use Gemini.")
-
-    config = ChatbotConfig()
-    if not config.gemini_api_key:
-        raise ValueError("Set GEMINI_API_KEY before using Gemini.")
-
-    client = genai.Client(api_key=config.gemini_api_key)
-    model_name = model or config.gemini_model
-    response_temperature = temperature if temperature is not None else config.gemini_temperature
-
+    cfg = ChatbotConfig()
+    client = _get_gemini_client()
+    model_name = model or cfg.gemini_model
+    temp = temperature if temperature is not None else cfg.gemini_temperature
     response = client.models.generate_content(
         model=model_name,
         contents=prompt,
-        config=genai_types.GenerateContentConfig(
-            temperature=response_temperature,
-            top_p=0.95,
-            top_k=40,
-            max_output_tokens=8192,
-        ),
+        config=_gemini_gen_config(temp),
     )
     return response.text.strip()
+
+
+def call_gemini_stream(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None):
+    """Yields text chunks as they stream from the Gemini API."""
+    cfg = ChatbotConfig()
+    client = _get_gemini_client()
+    model_name = model or cfg.gemini_model
+    temp = temperature if temperature is not None else cfg.gemini_temperature
+    for chunk in client.models.generate_content_stream(
+        model=model_name,
+        contents=prompt,
+        config=_gemini_gen_config(temp),
+    ):
+        if chunk.text:
+            yield chunk.text
 
 
 def format_recent_history(recent_history: list[ConversationTurn]) -> str:
@@ -3417,21 +3476,27 @@ def create_app() -> Flask:
         if not user_message:
             return jsonify({"error": "Message is required."}), 400
 
+        sse_headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+
         if _is_blocked(user_message):
-            return jsonify({"reply": _REFUSAL, "sources": [], "blocked": True}), 200
+            def blocked_stream():
+                yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': []})}\n\n"
+            return Response(stream_with_context(blocked_stream()), mimetype="text/event-stream", headers=sse_headers)
 
-        try:
-            history_window = max(config.recent_history_turns, 1)
-            safe_recent_history = [
-                ConversationTurn(user=str(turn.get("user", "")).strip(), assistant=str(turn.get("assistant", "")).strip())
-                for turn in recent_history[-history_window:]
-                if isinstance(turn, dict)
-            ]
-            result = chatbot.answer(user_message, recent_history=safe_recent_history)
-        except Exception as exc:  # pragma: no cover - user-facing error path
-            return jsonify({"error": str(exc)}), 500
+        history_window = max(config.recent_history_turns, 1)
+        safe_recent_history = [
+            ConversationTurn(user=str(turn.get("user", "")).strip(), assistant=str(turn.get("assistant", "")).strip())
+            for turn in recent_history[-history_window:]
+            if isinstance(turn, dict)
+        ]
 
-        return jsonify(result)
+        def generate():
+            try:
+                yield from chatbot.answer_stream(user_message, recent_history=safe_recent_history)
+            except Exception as exc:
+                yield f"data: {json.dumps({'type': 'error', 'error': str(exc)})}\n\n"
+
+        return Response(stream_with_context(generate()), mimetype="text/event-stream", headers=sse_headers)
 
     return app
 
