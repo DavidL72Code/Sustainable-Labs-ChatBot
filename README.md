@@ -53,6 +53,12 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
 - Reduced hero font size and padding
 - Compacted the footer into a single slim row with the Email Us button moved to the left
 
+### Suggested Questions
+- Six clickable suggested questions appear below the welcome message on load
+- Styled as pill buttons in the SSL blue color scheme
+- Clicking one submits it as a normal message and dismisses the suggestions
+- Suggestions also dismiss automatically when the user types their own question
+
 ### Welcome Message
 - Expanded the opening assistant message to introduce the bot, clarify what it can help with, and include contact info (`ssl@umb.edu` and the SSL website)
 
