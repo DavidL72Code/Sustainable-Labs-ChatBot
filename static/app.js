@@ -27,6 +27,17 @@ function addSidebarEntry(text, messageId) {
 const recentHistory = [];
 const recentHistoryWindow = 4;
 
+const suggestedQuestionsEl = document.getElementById("suggestedQuestions");
+if (suggestedQuestionsEl) {
+  suggestedQuestionsEl.querySelectorAll(".suggested-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const question = btn.textContent.trim();
+      suggestedQuestionsEl.remove();
+      submitMessageFlow(question);
+    });
+  });
+}
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -272,6 +283,9 @@ function restoreSidebarPlaceholder() {
 
 async function submitMessageFlow(message, displayMessage = message) {
   if (!message) return;
+
+  const suggestedEl = document.getElementById("suggestedQuestions");
+  if (suggestedEl) suggestedEl.remove();
 
   const sidebarItem = appendMessage("user", "You", displayMessage);
   messageInput.value = "";
