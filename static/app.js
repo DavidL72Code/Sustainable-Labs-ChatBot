@@ -317,11 +317,14 @@ async function submitMessageFlow(message, displayMessage = message) {
           }
         }
       } else if (event.type === "meta") {
-        if (loadingNode) { loadingNode.remove(); loadingNode = null; }
         pendingSources = event.sources || [];
-        streaming = appendStreamingBubble("Sustainable Labs");
+        // keep loading dots visible until first token arrives
       } else if (event.type === "delta") {
-        if (streaming) streaming.addChunk(event.delta);
+        if (!streaming) {
+          if (loadingNode) { loadingNode.remove(); loadingNode = null; }
+          streaming = appendStreamingBubble("Sustainable Labs");
+        }
+        streaming.addChunk(event.delta);
       } else if (event.type === "done") {
         if (streaming) {
           fullReply = streaming.finalize(pendingSources);
