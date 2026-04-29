@@ -1,0 +1,653 @@
+{
+  "summary": {
+    "baseline_correctness": 3.15,
+    "current_correctness": 3.92,
+    "baseline_citations": 2.73,
+    "current_citations": 3.5,
+    "improved_correctness_ids": [
+      "broad_001",
+      "broad_002",
+      "broad_004",
+      "followup_002",
+      "followup_004",
+      "followup_006",
+      "list_001",
+      "list_004",
+      "specific_001",
+      "specific_002",
+      "specific_010",
+      "specific_012"
+    ],
+    "regressed_correctness_ids": [
+      "broad_003",
+      "followup_005",
+      "specific_008"
+    ]
+  },
+  "diffs": [
+    {
+      "id": "broad_001",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 2
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 1,
+        "citations": 3
+      },
+      "current_output": "The Sustainable Solutions Lab (SSL) at UMass Boston is an applied research and action institute that works at the intersection of climate and equity [1, 2]. It functions as a cross-disciplinary partnership involving five schools and four institutes across the university [1]. The lab aims to transform the climate research and action space by bridging sectors, convening collaborators, and facilitating transdisciplinary research that is led by and centers historically and currently excluded communities [3, 7].\n\nThe mission of the SSL is to:\n* Understand the disproportionate impacts of climate change on marginalized communities [1].\n* Partner with those communities to develop equitable and sustainable solutions [1].",
+      "baseline_output": "The Sustainable Solutions Lab (SSL) at UMass Boston is a collaborative research and action institute. It is an interdisciplinary partnership among four schools within the university: the College of Liberal Arts, the College of Management, the McCormack Graduate School of Policy and Global Studies, and the School for the Environment. (Note: One provided source also mentions the College of Education and Human Development and the College of Nursing and Health Sciences as part of a partnership involving six colleges and four institutes).\n\nThe mission of the SSL is to work as an engine of research and action to ensure that all residents of Greater Boston, and cities across the world, are prepared equitably for the impacts of climate change. It is focused on keeping historically excluded people and communities safe and healthy as the climate changes."
+    },
+    {
+      "id": "broad_002",
+      "question": "What does SSL do?",
+      "current_scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": -1,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 1,
+        "citations": 4
+      },
+      "current_output": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]",
+      "baseline_output": "SSL (Sustainable Solutions Lab) focuses on the following:\n\n*   **Supporting Research and Faculty:** SSL supports faculty research and professional development to generate evidence and advocacy for equitable adaptation. They work to broaden the definition of \"climate change research\" to foster novel approaches and breakthroughs.\n*   **Student Engagement:** Students serve as the backbone of SSL's research projects, posing novel questions and pushing projects forward.\n*   **Equity and Justice:** SSL works to keep historically excluded people and communities safe and healthy as the climate changes. They aim to ensure that perspectives that have been historically sidelined can engage in and influence the climate adaptation field.\n*   **Interdisciplinary Collaboration:** SSL uses an interdisciplinary approach, stitching together siloed areas of expertise and fostering relationships across fields to address complex climate challenges.\n*   **Leadership and Strategy:** SSL is guided by a Core Team of Faculty Affiliates and an Oversight Committee of Deans. They also collaborate with other university entities, such as the Office of Campus Planning and Sustainability, to develop educational initiatives like the \"Unraveling Sustainability\" Honors College course."
+    },
+    {
+      "id": "broad_003",
+      "question": "What are the major projects or initiatives SSL is currently working on?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 4
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": -2,
+        "citations": -2
+      },
+      "current_output": "The Sustainable Solutions Lab (SSL) is currently working on several projects and initiatives, including:\n\n*   **Northeast Climate Justice Research Collaborative:** Launched in the spring of 2022, this trans-disciplinary network connects academic and community researchers across the Northeast to advance policies and practices that ensure historically excluded communities remain safe and healthy in the face of climate change [1, 8]. The Collaborative supports scholars through networking, dialogue, funding, and resource-sharing [1, 8].\n*   **CLIIR Initiative:** The Climate Inequality and Integrative Modeling, Systems Dynamics, and Decision-Resilience (CLIIR) Initiative was launched in 2023 [3]. \n*   **Honors College Course:** In collaboration with the Office of Campus Planning and Sustainability, SSL designed and launched an innovative Honors College course titled \"Unraveling Sustainability: Can We Have It All?\" which was offered in the spring of 2025 [3].\n*   **Research Projects:** SSL supports a variety of research projects, such as an interdisciplinary study on traditional ecological knowledge and climate change adaptations among Indigenous peoples in New England and Mexico [7], as well as research into the impacts of climate change on mental health, heat adaptation needs for BIPOC and low-income residents, and racial inequities in development policies [4].",
+      "baseline_output": "Based on the provided documents, the Sustainable Solutions Lab (SSL) is involved in the following projects and initiatives:\n\n*   **Cape Cod Rail Resilience Project:** A project led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT.\n*   **The Collaborative:** A group convened by the SSL that supports scholars in advancing practices and policies for historically excluded communities in the face of climate change.\n*   **Collaboration with the Mattapan Food and Fitness Coalition (MFFC):** SSL and MFFC hosted community listening sessions with residents and leaders in Mattapan, Dorchester, and Roxbury to understand the impacts of climate change on their lives.\n*   **CLIIR Initiative:** Mentioned in the context of the collaboration with MFFC.\n*   **Honors College Course Collaboration:** SSL collaborated with the Office of Campus Planning and Sustainability at UMass Boston to design and launch an Honors College course titled \"Unraveling Sustainability: Can We Have It All?\""
+    },
+    {
+      "id": "broad_004",
+      "question": "Give me an overview of the people involved with SSL, including staff, affiliates, students, and board members.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "score_deltas": {
+        "clarity": 1,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "current_output": "Here is an overview of the people involved with SSL across the requested groups:\n- Staff: 5 people, including B. R. Balachandran, Rosalyn Negron, Gabriela Boscio, Rajini Srikanth, and 1 more [1]\n- Affiliates: 21 people, including Patricio Belloy, Johnna Flahive, Cassandre Rey-Thibault, Ante Iv\u010devi\u0107, and 17 more [2]\n- Students and Interns: 12 people, including Nyingilanyeofori Hannah Brown, Levente \u201cLevi\u201d Mezo, Vishal Verma, Grace Derboghossian, and 8 more [3]\n- Board Members: 9 people, including Kalila Barnett, Gabriel Cira, Tim Cronin, Caleb Dresser, and 5 more [4]",
+      "baseline_output": "Based on the provided documents, here is an overview of the people involved with the Sustainable Solutions Lab (SSL):\n\n*   **Students and Interns:** SSL works with both undergraduate and graduate students to advance climate justice.\n*   **Board of Directors:** The lab is guided by an External Advisory Board composed of external advisers. One member identified is Kalila Barnett, who serves as the Program Officer of Climate Resilience at the Barr Foundation.\n*   **External Affiliates:** Patricio Belloy is listed as an external affiliate with a focus on equitable climate resilience, climate and renewable energy education, human wellbeing, and community development.\n*   **Research Collaborators:** Sarah Mayorga, an Associate Professor of Sociology at Brandeis University, is a member of the Northeast Climate Justice Research Collaborative.\n*   **Research Staff/Students:** Vishal is involved in research projects concerning the Kosi River Basin in India and the MassDOT SSL project regarding train line safety and resilience in coastal Massachusetts.\n\nThe provided context does not list a comprehensive directory of all staff members."
+    },
+    {
+      "id": "followup_001",
+      "question": "Which one involves rail infrastructure?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 2
+      },
+      "current_output": "The Cape Cod Rail Resilience Project involves rail infrastructure [1]. This project aims to improve rail safety and climate resilience along the Cape Main Line [1].",
+      "baseline_output": "The Cape Cod Rail Resilience Research Project involves rail infrastructure. This initiative, which is a collaboration between the Sustainable Solutions Lab (SSL) and the Massachusetts Department of Transportation (MassDOT), aims to improve rail safety and climate resilience along the Cape Main Line."
+    },
+    {
+      "id": "followup_002",
+      "question": "Who else on the board works on climate resilience?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "current_output": "In addition to the Sustainable Solutions Lab board members mentioned in your current context, the following individuals are involved in climate resilience work:\n\n*   **Isabella M. Gambill:** She is the Assistant Director of Climate, Energy, & Resilience at A Better City, where she leads work on extreme heat with a focus on community resilience and participates in various policy coalitions [2].\n*   **Julie Eaton Ernst:** As the Climate Resilience Practice Leader at HNTB, she specializes in resilient design practices and helps communities and public sector clients adapt to changing environments [5].\n*   **Gabriel Cira:** He is the project lead for \"The Emerald Tutu,\" a nature-based floating infrastructure project for coastal flood protection, and teaches a course on the future of climate resilience at MassArt [7].",
+      "baseline_output": "Based on the provided documents, Kalila Barnett serves on the Board of Directors and is the Program Officer of Climate Resilience at the Barr Foundation. Additionally, Isabella serves on the Sustainable Solutions Lab Board and leads A Better City\u2019s extreme heat work with a focus on community resilience."
+    },
+    {
+      "id": "followup_003",
+      "question": "What is that person's research background?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "Which person do you mean?",
+      "baseline_output": "I do not have enough information in the provided documents to describe Vishal Verma's research background."
+    },
+    {
+      "id": "followup_004",
+      "question": "Tell me more about one of those people.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 4,
+        "citations": 0
+      },
+      "current_output": "Which person do you mean?",
+      "baseline_output": "I do not have enough information to provide details on a specific SSL university affiliate who focuses on public health or health equity. While the provided documents mention that Sarah Mayorga and Paola Maynard-Moll are members of the Northeast Climate Justice Research Collaborative, the documents do not identify them as SSL university affiliates nor do they detail their specific focus on public health or health equity."
+    },
+    {
+      "id": "followup_005",
+      "question": "How can I contact them?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 3
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": -1,
+        "citations": -2
+      },
+      "current_output": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]",
+      "baseline_output": "You can contact the Sustainable Solutions Lab (SSL) via email at ssl@umb.edu or by visiting their office at:\n\nSustainable Solutions Lab\nHealey Library, 10th Floor, Room 13\nUMass Boston"
+    },
+    {
+      "id": "followup_006",
+      "question": "How many publication source documents are there in the corpus?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 2,
+        "citations": 3
+      },
+      "current_output": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4]\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5]\n6. Critical approaches to climate-induced migration research and sol [6]\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7]\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8]\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9]\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10]\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11]\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12]\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13]\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14]\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15]\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16]\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17]\n18. johnson_wp21mj1 [18]",
+      "baseline_output": "Based on the provided context, there are 5 unique publication source documents:\n\n1.  *Governance for a Changing Climate: Adapting Boston's Built Environment*\n2.  *Financing Climate Resilience: Mobilizing Resources and Incentives*\n3.  *Learning from the Massachusetts Municipal Vulnerability Preparedness Program*\n4.  *johnson_wp21mj1*\n5.  *Climate Bonds Initiative* (referenced via multiple URLs in the context)"
+    },
+    {
+      "id": "list_001",
+      "question": "List the named SSL projects and initiatives mentioned in the source materials.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "current_output": "I found 5 projects or initiatives in the matched corpus scope.\n\n1. Northeast Climate Justice Research Collaborative [1]\n2. Climate Adaptation Forum [2]\n3. Climate Careers Curricula Initiative (C3I) [3]\n4. Cape Cod Rail Resilience Project [4]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative [5]",
+      "baseline_output": "Based on the provided documents, the following SSL projects and initiatives are mentioned:\n\n*   **Cape Cod Rail Resilience Project:** A project led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT.\n*   **CLIIR Initiative:** An initiative mentioned in the context of the 2025 Impact Report regarding research topics and community engagement.\n*   **\"Unraveling Sustainability: Can We Have It All?\":** An innovative Honors College course designed and launched by the SSL in collaboration with the Office of Campus Planning and Sustainability at UMB.\n*   **Summer Anti-Racism Research Funding:** A program through which SSL provided funding to seven projects led by affiliated faculty for climate justice research."
+    },
+    {
+      "id": "list_002",
+      "question": "List the main categories of work SSL says it does.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 2
+      },
+      "current_output": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]",
+      "baseline_output": "Based on the provided documents, SSL supports faculty's research and their development as scholars to generate evidence and advocacy for equitable adaptation. Additionally, SSL engages in stakeholder mapping related to climate adaptation/resilience and climate equity/environmental justice."
+    },
+    {
+      "id": "list_003",
+      "question": "Name several members of the External Advisory Board and their roles.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": -3
+      },
+      "current_output": "Based on the provided documents, the following individuals are members of the Board:\n\n*   **Julie Eaton Ernst**: Climate Resilience Practice Leader at HNTB [2].\n*   **Isabella M. Gambill**: Assistant Director of Climate, Energy, & Resilience at A Better City [3].\n*   **Tim Cronin**: Associate Director of Policy and Advocacy at Health Care Without Harm [7].",
+      "baseline_output": "Based on the provided documents, here are some members of the External Advisory Board and their roles:\n\n*   **Kalila Barnett:** Program Officer of Climate Resilience at the Barr Foundation\n*   **Gabriel Cira:** AIA, Principal architect at ARCH CIRA, and Project Lead for The Emerald Tutu\n*   **Tim Cronin:** Associate Director of Policy & Advocacy at Health Care Without Harm"
+    },
+    {
+      "id": "list_004",
+      "question": "List the publication source documents you can identify from the Publications folder.",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 3
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "current_output": "I found 18 publication source documents in the matched corpus scope.\n\n1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. Community-Led Climate Preparedness and Resilience in Boston_ New [4]\n5. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [5]\n6. Critical approaches to climate-induced migration research and sol [6]\n7. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [7]\n8. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [8]\n9. Executive Summary_Governance for a Changing Climate_ Adapting Bos [9]\n10. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [10]\n11. Financing Climate Resilience_ Mobilizing Resources and Incentives [11]\n12. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [12]\n13. Learning from the Massachusetts Municipal Vulnerability Preparedn [13]\n14. Opportunity in the Complexity_ Recommendations for Equitable Clim [14]\n15. Views that Matter_ Race and Opinions on Climate Change of Boston [15]\n16. Voices that Matter_ Boston Area Residents of Color Discuss Climat [16]\n17. Who Counts in Climate Resilience_ Transient Populations and Clima [17]\n18. johnson_wp21mj1 [18]",
+      "baseline_output": "Based on the provided context, the documents identified from the Publications folder are:\n\n*   **Critical approaches to climate-induced migration research and sol** (Source Path: SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf)\n*   **Financing Climate Resilience_ Mobilizing Resources and Incentives** (Source Path: SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf)\n*   **Opportunity in the Complexity_ Recommendations for Equitable Clim** (Source Path: SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf)"
+    },
+    {
+      "id": "specific_001",
+      "question": "Who is the Executive Director of SSL?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 1,
+        "citations": 0
+      },
+      "current_output": "The Executive Director of SSL is Dr. B.R. Balachandran (also referred to as Balakrishnan Balachandran) [1, 3, 6, 7].",
+      "baseline_output": "The Executive Director of SSL is Dr. B.R. Balachandran, who joined in February 2024."
+    },
+    {
+      "id": "specific_002",
+      "question": "Where is SSL located and how can someone contact the lab?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 3
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "current_output": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]",
+      "baseline_output": "The Sustainable Solutions Lab (SSL) is located within the University of Massachusetts Boston. To read their reports and access further information, you can visit their website at www.umb.edu/ssl/activities/research (or www.umb.edu/ssl/activities). \n\nThe provided documents do not contain a physical mailing address, phone number, or email address for the lab."
+    },
+    {
+      "id": "specific_003",
+      "question": "What are the three main themes of the Climate Inequality and Integrative Resilience Initiative?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": -3
+      },
+      "current_output": "The three main themes of the Climate Inequality and Integrative Resilience (CLIIR) Initiative are:\n\n* Indigenous Knowledge and Governance [1, 7]\n* Climate Migration [1, 7]\n* Climate Change and Health [1, 7]",
+      "baseline_output": "The three main themes of the Climate Inequality and Integrative Resilience (CLIIR) Initiative are:\n\n*   Indigenous Knowledge and Governance\n*   Climate Migration\n*   Climate Change and Health"
+    },
+    {
+      "id": "specific_004",
+      "question": "Who leads the Cape Cod Rail Resilience Project?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "The Cape Cod Rail Resilience Project is led by Carlos Vel\u00e1squez, who is a PhD candidate at UMass Boston and a project manager at MassDOT [1, 2].",
+      "baseline_output": "The Cape Cod Rail Resilience Project is led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT."
+    },
+    {
+      "id": "specific_005",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "I do not have enough information to answer your question regarding the \"Northeast Climate Justice Research Collaborative,\" as this entity is not mentioned in the provided documents.",
+      "baseline_output": "According to the 2022 Annual Report, members of the Northeast Climate Justice Research Collaborative value the opportunity to be both \"expert and novice.\" It provides a space where their training and research are valued, while also allowing room for curiosity and further exploration, enabling them to pose questions that bridge climate change and other areas of interest."
+    },
+    {
+      "id": "specific_006",
+      "question": "How many microcredentialed programs does the Climate Careers Curricula Initiative plan to develop, and over what time period?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "The Climate Careers Curricula Initiative (C3I) plans to develop six microcredentialed programs over a period of three years [1, 5].",
+      "baseline_output": "The Climate Careers Curricula Initiative (C3 Initiative) plans to develop six microcredentialed programs over three years."
+    },
+    {
+      "id": "specific_007",
+      "question": "Who is Sarah Mayorga and what does she say about her work with SSL?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "Sarah Mayorga is an Associate Professor of Sociology at Brandeis University and a member of the Northeast Climate Justice Research Collaborative [1, 3]. \n\nRegarding her work with SSL, she values the opportunity to be both an expert and a novice [1, 3]. She notes that the collaborative provides space for her curiosity and further exploration, which allows her to pose questions that bring together climate change and racial justice in ways she would not have done previously [1, 3].",
+      "baseline_output": "Sarah Mayorga is an Associate Professor of Sociology at Brandeis University and a member of the Northeast Climate Justice Research Collaborative. Regarding her work with SSL, she states that she values the opportunity to be both an expert and a novice. She notes that her training and research are valued, and there is space for her curiosity and exploration, which has allowed her to pose questions that bring together climate change and racial justice in new ways."
+    },
+    {
+      "id": "specific_008",
+      "question": "What does Patricio Belloy focus on in his research and practice?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": -1,
+        "citations": 0
+      },
+      "current_output": "I found 5 staff members in the matched corpus scope.\n\n1. B. R. Balachandran \u2014 Executive Director [1]\n2. Rosalyn Negron \u2014 Gabriela Boscio Santos [2]\n3. Gabriela Boscio \u2014 Rajini Srikanth [3]\n4. Rajini Srikanth \u2014 Elisa Guerrero [4]\n5. Elisa Guerrero [5]",
+      "baseline_output": "Patricio Belloy, a PhD candidate in Public Policy at the McCormack Graduate School of Policy and Global Studies and a research assistant at the Sustainable Solutions Lab, focuses his research on understanding how urban climate resilience policies can simultaneously meet the needs of local communities and promote equitable socioeconomic development. \n\nAdditionally, his work with the Sustainable Solutions Lab has involved looking at official planning documents and independent reports, as well as reviewing academic literature on climate justice, to help explore what an equitable climate resilience strategy for East Boston should include."
+    },
+    {
+      "id": "specific_009",
+      "question": "Who is Kalila Barnett and what is her role outside of SSL?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "Kalila Barnett\nProgram Officer of Climate Resilience at the Barr Foundation\n\nKalila joined Barr as the Climate Resilience Program Officer in 2018. Kalila has over a decade of experience in community organizing around affordable housing, land development, and environmental justice. She served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years. Before joining ACE in 2009, she worked as a Senior Organizer at Community Labor United. Kalila has a Bachelor's degree from Bates College, where she studied American Studies and Spanish, and a Master of Public Policy from the Urban and Environmental Policy and Planning School at Tufts University. Kalila currently lives in Roslindale and enjoys walking in the Arboretum, listening to podcasts, and cooking for friends. [1]",
+      "baseline_output": "Kalila Barnett is a member of the Sustainable Solutions Lab's (SSL) Board of Directors, which is composed of external advisers. \n\nOutside of SSL, she serves as the Program Officer of Climate Resilience at the Barr Foundation, a position she has held since 2018. Additionally, she has over a decade of experience in community organizing and previously served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years."
+    },
+    {
+      "id": "specific_010",
+      "question": "Which university affiliate focuses on public health and social determinants of health inequities?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 1,
+        "citations": 3
+      },
+      "current_output": "Lorena Estrada-Martinez is the university affiliate who focuses on public health and social determinants of health inequities [1].",
+      "baseline_output": "The university affiliate who focuses on public health and social determinants of health inequities is Lorena Estrada-Martinez."
+    },
+    {
+      "id": "specific_011",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 0,
+        "citations": 0
+      },
+      "current_output": "Vishal Verma is the student involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts [1, 3].",
+      "baseline_output": "Vishal is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts."
+    },
+    {
+      "id": "specific_012",
+      "question": "How did SSL describe its mission in the 2020-21 year in review?",
+      "current_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "baseline_scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "score_deltas": {
+        "clarity": 0,
+        "professional_tone": 0,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "current_output": "In the 2020-21 year in review, the Sustainable Solutions Lab (SSL) described its mission and work in the following ways:\n\n*   **Focus on Climate Justice:** SSL worked to ensure that climate adaptation efforts account for historic marginalization and the disproportionate impact of climate change on vulnerable communities [2]. The lab identifies its climate justice research and support for faculty of color and community partners as critical for dismantling white supremacy in climate adaptation work [2].\n*   **Interdisciplinary Approach:** SSL is working to combine previously siloed areas of expertise into an interdisciplinary approach to better address complex climate challenges [5].\n*   **Supporting Faculty and Students:** The lab views faculty and students as the foundation of its work, aiming to support their research and development as scholars to generate the evidence and advocacy needed for equitable adaptation [8].\n*   **Fostering Scholarship:** SSL aims to foster scholarship that examines how climate change impacts those most vulnerable to systemic inequities [3].\n*   **Shaping the Conversation:** The lab engages at local, state, and international levels to connect with diverse groups, support their work, and inform decision-making related to climate challenges [7].\n*   **Goal of Safety and Health:** The Director, Rebecca Herst, stated that the lab's mission is to \"secure a safe and healthy future for everyone in the face of the climate crisis\" [2].",
+      "baseline_output": "I do not have enough information to answer your question. While the 2020-21 year in review document lists \"Our Mission\" in the table of contents, the provided text does not contain the actual content or description of that mission."
+    }
+  ]
+}

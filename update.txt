@@ -1,0 +1,41 @@
+Update 1
+
+I built the core RAG pipeline functions that still remain in the code. `load_seed_documents`, `extract_pdf_text`, `load_metadata_registry`, and `build_document_record` let the app ingest both `.txt` and `.pdf` sources and attach metadata like title, source path, URL, and category. `index_documents` and `build_chunk_text_for_embedding` then create both detail and summary chunks and store them in Chroma with per-chunk metadata. This matters because smaller chunks help with precise questions, while larger chunks help with broad overview questions.
+
+On the retrieval side, `retrieve_dense_candidates`, `retrieve_bm25_candidates`, `fuse_candidates`, and `rerank_candidates` created a hybrid retrieval pipeline that combines semantic search with keyword search before selecting final context. In that earlier version, query keywords like projects, staff, students, board, affiliates, publications, and reports also gave higher reranking weight to chunks from matching files, folders, or categories. This helped reduce noise because the corpus was already organized by topic. The frontend and backend were also updated so users can chat through the local UI, see source chips, and interact with clarification choices when needed.
+
+Update 2
+
+I added the first structured follow-up and routing improvements. The chatbot began keeping recent conversation turns and using them for ambiguous follow-up handling, instead of treating every message like an isolated standalone query. I also added UI support for clarification interactions, so when the backend cannot confidently resolve a follow-up, it can return clarification options and the frontend renders those as clickable choice chips under the assistant response.
+
+This mattered because short follow-ups like “them,” “that person,” or “list all 15” were otherwise too vague for retrieval to resolve correctly. By carrying recent turns forward and giving the user clickable clarification choices when needed, the chatbot became more usable in multi-turn conversations and less likely to answer from the wrong subject.
+
+Update 3
+
+I added the first source-aware retrieval layer on top of the hybrid RAG stack. The retrieval system began using query keywords such as projects, staff, students, board, affiliates, publications, and contact to give higher weight to chunks from matching files, folders, and categories. For example, project-related queries could favor `Projects` and annual report material, while staff or board queries could favor their matching source files. I also added both detail and summary chunk levels so broad questions could lean toward larger overview chunks while specific questions could still use smaller precise chunks.
+
+This improved retrieval because the corpus was already intentionally organized by topic, so letting query terms influence which sources were emphasized reduced noise and made broad category questions more likely to pull the right context.
+
+Update 4
+
+I replaced the earlier single-label keyword biasing with a smarter routing layer. The chatbot now uses a multi-label local router on the first pass, so a query can search a combined scoped pool when it overlaps multiple topics, such as students plus projects or publications plus reports. I also added a low-confidence fallback path: the chatbot first tries cheap retrieval, measures retrieval confidence from signals like source diversity, top score, score gap, and context coverage, and only calls the Gemini planner when that first retrieval looks weak. The planner can then rewrite an ambiguous follow-up, narrow the search scope, or return clarification options.
+
+This mattered because it reduced unnecessary LLM calls while still improving hard cases like ambiguous follow-ups, mixed-topic questions, and misrouted people/project queries. Instead of always searching globally or always paying for planner routing, the pipeline now uses a cheaper first pass and only escalates when retrieval confidence is low.
+
+Update 5
+
+I added document-level and entity-level retrieval paths to handle the kinds of questions chunk retrieval is bad at. The chatbot now builds a `document_registry` with one record per source file and an `entity_registry` with one record per structured person, project, or section. I also expanded structured parsing so files like `Projects.txt`, `StudentsInterns.txt`, `Staff.txt`, `BoardOfDirectors.txt`, `UniversityAffiliates.txt`, `SSLAbout.txt`, and annual report text files can be indexed as meaningful units instead of only generic chunks. Retrieved context is now numbered, and the answer prompt explicitly requires inline citations like `[1]` and `[2]`.
+
+This matters because inventory questions such as listing publications or reports are better answered from document metadata, while people/project/section questions are better answered from structured entity blocks than from arbitrary chunk windows. Together, these changes improved source grounding, reduced hallucinations, and made answers more citation-aware and better matched to the actual structure of the SSL corpus.
+
+Update 6
+
+I added structured recent-entity memory for follow-up resolution. Instead of relying only on raw recent transcript text, the chatbot now derives a short rolling memory of the entities mentioned in the last few turns, including which people appeared in which turn. For ambiguous follow-ups, it looks back through that memory in recency order. If the most recent relevant turn contains exactly one person, the chatbot automatically rewrites the new question to that person’s full name before retrieval. If the most recent relevant turn contains multiple plausible people, it stops guessing and returns clarification options instead.
+
+This matters because follow-ups like “What is their research background?” often fail even when the first turn worked, simply because the second query no longer contains the person’s name. The new structured memory preserves multiple recent entity states, not just one last entity, so the chatbot can still resolve a referent from two turns ago when appropriate while forcing clarification when the context is genuinely ambiguous.
+
+Update 7
+
+I patched the main failure pattern that showed up in the eval after the later routing changes: the entity registry was answering too many specific questions as inventories instead of exact answers. I tightened the entity-registry path so it is less eager on specific detail questions, kept the grouped people-overview answer path for broad cross-role prompts, and regenerated the eval diff against the latest full run. I also rebuilt `question_eval_diff.json` into a cleaner summary-plus-diffs format so it now compares the current results directly against the baseline.
+
+This mattered because questions about one person, one student, or one specific concept were getting hijacked into “I found X entities...” responses, which hurt correctness. After narrowing that behavior and rerunning the full eval, the pipeline recovered to a `3.92` correctness average with stronger citation performance than baseline, while still preserving the broader improvements from the registry and routing work.
