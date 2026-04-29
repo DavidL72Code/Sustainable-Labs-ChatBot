@@ -5,3 +5,4 @@ chromadb
 langchain-text-splitters
 sentence-transformers
 pypdf
+better-profanity

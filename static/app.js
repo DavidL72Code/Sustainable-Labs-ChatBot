@@ -21,6 +21,7 @@ function addSidebarEntry(text, messageId) {
     if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   sidebarList.appendChild(item);
+  return item;
 }
 const recentHistory = [];
 const recentHistoryWindow = 4;
@@ -115,10 +116,11 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
 
   messageNode.classList.add(role);
 
+  let sidebarItem = null;
   if (role === "user") {
     const id = `msg-${++messageCounter}`;
     messageNode.id = id;
-    addSidebarEntry(content, id);
+    sidebarItem = addSidebarEntry(content, id);
   }
   if (role === "assistant") {
     const iconSvg = `<span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>`;
@@ -180,6 +182,7 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
 
   chatMessages.appendChild(fragment);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+  return sidebarItem;
 }
 
 function appendLoading() {
@@ -215,7 +218,7 @@ async function submitMessageFlow(message, displayMessage = message) {
     return;
   }
 
-  appendMessage("user", "You", displayMessage);
+  const sidebarItem = appendMessage("user", "You", displayMessage);
   messageInput.value = "";
   messageInput.focus();
   sendButton.disabled = true;
@@ -226,6 +229,15 @@ async function submitMessageFlow(message, displayMessage = message) {
   try {
     const result = await sendMessage(message);
     loadingNode.remove();
+    if (result.blocked && sidebarItem) {
+      sidebarItem.remove();
+      if (!sidebarList.querySelector(".sidebar-item")) {
+        const empty = document.createElement("li");
+        empty.className = "sidebar-empty";
+        empty.textContent = "Your questions will appear here.";
+        sidebarList.appendChild(empty);
+      }
+    }
     appendMessage(
       "assistant",
       "Sustainable Labs",
