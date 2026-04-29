@@ -79,6 +79,13 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
 - **Singleton Gemini client** — the `genai.Client` is now created once at startup and reused across all requests, eliminating repeated authentication overhead
 - **Reduced `max_output_tokens`** — lowered from 8192 to 1024, appropriate for a RAG chatbot and reduces unnecessary generation time
 
+### Error Handling
+- Gemini API 503/high-demand and 429/quota errors now show a friendly message ("The assistant is experiencing high demand right now. Please wait a moment and try again.") instead of a raw error
+- All other unexpected errors fall back to a generic "Something went wrong. Please try again." message
+
+### Bug Fixes
+- Sources no longer appear when the bot asks for clarification — fixed in both the backend (clarification return paths now always send `sources: []`) and the frontend (sources suppressed client-side when `needs_clarification` is true). **Note: clarification suppression is not fully working yet and is still being investigated.**
+
 ### Upstream Merge
 - Merged `DavidL72Code/Sustainable-Labs-ChatBot` pipeline update (`b717be9`) into this UI fork
 - Resolved conflict in `Chatbot.py`: adopted upstream's `MAX_CHROMA_BATCH_SIZE` class constant (5000) over the local hardcoded value (500)
