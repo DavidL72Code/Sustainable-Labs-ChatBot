@@ -3347,6 +3347,55 @@ def create_chatbot(config: Optional[ChatbotConfig] = None) -> RetrievalChatbot:
     return chatbot
 
 
+from better_profanity import profanity as _profanity
+
+# Words that appear in the profanity library but are legitimate in academic /
+# environmental-research contexts and should not be blocked.
+_WHITELIST = [
+    # biological / health research
+    "sex", "sexual", "sexually", "gender", "breast", "penis", "vagina", "uterus",
+    # environmental / engineering terms
+    "dam", "dike", "dyke", "weed", "strip", "exposed", "crack", "screw", "joint",
+    # common words that contain blocked substrings (Scunthorpe-style false positives)
+    "assessment", "massachusetts", "assistance", "harass", "harassment",
+    "classic", "passage", "grassland", "class", "bass", "compass",
+    "cock", "peacock", "woodcock",   # bird species names
+    "shoot", "overshoot",            # emission / target language
+    "hell",                          # "what the hell" — mild, common in speech
+    "damn", "damnation",             # mild, may appear in quotes
+]
+
+_profanity.load_censor_words(whitelist_words=_WHITELIST)
+
+# Phrases that specifically target or could harm SSL / UMB reputation.
+_SSL_CENSOR = [
+    # institution insults
+    "ssl sucks", "umb sucks", "ssl is trash", "umb is trash",
+    "ssl is garbage", "umb is garbage", "ssl is fake", "umb is fake",
+    "ssl is a scam", "umb is a scam", "ssl is corrupt", "umb is corrupt",
+    # climate-denial attacks targeting a climate research lab
+    "climate hoax", "global warming hoax", "climate change is fake",
+    "climate change is a lie", "climate change is a scam",
+    # threats / harassment targeting researchers or the org
+    "kill the researchers", "burn down ssl", "destroy ssl", "shut down ssl",
+    "doxx", "dox ssl", "home address",
+    # generic harassment patterns
+    "go kill yourself", "kys", "kill yourself",
+]
+
+_profanity.add_censor_words(_SSL_CENSOR)
+
+_REFUSAL = (
+    "I'm sorry, but I can't respond to that message. "
+    "Please keep questions respectful and on-topic — I'm here to help with "
+    "information about the Sustainable Solutions Lab's research, projects, and initiatives."
+)
+
+
+def _is_blocked(text: str) -> bool:
+    return _profanity.contains_profanity(text)
+
+
 def create_app() -> Flask:
     if Flask is None:
         raise ImportError("Install Flask to run the local web demo.")
@@ -3367,6 +3416,9 @@ def create_app() -> Flask:
         recent_history = payload.get("recent_history", [])
         if not user_message:
             return jsonify({"error": "Message is required."}), 400
+
+        if _is_blocked(user_message):
+            return jsonify({"reply": _REFUSAL, "sources": [], "blocked": True}), 200
 
         try:
             history_window = max(config.recent_history_turns, 1)
