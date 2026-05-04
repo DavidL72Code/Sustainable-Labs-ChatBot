@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSL Chatbot Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <div>
+        <p class="eyebrow">Sustainable Solutions Lab</p>
+        <h1>Chatbot Dashboard</h1>
+      </div>
+      <nav class="header-actions" aria-label="Dashboard navigation">
+        <a href="{{ url_for('index') }}">Chat</a>
+        <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer">Visit SSL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="metric-grid" aria-label="Interaction metrics">
+      <article class="metric-card">
+        <span>Total Chats</span>
+        <strong>{{ dashboard.stats.total }}</strong>
+      </article>
+      <article class="metric-card">
+        <span>Clarifications</span>
+        <strong>{{ dashboard.stats.clarifications }}</strong>
+      </article>
+      <article class="metric-card">
+        <span>Low Confidence</span>
+        <strong>{{ dashboard.stats.low_confidence }}</strong>
+      </article>
+      <article class="metric-card">
+        <span>Blocked</span>
+        <strong>{{ dashboard.stats.blocked }}</strong>
+      </article>
+      <article class="metric-card">
+        <span>Errors</span>
+        <strong>{{ dashboard.stats.errors }}</strong>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Recent Questions</h2>
+          <span>{{ dashboard.log_path }}</span>
+        </div>
+        {% if dashboard.recent_events %}
+          <div class="event-list">
+            {% for event in dashboard.recent_events %}
+              <a class="event-row" href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
+                <span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span>
+                <span class="event-main">
+                  <strong>{{ event.question }}</strong>
+                  <em>{{ event.answer[:180] }}{% if event.answer|length > 180 %}...{% endif %}</em>
+                </span>
+                <span class="event-meta">{{ event.latency_ms or 0 }} ms</span>
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="empty-state">No chat logs yet. Ask the chatbot a question and refresh this page.</p>
+        {% endif %}
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Source Usage</h2>
+        </div>
+        {% if dashboard.source_usage %}
+          <ol class="ranked-list">
+            {% for source, count in dashboard.source_usage %}
+              <li><span>{{ source }}</span><strong>{{ count }}</strong></li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <p class="empty-state">No returned sources logged yet.</p>
+        {% endif %}
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Corpus Coverage</h2>
+        </div>
+        {% if dashboard.category_usage %}
+          <ol class="ranked-list">
+            {% for category, count in dashboard.category_usage %}
+              <li><span>{{ category }}</span><strong>{{ count }}</strong></li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <p class="empty-state">Retrieved source metadata will appear here.</p>
+        {% endif %}
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Problem Cases</h2>
+        </div>
+        {% if dashboard.problem_events %}
+          <div class="compact-list">
+            {% for event in dashboard.problem_events %}
+              <a href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
+                <span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span>
+                {{ event.question }}
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="empty-state">No blocked, error, clarification, or low-confidence cases logged.</p>
+        {% endif %}
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Evaluation Summary</h2>
+          {% if dashboard.eval.model %}<span>{{ dashboard.eval.model }}</span>{% endif %}
+        </div>
+        {% if dashboard.eval.summary %}
+          <dl class="eval-grid">
+            <div><dt>Total Cases</dt><dd>{{ dashboard.eval.summary.total_cases }}</dd></div>
+            <div><dt>Correctness</dt><dd>{{ dashboard.eval.summary.average_scores.correctness_vs_corpus }}</dd></div>
+            <div><dt>Citations</dt><dd>{{ dashboard.eval.summary.average_scores.citations }}</dd></div>
+            <div><dt>Hallucinated</dt><dd>{{ dashboard.eval.summary.classification_counts.hallucinated_yes }}</dd></div>
+          </dl>
+          {% if dashboard.eval.problem_cases %}
+            <div class="eval-problems">
+              {% for case in dashboard.eval.problem_cases[:5] %}
+                <p><strong>{{ case.id }}</strong> {{ case.notes }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% else %}
+          <p class="empty-state">Run the eval script to populate question_eval_results.json.</p>
+        {% endif %}
+      </article>
+    </section>
+  </main>
+</body>
+</html>
