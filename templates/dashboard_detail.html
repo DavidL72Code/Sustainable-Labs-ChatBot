@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Interaction Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <div>
+        <p class="eyebrow">Interaction Trace</p>
+        <h1>Question Detail</h1>
+      </div>
+      <nav class="header-actions" aria-label="Dashboard navigation">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('index') }}">Chat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    {% if not event %}
+      <section class="panel">
+        <h2>Interaction Not Found</h2>
+        <p class="empty-state">That log entry could not be found in the local JSONL file.</p>
+      </section>
+    {% else %}
+      <section class="detail-layout">
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Question And Answer</h2>
+            <span>{{ event.timestamp }}</span>
+          </div>
+          <div class="qa-block">
+            <h3>Question</h3>
+            <p>{{ event.question }}</p>
+          </div>
+          <div class="qa-block">
+            <h3>Answer</h3>
+            <p>{{ event.answer }}</p>
+          </div>
+        </article>
+
+        <aside class="panel">
+          <div class="panel-header">
+            <h2>Status</h2>
+          </div>
+          <dl class="detail-stats">
+            <div><dt>Status</dt><dd><span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span></dd></div>
+            <div><dt>Latency</dt><dd>{{ event.latency_ms or 0 }} ms</dd></div>
+            <div><dt>Mode</dt><dd>{{ event.response_mode or 'unknown' }}</dd></div>
+            <div><dt>Clarification</dt><dd>{{ 'yes' if event.needs_clarification else 'no' }}</dd></div>
+            <div><dt>Blocked</dt><dd>{{ 'yes' if event.blocked else 'no' }}</dd></div>
+          </dl>
+        </aside>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Returned Sources</h2>
+          </div>
+          {% if event.sources %}
+            <ol class="source-list">
+              {% for source in event.sources %}
+                <li>
+                  <strong>{{ source.title }}</strong>
+                  <span>{{ source.source_path }}</span>
+                  {% if source.url and source.url != 'URL not provided' %}
+                    <a href="{{ source.url }}" target="_blank" rel="noreferrer">{{ source.url }}</a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <p class="empty-state">No sources were returned to the user.</p>
+          {% endif %}
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Retrieval Diagnostics</h2>
+          </div>
+          <pre class="json-block">{{ (event.trace or {}).retrieval_diagnostics | tojson(indent=2) }}</pre>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Retrieved Metadata</h2>
+          </div>
+          {% if (event.trace or {}).retrieved_metadata %}
+            <div class="metadata-table-wrap">
+              <table class="metadata-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Section</th>
+                    <th>Chunk</th>
+                    <th>Path</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for metadata in (event.trace or {}).retrieved_metadata %}
+                    <tr>
+                      <td>{{ metadata.title }}</td>
+                      <td>{{ metadata.category }}</td>
+                      <td>{{ metadata.section_name or 'N/A' }}</td>
+                      <td>{{ metadata.chunk_level }} {{ metadata.chunk_index }}</td>
+                      <td>{{ metadata.source_path }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <p class="empty-state">No retrieved metadata was recorded for this interaction.</p>
+          {% endif %}
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Full Trace</h2>
+          </div>
+          <pre class="json-block">{{ event.trace | tojson(indent=2) }}</pre>
+        </article>
+      </section>
+    {% endif %}
+  </main>
+</body>
+</html>
