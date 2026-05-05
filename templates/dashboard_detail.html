@@ -12,9 +12,14 @@
 <body>
   <header class="dashboard-header">
     <div class="dashboard-header-inner">
-      <div>
-        <p class="eyebrow">Interaction Trace</p>
-        <h1>Question Detail</h1>
+      <img
+        src="{{ url_for('static', filename='umb-logo.svg') }}"
+        alt="UMass Boston"
+        class="dashboard-umb-logo"
+      >
+      <div class="dashboard-logo">
+        <span class="dashboard-logo-name">Sustainable Solutions Lab</span>
+        <span class="dashboard-logo-tagline">Interaction Trace</span>
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="{{ url_for('dashboard') }}">Dashboard</a>
@@ -33,8 +38,15 @@
       <section class="detail-layout">
         <article class="panel panel-wide">
           <div class="panel-header">
-            <h2>Question And Answer</h2>
+            <h2>Chat Mapping</h2>
             <span>{{ event.timestamp }}</span>
+          </div>
+          <div class="mapping-strip" aria-label="Chat answer mapping">
+            <span>User Question</span>
+            <strong>maps to</strong>
+            <span>Assistant Answer</span>
+            <strong>supported by</strong>
+            <span>{{ event.source_count }} returned sources</span>
           </div>
           <div class="qa-block">
             <h3>Question</h3>
@@ -56,8 +68,31 @@
             <div><dt>Mode</dt><dd>{{ event.response_mode or 'unknown' }}</dd></div>
             <div><dt>Clarification</dt><dd>{{ 'yes' if event.needs_clarification else 'no' }}</dd></div>
             <div><dt>Blocked</dt><dd>{{ 'yes' if event.blocked else 'no' }}</dd></div>
+            <div><dt>Confidence</dt><dd>{{ event.confidence_score if event.confidence_score is not none else 'N/A' }}</dd></div>
+            <div><dt>Sources</dt><dd>{{ event.source_count }}</dd></div>
           </dl>
         </aside>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Confidence</h2>
+          </div>
+          {% if (event.trace or {}).confidence %}
+            <dl class="detail-stats single-column">
+              <div><dt>Score</dt><dd>{{ event.confidence_score }}</dd></div>
+              <div><dt>Low Confidence</dt><dd>{{ 'yes' if event.is_low_confidence else 'no' }}</dd></div>
+            </dl>
+            {% if event.confidence_reasons %}
+              <ul class="reason-list">
+                {% for reason in event.confidence_reasons %}
+                  <li>{{ reason }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% else %}
+            <p class="empty-state">No confidence data was recorded for this interaction.</p>
+          {% endif %}
+        </article>
 
         <article class="panel">
           <div class="panel-header">
