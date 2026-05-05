@@ -3476,8 +3476,28 @@ def load_eval_summary() -> dict:
     }
 
 
+def summarize_chat_event(event: dict) -> dict:
+    trace = event.get("trace", {}) or {}
+    confidence = trace.get("confidence", {}) or {}
+    retrieval_diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+    sources = event.get("sources", []) or []
+    retrieved_metadata = trace.get("retrieved_metadata", []) or []
+
+    summarized = dict(event)
+    summarized["confidence_score"] = confidence.get("score")
+    summarized["is_low_confidence"] = bool(confidence.get("is_low_confidence"))
+    summarized["confidence_reasons"] = confidence.get("reasons", []) or []
+    summarized["source_count"] = len(sources)
+    summarized["retrieved_count"] = len(retrieved_metadata)
+    summarized["top_score"] = retrieval_diagnostics.get("top_score")
+    summarized["status"] = event.get("status") or "answered"
+    summarized["answer"] = event.get("answer") or ""
+    summarized["question"] = event.get("question") or ""
+    return summarized
+
+
 def build_dashboard_payload() -> dict:
-    events = load_chat_events()
+    events = [summarize_chat_event(event) for event in load_chat_events()]
     source_counts: Counter[str] = Counter()
     category_counts: Counter[str] = Counter()
     problem_events: list[dict] = []
@@ -3514,6 +3534,7 @@ def build_dashboard_payload() -> dict:
 
     return {
         "stats": stats,
+        "chat_history": events[:50],
         "recent_events": events[:25],
         "problem_events": problem_events[:12],
         "source_usage": source_counts.most_common(12),
@@ -3526,7 +3547,7 @@ def build_dashboard_payload() -> dict:
 def find_chat_event(event_id: str) -> Optional[dict]:
     for event in load_chat_events():
         if event.get("id") == event_id:
-            return event
+            return summarize_chat_event(event)
     return None
 
 

@@ -12,9 +12,14 @@
 <body>
   <header class="dashboard-header">
     <div class="dashboard-header-inner">
-      <div>
-        <p class="eyebrow">Sustainable Solutions Lab</p>
-        <h1>Chatbot Dashboard</h1>
+      <img
+        src="{{ url_for('static', filename='umb-logo.svg') }}"
+        alt="UMass Boston"
+        class="dashboard-umb-logo"
+      >
+      <div class="dashboard-logo">
+        <span class="dashboard-logo-name">Sustainable Solutions Lab</span>
+        <span class="dashboard-logo-tagline">Chatbot Dashboard</span>
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="{{ url_for('index') }}">Chat</a>
@@ -50,21 +55,50 @@
     <section class="dashboard-grid">
       <article class="panel panel-wide">
         <div class="panel-header">
-          <h2>Recent Questions</h2>
+          <h2>Chat History</h2>
           <span>{{ dashboard.log_path }}</span>
         </div>
-        {% if dashboard.recent_events %}
-          <div class="event-list">
-            {% for event in dashboard.recent_events %}
-              <a class="event-row" href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
-                <span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span>
-                <span class="event-main">
-                  <strong>{{ event.question }}</strong>
-                  <em>{{ event.answer[:180] }}{% if event.answer|length > 180 %}...{% endif %}</em>
-                </span>
-                <span class="event-meta">{{ event.latency_ms or 0 }} ms</span>
-              </a>
-            {% endfor %}
+        {% if dashboard.chat_history %}
+          <div class="history-table-wrap">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Chat Mapping</th>
+                  <th>Confidence</th>
+                  <th>Sources</th>
+                  <th>Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for event in dashboard.chat_history %}
+                  <tr>
+                    <td>
+                      <span class="status-pill status-{{ event.status }}">{{ event.status }}</span>
+                    </td>
+                    <td>
+                      <a class="history-link" href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
+                        <strong>{{ event.question }}</strong>
+                        <span>{{ event.answer[:180] }}{% if event.answer|length > 180 %}...{% endif %}</span>
+                      </a>
+                      <small>{{ event.timestamp or event.id }}</small>
+                    </td>
+                    <td>
+                      {% if event.confidence_score is not none %}
+                        <span class="score-pill {% if event.is_low_confidence %}score-low{% endif %}">{{ event.confidence_score }}</span>
+                      {% else %}
+                        <span class="muted-value">N/A</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      <span class="count-pair">{{ event.source_count }} shown</span>
+                      <span class="muted-value">{{ event.retrieved_count }} retrieved</span>
+                    </td>
+                    <td>{{ event.latency_ms or 0 }} ms</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
         {% else %}
           <p class="empty-state">No chat logs yet. Ask the chatbot a question and refresh this page.</p>
@@ -141,6 +175,34 @@
         {% else %}
           <p class="empty-state">Run the eval script to populate question_eval_results.json.</p>
         {% endif %}
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Score Key</h2>
+        </div>
+        <dl class="score-key">
+          <div>
+            <dt>correctness_vs_corpus</dt>
+            <dd>1-5 rating for how well the answer matches the provided SSL corpus reference.</dd>
+          </div>
+          <div>
+            <dt>citations</dt>
+            <dd>1-5 rating for whether returned sources are useful and relevant support.</dd>
+          </div>
+          <div>
+            <dt>hallucinated</dt>
+            <dd>Yes means the evaluator found unsupported or clearly incorrect facts.</dd>
+          </div>
+          <div>
+            <dt>answered_question</dt>
+            <dd>Yes means the answer directly addressed the question that was asked.</dd>
+          </div>
+          <div>
+            <dt>right_citations</dt>
+            <dd>Yes means the cited or returned sources match the relevant corpus sources.</dd>
+          </div>
+        </dl>
       </article>
     </section>
   </main>
