@@ -7,7 +7,10 @@ import math
 import json
 import os
 import re
+import time
+import uuid
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
 
@@ -68,6 +71,11 @@ class SourceDocument(dict):
 
 class ConversationTurn(dict):
     pass
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+CHAT_LOG_PATH = PROJECT_ROOT / "logs" / "chat_events.jsonl"
+EVAL_RESULTS_PATH = PROJECT_ROOT / "question_eval_results.json"
 
 
 class RetrievalChatbot:
@@ -3295,17 +3303,49 @@ Question:
             "reasons": list(dict.fromkeys(reasons)),
         }
 
+    def attach_trace(
+        self,
+        result: dict,
+        *,
+        status: str,
+        response_mode: str,
+        rewritten_query: str,
+        query_route: Optional[dict],
+        retrieved_metadata: Optional[list[dict]] = None,
+        retrieval_diagnostics: Optional[dict] = None,
+        confidence: Optional[dict] = None,
+        query_plan: Optional[dict] = None,
+    ) -> dict:
+        result.setdefault("status", status)
+        result.setdefault("response_mode", response_mode)
+        result["trace"] = {
+            "rewritten_query": rewritten_query,
+            "query_route": query_route or {},
+            "retrieved_metadata": retrieved_metadata or [],
+            "retrieval_diagnostics": retrieval_diagnostics or {},
+            "confidence": confidence or {},
+            "query_plan": query_plan or {},
+        }
+        return result
+
     def answer(self, user_message: str, recent_history: Optional[list[ConversationTurn]] = None) -> dict:
         recent_history = recent_history or []
         structured_follow_up = self.resolve_recent_entity_follow_up(user_message, recent_history)
         if structured_follow_up and structured_follow_up.get("needs_clarification"):
-            return {
-                "reply": structured_follow_up.get("clarifying_question", "Can you clarify what you mean?"),
-                "sources": [],
-                "needs_clarification": True,
-                "clarification_for": user_message,
-                "clarification_options": structured_follow_up.get("clarification_options", []),
-            }
+            return self.attach_trace(
+                {
+                    "reply": structured_follow_up.get("clarifying_question", "Can you clarify what you mean?"),
+                    "sources": [],
+                    "needs_clarification": True,
+                    "clarification_for": user_message,
+                    "clarification_options": structured_follow_up.get("clarification_options", []),
+                },
+                status="clarification",
+                response_mode="structured_follow_up",
+                rewritten_query=structured_follow_up.get("rewritten_query", user_message),
+                query_route=structured_follow_up.get("query_route"),
+                query_plan=structured_follow_up,
+            )
 
         rewritten_query = structured_follow_up.get("rewritten_query", user_message) if structured_follow_up else user_message
         is_follow_up_ambiguous = self.is_ambiguous_query(user_message)
@@ -3314,13 +3354,31 @@ Question:
         if self.should_use_section_registry(rewritten_query, query_route):
             section_result = self.answer_from_section_registry(rewritten_query, query_route)
             if section_result:
-                return section_result
+                return self.attach_trace(
+                    section_result,
+                    status="answered",
+                    response_mode="section_registry",
+                    rewritten_query=rewritten_query,
+                    query_route=query_route,
+                )
 
         if self.should_use_entity_registry(rewritten_query, query_route):
-            return self.answer_from_entity_registry(rewritten_query, query_route)
+            return self.attach_trace(
+                self.answer_from_entity_registry(rewritten_query, query_route),
+                status="answered",
+                response_mode="entity_registry",
+                rewritten_query=rewritten_query,
+                query_route=query_route,
+            )
 
         if self.should_use_document_registry(rewritten_query, query_route):
-            return self.answer_from_document_registry(rewritten_query, query_route)
+            return self.attach_trace(
+                self.answer_from_document_registry(rewritten_query, query_route),
+                status="answered",
+                response_mode="document_registry",
+                rewritten_query=rewritten_query,
+                query_route=query_route,
+            )
 
         retrieval_k = self.choose_top_k(query_route)
         retrieved_context, retrieved_metadata, retrieval_diagnostics = self.retrieve_context(
@@ -3343,30 +3401,78 @@ Question:
             rewritten_query = query_plan.get("rewritten_query", user_message)
 
             if query_plan.get("needs_clarification"):
-                return {
-                    "reply": query_plan.get("clarifying_question", "Can you clarify what you mean?"),
-                    "sources": [],
-                    "needs_clarification": True,
-                    "clarification_for": user_message,
-                    "clarification_options": query_plan.get("clarification_options", []),
-                }
+                return self.attach_trace(
+                    {
+                        "reply": query_plan.get("clarifying_question", "Can you clarify what you mean?"),
+                        "sources": [],
+                        "needs_clarification": True,
+                        "clarification_for": user_message,
+                        "clarification_options": query_plan.get("clarification_options", []),
+                    },
+                    status="clarification",
+                    response_mode="query_planner",
+                    rewritten_query=rewritten_query,
+                    query_route=query_plan,
+                    retrieved_metadata=retrieved_metadata,
+                    retrieval_diagnostics=retrieval_diagnostics,
+                    confidence=confidence,
+                    query_plan=query_plan,
+                )
 
             if self.should_use_section_registry(rewritten_query, query_plan):
                 section_result = self.answer_from_section_registry(rewritten_query, query_plan)
                 if section_result:
-                    return section_result
+                    return self.attach_trace(
+                        section_result,
+                        status="answered",
+                        response_mode="section_registry_after_planning",
+                        rewritten_query=rewritten_query,
+                        query_route=query_plan,
+                        retrieved_metadata=retrieved_metadata,
+                        retrieval_diagnostics=retrieval_diagnostics,
+                        confidence=confidence,
+                        query_plan=query_plan,
+                    )
 
             if self.should_use_entity_registry(rewritten_query, query_plan):
-                return self.answer_from_entity_registry(rewritten_query, query_plan)
+                return self.attach_trace(
+                    self.answer_from_entity_registry(rewritten_query, query_plan),
+                    status="answered",
+                    response_mode="entity_registry_after_planning",
+                    rewritten_query=rewritten_query,
+                    query_route=query_plan,
+                    retrieved_metadata=retrieved_metadata,
+                    retrieval_diagnostics=retrieval_diagnostics,
+                    confidence=confidence,
+                    query_plan=query_plan,
+                )
 
             if self.should_use_document_registry(rewritten_query, query_plan):
-                return self.answer_from_document_registry(rewritten_query, query_plan)
+                return self.attach_trace(
+                    self.answer_from_document_registry(rewritten_query, query_plan),
+                    status="answered",
+                    response_mode="document_registry_after_planning",
+                    rewritten_query=rewritten_query,
+                    query_route=query_plan,
+                    retrieved_metadata=retrieved_metadata,
+                    retrieval_diagnostics=retrieval_diagnostics,
+                    confidence=confidence,
+                    query_plan=query_plan,
+                )
 
             retrieval_k = self.choose_top_k(query_plan)
             retrieved_context, retrieved_metadata, retrieval_diagnostics = self.retrieve_context(
                 rewritten_query,
                 top_k=retrieval_k,
                 query_route=query_plan,
+            )
+            confidence = self.assess_retrieval_confidence(
+                user_message=rewritten_query,
+                query_route=query_plan,
+                retrieved_context=retrieved_context,
+                retrieved_metadata=retrieved_metadata,
+                retrieval_diagnostics=retrieval_diagnostics,
+                recent_history=recent_history,
             )
 
         if self.should_ask_clarifying_question(
@@ -3379,13 +3485,23 @@ Question:
                 user_message=user_message,
                 query_plan=query_plan,
             )
-            return {
-                "reply": fallback_question,
-                "sources": [],
-                "needs_clarification": True,
-                "clarification_for": user_message,
-                "clarification_options": (query_plan or {}).get("clarification_options", []),
-            }
+            return self.attach_trace(
+                {
+                    "reply": fallback_question,
+                    "sources": [],
+                    "needs_clarification": True,
+                    "clarification_for": user_message,
+                    "clarification_options": (query_plan or {}).get("clarification_options", []),
+                },
+                status="clarification",
+                response_mode="low_context_fallback",
+                rewritten_query=rewritten_query,
+                query_route=query_plan or query_route,
+                retrieved_metadata=retrieved_metadata,
+                retrieval_diagnostics=retrieval_diagnostics,
+                confidence=confidence,
+                query_plan=query_plan,
+            )
 
         prompt = self.build_prompt(
             user_message=user_message,
@@ -3395,12 +3511,22 @@ Question:
         )
         reply_text = self.llm_callable(prompt).strip()
         all_sources = self.extract_sources(retrieved_metadata)
-        return {
-            "reply": reply_text,
-            "sources": self.filter_sources_to_cited(reply_text, all_sources),
-            "needs_clarification": False,
-            "clarification_options": [],
-        }
+        return self.attach_trace(
+            {
+                "reply": reply_text,
+                "sources": self.filter_sources_to_cited(reply_text, all_sources),
+                "needs_clarification": False,
+                "clarification_options": [],
+            },
+            status="answered",
+            response_mode="gemini_rag",
+            rewritten_query=rewritten_query,
+            query_route=query_plan or query_route,
+            retrieved_metadata=retrieved_metadata,
+            retrieval_diagnostics=retrieval_diagnostics,
+            confidence=confidence,
+            query_plan=query_plan,
+        )
 
     def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
         """Generator yielding SSE-formatted strings. Runs all retrieval/routing
@@ -3425,7 +3551,7 @@ Question:
             return
 
         sources = result.get("sources", [])
-        yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'needs_clarification': False, 'clarification_options': []})}\n\n"
+        yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'trace': result.get('trace', {}), 'status': result.get('status', 'answered'), 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
         for chunk in call_gemini_stream(captured["prompt"]):
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
@@ -3580,6 +3706,136 @@ def format_recent_history(recent_history: list[ConversationTurn]) -> str:
         for index, turn in enumerate(recent_history, start=1)
         if turn.get("user") and turn.get("assistant")
     )
+
+
+def utc_timestamp() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def append_chat_log(event: dict) -> None:
+    CHAT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    event.setdefault("id", uuid.uuid4().hex)
+    event.setdefault("timestamp", utc_timestamp())
+    with CHAT_LOG_PATH.open("a", encoding="utf-8") as file:
+        file.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+
+def load_chat_events(limit: Optional[int] = None) -> list[dict]:
+    if not CHAT_LOG_PATH.exists():
+        return []
+
+    events: list[dict] = []
+    with CHAT_LOG_PATH.open("r", encoding="utf-8") as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                events.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+
+    events.sort(key=lambda item: item.get("timestamp", ""), reverse=True)
+    return events[:limit] if limit else events
+
+
+def load_eval_summary() -> dict:
+    if not EVAL_RESULTS_PATH.exists():
+        return {}
+
+    try:
+        with EVAL_RESULTS_PATH.open("r", encoding="utf-8") as file:
+            payload = json.load(file)
+    except json.JSONDecodeError:
+        return {}
+
+    return {
+        "generated_at": payload.get("generated_at", ""),
+        "model": payload.get("model", ""),
+        "summary": payload.get("summary", {}),
+        "problem_cases": [
+            result
+            for result in payload.get("results", [])
+            if result.get("classification", {}).get("answered_question") == "no"
+            or result.get("classification", {}).get("hallucinated") == "yes"
+            or result.get("classification", {}).get("right_citations") == "no"
+        ][:10],
+    }
+
+
+def summarize_chat_event(event: dict) -> dict:
+    trace = event.get("trace", {}) or {}
+    confidence = trace.get("confidence", {}) or {}
+    retrieval_diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+    sources = event.get("sources", []) or []
+    retrieved_metadata = trace.get("retrieved_metadata", []) or []
+
+    summarized = dict(event)
+    summarized["confidence_score"] = confidence.get("score")
+    summarized["is_low_confidence"] = bool(confidence.get("is_low_confidence"))
+    summarized["confidence_reasons"] = confidence.get("reasons", []) or []
+    summarized["source_count"] = len(sources)
+    summarized["retrieved_count"] = len(retrieved_metadata)
+    summarized["top_score"] = retrieval_diagnostics.get("top_score")
+    summarized["status"] = event.get("status") or "answered"
+    summarized["answer"] = event.get("answer") or ""
+    summarized["question"] = event.get("question") or ""
+    return summarized
+
+
+def build_dashboard_payload() -> dict:
+    events = [summarize_chat_event(event) for event in load_chat_events()]
+    source_counts: Counter[str] = Counter()
+    category_counts: Counter[str] = Counter()
+    problem_events: list[dict] = []
+
+    for event in events:
+        trace = event.get("trace", {}) or {}
+        confidence = trace.get("confidence", {}) or {}
+        if (
+            event.get("blocked")
+            or event.get("status") in {"error", "clarification"}
+            or confidence.get("is_low_confidence")
+        ):
+            problem_events.append(event)
+
+        for source in event.get("sources", []) or []:
+            title = source.get("title") or source.get("source_path") or "Unknown source"
+            source_counts[title] += 1
+
+        for metadata in trace.get("retrieved_metadata", []) or []:
+            category = metadata.get("category") or metadata.get("folder_label") or "Uncategorized"
+            category_counts[category] += 1
+
+    stats = {
+        "total": len(events),
+        "blocked": sum(1 for event in events if event.get("blocked")),
+        "clarifications": sum(1 for event in events if event.get("needs_clarification")),
+        "errors": sum(1 for event in events if event.get("status") == "error"),
+        "low_confidence": sum(
+            1
+            for event in events
+            if (event.get("trace", {}) or {}).get("confidence", {}).get("is_low_confidence")
+        ),
+    }
+
+    return {
+        "stats": stats,
+        "chat_history": events[:50],
+        "recent_events": events[:25],
+        "problem_events": problem_events[:12],
+        "source_usage": source_counts.most_common(12),
+        "category_usage": category_counts.most_common(8),
+        "eval": load_eval_summary(),
+        "log_path": str(CHAT_LOG_PATH),
+    }
+
+
+def find_chat_event(event_id: str) -> Optional[dict]:
+    for event in load_chat_events():
+        if event.get("id") == event_id:
+            return summarize_chat_event(event)
+    return None
 
 
 def load_seed_documents() -> list[SourceDocument]:
@@ -3756,17 +4012,43 @@ def create_app() -> Flask:
     def index():
         return render_template("index.html")
 
+    @app.get("/dashboard")
+    def dashboard():
+        return render_template("dashboard.html", dashboard=build_dashboard_payload())
+
+    @app.get("/dashboard/interactions/<event_id>")
+    def dashboard_interaction(event_id: str):
+        event = find_chat_event(event_id)
+        if event is None:
+            return render_template("dashboard_detail.html", event=None), 404
+        return render_template("dashboard_detail.html", event=event)
+
     @app.post("/api/chat")
     def chat():
         payload = request.get_json(silent=True) or {}
         user_message = str(payload.get("message", "")).strip()
         recent_history = payload.get("recent_history", [])
+        request_id = uuid.uuid4().hex
+        started_at = time.perf_counter()
         if not user_message:
             return jsonify({"error": "Message is required."}), 400
 
         sse_headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
 
         if _is_blocked(user_message):
+            append_chat_log(
+                {
+                    "id": request_id,
+                    "question": user_message,
+                    "answer": _REFUSAL,
+                    "latency_ms": round((time.perf_counter() - started_at) * 1000, 2),
+                    "status": "blocked",
+                    "blocked": True,
+                    "needs_clarification": False,
+                    "sources": [],
+                    "trace": {},
+                }
+            )
             def blocked_stream():
                 yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': []})}\n\n"
             return Response(stream_with_context(blocked_stream()), mimetype="text/event-stream", headers=sse_headers)
@@ -3779,15 +4061,67 @@ def create_app() -> Flask:
         ]
 
         def generate():
+            answer_parts: list[str] = []
+            sources: list[dict] = []
+            trace: dict = {}
+            status = "answered"
+            response_mode = ""
+            needs_clarification = False
+            blocked = False
             try:
-                yield from chatbot.answer_stream(user_message, recent_history=safe_recent_history)
+                for event_text in chatbot.answer_stream(user_message, recent_history=safe_recent_history):
+                    for raw_line in event_text.splitlines():
+                        if not raw_line.startswith("data: "):
+                            continue
+                        try:
+                            event_payload = json.loads(raw_line[6:])
+                        except json.JSONDecodeError:
+                            continue
+
+                        if event_payload.get("done"):
+                            answer_parts = [event_payload.get("reply", "")]
+                            sources = event_payload.get("sources", []) or []
+                            trace = event_payload.get("trace", {}) or {}
+                            status = event_payload.get("status") or ("clarification" if event_payload.get("needs_clarification") else "answered")
+                            response_mode = event_payload.get("response_mode", response_mode)
+                            needs_clarification = bool(event_payload.get("needs_clarification", False))
+                            blocked = bool(event_payload.get("blocked", False))
+                        elif event_payload.get("type") == "meta":
+                            sources = event_payload.get("sources", []) or []
+                            trace = event_payload.get("trace", {}) or {}
+                            status = event_payload.get("status", status)
+                            response_mode = event_payload.get("response_mode", response_mode)
+                        elif event_payload.get("type") == "delta":
+                            answer_parts.append(event_payload.get("delta", ""))
+                        elif event_payload.get("type") == "error":
+                            status = "error"
+                            answer_parts = [event_payload.get("error", "")]
+
+                    yield event_text
             except Exception as exc:
                 err_str = str(exc)
                 if any(code in err_str for code in ("503", "UNAVAILABLE", "high demand", "429", "RESOURCE_EXHAUSTED", "quota")):
                     friendly = "The assistant is experiencing high demand right now. Please wait a moment and try again."
                 else:
                     friendly = "Something went wrong while generating a response. Please try again."
+                status = "error"
+                answer_parts = [friendly]
                 yield f"data: {json.dumps({'type': 'error', 'error': friendly})}\n\n"
+            finally:
+                append_chat_log(
+                    {
+                        "id": request_id,
+                        "question": user_message,
+                        "answer": "".join(answer_parts).strip(),
+                        "latency_ms": round((time.perf_counter() - started_at) * 1000, 2),
+                        "status": status,
+                        "response_mode": response_mode,
+                        "blocked": blocked,
+                        "needs_clarification": needs_clarification,
+                        "sources": sources,
+                        "trace": trace,
+                    }
+                )
 
         return Response(stream_with_context(generate()), mimetype="text/event-stream", headers=sse_headers)
 
