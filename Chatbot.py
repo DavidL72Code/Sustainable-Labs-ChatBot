@@ -9,7 +9,7 @@ import os
 import re
 import time
 import uuid
-from collections import Counter
+from collections import Counter, OrderedDict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
@@ -80,6 +80,7 @@ EVAL_RESULTS_PATH = PROJECT_ROOT / "question_eval_results.json"
 
 class RetrievalChatbot:
     MAX_CHROMA_BATCH_SIZE = 5000
+    _QUERY_CACHE_MAX = 128
 
     def __init__(self, llm_callable: LLMCallable, config: Optional[ChatbotConfig] = None) -> None:
         self.config = config or ChatbotConfig()
@@ -92,6 +93,7 @@ class RetrievalChatbot:
         self.entity_registry: list[dict] = []
         self.bm25_idf: dict[str, float] = {}
         self.avg_document_length: float = 0.0
+        self._query_cache: OrderedDict[str, dict] = OrderedDict()
         self.refresh_search_index()
 
     def _get_or_create_collection(self) -> Collection:
@@ -1203,16 +1205,17 @@ class RetrievalChatbot:
             entity_type = metadata.get("entity_type", "")
             chunk_index = metadata.get("chunk_index", "?")
             chunk_level = metadata.get("chunk_level", "detail")
-            context_blocks.append(
-                f"Title: {title}\n"
-                f"Source URL: {source_url}\n"
-                f"Source Path: {source_path}\n"
-                f"Section Name: {section_name or 'N/A'}\n"
-                f"Entity Type: {entity_type or 'N/A'}\n"
-                f"Chunk Level: {chunk_level}\n"
-                f"Chunk Index: {chunk_index}\n\n"
-                f"{chunk_text}"
-            )
+            header_parts = [
+                f"Title: {title}",
+                f"Source URL: {source_url}",
+                f"Source Path: {source_path}",
+            ]
+            if section_name:
+                header_parts.append(f"Section Name: {section_name}")
+            if entity_type:
+                header_parts.append(f"Entity Type: {entity_type}")
+            header_parts += [f"Chunk Level: {chunk_level}", f"Chunk Index: {chunk_index}"]
+            context_blocks.append("\n".join(header_parts) + "\n\n" + chunk_text)
             metadata_blocks.append(metadata)
 
         distinct_source_count = len(
@@ -3534,6 +3537,14 @@ Question:
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
+        # Cache only single-turn queries (follow-ups depend on history context)
+        _cache_key = user_message.lower().strip() if not recent_history else None
+        if _cache_key and _cache_key in self._query_cache:
+            cached = self._query_cache[_cache_key]
+            self._query_cache.move_to_end(_cache_key)
+            yield f"data: {json.dumps({**cached, 'done': True})}\n\n"
+            return
+
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
             return _sentinel
@@ -3553,18 +3564,29 @@ Question:
         sources = result.get("sources", [])
         yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'trace': result.get('trace', {}), 'status': result.get('status', 'answered'), 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
-
         full_answer_parts: list[str] = []
         for chunk in call_gemini_stream(captured["prompt"]):
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
             full_answer_parts.append(chunk)
 
         full_answer = "".join(full_answer_parts)
+
+        # Send done immediately so the user can interact; suggestions follow after
+        yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
+        if _cache_key:
+            if len(self._query_cache) >= self._QUERY_CACHE_MAX:
+                self._query_cache.popitem(last=False)
+            self._query_cache[_cache_key] = {
+                "reply": full_answer,
+                "sources": sources,
+                "needs_clarification": False,
+                "clarification_options": [],
+            }
+
         suggestions = self.generate_suggestions(user_message, full_answer)
         if suggestions:
             yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
-
-        yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:

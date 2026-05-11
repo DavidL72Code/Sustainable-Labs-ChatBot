@@ -412,6 +412,10 @@ async function submitMessageFlow(message, displayMessage = message) {
         streaming.addChunk(event.delta);
       } else if (event.type === "suggestions") {
         pendingSuggestions = event.suggestions || [];
+        // Suggestions arrive after done — render immediately if message is finalized
+        if (!streaming && pendingSuggestions.length > 0) {
+          renderSuggestions(pendingSuggestions, chatMessages.lastElementChild);
+        }
       } else if (event.type === "done") {
         if (streaming) {
           fullReply = streaming.finalize(pendingSources);
@@ -419,9 +423,6 @@ async function submitMessageFlow(message, displayMessage = message) {
           recentHistory.push({ user: message, assistant: fullReply });
           if (recentHistory.length > recentHistoryWindow) {
             recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
-          }
-          if (pendingSuggestions.length > 0) {
-            renderSuggestions(pendingSuggestions, chatMessages.lastElementChild);
           }
         }
       } else if (event.type === "error") {
