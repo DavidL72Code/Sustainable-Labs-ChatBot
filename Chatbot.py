@@ -3571,7 +3571,6 @@ Question:
 
         full_answer = "".join(full_answer_parts)
 
-        # Send done immediately so the user can interact; suggestions follow after
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
         if _cache_key:
@@ -3583,10 +3582,6 @@ Question:
                 "needs_clarification": False,
                 "clarification_options": [],
             }
-
-        suggestions = self.generate_suggestions(user_message, full_answer)
-        if suggestions:
-            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
@@ -4180,6 +4175,18 @@ def create_app() -> Flask:
                 )
 
         return Response(stream_with_context(generate()), mimetype="text/event-stream", headers=sse_headers)
+
+    @app.post("/api/suggestions")
+    def suggestions():
+        payload = request.get_json(silent=True) or {}
+        message = str(payload.get("message", "")).strip()
+        answer = str(payload.get("answer", "")).strip()
+        if not message or not answer:
+            return jsonify({"suggestions": []})
+        try:
+            return jsonify({"suggestions": chatbot.generate_suggestions(message, answer)})
+        except Exception:
+            return jsonify({"suggestions": []})
 
     return app
 
