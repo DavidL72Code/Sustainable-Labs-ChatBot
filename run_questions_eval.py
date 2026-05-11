@@ -338,14 +338,16 @@ def gemini_call_with_retry(prompt: str, *, model: str | None = None, temperature
             return response
         except Exception as exc:
             error_text = str(exc)
-            if "429" not in error_text and "quota" not in error_text.lower():
+            lowered_error = error_text.lower()
+            transient_markers = ("429", "quota", "503", "unavailable", "500", "internal error", "deadline", "timeout")
+            if not any(marker in lowered_error for marker in transient_markers):
                 raise
 
             if attempt == max_attempts:
                 raise
 
             delay_seconds = extract_retry_delay_seconds(error_text) + 2.0
-            print(f"Rate limit hit. Sleeping {delay_seconds:.1f}s before retry {attempt + 1}/{max_attempts}...")
+            print(f"Transient API error ({error_text[:80]}). Sleeping {delay_seconds:.1f}s before retry {attempt + 1}/{max_attempts}...", flush=True)
             time.sleep(delay_seconds)
 
     raise RuntimeError("Gemini call retry loop exited unexpectedly.")
