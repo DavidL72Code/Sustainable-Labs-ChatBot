@@ -124,6 +124,13 @@
     </article>
   </template>
 
+  <template id="suggestionsTemplate">
+    <div class="suggestion-chips" role="navigation" aria-label="Suggested follow-up questions">
+      <p class="suggestion-chips-label">You might also want to ask</p>
+      <div class="suggestion-chips-list"></div>
+    </div>
+  </template>
+  
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
