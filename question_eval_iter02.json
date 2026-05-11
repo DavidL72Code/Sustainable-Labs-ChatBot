@@ -1,0 +1,1712 @@
+{
+  "generated_at": "2026-05-10T21:32:28.147809+00:00",
+  "model": "gemini-3.1-flash-lite-preview",
+  "question_file": "questions.json",
+  "summary": {
+    "total_cases": 26,
+    "average_scores": {
+      "clarity": 4.88,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.46,
+      "citations": 4.42
+    },
+    "classification_counts": {
+      "answered_yes": 24,
+      "answered_no": 2,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 25,
+      "right_citations_yes": 25,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "broad_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) at UMass Boston is an applied research and action institute that works at the intersection of climate and equity [1], [2]. It transforms the climate research and action space by bridging sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities [3], [7].\n\nThe mission of the SSL is to:\n* Understand the disproportionate impacts of climate change on marginalized communities [1].\n* Partner with those communities to develop equitable and sustainable solutions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 3,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 4,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Contact Us",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CHANCELLOR QUOTE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 6,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        },
+        {
+          "citation": 7,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Contact Us",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately defines the Sustainable Solutions Lab and its mission using the provided corpus. The citations are correctly mapped to the relevant source documents."
+    },
+    {
+      "id": "broad_002",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What does SSL do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]\n3. Drive Equitable Climate Adaptation [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately summarizes the 'What We Do' section of the provided corpus and correctly cites the source."
+    },
+    {
+      "id": "broad_003",
+      "kind": "single_turn",
+      "type": "broad_listing",
+      "question": "What are the major projects or initiatives SSL is currently working on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [2]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [3]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [4]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [5]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies and summarizes the five projects listed in the provided corpus and correctly cites the source document."
+    },
+    {
+      "id": "broad_004",
+      "kind": "single_turn",
+      "type": "broad_listing",
+      "question": "Give me an overview of the people involved with SSL, including staff, affiliates, students, and board members.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Here is an overview of the people involved with SSL across the requested groups:\n- Staff: 5 people, including B. R. Balachandran, Rosalyn Negron, Gabriela Boscio, Rajini Srikanth, and 1 more [1]\n- Affiliates: 21 people, including Patricio Belloy, Johnna Flahive, Cassandre Rey-Thibault, Ante Iv\u010devi\u0107, and 17 more [2]\n- Students and Interns: 12 people, including Nyingilanyeofori Hannah Brown, Levente \u201cLevi\u201d Mezo, Vishal Verma, Grace Derboghossian, and 8 more [3]\n- Board Members: 9 people, including Kalila Barnett, Gabriel Cira, Tim Cronin, Caleb Dresser, and 5 more [4]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        },
+        {
+          "citation": 3,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        },
+        {
+          "citation": 4,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to include the UniversityAffiliates.txt source in its citations and provided an inaccurate count for the number of affiliates."
+    },
+    {
+      "id": "specific_001",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is the Executive Director of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "B. R. Balachandran is SSL's Executive Director. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "specific_002",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where is SSL located and how can someone contact the lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately provides the location and contact email found in the provided corpus and correctly cites the source."
+    },
+    {
+      "id": "specific_003",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are the three main themes of the Climate Inequality and Integrative Resilience Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Inequality and Integrative Resilience (CLIIR) Initiative focuses on the following three main themes:\n\n*   Indigenous Knowledge and Governance [1, 7]\n*   Climate Migration [1, 7]\n*   Climate Change and Health [1, 7]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 6,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 7,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three themes as stated in the provided corpus."
+    },
+    {
+      "id": "specific_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who leads the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project is led by Carlos Vel\u00e1squez, who is a PhD candidate at UMass Boston and a project manager at MassDOT [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 6,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 7,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "specific_005",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [2]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [3]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [4]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [5]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided a general list of all SSL projects instead of answering the specific question regarding the benefits of joining the Northeast Climate Justice Research Collaborative, which were explicitly listed in the corpus."
+    },
+    {
+      "id": "specific_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many microcredentialed programs does the Climate Careers Curricula Initiative plan to develop, and over what time period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) plans to develop six microcredentialed programs over a period of three years [1], [5].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 4
+        },
+        {
+          "citation": 6,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        },
+        {
+          "citation": 7,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "specific_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is Sarah Mayorga and what does she say about her work with SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Sarah Mayorga is an Associate Professor of Sociology at Brandeis University and a member of the Northeast Climate Justice Research Collaborative [1, 3, 5].\n\nRegarding her work with SSL, she values the opportunity to be both an expert and a novice [1, 3]. She notes that her training and research are valued, providing space for curiosity and further exploration, which has allowed her to pose questions that bring together climate change and racial justice in new ways [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 3
+        },
+        {
+          "citation": 2,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        },
+        {
+          "citation": 3,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 28
+        },
+        {
+          "citation": 4,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 27
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly addresses the prompt. It correctly identifies the primary source, though it includes additional citations from the annual report that were not strictly necessary for this specific fact."
+    },
+    {
+      "id": "specific_008",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Patricio Belloy focus on in his research and practice?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy\nBio: My research and practice explore how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production. Formerly, I assisted SSL\u2019s work on climate resilience, co-authoring reports that intersect issues of housing, state and municipal action, and equity. Currently, I am an Assistant Professor at the Institute of Economics at Universidad Austral de Chile. I hold a PhD and an MSc in Public Policy from UMass Boston, and an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland.\nLinkedIn https://www.linkedin.com/in/patricio-belloy-19b165223/ [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and professional. It correctly summarizes his research interests from the bio provided in the corpus, though it missed the explicit 'Focus' bullet points (e.g., 'Equitable climate resilience') listed in the source text."
+    },
+    {
+      "id": "specific_009",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is Kalila Barnett and what is her role outside of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Kalila Barnett\nProgram Officer of Climate Resilience at the Barr Foundation\n\nKalila joined Barr as the Climate Resilience Program Officer in 2018. Kalila has over a decade of experience in community organizing around affordable housing, land development, and environmental justice. She served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years. Before joining ACE in 2009, she worked as a Senior Organizer at Community Labor United. Kalila has a Bachelor's degree from Bates College, where she studied American Studies and Spanish, and a Master of Public Policy from the Urban and Environmental Policy and Planning School at Tufts University. Kalila currently lives in Roslindale and enjoys walking in the Arboretum, listening to podcasts, and cooking for friends. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Kalila Barnett and details her professional roles outside of SSL using the provided corpus."
+    },
+    {
+      "id": "specific_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Which university affiliate focuses on public health and social determinants of health inequities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorena Estrada-Martinez is the university affiliate whose expertise includes public health and social determinants of health inequities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Lorena Estrada-Martinez",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Kerrie Wilkins",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 3,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Lorna Rivera",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 4,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE PARTNERSHIPS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 6,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH AWARDS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2
+        },
+        {
+          "citation": 7,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Jessica Whiteley",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Lorena Estrada-Martinez and her expertise as stated in the provided corpus."
+    },
+    {
+      "id": "specific_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "I found 1 people or entities in the matched corpus scope.\n\n1. Jennifer Friedrich [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant identified the wrong student. Vishal Verma is the student explicitly linked to the 'MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts' in the corpus. Jennifer Friedrich is working on a different rail project."
+    },
+    {
+      "id": "specific_012",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How did SSL describe its mission in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "SSL described its mission this way:\n1) Understand the disproportionate impacts of climate change on marginalized communities\n2) Partner with them to develop equitable and sustainable solutions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately retrieved and quoted the mission statement directly from the provided annual report."
+    },
+    {
+      "id": "list_001",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the named SSL projects and initiatives mentioned in the source materials.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [2]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [3]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [4]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [5]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 3,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 4,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified and listed all five projects and initiatives mentioned in the source document, providing clear descriptions and correct citations for each."
+    },
+    {
+      "id": "list_002",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the main categories of work SSL says it does.",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]\n3. Drive Equitable Climate Adaptation [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the three main categories of work directly from the 'What We Do' section of the provided source document."
+    },
+    {
+      "id": "list_003",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "Name several members of the External Advisory Board and their roles.",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "I found 9 board members in the matched corpus scope.\n\n1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [2]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [3]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [4]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [5]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [6]\n7. Amy Kort\u00e9 \u2014 President, Arrowstreet [7]\n8. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [8]\n9. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [9]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 2,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 3,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 4,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 5,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 6,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 7,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 8,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 9,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified the board members and their respective roles as listed in the provided corpus."
+    },
+    {
+      "id": "list_004",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "List the publication source documents you can identify from the Publications folder.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 15 publication source documents in the matched corpus scope.\n\n1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "citation": 2,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "citation": 5,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "citation": 6,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "citation": 9,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 10,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "citation": 11,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "citation": 12,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "citation": 13,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "citation": 14,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "citation": 15,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately enumerated all 15 documents present in the specified Publications folder."
+    },
+    {
+      "id": "followup_001",
+      "kind": "multi_turn",
+      "type": "follow_up_projects",
+      "question": "Which one involves rail infrastructure?",
+      "conversation": [
+        {
+          "user": "What projects or initiatives is SSL currently working on?",
+          "assistant": "The Sustainable Solutions Lab (SSL) is currently working on several initiatives and research projects, including:\n\n*   **Northeast Climate Justice Research Collaborative:** Launched in Spring 2022, this is a trans-disciplinary network for academic and community researchers focused on advancing practices and policies that ensure historically excluded communities remain safe and healthy amidst climate change [1, 7]. The Collaborative also hosts training sessions for members, such as workshops on policy brief writing and connecting with decision-makers [7].\n*   **CLIIR Initiative:** The Climate Inequality and Integrative Modeling, Systems Dynamics, and Decision-Resilience (CLIIR) Initiative was launched in 2023 [3].\n*   **Honors College Course:** In collaboration with the Office of Campus Planning and Sustainability, SSL helped design and launch an interdisciplinary Honors College course in Spring 2025 titled \"Unraveling Sustainability: Can We Have It All?\" [3].\n*   **Diverse Research Projects:** SSL supports various faculty and student-led research projects, including:\n    *   Studies on Traditional Ecological Knowledge and climate change adaptations among Indigenous peoples [6].\n    *   Research into the association between climate change and mental health, heat adaptation needs for BIPOC and low-income residents, and birth outcomes in environmental justice communities [4, 8].\n    *   Analyses of racial inequities in waterfront development policies and climate adaptation planning [4, 8].\n    *   Investigations into the climate crisis's impact on housing, as well as climate change effects on older adults [6, 8]."
+        },
+        {
+          "user": "Explain them in one sentence each.",
+          "assistant": "I do not have enough information in the provided retrieved context to explain the Northeast Climate Justice Research Collaborative, the CLIIR Initiative, or the Honors College course."
+        },
+        {
+          "user": "Which one involves rail infrastructure?",
+          "assistant": "The project that involves rail infrastructure is the Cape Cod Rail Resilience Project [1]. This initiative, which is also referred to as \"Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod,\" aims to improve rail safety and climate resilience along the Cape Main Line [1, 3]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The project that involves rail infrastructure is the Cape Cod Rail Resilience Project [1]. This initiative, which is also referred to as \"Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod,\" aims to improve rail safety and climate resilience along the Cape Main Line [1, 3].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "THOUGHT LEADERSHIP",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 3,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Jennifer Friedrich",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 4,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SPECIAL THANKS TO OUR PARTNERS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 6,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SEED GRANT WINNER",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 7,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 8,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SUPPORT SSL / SUPPORT CLIMATE JUSTICE",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the project from the corpus. It includes an unnecessary and irrelevant citation [3] alongside the correct source [1]."
+    },
+    {
+      "id": "followup_002",
+      "kind": "multi_turn",
+      "type": "follow_up_board",
+      "question": "Who else on the board works on climate resilience?",
+      "conversation": [
+        {
+          "user": "Who is on the SSL External Advisory Board?",
+          "assistant": "I do not have enough information to provide a list of members for an \"External Advisory Board.\" \n\nHowever, the provided documents mention that Isabella M. Gambill serves on the Sustainable Solutions Lab Board [7]."
+        },
+        {
+          "user": "Tell me more about Gabriel Cira.",
+          "assistant": "I found 9 board members in the matched corpus scope.\n\n1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [2]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [3]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [4]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [5]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [6]\n7. Amy Kort\u00e9 \u2014 President, Arrowstreet [7]\n8. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [8]\n9. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [9]"
+        },
+        {
+          "user": "Who else on the board works on climate resilience?",
+          "assistant": "I found 4 board members in the matched corpus scope.\n\n1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [2]\n3. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [3]\n4. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [4]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "I found 4 board members in the matched corpus scope.\n\n1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [2]\n3. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [3]\n4. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [4]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 2,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 3,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 4,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is incomplete. It missed Tim Cronin and Caleb Dresser, who are explicitly linked to climate resilience in the corpus, while including Jen Stevenson Zepeda, whose link to 'climate resilience' is not explicitly stated in the text."
+    },
+    {
+      "id": "followup_003",
+      "kind": "multi_turn",
+      "type": "follow_up_students",
+      "question": "What is that person's research background?",
+      "conversation": [
+        {
+          "user": "Who are the students and interns involved with SSL?",
+          "assistant": "I found 12 people or entities in the matched corpus scope.\n\n1. Nyingilanyeofori Hannah Brown [1]\n2. Levente \u201cLevi\u201d Mezo [2]\n3. Vishal Verma [3]\n4. Grace Derboghossian [4]\n5. Johnna Flahive [5]\n6. Jennifer Friedrich [6]\n7. Nick Johnson [7]\n8. Anna Matviichuk [8]\n9. Ashley Miranda Smith [9]\n10. Chidimma Ozor Commer [10]\n11. Katsyris Rivera Kientz [11]\n12. Isa Kelawili Whalen [12]"
+        },
+        {
+          "user": "Which of them works on the MassDOT rail resilience project?",
+          "assistant": "I found 1 people or entities in the matched corpus scope.\n\n1. Jennifer Friedrich [1]"
+        },
+        {
+          "user": "What is that person's research background?",
+          "assistant": "Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement. She is an artist and designer with a Bachelor\u2019s of Art (Magna Cum Laude) from Umass Boston. She is a director of the Marshfield Agricultural and Horticultural Society, and has served on town boards and committees. Currently she is a Graduate Research Assistant for \u201cImproving Rail Safety, Efficiency and Climate Resilience on Cape Cod\u201d working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. Jennifer derived early experience through the University of Massachusetts Cranberry Station as well as one of the largest open space landowners in the state. Jennifer enjoys live experiences, music, skiing and spending time with her blended family of five. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement. She is an artist and designer with a Bachelor\u2019s of Art (Magna Cum Laude) from Umass Boston. She is a director of the Marshfield Agricultural and Horticultural Society, and has served on town boards and committees. Currently she is a Graduate Research Assistant for \u201cImproving Rail Safety, Efficiency and Climate Resilience on Cape Cod\u201d working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. Jennifer derived early experience through the University of Massachusetts Cranberry Station as well as one of the largest open space landowners in the state. Jennifer enjoys live experiences, music, skiing and spending time with her blended family of five. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is a direct and accurate extraction from the provided corpus, correctly identifying the research background of the individual."
+    },
+    {
+      "id": "followup_004",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates",
+      "question": "Tell me more about one of those people.",
+      "conversation": [
+        {
+          "user": "Name some SSL university affiliates.",
+          "assistant": "Some university affiliates of the Sustainable Solutions Lab (SSL) include:\n\n**Faculty Affiliates:**\n* Leyla D. Brown-Vincent [2]\n* Kathrin Boerner [2]\n* Camille Curtis Martinez [2]\n* Lorena Estrada-Martinez [2]\n* Keren Horn [2]\n* Maria H. Ivanova [2]\n* Michael Johnson [2]\n* Paul Kirshen [2]\n* Jose G. Martinez-Reyes [2]\n* Amit Patel [2]\n* Antonio Raciti [2]\n* Kenneth Reardon [2]\n* Lorna Rivera [2], [3]\n* Eduardo Siqueira [3]\n* Elizabeth L. Sweet [3]\n* Fabian Torres-Ardila [3]\n* Paul Watanabe [3]\n* Alan G. Wiig [3]\n* Yijia (Eddy) Zhao [3]\n\n**Other University Affiliates:**\n* Denise Patmon [7]\n* Jessica Whiteley [8]"
+        },
+        {
+          "user": "Which of them focus on public health or health equity?",
+          "assistant": "I found 5 affiliates in the matched corpus scope.\n\n1. Lorena Estrada-Martinez \u2014 Associate Professor [1]\n2. Michael Johnson \u2014 Special Assistant to the Chancellor [2]\n3. Lorna Rivera \u2014 Director, Gaston Institute [3]\n4. Jessica Whiteley \u2014 Senior Associate Dean [4]\n5. Kerrie Wilkins \u2014 Graduate Program Director/Associate Professor [5]"
+        },
+        {
+          "user": "Tell me more about one of those people.",
+          "assistant": "Lorena Estrada-Martinez\nTitle: Associate Professor\nEmail: Lorena.Estrada@umb.edu\nExpertise: Public health, social determinants of health inequities, Latino and immigrant... [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorena Estrada-Martinez\nTitle: Associate Professor\nEmail: Lorena.Estrada@umb.edu\nExpertise: Public health, social determinants of health inequities, Latino and immigrant... [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus for the selected individual."
+    },
+    {
+      "id": "followup_005",
+      "kind": "multi_turn",
+      "type": "follow_up_about",
+      "question": "How can I contact them?",
+      "conversation": [
+        {
+          "user": "What does SSL do?",
+          "assistant": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]\n3. Drive Equitable Climate Adaptation [1]"
+        },
+        {
+          "user": "Where is it located?",
+          "assistant": "The Sustainable Solutions Lab is located at UMass Boston, in the Healey Library on the 10th floor, room 13 [5]."
+        },
+        {
+          "user": "How can I contact them?",
+          "assistant": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately provides the general contact information found in the corpus. It is clear and professional."
+    },
+    {
+      "id": "followup_006",
+      "kind": "multi_turn",
+      "type": "follow_up_publications",
+      "question": "How many publication source documents are there in the corpus?",
+      "conversation": [
+        {
+          "user": "List the publication source documents you can identify from SSL's Publications materials.",
+          "assistant": "I found 15 publication source documents in the matched corpus scope.\n\n1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        },
+        {
+          "user": "Name all of them.",
+          "assistant": "Based on the publication source documents identified in the Sustainable Labs (SSL) materials, here are the 15 titles:\n\n1. Community-Led Climate Preparedness and Resilience in Boston: New"
+        },
+        {
+          "user": "How many publication source documents are there in the corpus?",
+          "assistant": "I found 15 publication source documents in the matched corpus scope.\n\n1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 15 publication source documents in the matched corpus scope.\n\n1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "citation": 2,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "citation": 5,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "citation": 6,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "citation": 9,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 10,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "citation": 11,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "citation": 12,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "citation": 13,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "citation": 14,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "citation": 15,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the total count of 15 documents and accurately listed all files present in the provided corpus directory."
+    }
+  ]
+}

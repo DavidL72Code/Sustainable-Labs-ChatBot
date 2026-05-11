@@ -8,20 +8,50 @@ const statusDot = document.querySelector(".status-dot");
 const sidebarList = document.getElementById("sidebarList");
 let messageCounter = 0;
 
+function assistantLabelMarkup(label) {
+  return `
+    <span class="assistant-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </span>
+    ${escapeHtml(label)}
+  `;
+}
+
 function addSidebarEntry(text, messageId) {
+  if (!sidebarList) return null;
+
   const empty = sidebarList.querySelector(".sidebar-empty");
   if (empty) empty.remove();
 
   const item = document.createElement("li");
   item.className = "sidebar-item";
-  item.title = text;
-  item.textContent = text;
-  item.addEventListener("click", () => {
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "sidebar-link";
+  button.title = text;
+  button.textContent = text;
+  button.addEventListener("click", () => {
     const target = document.getElementById(messageId);
     if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-  sidebarList.appendChild(item);
+
+  item.appendChild(button);
+  sidebarList.prepend(item);
+
+  const items = sidebarList.querySelectorAll(".sidebar-item");
+  if (items.length > 10) {
+    items[items.length - 1].remove();
+  }
+
   return item;
+}
+
+function setStatus(processing) {
+  if (!statusDot) return;
+  statusDot.classList.toggle("processing", processing);
 }
 
 const recentHistory = [];
@@ -132,9 +162,26 @@ function buildSourcesNode(sources) {
 }
 
 function buildClarificationReply(option, originalQuestion) {
-  const trimmedQuestion = (originalQuestion || "").trim();
-  if (!trimmedQuestion) return option;
-  return `Regarding my earlier question "${trimmedQuestion}", I meant ${option}.`;
+  const opt = (option || "").trim();
+  const q = (originalQuestion || "").trim();
+  if (!opt) return q;
+  if (!q) return `Tell me more about ${opt}.`;
+
+  const lowerQuestion = q.toLowerCase();
+  const optHasProjectWord = /\b(project|initiative|program)\b/i.test(opt);
+  const replacement =
+    /\b(project|initiative|program)\b/.test(lowerQuestion) && !optHasProjectWord
+      ? `the ${opt} project`
+      : opt;
+
+  if (/\bthis project\b/i.test(q)) return q.replace(/\bthis project\b/gi, replacement);
+  if (/\bthat project\b/i.test(q)) return q.replace(/\bthat project\b/gi, replacement);
+  if (/\bthis initiative\b/i.test(q)) return q.replace(/\bthis initiative\b/gi, replacement);
+  if (/\bthat initiative\b/i.test(q)) return q.replace(/\bthat initiative\b/gi, replacement);
+  if (/\bthis program\b/i.test(q)) return q.replace(/\bthis program\b/gi, replacement);
+  if (/\bthat program\b/i.test(q)) return q.replace(/\bthat program\b/gi, replacement);
+
+  return `Regarding my earlier question "${q}", I meant ${replacement}.`;
 }
 
 function appendMessage(role, label, content, sources = [], clarificationOptions = [], clarificationFor = "", onOptionSelect = null) {
@@ -152,8 +199,7 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
     sidebarItem = addSidebarEntry(content, id);
   }
   if (role === "assistant") {
-    const iconSvg = `<span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>`;
-    labelNode.innerHTML = iconSvg + label;
+    labelNode.innerHTML = assistantLabelMarkup(label);
   } else {
     labelNode.textContent = label;
   }
@@ -200,8 +246,7 @@ function appendStreamingBubble(label) {
   const bubbleNode = fragment.querySelector(".message-bubble");
 
   messageNode.classList.add("assistant");
-  const iconSvg = `<span class="assistant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>`;
-  labelNode.innerHTML = iconSvg + label;
+  labelNode.innerHTML = assistantLabelMarkup(label);
   bubbleNode.textContent = "";
 
   chatMessages.appendChild(fragment);
@@ -273,6 +318,8 @@ async function streamMessage(message, onEvent) {
 }
 
 function restoreSidebarPlaceholder() {
+  if (!sidebarList) return;
+
   if (!sidebarList.querySelector(".sidebar-item")) {
     const empty = document.createElement("li");
     empty.className = "sidebar-empty";
@@ -293,7 +340,7 @@ async function submitMessageFlow(message, displayMessage = message) {
   sendButton.disabled = true;
 
   let loadingNode = appendLoading();
-  statusDot.classList.add("processing");
+  setStatus(true);
 
   let streaming = null;
   let pendingSources = [];
@@ -358,7 +405,7 @@ async function submitMessageFlow(message, displayMessage = message) {
     if (streaming) { streaming.finalize([]); streaming = null; }
     appendMessage("assistant", "Sustainable Labs", error.message);
   } finally {
-    statusDot.classList.remove("processing");
+    setStatus(false);
     sendButton.disabled = false;
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }

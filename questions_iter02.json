@@ -1,0 +1,191 @@
+{
+  "single_turn": [
+    {
+      "id": "iter02_broad_001",
+      "type": "broad_overview_paraphrase",
+      "question": "In plain terms, what is SSL's purpose and what communities does its work center?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "iter02_broad_002",
+      "type": "section_listing_paraphrase",
+      "question": "What are the three categories SSL uses to describe what it does?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt"]
+    },
+    {
+      "id": "iter02_project_001",
+      "type": "specific_fact_paraphrase",
+      "question": "What does someone gain access to if they join the Northeast Climate Justice Research Collaborative?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "iter02_project_002",
+      "type": "specific_fact_paraphrase",
+      "question": "Which SSL initiative is tied to blue and green job training, and what participant group is it meant to serve?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "iter02_project_003",
+      "type": "specific_fact_paraphrase",
+      "question": "Who leads the rail resilience work on Cape Cod, and what event helped motivate that project?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "iter02_people_001",
+      "type": "people_lookup_paraphrase",
+      "question": "Who is B. R. Balachandran in relation to SSL?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "iter02_people_002",
+      "type": "people_lookup_paraphrase",
+      "question": "Which SSL student has a background in environmental economics, GIS analysis, remote sensing, and climate adaptation?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "iter02_people_003",
+      "type": "people_lookup_paraphrase",
+      "question": "Which affiliate's expertise includes public health and social determinants of health inequities?",
+      "target_sources": ["SEED_DOCUMENTS/UniversityAffiliates.txt"]
+    },
+    {
+      "id": "iter02_board_001",
+      "type": "people_lookup_paraphrase",
+      "question": "What outside role does Caleb Dresser hold, and what does his research focus on?",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "iter02_contact_001",
+      "type": "contact_paraphrase",
+      "question": "What email address and office location should someone use to reach SSL?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "iter02_inventory_001",
+      "type": "publication_inventory_paraphrase",
+      "question": "Count only the files in the Publications folder. How many publication source documents are there?",
+      "target_sources": ["SEED_DOCUMENTS/Publications"]
+    },
+    {
+      "id": "iter02_inventory_002",
+      "type": "report_inventory_contrast",
+      "question": "How many annual report source documents are in the Annual Reports folder?",
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports"]
+    },
+    {
+      "id": "iter02_broad_003",
+      "type": "broad_listing_paraphrase",
+      "question": "Give an overview of the people connected to SSL across staff, university affiliates, students, and board members.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "iter02_specific_001",
+      "type": "specific_fact_paraphrase",
+      "question": "Who currently serves as the Executive Director of the Sustainable Solutions Lab?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "iter02_specific_003",
+      "type": "specific_fact_paraphrase",
+      "question": "What three themes structure SSL's Climate Inequality and Integrative Resilience Initiative?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "iter02_specific_007",
+      "type": "specific_fact_paraphrase",
+      "question": "Who is Sarah Mayorga, and how does she describe her involvement with SSL?",
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt"]
+    },
+    {
+      "id": "iter02_specific_008",
+      "type": "specific_fact_paraphrase",
+      "question": "What does Patricio Belloy focus on in his research and practice at SSL?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "iter02_specific_009",
+      "type": "specific_fact_paraphrase",
+      "question": "Who is Kalila Barnett, and what role does she hold outside of SSL?",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "iter02_specific_012",
+      "type": "specific_fact_paraphrase",
+      "question": "How was SSL's mission characterized in the 2020-21 year-in-review?",
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "iter02_list_003",
+      "type": "enumeration_paraphrase",
+      "question": "Identify several members of SSL's External Advisory Board along with the roles they hold.",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "iter02_followup_projects_001",
+      "type": "follow_up_projects_paraphrase",
+      "turns": [
+        "List SSL's named projects and initiatives.",
+        "Which of those is about workforce training?",
+        "How many microcredentialed programs does it plan to develop?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "iter02_followup_students_001",
+      "type": "follow_up_students_paraphrase",
+      "turns": [
+        "Which student works on the MassDOT train line safety and resilience project?",
+        "What is that student's academic background?",
+        "Who supervises that student?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "iter02_followup_board_001",
+      "type": "follow_up_board_paraphrase",
+      "turns": [
+        "Name members of SSL's External Advisory Board.",
+        "Tell me more about Caleb Dresser.",
+        "What health-related climate work is he connected to?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "iter02_followup_publications_001",
+      "type": "follow_up_publications_paraphrase",
+      "turns": [
+        "Show me the publication source documents from SSL's Publications folder.",
+        "Do not include annual reports.",
+        "How many are left?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Publications"]
+    },
+    {
+      "id": "iter02_followup_about_001",
+      "type": "follow_up_about_paraphrase",
+      "turns": [
+        "What does SSL say it does?",
+        "Where can someone find the lab?",
+        "What email should they use?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/SSLAbout.txt", "SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "iter02_followup_affiliates_001",
+      "type": "follow_up_affiliates_paraphrase",
+      "turns": [
+        "Who are some of SSL's university affiliates?",
+        "Of those, who works on public health or health-equity research?",
+        "Tell me more about one of those affiliates."
+      ],
+      "target_sources": ["SEED_DOCUMENTS/UniversityAffiliates.txt"]
+    }
+  ]
+}
