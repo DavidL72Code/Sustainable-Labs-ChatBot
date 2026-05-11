@@ -7,6 +7,7 @@ import math
 import json
 import os
 import re
+import threading
 import time
 import uuid
 from collections import Counter, OrderedDict
@@ -3535,6 +3536,19 @@ Question:
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
+        # Start generating suggestions concurrently — runs while the main answer streams
+        _suggestions: list[str] = []
+        _sug_ready = threading.Event()
+
+        def _run_suggestions() -> None:
+            try:
+                _suggestions.extend(self.generate_suggestions(user_message))
+            except Exception:
+                pass
+            _sug_ready.set()
+
+        threading.Thread(target=_run_suggestions, daemon=True).start()
+
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
             return _sentinel
@@ -3559,13 +3573,12 @@ Question:
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
             full_answer_parts.append(chunk)
 
-        full_answer = "".join(full_answer_parts)
-
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
-        suggestions = self.generate_suggestions(user_message, full_answer)
-        if suggestions:
-            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
+        # Suggestions started ~answer_duration ago — usually already done, wait briefly
+        _sug_ready.wait(timeout=12)
+        if _suggestions:
+            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': _suggestions})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
@@ -3657,14 +3670,13 @@ Question:
         return sources
     
 
-    def generate_suggestions(self, user_message: str, answer: str) -> list[str]:
-        """Make a second LLM call to generate 3 follow-up question suggestions."""
+    def generate_suggestions(self, user_message: str, answer: str = "") -> list[str]:
+        answer_section = f"The chatbot answered:\n{answer}\n\n" if answer else ""
         prompt = (
             "A user asked a chatbot about the Sustainable Solutions Lab (SSL) this question:\n\n"
             f"Question: {user_message}\n\n"
-            f"The chatbot answered:\n{answer}\n\n"
-            "Based on the question and answer, suggest exactly 3 short follow-up questions "
-            "a new user might want to explore next.\n"
+            f"{answer_section}"
+            "Suggest exactly 3 short follow-up questions a new user might want to explore next.\n"
             "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
             "Return ONLY a valid JSON array of 3 strings. No preamble, no markdown fences.\n"
             'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
