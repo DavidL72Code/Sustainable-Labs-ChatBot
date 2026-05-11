@@ -3152,10 +3152,19 @@ Question:
         sources = result.get("sources", [])
         yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
+
+        full_answer_parts: list[str] = []
         for chunk in call_gemini_stream(captured["prompt"]):
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
+            full_answer_parts.append(chunk)
+
+        full_answer = "".join(full_answer_parts)
+        suggestions = self.generate_suggestions(user_message, full_answer)
+        if suggestions:
+            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
         if not query_route:
