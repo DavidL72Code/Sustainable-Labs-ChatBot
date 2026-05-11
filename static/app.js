@@ -4,6 +4,7 @@ const sendButton = document.getElementById("sendButton");
 const chatMessages = document.getElementById("chatMessages");
 const messageTemplate = document.getElementById("messageTemplate");
 const loadingTemplate = document.getElementById("loadingTemplate");
+const suggestionsTemplate = document.getElementById("suggestionsTemplate");
 const statusDot = document.querySelector(".status-dot");
 const sidebarList = document.getElementById("sidebarList");
 let messageCounter = 0;
@@ -234,6 +235,28 @@ function appendLoading() {
   return chatMessages.lastElementChild;
 }
 
+
+function renderSuggestions(suggestions, targetNode) {
+  const chips = suggestionsTemplate.content.cloneNode(true);
+  const list = chips.querySelector(".suggestion-chips-list");
+
+  suggestions.forEach((text) => {
+    const btn = document.createElement("button");
+    btn.className = "suggestion-chip";
+    btn.type = "button";
+    btn.textContent = text;
+    btn.addEventListener("click", () => {
+      messageInput.value = text;
+      chatForm.requestSubmit();
+    });
+    list.appendChild(btn);
+  });
+
+  targetNode.appendChild(chips);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+
 async function streamMessage(message, onEvent) {
   const response = await fetch("/api/chat", {
     method: "POST",
@@ -297,6 +320,7 @@ async function submitMessageFlow(message, displayMessage = message) {
 
   let streaming = null;
   let pendingSources = [];
+  let pendingSuggestions = [];
   let fullReply = "";
 
   try {
@@ -339,6 +363,8 @@ async function submitMessageFlow(message, displayMessage = message) {
           streaming = appendStreamingBubble("Sustainable Labs");
         }
         streaming.addChunk(event.delta);
+      } else if (event.type === "suggestions") {
+        pendingSuggestions = event.suggestions || [];
       } else if (event.type === "done") {
         if (streaming) {
           fullReply = streaming.finalize(pendingSources);
@@ -346,6 +372,9 @@ async function submitMessageFlow(message, displayMessage = message) {
           recentHistory.push({ user: message, assistant: fullReply });
           if (recentHistory.length > recentHistoryWindow) {
             recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
+          }
+          if (pendingSuggestions.length > 0) {
+            renderSuggestions(pendingSuggestions, chatMessages.lastElementChild);
           }
         }
       } else if (event.type === "error") {
