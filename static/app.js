@@ -411,6 +411,7 @@ async function submitMessageFlow(message, displayMessage = message) {
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
       } else if (event.type === "delta") {
+        fullReply += event.delta || "";
         if (!streaming) {
           if (loadingNode) { loadingNode.remove(); loadingNode = null; }
           streaming = appendStreamingBubble("Sustainable Labs");
@@ -418,7 +419,7 @@ async function submitMessageFlow(message, displayMessage = message) {
         streaming.addChunk(event.delta);
       } else if (event.type === "done") {
         if (streaming) {
-          fullReply = streaming.finalize(pendingSources);
+          streaming.finalize(pendingSources);
           streaming = null;
           recentHistory.push({ user: message, assistant: fullReply });
           if (recentHistory.length > recentHistoryWindow) {
