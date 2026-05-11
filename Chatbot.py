@@ -3553,10 +3553,19 @@ Question:
         sources = result.get("sources", [])
         yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'trace': result.get('trace', {}), 'status': result.get('status', 'answered'), 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
+
+        full_answer_parts: list[str] = []
         for chunk in call_gemini_stream(captured["prompt"]):
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
+            full_answer_parts.append(chunk)
+
+        full_answer = "".join(full_answer_parts)
+        suggestions = self.generate_suggestions(user_message, full_answer)
+        if suggestions:
+            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
         if not query_route:
@@ -3645,6 +3654,31 @@ Question:
             )
 
         return sources
+    
+
+    def generate_suggestions(self, user_message: str, answer: str) -> list[str]:
+        """Make a second LLM call to generate 3 follow-up question suggestions."""
+        prompt = (
+            "A user asked a chatbot about the Sustainable Solutions Lab (SSL) this question:\n\n"
+            f"Question: {user_message}\n\n"
+            f"The chatbot answered:\n{answer}\n\n"
+            "Based on the question and answer, suggest exactly 3 short follow-up questions "
+            "a new user might want to explore next.\n"
+            "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
+            "Return ONLY a valid JSON array of 3 strings. No preamble, no markdown fences.\n"
+            'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
+        )
+
+        try:
+            raw = call_gemini(prompt, temperature=0.4)
+            raw = raw.strip()
+            raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
+            suggestions = json.loads(raw)
+            if isinstance(suggestions, list):
+                return [str(s).strip() for s in suggestions[:3] if str(s).strip()]
+        except Exception:
+            pass
+        return []
 
 
 _gemini_client: Optional[object] = None
