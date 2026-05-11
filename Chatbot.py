@@ -1749,7 +1749,7 @@ Available entity names:
 """.strip()
 
         try:
-            raw_plan = self.llm_callable(planning_prompt).strip()
+            raw_plan = call_gemini(planning_prompt, thinking_budget=0).strip()
             parsed_plan = self.parse_json_object(raw_plan)
         except Exception:
             default_route = self.default_query_route(retrieval_query)
@@ -3683,7 +3683,7 @@ Question:
         )
 
         try:
-            raw = call_gemini(prompt, temperature=0.4)
+            raw = call_gemini(prompt, temperature=0.4, thinking_budget=0)
             raw = raw.strip()
             raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
             suggestions = json.loads(raw)
@@ -3709,17 +3709,17 @@ def _get_gemini_client():
     return _gemini_client
 
 
-def _gemini_gen_config(temperature: float) -> "genai_types.GenerateContentConfig":
+def _gemini_gen_config(temperature: float, thinking_budget: int = 1024) -> "genai_types.GenerateContentConfig":
     return genai_types.GenerateContentConfig(
         temperature=temperature,
         top_p=0.95,
         top_k=40,
         max_output_tokens=1024,
-        thinking_config=genai_types.ThinkingConfig(thinking_budget=1024),
+        thinking_config=genai_types.ThinkingConfig(thinking_budget=thinking_budget),
     )
 
 
-def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None) -> str:
+def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None, thinking_budget: int = 1024) -> str:
     cfg = ChatbotConfig()
     client = _get_gemini_client()
     model_name = model or cfg.gemini_model
@@ -3727,7 +3727,7 @@ def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[
     response = client.models.generate_content(
         model=model_name,
         contents=prompt,
-        config=_gemini_gen_config(temp),
+        config=_gemini_gen_config(temp, thinking_budget=thinking_budget),
     )
     return response.text.strip()
 
