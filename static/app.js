@@ -356,6 +356,7 @@ async function submitMessageFlow(message, displayMessage = message) {
 
   const suggestedEl = document.getElementById("suggestedQuestions");
   if (suggestedEl) suggestedEl.remove();
+  chatMessages.querySelectorAll(".suggestion-chips").forEach(el => el.remove());
 
   const sidebarItem = appendMessage("user", "You", displayMessage);
   messageInput.value = "";
