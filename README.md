@@ -11,6 +11,7 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
 - Recent questions sidebar for in-session navigation
 - Streaming responses — text appears token by token as Gemini generates it
 - Content filter blocking profanity, hate speech, threats, and SSL/UMB-targeted harassment
+- Analytics dashboard for reviewing chat history, answer/source mappings, retrieval diagnostics, and evaluation results
 
 ---
 
@@ -31,8 +32,31 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
    python3 Chatbot.py
    ```
 
-4. Open `http://localhost:5000` in your browser.
+4. Open `http://localhost:8000` in your browser.
 
+5. Open the analytics dashboard at `http://localhost:8000/dashboard`.
+
+The default port is `8000`. To use a different port, set `CHATBOT_PORT` before starting the server.
+
+---
+
+## Dashboard
+
+The dashboard is available at `/dashboard` after the Flask server starts.
+
+- **Chat History** maps each logged user question to the assistant answer preview, status, confidence score, source count, retrieved chunk count, latency, and detail page.
+- **Interaction Detail** pages at `/dashboard/interactions/<event_id>` show the full question/answer mapping, returned sources, confidence details, retrieval diagnostics, retrieved metadata, and full trace JSON.
+- **Source Usage** and **Corpus Coverage** summarize which returned sources and retrieved corpus categories are being used most often.
+- **Problem Cases** highlights blocked, clarification, error, and low-confidence interactions.
+- **Evaluation Summary** reads from `question_eval_results.json` and includes a Score Key explaining the evaluation metrics.
+
+### Evaluation Score Key
+
+- `correctness_vs_corpus`: 1-5 rating for how well the answer matches the provided SSL corpus reference.
+- `citations`: 1-5 rating for whether returned sources are useful and relevant support.
+- `hallucinated`: `yes` means the evaluator found unsupported or clearly incorrect facts.
+- `answered_question`: `yes` means the answer directly addressed the question that was asked.
+- `right_citations`: `yes` means the cited or returned sources match the relevant corpus sources.
 ---
 
 ## Changes & Updates (UI Fork)
@@ -43,6 +67,15 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
 - Added links to the SSL website, UMass Boston homepage, and a mailto button for `ssl@umb.edu`
 - Rounded buttons to match the UMB site style
 - Fixed color inconsistencies across components
+
+### Dashboard Analytics
+
+- Added `/dashboard` for reviewing logged chatbot interactions
+- Added richer chat history with status, confidence, source count, retrieved chunk count, latency, and detail links
+- Added interaction detail pages that make the user question to assistant answer mapping explicit
+- Added confidence details, retrieval diagnostics, retrieved metadata, returned sources, and full trace JSON to each detail page
+- Added an Evaluation Summary Score Key explaining `correctness_vs_corpus`, `citations`, `hallucinated`, `answered_question`, and `right_citations`
+- Updated the dashboard header to match the main chatbot branding, including the UMass Boston logo, navy/blue gradient, yellow action buttons, and shared typography
 
 ### Recent Questions Sidebar
 - Added a sidebar that logs questions asked during the current session
