@@ -322,9 +322,8 @@ async function streamMessage(message, onEvent) {
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
-  let stopped = false;
 
-  while (!stopped) {
+  while (true) {
     const { done, value } = await reader.read();
     if (done) break;
 
@@ -335,16 +334,10 @@ async function streamMessage(message, onEvent) {
     for (const line of lines) {
       if (!line.startsWith("data: ")) continue;
       try {
-        const event = JSON.parse(line.slice(6));
-        onEvent(event);
-        if (event.type === "done" || event.done === true) {
-          stopped = true;
-          break;
-        }
+        onEvent(JSON.parse(line.slice(6)));
       } catch {}
     }
   }
-  reader.cancel().catch(() => {});
 }
 
 function restoreSidebarPlaceholder() {
@@ -376,6 +369,7 @@ async function submitMessageFlow(message, displayMessage = message) {
   let streaming = null;
   let pendingSources = [];
   let fullReply = "";
+  let suggestionAnchor = null;
 
   try {
     await streamMessage(message, (event) => {
@@ -426,6 +420,14 @@ async function submitMessageFlow(message, displayMessage = message) {
             recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
           }
         }
+        // Unlock UI immediately — suggestions will still arrive after this
+        setStatus(false);
+        sendButton.disabled = false;
+        suggestionAnchor = chatMessages.lastElementChild;
+      } else if (event.type === "suggestions") {
+        if (suggestionAnchor && event.suggestions && event.suggestions.length > 0) {
+          renderSuggestions(event.suggestions, suggestionAnchor);
+        }
       } else if (event.type === "error") {
         if (loadingNode) { loadingNode.remove(); loadingNode = null; }
         appendMessage("assistant", "Sustainable Labs", event.error || "An error occurred.");
@@ -439,23 +441,6 @@ async function submitMessageFlow(message, displayMessage = message) {
     setStatus(false);
     sendButton.disabled = false;
     chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  // Fire suggestions in the background — UI is already unlocked by this point
-  const suggestionTarget = chatMessages.lastElementChild;
-  if (fullReply && suggestionTarget) {
-    fetch("/api/suggestions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, answer: fullReply }),
-    })
-      .then(r => r.ok ? r.json() : { suggestions: [] })
-      .then(data => {
-        if (data.suggestions && data.suggestions.length > 0) {
-          renderSuggestions(data.suggestions, suggestionTarget);
-        }
-      })
-      .catch(() => {});
   }
 }
 

@@ -80,7 +80,6 @@ EVAL_RESULTS_PATH = PROJECT_ROOT / "question_eval_results.json"
 
 class RetrievalChatbot:
     MAX_CHROMA_BATCH_SIZE = 5000
-    _QUERY_CACHE_MAX = 128
 
     def __init__(self, llm_callable: LLMCallable, config: Optional[ChatbotConfig] = None) -> None:
         self.config = config or ChatbotConfig()
@@ -93,7 +92,6 @@ class RetrievalChatbot:
         self.entity_registry: list[dict] = []
         self.bm25_idf: dict[str, float] = {}
         self.avg_document_length: float = 0.0
-        self._query_cache: OrderedDict[str, dict] = OrderedDict()
         self.refresh_search_index()
 
     def _get_or_create_collection(self) -> Collection:
@@ -3537,14 +3535,6 @@ Question:
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
-        # Cache only single-turn queries (follow-ups depend on history context)
-        _cache_key = user_message.lower().strip() if not recent_history else None
-        if _cache_key and _cache_key in self._query_cache:
-            cached = self._query_cache[_cache_key]
-            self._query_cache.move_to_end(_cache_key)
-            yield f"data: {json.dumps({**cached, 'done': True})}\n\n"
-            return
-
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
             return _sentinel
@@ -3573,15 +3563,9 @@ Question:
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
-        if _cache_key:
-            if len(self._query_cache) >= self._QUERY_CACHE_MAX:
-                self._query_cache.popitem(last=False)
-            self._query_cache[_cache_key] = {
-                "reply": full_answer,
-                "sources": sources,
-                "needs_clarification": False,
-                "clarification_options": [],
-            }
+        suggestions = self.generate_suggestions(user_message, full_answer)
+        if suggestions:
+            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
