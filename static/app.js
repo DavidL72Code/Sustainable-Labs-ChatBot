@@ -441,16 +441,17 @@ async function submitMessageFlow(message, displayMessage = message) {
   }
 
   // Fire suggestions in the background — UI is already unlocked by this point
-  if (fullReply) {
+  const suggestionTarget = chatMessages.lastElementChild;
+  if (fullReply && suggestionTarget) {
     fetch("/api/suggestions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message, answer: fullReply }),
     })
-      .then(r => r.json())
+      .then(r => r.ok ? r.json() : { suggestions: [] })
       .then(data => {
         if (data.suggestions && data.suggestions.length > 0) {
-          renderSuggestions(data.suggestions, chatMessages.lastElementChild);
+          renderSuggestions(data.suggestions, suggestionTarget);
         }
       })
       .catch(() => {});
