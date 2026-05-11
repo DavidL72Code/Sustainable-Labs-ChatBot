@@ -1,0 +1,95 @@
+{
+  "single_turn": [
+    {
+      "id": "specific_005",
+      "type": "specific_fact",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "specific_011",
+      "type": "specific_fact",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "iter02_broad_002",
+      "type": "section_listing_paraphrase",
+      "question": "What are the three categories SSL uses to describe what it does?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "iter02_project_001",
+      "type": "specific_fact_paraphrase",
+      "question": "What does someone gain access to if they join the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "iter02_contact_001",
+      "type": "contact_paraphrase",
+      "question": "What email address and office location should someone use to reach SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "followup_001",
+      "type": "follow_up_projects",
+      "turns": [
+        "What projects or initiatives is SSL currently working on?",
+        "Explain them in one sentence each.",
+        "Which one involves rail infrastructure?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "followup_002",
+      "type": "follow_up_board",
+      "turns": [
+        "Who is on the SSL External Advisory Board?",
+        "Tell me more about Gabriel Cira.",
+        "Who else on the board works on climate resilience?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_students_001",
+      "type": "follow_up_students_paraphrase",
+      "turns": [
+        "Which student works on the MassDOT train line safety and resilience project?",
+        "What is that student's academic background?",
+        "Who supervises that student?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_publications_001",
+      "type": "follow_up_publications_paraphrase",
+      "turns": [
+        "Show me the publication source documents from SSL's Publications folder.",
+        "Do not include annual reports.",
+        "How many are left?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ]
+    }
+  ]
+}
