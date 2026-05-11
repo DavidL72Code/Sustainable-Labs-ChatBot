@@ -356,6 +356,7 @@ async function submitMessageFlow(message, displayMessage = message) {
 
   const suggestedEl = document.getElementById("suggestedQuestions");
   if (suggestedEl) suggestedEl.remove();
+  chatMessages.querySelectorAll(".suggestion-chips").forEach(el => el.remove());
 
   const sidebarItem = appendMessage("user", "You", displayMessage);
   messageInput.value = "";
@@ -367,8 +368,8 @@ async function submitMessageFlow(message, displayMessage = message) {
 
   let streaming = null;
   let pendingSources = [];
-  let pendingSuggestions = [];
   let fullReply = "";
+  let suggestionAnchor = null;
 
   try {
     await streamMessage(message, (event) => {
@@ -403,26 +404,29 @@ async function submitMessageFlow(message, displayMessage = message) {
         }
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
-        // keep loading dots visible until first token arrives
       } else if (event.type === "delta") {
+        fullReply += event.delta || "";
         if (!streaming) {
           if (loadingNode) { loadingNode.remove(); loadingNode = null; }
           streaming = appendStreamingBubble("Sustainable Labs");
         }
         streaming.addChunk(event.delta);
-      } else if (event.type === "suggestions") {
-        pendingSuggestions = event.suggestions || [];
       } else if (event.type === "done") {
         if (streaming) {
-          fullReply = streaming.finalize(pendingSources);
+          streaming.finalize(pendingSources);
           streaming = null;
           recentHistory.push({ user: message, assistant: fullReply });
           if (recentHistory.length > recentHistoryWindow) {
             recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
           }
-          if (pendingSuggestions.length > 0) {
-            renderSuggestions(pendingSuggestions, chatMessages.lastElementChild);
-          }
+        }
+        // Unlock UI immediately — suggestions will still arrive after this
+        setStatus(false);
+        sendButton.disabled = false;
+        suggestionAnchor = chatMessages.lastElementChild;
+      } else if (event.type === "suggestions") {
+        if (suggestionAnchor && event.suggestions && event.suggestions.length > 0) {
+          renderSuggestions(event.suggestions, suggestionAnchor);
         }
       } else if (event.type === "error") {
         if (loadingNode) { loadingNode.remove(); loadingNode = null; }

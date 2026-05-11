@@ -1,3 +1,16 @@
+.dev-branch-banner {
+  background: #f59e0b;
+  color: #1c1c1c;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  letter-spacing: 0.02em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 :root {
   --bg: #f0f5fb;
   --panel: #ffffff;

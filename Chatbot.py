@@ -7,9 +7,10 @@ import math
 import json
 import os
 import re
+import threading
 import time
 import uuid
-from collections import Counter
+from collections import Counter, OrderedDict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
@@ -1203,16 +1204,17 @@ class RetrievalChatbot:
             entity_type = metadata.get("entity_type", "")
             chunk_index = metadata.get("chunk_index", "?")
             chunk_level = metadata.get("chunk_level", "detail")
-            context_blocks.append(
-                f"Title: {title}\n"
-                f"Source URL: {source_url}\n"
-                f"Source Path: {source_path}\n"
-                f"Section Name: {section_name or 'N/A'}\n"
-                f"Entity Type: {entity_type or 'N/A'}\n"
-                f"Chunk Level: {chunk_level}\n"
-                f"Chunk Index: {chunk_index}\n\n"
-                f"{chunk_text}"
-            )
+            header_parts = [
+                f"Title: {title}",
+                f"Source URL: {source_url}",
+                f"Source Path: {source_path}",
+            ]
+            if section_name:
+                header_parts.append(f"Section Name: {section_name}")
+            if entity_type:
+                header_parts.append(f"Entity Type: {entity_type}")
+            header_parts += [f"Chunk Level: {chunk_level}", f"Chunk Index: {chunk_index}"]
+            context_blocks.append("\n".join(header_parts) + "\n\n" + chunk_text)
             metadata_blocks.append(metadata)
 
         distinct_source_count = len(
@@ -3534,6 +3536,19 @@ Question:
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
+        # Start generating suggestions concurrently — runs while the main answer streams
+        _suggestions: list[str] = []
+        _sug_ready = threading.Event()
+
+        def _run_suggestions() -> None:
+            try:
+                _suggestions.extend(self.generate_suggestions(user_message))
+            except Exception:
+                pass
+            _sug_ready.set()
+
+        threading.Thread(target=_run_suggestions, daemon=True).start()
+
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
             return _sentinel
@@ -3553,18 +3568,17 @@ Question:
         sources = result.get("sources", [])
         yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'trace': result.get('trace', {}), 'status': result.get('status', 'answered'), 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
-
         full_answer_parts: list[str] = []
         for chunk in call_gemini_stream(captured["prompt"]):
             yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
             full_answer_parts.append(chunk)
 
-        full_answer = "".join(full_answer_parts)
-        suggestions = self.generate_suggestions(user_message, full_answer)
-        if suggestions:
-            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
-
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
+        # Suggestions started ~answer_duration ago — usually already done, wait briefly
+        _sug_ready.wait(timeout=12)
+        if _suggestions:
+            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': _suggestions})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
@@ -3656,14 +3670,13 @@ Question:
         return sources
     
 
-    def generate_suggestions(self, user_message: str, answer: str) -> list[str]:
-        """Make a second LLM call to generate 3 follow-up question suggestions."""
+    def generate_suggestions(self, user_message: str, answer: str = "") -> list[str]:
+        answer_section = f"The chatbot answered:\n{answer}\n\n" if answer else ""
         prompt = (
             "A user asked a chatbot about the Sustainable Solutions Lab (SSL) this question:\n\n"
             f"Question: {user_message}\n\n"
-            f"The chatbot answered:\n{answer}\n\n"
-            "Based on the question and answer, suggest exactly 3 short follow-up questions "
-            "a new user might want to explore next.\n"
+            f"{answer_section}"
+            "Suggest exactly 3 short follow-up questions a new user might want to explore next.\n"
             "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
             "Return ONLY a valid JSON array of 3 strings. No preamble, no markdown fences.\n"
             'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
@@ -4158,6 +4171,18 @@ def create_app() -> Flask:
                 )
 
         return Response(stream_with_context(generate()), mimetype="text/event-stream", headers=sse_headers)
+
+    @app.post("/api/suggestions")
+    def suggestions():
+        payload = request.get_json(silent=True) or {}
+        message = str(payload.get("message", "")).strip()
+        answer = str(payload.get("answer", "")).strip()
+        if not message or not answer:
+            return jsonify({"suggestions": []})
+        try:
+            return jsonify({"suggestions": chatbot.generate_suggestions(message, answer)})
+        except Exception:
+            return jsonify({"suggestions": []})
 
     return app
 
