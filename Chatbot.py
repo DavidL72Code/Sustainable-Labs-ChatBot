@@ -3233,6 +3233,31 @@ Question:
             )
 
         return sources
+    
+
+    def generate_suggestions(self, user_message: str, answer: str) -> list[str]:
+        """Make a second LLM call to generate 3 follow-up question suggestions."""
+        prompt = (
+            "A user asked a chatbot about the Sustainable Solutions Lab (SSL) this question:\n\n"
+            f"Question: {user_message}\n\n"
+            f"The chatbot answered:\n{answer}\n\n"
+            "Based on the question and answer, suggest exactly 3 short follow-up questions "
+            "a new user might want to explore next.\n"
+            "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
+            "Return ONLY a valid JSON array of 3 strings. No preamble, no markdown fences.\n"
+            'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
+        )
+
+        try:
+            raw = call_gemini(prompt, temperature=0.4)
+            raw = raw.strip()
+            raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
+            suggestions = json.loads(raw)
+            if isinstance(suggestions, list):
+                return [str(s).strip() for s in suggestions[:3] if str(s).strip()]
+        except Exception:
+            pass
+        return []
 
 
 _gemini_client: Optional[object] = None
