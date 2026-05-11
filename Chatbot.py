@@ -1373,6 +1373,14 @@ class RetrievalChatbot:
                 reason="board and leadership sources",
             )
 
+        if "executive director" in lowered_query:
+            apply_scope(
+                titles=["Staff"],
+                question_type="people_lookup",
+                prefer_summary=False,
+                reason="executive director staff source",
+            )
+
         if any(term in lowered_query for term in ("affiliate", "affiliates", "faculty affiliate", "university affiliate")):
             apply_scope(
                 titles=["UniversityAffiliates", "AnnualReport2021"],
@@ -1381,10 +1389,23 @@ class RetrievalChatbot:
                 reason="affiliate sources",
             )
 
-        if any(term in lowered_query for term in ("publication", "publications", "paper", "papers", "report", "reports")):
+        publication_terms = ("publication", "publications", "paper", "papers")
+        report_terms = ("report", "reports", "annual report", "annual reports", "year in review")
+        has_publication_terms = any(term in lowered_query for term in publication_terms)
+        has_report_terms = any(term in lowered_query for term in report_terms)
+        if has_publication_terms or has_report_terms:
+            if has_publication_terms and not has_report_terms:
+                publication_categories = ["Publications"]
+                publication_folders = ["Publications"]
+            elif has_report_terms and not has_publication_terms:
+                publication_categories = ["Annual Reports"]
+                publication_folders = ["Annual Reports"]
+            else:
+                publication_categories = ["Publications", "Annual Reports"]
+                publication_folders = ["Publications", "Annual Reports"]
             apply_scope(
-                categories=["Publications", "Annual Reports"],
-                folders=["Publications", "Annual Reports"],
+                categories=publication_categories,
+                folders=publication_folders,
                 question_type="publication_inventory" if any(term in lowered_query for term in ("list", "name all", "how many")) else "specific_fact",
                 prefer_summary=True,
                 reason="publication and report sources",
@@ -1421,6 +1442,14 @@ class RetrievalChatbot:
                 question_type="people_lookup",
                 prefer_summary=False,
                 reason="person biography sources",
+            )
+
+        if "sarah mayorga" in lowered_query:
+            apply_scope(
+                source_paths=["SEED_DOCUMENTS/SSLAbout.txt"],
+                question_type="specific_fact",
+                prefer_summary=False,
+                reason="Sarah Mayorga about source",
             )
 
         if any(term in lowered_query for term in ("cape cod", "rail", "railway", "massdot", "train line", "rail resilience")):
@@ -1540,9 +1569,12 @@ class RetrievalChatbot:
                 )
 
         if target_titles or target_categories or target_folders or target_source_paths:
+            routing_mode = "soft"
+            if route.get("question_type") == "publication_inventory" and target_folders:
+                routing_mode = "hard"
             route.update(
                 {
-                    "routing_mode": "soft",
+                    "routing_mode": routing_mode,
                     "target_titles": sorted(target_titles),
                     "target_categories": sorted(target_categories),
                     "target_folders": sorted(target_folders),
@@ -1890,6 +1922,13 @@ Available entity names:
             return remainder.strip() or text
         return text.strip()
 
+    def best_registry_text(self, entity: dict) -> str:
+        text_options = [
+            self.strip_embedding_labels(entity.get("summary_text", "")),
+            self.strip_embedding_labels(entity.get("detail_text", "")),
+        ]
+        return max(text_options, key=len).strip()
+
     def extract_query_named_phrases(self, query: str) -> list[str]:
         phrases = re.findall(r"\b(?:[A-Z][\w'’.-]+(?:\s+[A-Z][\w'’.-]+)+)\b", query)
         cleaned_phrases: list[str] = []
@@ -1916,6 +1955,15 @@ Available entity names:
         for entity in entities or self.entity_registry:
             section_name = entity.get("section_name", "").strip()
             if not section_name:
+                continue
+            if entity.get("entity_type") == "section" and section_name.lower() in {
+                "research",
+                "projects",
+                "special events",
+                "publications",
+                "what we do",
+                "who we are",
+            }:
                 continue
 
             full_name = section_name.lower()
@@ -2126,6 +2174,43 @@ Available entity names:
                 },
             }
 
+        if (
+            "that person" in lowered_query
+            and any(marker in lowered_query for marker in ("research background", "background", "research"))
+            and len(unique_people) > 1
+        ):
+            names = [entity["section_name"] for entity in unique_people if entity.get("section_name")]
+            target_titles = list(
+                dict.fromkeys(entity.get("title", "").strip() for entity in unique_people if entity.get("title", "").strip())
+            )
+            target_source_paths = list(
+                dict.fromkeys(entity.get("source_path", "").strip() for entity in unique_people if entity.get("source_path", "").strip())
+            )
+            return {
+                "resolved": True,
+                "rewritten_query": "What are the research backgrounds of " + " and ".join(names) + "?",
+                "query_route": {
+                    "question_type": "people_lookup",
+                    "routing_mode": "soft",
+                    "prefer_summary": False,
+                    "target_titles": target_titles,
+                    "target_categories": [],
+                    "target_folders": [],
+                    "target_source_paths": target_source_paths,
+                    "reason": "recent people research-background follow-up",
+                },
+            }
+
+        if any(marker in lowered_query for marker in singular_detail_markers):
+            entity = unique_people[0]
+            rewritten_query = self.build_entity_follow_up_rewrite(user_message, entity["section_name"])
+            query_route = self.detect_local_query_route(rewritten_query)
+            return {
+                "resolved": True,
+                "rewritten_query": rewritten_query,
+                "query_route": query_route,
+            }
+
         options = [entity["section_name"] for entity in unique_people[:4]]
         if not options:
             return None
@@ -2172,6 +2257,22 @@ Available entity names:
         source_text = self.strip_embedding_labels(entity.get("detail_text", "") or entity.get("summary_text", "")).lower()
 
         focus_groups = [
+            {
+                "query_terms": ("board",),
+                "source_terms": (
+                    "climate",
+                    "resilien",
+                    "adaptation",
+                    "flood",
+                    "coastal",
+                    "extreme weather",
+                    "disaster",
+                    "solar",
+                    "clean technologies",
+                    "environmental justice",
+                    "sustainable design",
+                ),
+            },
             {
                 "query_terms": ("rail", "railway", "massdot", "cape cod", "train line", "rail resilience", "railway resilience"),
                 "source_terms": (
@@ -2323,9 +2424,12 @@ Available entity names:
 
         for entity in section_entities:
             section_name = entity.get("section_name", "").strip().lower()
+            title = entity.get("title", "").strip().lower()
             source_text = self.strip_embedding_labels(entity.get("detail_text", "") or entity.get("summary_text", "")).lower()
             score = 0.0
 
+            if any(marker in lowered_query for marker in ("year in review", "annual report", "2020-21")) and "annualreport2021" in title:
+                score += 2.5
             if "what does ssl do" in lowered_query or "what we do" in lowered_query:
                 if "what we do" in section_name:
                     score += 3.0
@@ -2336,7 +2440,7 @@ Available entity names:
                 if "who we are" in section_name or "what we do" in section_name:
                     score += 2.5
                 if "mission is to" in source_text:
-                    score += 2.0
+                    score += 5.0
             if "vision" in lowered_query and "vision" in section_name:
                 score += 3.0
             if "contact" in lowered_query and "contact us" in section_name:
@@ -2371,12 +2475,21 @@ Available entity names:
         return list(dict.fromkeys(headings))
 
     def extract_mission_statement(self, section_text: str) -> str:
-        mission_match = re.search(r"mission is to:\s*(.+)", section_text, re.IGNORECASE)
-        if not mission_match:
+        raw_lines = section_text.splitlines()
+        mission_start_index = -1
+        inline_remainder = ""
+        for index, line in enumerate(raw_lines):
+            match = re.search(r"mission is to:\s*(.*)", line, re.IGNORECASE)
+            if match:
+                mission_start_index = index
+                inline_remainder = match.group(1).strip()
+                break
+
+        if mission_start_index < 0:
             return ""
 
-        lines = [mission_match.group(1).strip()]
-        for line in section_text[mission_match.end():].splitlines():
+        lines = [inline_remainder] if inline_remainder else []
+        for line in raw_lines[mission_start_index + 1:]:
             stripped = line.strip()
             if not stripped:
                 if lines:
@@ -2384,7 +2497,7 @@ Available entity names:
                 continue
             if re.match(r"^[12]\)", stripped):
                 lines.append(stripped)
-            elif lines and stripped[0].islower():
+            elif lines and (stripped[0].islower() or line[:1].isspace()):
                 lines[-1] = f"{lines[-1]} {stripped}"
             else:
                 break
@@ -2441,7 +2554,20 @@ Available entity names:
             "working on",
             "works on",
         )
-        list_markers = ("who are", "list", "name all", "how many", "count", "overview")
+        list_markers = (
+            "who are",
+            "who else",
+            "which",
+            "what are",
+            "list",
+            "name all",
+            "name several",
+            "several",
+            "how many",
+            "count",
+            "overview",
+            "major projects",
+        )
         return any(marker in lowered_query for marker in detail_markers) and not any(
             marker in lowered_query for marker in list_markers
         )
@@ -2469,6 +2595,22 @@ Available entity names:
 
         return [item for item in access_items if item]
 
+    def extract_project_summary_sentence(self, project_text: str, project_name: str) -> str:
+        lines = [
+            line.strip()
+            for line in project_text.splitlines()
+            if line.strip() and not line.startswith("Document Labels:")
+        ]
+        for line in lines:
+            if line == project_name or line.startswith("Title:") or line.startswith("Source "):
+                continue
+            if line.startswith("##") or line.upper() == "END":
+                continue
+            sentence = re.split(r"(?<=[.!?])\s+", line, maxsplit=1)[0].strip()
+            if sentence:
+                return sentence
+        return ""
+
     def should_use_section_registry(self, user_message: str, query_route: Optional[dict]) -> bool:
         if not self.entity_registry:
             return False
@@ -2491,7 +2633,7 @@ Available entity names:
         if not section:
             return None
 
-        section_text = self.strip_embedding_labels(section.get("detail_text", "") or section.get("summary_text", ""))
+        section_text = self.best_registry_text(section)
         lowered_query = user_message.lower()
         reply = ""
 
@@ -2517,15 +2659,36 @@ Available entity names:
         if not reply:
             return None
 
+        sources = [
+            {
+                "citation": 1,
+                "title": section.get("title", "Untitled source"),
+                "url": section.get("source_url", "URL not provided"),
+                "source_path": section.get("source_path", "Unknown source"),
+            }
+        ]
+        if "contact" in lowered_query:
+            staff_contact = next(
+                (
+                    entity
+                    for entity in self.entity_registry
+                    if entity.get("source_path") == "SEED_DOCUMENTS/Staff.txt" and entity.get("entity_type") == "staff_member"
+                ),
+                None,
+            )
+            if staff_contact:
+                sources.append(
+                    {
+                        "citation": 2,
+                        "title": staff_contact.get("title", "Untitled source"),
+                        "url": staff_contact.get("source_url", "URL not provided"),
+                        "source_path": staff_contact.get("source_path", "Unknown source"),
+                    }
+                )
+
         return {
             "reply": reply,
-            "sources": [
-                {
-                    "title": section.get("title", "Untitled source"),
-                    "url": section.get("source_url", "URL not provided"),
-                    "source_path": section.get("source_path", "Unknown source"),
-                }
-            ],
+            "sources": sources,
             "needs_clarification": False,
             "clarification_options": [],
         }
@@ -2557,6 +2720,7 @@ Available entity names:
         question_type = (query_route or {}).get("question_type", "")
         enumeration_markers = (
             "who are",
+            "who else",
             "list",
             "name all",
             "name several",
@@ -2582,18 +2746,20 @@ Available entity names:
         if self.is_multi_group_people_overview(user_message, query_route):
             return True
 
+        if "executive director" in lowered_query:
+            return True
+
         if matched_entities and all(entity.get("entity_type") != "project" for entity in matched_entities):
             return True
 
         if (
-            len(matched_entities) == 1
-            and matched_entities[0].get("entity_type") == "project"
+            any(entity.get("entity_type") == "project" for entity in matched_entities)
             and any(term in lowered_query for term in ("benefit", "benefits", "join", "joining", "access", "membership", "member"))
         ):
             return True
 
         if self.is_specific_entity_detail_query(user_message):
-            return False
+            return bool(matched_entities and all(entity.get("entity_type") != "project" for entity in matched_entities))
 
         if question_type == "people_lookup" and any(marker in lowered_query for marker in enumeration_markers):
             return True
@@ -2637,8 +2803,9 @@ Available entity names:
 
         lines = ["Here is an overview of the people involved with SSL across the requested groups:"]
         sources: list[dict] = []
-        source_seen: set[tuple[str, str]] = set()
         citation_index = 1
+
+        affiliate_path_hint = "affiliate"
 
         for label in ["Staff", "Affiliates", "Students and Interns", "Board Members"]:
             group_entities = grouped_entities.get(label, [])
@@ -2650,15 +2817,21 @@ Available entity names:
                 preview = f"{preview}, and {len(names) - 4} more"
             lines.append(f"- {label}: {len(names)} people, including {preview} [{citation_index}]")
 
-            source = {
-                "title": group_entities[0].get("title", "Untitled source"),
-                "url": group_entities[0].get("source_url", "URL not provided"),
-                "source_path": group_entities[0].get("source_path", "Unknown source"),
-            }
-            source_key = (source["title"], source["source_path"])
-            if source_key not in source_seen:
-                source_seen.add(source_key)
-                sources.append(source)
+            representative = group_entities[0]
+            if label == "Affiliates":
+                for entity in group_entities:
+                    if affiliate_path_hint in entity.get("source_path", "").lower():
+                        representative = entity
+                        break
+
+            sources.append(
+                {
+                    "citation": citation_index,
+                    "title": representative.get("title", "Untitled source"),
+                    "url": representative.get("source_url", "URL not provided"),
+                    "source_path": representative.get("source_path", "Unknown source"),
+                }
+            )
             citation_index += 1
 
         return {
@@ -2687,10 +2860,40 @@ Available entity names:
             self.find_exact_or_phrase_matched_entities(user_message, entities)
         )
 
+        if "executive director" in lowered_query:
+            executive_matches = [
+                entity
+                for entity in entities
+                if entity.get("entity_type") == "staff_member"
+                and "executive director" in self.best_registry_text(entity).lower()
+            ]
+            if executive_matches:
+                entity = executive_matches[0]
+                return {
+                    "reply": f"{entity['section_name']} is SSL's Executive Director. [1]",
+                    "sources": [
+                        {
+                            "citation": 1,
+                            "title": entity.get("title", "Untitled source"),
+                            "url": entity.get("source_url", "URL not provided"),
+                            "source_path": entity.get("source_path", "Unknown source"),
+                        }
+                    ],
+                    "needs_clarification": False,
+                    "clarification_options": [],
+                }
+
         if any(term in lowered_query for term in ("benefit", "benefits", "join", "joining", "access", "membership", "member")):
             project_matches = [entity for entity in exact_matches if entity.get("entity_type") == "project"]
+            if not project_matches:
+                project_matches = [
+                    entity
+                    for entity in entities
+                    if entity.get("entity_type") == "project"
+                    and entity.get("section_name", "").lower() in lowered_query
+                ]
             if len(project_matches) == 1:
-                project_text = self.strip_embedding_labels(project_matches[0].get("detail_text", "") or project_matches[0].get("summary_text", ""))
+                project_text = self.best_registry_text(project_matches[0])
                 access_items = self.extract_project_access_bullets(project_text)
                 if access_items:
                     reply_lines = ["Joining the Northeast Climate Justice Research Collaborative gives members access to:"]
@@ -2700,9 +2903,58 @@ Available entity names:
                         "reply": "\n".join(reply_lines),
                         "sources": [
                             {
+                                "citation": 1,
                                 "title": project_matches[0].get("title", "Untitled source"),
                                 "url": project_matches[0].get("source_url", "URL not provided"),
                                 "source_path": project_matches[0].get("source_path", "Unknown source"),
+                            }
+                        ],
+                        "needs_clarification": False,
+                        "clarification_options": [],
+                    }
+
+        person_matches = [
+            entity
+            for entity in exact_matches
+            if self.is_person_entity_type(entity.get("entity_type", ""))
+        ]
+        if len(person_matches) > 1 and any(marker in lowered_query for marker in ("research background", "background", "bio", "biography")):
+            reply_lines = ["Here are the relevant research backgrounds:"]
+            sources = []
+            for index, entity in enumerate(person_matches, start=1):
+                summary_text = self.best_registry_text(entity)
+                if not summary_text:
+                    continue
+                reply_lines.append(f"{index}. {summary_text} [{index}]")
+                sources.append(
+                    {
+                        "citation": index,
+                        "title": entity.get("title", "Untitled source"),
+                        "url": entity.get("source_url", "URL not provided"),
+                        "source_path": entity.get("source_path", "Unknown source"),
+                    }
+                )
+            if sources:
+                return {
+                    "reply": "\n".join(reply_lines),
+                    "sources": sources,
+                    "needs_clarification": False,
+                    "clarification_options": [],
+                }
+
+        if self.is_specific_entity_detail_query(user_message) and exact_matches:
+            if len(person_matches) == 1:
+                entity = person_matches[0]
+                summary_text = self.best_registry_text(entity)
+                if summary_text:
+                    return {
+                        "reply": f"{summary_text} [1]",
+                        "sources": [
+                            {
+                                "citation": 1,
+                                "title": entity.get("title", "Untitled source"),
+                                "url": entity.get("source_url", "URL not provided"),
+                                "source_path": entity.get("source_path", "Unknown source"),
                             }
                         ],
                         "needs_clarification": False,
@@ -2719,7 +2971,7 @@ Available entity names:
                 entity_type == "project"
                 and any(term in lowered_query for term in ("benefit", "benefits", "join", "joining", "access", "membership", "member"))
             ):
-                project_text = self.strip_embedding_labels(entity.get("detail_text", "") or entity.get("summary_text", ""))
+                project_text = self.best_registry_text(entity)
                 access_items = self.extract_project_access_bullets(project_text)
                 if access_items:
                     reply_lines = ["Joining the Northeast Climate Justice Research Collaborative gives members access to:"]
@@ -2729,6 +2981,7 @@ Available entity names:
                         "reply": "\n".join(reply_lines),
                         "sources": [
                             {
+                                "citation": 1,
                                 "title": entity.get("title", "Untitled source"),
                                 "url": entity.get("source_url", "URL not provided"),
                                 "source_path": entity.get("source_path", "Unknown source"),
@@ -2741,13 +2994,14 @@ Available entity names:
             if entity_type == "project":
                 exact_matches = []
             else:
-                summary_text = self.strip_embedding_labels(entity.get("summary_text", "") or entity.get("detail_text", ""))
+                summary_text = self.best_registry_text(entity)
                 if summary_text:
                     reply = f"{summary_text} [1]"
                     return {
                         "reply": reply,
                         "sources": [
                             {
+                                "citation": 1,
                                 "title": entity.get("title", "Untitled source"),
                                 "url": entity.get("source_url", "URL not provided"),
                                 "source_path": entity.get("source_path", "Unknown source"),
@@ -2785,6 +3039,32 @@ Available entity names:
         else:
             label = "people or entities"
 
+        if requested_entity_type == "project" and not count_only:
+            lines = ["SSL's major current projects and initiatives include:"]
+            listed_entities = entities[: min(len(entities), 10)]
+            for index, entity in enumerate(listed_entities, start=1):
+                text = self.best_registry_text(entity)
+                description = self.extract_project_summary_sentence(text, entity.get("section_name", ""))
+                if description:
+                    lines.append(f"{index}. {entity['section_name']}: {description} [{index}]")
+                else:
+                    lines.append(f"{index}. {entity['section_name']} [{index}]")
+            sources = [
+                {
+                    "citation": index,
+                    "title": entity.get("title", "Untitled source"),
+                    "url": entity.get("source_url", "URL not provided"),
+                    "source_path": entity.get("source_path", "Unknown source"),
+                }
+                for index, entity in enumerate(listed_entities, start=1)
+            ]
+            return {
+                "reply": "\n".join(lines).strip(),
+                "sources": sources,
+                "needs_clarification": False,
+                "clarification_options": [],
+            }
+
         lines = [f"I found {len(entities)} {label} in the matched corpus scope."]
         include_roles = requested_entity_type in {"board_member", "staff_member", "affiliate"} or "role" in lowered_query
         if not count_only or len(entities) <= 20:
@@ -2802,25 +3082,17 @@ Available entity names:
 
         sources = [
             {
+                "citation": index,
                 "title": entity.get("title", "Untitled source"),
                 "url": entity.get("source_url", "URL not provided"),
                 "source_path": entity.get("source_path", "Unknown source"),
             }
-            for entity in listed_entities
+            for index, entity in enumerate(listed_entities, start=1)
         ]
-
-        deduped_sources: list[dict] = []
-        seen_source_keys: set[tuple[str, str]] = set()
-        for source in sources:
-            key = (source["title"], source["source_path"])
-            if key in seen_source_keys:
-                continue
-            seen_source_keys.add(key)
-            deduped_sources.append(source)
 
         return {
             "reply": "\n".join(lines).strip(),
-            "sources": deduped_sources,
+            "sources": sources,
             "needs_clarification": False,
             "clarification_options": [],
         }
@@ -2888,11 +3160,12 @@ Available entity names:
 
         sources = [
             {
+                "citation": index,
                 "title": document["title"],
                 "url": document.get("source_url", "URL not provided"),
                 "source_path": document["source_path"],
             }
-            for document in listed_documents
+            for index, document in enumerate(listed_documents, start=1)
         ]
 
         return {
@@ -3120,9 +3393,11 @@ Question:
             recent_history=recent_history if is_follow_up_ambiguous else None,
             rewritten_query=rewritten_query,
         )
+        reply_text = self.llm_callable(prompt).strip()
+        all_sources = self.extract_sources(retrieved_metadata)
         return {
-            "reply": self.llm_callable(prompt).strip(),
-            "sources": self.extract_sources(retrieved_metadata),
+            "reply": reply_text,
+            "sources": self.filter_sources_to_cited(reply_text, all_sources),
             "needs_clarification": False,
             "clarification_options": [],
         }
@@ -3211,24 +3486,35 @@ Question:
             return "Can you clarify whether you want contact information, location, or both?"
         return f"Can you clarify what you mean by \"{user_message}\"?"
 
+    def filter_sources_to_cited(self, reply: str, sources: list[dict]) -> list[dict]:
+        cited_numbers: set[int] = set()
+        for match in re.finditer(r"\[([0-9][0-9,\s]*)\]", reply):
+            for token in match.group(1).split(","):
+                token = token.strip()
+                if token.isdigit():
+                    cited_numbers.add(int(token))
+        if not cited_numbers:
+            return sources
+        return [source for source in sources if source.get("citation") in cited_numbers]
+
     def extract_sources(self, retrieved_metadata: list[dict]) -> list[dict]:
         sources: list[dict] = []
-        seen: set[tuple[str, str]] = set()
 
-        for metadata in retrieved_metadata:
+        for citation_index, metadata in enumerate(retrieved_metadata, start=1):
             metadata = metadata or {}
             title = metadata.get("title", "Untitled source").strip() or "Untitled source"
             source_url = metadata.get("source_url", "").strip()
             source_path = metadata.get("source_path", "").strip() or "Unknown source"
-            key = (title, source_url or source_path)
-            if key in seen:
-                continue
-            seen.add(key)
             sources.append(
                 {
+                    "citation": citation_index,
                     "title": title,
                     "url": source_url or "URL not provided",
                     "source_path": source_path,
+                    "section_name": metadata.get("section_name", ""),
+                    "entity_type": metadata.get("entity_type", ""),
+                    "chunk_level": metadata.get("chunk_level", ""),
+                    "chunk_index": metadata.get("chunk_index", ""),
                 }
             )
 
@@ -3256,6 +3542,7 @@ def _gemini_gen_config(temperature: float) -> "genai_types.GenerateContentConfig
         top_p=0.95,
         top_k=40,
         max_output_tokens=1024,
+        thinking_config=genai_types.ThinkingConfig(thinking_budget=1024),
     )
 
 

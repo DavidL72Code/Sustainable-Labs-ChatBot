@@ -9,8 +9,8 @@ from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-QUESTIONS_PATH = PROJECT_ROOT / "questions.json"
-OUTPUT_PATH = PROJECT_ROOT / "question_eval_results.json"
+QUESTIONS_PATH = PROJECT_ROOT / os.getenv("EVAL_QUESTIONS_FILE", "questions.json")
+OUTPUT_PATH = PROJECT_ROOT / os.getenv("EVAL_OUTPUT_FILE", "question_eval_results.json")
 OVERWRITE_RESULTS = os.getenv("EVAL_OVERWRITE", "").lower() in {"1", "true", "yes"}
 
 ChatbotConfig = None
@@ -141,8 +141,25 @@ Corpus reference:
 {corpus_reference}
 """.strip()
 
-    raw_judgment = gemini_call_with_retry(judge_prompt, temperature=0.0)
-    parsed = extract_json_block(raw_judgment)
+    raw_judgment = ""
+    parsed: dict[str, Any] | None = None
+    for attempt in range(1, 4):
+        prompt = judge_prompt
+        if attempt > 1:
+            prompt = (
+                judge_prompt
+                + "\n\nYour previous response could not be parsed as JSON. "
+                + "Return only one valid JSON object with the exact schema and no markdown."
+            )
+        raw_judgment = gemini_call_with_retry(prompt, temperature=0.0)
+        try:
+            parsed = extract_json_block(raw_judgment)
+            break
+        except json.JSONDecodeError:
+            if attempt == 3:
+                raise
+
+    assert parsed is not None
 
     return {
         "clarity": int(parsed["clarity"]),
