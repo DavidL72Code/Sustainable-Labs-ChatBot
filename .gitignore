@@ -4,3 +4,5 @@
 chroma_db/
 chroma_db_backup/
 logs/
+venv/
+.vscode/
