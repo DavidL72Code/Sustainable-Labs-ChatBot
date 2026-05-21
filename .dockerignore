@@ -1,0 +1,32 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.git/
+.gitignore
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# Large dev-only artifacts — exclude unless explicitly committed
+chroma_db_backup/
+chroma_db_future/
+benchmark_*.py
+run_questions_eval.py
+make_overview_pptx.py
+question_eval_*.json
+questions_iter*.json
+questions_failing_subset.json
+update_eval.json
+update.txt
+*.pptx
+
+# Frontend isn't needed in the backend image
+frontend/
+
+# Future chatbot variant
+ChatbotFuture.py
+staticfuture/

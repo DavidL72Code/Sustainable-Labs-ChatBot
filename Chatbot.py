@@ -31,6 +31,11 @@ except ImportError:  # pragma: no cover - dependency availability depends on the
     stream_with_context = None
 
 try:
+    from flask_cors import CORS
+except ImportError:  # pragma: no cover
+    CORS = None
+
+try:
     from google import genai
     from google.genai import types as genai_types
 except ImportError:  # pragma: no cover - dependency availability depends on the runtime
@@ -62,8 +67,10 @@ class ChatbotConfig:
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
     gemini_temperature: float = float(os.getenv("GEMINI_TEMPERATURE", "0.7"))
-    web_host: str = os.getenv("CHATBOT_HOST", "127.0.0.1")
-    web_port: int = int(os.getenv("CHATBOT_PORT", "8000"))
+    web_host: str = os.getenv("CHATBOT_HOST", "0.0.0.0")
+    web_port: int = int(os.getenv("PORT", os.getenv("CHATBOT_PORT", "7860")))
+    cors_origins: str = os.getenv("CORS_ORIGINS", "*")
+    debug_mode: bool = os.getenv("FLASK_DEBUG", "0") == "1"
 
 
 class SourceDocument(dict):
@@ -4218,6 +4225,10 @@ def create_app() -> Flask:
     app.config["JSON_SORT_KEYS"] = False
     app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 3600  # cache static files for 1 hour
 
+    if CORS is not None:
+        origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()] or ["*"]
+        CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=False)
+
     @app.get("/")
     def index():
         return render_template("index.html")
@@ -4360,7 +4371,7 @@ def create_app() -> Flask:
 def main() -> None:
     app = create_app()
     config = ChatbotConfig()
-    app.run(debug=True, host=config.web_host, port=config.web_port)
+    app.run(debug=config.debug_mode, host=config.web_host, port=config.web_port)
 
 
 if __name__ == "__main__":

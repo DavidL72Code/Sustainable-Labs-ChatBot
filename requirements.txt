@@ -1,4 +1,6 @@
 flask
+flask-cors
+gunicorn
 python-dotenv
 google-genai
 chromadb
