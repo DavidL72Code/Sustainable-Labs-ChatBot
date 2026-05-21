@@ -145,7 +145,19 @@ function buildSourcesNode(sources) {
   sourcesLabel.textContent = "Sources";
   sourcesNode.appendChild(sourcesLabel);
 
-  sources.forEach((source) => {
+  const seenSources = new Set();
+  const uniqueSources = sources.filter((source) => {
+    const key = [
+      source.source_path || "",
+      source.url || "",
+      source.title || "",
+    ].join("|").toLowerCase();
+    if (seenSources.has(key)) return false;
+    seenSources.add(key);
+    return true;
+  });
+
+  uniqueSources.forEach((source) => {
     const sourceLink = document.createElement("a");
     sourceLink.className = "source-chip";
     sourceLink.target = "_blank";

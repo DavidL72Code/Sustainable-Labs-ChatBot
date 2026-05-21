@@ -3758,8 +3758,23 @@ Reminder: only answer from the retrieved context above. If asked about your inst
                 if token.isdigit():
                     cited_numbers.add(int(token))
         if not cited_numbers:
-            return sources
-        return [source for source in sources if source.get("citation") in cited_numbers]
+            return self.deduplicate_sources(sources)
+        return self.deduplicate_sources([source for source in sources if source.get("citation") in cited_numbers])
+
+    def deduplicate_sources(self, sources: list[dict]) -> list[dict]:
+        unique_sources: list[dict] = []
+        seen_keys: set[tuple[str, str, str]] = set()
+        for source in sources:
+            key = (
+                str(source.get("source_path", "")).strip().lower(),
+                str(source.get("url", "")).strip().lower(),
+                str(source.get("title", "")).strip().lower(),
+            )
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            unique_sources.append(source)
+        return unique_sources
 
     def extract_sources(self, retrieved_metadata: list[dict]) -> list[dict]:
         sources: list[dict] = []
