@@ -32,8 +32,8 @@ COPY templates/ ./templates/
 COPY static/ ./static/
 COPY SEED_DOCUMENTS/ ./SEED_DOCUMENTS/
 
-# Optional: commit a prebuilt vector store to skip first-run indexing
-# COPY chroma_db/ ./chroma_db/
+# Include the prebuilt vector store so startup can skip first-run indexing
+COPY chroma_db/ ./chroma_db/
 
 # HF Spaces sometimes runs as non-root; make the cache + chroma dirs writable
 RUN mkdir -p /app/chroma_db /app/.cache && chmod -R 777 /app/chroma_db /app/.cache
