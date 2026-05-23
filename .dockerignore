@@ -13,7 +13,6 @@ env/
 
 # Large dev-only artifacts — exclude unless explicitly committed
 chroma_db_backup/
-chroma_db_future/
 benchmark_*.py
 run_questions_eval.py
 make_overview_pptx.py
@@ -26,7 +25,3 @@ update.txt
 
 # Frontend isn't needed in the backend image
 frontend/
-
-# Future chatbot variant
-ChatbotFuture.py
-staticfuture/
