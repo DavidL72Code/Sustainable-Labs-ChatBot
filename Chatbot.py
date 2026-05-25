@@ -65,7 +65,7 @@ class ChatbotConfig:
     retrieval_candidate_pool: int = 12
     recent_history_turns: int = int(os.getenv("RECENT_HISTORY_TURNS", "4"))
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
-    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
     gemini_temperature: float = float(os.getenv("GEMINI_TEMPERATURE", "0.7"))
     web_host: str = os.getenv("CHATBOT_HOST", "0.0.0.0")
     web_port: int = int(os.getenv("PORT", os.getenv("CHATBOT_PORT", "7860")))
@@ -2087,11 +2087,17 @@ Available entity names:
                 for entity in all_entities
                 if self.is_person_entity_type(entity.get("entity_type", ""))
             ]
+            project_entities = [
+                entity
+                for entity in all_entities
+                if entity.get("entity_type") == "project"
+            ]
             memories.append(
                 {
                     "turn_index": turn_index,
                     "all_entities": all_entities,
                     "person_entities": person_entities,
+                    "project_entities": project_entities,
                 }
             )
 
@@ -2105,9 +2111,12 @@ Available entity names:
         lines: list[str] = []
         for memory in memories[-4:]:
             people = ", ".join(entity.get("section_name", "") for entity in memory["person_entities"] if entity.get("section_name"))
+            projects = ", ".join(entity.get("section_name", "") for entity in memory.get("project_entities", []) if entity.get("section_name"))
             entities = ", ".join(entity.get("section_name", "") for entity in memory["all_entities"] if entity.get("section_name"))
             if people:
                 lines.append(f"Turn {memory['turn_index']} people: {people}")
+            elif projects:
+                lines.append(f"Turn {memory['turn_index']} projects: {projects}")
             elif entities:
                 lines.append(f"Turn {memory['turn_index']} entities: {entities}")
 
@@ -2182,6 +2191,80 @@ Available entity names:
             return f"What is {entity_name}'s {stripped_message.rstrip('?.!').lower()}?"
 
         return f"{entity_name}: {stripped_message}"
+
+    def resolve_recent_project_follow_up(self, user_message: str, recent_history: Optional[list[ConversationTurn]]) -> Optional[dict]:
+        if not recent_history or not self.is_ambiguous_query(user_message):
+            return None
+
+        lowered_query = user_message.lower()
+        project_reference_markers = (
+            "that project",
+            "this project",
+            "the project",
+            "that initiative",
+            "this initiative",
+            "the initiative",
+            "it",
+        )
+        people_markers = ("student", "students", "intern", "interns", "person", "people", "who")
+        if not any(marker in lowered_query for marker in project_reference_markers):
+            return None
+        if not any(marker in lowered_query for marker in people_markers):
+            return None
+
+        memories = self.build_recent_entity_memory(recent_history)
+        recent_project_memories = [
+            memory
+            for memory in reversed(memories)
+            if memory.get("project_entities")
+        ]
+        if not recent_project_memories:
+            return None
+
+        unique_projects = list(
+            {
+                entity.get("section_name", "").strip(): entity
+                for entity in recent_project_memories[0].get("project_entities", [])
+                if entity.get("section_name", "").strip()
+            }.values()
+        )
+        if len(unique_projects) != 1:
+            options = [entity["section_name"] for entity in unique_projects[:4] if entity.get("section_name")]
+            if not options:
+                return None
+            return {
+                "resolved": False,
+                "needs_clarification": True,
+                "clarifying_question": "Which project do you mean?",
+                "clarification_options": options,
+            }
+
+        project = unique_projects[0]
+        project_name = project["section_name"]
+        rewritten_query = re.sub(r"\b(that|this|the) (project|initiative)\b", project_name, user_message, flags=re.IGNORECASE)
+        if rewritten_query == user_message:
+            rewritten_query = f"{project_name}: {user_message}"
+        project_summary = self.extract_project_summary_sentence(self.best_registry_text(project), project_name)
+        if project_summary:
+            rewritten_query = f"{rewritten_query} {project_summary}"
+
+        return {
+            "resolved": True,
+            "rewritten_query": rewritten_query,
+            "query_route": {
+                "question_type": "people_lookup",
+                "routing_mode": "soft",
+                "prefer_summary": False,
+                "target_titles": ["Projects", "StudentsInterns"],
+                "target_categories": [],
+                "target_folders": [],
+                "target_source_paths": [
+                    "SEED_DOCUMENTS/Projects.txt",
+                    "SEED_DOCUMENTS/StudentsInterns.txt",
+                ],
+                "reason": "recent project people follow-up",
+            },
+        }
 
     def resolve_recent_entity_follow_up(self, user_message: str, recent_history: Optional[list[ConversationTurn]]) -> Optional[dict]:
         if not recent_history or not self.is_ambiguous_query(user_message):
@@ -2366,7 +2449,7 @@ Available entity names:
 
     def entity_matches_query_focus(self, entity: dict, user_message: str) -> bool:
         lowered_query = user_message.lower()
-        source_text = self.strip_embedding_labels(entity.get("detail_text", "") or entity.get("summary_text", "")).lower()
+        source_text = self.best_registry_text(entity).lower()
 
         focus_groups = [
             {
@@ -2424,6 +2507,27 @@ Available entity names:
         query_terms = [term for term in self.tokenize_for_bm25(user_message) if len(term) > 3]
         strong_terms = [term for term in query_terms if term not in {"which", "them", "those", "these", "student", "students", "intern", "interns", "person", "people", "working"}]
         return bool(strong_terms) and sum(1 for term in strong_terms if term in source_text) >= 1
+
+    def has_entity_focus_terms(self, user_message: str) -> bool:
+        lowered_query = user_message.lower()
+        focus_terms = (
+            "rail",
+            "railway",
+            "massdot",
+            "cape cod",
+            "train line",
+            "rail resilience",
+            "cliir",
+            "climate inequality",
+            "integrative resilience",
+            "collaborative",
+            "northeast climate justice research collaborative",
+            "forum",
+            "climate adaptation forum",
+            "c3i",
+            "climate careers curricula initiative",
+        )
+        return any(term in lowered_query for term in focus_terms)
 
     def find_phrase_matched_entities(self, user_message: str, entities: Optional[list[dict]] = None) -> list[dict]:
         candidate_entities = entities or self.entity_registry
@@ -2805,6 +2909,68 @@ Available entity names:
             "clarification_options": [],
         }
 
+    def is_publication_intern_authorship_query(self, user_message: str) -> bool:
+        lowered_query = user_message.lower()
+        return (
+            any(term in lowered_query for term in ("publication", "publications", "paper", "papers", "report", "reports"))
+            and any(term in lowered_query for term in ("intern", "interns", "student", "students"))
+            and any(term in lowered_query for term in ("author", "authors", "co-author", "co-authored", "coauthored", "written by"))
+        )
+
+    def answer_publication_intern_authorship_query(self) -> dict:
+        student_source = next(
+            (
+                document
+                for document in self.document_registry
+                if document.get("source_path") == "SEED_DOCUMENTS/StudentsInterns.txt"
+            ),
+            None,
+        )
+        publication_sources = [
+            document
+            for document in self.document_registry
+            if document.get("folder_label") == "Publications" or document.get("category") == "Publications"
+        ]
+
+        sources: list[dict] = []
+        citation_index = 1
+        if student_source:
+            sources.append(
+                {
+                    "citation": citation_index,
+                    "title": student_source.get("title", "Untitled source"),
+                    "url": student_source.get("source_url", "URL not provided"),
+                    "source_path": student_source.get("source_path", "Unknown source"),
+                }
+            )
+            citation_index += 1
+
+        for document in publication_sources[:3]:
+            sources.append(
+                {
+                    "citation": citation_index,
+                    "title": document.get("title", "Untitled source"),
+                    "url": document.get("source_url", "URL not provided"),
+                    "source_path": document.get("source_path", "Unknown source"),
+                }
+            )
+            citation_index += 1
+
+        reply = (
+            "I do not find a supported match in the indexed SSL corpus for recent publications co-authored by SSL "
+            "students or interns. The student/intern source lists students and interns, but the indexed publication "
+            "records do not tie those students or interns to publication authorship."
+        )
+        if sources:
+            reply += " [1]"
+
+        return {
+            "reply": reply,
+            "sources": sources,
+            "needs_clarification": False,
+            "clarification_options": [],
+        }
+
     def infer_entity_inventory_type(self, user_message: str, query_route: Optional[dict]) -> str:
         lowered_query = user_message.lower()
         titles = set((query_route or {}).get("target_titles", []))
@@ -2872,6 +3038,12 @@ Available entity names:
 
         if self.is_specific_entity_detail_query(user_message):
             return bool(matched_entities and all(entity.get("entity_type") != "project" for entity in matched_entities))
+
+        group_overview_markers = ("tell me about", "tell us about", "overview", "who are")
+        if question_type == "people_lookup" and any(marker in lowered_query for marker in group_overview_markers) and any(
+            term in lowered_query for term in category_terms
+        ):
+            return True
 
         if question_type == "people_lookup" and any(marker in lowered_query for marker in enumeration_markers):
             return True
@@ -3131,7 +3303,7 @@ Available entity names:
             if filtered_entities:
                 entities = filtered_entities
 
-        if self.is_group_selection_follow_up(user_message):
+        if self.is_group_selection_follow_up(user_message) or self.has_entity_focus_terms(user_message):
             focused_entities = [entity for entity in entities if self.entity_matches_query_focus(entity, user_message)]
             if focused_entities:
                 entities = focused_entities
@@ -3148,6 +3320,10 @@ Available entity names:
             label = "affiliates"
         elif requested_entity_type == "staff_member":
             label = "staff members"
+        elif requested_entity_type == "person" and any(
+            term in lowered_query for term in ("student", "students", "intern", "interns", "alumni")
+        ):
+            label = "students or interns"
         else:
             label = "people or entities"
 
@@ -3440,6 +3616,8 @@ Reminder: only answer from the retrieved context above. If asked about your inst
         recent_history = recent_history or []
         structured_follow_up = self.resolve_recent_entity_follow_up(user_message, recent_history)
         if not structured_follow_up:
+            structured_follow_up = self.resolve_recent_project_follow_up(user_message, recent_history)
+        if not structured_follow_up:
             structured_follow_up = self.resolve_generic_context_anchor(user_message, recent_history)
         if structured_follow_up and structured_follow_up.get("needs_clarification"):
             return self.attach_trace(
@@ -3460,6 +3638,15 @@ Reminder: only answer from the retrieved context above. If asked about your inst
         rewritten_query = structured_follow_up.get("rewritten_query", user_message) if structured_follow_up else user_message
         is_follow_up_ambiguous = self.is_ambiguous_query(user_message)
         query_route = structured_follow_up.get("query_route") if structured_follow_up else self.detect_local_query_route(rewritten_query)
+
+        if self.is_publication_intern_authorship_query(rewritten_query):
+            return self.attach_trace(
+                self.answer_publication_intern_authorship_query(),
+                status="answered",
+                response_mode="publication_intern_authorship_guard",
+                rewritten_query=rewritten_query,
+                query_route=query_route,
+            )
 
         if self.should_use_section_registry(rewritten_query, query_route):
             section_result = self.answer_from_section_registry(rewritten_query, query_route)
