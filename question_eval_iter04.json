@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-05-11T04:09:21.443726+00:00",
-  "model": "gemini-3.1-flash-lite-preview",
+  "model": "gemini-3.1-flash-lite",
   "question_file": "questions_iter04_52.json",
   "summary": {
     "total_cases": 52,

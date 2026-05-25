@@ -88,7 +88,7 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 |---|---|
 | **Python 3** | Language |
 | **Flask** | Web server, REST API, SSE streaming |
-| **Google Gemini** (`google-genai`) | LLM for answer generation and query planning. Default model: `gemini-3.1-flash-lite-preview` |
+| **Google Gemini** (`google-genai`) | LLM for answer generation and query planning. Default model: `gemini-3.1-flash-lite` |
 | **ChromaDB** | Local vector store for embeddings + metadata |
 | **sentence-transformers** (`all-MiniLM-L6-v2`) | Local embedding model — runs on CPU, no API calls |
 | **BM25** (custom implementation) | Sparse lexical retrieval, paired with dense for hybrid search |
