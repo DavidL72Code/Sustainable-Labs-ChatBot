@@ -115,7 +115,7 @@ class RetrievalChatbot:
         confidence_score = confidence.get("score", 0.0)
         
         # Rule 1: If confidence is decent, don't plan
-        if confidence_score > 0.45:
+        if confidence_score > 0.5:
             return False
         
         # Rule 2: Short, simple queries are usually unambiguous
@@ -142,8 +142,8 @@ class RetrievalChatbot:
         if any(topic in query_lower for topic in clear_topics):
             return False
         
-        # Rule 5: Only plan if we're truly stuck (very low confidence AND ambiguous)
-        return confidence_score < 0.3 and query_terms > 6
+        # Rule 5: Plan for low-confidence, non-trivial queries that had no route targets.
+        return confidence_score <= 0.5 and query_terms > 6
 
     def choose_candidate_pool(self, query_route: Optional[dict], top_k: int) -> int:
         """
@@ -3764,15 +3764,16 @@ Reminder: only answer from the retrieved context above. If asked about your inst
                     query_plan=query_plan,
                 )
 
-            retrieval_k = self.choose_top_k(query_plan)
+            effective_route = query_plan or query_route
+            retrieval_k = self.choose_top_k(effective_route)
             retrieved_context, retrieved_metadata, retrieval_diagnostics = self.retrieve_context(
                 rewritten_query,
                 top_k=retrieval_k,
-                query_route=query_plan,
+                query_route=effective_route,
             )
             confidence = self.assess_retrieval_confidence(
                 user_message=rewritten_query,
-                query_route=query_plan,
+                query_route=effective_route,
                 retrieved_context=retrieved_context,
                 retrieved_metadata=retrieved_metadata,
                 retrieval_diagnostics=retrieval_diagnostics,
