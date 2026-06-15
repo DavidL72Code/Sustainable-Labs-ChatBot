@@ -1,6 +1,10 @@
 .env
 .DS_Store
 *.bin
+*.pyc
+*.pyo
+__pycache__/
+.pycache/
 chroma_db/
 chroma_db_backup/
 logs/
