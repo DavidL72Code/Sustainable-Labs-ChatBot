@@ -55,8 +55,7 @@ function setStatus(processing) {
   statusDot.classList.toggle("processing", processing);
 }
 
-const recentHistory = [];
-const recentHistoryWindow = 4;
+let conversationId = "";
 
 const suggestedQuestionsEl = document.getElementById("suggestedQuestions");
 if (suggestedQuestionsEl) {
@@ -136,6 +135,21 @@ function renderAssistantContent(content) {
   return htmlParts.join("") || `<p>${renderInlineMarkdown(content)}</p>`;
 }
 
+function sanitizeSourceUrl(value) {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (!trimmed || trimmed === "URL not provided") return null;
+
+  try {
+    const parsed = new URL(trimmed, window.location.origin);
+    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+      return parsed.href;
+    }
+  } catch {}
+
+  return null;
+}
+
 function buildSourcesNode(sources) {
   const sourcesNode = document.createElement("div");
   sourcesNode.className = "message-sources";
@@ -162,11 +176,12 @@ function buildSourcesNode(sources) {
     sourceLink.className = "source-chip";
     sourceLink.target = "_blank";
     sourceLink.rel = "noreferrer";
-    sourceLink.href = source.url !== "URL not provided" ? source.url : "#";
+    const safeUrl = sanitizeSourceUrl(source.url);
     sourceLink.textContent = source.title;
-    if (source.url === "URL not provided") {
+    if (safeUrl) {
+      sourceLink.href = safeUrl;
+    } else {
       sourceLink.classList.add("source-chip-disabled");
-      sourceLink.removeAttribute("href");
     }
     sourcesNode.appendChild(sourceLink);
   });
@@ -320,9 +335,14 @@ async function streamMessage(message, onEvent) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       message,
-      recent_history: recentHistory.slice(-recentHistoryWindow),
+      conversation_id: conversationId,
     }),
   });
+
+  const responseConversationId = response.headers.get("X-Conversation-Id");
+  if (responseConversationId) {
+    conversationId = responseConversationId;
+  }
 
   if (!response.ok) {
     const text = await response.text();
@@ -408,12 +428,6 @@ async function submitMessageFlow(message, displayMessage = message) {
         );
 
         fullReply = event.reply;
-        if (!event.blocked) {
-          recentHistory.push({ user: message, assistant: fullReply });
-          if (recentHistory.length > recentHistoryWindow) {
-            recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
-          }
-        }
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
       } else if (event.type === "delta") {
@@ -427,10 +441,6 @@ async function submitMessageFlow(message, displayMessage = message) {
         if (streaming) {
           streaming.finalize(pendingSources);
           streaming = null;
-          recentHistory.push({ user: message, assistant: fullReply });
-          if (recentHistory.length > recentHistoryWindow) {
-            recentHistory.splice(0, recentHistory.length - recentHistoryWindow);
-          }
         }
         // Unlock UI immediately — suggestions will still arrive after this
         setStatus(false);

@@ -10,10 +10,11 @@ import re
 import threading
 import time
 import uuid
-from collections import Counter, OrderedDict
+from collections import Counter, OrderedDict, deque
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
+from urllib.parse import urlsplit
 
 import chromadb
 from chromadb.api.models.Collection import Collection
@@ -71,6 +72,11 @@ class ChatbotConfig:
     web_port: int = int(os.getenv("PORT", os.getenv("CHATBOT_PORT", "7860")))
     cors_origins: str = os.getenv("CORS_ORIGINS", "*")
     debug_mode: bool = os.getenv("FLASK_DEBUG", "0") == "1"
+    chat_rate_limit_count: int = int(os.getenv("CHAT_RATE_LIMIT_COUNT", "10"))
+    chat_rate_limit_window_seconds: int = int(os.getenv("CHAT_RATE_LIMIT_WINDOW_SECONDS", "60"))
+    suggestions_rate_limit_count: int = int(os.getenv("SUGGESTIONS_RATE_LIMIT_COUNT", "30"))
+    suggestions_rate_limit_window_seconds: int = int(os.getenv("SUGGESTIONS_RATE_LIMIT_WINDOW_SECONDS", "60"))
+    conversation_ttl_seconds: int = int(os.getenv("CONVERSATION_TTL_SECONDS", "3600"))
 
 
 class SourceDocument(dict):
@@ -3970,7 +3976,7 @@ Reminder: only answer from the retrieved context above. If asked about your inst
         for citation_index, metadata in enumerate(retrieved_metadata, start=1):
             metadata = metadata or {}
             title = metadata.get("title", "Untitled source").strip() or "Untitled source"
-            source_url = metadata.get("source_url", "").strip()
+            source_url = _safe_source_url(metadata.get("source_url", ""))
             source_path = metadata.get("source_path", "").strip() or "Unknown source"
             sources.append(
                 {
@@ -4104,6 +4110,65 @@ def append_chat_log(event: dict) -> None:
     event.setdefault("timestamp", utc_timestamp())
     with CHAT_LOG_PATH.open("a", encoding="utf-8") as file:
         file.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+
+class InMemoryRateLimiter:
+    def __init__(self) -> None:
+        self._events: dict[str, deque[float]] = {}
+        self._lock = threading.Lock()
+
+    def allow(self, key: str, limit: int, window_seconds: int) -> bool:
+        now = time.time()
+        cutoff = now - max(window_seconds, 1)
+        with self._lock:
+            bucket = self._events.setdefault(key, deque())
+            while bucket and bucket[0] <= cutoff:
+                bucket.popleft()
+            if len(bucket) >= max(limit, 1):
+                return False
+            bucket.append(now)
+            return True
+
+
+class InMemoryConversationStore:
+    def __init__(self, ttl_seconds: int, max_turns: int) -> None:
+        self.ttl_seconds = max(ttl_seconds, 60)
+        self.max_turns = max(max_turns, 1)
+        self._conversations: dict[str, dict] = {}
+        self._lock = threading.Lock()
+
+    def _prune_locked(self, now: float) -> None:
+        expired_ids = [
+            conversation_id
+            for conversation_id, payload in self._conversations.items()
+            if now - float(payload.get("updated_at", 0.0)) > self.ttl_seconds
+        ]
+        for conversation_id in expired_ids:
+            self._conversations.pop(conversation_id, None)
+
+    def get_history(self, conversation_id: str) -> list[ConversationTurn]:
+        now = time.time()
+        with self._lock:
+            self._prune_locked(now)
+            payload = self._conversations.get(conversation_id, {})
+            turns = payload.get("turns", [])
+            return [ConversationTurn(turn) for turn in turns if isinstance(turn, dict)]
+
+    def append_turn(self, conversation_id: str, user_message: str, assistant_message: str) -> None:
+        now = time.time()
+        with self._lock:
+            self._prune_locked(now)
+            payload = self._conversations.setdefault(conversation_id, {"turns": [], "updated_at": now})
+            turns = payload.setdefault("turns", [])
+            turns.append(
+                ConversationTurn(
+                    user=str(user_message).strip(),
+                    assistant=str(assistant_message).strip(),
+                )
+            )
+            if len(turns) > self.max_turns:
+                del turns[:-self.max_turns]
+            payload["updated_at"] = now
 
 
 def load_chat_events(limit: Optional[int] = None) -> list[dict]:
@@ -4307,8 +4372,8 @@ def build_document_record(path: Path, seed_directory: Path, text: str, metadata_
 
     url = metadata.get("url", "").strip()
     notes = metadata.get("notes", "").strip()
-    fallback_url = notes if notes.startswith("http") else ""
-    effective_url = url or fallback_url or "URL not provided"
+    fallback_url = notes if _is_allowed_source_url(notes) else ""
+    effective_url = _safe_source_url(url or fallback_url)
 
     title = metadata.get("title", path.stem).strip() or path.stem
     category = metadata.get("category", "Uncategorized").strip() or "Uncategorized"
@@ -4399,6 +4464,22 @@ _ZERO_WIDTH_RE = re.compile("[​-‍‪-‮﻿]")
 _FAKE_CITATION_RE = re.compile(r"\[\s*\d+(\s*,\s*\d+)*\s*\]")
 _DOC_LABEL_LINE_RE = re.compile(r"(?im)^\s*document\s+labels?\s*:.*$")
 _CODE_FENCE_RE = re.compile(r"```[\s\S]*?```")
+_ALLOWED_SOURCE_URL_SCHEMES = {"http", "https"}
+_DEFAULT_CSP = (
+    "default-src 'self'; "
+    "script-src 'self'; "
+    "style-src 'self' https://fonts.googleapis.com; "
+    "font-src 'self' https://fonts.gstatic.com; "
+    "img-src 'self' data: https://www.umb.edu; "
+    "connect-src 'self'; "
+    "object-src 'none'; "
+    "base-uri 'self'; "
+    "form-action 'self'; "
+    "frame-ancestors 'none'"
+)
+_RATE_LIMIT_MESSAGE = "Too many requests. Please wait a moment and try again."
+_rate_limiter = InMemoryRateLimiter()
+_CONVERSATION_ID_RE = re.compile(r"^[a-f0-9]{32}$")
 
 
 def _looks_like_injection(text: str) -> bool:
@@ -4418,15 +4499,58 @@ def _is_blocked(text: str) -> bool:
     return _profanity.contains_profanity(text)
 
 
+def _get_client_ip() -> str:
+    if request is None:
+        return "unknown"
+    access_route = getattr(request, "access_route", None) or []
+    for candidate in access_route:
+        candidate = str(candidate).strip()
+        if candidate:
+            return candidate
+    return (request.remote_addr or "unknown").strip() or "unknown"
+
+
+def _is_allowed_source_url(value: str) -> bool:
+    candidate = str(value or "").strip()
+    if not candidate:
+        return False
+    parsed = urlsplit(candidate)
+    return parsed.scheme.lower() in _ALLOWED_SOURCE_URL_SCHEMES and bool(parsed.netloc)
+
+
+def _safe_source_url(value: str) -> str:
+    candidate = str(value or "").strip()
+    return candidate if _is_allowed_source_url(candidate) else "URL not provided"
+
+
+def _normalize_conversation_id(value: object) -> str:
+    candidate = str(value or "").strip().lower()
+    return candidate if _CONVERSATION_ID_RE.fullmatch(candidate) else uuid.uuid4().hex
+
+
 def create_app() -> Flask:
     if Flask is None:
         raise ImportError("Install Flask to run the local web demo.")
 
     config = ChatbotConfig()
     chatbot = create_chatbot(config)
+    conversation_store = InMemoryConversationStore(
+        ttl_seconds=config.conversation_ttl_seconds,
+        max_turns=config.recent_history_turns,
+    )
     app = Flask(__name__)
     app.config["JSON_SORT_KEYS"] = False
     app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 3600  # cache static files for 1 hour
+
+    @app.after_request
+    def add_security_headers(response):
+        response.headers.setdefault("Content-Security-Policy", _DEFAULT_CSP)
+        response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+        response.headers.setdefault("X-Content-Type-Options", "nosniff")
+        response.headers.setdefault("X-Frame-Options", "DENY")
+        response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+        response.headers.setdefault("Cross-Origin-Resource-Policy", "same-origin")
+        return response
 
     if CORS is not None:
         origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()] or ["*"]
@@ -4449,15 +4573,26 @@ def create_app() -> Flask:
 
     @app.post("/api/chat")
     def chat():
+        if not _rate_limiter.allow(
+            key=f"chat:{_get_client_ip()}",
+            limit=config.chat_rate_limit_count,
+            window_seconds=config.chat_rate_limit_window_seconds,
+        ):
+            return jsonify({"error": _RATE_LIMIT_MESSAGE}), 429
+
         payload = request.get_json(silent=True) or {}
         user_message = str(payload.get("message", "")).strip()
-        recent_history = payload.get("recent_history", [])
+        conversation_id = _normalize_conversation_id(payload.get("conversation_id"))
         request_id = uuid.uuid4().hex
         started_at = time.perf_counter()
         if not user_message:
             return jsonify({"error": "Message is required."}), 400
 
-        sse_headers = {"Cache-Control": "no-cache", "X-Accel-Buffering": "no"}
+        sse_headers = {
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+            "X-Conversation-Id": conversation_id,
+        }
 
         if len(user_message) > _MAX_USER_MESSAGE_CHARS:
             user_message = user_message[:_MAX_USER_MESSAGE_CHARS]
@@ -4470,6 +4605,7 @@ def create_app() -> Flask:
             append_chat_log(
                 {
                     "id": request_id,
+                    "conversation_id": conversation_id,
                     "question": user_message,
                     "answer": _REFUSAL,
                     "latency_ms": round((time.perf_counter() - started_at) * 1000, 2),
@@ -4481,15 +4617,10 @@ def create_app() -> Flask:
                 }
             )
             def blocked_stream():
-                yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': []})}\n\n"
+                yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': [], 'conversation_id': conversation_id})}\n\n"
             return Response(stream_with_context(blocked_stream()), mimetype="text/event-stream", headers=sse_headers)
 
-        history_window = max(config.recent_history_turns, 1)
-        safe_recent_history = [
-            ConversationTurn(user=str(turn.get("user", "")).strip(), assistant=str(turn.get("assistant", "")).strip())
-            for turn in recent_history[-history_window:]
-            if isinstance(turn, dict)
-        ]
+        safe_recent_history = conversation_store.get_history(conversation_id)
 
         def generate():
             answer_parts: list[str] = []
@@ -4539,11 +4670,15 @@ def create_app() -> Flask:
                 answer_parts = [friendly]
                 yield f"data: {json.dumps({'type': 'error', 'error': friendly})}\n\n"
             finally:
+                final_answer = "".join(answer_parts).strip()
+                if final_answer and not blocked and status in {"answered", "clarification"}:
+                    conversation_store.append_turn(conversation_id, user_message, final_answer)
                 append_chat_log(
                     {
                         "id": request_id,
+                        "conversation_id": conversation_id,
                         "question": user_message,
-                        "answer": "".join(answer_parts).strip(),
+                        "answer": final_answer,
                         "latency_ms": round((time.perf_counter() - started_at) * 1000, 2),
                         "status": status,
                         "response_mode": response_mode,
@@ -4558,6 +4693,13 @@ def create_app() -> Flask:
 
     @app.post("/api/suggestions")
     def suggestions():
+        if not _rate_limiter.allow(
+            key=f"suggestions:{_get_client_ip()}",
+            limit=config.suggestions_rate_limit_count,
+            window_seconds=config.suggestions_rate_limit_window_seconds,
+        ):
+            return jsonify({"error": _RATE_LIMIT_MESSAGE, "suggestions": []}), 429
+
         payload = request.get_json(silent=True) or {}
         message = str(payload.get("message", "")).strip()
         answer = str(payload.get("answer", "")).strip()
