@@ -56,7 +56,7 @@
       <article class="panel panel-wide">
         <div class="panel-header">
           <h2>Chat History</h2>
-          <span>{{ dashboard.log_path }}</span>
+          <span>Public operational summary</span>
         </div>
         {% if dashboard.chat_history %}
           <div class="history-table-wrap">
@@ -78,8 +78,8 @@
                     </td>
                     <td>
                       <a class="history-link" href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
-                        <strong>{{ event.question }}</strong>
-                        <span>{{ event.answer[:180] }}{% if event.answer|length > 180 %}...{% endif %}</span>
+                        <strong>{{ event.display_label }}</strong>
+                        <span>{{ event.preview_text }}</span>
                       </a>
                       <small>{{ event.timestamp or event.id }}</small>
                     </td>
@@ -144,7 +144,7 @@
             {% for event in dashboard.problem_events %}
               <a href="{{ url_for('dashboard_interaction', event_id=event.id) }}">
                 <span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span>
-                {{ event.question }}
+                {{ event.display_label }}
               </a>
             {% endfor %}
           </div>

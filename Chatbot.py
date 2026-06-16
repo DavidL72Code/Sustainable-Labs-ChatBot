@@ -70,7 +70,7 @@ class ChatbotConfig:
     gemini_temperature: float = float(os.getenv("GEMINI_TEMPERATURE", "0.7"))
     web_host: str = os.getenv("CHATBOT_HOST", "0.0.0.0")
     web_port: int = int(os.getenv("PORT", os.getenv("CHATBOT_PORT", "7860")))
-    cors_origins: str = os.getenv("CORS_ORIGINS", "*")
+    cors_origins: str = os.getenv("CORS_ORIGINS", "")
     debug_mode: bool = os.getenv("FLASK_DEBUG", "0") == "1"
     chat_rate_limit_count: int = int(os.getenv("CHAT_RATE_LIMIT_COUNT", "10"))
     chat_rate_limit_window_seconds: int = int(os.getenv("CHAT_RATE_LIMIT_WINDOW_SECONDS", "60"))
@@ -4221,16 +4221,23 @@ def summarize_chat_event(event: dict) -> dict:
     sources = event.get("sources", []) or []
     retrieved_metadata = trace.get("retrieved_metadata", []) or []
 
-    summarized = dict(event)
+    summarized = {
+        "id": event.get("id", ""),
+        "timestamp": event.get("timestamp", ""),
+        "status": event.get("status") or "answered",
+        "latency_ms": event.get("latency_ms", 0),
+        "response_mode": event.get("response_mode", ""),
+        "blocked": bool(event.get("blocked")),
+        "needs_clarification": bool(event.get("needs_clarification")),
+        "display_label": f"Interaction {(event.get('id', '') or 'unknown')[:8]}",
+        "preview_text": "User and assistant message content is hidden on the public dashboard.",
+    }
     summarized["confidence_score"] = confidence.get("score")
     summarized["is_low_confidence"] = bool(confidence.get("is_low_confidence"))
     summarized["confidence_reasons"] = confidence.get("reasons", []) or []
     summarized["source_count"] = len(sources)
     summarized["retrieved_count"] = len(retrieved_metadata)
     summarized["top_score"] = retrieval_diagnostics.get("top_score")
-    summarized["status"] = event.get("status") or "answered"
-    summarized["answer"] = event.get("answer") or ""
-    summarized["question"] = event.get("question") or ""
     return summarized
 
 
@@ -4278,14 +4285,46 @@ def build_dashboard_payload() -> dict:
         "source_usage": source_counts.most_common(12),
         "category_usage": category_counts.most_common(8),
         "eval": load_eval_summary(),
-        "log_path": str(CHAT_LOG_PATH),
     }
 
 
 def find_chat_event(event_id: str) -> Optional[dict]:
     for event in load_chat_events():
         if event.get("id") == event_id:
-            return summarize_chat_event(event)
+            trace = event.get("trace", {}) or {}
+            confidence = trace.get("confidence", {}) or {}
+            retrieval_diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+            public_sources = []
+            for source in event.get("sources", []) or []:
+                public_sources.append(
+                    {
+                        "title": source.get("title", "Untitled source"),
+                        "url": source.get("url", "URL not provided"),
+                    }
+                )
+            return {
+                "id": event.get("id", ""),
+                "timestamp": event.get("timestamp", ""),
+                "status": event.get("status") or "answered",
+                "latency_ms": event.get("latency_ms", 0),
+                "response_mode": event.get("response_mode", ""),
+                "blocked": bool(event.get("blocked")),
+                "needs_clarification": bool(event.get("needs_clarification")),
+                "confidence_score": confidence.get("score"),
+                "is_low_confidence": bool(confidence.get("is_low_confidence")),
+                "confidence_reasons": confidence.get("reasons", []) or [],
+                "source_count": len(public_sources),
+                "retrieved_count": len(trace.get("retrieved_metadata", []) or []),
+                "sources": public_sources,
+                "retrieval_summary": {
+                    "selected_count": retrieval_diagnostics.get("selected_count"),
+                    "distinct_source_count": retrieval_diagnostics.get("distinct_source_count"),
+                    "top_score": retrieval_diagnostics.get("top_score"),
+                    "score_gap": retrieval_diagnostics.get("score_gap"),
+                },
+                "display_label": f"Interaction {(event.get('id', '') or 'unknown')[:8]}",
+                "preview_text": "User and assistant message content is hidden on the public dashboard.",
+            }
     return None
 
 
@@ -4553,8 +4592,9 @@ def create_app() -> Flask:
         return response
 
     if CORS is not None:
-        origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()] or ["*"]
-        CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=False)
+        origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()]
+        if origins:
+            CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=False)
 
     @app.get("/")
     def index():
