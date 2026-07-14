@@ -186,7 +186,7 @@ Steps:
    - `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Defaults to `*` if unset.
    - Optionally `GEMINI_MODEL` to override the default model.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
-5. On free Spaces the filesystem is ephemeral. Either commit a prebuilt `chroma_db/` (uncomment the `COPY chroma_db/` line in the Dockerfile), rebuild from `SEED_DOCUMENTS/` at startup, or buy Persistent Storage.
+5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
 
 #### Frontend on Vercel (static site)
 
@@ -210,7 +210,7 @@ The [`frontend/`](frontend/) directory is a ready-to-deploy static site.
 
 #### Things to Watch
 
-- **Cold starts** — free HF Spaces sleep after inactivity. First request after sleep takes 30–60s while ChromaDB and the embedding model reload. The Dockerfile pre-downloads the model to remove that part of the delay.
+- **Cold starts** — free HF Spaces sleep after inactivity. First request after sleep still loads ChromaDB and the embedding model, but does not index documents. The Dockerfile pre-downloads the model to remove the model-download delay.
 - **CORS** — `flask-cors` is wired to `/api/*` only. SSE works cross-origin as long as your Vercel domain is in `CORS_ORIGINS`.
 - **Dashboard persistence** — interaction logs live on disk. On ephemeral filesystems they reset on every restart. The dashboard is still served by the backend at `<hf-space-url>/dashboard` and the frontend's Dashboard link points there.
 - **`GEMINI_API_KEY`** — never commit it. Use Space secrets only.

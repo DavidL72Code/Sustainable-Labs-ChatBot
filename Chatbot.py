@@ -188,21 +188,12 @@ class RetrievalChatbot:
         self.refresh_search_index()
 
     def _initialize_search_index(self) -> None:
-        try:
-            self.refresh_search_index()
-        except Exception as exc:
-            print(
-                f"Search index refresh failed during startup ({exc}). "
-                "Deleting the cached collection so it can be rebuilt from seed documents.",
-                flush=True,
+        if self.collection.count() == 0:
+            raise RuntimeError(
+                "The prebuilt Chroma collection is missing or empty. "
+                "Refusing to index seed documents at runtime."
             )
-            self.client.delete_collection(name=self.config.collection_name)
-            self.collection = self._get_or_create_collection()
-            self.search_records = []
-            self.document_registry = []
-            self.entity_registry = []
-            self.bm25_idf = {}
-            self.avg_document_length = 0.0
+        self.refresh_search_index()
 
     def chunk_documents(self, documents: list[str]) -> list[str]:
         splitter = RecursiveCharacterTextSplitter(
@@ -6409,12 +6400,12 @@ def build_document_record(path: Path, seed_directory: Path, text: str, metadata_
 
 def create_chatbot(config: Optional[ChatbotConfig] = None) -> RetrievalChatbot:
     resolved_config = config or ChatbotConfig()
-    chatbot = RetrievalChatbot(llm_callable=call_gemini, config=resolved_config)
     if resolved_config.force_reindex:
-        chatbot.reset_collection()
-        chatbot.index_documents(load_seed_documents())
-    elif chatbot.collection.count() == 0:
-        chatbot.index_documents(load_seed_documents())
+        raise RuntimeError(
+            "FORCE_REINDEX is disabled for the API service. "
+            "Build the Chroma snapshot offline and deploy it with the Space."
+        )
+    chatbot = RetrievalChatbot(llm_callable=call_gemini, config=resolved_config)
     return chatbot
 
 
@@ -6693,7 +6684,7 @@ def create_app() -> Flask:
                     print(f"Chat request received while chatbot startup is failed: {chatbot_error}", flush=True)
             else:
                 friendly = (
-                    "The assistant is still starting up and indexing documents. "
+                    "The assistant is still loading the prebuilt search index. "
                     "Please retry shortly."
                 )
 
