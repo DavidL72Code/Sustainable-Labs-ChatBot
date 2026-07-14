@@ -28,12 +28,20 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 
 # Copy the app
 COPY Chatbot.py ./
+COPY hydrate_lfs_assets.py ./
 COPY templates/ ./templates/
 COPY static/ ./static/
 COPY SEED_DOCUMENTS/ ./SEED_DOCUMENTS/
 
 # Include the prebuilt vector store so startup can skip first-run indexing
 COPY chroma_db/ ./chroma_db/
+
+# Hugging Face build contexts can contain Git LFS pointer files instead of the real assets.
+# Replace any pointers with the resolved binary files during image build.
+RUN python hydrate_lfs_assets.py \
+        --repo-id DavidL72Code/UMB_Sustainable_Chatbot \
+        chroma_db \
+        SEED_DOCUMENTS
 
 # HF Spaces sometimes runs as non-root; make the cache + chroma dirs writable
 RUN mkdir -p /app/chroma_db /app/.cache && chmod -R 777 /app/chroma_db /app/.cache
