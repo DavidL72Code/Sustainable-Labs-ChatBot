@@ -6596,6 +6596,8 @@ def create_app() -> Flask:
         if origins:
             CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=False)
 
+    threading.Thread(target=initialize_chatbot, daemon=True).start()
+
     @app.get("/")
     def index():
         return jsonify(
