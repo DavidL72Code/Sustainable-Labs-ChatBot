@@ -6552,7 +6552,30 @@ def create_app() -> Flask:
         raise ImportError("Install Flask to run the local web demo.")
 
     config = ChatbotConfig()
-    chatbot = create_chatbot(config)
+    chatbot_state = {
+        "instance": None,
+        "status": "starting",
+        "error": "",
+    }
+    chatbot_state_lock = threading.Lock()
+
+    def initialize_chatbot() -> None:
+        try:
+            chatbot = create_chatbot(config)
+        except Exception as exc:
+            with chatbot_state_lock:
+                chatbot_state["instance"] = None
+                chatbot_state["status"] = "error"
+                chatbot_state["error"] = str(exc)
+            return
+
+        with chatbot_state_lock:
+            chatbot_state["instance"] = chatbot
+            chatbot_state["status"] = "ready"
+            chatbot_state["error"] = ""
+
+    threading.Thread(target=initialize_chatbot, daemon=True).start()
+
     conversation_store = InMemoryConversationStore(
         ttl_seconds=config.conversation_ttl_seconds,
         max_turns=config.recent_history_turns,
@@ -6579,6 +6602,17 @@ def create_app() -> Flask:
     @app.get("/")
     def index():
         return render_template("index.html")
+
+    @app.get("/api/health")
+    def health():
+        with chatbot_state_lock:
+            status = str(chatbot_state["status"])
+            error = str(chatbot_state["error"])
+        payload = {"status": status}
+        if error:
+            payload["error"] = error
+        status_code = 200 if status == "ready" else 503 if status == "error" else 202
+        return jsonify(payload), status_code
 
     @app.get("/dashboard")
     def dashboard():
@@ -6641,6 +6675,38 @@ def create_app() -> Flask:
             return Response(stream_with_context(blocked_stream()), mimetype="text/event-stream", headers=sse_headers)
 
         safe_recent_history = conversation_store.get_history(conversation_id)
+
+        with chatbot_state_lock:
+            chatbot = chatbot_state["instance"]
+            chatbot_status = str(chatbot_state["status"])
+            chatbot_error = str(chatbot_state["error"])
+
+        if chatbot is None:
+            if chatbot_status == "error":
+                friendly = (
+                    "The assistant is temporarily unavailable because startup failed. "
+                    "Please try again in a minute."
+                )
+                if chatbot_error:
+                    print(f"Chat request received while chatbot startup is failed: {chatbot_error}", flush=True)
+            else:
+                friendly = (
+                    "The assistant is still starting up and indexing documents. "
+                    "Please retry shortly."
+                )
+
+            def warming_stream():
+                yield f"data: {json.dumps({'type': 'error', 'error': friendly})}\n\n"
+                payload = {
+                    "done": True,
+                    "reply": friendly,
+                    "sources": [],
+                    "conversation_id": conversation_id,
+                    "status": "error",
+                }
+                yield f"data: {json.dumps(payload)}\n\n"
+
+            return Response(stream_with_context(warming_stream()), mimetype="text/event-stream", headers=sse_headers)
 
         def generate():
             answer_parts: list[str] = []
@@ -6724,6 +6790,10 @@ def create_app() -> Flask:
         message = str(payload.get("message", "")).strip()
         answer = str(payload.get("answer", "")).strip()
         if not message or not answer:
+            return jsonify({"suggestions": []})
+        with chatbot_state_lock:
+            chatbot = chatbot_state["instance"]
+        if chatbot is None:
             return jsonify({"suggestions": []})
         try:
             return jsonify({"suggestions": chatbot.generate_suggestions(message, answer)})
