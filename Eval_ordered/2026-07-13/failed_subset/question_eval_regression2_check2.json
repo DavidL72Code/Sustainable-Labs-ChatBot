@@ -1,0 +1,258 @@
+{
+  "generated_at": "2026-07-13T02:37:01.313400+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_regression2_check.json",
+  "summary": {
+    "total_cases": 6,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 6,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 6,
+      "right_citations_yes": 6,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum is co-organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston [2]. The series is also described as being co-sponsored with the Environmental Business Council [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ADAPTATION FORUM",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the Environmental Business Council of New England as the co-organizer, which is explicitly stated in the provided corpus."
+    },
+    {
+      "id": "fs_084",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Paul Watanabe's areas of expertise include American Foreign Policy, American Political Behavior, and Ethnic Group Politics [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Paul Watanabe",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the expertise listed for Paul Watanabe in the provided source document."
+    },
+    {
+      "id": "fs_089",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Michael Johnson's current title at UMass Boston according to the SSL affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "According to the Sustainable Solutions Lab affiliates list, Michael Johnson holds the titles of Graduate Program Director/Professor of Public Policy & Public Affairs and Special Assistant to the Chancellor [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Michael Johnson",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately synthesizes the information provided in the corpus, correctly identifying both the role listed in the header and the specific title field."
+    },
+    {
+      "id": "fs_122",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What was the average number of attendees per Climate Adaptation Forum session in the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 39), the Climate Adaptation Forum averaged more than 200 attendees per forum session. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information found in Slide 39 of the provided annual report, which states '200+ AVG. NO. OF ATTENDEES PER FORUM'."
+    },
+    {
+      "id": "fm_021",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_adaptation_forum",
+      "question": "What types of topics and participants does it typically bring together?",
+      "conversation": [
+        {
+          "user": "What is the Climate Adaptation Forum?",
+          "assistant": "The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston [1, 2]. Established in 2017, the forum serves as a platform for addressing the challenges of climate adaptation and resilience [2]. It provides opportunities for people in the field to cross-pollinate ideas and share solutions, with the intersection of climate resilience, race, and equity embedded in every discussion [1]. The forum brings together experts, thought leaders, and diverse attendees from local, national, and global organizations to engage in networking, discussions, and presentations on topics such as infrastructure resilience, environmental justice, and innovative adaptation strategies [2]. The forum averages over 200 attendees per session [1]."
+        },
+        {
+          "user": "When was it established and how often does it take place?",
+          "assistant": "The Climate Adaptation Forum was established in 2017. [1]"
+        },
+        {
+          "user": "What types of topics and participants does it typically bring together?",
+          "assistant": "The Climate Adaptation Forum brings together diverse speakers and attendees across multiple sectors, including experts and thought leaders from local, national, and global organizations. The forum serves as a platform to address the challenges of climate adaptation and resilience [1], covering topics such as infrastructure resilience, environmental justice, and innovative adaptation strategies."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum brings together diverse speakers and attendees across multiple sectors, including experts and thought leaders from local, national, and global organizations. The forum serves as a platform to address the challenges of climate adaptation and resilience [1], covering topics such as infrastructure resilience, environmental justice, and innovative adaptation strategies.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately synthesizes the information from the corpus regarding the participants (experts, thought leaders, diverse attendees) and topics (infrastructure resilience, environmental justice, adaptation strategies) of the Climate Adaptation Forum."
+    },
+    {
+      "id": "fm_029",
+      "kind": "multi_turn",
+      "type": "follow_up_caf_sessions",
+      "question": "What were the four session topics covered during the 2020-21 period?",
+      "conversation": [
+        {
+          "user": "Tell me about the Climate Adaptation Forum in the 2020-21 period.",
+          "assistant": "The Climate Adaptation Forum is a quarterly, half-day series co-sponsored by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston [1, 2]. Since its establishment in 2017, the forum has served as a platform for experts and thought leaders to share insights on topics such as infrastructure resilience, environmental justice, and innovative adaptation strategies [2]. During the 2020-21 period, the forum maintained an average of 200+ attendees per session [1]. The intersection of climate resilience, race, and equity was embedded in every discussion [1]. Julie Wormser, the Deputy Director of the Mystic River Watershed Association, described the forum as the most important one for climate resilience practitioners in the Boston area and noted its role in closing the gap between climate practitioners focused on the built environment and BIPOC environmental justice practitioners. The session topics during the 2020-21 period included:\n* **September 2020:** How We Decide to Get Serious About Climate Solutions: Politics, Communication, and Framing * **November 2020:** Creating Connections: Resilience and Equity in Transportation * **March 2021:** Think Globally, Act Locally: Municipalities Adapt to the Climate Crisis * **June 2021:** Climate Migration: International Pressures, Local Realities"
+        },
+        {
+          "user": "How many people typically attended each session?",
+          "assistant": "The Climate Adaptation Forum maintains an average of more than 200 attendees per session [1]."
+        },
+        {
+          "user": "What were the four session topics covered during the 2020-21 period?",
+          "assistant": "According to the 2020-21 SSL Annual Report (Slide 39), the four Climate Adaptation Forum session topics during 2020\u201321 were:\n1. September 2020 \u2014 How We Decide to Get Serious About Climate Solutions: Politics, Communication, and Framing\n2. November 2020 \u2014 Creating Connections: Resilience and Equity in Transportation\n3. March 2021 \u2014 Think Globally, Act Locally: Municipalities Adapt to the Climate Crisis\n4. June 2021 \u2014 Climate Migration: International Pressures, Local Realities [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 39), the four Climate Adaptation Forum session topics during 2020\u201321 were:\n1. September 2020 \u2014 How We Decide to Get Serious About Climate Solutions: Politics, Communication, and Framing\n2. November 2020 \u2014 Creating Connections: Resilience and Equity in Transportation\n3. March 2021 \u2014 Think Globally, Act Locally: Municipalities Adapt to the Climate Crisis\n4. June 2021 \u2014 Climate Migration: International Pressures, Local Realities [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified the four session topics from the 2020-21 period as listed in Slide 39 of the provided annual report."
+    }
+  ]
+}

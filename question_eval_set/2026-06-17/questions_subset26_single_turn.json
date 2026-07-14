@@ -1,0 +1,219 @@
+{
+  "single_turn": [
+    {
+      "id": "broad_001",
+      "type": "broad_overview",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "broad_002",
+      "type": "broad_overview",
+      "question": "What does SSL do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "broad_003",
+      "type": "broad_listing",
+      "question": "What are the major projects or initiatives SSL is currently working on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "broad_004",
+      "type": "broad_listing",
+      "question": "Give me an overview of the people involved with SSL, including staff, affiliates, students, and board members.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "specific_001",
+      "type": "specific_fact",
+      "question": "Who is the Executive Director of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "specific_002",
+      "type": "specific_fact",
+      "question": "Where is SSL located and how can someone contact the lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "specific_003",
+      "type": "specific_fact",
+      "question": "What are the three main themes of the Climate Inequality and Integrative Resilience Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "specific_004",
+      "type": "specific_fact",
+      "question": "Who leads the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "specific_005",
+      "type": "specific_fact",
+      "question": "What benefits do members get by joining the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "specific_006",
+      "type": "specific_fact",
+      "question": "How many microcredentialed programs does the Climate Careers Curricula Initiative plan to develop, and over what time period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "specific_007",
+      "type": "specific_fact",
+      "question": "Who is Sarah Mayorga and what does she say about her work with SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "specific_008",
+      "type": "specific_fact",
+      "question": "What does Patricio Belloy focus on in his research and practice?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "specific_009",
+      "type": "specific_fact",
+      "question": "Who is Kalila Barnett and what is her role outside of SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "specific_010",
+      "type": "specific_fact",
+      "question": "Which university affiliate focuses on public health and social determinants of health inequities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "specific_011",
+      "type": "specific_fact",
+      "question": "Which student is involved in the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "specific_012",
+      "type": "specific_fact",
+      "question": "How did SSL describe its mission in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "list_001",
+      "type": "enumeration",
+      "question": "List the named SSL projects and initiatives mentioned in the source materials.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "list_002",
+      "type": "enumeration",
+      "question": "List the main categories of work SSL says it does.",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "list_003",
+      "type": "enumeration",
+      "question": "Name several members of the External Advisory Board and their roles.",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "list_004",
+      "type": "enumeration",
+      "question": "List the publication source documents you can identify from the Publications folder.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ]
+    },
+    {
+      "id": "iter02_broad_001",
+      "type": "broad_overview_paraphrase",
+      "question": "In plain terms, what is SSL's purpose and what communities does its work center?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "iter02_broad_002",
+      "type": "section_listing_paraphrase",
+      "question": "What are the three categories SSL uses to describe what it does?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "iter02_project_001",
+      "type": "specific_fact_paraphrase",
+      "question": "What does someone gain access to if they join the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "iter02_project_002",
+      "type": "specific_fact_paraphrase",
+      "question": "Which SSL initiative is tied to blue and green job training, and what participant group is it meant to serve?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "iter02_project_003",
+      "type": "specific_fact_paraphrase",
+      "question": "Who leads the rail resilience work on Cape Cod, and what event helped motivate that project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "iter02_people_001",
+      "type": "people_lookup_paraphrase",
+      "question": "Who is B. R. Balachandran in relation to SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

@@ -80,7 +80,11 @@ def build_corpus_reference(target_sources: list[str]) -> str:
 
         if source_path.suffix.lower() == ".txt":
             text = source_path.read_text(encoding="utf-8")
-            blocks.append(f"Source: {source}\n{text[:14000]}")
+            # Use the full document. A low cap (previously 14k chars) truncated long
+            # sources like the annual reports (~50k chars), so facts stated later in the
+            # document were invisible to the judge and correct answers were wrongly
+            # flagged as hallucinations.
+            blocks.append(f"Source: {source}\n{text[:200000]}")
         else:
             blocks.append(f"Source: {source}\nBinary/PDF source document. Use file title/path as inventory evidence.")
 

@@ -1,0 +1,150 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_105",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report, what intersection does SSL describe itself as working at as an applied research and action institute?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_115",
+      "type": "specific_fact",
+      "question": "What is the maximum amount individual faculty could receive through SSL's Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_116",
+      "type": "specific_fact",
+      "question": "What must Summer Anti-Racism Research Funding projects do? Name at least one of the required criteria.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_130",
+      "type": "specific_fact",
+      "question": "How does the 2020-21 SSL annual report define 'climate justice'?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_131",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_133",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_134",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_135",
+      "type": "specific_fact",
+      "question": "What was Stacy D. VanDeveer's research on the Massachusetts MVP program about?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_137",
+      "type": "specific_fact",
+      "question": "What is Pratyush Bharati's topic for the SSL Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_143",
+      "type": "specific_fact",
+      "question": "What is the Decision Support Hub mentioned in the CLIIR Initiative description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_144",
+      "type": "specific_fact",
+      "question": "What does SSL say the NE Climate Justice Research Collaborative's membership map is updated?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_147",
+      "type": "specific_fact",
+      "question": "What is Johnna Flahive's Focus field as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_025",
+      "type": "follow_up_views_that_matter",
+      "turns": [
+        "What is the Views that Matter report?",
+        "What are the key findings about how different racial groups view climate change in Boston?",
+        "What does the report say about how white respondents view whether climate change affects some people more than others?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_028",
+      "type": "follow_up_summer_anti_racism_funding",
+      "turns": [
+        "What was the Barr Foundation's grant to SSL in 2020-21 and what was it for?",
+        "How did SSL use those funds through the Summer Anti-Racism Research Funding?",
+        "How many projects received the funding and what was the maximum grant amount per project?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_029",
+      "type": "follow_up_caf_sessions",
+      "turns": [
+        "Tell me about the Climate Adaptation Forum in the 2020-21 period.",
+        "How many people typically attended each session?",
+        "What were the four session topics covered during the 2020-21 period?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_032",
+      "type": "follow_up_epa_grant_vieques",
+      "turns": [
+        "What was the EPA grant awarded in the 2020-21 period?",
+        "What is the Vieques study about and what caused the health risks it is investigating?",
+        "Who are the SSL faculty members supporting Lorena Estrada-Martinez's research team?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

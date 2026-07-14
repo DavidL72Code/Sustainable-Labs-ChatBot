@@ -1,0 +1,546 @@
+{
+  "generated_at": "2026-06-21T03:54:27.439099+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_failing11_test.json",
+  "summary": {
+    "total_cases": 11,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.18,
+      "citations": 2.64
+    },
+    "classification_counts": {
+      "answered_yes": 8,
+      "answered_no": 3,
+      "hallucinated_yes": 4,
+      "hallucinated_no": 7,
+      "right_citations_yes": 5,
+      "right_citations_no": 6
+    }
+  },
+  "results": [
+    {
+      "id": "fs_030",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive's research focuses on the impact of climate change initiatives on transient populations, such as the homeless and seasonal workers [1], [2]. Her work aims to achieve whole-community resilience by moving away from individual, fragmented, and incremental efforts toward holistic, transdisciplinary, systems approaches to climate resilience [3]. Additionally, she is exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts [3].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2
+        },
+        {
+          "citation": 2,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 3,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate based on the bio provided in the corpus, though it conflates the specific 'Focus' field with the project description. It correctly identifies the source (Staff.txt) but includes irrelevant citations [1] and [2]."
+    },
+    {
+      "id": "fs_033",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institution is Cassandre Rey-Thibault affiliated with in Paris, and what fund supports her postdoctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault is a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris [1, 2]. Her research is funded by the Bruno Latour Fund [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SHAPING THE CONVERSATION",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct based on the corpus, but it includes an irrelevant citation (AnnualReport2021.txt) that does not contain the information provided."
+    },
+    {
+      "id": "fs_035",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nyingilanyeofori Hannah Brown serves as the program coordinator for the \"NSF CRISES planning grant\" for the Climate Inequality and Integrative Resilience Center (CLIIR center) at the Sustainable Solutions Lab (SSL) [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_041",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who supervises Vishal Verma's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma's research is supervised by Prof. Paul Kirshen from the School for the Environment (SFE) [1], [2],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is factually correct based on the corpus, but it includes an irrelevant citation (AnnualReport2021) alongside the correct source (StudentsInterns.txt)."
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Whalen is currently working with Dr. Cedric Woods on research regarding Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo [1]. Additionally, she supported the public perceptions of climate change project [2] and provided support for the \"Voices that Matter Focus Group Report\" alongside researchers Lorena Estrada-Martinez, Katsysris Rivera-Kientz, and Paul Watanabe.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 17
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the research topic and collaborator for Isa Whalen based on the corpus. However, it incorrectly attributes additional projects and collaborations to her that are not mentioned in her profile; these appear to be hallucinated or conflated with the profile of another student (Katsyris Rivera Kientz). Furthermore, the citations provided do not reference the correct source document."
+    },
+    {
+      "id": "fs_077",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The National Science Foundation awarded Rosalyn Negron, associate professor of anthropology in the College of Liberal Arts, a grant of $253,862 [1]. I don't have information regarding the research focus of this specific grant in the available documents.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH AWARDS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 3
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant hallucinated a specific grant amount and the existence of an NSF grant for Rosalyn Negron. This information is not present in the provided corpus."
+    },
+    {
+      "id": "fs_079",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What percentage of SSL's funding comes from external sources, and what percentage goes directly into climate justice research, according to the 2020-21 report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2021 annual report, nearly 100% of the Sustainable Solutions Lab's (SSL) funding comes from external sources, and nearly 100% goes directly into climate justice research [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SUPPORT SSL / SUPPORT CLIMATE JUSTICE",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain information regarding the percentage of funding from external sources or the allocation of funds to climate justice research. The assistant hallucinated these specific figures."
+    },
+    {
+      "id": "fs_080",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What event did SSL host in December 2020 related to the anthology 'All We Can Save,' and which nationally-syndicated radio show co-sponsored it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In December, the Sustainable Solutions Lab hosted a virtual conversation that spotlighted renowned leaders in the climate adaptation field who contributed to the anthology *All We Can Save*. The event was co-sponsored by the nationally-syndicated radio show *Living on Earth* [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 3
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain any information regarding the 'All We Can Save' event or the 'Living on Earth' radio show. The answer is a hallucination relative to the provided source."
+    },
+    {
+      "id": "fm_003",
+      "kind": "multi_turn",
+      "type": "follow_up_board_tim_cronin",
+      "question": "What role did Mayor Wu appoint him to in 2023?",
+      "conversation": [
+        {
+          "user": "Who is Tim Cronin on SSL's External Advisory Board?",
+          "assistant": "Tim Cronin\nAssociate Director of Policy and Advocacy at Health Care Without Harm Tim oversees Health Care Without Harm\u2019s US state and local policy portfolio, focusing on advancing local solutions at the intersection of healthcare, decarbonization, and community climate resilience. He previously facilitated a Boston Green Ribbon Commission (GRC) working group and, in 2023, was appointed by Mayor Wu to Chair Boston's BERDO Health Institution Working Group. Tim has also worked at Climate XChange Education & Research (CXC) and the Climate Action Business Association (CABA). In 2019, he was the MetroCommon scenario planning co-chair for the Metropolitan Area Planning Council (MAPC), where he helped support MAPC's 2050 Greater Boston region plan. Tim has a Bachelor's degree in economics and public policy from Stonehill College and a Master of Public Administration from the McCormack Graduate School at UMass Boston. [1]"
+        },
+        {
+          "user": "What is his background in Boston climate and health policy?",
+          "assistant": "Tim Cronin\nAssociate Director of Policy and Advocacy at Health Care Without Harm Tim oversees Health Care Without Harm\u2019s US state and local policy portfolio, focusing on advancing local solutions at the intersection of healthcare, decarbonization, and community climate resilience. He previously facilitated a Boston Green Ribbon Commission (GRC) working group and, in 2023, was appointed by Mayor Wu to Chair Boston's BERDO Health Institution Working Group. Tim has also worked at Climate XChange Education & Research (CXC) and the Climate Action Business Association (CABA). In 2019, he was the MetroCommon scenario planning co-chair for the Metropolitan Area Planning Council (MAPC), where he helped support MAPC's 2050 Greater Boston region plan. Tim has a Bachelor's degree in economics and public policy from Stonehill College and a Master of Public Administration from the McCormack Graduate School at UMass Boston. [1]"
+        },
+        {
+          "user": "What role did Mayor Wu appoint him to in 2023?",
+          "assistant": "In 2023, Mayor Wu appointed Tim Cronin to serve as the Chair of Boston's BERDO Health Institution Working Group [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "In 2023, Mayor Wu appointed Tim Cronin to serve as the Chair of Boston's BERDO Health Institution Working Group [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Tim Cronin",
+          "entity_type": "board_member",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fm_010",
+      "kind": "multi_turn",
+      "type": "follow_up_student_isa_whalen",
+      "question": "What specific research project is she working on at SSL, and with which faculty member?",
+      "conversation": [
+        {
+          "user": "Who is Isa Whalen?",
+          "assistant": "Isa Kelawili Whalen Isa Whalen\nIsa Kelawili Whalen is an indigenous Chamoru woman from the southern village of Umatac, Guam. She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]"
+        },
+        {
+          "user": "What is her cultural background and where is she originally from?",
+          "assistant": "Isa Kelawili Whalen Isa Whalen\nIsa Kelawili Whalen is an indigenous Chamoru woman from the southern village of Umatac, Guam. She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]"
+        },
+        {
+          "user": "What specific research project is she working on at SSL, and with which faculty member?",
+          "assistant": "Isa Kelawili Whalen Isa Whalen\nIsa Kelawili Whalen is an indigenous Chamoru woman from the southern village of Umatac, Guam. She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Kelawili Whalen Isa Whalen\nIsa Kelawili Whalen is an indigenous Chamoru woman from the southern village of Umatac, Guam. She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the research project and faculty member as stated in the provided corpus."
+    },
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "I don't have that information in the available documents. While the provided text mentions that the Sustainable Solutions Lab (SSL) has a core team [1], it does not list the specific individuals who comprised the core team for the 2020-21 year."
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "I don't have that information in the available documents."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "I don't have that information in the available documents. The provided text does not identify a specific team member who focuses on conflict resolution and global governance, nor does it provide a title or department for such an individual [1, 2, 3, 4, 5, 6, 7]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "I don't have that information in the available documents. The provided text does not identify a specific team member who focuses on conflict resolution and global governance, nor does it provide a title or department for such an individual [1, 2, 3, 4, 5, 6, 7].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 2
+        },
+        {
+          "citation": 2,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 3
+        },
+        {
+          "citation": 3,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 3
+        },
+        {
+          "citation": 4,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 5,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 6,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 2
+        },
+        {
+          "citation": 7,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 26
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to retrieve the information. Stacy D. VanDeveer is explicitly listed in the provided corpus (Slide 6) as 'Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School'."
+    }
+  ]
+}

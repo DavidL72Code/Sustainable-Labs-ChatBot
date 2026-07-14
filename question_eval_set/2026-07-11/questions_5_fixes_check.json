@@ -1,0 +1,50 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_001",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_030",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_073",
+      "type": "people_lookup",
+      "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_077",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_012",
+      "type": "follow_up_ssl_funding",
+      "turns": [
+        "How is SSL funded according to the 2020-21 annual report?",
+        "Who are some of the key partners listed in the annual report?",
+        "What does SSL say that funding goes directly toward?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

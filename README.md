@@ -111,8 +111,19 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 |---|---|
 | **`run_questions_eval.py`** | Batch evaluation harness over `questions.json` |
 | **`benchmark_planner.py`, `benchmark_stream.py`, `benchmark_suggestions.py`** | Performance benchmarks for planner, streaming, and suggestion latency |
-| **`question_eval_iter*.json`** | Iterative evaluation snapshots used to track regressions and improvements |
+| **`question_eval_set/`** | Date-organized question sets used for eval runs |
+| **`Eval_ordered/`** | Date-organized evaluation outputs, with `main`, `citation_fix`, and `failed_subset` subfolders |
+| **`question_eval_iter*.json`** | Legacy iterative evaluation snapshots used to track regressions and improvements |
 | **Analytics dashboard** | Live diagnostics: per-interaction trace JSON, retrieval diagnostics, source usage, corpus coverage, problem cases (blocked, clarification, error, low-confidence), evaluation summary with score key |
+
+### Evaluation Folders
+
+Use these folders to trace how the benchmark evolved over time:
+
+- `[question_eval_set/](/Users/davidle/Documents/AI_Sustainable_labs/question_eval_set/)` stores the question files, grouped by date.
+- `[Eval_ordered/](/Users/davidle/Documents/AI_Sustainable_labs/Eval_ordered/)` stores the corresponding eval outputs, also grouped by date.
+- Within each date, `main` is for standard runs, `citation_fix` for citation-focused fixes, and `failed_subset` for regression or failure subsets.
+- Files are ordered by production date so it is easier to compare progression across runs.
 
 ### Evaluation Score Key
 - `correctness_vs_corpus`: 1–5 rating for how well the answer matches the SSL corpus reference.
@@ -120,6 +131,10 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 - `hallucinated`: `yes` means the evaluator found unsupported or clearly incorrect facts.
 - `answered_question`: `yes` means the answer directly addressed the question that was asked.
 - `right_citations`: `yes` means the cited or returned sources match the relevant corpus sources.
+
+### Final Phase Summary
+
+The final phase focused on making answers come from the right source more consistently. We expanded people-lookup retrieval, cleaned up mixed or truncated bio text, strengthened reranking for exact entity matches, and added hard routing for ambiguous questions like grants, projects, and SSL self-description queries. After the last key rotation, we reran the full 208-question benchmark and then organized both the question sets and eval outputs by date so the progression is easier to review.
 
 ---
 

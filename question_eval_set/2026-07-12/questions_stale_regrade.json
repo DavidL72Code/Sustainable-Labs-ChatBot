@@ -1,0 +1,42 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_084",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_089",
+      "type": "people_lookup",
+      "question": "What is Michael Johnson's current title at UMass Boston according to the SSL affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_122",
+      "type": "specific_fact",
+      "question": "What was the average number of attendees per Climate Adaptation Forum session in the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_021",
+      "type": "follow_up_climate_adaptation_forum",
+      "turns": [
+        "What is the Climate Adaptation Forum?",
+        "When was it established and how often does it take place?",
+        "What types of topics and participants does it typically bring together?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ]
+}

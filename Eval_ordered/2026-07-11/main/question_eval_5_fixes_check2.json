@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-07-11T22:55:17.601009+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_5_fixes_check.json",
+  "summary": {
+    "total_cases": 5,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.2,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 5,
+      "right_citations_yes": 5,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately quotes the vision statement directly from the provided source document."
+    },
+    {
+      "id": "fs_030",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\u2019s work aims to achieve whole-community resilience by moving away from individual, fragmented, and incremental efforts toward holistic, transdisciplinary, systems approaches to climate resilience [1]. Johnna Flahive\u2019s research focus includes:\n* Exploring how coastal inundation impacts seasonal workers and people living unhoused in Massachusetts [1],.\n* Leading a working group in collaboration with the Sustainable Solutions Lab (SSL) and the Climate Resilient Initiative for Unhoused People (CRIUP) to develop plans for unhoused people [1],.\n* Working with the Climate Resilience Institute (CRI) at the University of Miami, where Johnna Flahive collaborates with others to leverage university resources and assets to support community resilience [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and well-written, but it describes her work and projects rather than the explicit 'Focus' field provided in the source text, which would have been the most direct answer."
+    },
+    {
+      "id": "fs_073",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Rebecca Herst served as the Director of the Sustainable Solutions Lab during the 2020-21 academic year. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided 2020-21 Year in Review document, which identifies Rebecca Herst as the Director."
+    },
+    {
+      "id": "fs_077",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The National Science Foundation awarded Rosalyn Negron, an associate professor of anthropology in the College of Liberal Arts, a grant of $253,862 [1]. I don't have the information regarding the research focus of this specific NSF grant in the available documents.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH AWARDS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the grant amount but failed to extract the research focus, which is explicitly stated in Slide 44 of the provided document."
+    },
+    {
+      "id": "fm_012",
+      "kind": "multi_turn",
+      "type": "follow_up_ssl_funding",
+      "question": "What does SSL say that funding goes directly toward?",
+      "conversation": [
+        {
+          "user": "How is SSL funded according to the 2020-21 annual report?",
+          "assistant": "I don't have that information in the available documents."
+        },
+        {
+          "user": "Who are some of the key partners listed in the annual report?",
+          "assistant": "I found 3 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]"
+        },
+        {
+          "user": "What does SSL say that funding goes directly toward?",
+          "assistant": "According to the 2020-21 SSL Annual Report, nearly 100% of SSL's funding comes from external sources, and nearly 100% goes directly into climate justice research. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report, nearly 100% of SSL's funding comes from external sources, and nearly 100% goes directly into climate justice research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified that funding goes directly into climate justice research, as stated in the provided annual report."
+    }
+  ]
+}

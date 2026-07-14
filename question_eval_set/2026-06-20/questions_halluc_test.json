@@ -1,0 +1,41 @@
+{
+  "single_turn": [
+    {
+      "id": "halluc_test_1",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "halluc_test_2",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What EPA grant did Lorena Estrada-Martinez receive, how large was it, and what study does it fund?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "halluc_test_3",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What award did Paul Kirshen receive from the Boston Society of Civil Engineers, and which report was it given for?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "halluc_test_4",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does SSL say that funding goes directly toward?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

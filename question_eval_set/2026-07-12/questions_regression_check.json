@@ -1,0 +1,34 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_068",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_128",
+      "type": "specific_fact",
+      "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_028",
+      "type": "follow_up_summer_anti_racism_funding",
+      "turns": [
+        "What was the Barr Foundation's grant to SSL in 2020-21 and what was it for?",
+        "How did SSL use those funds through the Summer Anti-Racism Research Funding?",
+        "How many projects received the funding and what was the maximum grant amount per project?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

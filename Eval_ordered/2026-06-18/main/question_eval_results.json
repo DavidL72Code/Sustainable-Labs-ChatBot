@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-06-18T20:48:01.096505+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.5,
+      "citations": 4.5
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "broad_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is the Sustainable Solutions Lab and what is its mission?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is accurate but incomplete. It captures the general mission from the 'About' page but misses the specific two-part mission statement found in the Annual Report. It also failed to cite the Annual Report, which was a relevant source."
+    },
+    {
+      "id": "broad_002",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What does SSL do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]\n3. Drive Equitable Climate Adaptation [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately summarizes the 'What We Do' section of the provided corpus and correctly cites the source."
+    }
+  ]
+}

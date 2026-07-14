@@ -1,0 +1,1068 @@
+{
+  "generated_at": "2026-06-17T18:23:19.241704+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_followup_large.json",
+  "summary": {
+    "total_cases": 18,
+    "average_scores": {
+      "clarity": 4.83,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.61,
+      "citations": 4.28
+    },
+    "classification_counts": {
+      "answered_yes": 17,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 18,
+      "right_citations_yes": 14,
+      "right_citations_no": 4
+    }
+  },
+  "results": [
+    {
+      "id": "followup_001",
+      "kind": "multi_turn",
+      "type": "follow_up_projects",
+      "question": "Which one involves rail infrastructure?",
+      "conversation": [
+        {
+          "user": "What projects or initiatives is SSL currently working on?",
+          "assistant": "The Sustainable Solutions Lab (SSL) is currently engaged in several initiatives and research projects, including: * **Northeast Climate Justice Research Collaborative:** Launched in Spring 2022, this trans-disciplinary network connects academic and community researchers to advance policies and practices that support historically excluded communities [1],.\n* **Climate Inequality and Integrative Modeling, Systems Dynamics, and Decision-making (CLIIR) Initiative:** This initiative was launched in 2023 [2].\n* **Honors College Course:** In collaboration with the Office of Campus Planning and Sustainability, SSL launched an innovative course titled \"Unraveling Sustainability: Can We Have It All?\" which was offered in Spring 2025 [2].\n* **Community Listening Sessions:** SSL has partnered with MFFC to host listening sessions with residents and leaders in Mattapan, Dorchester, and Roxbury to understand how climate change impacts their lives and how research institutes can help address those needs [2]. Additionally, SSL supports a wide variety of faculty and student research projects, including:\n* Studies on the mental health effects of climate change [3] and the heat adaptation needs of BIPOC and low-income residents [3].\n* Research on traditional ecological knowledge among Indigenous peoples.\n* Investigations into the associations between climate change, housing, and racial inequities in development [3],.\n* Research on public perceptions of climate change [3],.\n* Studies on the impact of inclement weather on opioid overdose mortality.\n* Reviews regarding the effects of climate change on older adults."
+        },
+        {
+          "user": "Explain them in one sentence each.",
+          "assistant": "* **Northeast Climate Justice Research Collaborative:** This initiative provides researchers with resources including seed grants, workshops, networking opportunities, and a shared library to support climate justice research in the Northeast [2].\n* **The Sustainable Solutions Lab:** This lab works to ensure that climate adaptation efforts account for historic marginalization and the disproportionate impacts of climate change on vulnerable communities [1].\n* **Climate Inequality:** I do not have enough information in the provided context to define climate inequality.\n* **Integrative Modeling:** I do not have enough information in the provided context to define integrative modeling."
+        },
+        {
+          "user": "Which one involves rail infrastructure?",
+          "assistant": "The Cape Cod Rail Resilience Project involves rail infrastructure [1]. This initiative focuses on improving rail safety and climate resilience along the Cape Main Line [1]. It is also referred to as the \"MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts\" or \"Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod\" [2]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project involves rail infrastructure [1]. This initiative focuses on improving rail safety and climate resilience along the Cape Main Line [1]. It is also referred to as the \"MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts\" or \"Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod\" [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Jennifer Friedrich",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the project from the corpus. However, citation [2] points to a document about students and interns, which does not contain the information provided, making the citation incorrect."
+    },
+    {
+      "id": "followup_003",
+      "kind": "multi_turn",
+      "type": "follow_up_students",
+      "question": "What is that person's research background?",
+      "conversation": [
+        {
+          "user": "Who are the students and interns involved with SSL?",
+          "assistant": "I found 12 students or interns in the matched corpus scope. 1. Nyingilanyeofori Hannah Brown [1]\n2. Levente \u201cLevi\u201d Mezo [1]\n3. Vishal Verma [1]\n4. Grace Derboghossian [1]\n5. Johnna Flahive [1]\n6. Jennifer Friedrich [1]\n7. Nick Johnson [1]\n8. Anna Matviichuk [1]\n9. Ashley Miranda Smith [1]\n10. Chidimma Ozor Commer [1]\n11. Katsyris Rivera Kientz [1]\n12. Isa Kelawili Whalen [1]"
+        },
+        {
+          "user": "Which of them works on the MassDOT rail resilience project?",
+          "assistant": "I found 2 people or entities in the matched corpus scope. 1. Vishal Verma [1]\n2. Jennifer Friedrich [1]"
+        },
+        {
+          "user": "What is that person's research background?",
+          "assistant": "Here are the relevant research backgrounds:\n1. Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]\n2. Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement. She is an artist and designer with a Bachelor\u2019s of Art (Magna Cum Laude) from Umass Boston. She is a director of the Marshfield Agricultural and Horticultural Society, and has served on town boards and committees. Currently she is a Graduate Research Assistant for \u201cImproving Rail Safety, Efficiency and Climate Resilience on Cape Cod\u201d working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. Jennifer derived early experience through the University of Massachusetts Cranberry Station as well as one of the largest open space landowners in the state. Jennifer enjoys live experiences, music, skiing and spending time with her blended family of five. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Here are the relevant research backgrounds:\n1. Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]\n2. Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement. She is an artist and designer with a Bachelor\u2019s of Art (Magna Cum Laude) from Umass Boston. She is a director of the Marshfield Agricultural and Horticultural Society, and has served on town boards and committees. Currently she is a Graduate Research Assistant for \u201cImproving Rail Safety, Efficiency and Climate Resilience on Cape Cod\u201d working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. Jennifer derived early experience through the University of Massachusetts Cranberry Station as well as one of the largest open space landowners in the state. Jennifer enjoys live experiences, music, skiing and spending time with her blended family of five. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately retrieved and summarized the research backgrounds for both individuals identified in the previous turn using the provided corpus."
+    },
+    {
+      "id": "followup_004",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates",
+      "question": "Tell me more about one of those people.",
+      "conversation": [
+        {
+          "user": "Name some SSL university affiliates.",
+          "assistant": "Based on the provided documents, the SSL university affiliates include the following individuals: **Faculty Affiliates:**\n* Leyla D. Brown-Vincent [1]\n* Kathrin Boerner [1]\n* Camille Curtis Martinez [1]\n* Lorena Estrada-Martinez [1]\n* Keren Horn [1]\n* Maria H. Ivanova [1]\n* Michael Johnson [1]\n* Paul Kirshen [1]\n* Jose G. Martinez-Reyes [1]\n* Amit Patel [1]\n* Antonio Raciti [1]\n* Kenneth Reardon [1]\n* Lorna Rivera [1]\n* Eduardo Siqueira * Elizabeth L. Sweet * Fabian Torres-Ardila * Paul Watanabe * Alan G. Wiig * Yijia (Eddy) Zhao * Dania V. Francis **University Affiliates:**\n* Denise Patmon [2]\n* Jessica Whiteley"
+        },
+        {
+          "user": "Which of them focus on public health or health equity?",
+          "assistant": "I found 6 affiliates in the matched corpus scope. 1. Patricio Belloy [1]\n2. Lorena Estrada-Martinez \u2014 Associate Professor [2]\n3. Michael Johnson \u2014 Special Assistant to the Chancellor [2]\n4. Lorna Rivera \u2014 Director, Gaston Institute [2]\n5. Jessica Whiteley \u2014 Senior Associate Dean [2]\n6. Kerrie Wilkins \u2014 Graduate Program Director/Associate Professor [2]"
+        },
+        {
+          "user": "Tell me more about one of those people.",
+          "assistant": "Lorena Estrada-Martinez\nTitle: Associate Professor\nEmail: Lorena.Estrada@umb.edu\nExpertise: Public health, social determinants of health inequities, Latino and immigrant... [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorena Estrada-Martinez\nTitle: Associate Professor\nEmail: Lorena.Estrada@umb.edu\nExpertise: Public health, social determinants of health inequities, Latino and immigrant... [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided accurate information extracted directly from the corpus for the requested individual."
+    },
+    {
+      "id": "followup_005",
+      "kind": "multi_turn",
+      "type": "follow_up_about",
+      "question": "How can I contact them?",
+      "conversation": [
+        {
+          "user": "What does SSL do?",
+          "assistant": "SSL describes its work in these main categories:\n1. Advance Transdisciplinary Climate Justice Research [1]\n2. Convene for Networking and Field-Building [1]\n3. Drive Equitable Climate Adaptation [1]"
+        },
+        {
+          "user": "Where is it located?",
+          "assistant": "The Sustainable Solutions Lab (SSL) is located at UMass Boston [1]."
+        },
+        {
+          "user": "How can I contact them?",
+          "assistant": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Contact Us\nSustainable Solutions Lab\nHealey Library, 10th Floor Room 13\nUMass Boston\nssl@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer provides accurate contact information found in the corpus. It only cites the first source, but the information is correct and sufficient."
+    },
+    {
+      "id": "followup_006",
+      "kind": "multi_turn",
+      "type": "follow_up_publications",
+      "question": "How many publication source documents are there in the corpus?",
+      "conversation": [
+        {
+          "user": "List the publication source documents you can identify from SSL's Publications materials.",
+          "assistant": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        },
+        {
+          "user": "Name all of them.",
+          "assistant": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        },
+        {
+          "user": "How many publication source documents are there in the corpus?",
+          "assistant": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "citation": 2,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "citation": 5,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "citation": 6,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "citation": 9,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 10,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "citation": 11,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "citation": 12,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "citation": 13,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "citation": 14,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "citation": 15,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the number of documents and provided an accurate list that matches the provided corpus inventory."
+    },
+    {
+      "id": "iter02_followup_students_001",
+      "kind": "multi_turn",
+      "type": "follow_up_students_paraphrase",
+      "question": "Who supervises that student?",
+      "conversation": [
+        {
+          "user": "Which student works on the MassDOT train line safety and resilience project?",
+          "assistant": "I found 1 students or interns in the matched corpus scope. 1. Vishal Verma [1]"
+        },
+        {
+          "user": "What is that student's academic background?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "Who supervises that student?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the supervisor, but it is unnecessarily verbose as it repeats the student's entire biography rather than just answering the specific question."
+    },
+    {
+      "id": "iter02_followup_board_001",
+      "kind": "multi_turn",
+      "type": "follow_up_board_paraphrase",
+      "question": "What health-related climate work is he connected to?",
+      "conversation": [
+        {
+          "user": "Name members of SSL's External Advisory Board.",
+          "assistant": "I do not have enough information to name members of an External Advisory Board, as the provided documents do not contain this information."
+        },
+        {
+          "user": "Tell me more about Caleb Dresser.",
+          "assistant": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]"
+        },
+        {
+          "user": "What health-related climate work is he connected to?",
+          "assistant": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided a comprehensive and accurate answer based directly on the provided corpus, correctly identifying the health-related climate work Caleb Dresser is involved in."
+    },
+    {
+      "id": "iter02_followup_affiliates_001",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates_paraphrase",
+      "question": "Tell me more about one of those affiliates.",
+      "conversation": [
+        {
+          "user": "Who are some of SSL's university affiliates?",
+          "assistant": "I found 17 affiliates in the matched corpus scope. 1. Pratyush Bharati \u2014 Professor [1]\n2. Katherine Dafforn \u2014 Distinguished Professor [1]\n3. Lorena Estrada-Martinez \u2014 Associate Professor [1]\n4. Jesse Farmer \u2014 Assistant Professor [1]\n5. Dania Francis \u2014 Dania V. Francis, Assistant Professor, Economics [1]\n6. Susan Gauss \u2014 Associate Provost [1]\n7. Michael Johnson \u2014 Special Assistant to the Chancellor [1]\n8. Camille Curtis Martinez \u2014 Lecturer [1]\n9. Georgia Mavrommati \u2014 Associate Professor [1]\n10. Denise Patmon \u2014 Director & Professor A [1]\n11. Lorna Rivera \u2014 Director, Gaston Institute [1]\n12. Evan Stewart \u2014 Associate Professor [1]\n13. Fabian Torres-Ardila \u2014 Associate Director Gaston Institute [1]\n14. Paul Watanabe \u2014 Professor [1]\n15. Jessica Whiteley \u2014 Senior Associate Dean [1]\n16. Kerrie Wilkins \u2014 Graduate Program Director/Associate Professor [1]\n17. Cedric Woods \u2014 James Woods [1]"
+        },
+        {
+          "user": "Of those, who works on public health or health-equity research?",
+          "assistant": "Which person do you mean?"
+        },
+        {
+          "user": "Tell me more about one of those affiliates.",
+          "assistant": "Pratyush Bharati, Professor, Management Science & Info Sys\nPratyush Bharati\nTitle: Professor\nEmail: Pratyush.Bharati@umb.edu\nExpertise: Social Media and Organizations, Green Information Systems, Social Media and... [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati, Professor, Management Science & Info Sys\nPratyush Bharati\nTitle: Professor\nEmail: Pratyush.Bharati@umb.edu\nExpertise: Social Media and Organizations, Green Information Systems, Social Media and... [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly selected one of the affiliates from the previous list and provided accurate, well-cited information directly from the provided corpus."
+    },
+    {
+      "id": "deep_followup_projects_001",
+      "kind": "multi_turn",
+      "type": "follow_up_projects_deep",
+      "question": "Who is it meant to serve?",
+      "conversation": [
+        {
+          "user": "List SSL's named projects and initiatives.",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]"
+        },
+        {
+          "user": "Which of those is about workforce training?",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]"
+        },
+        {
+          "user": "How many microcredentialed programs does it plan to develop?",
+          "assistant": "Which project do you mean?"
+        },
+        {
+          "user": "Over what time period?",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]"
+        },
+        {
+          "user": "Who is it meant to serve?",
+          "assistant": "The Climate Careers Curricula Initiative (C3I) is SSL's initiative tied to blue and green job training. It is meant to serve underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) is SSL's initiative tied to blue and green job training. It is meant to serve underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the target demographic for the C3I program as described in the provided source text."
+    },
+    {
+      "id": "deep_followup_about_001",
+      "kind": "multi_turn",
+      "type": "follow_up_about_deep",
+      "question": "Who is the executive director?",
+      "conversation": [
+        {
+          "user": "What does SSL say it does?",
+          "assistant": "The Sustainable Solutions Lab (SSL) describes its activities in the following ways: * **Supporting Faculty and Students:** Faculty and students are the foundation of SSL's work [1], [2],. SSL provides seed funding, professional development, promotional support, and climate justice guidance to scholars at various stages of their academic journeys [1], [2].\n* **Research and Development:** SSL supports faculty research and development to generate evidence and advocacy for equitable adaptation [1]. This includes creating a semester-long climate justice program for faculty, building a climate justice research database, and granting research and seed grants [1].\n* **Interdisciplinary Collaboration:** SSL works to integrate previously siloed areas of expertise into an interdisciplinary approach and fosters new relationships across fields to better address complex climate challenges and catalyze change."
+        },
+        {
+          "user": "Where can someone find the lab?",
+          "assistant": "The Sustainable Solutions Lab is located in the Healey Library, 10th Floor, Room 13, at UMass Boston [1]."
+        },
+        {
+          "user": "What email should they use?",
+          "assistant": "CLIMATE JUSTICE RESEARCH DATABASE SLIDE 24 \u2014 CLIMATE JUSTICE RESEARCH DATABASE\n================================================================================\nMany SSL faculty are relatively new to the field of climate justice. To help them\nground their own scholarship in the academic conversation, Rosalyn Negron and\ngraduate student Katsyris Rivera-Kientz have created a database of climate justice\nresearch articles. All research starts with a literature review. Launched in March\n2021, this resource (housed in Mendeley) contains over 500 articles in a wide\nvariety of topics from health to housing to governance. All SSL faculty have\naccess to it and are able to contribute to it themselves so that it will continue\nto evolve as expertise on campus grows. This is a central, living resource for SSL\nfaculty to begin their exploration of climate justice topics.\n\"Having access to the climate justice research database has allowed me to very\nquickly get up to speed on where the academic conversations are in fields beyond\nmy own. It's giving me a broader interdisciplinary perspective that is essential\nfor the directions I want to take my research.\"\n\u2014 Antonio Raciti, Assistant Professor of Ecological Design, School for the Environment\n================================================================================ [1]"
+        },
+        {
+          "user": "What is its mission?",
+          "assistant": "SSL described its mission this way:\n1) Understand the disproportionate impacts of climate change on marginalized communities\n2) Partner with them to develop equitable and sustainable solutions. [1]"
+        },
+        {
+          "user": "Who is the executive director?",
+          "assistant": "B. R. Balachandran is SSL's Executive Director. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "B. R. Balachandran is SSL's Executive Director. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided Staff.txt document."
+    },
+    {
+      "id": "deep_followup_affiliates_001",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates_deep",
+      "question": "What topics do they focus on?",
+      "conversation": [
+        {
+          "user": "Who are some of SSL's university affiliates?",
+          "assistant": "I found 17 affiliates in the matched corpus scope. 1. Pratyush Bharati \u2014 Professor [1]\n2. Katherine Dafforn \u2014 Distinguished Professor [1]\n3. Lorena Estrada-Martinez \u2014 Associate Professor [1]\n4. Jesse Farmer \u2014 Assistant Professor [1]\n5. Dania Francis \u2014 Dania V. Francis, Assistant Professor, Economics [1]\n6. Susan Gauss \u2014 Associate Provost [1]\n7. Michael Johnson \u2014 Special Assistant to the Chancellor [1]\n8. Camille Curtis Martinez \u2014 Lecturer [1]\n9. Georgia Mavrommati \u2014 Associate Professor [1]\n10. Denise Patmon \u2014 Director & Professor A [1]\n11. Lorna Rivera \u2014 Director, Gaston Institute [1]\n12. Evan Stewart \u2014 Associate Professor [1]\n13. Fabian Torres-Ardila \u2014 Associate Director Gaston Institute [1]\n14. Paul Watanabe \u2014 Professor [1]\n15. Jessica Whiteley \u2014 Senior Associate Dean [1]\n16. Kerrie Wilkins \u2014 Graduate Program Director/Associate Professor [1]\n17. Cedric Woods \u2014 James Woods [1]"
+        },
+        {
+          "user": "Of those, who works on public health or health-equity research?",
+          "assistant": "Which person do you mean?"
+        },
+        {
+          "user": "Tell me more about one of those affiliates.",
+          "assistant": "Pratyush Bharati, Professor, Management Science & Info Sys\nPratyush Bharati\nTitle: Professor\nEmail: Pratyush.Bharati@umb.edu\nExpertise: Social Media and Organizations, Green Information Systems, Social Media and... [1]"
+        },
+        {
+          "user": "What institution are they affiliated with?",
+          "assistant": "Pratyush Bharati, Professor, Management Science & Info Sys\nPratyush Bharati\nTitle: Professor\nEmail: Pratyush.Bharati@umb.edu\nExpertise: Social Media and Organizations, Green Information Systems, Social Media and... [1]"
+        },
+        {
+          "user": "What topics do they focus on?",
+          "assistant": "Pratyush Bharati focuses on Social Media and Organizations, Green Information Systems, Social Media and. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati focuses on Social Media and Organizations, Green Information Systems, Social Media and. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the provided source text, although the source text itself appears to be truncated, leading to an incomplete sentence at the end of the response."
+    },
+    {
+      "id": "deep_followup_board_001",
+      "kind": "multi_turn",
+      "type": "follow_up_board_deep",
+      "question": "What is that person's role?",
+      "conversation": [
+        {
+          "user": "Name members of SSL's External Advisory Board.",
+          "assistant": "I do not have enough information to name members of SSL's External Advisory Board."
+        },
+        {
+          "user": "Tell me more about Caleb Dresser.",
+          "assistant": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]"
+        },
+        {
+          "user": "What health-related climate work is he connected to?",
+          "assistant": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]"
+        },
+        {
+          "user": "Who else on the board works on climate resilience?",
+          "assistant": "I found 8 board members in the matched corpus scope. 1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [1]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [1]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [1]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [1]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [1]\n7. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [1]\n8. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [1]"
+        },
+        {
+          "user": "What is that person's role?",
+          "assistant": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Caleb Dresser\nEmergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is actively involved in efforts to educate healthcare workers, policymakers, and the general public about the value of action to protect human health in the context of the ongoing climate crisis. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the role of the person discussed in the previous turn using the provided corpus."
+    },
+    {
+      "id": "followup_002",
+      "kind": "multi_turn",
+      "type": "follow_up_board",
+      "question": "Who else on the board works on climate resilience?",
+      "conversation": [
+        {
+          "user": "Who is on the SSL External Advisory Board?",
+          "assistant": "I do not have enough information to provide a full list of members for the SSL External Advisory Board. The provided context only notes that Isabella M. Gambill serves on the Sustainable Solutions Lab Board [1]."
+        },
+        {
+          "user": "Tell me more about Gabriel Cira.",
+          "assistant": "I found 9 board members in the matched corpus scope. 1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [1]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [1]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [1]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [1]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [1]\n7. Amy Kort\u00e9 \u2014 President, Arrowstreet [1]\n8. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [1]\n9. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [1]"
+        },
+        {
+          "user": "Who else on the board works on climate resilience?",
+          "assistant": "I found 8 board members in the matched corpus scope. 1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [1]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [1]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [1]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [1]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [1]\n7. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [1]\n8. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "I found 8 board members in the matched corpus scope. 1. Kalila Barnett \u2014 Program Officer of Climate Resilience at the Barr Foundation [1]\n2. Gabriel Cira \u2014 Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [1]\n3. Tim Cronin \u2014 Associate Director of Policy and Advocacy at Health Care Without Harm [1]\n4. Caleb Dresser \u2014 Emergency Medicine Faculty, Beth Israel Deaconess Medical Center / Harvard Medical School [1]\n5. Julie Eaton Ernst \u2014 Climate Resilience Practice Leader, HNTB [1]\n6. Isabella M. Gambill \u2014 Assistant Director of Climate, Energy, & Resilience, A Better City [1]\n7. Julia Kumari Drapkin \u2014 CEO and Founder, ISeeChange [1]\n8. Jen Stevenson Zepeda \u2014 Commercial Solar Consultant, ReVision Energy [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the board members whose profiles explicitly mention climate resilience or related climate work, excluding the one member (Amy Kort\u00e9) whose profile does not mention it."
+    },
+    {
+      "id": "iter02_followup_publications_001",
+      "kind": "multi_turn",
+      "type": "follow_up_publications_paraphrase",
+      "question": "How many are left?",
+      "conversation": [
+        {
+          "user": "Show me the publication source documents from SSL's Publications folder.",
+          "assistant": "The publication source documents from the Sustainable Solutions Lab (SSL) provided in the context are: * **Opportunity in the Complexity: Recommendations for Equitable Climate Resilience** [1], * **Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis** [2], * **johnson_wp21mj1** [3], * **Voices that Matter: Boston Area Residents of Color Discuss Climate Change** [4]\n* **Views that Matter: Race and Opinions on Climate Change of Boston Residents** [5]"
+        },
+        {
+          "user": "Do not include annual reports.",
+          "assistant": "I can only help with questions about the Sustainable Solutions Lab."
+        },
+        {
+          "user": "How many are left?",
+          "assistant": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ],
+      "output": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "citation": 2,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "citation": 5,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "citation": 6,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "citation": 9,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 10,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "citation": 11,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "citation": 12,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "citation": 13,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "citation": 14,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "citation": 15,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the 15 documents in the corpus. Since none of the documents in the provided list are annual reports, the count remains 15."
+    },
+    {
+      "id": "deep_followup_publications_001",
+      "kind": "multi_turn",
+      "type": "follow_up_publications_deep",
+      "question": "How many publication source documents were excluded?",
+      "conversation": [
+        {
+          "user": "Show me the publication source documents from SSL's Publications folder.",
+          "assistant": "The following publication source documents are included in the Sustainable Solutions Lab's publications folder: * **Opportunity in the Complexity: Recommendations for Equitable Climate Resilience** [1]\n* **Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis** [2]\n* **Climate and Housing Crisis: A Research Agenda for Urban Communities** (referenced as johnson_wp21mj1) [3]\n* **Voices that Matter: Boston Area Residents of Color Discuss Climate Change** [4]\n* **Views that Matter: Race and Opinions on Climate Change of Boston Residents** [5]"
+        },
+        {
+          "user": "Do not include annual reports.",
+          "assistant": "I do not have enough information to answer your request without including annual reports, as all of the provided documentation consists of annual reports."
+        },
+        {
+          "user": "How many are left?",
+          "assistant": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]"
+        },
+        {
+          "user": "List them again.",
+          "assistant": "Can you clarify what you mean by \"List them again.\"?"
+        },
+        {
+          "user": "How many publication source documents were excluded?",
+          "assistant": "I excluded 3 annual report source documents from that publication list. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications",
+        "SEED_DOCUMENTS/Annual Reports"
+      ],
+      "output": "I excluded 3 annual report source documents from that publication list. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly identified that there are 3 annual reports in the corpus, but the citation provided only references one of them, failing to fully support the count of 3."
+    },
+    {
+      "id": "iter02_followup_projects_001",
+      "kind": "multi_turn",
+      "type": "follow_up_projects_paraphrase",
+      "question": "How many microcredentialed programs does it plan to develop?",
+      "conversation": [
+        {
+          "user": "List SSL's named projects and initiatives.",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]"
+        },
+        {
+          "user": "Which of those is about workforce training?",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]"
+        },
+        {
+          "user": "How many microcredentialed programs does it plan to develop?",
+          "assistant": "Which project do you mean?"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Which project do you mean?",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, despite the information being explicitly available in the provided corpus and previously mentioned in the conversation history."
+    },
+    {
+      "id": "iter02_followup_about_001",
+      "kind": "multi_turn",
+      "type": "follow_up_about_paraphrase",
+      "question": "What email should they use?",
+      "conversation": [
+        {
+          "user": "What does SSL say it does?",
+          "assistant": "The Sustainable Solutions Lab (SSL) engages in several activities to support its mission: * **Supporting Faculty and Students:** Faculty and students are considered the foundation of SSL's work [1, 2]. SSL provides them with research funding, professional development, promotional support, and climate justice guidance to scholars at various stages of their academic journeys [1, 2].\n* **Research and Programming:** SSL supports faculty research and development as scholars, which includes creating a semester-long program on climate justice for faculty, building a climate justice research database, and granting research and seed grants [1]. * **Interdisciplinary Collaboration:** SSL works to stitch together siloed areas of expertise into an interdisciplinary approach and fosters new relationships across fields to address complex challenges and catalyze change.\n* **Climate Justice Research:** SSL conducts climate justice research in partnership with marginalized communities to ensure that adaptation efforts do not exacerbate existing inequities or negatively impact society's resilience."
+        },
+        {
+          "user": "Where can someone find the lab?",
+          "assistant": "The Sustainable Solutions Lab is located on the 10th floor of the Healey Library, Room 13, at UMass Boston [1]."
+        },
+        {
+          "user": "What email should they use?",
+          "assistant": "Could you please clarify who you are trying to contact? Depending on who you need to reach at the Sustainable Solutions Lab, you can use the following email addresses: * **B. R. Balachandran (Executive Director):** BR.Balachandran@umb.edu * **Gabriela Boscio (Associate Director):** Gabriela.Boscio@umb.edu * **Elisa Guerrero (Community Engagement Manager):** Elisa.Guerrero@umb.edu * **Rosalyn Negron:** Rosalyn.Negron@umb.edu [1]\n* **Rajini Srikanth (Dean of Faculty and Inter-Faculty Initiatives):** Rajini.Srikanth@umb.edu"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Could you please clarify who you are trying to contact? Depending on who you need to reach at the Sustainable Solutions Lab, you can use the following email addresses: * **B. R. Balachandran (Executive Director):** BR.Balachandran@umb.edu * **Gabriela Boscio (Associate Director):** Gabriela.Boscio@umb.edu * **Elisa Guerrero (Community Engagement Manager):** Elisa.Guerrero@umb.edu * **Rosalyn Negron:** Rosalyn.Negron@umb.edu [1]\n* **Rajini Srikanth (Dean of Faculty and Inter-Faculty Initiatives):** Rajini.Srikanth@umb.edu",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Rosalyn Negron",
+          "entity_type": "staff_member",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided individual staff emails but failed to include the general 'ssl@umb.edu' contact email explicitly listed in the 'SSLAbout.txt' source, which is the most appropriate answer for a general inquiry."
+    },
+    {
+      "id": "deep_followup_students_001",
+      "kind": "multi_turn",
+      "type": "follow_up_students_deep",
+      "question": "What kind of resilience work is that project about?",
+      "conversation": [
+        {
+          "user": "Which student works on the MassDOT train line safety and resilience project?",
+          "assistant": "I found 1 students or interns in the matched corpus scope. 1. Vishal Verma [1]"
+        },
+        {
+          "user": "What is that student's academic background?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "Who supervises that student?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "What project is that student connected to?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "What kind of resilience work is that project about?",
+          "assistant": "The project is focused on improving rail safety and climate resilience along the Cape Main Line in coastal Massachusetts [1, 2]. This initiative addresses the risks posed by climate change to critical transportation infrastructure by integrating advanced technology with stakeholder-driven research methods [2]. The project was launched in response to a 300-foot rail embankment collapse in East Sandwich in 2020, an event linked to climate change-induced drought conditions [2]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The project is focused on improving rail safety and climate resilience along the Cape Main Line in coastal Massachusetts [1, 2]. This initiative addresses the risks posed by climate change to critical transportation infrastructure by integrating advanced technology with stakeholder-driven research methods [2]. The project was launched in response to a 300-foot rail embankment collapse in East Sandwich in 2020, an event linked to climate change-induced drought conditions [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Vishal Verma",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately summarizes the project's focus on rail safety and climate resilience, citing the correct project details from the corpus."
+    }
+  ]
+}

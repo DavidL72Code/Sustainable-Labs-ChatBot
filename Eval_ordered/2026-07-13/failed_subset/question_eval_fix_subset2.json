@@ -1,0 +1,574 @@
+{
+  "generated_at": "2026-07-13T00:33:35.456104+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_fix_subset.json",
+  "summary": {
+    "total_cases": 16,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.75,
+      "citations": 4.75
+    },
+    "classification_counts": {
+      "answered_yes": 15,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 16,
+      "right_citations_yes": 15,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_105",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report, what intersection does SSL describe itself as working at as an applied research and action institute?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 4), SSL describes itself as an applied research and action institute working at the intersection of climate and equity. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the intersection of climate and equity as stated in the 2020-21 annual report."
+    },
+    {
+      "id": "fs_115",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the maximum amount individual faculty could receive through SSL's Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 31), SSL received $20,000 from the Barr Foundation and provided Summer Anti-Racism Research Funding to seven projects led by affiliated faculty, with grants of up to $2,500 each. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by Slide 31 of the provided annual report."
+    },
+    {
+      "id": "fs_116",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What must Summer Anti-Racism Research Funding projects do? Name at least one of the required criteria.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 31), Summer Anti-Racism Research Funding projects must do at least one of the following: (1) Identify disproportionate impacts of climate change on different racial groups; (2) Propose anti-racist policy changes to address climate disparities; or (3) Center BIPOC voices in the research efforts. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified the criteria for the Summer Anti-Racism Research Funding as stated in Slide 31 of the provided annual report."
+    },
+    {
+      "id": "fs_130",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does the 2020-21 SSL annual report define 'climate justice'?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 5), SSL defines Climate Justice as: \u201cClimate action that recognizes past injustices and moves us closer to a world where everyone can thrive despite a changing climate.\u201d [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the definition of 'climate justice' from Slide 5 of the provided annual report and cited the source accurately."
+    },
+    {
+      "id": "fs_131",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report (Slide 6), Ellen Douglas is listed as Professor of Hydrology, School for the Environment. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the title and department for Ellen Douglas from Slide 6 of the provided annual report."
+    },
+    {
+      "id": "fs_133",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the title from the 'Core Team' section on Slide 6 of the provided annual report."
+    },
+    {
+      "id": "fs_134",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 6), J. Cedric Woods is listed as the representative of the CANALA Institutes on the UMass Boston Oversight Committee, in his role as Director of the Institute for New England Native American Studies. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies J. Cedric Woods as the representative of the CANALA Institutes based on the information provided in Slide 6 of the 2020-21 annual report."
+    },
+    {
+      "id": "fs_135",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What was Stacy D. VanDeveer's research on the Massachusetts MVP program about?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slides 16\u201317), Stacy D. VanDeveer led research on \u201cLearning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region,\u201d with Patricia Bailey and David Sulewski as co-researchers. The study examined conditions in and across municipalities; by 2020, over 80% of Massachusetts cities and towns had participated in the MVP program, and the findings are being used to improve program design for equitable inclusion. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately summarized the research project, team members, and objectives as described in the provided annual report."
+    },
+    {
+      "id": "fs_137",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Pratyush Bharati's topic for the SSL Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 32), Pratyush Bharati, Professor of Management Information Systems at the College of Management, received Summer Anti-Racism Research Funding for research on data analytics and artificial intelligence (AI) techniques to improve climate assessment. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus (Slide 32 of the 2020-21 Annual Report)."
+    },
+    {
+      "id": "fs_143",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the Decision Support Hub mentioned in the CLIIR Initiative description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "According to the SSL website, the Decision Support Hub is referenced within the CLIIR (Climate Inequality and Integrative Resilience) Initiative as a tool being built to advance the study of individual and collective decision-making. The CLIIR Initiative\u2019s three focus areas \u2014 Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health \u2014 serve as testing grounds for building it. The SSL corpus does not provide further details about the hub\u2019s current status or specific features. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the CLIIR Initiative and the purpose of the Decision Support Hub."
+    },
+    {
+      "id": "fs_144",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does SSL say the NE Climate Justice Research Collaborative's membership map is updated?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "According to the SSL website, the Northeast Climate Justice Research Collaborative\u2019s membership map is updated twice per year. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_147",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Johnna Flahive's Focus field as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fm_025",
+      "kind": "multi_turn",
+      "type": "follow_up_views_that_matter",
+      "question": "What does the report say about how white respondents view whether climate change affects some people more than others?",
+      "conversation": [
+        {
+          "user": "What is the Views that Matter report?",
+          "assistant": "The \"Views that Matter\" report, titled \"Views that Matter: Race and Opinions on Climate Change of Boston Area Residents,\" is a research project that surveys perspectives on climate change across various racial groups in the Boston area [2]. The report was created to address a gap in research by intentionally including a large sampling of people of color [2]. It was released in partnership with the Barr Foundation. Key findings from the report include:\n* Residents of color are more likely than white residents to believe that climate change is occurring in Massachusetts (8 in 10) and that it is a very serious threat.\n* White respondents are the least likely to view climate change impacts as affecting some people more than others.\n* Regardless of race, respondents overwhelmingly agree that combatting climate change requires \"major\" steps at the federal and state levels. Additionally, the \"Voices that Matter Focus Group Report\" was released as a follow-on to the \"Views that Matter\" project, which was originally released in September 2020 [1]. This follow-on report explores findings from focus group conversations conducted with different racial groups regarding how climate change impacts their lives [1]."
+        },
+        {
+          "user": "What are the key findings about how different racial groups view climate change in Boston?",
+          "assistant": "Key findings regarding how different racial groups in the Boston area view climate change include: * Residents of the Greater Boston region, regardless of race, widely believe that climate change is happening in Massachusetts [2]. Residents of color are more likely than white residents to believe that climate change is a very serious threat [1].\n* Asian Americans, Latinos/as, and Blacks are more inclined than white residents to identify climate change as a \"serious problem\" and are less likely to believe that failing to address it will result in consequences that are \"not too serious\" or \"not serious at all\" [2],.\n* White residents are the most likely to indicate that the region is already experiencing climate change for all impacts except extreme snowfall [2]."
+        },
+        {
+          "user": "What does the report say about how white respondents view whether climate change affects some people more than others?",
+          "assistant": "According to the Views That Matter report in the 2020-21 SSL Annual Report (Slides 11\u201312), white respondents are the least inclined to view climate change impacts as affecting some people more than others. Respondents of color are more inclined than whites to believe that the effects are shared \u201cequally.\u201d [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the Views That Matter report in the 2020-21 SSL Annual Report (Slides 11\u201312), white respondents are the least inclined to view climate change impacts as affecting some people more than others. Respondents of color are more inclined than whites to believe that the effects are shared \u201cequally.\u201d [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the findings stated in the provided corpus (Slides 11-12 of the 2020-21 Annual Report)."
+    },
+    {
+      "id": "fm_028",
+      "kind": "multi_turn",
+      "type": "follow_up_summer_anti_racism_funding",
+      "question": "How many projects received the funding and what was the maximum grant amount per project?",
+      "conversation": [
+        {
+          "user": "What was the Barr Foundation's grant to SSL in 2020-21 and what was it for?",
+          "assistant": "The Sustainable Solutions Lab (SSL) received a grant of $20,000 from the Barr Foundation [1],. According to the 2021 Annual Report, this funding was provided \"to deepen our commitment to centering Racial Justice in our work and support our efforts to be an anti-racist research institute at UMB\" [1],."
+        },
+        {
+          "user": "How did SSL use those funds through the Summer Anti-Racism Research Funding?",
+          "assistant": "SUMMER ANTI-RACISM RESEARCH FUNDING WINNERS\nSLIDE 32 \u2014 SUMMER ANTI-RACISM RESEARCH FUNDING WINNERS\n================================================================================\nPing-Ann Addo\nAssociate Professor of Anthropology, College of Liberal Arts\nSustainability and homeland conservation practices of Maroon peoples\nin the Caribbean\nAnne Blaschke\nAssociate Lecturer, American Studies, College of Liberal Arts\nInterconnectedness of outdoor wellness practices, racism and the global\nclimate crisis\nPratyush Bharati\nclimate crisis\nPratyush Bharati\nProfessor of Management Information Systems, College of Management\nData analytics and artificial intelligence (AI) techniques to improve\nclimate assessment\nCourtney Humphries\nPhD candidate, School for the Environment\nExamining racial inequities in waterfront development policies and climate\nadaptation planning in Boston\nKeith Jones\nVisiting Assistant Professor of Africana Studies, College of Liberal Arts\nCampus community programming on climate justice, structural racism and\nrestorative justice (with Tony Van Der Meer)\nTony Van Der Meer\nSenior Lecturer II in Africana Studies, College of Liberal Arts\nCampus community programming on climate justice, structural racism and\nrestorative justice (with Keith Jones)\nSajani Kandel\nPhD candidate, School for the Environment\nExploring whether heat adaptation plans in Dorchester reflect residents'\nactual resource needs\nBetsy L. Sweet\nAssistant Professor of Equitable and Sustainable Development,\nSchool for Environment\nSchool for Environment\nHow Traditional indigenous knowledge helps Native communities in Mexico\nresist/repair climate/racial injustice\n================================================================================ [1]"
+        },
+        {
+          "user": "How many projects received the funding and what was the maximum grant amount per project?",
+          "assistant": "I don't have information regarding the total number of projects that received the Summer Anti-Racism Research Funding, nor do I have information regarding the maximum grant amount per project for that specific funding in the available documents."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "I don't have information regarding the total number of projects that received the Summer Anti-Racism Research Funding, nor do I have information regarding the maximum grant amount per project for that specific funding in the available documents.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SEED GRANT WINNER",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to retrieve the information present in Slide 31 of the 2021 Annual Report, which explicitly states that seven projects received funding and the grant amount was up to $2,500."
+    },
+    {
+      "id": "fm_029",
+      "kind": "multi_turn",
+      "type": "follow_up_caf_sessions",
+      "question": "What were the four session topics covered during the 2020-21 period?",
+      "conversation": [
+        {
+          "user": "Tell me about the Climate Adaptation Forum in the 2020-21 period.",
+          "assistant": "The Climate Adaptation Forum is a quarterly, half-day series co-sponsored by the Sustainable Solutions Lab (SSL) at UMass Boston and the Environmental Business Council of New England [1, 2]. Established in 2017, the forum serves as a platform for experts and leaders to address issues regarding climate adaptation and resilience [2]. During the 2020-21 period, the forum maintained an average of 200+ attendees per session [1]. Every discussion throughout this period embedded the intersection of climate resilience, race, and equity [1]. The session topics for the 2020-21 period included: * **September 2020:** How We Decide to Get Serious About Climate Solutions: Politics, Communication,"
+        },
+        {
+          "user": "How many people typically attended each session?",
+          "assistant": "The Climate Adaptation Forum maintained an average of 200+ attendees per session during the 2020-21 period [1, 2]."
+        },
+        {
+          "user": "What were the four session topics covered during the 2020-21 period?",
+          "assistant": "According to the 2020-21 SSL Annual Report (Slide 39), the four Climate Adaptation Forum session topics during 2020\u201321 were:\n1. September 2020 \u2014 How We Decide to Get Serious About Climate Solutions: Politics, Communication, and Framing\n2. November 2020 \u2014 Creating Connections: Resilience and Equity in Transportation\n3. March 2021 \u2014 Think Globally, Act Locally: Municipalities Adapt to the Climate Crisis\n4. June 2021 \u2014 Climate Migration: International Pressures, Local Realities [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 39), the four Climate Adaptation Forum session topics during 2020\u201321 were:\n1. September 2020 \u2014 How We Decide to Get Serious About Climate Solutions: Politics, Communication, and Framing\n2. November 2020 \u2014 Creating Connections: Resilience and Equity in Transportation\n3. March 2021 \u2014 Think Globally, Act Locally: Municipalities Adapt to the Climate Crisis\n4. June 2021 \u2014 Climate Migration: International Pressures, Local Realities [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately retrieved and listed the four session topics from the provided annual report."
+    },
+    {
+      "id": "fm_032",
+      "kind": "multi_turn",
+      "type": "follow_up_epa_grant_vieques",
+      "question": "Who are the SSL faculty members supporting Lorena Estrada-Martinez's research team?",
+      "conversation": [
+        {
+          "user": "What was the EPA grant awarded in the 2020-21 period?",
+          "assistant": "I don't have that information in the available documents."
+        },
+        {
+          "user": "What is the Vieques study about and what caused the health risks it is investigating?",
+          "assistant": "The study, titled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico,\" investigates health risks in Vieques, Puerto Rico [1]. The health risks being investigated are a result of contamination created by decades of U.S. military occupation, which included the use of chemical and biological weapons [1]."
+        },
+        {
+          "user": "Who are the SSL faculty members supporting Lorena Estrada-Martinez's research team?",
+          "assistant": "According to the 2020-21 SSL Annual Report (Slide 44), the SSL faculty members supporting Lorena Estrada-Martinez\u2019s EPA-funded research on health risks in Vieques, Puerto Rico are Bob Chen (interim dean of the School for the Environment and professor of organic geochemistry), Rosalyn Negron (associate professor of anthropology, College of Liberal Arts), and Lorna Rivera (director of the Mauricio Gaston Institute for Latino Community Development and Public Policy). [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 44), the SSL faculty members supporting Lorena Estrada-Martinez\u2019s EPA-funded research on health risks in Vieques, Puerto Rico are Bob Chen (interim dean of the School for the Environment and professor of organic geochemistry), Rosalyn Negron (associate professor of anthropology, College of Liberal Arts), and Lorna Rivera (director of the Mauricio Gaston Institute for Latino Community Development and Public Policy). [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified the faculty members listed in Slide 44 of the provided annual report and correctly cited the source."
+    }
+  ]
+}

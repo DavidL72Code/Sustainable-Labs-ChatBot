@@ -1,0 +1,238 @@
+{
+  "single_turn": [],
+  "multi_turn": [
+    {
+      "id": "followup_001",
+      "type": "follow_up_projects",
+      "turns": [
+        "What projects or initiatives is SSL currently working on?",
+        "Explain them in one sentence each.",
+        "Which one involves rail infrastructure?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "followup_002",
+      "type": "follow_up_board",
+      "turns": [
+        "Who is on the SSL External Advisory Board?",
+        "Tell me more about Gabriel Cira.",
+        "Who else on the board works on climate resilience?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "followup_003",
+      "type": "follow_up_students",
+      "turns": [
+        "Who are the students and interns involved with SSL?",
+        "Which of them works on the MassDOT rail resilience project?",
+        "What is that person's research background?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "followup_004",
+      "type": "follow_up_affiliates",
+      "turns": [
+        "Name some SSL university affiliates.",
+        "Which of them focus on public health or health equity?",
+        "Tell me more about one of those people."
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "followup_005",
+      "type": "follow_up_about",
+      "turns": [
+        "What does SSL do?",
+        "Where is it located?",
+        "How can I contact them?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "followup_006",
+      "type": "follow_up_publications",
+      "turns": [
+        "List the publication source documents you can identify from SSL's Publications materials.",
+        "Name all of them.",
+        "How many publication source documents are there in the corpus?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ]
+    },
+    {
+      "id": "iter02_followup_projects_001",
+      "type": "follow_up_projects_paraphrase",
+      "turns": [
+        "List SSL's named projects and initiatives.",
+        "Which of those is about workforce training?",
+        "How many microcredentialed programs does it plan to develop?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_students_001",
+      "type": "follow_up_students_paraphrase",
+      "turns": [
+        "Which student works on the MassDOT train line safety and resilience project?",
+        "What is that student's academic background?",
+        "Who supervises that student?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_board_001",
+      "type": "follow_up_board_paraphrase",
+      "turns": [
+        "Name members of SSL's External Advisory Board.",
+        "Tell me more about Caleb Dresser.",
+        "What health-related climate work is he connected to?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_publications_001",
+      "type": "follow_up_publications_paraphrase",
+      "turns": [
+        "Show me the publication source documents from SSL's Publications folder.",
+        "Do not include annual reports.",
+        "How many are left?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications"
+      ]
+    },
+    {
+      "id": "iter02_followup_about_001",
+      "type": "follow_up_about_paraphrase",
+      "turns": [
+        "What does SSL say it does?",
+        "Where can someone find the lab?",
+        "What email should they use?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "iter02_followup_affiliates_001",
+      "type": "follow_up_affiliates_paraphrase",
+      "turns": [
+        "Who are some of SSL's university affiliates?",
+        "Of those, who works on public health or health-equity research?",
+        "Tell me more about one of those affiliates."
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "deep_followup_projects_001",
+      "type": "follow_up_projects_deep",
+      "turns": [
+        "List SSL's named projects and initiatives.",
+        "Which of those is about workforce training?",
+        "How many microcredentialed programs does it plan to develop?",
+        "Over what time period?",
+        "Who is it meant to serve?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "deep_followup_students_001",
+      "type": "follow_up_students_deep",
+      "turns": [
+        "Which student works on the MassDOT train line safety and resilience project?",
+        "What is that student's academic background?",
+        "Who supervises that student?",
+        "What project is that student connected to?",
+        "What kind of resilience work is that project about?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt",
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "deep_followup_publications_001",
+      "type": "follow_up_publications_deep",
+      "turns": [
+        "Show me the publication source documents from SSL's Publications folder.",
+        "Do not include annual reports.",
+        "How many are left?",
+        "List them again.",
+        "How many publication source documents were excluded?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications",
+        "SEED_DOCUMENTS/Annual Reports"
+      ]
+    },
+    {
+      "id": "deep_followup_about_001",
+      "type": "follow_up_about_deep",
+      "turns": [
+        "What does SSL say it does?",
+        "Where can someone find the lab?",
+        "What email should they use?",
+        "What is its mission?",
+        "Who is the executive director?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "deep_followup_affiliates_001",
+      "type": "follow_up_affiliates_deep",
+      "turns": [
+        "Who are some of SSL's university affiliates?",
+        "Of those, who works on public health or health-equity research?",
+        "Tell me more about one of those affiliates.",
+        "What institution are they affiliated with?",
+        "What topics do they focus on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "deep_followup_board_001",
+      "type": "follow_up_board_deep",
+      "turns": [
+        "Name members of SSL's External Advisory Board.",
+        "Tell me more about Caleb Dresser.",
+        "What health-related climate work is he connected to?",
+        "Who else on the board works on climate resilience?",
+        "What is that person's role?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    }
+  ]
+}

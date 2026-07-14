@@ -1,0 +1,1430 @@
+{
+  "generated_at": "2026-06-19T02:50:45.669964+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_failing_subset.json",
+  "summary": {
+    "total_cases": 37,
+    "average_scores": {
+      "clarity": 4.27,
+      "professional_tone": 4.76,
+      "correctness_vs_corpus": 3.86,
+      "citations": 3.7
+    },
+    "classification_counts": {
+      "answered_yes": 29,
+      "answered_no": 8,
+      "hallucinated_yes": 5,
+      "hallucinated_no": 32,
+      "right_citations_yes": 26,
+      "right_citations_no": 11
+    }
+  },
+  "results": [
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "SSL states that its transdisciplinary research centers and is led by historically and currently excluded communities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text."
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus and directly addresses the user's question."
+    },
+    {
+      "id": "fs_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what year was the Climate Adaptation Forum established?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum was established in 2017. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_021",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The C3I microcredential programs cover job areas such as solar installation, energy auditing, and nature-based solutions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three job areas mentioned in the C3I project description within the provided corpus."
+    },
+    {
+      "id": "fs_025",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rosalyn Negron's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rosalyn Negron's title is Associate Director. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and correctly cites the provided source."
+    },
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rajini Srikanth\nPhone: N/A\nSend Email mailto:Rajini.Srikanth@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant failed to provide the requested title, which was clearly available in the provided source text."
+    },
+    {
+      "id": "fs_035",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nyingilanyeofori Hannah Brown is the program coordinator for the NSF CRISES planning grant for the Climate Inequality and Integrative Resilience Center (CLIIR center) at the SSL. With a background in civil engineering, sustainable development, community resilience, coexistence, conflict resolution, and security, she is also a trained mediator and a consultant for the United Nations Development Programme. She has over twelve years of research and program management experience. Her work includes various projects focusing on sustainable development, social equity, climate change and inequality, governance, peace and security, DEI, community building and resilience, intercultural communication, cultural competency and humility, and social responsibility. Currently a Ph.D. candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston, she earned her BTech in Civil Engineering from Rivers State University (Nigeria) and holds two Master's degrees in Sustainable International Development and Coexistence and Conflict from Brandeis University. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Hannah Brown's role as program coordinator and the specific NSF CRISES planning grant mentioned in the provided source."
+    },
+    {
+      "id": "fs_038",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the goal of the program Levente Mezo is helping build at SSL with Executive Director Dr. Balachandran?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "He is currently working with Executive Director Dr. Balakrishnan Balachandran on the foundations of a continuous, community-engaged program at SSL to provide a platform for collaboration between UMB and local community-based organizations. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_045",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Ashley Miranda Smith Ashley Miranda\nAshley Miranda Smith is a Senior at UMass Boston, majoring in Communication and double minoring in Cinema Studies and Professional and New Media Writing. Since her freshman year, she has worked within SSL as a Communications Fellow; a role that includes managing the institute\u2019s social media, editing SSL\u2019s website content, and working alongside Associate Director Gabriela Boscio Santos to produce and release SSL\u2019s monthly newsletters. In her free time, you can find her watching a film at the movie theater, scrolling through social media, or reading a novel. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Ashley Miranda's role as a Communications Fellow and correctly names Gabriela Boscio Santos as the colleague she works with for newsletters, as stated in the provided corpus."
+    },
+    {
+      "id": "fs_046",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is the focus of Chidimma Ozor's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Chidimma, a US-born Nigerian is from Ann Arbor, MI; she is a second-year doctoral student in the School of Global Inclusion and Social Development. Her research explores how local and indigenous knowledge and wisdom can dismantle the white savior industrial complex with respect to social impact and social enterprise organizations as well as the relationship between activism, advocacy, self-care, and social work. When she's not working with clients, writing, researching, or engaging the public, she enjoys spending time with her loved ones and will soon ride her 1,000th Peloton ride. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Chidimma Ozor's research interests."
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant's response is incomplete and cuts off mid-sentence, failing to provide the requested information about Isa Whalen's collaborator and research topic."
+    },
+    {
+      "id": "fs_059",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Kalila Barnett serve as Executive Director before joining the Barr Foundation, and for how many years?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Kalila Barnett served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Kalila Barnett",
+          "entity_type": "board_member",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and correctly cites the provided source."
+    },
+    {
+      "id": "fs_068",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati is a Professor Their department is Management Science & Info Sys Their stated expertise includes Social Media and Organizations, Green Information Systems [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the department and expertise from the provided source document."
+    },
+    {
+      "id": "fs_070",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Cedric Woods serves as the Director of the Institute for New England Native American Studies (INENAS) [1, 2] and the Director of the Critical Ethnic and Community Studies Program in the College of Liberal Arts [2]. His listed expertise includes:\n* Tribal government [1]\n* American Indian education [1]\n* Economic development [1]\n* Chronic disease prevention [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Cedric Woods",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "THE TEAM: CORE & OVERSIGHT",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the INENAS role and expertise from the corpus, but includes an unverified role (Critical Ethnic and Community Studies Program) not found in the provided text and cites an irrelevant source (AnnualReport2021)."
+    },
+    {
+      "id": "fs_071",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jessica Whiteley's expertise according to the SSL university affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "According to the SSL university affiliates list, Jessica Whiteley\u2019s expertise includes: Research: Health Promotion Interventions, Health Equity, Digital Health, and Person-Centered [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Jessica Whiteley",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Jessica Whiteley from the provided corpus."
+    },
+    {
+      "id": "fs_072",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institute does Lorna Rivera direct and what is her listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorna Rivera is the director of the Mauricio Gaston Institute for Latino Community Development and Public Policy [2]. Her listed expertise includes Latina/o studies, Social Determinants of Health, Adult Literacy education, and education [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Lorna Rivera",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH AWARDS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the expertise from the provided text, but expands the institute name beyond what is written in the corpus and cites an unsupported source [2]."
+    },
+    {
+      "id": "fs_073",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The provided documents identify Rebecca Herst as the SSL director [1], but they do not explicitly state that she served in this role for the duration of the 2020-21 academic",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies the director but is unnecessarily hesitant. The document is explicitly titled '2020-21 Year in Review,' and the director's message is signed by Rebecca Herst, which is sufficient evidence to confirm her role for that period."
+    },
+    {
+      "id": "fs_075",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many schools and institutes does SSL partner with across UMass Boston according to the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2021 Annual Report, the Sustainable Solutions Lab (SSL) at UMass Boston is a cross-disciplinary partnership of five schools and four institutes across the university [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the 2020-21 annual report regarding the number of schools and institutes."
+    },
+    {
+      "id": "fs_076",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What EPA grant did Lorena Estrada-Martinez receive, how large was it, and what study does it fund?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Lorena Estrada-Martinez\nTitle: Associate Professor\nEmail: Lorena.Estrada@umb.edu\nExpertise: Public health, social determinants of health inequities, Latino and immigrant... [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain information regarding an EPA grant for Lorena Estrada-Martinez. The assistant failed to answer the question and instead provided irrelevant biographical information."
+    },
+    {
+      "id": "fs_077",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Rosalyn Negron\nAssociate Director\nPhone: N/A\nSend Email mailto:Rosalyn.Negron@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question entirely, providing only contact information instead of the requested grant details. The provided source was irrelevant to the query."
+    },
+    {
+      "id": "fs_078",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What award did Paul Kirshen receive from the Boston Society of Civil Engineers, and which report was it given for?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Paul Kirshen received the Clemens Herschel award from the Boston Society of Civil Engineers Section [1],. He was given this award for his work as the principal investigator of the \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" report [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain any information regarding an award for Paul Kirshen from the Boston Society of Civil Engineers or the mentioned report. The assistant hallucinated this information."
+    },
+    {
+      "id": "fs_079",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What percentage of SSL's funding comes from external sources, and what percentage goes directly into climate justice research, according to the 2020-21 report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "I found 33 people or entities in the matched corpus scope. 1. DIRECTOR'S MESSAGE [1]\n2. WHO WE ARE / WHAT WE DO [1]\n3. CLIMATE ACTION TERMINOLOGY [1]\n4. THE TEAM: CORE & OVERSIGHT [1]\n5. FACULTY AFFILIATES [1]\n6. FAREWELL [1]\n7. CHANCELLOR QUOTE [1]\n8. RESEARCH [1]\n9. INVESTING IN FACULTY [1]\n10. CLIMATE JUSTICE DEEP DIVE [1]\n11. CLIMATE JUSTICE RESEARCH DATABASE [1]\n12. RESEARCH GRANT WINNER [1]\n13. RESEARCH GRANT WINNER [1]\n14. SEED GRANT WINNER [1]\n15. SEED GRANT WINNER [1]\n16. SEED GRANT WINNER [1]\n17. SEED GRANT WINNER [1]\n18. BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR [1]\n19. SUMMER ANTI-RACISM RESEARCH FUNDING WINNERS [1]\n20. STUDENT TESTIMONIAL [1] I listed the first 20 entities above.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain information regarding the percentage of funding from external sources or the percentage allocated to climate justice research. The assistant failed to answer the question and instead provided a list of document headings."
+    },
+    {
+      "id": "fs_080",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What event did SSL host in December 2020 related to the anthology 'All We Can Save,' and which nationally-syndicated radio show co-sponsored it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Can you clarify what you mean by \"What event did SSL host in December 2020 related to the anthology 'All We Can Save,' and which nationally-syndicated radio show co-sponsored it?\"?",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus does not contain any information regarding the 'All We Can Save' anthology or related events. The assistant failed to answer the question and did not explicitly state that the information was missing from the provided source material."
+    },
+    {
+      "id": "fm_001",
+      "kind": "multi_turn",
+      "type": "follow_up_rail_project",
+      "question": "What technologies does it use and how many pilot study sites does it have?",
+      "conversation": [
+        {
+          "user": "What is the Cape Cod Rail Resilience Project?",
+          "assistant": "The Cape Cod Rail Resilience Project is an initiative aimed at improving rail safety and climate resilience along the Cape Main Line [1]. The project is led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT [1]. It was inspired by Vel\u00e1squez\u2019s doctoral research and launched in response to a 300-foot rail embankment collapse in East Sandwich in 2020, an event linked to climate change-induced drought conditions [1]. Supported by USDOT funding, the project is a collaborative effort involving experts from MassDOT, UMass Boston, and AECOM [1]. The project utilizes a combination of advanced technology and stakeholder-driven research methods, including [1]:\n* Aerial surveys and drones for mapping [1]\n* Sensors for monitoring water levels [1]\n* Hydrological drought analysis [1]\n* Real-time monitoring systems at three pilot study sites [1]"
+        },
+        {
+          "user": "What specifically caused it to be launched?",
+          "assistant": "The Cape Cod Rail Resilience Project was launched in response to a significant 300-foot rail embankment collapse that occurred in East Sandwich in 2020 [1, 2]. This event was linked to drought conditions induced by climate change [1, 2]."
+        },
+        {
+          "user": "What technologies does it use and how many pilot study sites does it have?",
+          "assistant": "The Cape Cod Rail Resilience Project utilizes the following technologies and approaches: * Drones for mapping [1]\n* Sensors for monitoring water levels [1]\n* Aerial surveys [1]\n* Hydrological drought analysis [1]\n* Real-time monitoring systems [1] The project conducts these activities at three pilot study sites [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project utilizes the following technologies and approaches: * Drones for mapping [1]\n* Sensors for monitoring water levels [1]\n* Aerial surveys [1]\n* Hydrological drought analysis [1]\n* Real-time monitoring systems [1] The project conducts these activities at three pilot study sites [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 2
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the technologies and the number of pilot study sites directly from the provided corpus."
+    },
+    {
+      "id": "fm_002",
+      "kind": "multi_turn",
+      "type": "follow_up_c3i_details",
+      "question": "How many programs and participants does it plan to reach, and over what timeframe?",
+      "conversation": [
+        {
+          "user": "Tell me about the Climate Careers Curricula Initiative.",
+          "assistant": "The Climate Careers Curricula Initiative (C3I), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in the Greater Boston area [1]. The program focuses on providing career pathways for underrepresented populations, including vulnerable young adults, people of color, and low-income adults from environmental justice communities [1]. The initiative plans to develop six microcredentialed programs over three years, covering topics such as energy auditing, solar installation, and nature-based solutions. It aims to enroll 90 participants over this three-year period, with a goal of 75% of participants coming from underrepresented groups. Key elements of the program include: * **Curriculum Development:** Collaborating with academic experts, community-based organizations, and industry partners to create training for high-demand jobs.\n* **Community Engagement:** Working with city programs and local organizations to recruit participants from environmental justice communities.\n* **Partnerships for Career Pathways:** Establishing employer partnerships to provide mentoring, job placement assistance, and internships.\n* **Continuous Evaluation:** Regularly assessing outcomes to ensure the program meets industry demands and community needs.\n* **Greater Impact:** Working with state and local policymakers to share findings regarding the removal of systemic barriers to entry for blue and green jobs."
+        },
+        {
+          "user": "What foundation funds it and what are the key goals for participants?",
+          "assistant": "The Climate Careers Curricula Initiative plans to develop six microcredentialed programs over three years. It aims to enroll 90 participants over 3 years. [1]"
+        },
+        {
+          "user": "How many programs and participants does it plan to reach, and over what timeframe?",
+          "assistant": "The Climate Careers Curricula Initiative plans to develop six microcredentialed programs over three years. It aims to enroll 90 participants over 3 years. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative plans to develop six microcredentialed programs over three years. It aims to enroll 90 participants over 3 years. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the specific figures (6 programs, 90 participants, 3 years) directly from the provided corpus."
+    },
+    {
+      "id": "fm_005",
+      "kind": "multi_turn",
+      "type": "follow_up_staff_roles",
+      "question": "What does Elisa Guerrero do at SSL?",
+      "conversation": [
+        {
+          "user": "Who are the current core staff members at SSL?",
+          "assistant": "I found 5 staff members in the matched corpus scope. 1. B. R. Balachandran \u2014 Executive Director [1]\n2. Rosalyn Negron \u2014 Associate Director [1]\n3. Gabriela Boscio \u2014 Dean of Faculty and Inter-Faculty Initiatives [1]\n4. Rajini Srikanth [1]\n5. Elisa Guerrero [1]"
+        },
+        {
+          "user": "What is Gabriela Boscio Santos's role?",
+          "assistant": "Gabriela Boscio's title is Dean of Faculty and Inter-Faculty Initiatives. [1]"
+        },
+        {
+          "user": "What does Elisa Guerrero do at SSL?",
+          "assistant": "Elisa Guerrero, Community Engagement Manager, Sustainable Solutions Lab\nPhone: N/A\nSend Email mailto:Elisa.Guerrero@umb.edu [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero, Community Engagement Manager, Sustainable Solutions Lab\nPhone: N/A\nSend Email mailto:Elisa.Guerrero@umb.edu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Elisa Guerrero's role as Community Engagement Manager based on the provided staff list."
+    },
+    {
+      "id": "fm_010",
+      "kind": "multi_turn",
+      "type": "follow_up_student_isa_whalen",
+      "question": "What specific research project is she working on at SSL, and with which faculty member?",
+      "conversation": [
+        {
+          "user": "Who is Isa Whalen?",
+          "assistant": "Isa Kelawili Whalen Isa Whalen\nIsa Kelawili Whalen is an indigenous Chamoru woman from the southern village of Umatac, Guam. She received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle, and is now a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston. She aspires to respectfully represent and advocate for fellow BIPOC and AANHPI community voices in professional, civic environments through transformational leadership that is driven to coordinate results for community-based social service needs and interests, and longitudinal and cross-sectional research that influences policies centering BIPOC and AANHPI communities. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]"
+        },
+        {
+          "user": "What is her cultural background and where is she originally from?",
+          "assistant": "Which person do you mean?"
+        },
+        {
+          "user": "What specific research project is she working on at SSL, and with which faculty member?",
+          "assistant": "Which person do you mean?"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Which person do you mean?",
+      "sources": [],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to retrieve the information about Isa Whalen, which was explicitly provided in the corpus and even mentioned in the previous conversation turn."
+    },
+    {
+      "id": "fm_011",
+      "kind": "multi_turn",
+      "type": "follow_up_ne_collaborative",
+      "question": "Who convenes the Collaborative?",
+      "conversation": [
+        {
+          "user": "What is the Northeast Climate Justice Research Collaborative?",
+          "assistant": "The Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. Launched in the spring of 2022, it is convened by the Sustainable Solutions Lab (SSL) at UMass Boston. The Collaborative is composed of researchers\u2014ranging from those just getting started to those with more experience\u2014who are interested in advancing policies and practices that ensure historically excluded communities are healthy and safe despite the changing climate. The network aims to support scholars in maximizing the benefits of their research for the communities they work with through dialogue, networking, funding, and resource-sharing. By joining the Collaborative, researchers gain access to the following:\n* Seed grants to support climate justice research in the Northeast [1].\n* Workshops designed to help researchers make their work actionable and leverage it effectively [1].\n* Networking opportunities, collaborative gatherings, and convenings [1].\n* The Collaborative listserv for sharing resources, questions, and ideas [1].\n* SSL's climate justice literature Mendeley library [1]."
+        },
+        {
+          "user": "What specific resources and benefits does membership provide?",
+          "assistant": "By joining the Northeast Climate Justice Research Collaborative, researchers gain access to the following resources and benefits: * Seed grants to support climate justice research in the Northeast [1].\n* Workshops designed to help researchers make their work actionable and leverage it effectively [1].\n* Networking opportunities, collaborative gatherings, and convenings [1].\n* The Collaborative listserv for sharing resources, questions, and ideas [1].\n* SSL's climate justice literature Mendeley library [1]."
+        },
+        {
+          "user": "Who convenes the Collaborative?",
+          "assistant": "The Northeast Climate Justice Research Collaborative is convened by the Sustainable Solutions Lab (SSL) at UMass Boston [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Northeast Climate Justice Research Collaborative is convened by the Sustainable Solutions Lab (SSL) at UMass Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus."
+    },
+    {
+      "id": "fm_012",
+      "kind": "multi_turn",
+      "type": "follow_up_ssl_funding",
+      "question": "What does SSL say that funding goes directly toward?",
+      "conversation": [
+        {
+          "user": "How is SSL funded according to the 2020-21 annual report?",
+          "assistant": "I do not have enough information to explain how SSL is funded, as the provided 2020-21 annual report does not contain details regarding the lab's funding sources [1]. The report mentions that SSL provides research and seed grants to support faculty and students, but it does not specify where the lab's own funding originates."
+        },
+        {
+          "user": "Who are some of the key partners listed in the annual report?",
+          "assistant": "I found 3 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]"
+        },
+        {
+          "user": "What does SSL say that funding goes directly toward?",
+          "assistant": "According to the annual reports, SSL states that nearly 100% of its funding goes directly into climate justice research [1]. Additionally, SSL utilizes its financial resources to provide research funding, professional development, promotional support, and climate justice guidance to faculty and student scholars [2]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the annual reports, SSL states that nearly 100% of its funding goes directly into climate justice research [1]. Additionally, SSL utilizes its financial resources to provide research funding, professional development, promotional support, and climate justice guidance to faculty and student scholars [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SUPPORT SSL / SUPPORT CLIMATE JUSTICE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 26
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant hallucinates a specific statistic ('nearly 100%') that is not present in the provided corpus. Additionally, it cites a document (UMB-SSL-2022-Annual_Report) that was not included in the provided reference material."
+    },
+    {
+      "id": "fm_015",
+      "kind": "multi_turn",
+      "type": "follow_up_student_vishal_verma",
+      "question": "Who supervises his doctoral work at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof. Paul Kirshen from the School for the Environment (SFE). Vishal is passionate about synthesizing socio-hydro geomorphological dynamics, contributing to impactful research on climate change, policy formulation, and ecological crisis mitigation. He brings valuable skills to interdisciplinary collaboration and thrives in diverse research environments. [1]"
+        },
+        {
+          "user": "What are his two main research projects?",
+          "assistant": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience. [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]"
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "assistant": "Vishal Verma's doctoral work at UMass Boston is supervised by Prof. Paul Kirshen from the School for the Environment (SFE) [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma's doctoral work at UMass Boston is supervised by Prof. Paul Kirshen from the School for the Environment (SFE) [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 6
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct based on the corpus, but the citation metadata provided points to an incorrect document title ('Who Counts in Climate Resilience') instead of the actual source ('StudentsInterns.txt')."
+    },
+    {
+      "id": "fm_016",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "question": "What institution did she join after her work with SSL?",
+      "conversation": [
+        {
+          "user": "Who is Johnna Flahive and what is her research focus?",
+          "assistant": "The Sustainable Solutions Lab (SSL), and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program recently funded my research exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts. I have also deepened my dedication to coastal resilience by joining the Climate Resilience Institute (CRI) at the University of Miami, working with people dedicated to leveraging university resources and assets to support community resilience. [1]"
+        },
+        {
+          "user": "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+          "assistant": "The Sustainable Solutions Lab (SSL), and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program recently funded my research exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts. I have also deepened my dedication to coastal resilience by joining the Climate Resilience Institute (CRI) at the University of Miami, working with people dedicated to leveraging university resources and assets to support community resilience. [1]"
+        },
+        {
+          "user": "What institution did she join after her work with SSL?",
+          "assistant": "Johnna Flahive\nBio: My work aims to achieve whole-community resilience by moving past individual, fragmented, and incremental efforts and toward holistic, transdisciplinary, systems approaches to climate resilience. The Sustainable Solutions Lab (SSL), and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program recently funded my research exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts. Currently, I am leading a working group in collaboration with SSL, the Climate Resilient Initiative for Unhoused People (CRIUP), aimed at developing plans for unhoused people. I have also deepened my dedication to coastal resilience by joining the Climate Resilience Institute (CRI) at the University of Miami, working with people dedicated to leveraging university resources and assets to support community resilience.\nLinkedIn https://www.linkedin.com/in/johnna-flahive/ [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\nBio: My work aims to achieve whole-community resilience by moving past individual, fragmented, and incremental efforts and toward holistic, transdisciplinary, systems approaches to climate resilience. The Sustainable Solutions Lab (SSL), and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program recently funded my research exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts. Currently, I am leading a working group in collaboration with SSL, the Climate Resilient Initiative for Unhoused People (CRIUP), aimed at developing plans for unhoused people. I have also deepened my dedication to coastal resilience by joining the Climate Resilience Institute (CRI) at the University of Miami, working with people dedicated to leveraging university resources and assets to support community resilience.\nLinkedIn https://www.linkedin.com/in/johnna-flahive/ [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided the entire bio text rather than a concise answer to the specific question, which is inefficient, though the information is accurate."
+    },
+    {
+      "id": "fm_018",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_events",
+      "question": "Who were the panelists at that event and which radio show co-sponsored it?",
+      "conversation": [
+        {
+          "user": "What special events did SSL host in the 2020-21 period according to the annual report?",
+          "assistant": "In the 2020-21 period, SSL faculty hosted several special climate change events, which included: * A virtual conversation regarding the anthology *ALL WE CAN SAVE: Truth, Courage, and Solutions for the Climate Crisis* [1].\n* A celebration of Indigenous People's Day, featuring a discussion titled \"Climate Change and Indigenous Resistance: An Intergenerational and Inter-Tribal Conversation\" [1],.\n* Art events [1],."
+        },
+        {
+          "user": "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+          "assistant": "SPECIAL EVENTS: ALL WE CAN SAVE SLIDE 41 \u2014 SPECIAL EVENTS: ALL WE CAN SAVE\n================================================================================\nA number of special climate change events were hosted by SSL faculty in 2020-21\nfrom All We Can Save to the celebration of Indigenous People's Day with a\ndiscussion on \"Climate Change and Indigenous Resistance: An Intergenerational and\nInter-Tribal Conversation\" to ART EVENTS.\nALL WE CAN SAVE: Truth, Courage, and Solutions for the Climate Crisis\nIn December, the Sustainable Solutions Lab hosted a virtual conversation that\nspotlighted renowned leaders in the climate adaptation field who contributed to\nthe new anthology ALL WE CAN SAVE. The book illuminates the need for\ntransformational climate leadership that is more characteristically feminine and\nmore faithfully feminist and rooted in compassion, connection, creativity, and\ncollaboration.\nPanelists included co-editor Katharine K. Wilkinson and contributors Colette\nPichon Battle, Jainey K. Bavishi, and Susanne C. Moser. Nationally-syndicated\nradio show Living on Earth co-sponsored the event, with Steve Curwood serving\nas moderator.\n================================================================================ [1]"
+        },
+        {
+          "user": "Who were the panelists at that event and which radio show co-sponsored it?",
+          "assistant": "The panelists for the *All We Can Save* event included co-editor Katharine K. Wilkinson and contributors Colette Pichon Battle, Jainey K. Bavishi, and Susanne C. Moser [1],,. The event was co-sponsored by the nationally-syndicated radio show *Living on Earth*, with Steve Curwood serving as the moderator [1],."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The panelists for the *All We Can Save* event included co-editor Katharine K. Wilkinson and contributors Colette Pichon Battle, Jainey K. Bavishi, and Susanne C. Moser [1],,. The event was co-sponsored by the nationally-syndicated radio show *Living on Earth*, with Steve Curwood serving as the moderator [1],.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 3
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the panelists and the co-sponsoring radio show based on the provided corpus."
+    },
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "The provided context does not contain a complete list of all individuals who made up SSL's core team during the 2020-21 year. The documents identify Rebecca Herst as the Director of the Sustainable Solutions Lab. While the report mentions that the team grew during the 2020-21 school year and references affiliated faculty such as Paul Kirshen [1], it does not provide a comprehensive roster of the core team."
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "I do not have enough information to answer this question, as the provided documents do not identify any team members whose research focus is on conflict resolution and global governance."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "Rebecca Herst serves as the Director of the Sustainable Solutions Lab [1, 2, 3]. The provided documents do not specify an academic department for her at UMass Boston."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Rebecca Herst serves as the Director of the Sustainable Solutions Lab [1, 2, 3]. The provided documents do not specify an academic department for her at UMass Boston.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 2,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        },
+        {
+          "citation": 3,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to identify the correct person (Stacy D. VanDeveer) mentioned in the previous turn's context. It incorrectly answered about Rebecca Herst and falsely claimed the information was missing from the documents, despite it being present in the corpus."
+    },
+    {
+      "id": "fm_021",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_adaptation_forum",
+      "question": "What types of topics and participants does it typically bring together?",
+      "conversation": [
+        {
+          "user": "What is the Climate Adaptation Forum?",
+          "assistant": "The Climate Adaptation Forum is a quarterly, half-day event series organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston [1][2]. Established in 2017, the forum serves as a platform for experts and thought leaders from local, national, and global organizations to address challenges related to climate adaptation and resilience [2]. Key aspects of the forum include:\n* **Purpose:** It provides opportunities for professionals in the field to cross-pollinate ideas and share solutions [1][2].\n* **Core Themes:** Discussions focus on topics such as infrastructure resilience, environmental justice, and innovative adaptation strategies, with the intersection of climate resilience, race, and equity embedded in every session [1][2].\n* **Format:** The events include presentations, networking, and discussions among diverse speakers and attendees [2]."
+        },
+        {
+          "user": "When was it established and how often does it take place?",
+          "assistant": "The Climate Adaptation Forum was established in 2017. [1]"
+        },
+        {
+          "user": "What types of topics and participants does it typically bring together?",
+          "assistant": "The Climate Adaptation Forum brings together a diverse range of participants and focuses on critical climate-related topics: * **Participants:** The forum hosts diverse speakers and attendees from multiple sectors, as well as experts and thought leaders from local, national, and global organizations.\n* **Topics:** Discussions center on pressing challenges related to climate adaptation and resilience [1], including: * Infrastructure resilience * Environmental justice * Innovative adaptation strategies"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum brings together a diverse range of participants and focuses on critical climate-related topics: * **Participants:** The forum hosts diverse speakers and attendees from multiple sectors, as well as experts and thought leaders from local, national, and global organizations.\n* **Topics:** Discussions center on pressing challenges related to climate adaptation and resilience [1], including: * Infrastructure resilience * Environmental justice * Innovative adaptation strategies",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 1
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately synthesizes the information from the corpus regarding the participants and topics of the Climate Adaptation Forum."
+    },
+    {
+      "id": "fm_022",
+      "kind": "multi_turn",
+      "type": "follow_up_board_isabella_gambill",
+      "question": "What is her educational background?",
+      "conversation": [
+        {
+          "user": "Who is Isabella Gambill on SSL's board?",
+          "assistant": "Isabella M. Gambill\nAssistant Director of Climate, Energy, & Resilience, A Better City In her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. She helps staff the Commercial Real Estate Working Group of the Green Ribbon Commission (GRC) and serves on the Community Advisory Board for Boston\u2019s 20-Year Urban Forest Plan, the Advisory Group for the GRC\u2019s Climate Justice Initiative, and the Steering Committee for a MA/Boston Climate Bank. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. In addition to the Sustainable Solutions Lab Board, Isabella is honored to serve on the Board of Visitors and Young Leaders Council of Fenway Health. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]"
+        },
+        {
+          "user": "What is her current role at A Better City?",
+          "assistant": "Isabella M. Gambill's title is Assistant Director of Climate, Energy, & Resilience, A Better City. [1]"
+        },
+        {
+          "user": "What is her educational background?",
+          "assistant": "Isabella M. Gambill\nAssistant Director of Climate, Energy, & Resilience, A Better City In her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. She helps staff the Commercial Real Estate Working Group of the Green Ribbon Commission (GRC) and serves on the Community Advisory Board for Boston\u2019s 20-Year Urban Forest Plan, the Advisory Group for the GRC\u2019s Climate Justice Initiative, and the Steering Committee for a MA/Boston Climate Bank. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. In addition to the Sustainable Solutions Lab Board, Isabella is honored to serve on the Board of Visitors and Young Leaders Council of Fenway Health. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill\nAssistant Director of Climate, Energy, & Resilience, A Better City In her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. She helps staff the Commercial Real Estate Working Group of the Green Ribbon Commission (GRC) and serves on the Community Advisory Board for Boston\u2019s 20-Year Urban Forest Plan, the Advisory Group for the GRC\u2019s Climate Justice Initiative, and the Steering Committee for a MA/Boston Climate Bank. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. In addition to the Sustainable Solutions Lab Board, Isabella is honored to serve on the Board of Visitors and Young Leaders Council of Fenway Health. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and supported by the corpus, but it provides the entire biography rather than focusing specifically on the educational background requested."
+    },
+    {
+      "id": "fm_023",
+      "kind": "multi_turn",
+      "type": "follow_up_students_social_justice",
+      "question": "What is Chidimma Ozor's doctoral research about?",
+      "conversation": [
+        {
+          "user": "Which SSL students focus on racial or social justice research?",
+          "assistant": "I do not have enough information to identify which students specifically focus on racial or social justice research. The provided context mentions the following students and their work: * **Katsyris Rivera-Kientz** (also referred to as Katsy Rivera-Kientz) is a graduate student who helped create a database of climate justice research articles [1].\n* **Deborah Dauda** is a PhD student whose research involves mapping the aesthetic values and practice of Black female creatives."
+        },
+        {
+          "user": "Tell me about Nick Johnson's background and research interests.",
+          "assistant": "He has a background community organizing and social justice activism and how it correlates with building social and political capital. His research interest are in Black & Indigenous self-determination, land rights, and political ecology. [1]"
+        },
+        {
+          "user": "What is Chidimma Ozor's doctoral research about?",
+          "assistant": "Chidimma, a US-born Nigerian is from Ann Arbor, MI; she is a second-year doctoral student in the School of Global Inclusion and Social Development. Her research explores how local and indigenous knowledge and wisdom can dismantle the white savior industrial complex with respect to social impact and social enterprise organizations as well as the relationship between activism, advocacy, self-care, and social work. When she's not working with clients, writing, researching, or engaging the public, she enjoys spending time with her loved ones and will soon ride her 1,000th Peloton ride. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Chidimma, a US-born Nigerian is from Ann Arbor, MI; she is a second-year doctoral student in the School of Global Inclusion and Social Development. Her research explores how local and indigenous knowledge and wisdom can dismantle the white savior industrial complex with respect to social impact and social enterprise organizations as well as the relationship between activism, advocacy, self-care, and social work. When she's not working with clients, writing, researching, or engaging the public, she enjoys spending time with her loved ones and will soon ride her 1,000th Peloton ride. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the research interests from the provided corpus. While it included some extraneous personal details from the source text, the answer is factually correct and directly addresses the user's question."
+    },
+    {
+      "id": "fm_024",
+      "kind": "multi_turn",
+      "type": "follow_up_visiting_scholar_cassandre",
+      "question": "What did she work on specifically during her time at SSL?",
+      "conversation": [
+        {
+          "user": "Who was Cassandre Rey-Thibault at SSL?",
+          "assistant": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]"
+        },
+        {
+          "user": "What is her academic background and research focus?",
+          "assistant": "Cassandre Rey-Thibault\u2019s stated expertise includes risk prevention and crisis management, coastal urban territories [1]"
+        },
+        {
+          "user": "What did she work on specifically during her time at SSL?",
+          "assistant": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and derived from the source, though it repeats the entire bio in the first person rather than summarizing the specific work done."
+    }
+  ]
+}
