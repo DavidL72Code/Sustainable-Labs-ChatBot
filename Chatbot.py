@@ -109,7 +109,7 @@ class RetrievalChatbot:
         self.query_cache: dict[str, dict] = {}
         self.llm_planning_skips: int = 0
         self.llm_planning_calls: int = 0
-        self.refresh_search_index()
+        self._initialize_search_index()
 
     def _get_or_create_collection(self) -> Collection:
         return self.client.get_or_create_collection(name=self.config.collection_name)
@@ -187,6 +187,23 @@ class RetrievalChatbot:
         self.client.delete_collection(name=self.config.collection_name)
         self.collection = self._get_or_create_collection()
         self.refresh_search_index()
+
+    def _initialize_search_index(self) -> None:
+        try:
+            self.refresh_search_index()
+        except Exception as exc:
+            print(
+                f"Search index refresh failed during startup ({exc}). "
+                "Deleting the cached collection so it can be rebuilt from seed documents.",
+                flush=True,
+            )
+            self.client.delete_collection(name=self.config.collection_name)
+            self.collection = self._get_or_create_collection()
+            self.search_records = []
+            self.document_registry = []
+            self.entity_registry = []
+            self.bm25_idf = {}
+            self.avg_document_length = 0.0
 
     def chunk_documents(self, documents: list[str]) -> list[str]:
         splitter = RecursiveCharacterTextSplitter(
