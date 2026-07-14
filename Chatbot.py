@@ -22,12 +22,11 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 
 try:
-    from flask import Flask, Response, jsonify, render_template, request, stream_with_context
+    from flask import Flask, Response, jsonify, request, stream_with_context
 except ImportError:  # pragma: no cover - dependency availability depends on the runtime
     Flask = None
     Response = None
     jsonify = None
-    render_template = None
     request = None
     stream_with_context = None
 
@@ -6574,7 +6573,14 @@ def create_app() -> Flask:
             chatbot_state["status"] = "ready"
             chatbot_state["error"] = ""
 
-    threading.Thread(target=initialize_chatbot, daemon=True).start()
+    def ensure_chatbot_initializing() -> None:
+        with chatbot_state_lock:
+            status = str(chatbot_state["status"])
+            if status in {"starting", "ready"}:
+                return
+            chatbot_state["status"] = "starting"
+            chatbot_state["error"] = ""
+        threading.Thread(target=initialize_chatbot, daemon=True).start()
 
     conversation_store = InMemoryConversationStore(
         ttl_seconds=config.conversation_ttl_seconds,
@@ -6601,7 +6607,13 @@ def create_app() -> Flask:
 
     @app.get("/")
     def index():
-        return render_template("index.html")
+        return jsonify(
+            {
+                "service": "ssl-chatbot-api",
+                "status": "ok",
+                "endpoints": ["/api/health", "/api/chat", "/api/suggestions"],
+            }
+        )
 
     @app.get("/api/health")
     def health():
@@ -6611,22 +6623,12 @@ def create_app() -> Flask:
         payload = {"status": status}
         if error:
             payload["error"] = error
-        status_code = 200 if status == "ready" else 503 if status == "error" else 202
+        status_code = 503 if status == "error" else 200
         return jsonify(payload), status_code
-
-    @app.get("/dashboard")
-    def dashboard():
-        return render_template("dashboard.html", dashboard=build_dashboard_payload())
-
-    @app.get("/dashboard/interactions/<event_id>")
-    def dashboard_interaction(event_id: str):
-        event = find_chat_event(event_id)
-        if event is None:
-            return render_template("dashboard_detail.html", event=None), 404
-        return render_template("dashboard_detail.html", event=event)
 
     @app.post("/api/chat")
     def chat():
+        ensure_chatbot_initializing()
         if not _rate_limiter.allow(
             key=f"chat:{_get_client_ip()}",
             limit=config.chat_rate_limit_count,
@@ -6779,6 +6781,7 @@ def create_app() -> Flask:
 
     @app.post("/api/suggestions")
     def suggestions():
+        ensure_chatbot_initializing()
         if not _rate_limiter.allow(
             key=f"suggestions:{_get_client_ip()}",
             limit=config.suggestions_rate_limit_count,
