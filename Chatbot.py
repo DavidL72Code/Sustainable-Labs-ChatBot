@@ -5787,6 +5787,7 @@ Citation rules:
         words = re.findall(r"\b\w+\b", lowered_query)
         clear_topic_markers = {
             "ssl", "mission", "vision", "projects", "staff", "board", "publications", "contact",
+            "students", "student", "interns", "intern", "fellows", "fellow", "alumni",
             "collaborative", "forum", "initiative", "project",
         }
         has_follow_up = (
