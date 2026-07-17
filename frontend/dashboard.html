@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSL Chatbot Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script>
+    window.API_BASE = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+  </script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <img
+        src="/static/umb-logo.svg"
+        alt="UMass Boston"
+        class="dashboard-umb-logo"
+      >
+      <div class="dashboard-logo">
+        <span class="dashboard-logo-name">Sustainable Solutions Lab</span>
+        <span class="dashboard-logo-tagline">Chatbot Dashboard</span>
+      </div>
+      <nav class="header-actions" aria-label="Dashboard navigation">
+        <a href="/">Chat</a>
+        <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer">Visit SSL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="metric-grid" aria-label="Interaction metrics">
+      <article class="metric-card">
+        <span>Total Chats</span>
+        <strong id="metricTotal">-</strong>
+      </article>
+      <article class="metric-card">
+        <span>Clarifications</span>
+        <strong id="metricClarifications">-</strong>
+      </article>
+      <article class="metric-card">
+        <span>Low Confidence</span>
+        <strong id="metricLowConfidence">-</strong>
+      </article>
+      <article class="metric-card">
+        <span>Blocked</span>
+        <strong id="metricBlocked">-</strong>
+      </article>
+      <article class="metric-card">
+        <span>Errors</span>
+        <strong id="metricErrors">-</strong>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Chat History</h2>
+          <span>Public operational summary</span>
+        </div>
+        <div class="history-table-wrap">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Chat Mapping</th>
+                <th>Confidence</th>
+                <th>Sources</th>
+                <th>Latency</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <tr>
+                <td colspan="5" class="empty-state">Loading dashboard data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Source Usage</h2>
+        </div>
+        <ol class="ranked-list" id="sourceUsageList"></ol>
+        <p class="empty-state" id="sourceUsageEmpty" hidden>No returned sources logged yet.</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Corpus Coverage</h2>
+        </div>
+        <ol class="ranked-list" id="categoryUsageList"></ol>
+        <p class="empty-state" id="categoryUsageEmpty" hidden>Retrieved source metadata will appear here.</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Problem Cases</h2>
+        </div>
+        <div class="compact-list" id="problemEventsList"></div>
+        <p class="empty-state" id="problemEventsEmpty" hidden>No blocked, error, clarification, or low-confidence cases logged.</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Evaluation Summary</h2>
+          <span id="evalModel"></span>
+        </div>
+        <dl class="eval-grid" id="evalGrid" hidden>
+          <div><dt>Total Cases</dt><dd id="evalTotalCases">-</dd></div>
+          <div><dt>Correctness</dt><dd id="evalCorrectness">-</dd></div>
+          <div><dt>Citations</dt><dd id="evalCitations">-</dd></div>
+          <div><dt>Hallucinated</dt><dd id="evalHallucinated">-</dd></div>
+        </dl>
+        <div class="eval-problems" id="evalProblems"></div>
+        <p class="empty-state" id="evalEmpty">Run the eval script to populate question_eval_results.json.</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Score Key</h2>
+        </div>
+        <dl class="score-key">
+          <div>
+            <dt>correctness_vs_corpus</dt>
+            <dd>1-5 rating for how well the answer matches the provided SSL corpus reference.</dd>
+          </div>
+          <div>
+            <dt>citations</dt>
+            <dd>1-5 rating for whether returned sources are useful and relevant support.</dd>
+          </div>
+          <div>
+            <dt>hallucinated</dt>
+            <dd>Yes means the evaluator found unsupported or clearly incorrect facts.</dd>
+          </div>
+          <div>
+            <dt>answered_question</dt>
+            <dd>Yes means the answer directly addressed the question that was asked.</dd>
+          </div>
+          <div>
+            <dt>right_citations</dt>
+            <dd>Yes means the cited or returned sources match the relevant corpus sources.</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Interaction Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script>
+    window.API_BASE = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+  </script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <img
+        src="/static/umb-logo.svg"
+        alt="UMass Boston"
+        class="dashboard-umb-logo"
+      >
+      <div class="dashboard-logo">
+        <span class="dashboard-logo-name">Sustainable Solutions Lab</span>
+        <span class="dashboard-logo-tagline">Interaction Trace</span>
+      </div>
+      <nav class="header-actions" aria-label="Dashboard navigation">
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/">Chat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="detail-layout" id="detailLayout" hidden>
+      <article class="panel panel-wide">
+        <div class="panel-header">
+          <h2 id="detailLabel">Interaction</h2>
+          <span id="detailTimestamp"></span>
+        </div>
+        <div class="mapping-strip" aria-label="Chat answer mapping">
+          <span>Public event summary</span>
+          <strong>tracks</strong>
+          <span>status and confidence</span>
+          <strong>with</strong>
+          <span id="detailSourceSummary">0 returned sources</span>
+        </div>
+        <div class="qa-block">
+          <h3>Visibility</h3>
+          <p id="detailPreviewText"></p>
+        </div>
+      </article>
+
+      <aside class="panel">
+        <div class="panel-header">
+          <h2>Status</h2>
+        </div>
+        <dl class="detail-stats" id="detailStats"></dl>
+      </aside>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Confidence</h2>
+        </div>
+        <div id="confidenceSection"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Returned Sources</h2>
+        </div>
+        <ol class="source-list" id="detailSources"></ol>
+        <p class="empty-state" id="detailSourcesEmpty" hidden>No sources were returned to the user.</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Retrieval Summary</h2>
+        </div>
+        <pre class="json-block" id="retrievalSummary"></pre>
+      </article>
+    </section>
+
+    <section class="panel" id="detailEmpty">
+      <h2>Interaction Not Found</h2>
+      <p class="empty-state" id="detailEmptyText">Loading interaction trace...</p>
+    </section>
+  </main>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
