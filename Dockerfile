@@ -27,7 +27,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY Chatbot.py ./
 COPY templates/ ./templates/
 COPY static/ ./static/
-COPY SEED_DOCUMENTS/ ./SEED_DOCUMENTS/
 
 # Include the prebuilt vector store so startup can skip first-run indexing
 COPY chroma_db/ ./chroma_db/
