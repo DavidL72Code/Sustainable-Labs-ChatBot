@@ -141,9 +141,7 @@
   </template>
 
   <script>
-    // Point the dashboard link at the backend (it's still server-rendered there).
-    document.getElementById("dashboardLink").href =
-      (window.API_BASE || "") + "/dashboard";
+    document.getElementById("dashboardLink").href = "/dashboard.html";
   </script>
   <script src="/static/app.js"></script>
 </body>
