@@ -8,20 +8,32 @@ env/
 .gitignore
 .idea/
 .vscode/
+.claude/
 .DS_Store
+*.swp
 *.log
+logs/
+.pycache/
 
 # Large dev-only artifacts — exclude unless explicitly committed
+Eval_ordered/
 chroma_db_backup/
 benchmark_*.py
+development_loop_log/
 run_questions_eval.py
 make_overview_pptx.py
+question_eval_set/
 question_eval_*.json
 questions_iter*.json
 questions_failing_subset.json
 update_eval.json
 update.txt
 *.pptx
+scratch_*.py
+manual_chatbot_sweep.py
+state_machine_sweep.py
+tests/
 
 # Frontend isn't needed in the backend image
 frontend/
+frontend/*

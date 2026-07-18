@@ -8,6 +8,11 @@ const suggestionsTemplate = document.getElementById("suggestionsTemplate");
 const statusDot = document.querySelector(".status-dot");
 const sidebarList = document.getElementById("sidebarList");
 let messageCounter = 0;
+try {
+  if (window.API_BASE) {
+    window.localStorage.setItem("ssl_api_base", window.API_BASE.replace(/\/+$/, ""));
+  }
+} catch {}
 
 function assistantLabelMarkup(label) {
   return `

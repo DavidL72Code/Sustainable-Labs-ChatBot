@@ -67,7 +67,7 @@ A separate entity registry is built at ingest time from staff, board, affiliate,
 
 #### e) Generation
 
-Retrieved chunks are formatted into a prompt and sent to Gemini via a **singleton client** (created once at startup, reused across requests). `max_output_tokens` is set to 1024 — appropriate for RAG and faster than the default 8192. The response is streamed back to the client over SSE.
+Retrieved chunks are formatted into a prompt and sent to Gemini via a **singleton client** (created once at startup, reused across requests). `max_output_tokens` is set to 2048 — appropriate for RAG and still below the default 8192. The response is streamed back to the client over SSE.
 
 ### Document Ingestion
 
@@ -114,7 +114,7 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 | **`question_eval_set/`** | Date-organized question sets used for eval runs |
 | **`Eval_ordered/`** | Date-organized evaluation outputs, with `main`, `citation_fix`, and `failed_subset` subfolders |
 | **`question_eval_iter*.json`** | Legacy iterative evaluation snapshots used to track regressions and improvements |
-| **Analytics dashboard** | Live diagnostics: per-interaction trace JSON, retrieval diagnostics, source usage, corpus coverage, problem cases (blocked, clarification, error, low-confidence), evaluation summary with score key |
+| **Analytics dashboard** | Staff diagnostics: per-interaction question/answer preview, trace JSON, retrieval diagnostics, source usage, corpus coverage, problem cases (blocked, clarification, error, low-confidence), evaluation summary with score key |
 
 ### Evaluation Folders
 
@@ -166,6 +166,7 @@ To avoid the Hugging Face Spaces iframe chrome, the backend and frontend deploy 
 ```
 [ Vercel: static site ]  ── fetch ──►  [ Hugging Face Space (Docker): Flask API ]
    frontend/index.html                   /api/chat, /api/suggestions
+   frontend/dashboard*.html              /api/dashboard, /api/dashboard/interaction/<id>
    frontend/static/                      ChromaDB + Gemini
 ```
 
@@ -183,7 +184,9 @@ Steps:
 2. Push this repo to the Space's git remote.
 3. In **Space Settings → Variables and secrets**, set:
    - `GEMINI_API_KEY` — your Gemini key (secret).
-   - `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Defaults to `*` if unset.
+- `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Cross-origin API access is disabled if unset.
+- `TRUST_PROXY_HEADERS` — set to `1` only when the deployment has a trusted reverse proxy that supplies client IP headers; otherwise rate limiting uses the direct peer address.
+- `DASHBOARD_TRACE_MODE` — defaults to `staff`, which exposes question/answer previews plus full pipeline traces for troubleshooting. Set to `public` if the dashboard API is exposed outside staff-only access and should redact prompts/planning fields.
    - Optionally `GEMINI_MODEL` to override the default model.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
 5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
@@ -212,5 +215,5 @@ The [`frontend/`](frontend/) directory is a ready-to-deploy static site.
 
 - **Cold starts** — free HF Spaces sleep after inactivity. First request after sleep still loads ChromaDB and the embedding model, but does not index documents. The Dockerfile pre-downloads the model to remove the model-download delay.
 - **CORS** — `flask-cors` is wired to `/api/*` only. SSE works cross-origin as long as your Vercel domain is in `CORS_ORIGINS`.
-- **Dashboard persistence** — interaction logs live on disk. On ephemeral filesystems they reset on every restart. The dashboard is still served by the backend at `<hf-space-url>/dashboard` and the frontend's Dashboard link points there.
+- **Dashboard persistence** — interaction logs live on disk. On ephemeral filesystems they reset on every restart. The dashboard UI now lives in the static frontend, while its data still comes from the backend's `/api/dashboard` endpoints.
 - **`GEMINI_API_KEY`** — never commit it. Use Space secrets only.

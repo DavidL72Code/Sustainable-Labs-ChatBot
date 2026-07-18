@@ -141,7 +141,12 @@
   </template>
 
   <script>
-    document.getElementById("dashboardLink").href = "/dashboard.html";
+    const dashboardBase = (window.API_BASE || "").replace(/\/+$/, "");
+    const dashboardHref = new URL("/dashboard.html", window.location.origin);
+    if (dashboardBase) {
+      dashboardHref.searchParams.set("api_base", dashboardBase);
+    }
+    document.getElementById("dashboardLink").href = dashboardHref.toString();
   </script>
   <script src="/static/app.js"></script>
 </body>
