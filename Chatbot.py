@@ -22,11 +22,12 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 
 try:
-    from flask import Flask, Response, jsonify, request, stream_with_context
+    from flask import Flask, Response, jsonify, render_template, request, stream_with_context
 except ImportError:  # pragma: no cover - dependency availability depends on the runtime
     Flask = None
     Response = None
     jsonify = None
+    render_template = None
     request = None
     stream_with_context = None
 
@@ -6605,9 +6606,28 @@ def create_app() -> Flask:
             {
                 "service": "ssl-chatbot-api",
                 "status": "ok",
-                "endpoints": ["/api/health", "/api/chat", "/api/suggestions"],
+                "endpoints": ["/api/health", "/api/chat", "/api/suggestions", "/dashboard"],
             }
         )
+
+    @app.get("/dashboard")
+    def dashboard():
+        return render_template("dashboard.html", dashboard=build_dashboard_payload())
+
+    @app.get("/dashboard/interaction/<event_id>")
+    def dashboard_interaction(event_id: str):
+        return render_template("dashboard_detail.html", event=find_chat_event(event_id))
+
+    @app.get("/api/dashboard")
+    def dashboard_api():
+        return jsonify(build_dashboard_payload())
+
+    @app.get("/api/dashboard/interaction/<event_id>")
+    def dashboard_interaction_api(event_id: str):
+        event = find_chat_event(event_id)
+        if event is None:
+            return jsonify({"error": "Interaction not found."}), 404
+        return jsonify(event)
 
     @app.get("/api/health")
     def health():
