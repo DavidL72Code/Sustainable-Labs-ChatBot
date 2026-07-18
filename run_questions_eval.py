@@ -12,6 +12,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 QUESTIONS_PATH = PROJECT_ROOT / os.getenv("EVAL_QUESTIONS_FILE", "questions.json")
 OUTPUT_PATH = PROJECT_ROOT / os.getenv("EVAL_OUTPUT_FILE", "question_eval_results.json")
 OVERWRITE_RESULTS = os.getenv("EVAL_OVERWRITE", "").lower() in {"1", "true", "yes"}
+CASE_IDS = {
+    case_id.strip()
+    for case_id in os.getenv("EVAL_CASE_IDS", "").split(",")
+    if case_id.strip()
+}
 
 ChatbotConfig = None
 ConversationTurn = None
@@ -224,7 +229,20 @@ def run_multi_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
     for turn in turns:
         last_result = chatbot.answer(turn, recent_history=recent_history)
         transcript.append({"user": turn, "assistant": last_result["reply"]})
-        recent_history.append(ConversationTurn(user=turn, assistant=last_result["reply"]))
+        state = None
+        if hasattr(chatbot, "build_next_conversation_state"):
+            state = chatbot.build_next_conversation_state(
+                recent_history,
+                turn,
+                last_result,
+            )
+        recent_history.append(
+            ConversationTurn(
+                user=turn,
+                assistant=last_result["reply"],
+                state=state,
+            )
+        )
 
     assert last_result is not None
     final_question = turns[-1]
@@ -330,7 +348,7 @@ def extract_retry_delay_seconds(error_text: str) -> float:
 def gemini_call_with_retry(prompt: str, *, model: str | None = None, temperature: float | None = None) -> str:
     global LAST_GEMINI_CALL_AT
 
-    max_attempts = 8
+    max_attempts = max(1, int(os.getenv("EVAL_GEMINI_MAX_ATTEMPTS", "8")))
     for attempt in range(1, max_attempts + 1):
         elapsed = time.monotonic() - LAST_GEMINI_CALL_AT
         if LAST_GEMINI_CALL_AT and elapsed < MIN_GEMINI_INTERVAL_SECONDS:
@@ -392,6 +410,8 @@ def main() -> None:
     completed_ids = {result["id"] for result in results}
 
     for item in questions.get("single_turn", []):
+        if CASE_IDS and item["id"] not in CASE_IDS:
+            continue
         if item["id"] in completed_ids:
             print(f"Skipping {item['id']} (already completed)...")
             continue
@@ -400,6 +420,8 @@ def main() -> None:
         save_results(results)
 
     for item in questions.get("multi_turn", []):
+        if CASE_IDS and item["id"] not in CASE_IDS:
+            continue
         if item["id"] in completed_ids:
             print(f"Skipping {item['id']} (already completed)...")
             continue

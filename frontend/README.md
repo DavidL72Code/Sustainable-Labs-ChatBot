@@ -1,6 +1,11 @@
 # SSL Chatbot — Vercel Frontend
 
 Static frontend that talks to the Flask backend deployed on Hugging Face Spaces.
+This includes the chat UI plus the dashboard pages:
+
+- `index.html`
+- `dashboard.html`
+- `dashboard-detail.html`
 
 ## Configure the backend URL
 
