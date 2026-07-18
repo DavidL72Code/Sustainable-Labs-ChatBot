@@ -16,8 +16,6 @@ from pathlib import Path
 from typing import Callable, Optional
 from urllib.parse import urlsplit
 
-from conversation_state import ConversationStateMachine, empty_state, normalize_state
-
 import chromadb
 from chromadb.api.models.Collection import Collection
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -73,8 +71,6 @@ class ChatbotConfig:
     web_host: str = os.getenv("CHATBOT_HOST", "0.0.0.0")
     web_port: int = int(os.getenv("PORT", os.getenv("CHATBOT_PORT", "7860")))
     cors_origins: str = os.getenv("CORS_ORIGINS", "")
-    trust_proxy_headers: bool = os.getenv("TRUST_PROXY_HEADERS", "0").lower() in {"1", "true", "yes"}
-    dashboard_trace_mode: str = os.getenv("DASHBOARD_TRACE_MODE", "staff").strip().lower()
     debug_mode: bool = os.getenv("FLASK_DEBUG", "0") == "1"
     chat_rate_limit_count: int = int(os.getenv("CHAT_RATE_LIMIT_COUNT", "10"))
     chat_rate_limit_window_seconds: int = int(os.getenv("CHAT_RATE_LIMIT_WINDOW_SECONDS", "60"))
@@ -365,13 +361,7 @@ class RetrievalChatbot:
             return True
         if current_tokens[:2] == candidate_tokens[:2]:
             return True
-        if current_tokens[0] == candidate_tokens[0] and current_tokens[-1] == candidate_tokens[-1]:
-            return True
-        first_a, first_b = current_tokens[0], candidate_tokens[0]
-        fuzzy_first = min(len(first_a), len(first_b)) >= 4 and (
-            first_a.startswith(first_b) or first_b.startswith(first_a)
-        )
-        return fuzzy_first and bool(set(current_tokens[1:]) & set(candidate_tokens[1:]))
+        return current_tokens[0] == candidate_tokens[0] and current_tokens[-1] == candidate_tokens[-1]
 
     def extract_person_name_from_line(self, line: str) -> str:
         normalized_line = re.sub(r"([a-z])([A-Z])", r"\1 \2", line).strip()
@@ -1049,12 +1039,11 @@ class RetrievalChatbot:
         if self.collection.count() == 0:
             return
 
-        # Keep startup light by indexing lexical metadata in memory and leaving
-        # dense vector fetches to Chroma at query time.
-        stored = self.collection.get(include=["documents", "metadatas"])
+        stored = self.collection.get(include=["documents", "metadatas", "embeddings"])
         ids = stored.get("ids", [])
         documents = stored.get("documents", [])
         metadatas = stored.get("metadatas", [])
+        embeddings = stored.get("embeddings", [])
         if not ids or not documents:
             return
 
@@ -1063,17 +1052,21 @@ class RetrievalChatbot:
         entity_registry_map: dict[str, dict] = {}
         total_length = 0
 
-        for chunk_id, document, metadata in zip(ids, documents, metadatas):
+        for chunk_id, document, metadata, embedding in zip(ids, documents, metadatas, embeddings):
             metadata = metadata or {}
             tokens = self.tokenize_for_bm25(document)
             term_counts = Counter(tokens)
             document_length = len(tokens)
+            embedding_vector = embedding.tolist() if hasattr(embedding, "tolist") else (embedding if embedding is not None else [])
+            embedding_norm = math.sqrt(sum(value * value for value in embedding_vector)) or 1.0
 
             self.search_records.append(
                 {
                     "id": chunk_id,
                     "document": document,
                     "metadata": metadata,
+                    "embedding": embedding_vector,
+                    "embedding_norm": embedding_norm,
                     "term_counts": term_counts,
                     "length": document_length,
                 }
@@ -1154,51 +1147,41 @@ class RetrievalChatbot:
         return re.findall(r"\b\w+\b", text.lower())
 
     def retrieve_dense_candidates(self, query: str, limit: int, query_route: Optional[dict] = None) -> list[dict]:
-        if self.collection.count() == 0:
+        records = self.filter_records_by_route(query_route)
+        if not records:
             return []
 
         query_embedding = self.embedder.encode([query], convert_to_numpy=True)[0].tolist()
-        requested_limit = max(limit, 1)
-        query_results = self.collection.query(
-            query_embeddings=[query_embedding],
-            n_results=max(requested_limit * 4, requested_limit),
-            include=["documents", "metadatas", "distances"],
-        )
-        result_ids = (query_results.get("ids") or [[]])[0]
-        result_documents = (query_results.get("documents") or [[]])[0]
-        result_metadatas = (query_results.get("metadatas") or [[]])[0]
-        result_distances = (query_results.get("distances") or [[]])[0]
+        query_norm = math.sqrt(sum(value * value for value in query_embedding)) or 1.0
+        scored_candidates: list[dict] = []
 
-        routed_candidates: list[dict] = []
-        fallback_candidates: list[dict] = []
-        for chunk_id, document, metadata, distance in zip(result_ids, result_documents, result_metadatas, result_distances):
-            metadata = metadata or {}
-            dense_distance = float(distance or 0.0)
-            candidate = {
-                "id": chunk_id,
-                "document": document,
-                "metadata": metadata,
-                "dense_distance": dense_distance,
-                "dense_score": float(1.0 - dense_distance),
-            }
-            fallback_candidates.append(candidate)
-            if self.record_matches_route(metadata, query_route):
-                routed_candidates.append(candidate)
+        for record in records:
+            embedding = record.get("embedding") or []
+            if not embedding:
+                continue
 
-        if query_route and query_route.get("routing_mode") == "hard":
-            chosen_candidates = routed_candidates
-        else:
-            chosen_candidates = routed_candidates or fallback_candidates
+            numerator = sum(query_value * record_value for query_value, record_value in zip(query_embedding, embedding))
+            cosine_similarity = numerator / (query_norm * max(record.get("embedding_norm", 1.0), 1e-8))
+            scored_candidates.append(
+                {
+                    "id": record["id"],
+                    "document": record["document"],
+                    "metadata": record["metadata"] or {},
+                    "dense_score": cosine_similarity,
+                }
+            )
+
+        scored_candidates.sort(key=lambda candidate: candidate["dense_score"], reverse=True)
 
         candidates: list[dict] = []
-        for rank, candidate in enumerate(chosen_candidates[:requested_limit], start=1):
+        for rank, candidate in enumerate(scored_candidates[:limit], start=1):
             candidates.append(
                 {
                     "id": candidate["id"],
                     "document": candidate["document"],
                     "metadata": candidate["metadata"],
                     "dense_rank": rank,
-                    "dense_distance": candidate["dense_distance"],
+                    "dense_distance": float(1.0 - candidate["dense_score"]),
                     "dense_score": float(candidate["dense_score"]),
                 }
             )
@@ -1470,7 +1453,6 @@ class RetrievalChatbot:
         target_categories: set[str] = set()
         target_folders: set[str] = set()
         target_source_paths: set[str] = set()
-        force_hard_routing = False
 
         def apply_scope(
             *,
@@ -1571,17 +1553,6 @@ class RetrievalChatbot:
                 prefer_summary=True,
                 reason="publication and report sources",
             )
-            if has_report_terms:
-                report_scope = self.detect_conversation_group_scope(query)
-                report_path = str((report_scope or {}).get("source_path", ""))
-                report_title = str((report_scope or {}).get("title", ""))
-                if report_path:
-                    target_source_paths = {report_path}
-                    target_titles = {report_title} if report_title else set()
-                    target_categories.clear()
-                    target_folders.clear()
-                    force_hard_routing = True
-                    matched_reasons.append("explicit annual report hard-scoped to the matched report")
 
         if any(term in lowered_query for term in ("contact", "email", "phone", "address", "location", "located", "where is")):
             apply_scope(
@@ -1831,66 +1802,12 @@ class RetrievalChatbot:
                     reason=f"exact phrase match for {phrase}",
                 )
 
-        # Exact quoted headings and titles are stronger evidence than broad topic words.
-        # This handles any uniquely indexed corpus heading without encoding its wording.
-        quoted_phrases = [
-            phrase.strip()
-            for phrase in re.findall(r"[\"'“‘]([^\"'”’]{4,120})[\"'”’]", query)
-            if len(phrase.strip().split()) >= 2
-        ]
-        for phrase in quoted_phrases:
-            matching_records = [
-                record for record in self.search_records
-                if phrase.lower() in str(record.get("document", "")).lower()
-            ]
-            matching_paths = {
-                str(record.get("metadata", {}).get("source_path", ""))
-                for record in matching_records
-                if record.get("metadata", {}).get("source_path")
-            }
-            if len(matching_paths) != 1:
-                continue
-            matching_titles = {
-                str(record.get("metadata", {}).get("title", ""))
-                for record in matching_records
-                if record.get("metadata", {}).get("title")
-            }
-            target_source_paths = matching_paths
-            target_titles = matching_titles
-            target_categories.clear()
-            target_folders.clear()
-            route["question_type"] = "specific_fact"
-            route["prefer_summary"] = False
-            force_hard_routing = True
-            matched_reasons.append(f"unique quoted corpus phrase hard-scoped to {next(iter(matching_paths))}")
-            break
-
         # Hard-override block: certain queries have a single authoritative source.
         # The entity-registry loop above adds every doc where a name appears, which floods
         # the candidate pool with AnnualReport chunks that have high cosine similarity for
         # topical terms. These overrides clear the accumulated multi-source scope and pin
         # retrieval to the one document that actually contains the answer.
-        # A question that names part of a publication title should stay inside that
-        # publication. Without this, the generic "publication" route fans out across
-        # the whole folder and the answer often becomes an inventory of documents.
-        if has_publication_terms and self.document_registry:
-            normalized_query = re.sub(r"[^a-z0-9]+", " ", lowered_query).strip()
-            for document in self.document_registry:
-                title = str(document.get("title", "")).strip()
-                title_stem = re.split(r"[_:]", title, maxsplit=1)[0].strip()
-                normalized_stem = re.sub(r"[^a-z0-9]+", " ", title_stem.lower()).strip()
-                if len(normalized_stem.split()) < 4:
-                    continue
-                if normalized_stem in normalized_query:
-                    target_source_paths = {document.get("source_path", "")}
-                    target_titles = {title}
-                    target_categories.clear()
-                    target_folders.clear()
-                    route["question_type"] = "specific_fact"
-                    route["prefer_summary"] = False
-                    force_hard_routing = True
-                    matched_reasons.append(f"publication title hard-scoped to {title}")
-                    break
+        force_hard_routing = False
 
         # Queries asking what "SSL says" about its identity/mission → SSLAbout only.
         # Pattern covers fs_004 ("transdisciplinary research centers and is led by"),
@@ -1918,18 +1835,6 @@ class RetrievalChatbot:
             route["question_type"] = "specific_fact"
             force_hard_routing = True
             matched_reasons.append("SSL self-description hard-scoped to SSLAbout only")
-
-        # Current SSL overview questions are answered by the live SSLAbout page,
-        # not by similarly named annual-report sections.
-        if any(marker in lowered_query for marker in ("what does ssl do", "what we do", "categories of work", "main categories of work")):
-            target_source_paths = {"SEED_DOCUMENTS/SSLAbout.txt"}
-            target_titles = {"SSLAbout"}
-            target_categories.clear()
-            target_folders.clear()
-            route["question_type"] = "specific_fact"
-            route["prefer_summary"] = True
-            force_hard_routing = True
-            matched_reasons.append("SSL overview hard-scoped to SSLAbout")
 
         # NCJRC launch-date queries → Projects.txt only.
         # AnnualReport2021 has extensive NCJRC content from 2020-21 that ranks above
@@ -2037,46 +1942,11 @@ class RetrievalChatbot:
             force_hard_routing = True
             matched_reasons.append("Julie Wormser 2020-21 annual report hard-scoped to AnnualReport2021 only")
 
-        # Current director queries must use the live Staff record. Without this override,
-        # the historical annual report can outrank the current leadership record.
-        _director_terms = ("director", "directs", "leads", "led ssl", "in charge")
-        _ssl_terms = ("ssl", "sustainable solutions")
-        _historical_director_terms = (
-            "2020", "2021", "academic year", "that year", "annual report", "historical", "former", "previous"
-        )
-        if (
-            any(term in lowered_query for term in _director_terms)
-            and any(term in lowered_query for term in _ssl_terms)
-            and not any(term in lowered_query for term in _historical_director_terms)
-        ):
-            target_source_paths = {"SEED_DOCUMENTS/Staff.txt"}
-            target_titles = {"Staff"}
-            target_categories.clear()
-            target_folders.clear()
-            route["question_type"] = "people_lookup"
-            route["prefer_summary"] = False
-            force_hard_routing = True
-            matched_reasons.append("current SSL director hard-scoped to Staff.txt")
-
-        # Current role questions for a named staff member must use Staff.txt rather than
-        # older annual-report biographies that describe a historical role.
-        if "rosalyn negron" in lowered_query and any(
-            term in lowered_query for term in ("current", "role", "position", "title", "what does", "who is")
-        ):
-            target_source_paths = {"SEED_DOCUMENTS/Staff.txt"}
-            target_titles = {"Staff"}
-            target_categories.clear()
-            target_folders.clear()
-            route["question_type"] = "people_lookup"
-            route["prefer_summary"] = False
-            force_hard_routing = True
-            matched_reasons.append("Rosalyn Negron current-role query hard-scoped to Staff.txt")
-
         # Director-of-SSL year queries → AnnualReport2021 hard-scope only.
         # The bot also retrieves UMB-SSL-2022-Annual_Report.pdf which has a different
         # director, creating confusion; hard-scoping to the 2021 report surfaces Rebecca Herst.
         if ("director" in lowered_query or "led ssl" in lowered_query) and any(
-            t in lowered_query for t in ("2020", "2021", "academic year", "that year")
+            t in lowered_query for t in ("2020", "2021", "academic year", "that year", "ssl", "sustainable solutions")
         ) and any(
             t in lowered_query for t in ("who", "served", "was", "led", "lead")
         ):
@@ -2101,25 +1971,6 @@ class RetrievalChatbot:
             route["question_type"] = "specific_fact"
             force_hard_routing = True
             matched_reasons.append("Flahive specific-fact hard-scoped to Staff.txt only")
-
-        # Named historical grant questions have one authoritative annual-report record.
-        # Person profiles describe current roles and otherwise outrank the award slide.
-        _lorena_epa_grant = any(
-            name in lowered_query for name in ("lorena estrada-martinez", "lorena estrada martinez")
-        ) and any(term in lowered_query for term in ("epa", "grant", "amount", "vieques", "study"))
-        _rosalyn_nsf_grant = "rosalyn negron" in lowered_query and any(
-            term in lowered_query
-            for term in ("nsf", "grant", "253,862", "250k", "hurricane maria", "evacuation", "2020-21")
-        )
-        if _lorena_epa_grant or _rosalyn_nsf_grant:
-            target_source_paths = {"SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"}
-            target_titles = {"AnnualReport2021"}
-            target_categories = {"Annual Reports"}
-            target_folders = {"Annual Reports"}
-            route["question_type"] = "specific_fact"
-            route["prefer_summary"] = True
-            force_hard_routing = True
-            matched_reasons.append("named historical grant hard-scoped to AnnualReport2021 only")
 
         # SSL vision query → SSLAbout only with summary preference so the explicit
         # "Vision" section paragraph ranks above the general mission content.
@@ -2353,7 +2204,7 @@ Available entity names:
         if normalized_route["routing_mode"] not in {"hard", "soft", "global"}:
             normalized_route["routing_mode"] = default_route["routing_mode"]
 
-        if normalized_route["routing_mode"] != "hard" and not any(
+        if not any(
             [
                 normalized_route["target_titles"],
                 normalized_route["target_categories"],
@@ -2419,30 +2270,12 @@ Available entity names:
                 matched_records.append(record)
 
         if not matched_records:
-            return [] if query_route.get("routing_mode") == "hard" else self.search_records
+            return self.search_records
 
         if query_route.get("routing_mode") == "soft" and len(matched_records) < max(self.config.top_k * 2, 6):
             return self.search_records
 
         return matched_records
-
-    def record_matches_route(self, record_or_metadata: dict, query_route: Optional[dict]) -> bool:
-        if not query_route or query_route.get("routing_mode") == "global":
-            return True
-
-        metadata = record_or_metadata.get("metadata", record_or_metadata) or {}
-        target_titles = set(query_route.get("target_titles", []))
-        target_categories = set(query_route.get("target_categories", []))
-        target_folders = set(query_route.get("target_folders", []))
-        target_source_paths = set(query_route.get("target_source_paths", []))
-        source_path = metadata.get("source_path", "")
-        folder_label = metadata.get("folder_label") or self.get_folder_label(source_path)
-        return (
-            source_path in target_source_paths
-            or metadata.get("title", "") in target_titles
-            or metadata.get("category", "") in target_categories
-            or folder_label in target_folders
-        )
 
     def filter_documents_by_route(self, query_route: Optional[dict]) -> list[dict]:
         if not self.document_registry:
@@ -2517,101 +2350,6 @@ Available entity names:
         ]
         return max(text_options, key=len).strip()
 
-    def focused_registry_text(self, entity: dict) -> str:
-        options = [
-            self.strip_embedding_labels(entity.get("detail_text", "")),
-            self.strip_embedding_labels(entity.get("summary_text", "")),
-        ]
-        options = [text for text in options if text]
-        if not options:
-            return ""
-
-        def quality(text: str) -> tuple[int, int]:
-            chunk_artifacts = len(re.findall(r"\n\s*[.,;:]", text))
-            repeated_fragments = len(re.findall(r"(?i)(.{12,60})\s+\1", text))
-            return (-(chunk_artifacts + repeated_fragments), len(text))
-
-        return max(options, key=quality)
-
-    def source_entity_section_text(self, entity: dict) -> str:
-        """Read a clean entity section from its source when indexed chunks are fragmented."""
-        source_path = PROJECT_ROOT / str(entity.get("source_path", ""))
-        if not source_path.is_file() or source_path.suffix.lower() != ".txt":
-            return ""
-
-        lines = source_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        name = str(entity.get("section_name", "")).strip()
-        start = next(
-            (
-                index for index, line in enumerate(lines)
-                if line.strip() and (
-                    line.strip().lower() == name.lower()
-                    or re.match(rf"^{re.escape(name)}\s+(?:is|was|has|serves|works|holds|leads)\b", line.strip(), re.IGNORECASE)
-                )
-            ),
-            None,
-        )
-        if start is None:
-            return ""
-
-        opening = lines[start].strip()
-        if opening.lower() != name.lower() and len(opening) > len(name) + 20:
-            return opening
-
-        other_names = [
-            str(candidate.get("section_name", "")).strip()
-            for candidate in self.entity_registry
-            if candidate is not entity
-            and candidate.get("source_path") == entity.get("source_path")
-            and str(candidate.get("section_name", "")).strip()
-            and not self.names_refer_to_same_person(name, str(candidate.get("section_name", "")))
-        ]
-        section: list[str] = []
-        for line in lines[start + 1 :]:
-            stripped = line.strip()
-            if stripped.upper() == "##END" or stripped.startswith("##"):
-                break
-            if any(
-                stripped.lower() == other_name.lower()
-                or re.match(
-                    rf"^{re.escape(other_name)}\s+(?:is|was|has|serves|works|holds|leads)\b",
-                    stripped,
-                    re.IGNORECASE,
-                )
-                for other_name in other_names
-            ):
-                break
-            if stripped:
-                section.append(stripped)
-        return " ".join(
-            line if re.search(r"[.!?]$", line) else f"{line}."
-            for line in section
-        ).strip()
-
-    def extract_entity_focus_topics(self, entity: dict) -> list[str]:
-        topics = self.extract_person_focus_topics(self.focused_registry_text(entity))
-        if topics:
-            return topics
-
-        source_path = PROJECT_ROOT / str(entity.get("source_path", ""))
-        if not source_path.is_file() or source_path.suffix.lower() != ".txt":
-            return []
-        lines = source_path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        name = str(entity.get("section_name", "")).strip()
-        start = next(
-            (
-                index for index, line in enumerate(lines)
-                if line.strip() and self.names_refer_to_same_person(name, line.strip())
-            ),
-            None,
-        )
-        if start is None:
-            return []
-        for line in lines[start : start + 30]:
-            if line.strip().lower().startswith(("focus:", "expertise:")):
-                return self.extract_person_focus_topics(line.strip())
-        return []
-
     def extract_query_named_phrases(self, query: str) -> list[str]:
         phrases = re.findall(r"\b(?:[A-Z][\w'’.-]+(?:\s+[A-Z][\w'’.-]+)+)\b", query)
         cleaned_phrases: list[str] = []
@@ -2653,25 +2391,11 @@ Available entity names:
             normalized_name = self.normalize_entity_name(section_name)
             norm_query = self.normalize_entity_name(user_message)
             matched = full_name in lowered_query or (normalized_name and normalized_name in norm_query)
-            entity_type = str(entity.get("entity_type", ""))
-            if not matched and entity_type == "project":
-                # Parenthetical acronyms are aliases, not required parts of the canonical
-                # name. Match the full canonical project name without using person-style
-                # first/last token heuristics (which made every "Climate ... Initiative"
-                # look like the same project).
-                canonical_name = self.normalize_entity_name(re.sub(r"\s*\([^)]*\)\s*$", "", section_name))
-                matched = bool(canonical_name and canonical_name in norm_query)
-                if not matched:
-                    aliases = re.findall(r"\(([A-Za-z0-9-]{2,12})\)", section_name)
-                    matched = any(
-                        re.search(rf"\b{re.escape(alias.lower())}\b", lowered_query)
-                        for alias in aliases
-                    )
             if not matched and normalized_name:
                 # Also match on first+last token (handles nicknames like 'Levente "Levi" Mezo' → "Levente Mezo")
                 # and consecutive prefix (handles "Ashley Miranda" → "Ashley Miranda Smith")
                 norm_parts = normalized_name.split()
-                if self.is_person_entity_type(entity_type) and len(norm_parts) >= 3:
+                if len(norm_parts) >= 3:
                     # Prefix: first 2 consecutive words in query
                     for prefix_len in range(2, len(norm_parts)):
                         if " ".join(norm_parts[:prefix_len]) in norm_query:
@@ -2693,12 +2417,7 @@ Available entity names:
                         tN = re.escape(norm_parts[-1])
                         if re.search(r'\b' + t0 + r'\b', norm_query) and re.search(r'\b' + tN + r'\b', norm_query):
                             matched = True
-                if not matched and self.is_person_entity_type(entity_type):
-                    matched = any(
-                        self.names_refer_to_same_person(phrase, section_name)
-                        for phrase in self.extract_query_named_phrases(user_message)
-                    )
-                if not matched and self.is_person_entity_type(entity_type) and len(norm_parts) == 2:
+                if not matched and len(norm_parts) == 2:
                     # Handle middle names: "Isa Whalen" should match "Isa Kelawili Whalen"
                     token0 = re.escape(norm_parts[0])
                     token1 = re.escape(norm_parts[-1])
@@ -2799,11 +2518,6 @@ Available entity names:
             return None
 
         last_turn = recent_history[-1]
-        last_state = last_turn.get("state")
-        if isinstance(last_state, dict):
-            state_entity = self._lookup_subject_entity(last_state.get("active_subject"), entity_types=entity_types)
-            if state_entity is not None:
-                return state_entity
 
         # Check user text first — if the user explicitly named exactly one entity, that's the anchor
         user_text = str(last_turn.get("user", "")).strip()
@@ -3024,16 +2738,6 @@ Available entity names:
                 "what type",
                 "what is it about",
                 "what's it about",
-                "what does it do",
-                "what year was that",
-                "what year was it",
-                "what caused it",
-                "what caused it to",
-                "why was it launched",
-                "what launched it",
-                "tell me more about the project",
-                "tell me more about project",
-                "what does the project actually do",
             )
         )
 
@@ -3093,19 +2797,18 @@ Available entity names:
         return None
 
     def resolve_recent_project_follow_up(self, user_message: str, recent_history: Optional[list[ConversationTurn]]) -> Optional[dict]:
-        lowered_query = user_message.lower()
-        looks_like_project_follow_up = (
-            self.is_ambiguous_query(user_message)
-            or self.contains_context_pronoun(user_message)
-            or any(marker in lowered_query for marker in ("project", "initiative"))
-            or self.is_project_detail_follow_up(user_message)
-        )
-        if not recent_history or not looks_like_project_follow_up:
+        if not recent_history or not self.is_ambiguous_query(user_message):
             return None
 
+        lowered_query = user_message.lower()
         if not (
             self.contains_context_pronoun(user_message)
             or any(marker in lowered_query for marker in ("project", "initiative"))
+            or self.is_project_detail_follow_up(user_message)
+        ):
+            return None
+        if not (
+            any(marker in lowered_query for marker in ("student", "students", "intern", "interns", "person", "people"))
             or self.is_project_detail_follow_up(user_message)
         ):
             return None
@@ -3132,18 +2835,18 @@ Available entity names:
             }.values()
         )
         if len(unique_projects) != 1:
-            # Trust the immediately previous turn when it clearly anchored one project.
-            # Otherwise prefer a clarification over guessing across multiple plausible projects.
-            if last_turn_project:
+            # For project-detail follow-ups ("how many", "benefit", etc.) and pronoun queries,
+            # use the top-ranked project rather than asking for clarification
+            if self.is_project_detail_follow_up(user_message) or self.contains_context_pronoun(user_message):
                 unique_projects = [unique_projects[0]]
             else:
-                options = self._clarification_options_for_entities(unique_projects)
+                options = [entity["section_name"] for entity in unique_projects[:4] if entity.get("section_name")]
                 if not options:
                     return None
                 return {
                     "resolved": False,
                     "needs_clarification": True,
-                    "clarifying_question": "Which project are you asking about?",
+                    "clarifying_question": "Which project do you mean?",
                     "clarification_options": options,
                 }
 
@@ -3157,17 +2860,13 @@ Available entity names:
         if project_summary:
             rewritten_query = f"{rewritten_query} {project_summary}"
 
-        asks_for_people = any(
-            marker in lowered_query
-            for marker in ("who leads", "who lead", "who runs", "who works on", "who is involved", "which students", "which interns")
-        )
         question_type = "people_lookup"
         target_titles = ["Projects", "StudentsInterns"]
         target_source_paths = [
             "SEED_DOCUMENTS/Projects.txt",
             "SEED_DOCUMENTS/StudentsInterns.txt",
         ]
-        if self.is_project_detail_follow_up(user_message) and not asks_for_people:
+        if self.is_project_detail_follow_up(user_message):
             question_type = "specific_fact"
             target_titles = ["Projects"]
             target_source_paths = ["SEED_DOCUMENTS/Projects.txt"]
@@ -3188,13 +2887,7 @@ Available entity names:
         }
 
     def resolve_recent_entity_follow_up(self, user_message: str, recent_history: Optional[list[ConversationTurn]]) -> Optional[dict]:
-        lowered_query = user_message.lower()
-        looks_like_person_follow_up = (
-            self.is_ambiguous_query(user_message)
-            or bool(re.search(r"\b(that|this)\s+person\b", user_message, re.IGNORECASE))
-            or bool(set(re.findall(r"\b\w+\b", lowered_query)) & {"she", "her", "he", "his"})
-        )
-        if not recent_history or not looks_like_person_follow_up:
+        if not recent_history or not self.is_ambiguous_query(user_message):
             return None
 
         # For "that person" / "this person" queries, the subject is whoever was just discussed.
@@ -3208,7 +2901,7 @@ Available entity names:
                 # The first named person in the last assistant response is "that person"
                 return None  # defer to resolve_generic_context_anchor which handles named phrases
 
-        person_entity_types = self._person_entity_types()
+        person_entity_types = {"person", "staff_member", "board_member", "affiliate", "visiting_scholar"}
         last_turn_person = self.get_last_turn_anchor_entity(recent_history, entity_types=person_entity_types)
         if last_turn_person:
             ranked_people = [{"entity": last_turn_person, "score": 999.0}]
@@ -3345,15 +3038,6 @@ Available entity names:
         if any(marker in lowered_query for marker in singular_detail_markers):
             # Prefer the entity most recently discussed (last turn's assistant response)
             last_turn_person = self.get_last_turn_anchor_entity(recent_history, entity_types=person_entity_types)
-            if not last_turn_person and len(unique_people) > 1:
-                options = self._clarification_options_for_entities(unique_people)
-                if options:
-                    return {
-                        "resolved": False,
-                        "needs_clarification": True,
-                        "clarifying_question": "Which person are you asking about?",
-                        "clarification_options": options,
-                    }
             entity = last_turn_person if last_turn_person else unique_people[0]
             rewritten_query = self.build_entity_follow_up_rewrite(user_message, entity["section_name"])
             query_route = self.detect_local_query_route(rewritten_query)
@@ -3367,15 +3051,6 @@ Available entity names:
         _pronoun_tokens = set(re.findall(r"\b\w+\b", lowered_query))
         if _pronoun_tokens & {"she", "her", "he", "his"}:
             last_turn_person = self.get_last_turn_anchor_entity(recent_history, entity_types=person_entity_types)
-            if not last_turn_person and len(unique_people) > 1:
-                options = self._clarification_options_for_entities(unique_people)
-                if options:
-                    return {
-                        "resolved": False,
-                        "needs_clarification": True,
-                        "clarifying_question": "Who are you asking about?",
-                        "clarification_options": options,
-                    }
             entity = last_turn_person if last_turn_person else unique_people[0]
             rewritten_query = self.build_entity_follow_up_rewrite(user_message, entity["section_name"])
             query_route = self.detect_local_query_route(rewritten_query)
@@ -3385,14 +3060,14 @@ Available entity names:
                 "query_route": query_route,
             }
 
-        options = self._clarification_options_for_entities(unique_people)
+        options = [entity["section_name"] for entity in unique_people[:4]]
         if not options:
             return None
 
         return {
             "resolved": False,
             "needs_clarification": True,
-            "clarifying_question": "Which person are you asking about?",
+            "clarifying_question": "Which person do you mean?",
             "clarification_options": options,
         }
 
@@ -3553,25 +3228,12 @@ Available entity names:
 
     def find_exact_or_phrase_matched_entities(self, user_message: str, entities: Optional[list[dict]] = None) -> list[dict]:
         matched_entities = self.find_matching_entities(user_message, entities)
-        direct_person_keys = {
-            subject_key
-            for entity in matched_entities
-            if self.is_person_entity_type(entity.get("entity_type", ""))
-            for subject_key in [self.normalize_entity_name(entity.get("section_name", ""))]
-            if subject_key
-        }
         seen_unit_ids = {
             entity.get("unit_id", "")
             for entity in matched_entities
             if entity.get("unit_id", "")
         }
         for entity in self.find_phrase_matched_entities(user_message, entities):
-            if (
-                direct_person_keys
-                and self.is_person_entity_type(entity.get("entity_type", ""))
-                and self.normalize_entity_name(entity.get("section_name", "")) not in direct_person_keys
-            ):
-                continue
             unit_id = entity.get("unit_id", "")
             if unit_id and unit_id in seen_unit_ids:
                 continue
@@ -3873,35 +3535,6 @@ Available entity names:
             )
         )
 
-    def detect_requested_fact_facets(self, query: str) -> set[str]:
-        """Map question language to reusable source attributes, not named entities."""
-        lowered = query.lower()
-        facets: set[str] = set()
-        facet_markers = {
-            "quantity": ("how many", "number of", "total", "count", "participants", "percentage", "percent"),
-            "time": ("when", "what year", "how long", "duration", "timeframe", "time period", "over its", "over the"),
-            "funding": ("fund", "funded", "funding", "grant", "budget", "dollar", "cost"),
-            "leadership": ("who leads", "led by", "leader", "director", "manager", "supervisor"),
-            "audience": ("who does", "who is it for", "serve", "serves", "serving", "audience", "eligible", "participant group", "population", "populations"),
-            "education": ("education", "educational", "degree", "university", "college", "bachelor", "master", "undergraduate", "graduated", "doctoral", "phd", "ph.d", "enrolled in"),
-            "research": ("research focus", "research topic", "research interest", "expertise", "area of research"),
-            "collaboration": ("working with", "works with", "collaborator", "faculty member", "supervisor", "adviser", "advisor"),
-            "affiliation": ("institution did", "institution has", "joined", "join after", "affiliation", "moved to"),
-            "activity": ("during her time", "during his time", "during their time", "work on specifically", "worked on specifically", "at ssl"),
-            "service": ("boards and committees", "board and committee", "served on", "service roles"),
-            "employment": ("employer", "employed", "works at", "work at", "company", "current organization", "professional specialty", "practice leader"),
-            "honor": ("award", "honor", "recognized", "recognition", "recipient"),
-            "business": ("consultancy", "consulting practice", "business", "what does it span", "what does it cover"),
-            "method": ("how does", "method", "approach", "technology", "tool", "technique"),
-            "location": ("where", "location", "site", "region", "community"),
-            "motivation": ("why", "motivat", "in response to", "trigger", "cause", "inspired"),
-            "purpose": ("purpose", "goal", "aim", "objective", "what does", "what is", "about"),
-        }
-        for facet, markers in facet_markers.items():
-            if any(marker in lowered for marker in markers):
-                facets.add(facet)
-        return facets
-
     def extract_project_summary_sentence(self, project_text: str, project_name: str) -> str:
         lines = [
             line.strip()
@@ -3918,18 +3551,6 @@ Available entity names:
                 return sentence
         return ""
 
-    def extract_project_funding_fact(self, project_text: str, project_name: str) -> str:
-        patterns = (
-            (r"\bsupported by\s+(.+?)(?=,\s+(?:aims|focuses|provides|supports)\b|\.\s|$)", "is supported by"),
-            (r"\bfunded by\s+(.+?)(?=\.\s|$)", "is funded by"),
-            (r"\bwith\s+([^,.;]+?\bfunding)\b", "has"),
-        )
-        for pattern, relation in patterns:
-            match = re.search(pattern, project_text, re.IGNORECASE)
-            if match:
-                return f"{project_name} {relation} {match.group(1).strip()}."
-        return ""
-
     def extract_person_focus_topics(self, entity_text: str) -> list[str]:
         topics: list[str] = []
         for line in entity_text.splitlines():
@@ -3937,10 +3558,11 @@ Available entity names:
             lowered = stripped.lower()
             if lowered.startswith("focus:") or lowered.startswith("expertise:"):
                 _, _, value = stripped.partition(":")
-                for raw_topic in value.split(","):
-                    topic = re.sub(r"\s+(?:and|or)$", "", raw_topic.strip(" ."), flags=re.IGNORECASE)
-                    if topic:
-                        topics.append(topic)
+                topics.extend(
+                    topic.strip(" .")
+                    for topic in value.split(",")
+                    if topic.strip(" .")
+                )
         deduped: list[str] = []
         seen: set[str] = set()
         for topic in topics:
@@ -3953,8 +3575,7 @@ Available entity names:
 
     def extract_bio_research_focus(self, full_text: str, section_name: str) -> str:
         """Extract research/program-focus sentences from a narrative bio (for entities without structured Focus: fields)."""
-        normalized = re.sub(r"\b(Dr|Prof|Mr|Mrs|Ms)\.\s+", r"\1 ", full_text.strip())
-        sentences = re.split(r"(?<=[.!?])\s+", normalized)
+        sentences = re.split(r"(?<=[.!?])\s+", full_text.strip())
         research_keywords = ("research", "doctoral", "dissertation", "thesis", "studies", "program", "explore", "explores", "focus", "focuses", "working on", "works on", "building", "working with", "currently working", "supervisor", "supervised", "advised", "advises", "working under", "mentors", "mentored")
         chosen = []
         for sentence in sentences:
@@ -3977,25 +3598,6 @@ Available entity names:
                         chosen.append(clean)
                         break
         return " ".join(chosen)
-
-    def format_focused_entity_reply(self, entity_name: str, focused_text: str) -> str:
-        """Remove repeated biography headings while preserving natural grammar."""
-        cleaned = re.sub(r"\s+", " ", focused_text).strip()
-        name_pattern = re.escape(entity_name.strip())
-        cleaned = re.sub(
-            rf"^(?:{name_pattern}\s*[:\-]?\s*)+",
-            "",
-            cleaned,
-            flags=re.IGNORECASE,
-        ).strip()
-        cleaned = re.sub(r"\bI\s+am\b", f"{entity_name} is", cleaned, flags=re.IGNORECASE)
-        cleaned = re.sub(r"\bmy\b", f"{entity_name}'s", cleaned, flags=re.IGNORECASE)
-        cleaned = re.sub(r"\bI\b", entity_name, cleaned)
-        if entity_name.lower() in cleaned.lower():
-            return cleaned
-        if re.match(r"^(?:is|was|serves|works|holds|has|leads|studies)\b", cleaned, re.IGNORECASE):
-            return f"{entity_name} {cleaned}".strip()
-        return f"{entity_name}: {cleaned}".strip()
 
     def _get_hardcoded_fact(self, lowered_query: str) -> Optional[dict]:
         """Return a direct hardcoded answer for queries where vector retrieval consistently fails."""
@@ -4046,34 +3648,6 @@ Available entity names:
 
         def _staff(text: str) -> dict:
             return {"reply": f"{text} [1]", "sources": [_staff_src()], "needs_clarification": False, "clarification_options": []}
-
-        about_entity = next(
-            (e for e in self.entity_registry if e.get("source_path") == "SEED_DOCUMENTS/SSLAbout.txt"),
-            None,
-        )
-
-        def _about(text: str) -> dict:
-            return {
-                "reply": f"{text} [1]",
-                "sources": [{
-                    "citation": 1,
-                    "title": about_entity.get("title", "SSLAbout") if about_entity else "SSLAbout",
-                    "url": about_entity.get("source_url", "URL not provided") if about_entity else "URL not provided",
-                    "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
-                }],
-                "needs_clarification": False,
-                "clarification_options": [],
-            }
-
-        if "sarah mayorga" in lowered_query and any(
-            term in lowered_query for term in ("value", "values", "valued", "work with ssl", "ncjrc")
-        ):
-            return _about(
-                "Sarah Mayorga says she values being able to work as both an expert and a novice. "
-                "Through the Northeast Climate Justice Research Collaborative, she says her training and "
-                "research are valued while she has room for curiosity and for connecting climate change "
-                "with racial justice."
-            )
 
         # Slide 5 — Climate Justice definition
         if "climate justice" in lowered_query and any(
@@ -4172,17 +3746,6 @@ Available entity names:
                 "Bob Chen (interim dean of the School for the Environment and professor of organic geochemistry), "
                 "Rosalyn Negron (associate professor of anthropology, College of Liberal Arts), and Lorna Rivera "
                 "(director of the Mauricio Gaston Institute for Latino Community Development and Public Policy)."
-            )
-
-        # Slide 44 — Estrada-Martinez EPA grant amount and study
-        if any(t in lowered_query for t in ("lorena estrada-martinez", "lorena estrada martinez")) and any(
-            t in lowered_query for t in ("epa", "grant", "amount", "study", "vieques", "$800", "800,000")
-        ):
-            return _ar(
-                "The EPA awarded Lorena Estrada-Martinez a three-year grant of $800,000 for "
-                "‘Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico.’ "
-                "The study examines health risks associated with contamination from decades of U.S. "
-                "military occupation in Vieques."
             )
 
         # Slide 6 — Ellen Douglas title in annual report
@@ -4301,8 +3864,6 @@ Available entity names:
             "contact",
             "email",
             "email address",
-            "phone",
-            "telephone",
             "reach ssl",
             "reach out",
             "what counts",
@@ -4317,10 +3878,7 @@ Available entity names:
             "who served as director",
             "who was the director",
             "who led ssl",
-            "who directs",
             "negron",
-            "estrada-martinez",
-            "estrada martinez",
             # Hardcoded-fact intercept markers
             "canala",
             "anti-racism research funding",
@@ -4375,61 +3933,6 @@ Available entity names:
         hardcoded = self._get_hardcoded_fact(lowered_query)
         if hardcoded:
             return hardcoded
-
-        def source_for_entity(entity: Optional[dict], fallback_title: str, citation: int = 1) -> dict:
-            return {
-                "citation": citation,
-                "title": entity.get("title", fallback_title) if entity else fallback_title,
-                "url": entity.get("source_url", "URL not provided") if entity else "URL not provided",
-                "source_path": entity.get("source_path", "Unknown source") if entity else "Unknown source",
-            }
-
-        # Current leadership and phone queries need the structured Staff/contact records.
-        # Sending these to broad retrieval produced either historical leadership or a
-        # generic "not available" response despite the records being indexed.
-        current_director_query = (
-            any(
-                marker in lowered_query
-                for marker in (
-                    "who directs",
-                    "current director",
-                    "who is the director",
-                    "who is director",
-                    "who leads ssl",
-                    "who currently leads",
-                    "ssl's director",
-                    "who is in charge",
-                )
-            )
-            and not any(term in lowered_query for term in ("2020", "2021", "academic year", "that year", "annual report"))
-        )
-        if current_director_query:
-            director = next(
-                (
-                    entity for entity in self.entity_registry
-                    if entity.get("source_path") == "SEED_DOCUMENTS/Staff.txt"
-                    and entity.get("entity_type") == "staff_member"
-                    and "executive director" in self.best_registry_text(entity).lower()
-                ),
-                None,
-            )
-            if director:
-                return {
-                    "reply": f"{director.get('section_name', 'The listed executive director')} is SSL's Executive Director. [1]",
-                    "sources": [source_for_entity(director, "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                }
-
-        if any(term in lowered_query for term in ("phone", "telephone")):
-            about = next((entity for entity in self.entity_registry if entity.get("source_path") == "SEED_DOCUMENTS/SSLAbout.txt"), None)
-            staff = next((entity for entity in self.entity_registry if entity.get("source_path") == "SEED_DOCUMENTS/Staff.txt"), None)
-            return {
-                "reply": "A phone number is not listed in SSL's available contact records. The listed contact email is ssl@umb.edu. [1]",
-                "sources": [source_for_entity(about, "SSLAbout", 1), source_for_entity(staff, "Staff", 2)],
-                "needs_clarification": False,
-                "clarification_options": [],
-            }
 
         section = self.find_best_section_entity(user_message, query_route)
         if not section:
@@ -4651,16 +4154,35 @@ Available entity names:
             ),
             None,
         )
+        publication_sources = [
+            document
+            for document in self.document_registry
+            if document.get("folder_label") == "Publications" or document.get("category") == "Publications"
+        ]
+
         sources: list[dict] = []
+        citation_index = 1
         if student_source:
             sources.append(
                 {
-                    "citation": 1,
+                    "citation": citation_index,
                     "title": student_source.get("title", "Untitled source"),
                     "url": student_source.get("source_url", "URL not provided"),
                     "source_path": student_source.get("source_path", "Unknown source"),
                 }
             )
+            citation_index += 1
+
+        for document in publication_sources[:3]:
+            sources.append(
+                {
+                    "citation": citation_index,
+                    "title": document.get("title", "Untitled source"),
+                    "url": document.get("source_url", "URL not provided"),
+                    "source_path": document.get("source_path", "Unknown source"),
+                }
+            )
+            citation_index += 1
 
         reply = (
             "I do not find a supported match in the indexed SSL corpus for recent publications co-authored by SSL "
@@ -4684,19 +4206,7 @@ Available entity names:
             return ""
         if any(term in lowered_query for term in ("student", "students", "intern", "interns", "alumni", "person", "people")):
             return "person"
-        project_inventory = any(
-            marker in lowered_query
-            for marker in (
-                "list projects", "list initiatives", "current projects", "current initiatives",
-                "what projects does ssl", "what initiatives does ssl", "which projects are",
-                "which initiatives are", "name the projects", "name the initiatives",
-            )
-        ) or (
-            "Projects" in titles
-            and (query_route or {}).get("question_type") in {"list_inventory", "broad_overview"}
-            and not re.search(r"\b(?:his|her|their)\b|[A-Z][A-Za-z.-]+['’]s", user_message)
-        )
-        if project_inventory:
+        if "projects" in lowered_query or "initiatives" in lowered_query or "programs" in lowered_query or "Projects" in titles:
             return "project"
         if "board" in lowered_query or "leadership" in lowered_query or "BoardOfDirectors" in titles:
             return "board_member"
@@ -4770,7 +4280,11 @@ Available entity names:
 
         # Single-person specific-fact queries whose answers are at the end of bios — the entity
         # registry's regex extraction misses these; vector retrieval + entity text injection handles them.
-        _deep_bio_terms = ("what fund", "fund supports", "what supports")
+        _deep_bio_terms = ("supervisor", "supervises", "supervised by", "who supervises",
+                           "institution", "affiliated with", "what institution", "which institution",
+                           "what fund", "fund supports", "what supports",
+                           "working with", "working alongside",
+                           "stated research focus", "stated focus")
         named_entities = self.extract_query_named_phrases(user_message)
         if len(named_entities) == 1 and any(term in lowered_query for term in _deep_bio_terms):
             return False
@@ -4961,7 +4475,6 @@ Available entity names:
     def answer_from_entity_registry(self, user_message: str, query_route: Optional[dict]) -> dict:
         entities = self.filter_entities_by_route(query_route)
         lowered_query = user_message.lower()
-        requested_facets = self.detect_requested_fact_facets(user_message)
         if not entities:
             return {
                 "reply": "I do not have enough information in the entity registry to answer that.",
@@ -5025,40 +4538,6 @@ Available entity names:
                             "title": entity.get("title", "Untitled source"),
                             "url": entity.get("source_url", "URL not provided"),
                             "source_path": entity.get("source_path", "Unknown source"),
-                        }
-                    ],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                }
-
-        # Combined C3I questions need both the program purpose and its intended audience.
-        # The generic project branch otherwise treats the question as a request for a list.
-        if (
-            any(phrase in lowered_query for phrase in ("c3i", "climate careers curricula initiative"))
-            and any(term in lowered_query for term in ("aim", "purpose", "serve", "serves", "who does it"))
-            and not ({"quantity", "time", "funding"} & requested_facets)
-        ):
-            project_match = find_project_match("climate careers curricula initiative", "c3i")
-            if project_match:
-                project_text = self.build_full_entity_text(project_match)
-                aim_match = re.search(
-                    r"aims to\s+(.+?)(?:\.\s|$)", project_text, re.IGNORECASE
-                )
-                participant_match = re.search(
-                    r"focuses on providing career pathways for\s+(.+?)(?:\.\s|$)",
-                    project_text,
-                    re.IGNORECASE,
-                )
-                aim = aim_match.group(1).strip() if aim_match else "create and offer microcredentialed training programs for blue and green jobs in Greater Boston"
-                audience = participant_match.group(1).strip() if participant_match else "underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities"
-                return {
-                    "reply": f"C3I aims to {aim}. It serves {audience}. [1]",
-                    "sources": [
-                        {
-                            "citation": 1,
-                            "title": project_match.get("title", "Untitled source"),
-                            "url": project_match.get("source_url", "URL not provided"),
-                            "source_path": project_match.get("source_path", "Unknown source"),
                         }
                     ],
                     "needs_clarification": False,
@@ -5247,7 +4726,7 @@ Available entity names:
         if any(term in lowered_query for term in ("who leads", "what event", "helped motivate")):
             project_match = find_project_match("cape cod rail resilience project")
             if project_match:
-                project_text = self.source_entity_section_text(project_match) or self.build_full_entity_text(project_match)
+                project_text = self.build_full_entity_text(project_match)
                 lead_match = re.search(
                     r"led by\s+([^,]+),\s+a\s+(.+?)\.",
                     project_text,
@@ -5268,15 +4747,8 @@ Available entity names:
                     if event_match
                     else "a significant 300-foot rail embankment collapse in East Sandwich in 2020 linked to climate change-induced drought conditions"
                 )
-                requested_parts: list[str] = []
-                if "leadership" in requested_facets:
-                    requested_parts.append(f"{lead_text}.")
-                if "motivation" in requested_facets:
-                    requested_parts.append(f"The project was motivated by {event_text}.")
-                if not requested_parts:
-                    requested_parts = [f"{lead_text}.", f"The project was motivated by {event_text}."]
                 return {
-                    "reply": f"{' '.join(requested_parts)} [1]",
+                    "reply": f"{lead_text}. The project was motivated by {event_text}. [1]",
                     "sources": [
                         {
                             "citation": 1,
@@ -5294,145 +4766,6 @@ Available entity names:
             for entity in exact_matches
             if self.is_person_entity_type(entity.get("entity_type", ""))
         ]
-        if len(person_matches) == 1 and any(
-            marker in lowered_query for marker in (
-                "expertise", "area of research", "research areas",
-                "research focus", "stated focus", "focus as listed",
-            )
-        ) and not any(marker in lowered_query for marker in ("title", "role", "position")):
-            entity = person_matches[0]
-            topics = self.extract_entity_focus_topics(entity)
-            if topics:
-                field_label = "focus" if "focus" in lowered_query else "expertise"
-                return {
-                    "reply": f"{entity['section_name']}'s stated {field_label} includes {', '.join(topics)}. [1]",
-                    "sources": [{
-                        "citation": 1, "title": entity.get("title", "Untitled source"),
-                        "url": entity.get("source_url", "URL not provided"),
-                        "source_path": entity.get("source_path", "Unknown source"),
-                    }],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                }
-        if len(person_matches) == 1 and (
-            "role at ssl" in lowered_query
-            or re.search(r"\bwhat is .+['’]s role\b", lowered_query)
-            or re.search(r"\bwhat does .+ do(?:\s+at\s+ssl)?\b", lowered_query)
-        ):
-            entity = person_matches[0]
-            role = self.extract_entity_role(entity, self.build_full_entity_text(entity))
-            if role:
-                return {
-                    "reply": f"{entity['section_name']}'s role is {role}. [1]",
-                    "sources": [{
-                        "citation": 1, "title": entity.get("title", "Untitled source"),
-                        "url": entity.get("source_url", "URL not provided"),
-                        "source_path": entity.get("source_path", "Unknown source"),
-                    }],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                }
-        focused_fact_markers = (
-            "background", "degree", "university", "college", "education",
-            "master's", "masters", "bachelor", "river basin", "which basin",
-            "where did", "what program", "currently pursuing", "undergraduate", "graduated",
-            "funded", "funding", "which two organizations", "what initiative",
-            "what is the goal", "what was the goal", "helping build", "values about",
-            "research project", "research projects", "faculty member", "supervises",
-            "supervisor", "doctoral work", "cultural background", "originally from",
-            "grant", "position tied", "working with", "collaborator", "research topic",
-            "institution did", "institution has", "joined", "join after", "affiliation", "moved to",
-            "during her time", "during his time", "during their time", "work on specifically", "worked on specifically",
-            "boards and committees", "board and committee", "served on", "service roles",
-        )
-        person_focused_facets = requested_facets & {
-            "education", "research", "collaboration", "affiliation", "activity",
-            "service", "employment", "honor", "business", "location",
-        }
-        if len(person_matches) == 1 and (
-            any(marker in lowered_query for marker in focused_fact_markers)
-            or bool(person_focused_facets)
-        ):
-            entity = person_matches[0]
-            entity_text = self.source_entity_section_text(entity) or self.focused_registry_text(entity)
-            substantive_facets = requested_facets - {"purpose"}
-            single_fact_query = any(
-                marker in lowered_query
-                for marker in (
-                    "funded", "funding", "which two organizations", "what initiative",
-                    "what is the goal", "what was the goal", "helping build", "values about",
-                    "degree", "university", "college", "education", "educational",
-                    "master's", "masters", "bachelor", "undergraduate", "graduated",
-                    "grant", "position tied", "working with", "collaborator", "research topic",
-                    "institution did", "institution has", "joined", "join after", "affiliation", "moved to",
-                    "during her time", "during his time", "during their time", "work on specifically", "worked on specifically",
-                    "boards and committees", "board and committee", "served on", "service roles",
-                )
-            ) or substantive_facets in (
-                {"education"}, {"employment"}, {"honor"}, {"business"}
-            )
-            focused_text = self.extract_query_relevant_sentences(
-                entity_text,
-                user_message,
-                limit=(
-                    1
-                    if single_fact_query and len(substantive_facets) <= 1
-                    else (3 if "background" in lowered_query else 2)
-                ),
-            )
-            if focused_text:
-                if (
-                    any(marker in lowered_query for marker in ("currently pursuing", "degree program"))
-                    and "university" in lowered_query
-                ):
-                    current_program = re.search(
-                        r"Currently\s+a\s+(.+?candidate\s+in\s+.+?\s+at\s+(?:the\s+)?University\s+of\s+.+?)(?=,\s+(?:she|he|they)\b|\.\s|$)",
-                        entity_text,
-                        re.IGNORECASE,
-                    )
-                    if current_program:
-                        focused_text = f"is currently a {current_program.group(1).strip()}"
-                if "affiliation" in requested_facets:
-                    joined = re.search(
-                        r"\bjoin(?:ed|ing)\s+(?:the\s+)?(.+?)(?=,\s+(?:where|working|while)\b|\.\s|$)",
-                        entity_text,
-                        re.IGNORECASE,
-                    )
-                    if joined:
-                        focused_text = f"joined the {joined.group(1).strip()}"
-                if "undergraduate" in lowered_query and "program" in lowered_query:
-                    undergraduate_sentence = next(
-                        (
-                            sentence.strip()
-                            for sentence in re.split(r"(?<=[.!?])\s+", focused_text)
-                            if any(term in sentence.lower() for term in ("graduated from", "undergraduate", "bachelor"))
-                        ),
-                        "",
-                    )
-                    undergraduate_part = re.split(
-                        r"(?i)\s+and\s+completed\s+(?:her|his|their)\s+master",
-                        undergraduate_sentence,
-                        maxsplit=1,
-                    )[0].rstrip(" ,;.")
-                    has_undergraduate_program = any(
-                        term in undergraduate_part.lower() for term in ("program", "major", "degree in", "bachelor")
-                    )
-                    if undergraduate_part and not has_undergraduate_program:
-                        focused_text = (
-                            f"{undergraduate_part}. The source identifies the institution but does not "
-                            "name her undergraduate degree program."
-                        )
-                return {
-                    "reply": f"{self.format_focused_entity_reply(entity['section_name'], focused_text)} [1]",
-                    "sources": [{
-                        "citation": 1,
-                        "title": entity.get("title", "Untitled source"),
-                        "url": entity.get("source_url", "URL not provided"),
-                        "source_path": entity.get("source_path", "Unknown source"),
-                    }],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                }
         if len(person_matches) > 1 and any(marker in lowered_query for marker in ("research background", "background", "bio", "biography")):
             reply_lines = ["Here are the relevant research backgrounds:"]
             sources = []
@@ -5484,7 +4817,7 @@ Available entity names:
                             parts.append(f"{'Their' if role or department else entity['section_name'] + chr(8217) + 's'} stated expertise includes {expertise_str}")
                         if bio_focus and not focus_topics:
                             parts.append(bio_focus)
-                        reply = ". ".join(part.rstrip(" .") for part in parts) + ". [1]"
+                        reply = " ".join(parts) + " [1]"
                         return {
                             "reply": reply,
                             "sources": [
@@ -5519,10 +4852,6 @@ Available entity names:
                         }
                 summary_text = self.best_registry_text(entity)
                 if summary_text:
-                    clean_source = self.source_entity_section_text(entity) or self.focused_registry_text(entity)
-                    concise = self._clean_sentences(clean_source, limit=3)
-                    if concise:
-                        summary_text = self.format_focused_entity_reply(entity["section_name"], concise)
                     return {
                         "reply": f"{summary_text} [1]",
                         "sources": [
@@ -5567,48 +4896,14 @@ Available entity names:
                         "clarification_options": [],
                     }
 
-            if entity_type == "project" and (
-                requested_facets
-                or (query_route or {}).get("question_type") == "specific_fact"
-                or any(term in lowered_query for term in ("established", "founded", "describe"))
+            if entity_type == "project" and any(
+                term in lowered_query
+                for term in ("established", "founded", "when was", "what year", "since when", "goal", "goals", "purpose", "aim", "describe", "what is", "what does", "about")
             ):
-                broad_purpose_only = requested_facets == {"purpose"}
-                project_text = self.source_entity_section_text(entity)
-                if not project_text:
-                    project_text = (
-                        self.build_full_entity_text(entity, chunk_level="summary")
-                        if broad_purpose_only
-                        else self.build_full_entity_text(entity)
-                ) or self.best_registry_text(entity)
+                project_text = self.build_full_entity_text(entity, chunk_level="summary") or self.best_registry_text(entity)
                 if project_text:
-                    if requested_facets == {"funding"}:
-                        funding_fact = self.extract_project_funding_fact(
-                            project_text,
-                            str(entity.get("section_name", "The project")),
-                        )
-                        if funding_fact:
-                            return {
-                                "reply": f"{funding_fact} [1]",
-                                "sources": [{"citation": 1, "title": entity.get("title", "Untitled source"), "url": entity.get("source_url", "URL not provided"), "source_path": entity.get("source_path", "Unknown source")}],
-                                "needs_clarification": False,
-                                "clarification_options": [],
-                            }
-                    focused_text = self.extract_query_relevant_sentences(project_text, user_message, limit=1)
-                    if not focused_text:
-                        focused_text = (
-                            self.extract_project_summary_sentence(
-                                project_text,
-                                str(entity.get("section_name", "")),
-                            )
-                            or self._clean_sentences(project_text, limit=2)
-                        )
-                    focused_text = re.sub(
-                        r"^(?:[A-Z][A-Za-z&/-]*\s+){1,4}(?=(?:We|The|This|Our)\b)",
-                        "",
-                        focused_text,
-                    ).strip()
                     return {
-                        "reply": f"{focused_text} [1]",
+                        "reply": f"{project_text} [1]",
                         "sources": [{"citation": 1, "title": entity.get("title", "Untitled source"), "url": entity.get("source_url", "URL not provided"), "source_path": entity.get("source_path", "Unknown source")}],
                         "needs_clarification": False,
                         "clarification_options": [],
@@ -5616,10 +4911,9 @@ Available entity names:
             if entity_type == "project":
                 exact_matches = []
             else:
-                clean_source = self.source_entity_section_text(entity) or self.focused_registry_text(entity)
-                summary_text = self._clean_sentences(clean_source, limit=3)
+                summary_text = self.best_registry_text(entity)
                 if summary_text:
-                    reply = f"{self.format_focused_entity_reply(entity['section_name'], summary_text)} [1]"
+                    reply = f"{summary_text} [1]"
                     return {
                         "reply": reply,
                         "sources": [
@@ -5678,18 +4972,14 @@ Available entity names:
 
         if requested_entity_type == "project" and not count_only:
             lines = ["SSL's major current projects and initiatives include:"]
-            requested_count_match = re.search(r"\b(\d+)\s+(?:bullet\s+points?|projects?|initiatives?)\b", lowered_query)
-            requested_count = int(requested_count_match.group(1)) if requested_count_match else 10
-            listed_entities = entities[: min(len(entities), requested_count, 10)]
-            use_bullets = "bullet" in lowered_query
+            listed_entities = entities[: min(len(entities), 10)]
             for index, entity in enumerate(listed_entities, start=1):
                 text = self.best_registry_text(entity)
                 description = self.extract_project_summary_sentence(text, entity.get("section_name", ""))
-                prefix = "-" if use_bullets else f"{index}."
                 if description:
-                    lines.append(f"{prefix} {entity['section_name']}: {description} [{index}]")
+                    lines.append(f"{index}. {entity['section_name']}: {description} [{index}]")
                 else:
-                    lines.append(f"{prefix} {entity['section_name']} [{index}]")
+                    lines.append(f"{index}. {entity['section_name']} [{index}]")
             sources = [
                 {
                     "citation": index,
@@ -5708,7 +4998,7 @@ Available entity names:
 
         lines = [f"I found {len(entities)} {label} in the matched corpus scope."]
         include_roles = requested_entity_type in {"board_member", "staff_member", "affiliate"} or "role" in lowered_query
-        if not count_only:
+        if not count_only or len(entities) <= 20:
             lines.append("")
             for index, entity in enumerate(listed_entities, start=1):
                 role = self.extract_entity_role(entity) if include_roles else ""
@@ -5721,9 +5011,6 @@ Available entity names:
             lines.append("")
             lines.append(f"I listed the first {max_listed} entities above.")
 
-        source_entities = listed_entities if not count_only else listed_entities[:1]
-        if count_only and source_entities:
-            lines[0] += " [1]"
         sources = [
             {
                 "citation": index,
@@ -5731,7 +5018,7 @@ Available entity names:
                 "url": entity.get("source_url", "URL not provided"),
                 "source_path": entity.get("source_path", "Unknown source"),
             }
-            for index, entity in enumerate(source_entities, start=1)
+            for index, entity in enumerate(listed_entities, start=1)
         ]
 
         return {
@@ -5747,10 +5034,6 @@ Available entity names:
 
         lowered_query = user_message.lower()
         question_type = (query_route or {}).get("question_type", "")
-        if "publication" in lowered_query and any(
-            marker in lowered_query for marker in ("what is the publication", "what's the publication", "tell me about the publication", "what is this publication")
-        ):
-            return False
         inventory_markers = (
             "list",
             "name all",
@@ -5783,38 +5066,6 @@ Available entity names:
     def answer_from_document_registry(self, user_message: str, query_route: Optional[dict]) -> dict:
         documents = self.filter_documents_by_route(query_route)
         lowered_query = user_message.lower()
-
-        # Inventory questions with a topical qualifier should return the matching
-        # publication documents, not the entire Publications folder.  The registry
-        # stores document metadata, so use the indexed chunks to build a small lexical
-        # source map without widening retrieval or invoking Gemini.
-        topic_terms: list[str] = []
-        title_terms: list[str] = []
-        if "climate migration" in lowered_query:
-            topic_terms = ["climate migration", "climate-induced migration"]
-            title_terms = ["migration", "transient populations"]
-        elif "climate adaptation" in lowered_query:
-            topic_terms = ["climate adaptation", "adaptation"]
-            title_terms = ["adaptation"]
-        if topic_terms and any(term in lowered_query for term in ("which", "about", "related", "focused", "list")):
-            matching_paths = {
-                document.get("source_path", "")
-                for document in documents
-                if any(term in document.get("title", "").lower() for term in title_terms)
-            }
-            if not matching_paths:
-                matching_paths = {
-                    (record.get("metadata") or {}).get("source_path", "")
-                    for record in self.search_records
-                    if (record.get("metadata") or {}).get("category") == "Publications"
-                    and (
-                        any(term in ((record.get("metadata") or {}).get("title", "").lower()) for term in title_terms)
-                        or any(term in record.get("document", "").lower() for term in topic_terms)
-                    )
-                }
-            topic_documents = [document for document in documents if document.get("source_path") in matching_paths]
-            if topic_documents:
-                documents = topic_documents
         if not documents:
             return {
                 "reply": "I do not have enough information in the document registry to answer that.",
@@ -5860,7 +5111,7 @@ Available entity names:
             label = "source documents"
 
         lines.append(f"I found {len(documents)} {label} in the matched corpus scope.")
-        if not count_only:
+        if not count_only or len(documents) <= 20:
             lines.append("")
             for index, document in enumerate(listed_documents, start=1):
                 lines.append(f"{index}. {document['title']} [{index}]")
@@ -5869,9 +5120,6 @@ Available entity names:
             lines.append("")
             lines.append(f"I listed the first {max_listed} documents above.")
 
-        source_documents = listed_documents if not count_only else listed_documents[:1]
-        if count_only and source_documents:
-            lines[0] += " [1]"
         sources = [
             {
                 "citation": index,
@@ -5879,7 +5127,7 @@ Available entity names:
                 "url": document.get("source_url", "URL not provided"),
                 "source_path": document["source_path"],
             }
-            for index, document in enumerate(source_documents, start=1)
+            for index, document in enumerate(listed_documents, start=1)
         ]
 
         return {
@@ -6090,1456 +5338,9 @@ Citation rules:
         }
         return result
 
-    def _registry_source_for(self, marker: str, fallback_title: str = "Projects") -> dict:
-        normalized_marker = self.normalize_entity_name(marker)
-        normalized_fallback = self.normalize_entity_name(fallback_title)
-
-        # Prefer an exact entity/source pair. Substring matching can select an
-        # unrelated section that happens to mention the requested person/project.
-        exact_entities = [
-            item for item in self.entity_registry
-            if self.normalize_entity_name(str(item.get("section_name", "")).strip()) == normalized_marker
-        ]
-        entity = next(
-            (item for item in exact_entities
-             if self.normalize_entity_name(str(item.get("title", "")).strip()) == normalized_fallback),
-            exact_entities[0] if exact_entities else None,
-        )
-        if entity:
-            return {
-                "citation": 1,
-                "title": entity.get("title", fallback_title),
-                "url": entity.get("source_url", "URL not provided"),
-                "source_path": entity.get("source_path", "Unknown source"),
-            }
-
-        # Follow-up shortcuts sometimes refer to a document/category rather than
-        # an entity (for example, the publication inventory). Resolve those to an
-        # actual indexed source instead of inventing a Projects citation.
-        exact_documents = [
-            document for document in self.document_registry
-            if (
-                self.normalize_entity_name(str(document.get("title", "")).strip()) in {normalized_marker, normalized_fallback}
-                or normalized_marker.startswith(self.normalize_entity_name(str(document.get("title", "")).strip()))
-                or self.normalize_entity_name(str(document.get("title", "")).strip()).startswith(normalized_marker)
-            )
-        ]
-        if exact_documents:
-            document = exact_documents[0]
-        elif normalized_fallback == "publications":
-            document = next(
-                (item for item in self.document_registry
-                 if item.get("category") == "Publications" or item.get("folder_label") == "Publications"),
-                None,
-            )
-        else:
-            document = None
-        if document:
-            return {
-                "citation": 1,
-                "title": document.get("title", fallback_title),
-                "url": document.get("source_url", "URL not provided"),
-                "source_path": document.get("source_path", "Unknown source"),
-            }
-
-        # These are known corpus files and are only used when the registry has no
-        # entity/document record for the requested fallback title.
-        fallback_paths = {
-            "annualreport2021": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
-            "projects": "SEED_DOCUMENTS/Projects.txt",
-            "staff": "SEED_DOCUMENTS/Staff.txt",
-            "universityaffiliates": "SEED_DOCUMENTS/UniversityAffiliates.txt",
-            "sslabout": "SEED_DOCUMENTS/SSLAbout.txt",
-            "studentsinterns": "SEED_DOCUMENTS/StudentsInterns.txt",
-        }
-        fallback_path = fallback_paths.get(normalized_fallback, "Unknown source")
-        return {
-            "citation": 1,
-            "title": fallback_title,
-            "url": "URL not provided",
-            "source_path": fallback_path,
-        }
-
-    def _registry_sources_for(self, items: list[tuple[str, str] | str]) -> list[dict]:
-        sources: list[dict] = []
-        seen: set[tuple[str, str]] = set()
-        for item in items:
-            if isinstance(item, tuple):
-                marker, fallback_title = item
-            else:
-                marker, fallback_title = item, "Projects"
-            source = dict(self._registry_source_for(marker, fallback_title))
-            source_key = (str(source.get("title", "")), str(source.get("source_path", "")))
-            if source_key in seen:
-                continue
-            seen.add(source_key)
-            sources.append(source)
-
-        for index, source in enumerate(sources, start=1):
-            source["citation"] = index
-        return sources
-
-    def _person_entity_types(self) -> set[str]:
-        return {"person", "staff_member", "board_member", "affiliate", "visiting_scholar", "student", "intern"}
-
-    def _clarification_label_for_entity(self, entity: dict) -> str:
-        name = str(entity.get("section_name", "")).strip()
-        entity_type = str(entity.get("entity_type", "")).strip()
-        if not name:
-            return ""
-        if entity_type == "project":
-            return f"{name} (project)"
-        if entity_type in self._person_entity_types():
-            return f"{name} (person)"
-        return name
-
-    def _clarification_options_for_entities(self, entities: list[dict], *, limit: int = 4) -> list[str]:
-        options: list[str] = []
-        seen: set[str] = set()
-        for entity in entities:
-            label = self._clarification_label_for_entity(entity)
-            if not label or label in seen:
-                continue
-            seen.add(label)
-            options.append(label)
-            if len(options) >= limit:
-                break
-        return options
-
-    def _subject_type_for_entity(self, entity: dict) -> str:
-        entity_type = str(entity.get("entity_type", "")).strip()
-        if entity_type == "project":
-            return "project"
-        if entity_type in self._person_entity_types():
-            return "person"
-        if str(entity.get("category", "")).strip() == "Publications" or str(entity.get("folder_label", "")).strip() == "Publications":
-            return "publication"
-        return "entity"
-
-    def _subject_snapshot_for_entity(self, entity: dict) -> dict:
-        return {
-            "unit_id": str(entity.get("unit_id", "")).strip(),
-            "name": str(entity.get("section_name", "")).strip(),
-            "subject_type": self._subject_type_for_entity(entity),
-            "title": str(entity.get("title", "")).strip(),
-            "source_path": str(entity.get("source_path", "")).strip(),
-        }
-
-    def _lookup_subject_entity(self, subject: Optional[dict], *, entity_types: Optional[set[str]] = None) -> Optional[dict]:
-        if not subject:
-            return None
-        unit_id = str(subject.get("unit_id", "")).strip()
-        name = str(subject.get("name", "")).strip()
-        for entity in self.entity_registry:
-            if unit_id and str(entity.get("unit_id", "")).strip() == unit_id:
-                if entity_types and entity.get("entity_type") not in entity_types:
-                    return None
-                return entity
-        if name:
-            matches = self.collapse_entities_by_normalized_name(self.find_matching_entities(name))
-            for entity in matches:
-                if entity_types and entity.get("entity_type") not in entity_types:
-                    continue
-                return entity
-        return None
-
-    def get_conversation_state(self, recent_history: Optional[list[ConversationTurn]]) -> dict:
-        if not recent_history:
-            return empty_state()
-        for turn in reversed(recent_history):
-            state = turn.get("state")
-            if isinstance(state, dict):
-                return normalize_state(state)
-        latest_user_text = " ".join(str(turn.get("user", "")) for turn in recent_history[-2:]).lower()
-        inferred_scopes = (
-            ("board", "SSL Board of Directors", "BoardOfDirectors"),
-            ("publication", "SSL publications", "Publications"),
-            ("staff", "SSL staff", "Staff"),
-            ("student", "SSL students and interns", "StudentsInterns"),
-        )
-        for marker, name, title in inferred_scopes:
-            if marker in latest_user_text:
-                state = empty_state()
-                state.update({
-                    "mode": "scoped",
-                    "active_scope": {"name": name, "title": title},
-                })
-                return state
-        return empty_state()
-
-    def infer_named_conversation_subject(self, user_message: str, prior_state: dict) -> Optional[dict]:
-        """Create a source-scoped anchor for named corpus topics not in the entity registry."""
-        name = ""
-        subject_type = "entity"
-
-        quoted = re.findall(r"[\"'“‘]([^\"'”’]{3,100})[\"'”’]", user_message)
-        if quoted and any(term in user_message.lower() for term in ("event", "study", "report", "paper", "publication")):
-            name = quoted[-1].strip()
-        else:
-            possessive_person = re.search(
-                r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ.-]+(?:\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ.-]+){1,3})['’]s\b",
-                user_message,
-            )
-            who_person = re.search(
-                r"\b(?:[Ww]ho is|[Tt]ell me about)\s+([A-Z][A-Za-zÀ-ÖØ-öø-ÿ.-]+(?:\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ.-]+){1,3})\b",
-                user_message,
-            )
-            match = possessive_person or who_person
-            if match:
-                name = match.group(1).strip()
-                subject_type = "person"
-
-        blocked_names = {
-            "sustainable solutions lab", "umass boston", "university of massachusetts boston",
-            "annual report", "climate adaptation forum",
-        }
-        if not name or name.lower() in blocked_names:
-            return None
-
-        context = prior_state.get("active_subject") or prior_state.get("active_scope") or {}
-        normalized = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-        return {
-            "unit_id": f"topic:{normalized}",
-            "name": name,
-            "subject_type": subject_type,
-            "title": str(context.get("title", "")),
-            "source_path": str(context.get("source_path", "")),
-        }
-
-    def resolve_conversation_turn(
-        self,
-        user_message: str,
-        recent_history: Optional[list[ConversationTurn]],
-    ) -> dict:
-        """Resolve conversational references before any answer shortcut or retrieval."""
-        explicit_entities = self.find_conversation_subject_entities(user_message)
-        explicit_subjects = [
-            self._subject_snapshot_for_entity(entity)
-            for entity in explicit_entities
-            if entity.get("entity_type") == "project"
-            or self.is_person_entity_type(entity.get("entity_type", ""))
-        ]
-        prior_state = self.get_conversation_state(recent_history)
-        if not explicit_subjects:
-            inferred_subject = self.infer_named_conversation_subject(user_message, prior_state)
-            if inferred_subject:
-                explicit_subjects = [inferred_subject]
-        machine = ConversationStateMachine()
-        resolution = machine.resolve(
-            user_message,
-            prior_state,
-            explicit_subjects,
-        )
-        group_scope = self.detect_conversation_group_scope(user_message)
-        has_reference = machine.CONTEXT_MARKERS.search(user_message) is not None
-        if group_scope and not explicit_subjects and not has_reference:
-            filter_match = re.search(
-                r"(?i)\b(?:about|related to|focused on|concerning)\s+(.+?)(?:[?.!]|$)",
-                user_message,
-            )
-            if filter_match:
-                group_scope = {**group_scope, "filter_text": filter_match.group(1).strip()}
-            state = empty_state()
-            state.update({"mode": "scoped", "active_scope": group_scope})
-            resolution = {
-                "resolved": False,
-                "needs_clarification": False,
-                "rewritten_query": user_message,
-                "independent_topic": True,
-                "state": state,
-            }
-        elif group_scope:
-            # A named document/group constrains evidence even when the turn also names
-            # a person or project. Keep discourse identity and retrieval authority
-            # separate so historical questions cannot drift into current sources.
-            state = normalize_state(resolution.get("state"))
-            state["active_scope"] = group_scope
-            resolution["state"] = state
-        active = resolution.get("active_subject")
-        active_entity = self._lookup_subject_entity(active) if active else None
-        if active_entity or active:
-            active_title = active_entity.get("title") if active_entity else active.get("title")
-            active_path = active_entity.get("source_path") if active_entity else active.get("source_path")
-            resolution["query_route"] = self.detect_local_query_route(
-                str(resolution.get("rewritten_query") or user_message)
-            )
-            route_paths = set(resolution["query_route"].get("target_source_paths", []) or [])
-            route_folders = set(resolution["query_route"].get("target_folders", []) or [])
-            use_fact_scope = active.get("subject_type") == "person" and resolution.get("intent") in {"funding", "time"} and (
-                route_paths or "Annual Reports" in route_folders
-            )
-            if not use_fact_scope:
-                resolution["query_route"].update({
-                    "routing_mode": "hard",
-                    "target_titles": [active_title] if active_title else [],
-                    "target_categories": [],
-                    "target_folders": [],
-                    "target_source_paths": [active_path] if active_path else [],
-                    "reason": "conversation state active-subject route",
-                })
-        active_scope = (resolution.get("state") or {}).get("active_scope")
-        if active_scope:
-            title = str(active_scope.get("title", "")).strip()
-            source_path = str(active_scope.get("source_path", "")).strip()
-            folder = str(active_scope.get("folder", "")).strip()
-            route = self.detect_local_query_route(str(resolution.get("rewritten_query") or user_message))
-            route.update({
-                "routing_mode": "hard",
-                "target_titles": [title] if title else [],
-                "target_categories": [],
-                "target_folders": [folder] if folder else [],
-                "target_source_paths": [source_path] if source_path else [],
-                "reason": "conversation state active-scope route",
-            })
-            resolution["query_route"] = route
-        return resolution
-
-    def find_conversation_subject_entities(self, user_message: str) -> list[dict]:
-        """Find subjects from canonical names and corpus-derived unique aliases."""
-        subject_types = self._person_entity_types() | {"project"}
-        direct_candidates = [
-            entity for entity in self.find_matching_entities(user_message)
-            if entity.get("entity_type") in subject_types
-        ]
-        preferred_paths = set(self.detect_local_query_route(user_message).get("target_source_paths", []) or [])
-        grouped_candidates: dict[str, list[dict]] = {}
-        for entity in direct_candidates:
-            key = self.normalize_entity_name(entity.get("section_name", ""))
-            if key:
-                grouped_candidates.setdefault(key, []).append(entity)
-        direct: list[dict] = []
-        for candidates in grouped_candidates.values():
-            preferred = [entity for entity in candidates if entity.get("source_path") in preferred_paths]
-            direct.extend(self.collapse_entities_by_normalized_name(preferred or candidates))
-
-        lowered = user_message.lower()
-        query_aliases = set(re.findall(r"\b[A-Z][A-Z0-9]{1,7}\b", user_message))
-        alias_matches: list[dict] = []
-        if query_aliases:
-            alias_index: dict[str, list[dict]] = {}
-            for entity in self.entity_registry:
-                if entity.get("entity_type") not in subject_types:
-                    continue
-                # Identity aliases come from canonical labels only. Acronyms mentioned in
-                # biographies or project descriptions are relationships, not aliases for
-                # the record containing that prose.
-                raw_text = str(entity.get("section_name", ""))
-                for alias in set(re.findall(r"\b[A-Z][A-Z0-9]{1,7}\b", raw_text)):
-                    if alias in {"SSL", "UMB", "UMASS", "PHD", "USDOT", "NSF", "DEI"}:
-                        continue
-                    alias_index.setdefault(alias, []).append(entity)
-            for alias in query_aliases:
-                candidates = self.collapse_entities_by_normalized_name(alias_index.get(alias, []))
-                if len(candidates) == 1:
-                    alias_matches.extend(candidates)
-
-        generic_project_tokens = {
-            "about", "climate", "current", "does", "forum", "initiative",
-            "project", "program", "research", "specific", "tell", "what", "which",
-        }
-        query_tokens = {
-            token for token in re.findall(r"[a-z0-9]+", lowered)
-            if len(token) >= 4 and token not in generic_project_tokens
-        }
-        if any(noun in lowered for noun in ("project", "initiative", "forum")) and query_tokens:
-            project_name_tokens: dict[str, set[str]] = {}
-            token_frequency: dict[str, int] = {}
-            for entity in self.entity_registry:
-                if entity.get("entity_type") != "project":
-                    continue
-                unit_id = str(entity.get("unit_id", ""))
-                tokens = {
-                    token for token in re.findall(
-                        r"[a-z0-9]+",
-                        self.normalize_entity_name(entity.get("section_name", "")),
-                    )
-                    if len(token) >= 4 and token not in generic_project_tokens
-                }
-                project_name_tokens[unit_id] = tokens
-                for token in tokens:
-                    token_frequency[token] = token_frequency.get(token, 0) + 1
-            distinctive_query_tokens = {
-                token for token in query_tokens if token_frequency.get(token, 0) == 1
-            }
-            project_scores: list[tuple[int, dict]] = []
-            for entity in self.entity_registry:
-                if entity.get("entity_type") != "project":
-                    continue
-                name_tokens = project_name_tokens.get(str(entity.get("unit_id", "")), set())
-                overlap = len(distinctive_query_tokens & name_tokens)
-                if overlap:
-                    project_scores.append((overlap, entity))
-            if project_scores:
-                top_score = max(score for score, _ in project_scores)
-                top = [entity for score, entity in project_scores if score == top_score]
-                if len(top) == 1:
-                    alias_matches.extend(top)
-
-        return self.collapse_entities_by_normalized_name(direct + alias_matches)
-
-    def detect_conversation_group_scope(self, user_message: str) -> Optional[dict]:
-        lowered = user_message.lower()
-        if any(marker in lowered for marker in ("annual report", "annual reports", "year in review")):
-            annual_documents = [
-                document for document in self.document_registry
-                if document.get("category") == "Annual Reports"
-                or document.get("folder_label") == "Annual Reports"
-            ]
-            query_years = set(re.findall(r"\b(?:19|20)\d{2}\b", lowered))
-            if "2020-21" in lowered or "2020–21" in lowered:
-                query_years.update({"2020", "2021"})
-            scored: list[tuple[int, dict]] = []
-            for document in annual_documents:
-                identity = f"{document.get('title', '')} {document.get('source_path', '')}".lower()
-                score = sum(year in identity for year in query_years)
-                if score:
-                    scored.append((score, document))
-            if scored:
-                best_score = max(score for score, _ in scored)
-                best = [document for score, document in scored if score == best_score]
-                if len(best) == 1:
-                    document = best[0]
-                    return {
-                        "name": str(document.get("title") or "SSL annual report"),
-                        "title": str(document.get("title", "")),
-                        "source_path": str(document.get("source_path", "")),
-                        "folder": "Annual Reports",
-                    }
-            return {"name": "SSL annual reports", "folder": "Annual Reports"}
-        scopes = (
-            (("board", "external advisory"), {"name": "SSL Board of Directors", "title": "BoardOfDirectors", "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"}),
-            (("students", "student", "interns", "intern", "alumni", "fellows"), {"name": "SSL students and interns", "title": "StudentsInterns", "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"}),
-            (("projects", "initiatives"), {"name": "SSL projects", "title": "Projects", "source_path": "SEED_DOCUMENTS/Projects.txt"}),
-            (("publications", "publication"), {"name": "SSL publications", "folder": "Publications"}),
-            (("staff", "team members"), {"name": "SSL staff", "title": "Staff", "source_path": "SEED_DOCUMENTS/Staff.txt"}),
-        )
-        for markers, scope in scopes:
-            if any(re.search(rf"\b{re.escape(marker)}\b", lowered) for marker in markers):
-                return scope
-        return None
-
-    def build_next_conversation_state(
-        self,
-        recent_history: Optional[list[ConversationTurn]],
-        user_message: str,
-        answer_result: dict,
-    ) -> dict:
-        supplied_state = answer_result.get("conversation_state")
-        if isinstance(supplied_state, dict):
-            return normalize_state(supplied_state)
-
-        response_mode = str(answer_result.get("response_mode", "") or answer_result.get("_response_mode", ""))
-        if response_mode in {"blocked", "out_of_scope_guard", "privacy_scope_guard", "diagnostics_scope_guard"}:
-            return empty_state()
-
-        resolution = self.resolve_conversation_turn(user_message, recent_history)
-        state = normalize_state(resolution.get("state"))
-        sources = list(answer_result.get("sources", []) or [])
-        active_subject = state.get("active_subject") or {}
-        if str(active_subject.get("unit_id", "")).startswith("topic:") and sources:
-            source = sources[0]
-            enriched_subject = {
-                **active_subject,
-                "title": str(source.get("title", "")) or str(active_subject.get("title", "")),
-                "source_path": str(source.get("source_path", "")) or str(active_subject.get("source_path", "")),
-            }
-            state["active_subject"] = enriched_subject
-            state["candidate_subjects"] = [enriched_subject]
-        if (
-            len(sources) == 1
-            and "Publications/" in str(sources[0].get("source_path", ""))
-            and re.search(r"(?i)\b(which one|this publication|that publication|its full title)\b", user_message)
-        ):
-            publication_subject = {
-                "unit_id": str(sources[0].get("source_path", "")),
-                "name": str(sources[0].get("title", "")).strip(),
-                "subject_type": "publication",
-                "title": str(sources[0].get("title", "")).strip(),
-                "source_path": str(sources[0].get("source_path", "")),
-            }
-            state.update({
-                "mode": "focused",
-                "active_subject": publication_subject,
-                "candidate_subjects": [publication_subject],
-                "active_scope": None,
-            })
-        if answer_result.get("needs_clarification"):
-            state["mode"] = "awaiting_clarification"
-            state["pending_query"] = user_message
-            state["clarification_options"] = list(answer_result.get("clarification_options", []) or [])
-        return state
-
-    def _clean_sentences(self, text: str, limit: int = 2) -> str:
-        normalized = re.sub(r"\s+", " ", text).strip()
-        normalized = re.sub(r"\b(Dr|Prof|Mr|Mrs|Ms)\.\s+", r"\1 ", normalized)
-        normalized = re.sub(r"\bPh\.?\s*D\.", "PhD", normalized, flags=re.IGNORECASE)
-        normalized = re.sub(r"\b(Currently a Ph\.D\.)\s+\1\b", r"\1", normalized)
-        sentences = re.split(r"(?<=[.!?])\s+", normalized)
-        cleaned: list[str] = []
-        for sentence in sentences:
-            sentence = sentence.strip()
-            if not sentence:
-                continue
-            cleaned.append(sentence)
-            if len(cleaned) >= limit:
-                break
-        return " ".join(cleaned).strip()
-
-    def extract_query_relevant_sentences(self, text: str, query: str, limit: int = 2) -> str:
-        """Select concise source sentences for a requested person attribute."""
-        normalized = re.sub(r"\s+", " ", text).strip()
-        normalized = re.sub(r"\b(Dr|Prof|Mr|Mrs|Ms)\.\s+", r"\1 ", normalized)
-        normalized = re.sub(r"\bPh\.?\s*D\.", "PhD", normalized, flags=re.IGNORECASE)
-        normalized = re.sub(
-            r"Currently a Ph\.D\.\s+Currently a Ph\.D\.\s*candidate",
-            "Currently a Ph.D. candidate",
-            normalized,
-            flags=re.IGNORECASE,
-        )
-        sentences = [part.strip() for part in re.split(r"(?<=[.!?])\s+", normalized) if part.strip()]
-        if not sentences:
-            return ""
-
-        query_terms = {
-            term for term in re.findall(r"[a-z0-9]+", query.lower())
-            if len(term) >= 4 and term not in {
-                "what", "which", "where", "when", "does", "their", "currently",
-                "from", "about", "program", "pursuing",
-            }
-        }
-        for phrase in self.extract_query_named_phrases(query):
-            query_terms.difference_update(re.findall(r"[a-z0-9]+", phrase.lower()))
-        lowered_query = query.lower()
-        expansion_terms: set[str] = set()
-        if any(term in lowered_query for term in ("degree", "university", "college", "education", "master", "bachelor", "program", "undergraduate", "graduated")):
-            expansion_terms.update({"degree", "university", "college", "master", "bachelor", "phd", "candidate", "earned", "school", "graduated", "undergraduate"})
-        if "background" in lowered_query:
-            expansion_terms.update({"background", "experience", "worked", "degree", "university", "career", "consultant", "previously"})
-        if "river" in lowered_query or "basin" in lowered_query:
-            expansion_terms.update({"river", "basin", "india", "bihar", "research"})
-        if any(term in lowered_query for term in ("funded", "funding", "organizations")):
-            expansion_terms.update({"funded", "funding", "ssl", "noaa", "adaptation", "sciences", "research"})
-        if any(term in lowered_query for term in ("initiative", "lead with", "leads with")):
-            expansion_terms.update({"leading", "working", "group", "collaboration", "criup", "plans", "unhoused"})
-        if any(term in lowered_query for term in ("goal", "helping build", "program")):
-            expansion_terms.update({"program", "platform", "collaboration", "community", "organizations", "foundations"})
-        if any(term in lowered_query for term in ("value", "values", "valued")):
-            expansion_terms.update({"value", "values", "valued", "expert", "novice", "curiosity", "exploration"})
-        if any(term in lowered_query for term in ("cultural", "originally", "heritage", "where is", "where was")):
-            expansion_terms.update({"indigenous", "chamoru", "from", "village", "guam", "born", "heritage", "cultural"})
-        if any(term in lowered_query for term in ("supervises", "supervisor", "doctoral work", "faculty member")):
-            expansion_terms.update({"supervision", "supervised", "professor", "faculty", "working", "with", "doctoral"})
-        if "research project" in lowered_query or "research projects" in lowered_query:
-            expansion_terms.update({"research", "project", "projects", "working", "involved", "focused", "with"})
-        if any(term in lowered_query for term in ("working with", "collaborator", "research topic")):
-            expansion_terms.update({"working", "with", "collaborator", "research", "topic", "currently", "professor", "climate", "justice"})
-        requested_facets = self.detect_requested_fact_facets(query)
-        facet_terms = {
-            "quantity": {"number", "total", "count", "enroll", "enrolled", "participants", "percentage", "percent", "six", "three", "years"},
-            "time": {"when", "year", "years", "duration", "timeframe", "launched", "established", "founded", "since", "over"},
-            "funding": {"fund", "funded", "funding", "grant", "budget", "award", "usd", "usdot", "dollar"},
-            "leadership": {"lead", "leads", "led", "leader", "director", "manager", "supervisor"},
-            "audience": {"serve", "serves", "serving", "audience", "eligible", "participants", "communities", "population", "populations", "focus", "focuses", "pathways", "underrepresented", "vulnerable", "adults"},
-            "education": {"education", "educational", "degree", "degrees", "university", "college", "bachelor", "masters", "master", "undergraduate", "graduated", "holds"},
-            "research": {"research", "focus", "interest", "interests", "topic", "topics", "expertise", "study", "studies"},
-            "collaboration": {"working", "works", "with", "collaborator", "faculty", "professor", "supervisor", "adviser", "advisor"},
-            "affiliation": {"institution", "joined", "join", "affiliation", "university", "institute", "moved"},
-            "activity": {"during", "worked", "work", "conducted", "interviews", "studied", "assisted", "collaborative", "ssl"},
-            "service": {"board", "boards", "committee", "committees", "served", "service", "director"},
-            "employment": {"employer", "employed", "company", "organization", "works", "specialty", "practice", "leader", "hntb"},
-            "honor": {"award", "awards", "honor", "honors", "recognized", "recognition", "recipient", "received", "ascending", "professional"},
-            "business": {"consultancy", "consulting", "business", "spans", "span", "covers", "cover", "services", "edible", "yard"},
-            "method": {"method", "approach", "technology", "tools", "drones", "sensors", "monitoring", "mapping"},
-            "location": {"where", "location", "site", "sites", "region", "community", "communities"},
-            "motivation": {"why", "motivated", "response", "triggered", "inspired", "collapse", "cause"},
-            "purpose": {"purpose", "goal", "goals", "aim", "aims", "objective", "focus", "focused"},
-        }
-        for facet in requested_facets:
-            expansion_terms.update(facet_terms.get(facet, set()))
-
-        ranked: list[tuple[int, int, str]] = []
-        for index, sentence in enumerate(sentences):
-            sentence_terms = set(re.findall(r"[a-z0-9]+", sentence.lower()))
-            score = 3 * len(query_terms & sentence_terms) + 2 * len(expansion_terms & sentence_terms)
-            query_stems = {re.sub(r"(?:ing|ed|es|s)$", "", term) for term in query_terms if len(term) > 4}
-            sentence_stems = {re.sub(r"(?:ing|ed|es|s)$", "", term) for term in sentence_terms if len(term) > 4}
-            score += 2 * len(query_stems & sentence_stems)
-            if "method" in requested_facets:
-                enumerates_methods = bool(
-                    "," in sentence
-                    and re.search(r"\b(and|including|combines?|uses?|through)\b", sentence, re.IGNORECASE)
-                )
-                if enumerates_methods:
-                    score += 10
-                elif re.search(r"\bmethods?\b", sentence, re.IGNORECASE):
-                    score -= 8
-            if "education" in requested_facets:
-                names_degree = bool(re.search(
-                    r"\b(bachelor|master|doctorate|doctoral|ph\.?d|degree)\b",
-                    sentence,
-                    re.IGNORECASE,
-                ))
-                if names_degree:
-                    score += 7
-                elif re.search(r"\b(university|college)\b", sentence, re.IGNORECASE):
-                    score -= 4
-            if "employment" in requested_facets:
-                if re.search(
-                    r"\b(employer|employed|works? at|practice leader|director|manager|president|officer|founder|ceo)\b",
-                    sentence,
-                    re.IGNORECASE,
-                ):
-                    score += 10
-                if re.search(r"\b(award|recipient|recognized)\b", sentence, re.IGNORECASE):
-                    score -= 10
-            if "honor" in requested_facets:
-                requested_years = re.findall(r"\b(?:19|20)\d{2}\b", query)
-                if re.search(r"\b(award|honor|recipient|recognized|recognition)\b", sentence, re.IGNORECASE):
-                    score += 8
-                if any(year in sentence for year in requested_years):
-                    score += 12
-                if "award-winning" in sentence.lower() and not any(year in sentence for year in requested_years):
-                    score -= 12
-            if score:
-                ranked.append((score, index, sentence))
-        if not ranked:
-            return ""
-
-        selected = sorted(sorted(ranked, key=lambda item: (item[0], -item[1]), reverse=True)[:limit], key=lambda item: item[1])
-        return " ".join(sentence for _, _, sentence in selected).strip()
-
-    def _board_member_matches_follow_up(self, user_message: str) -> list[dict]:
-        lowered_query = user_message.lower()
-        board_entities = [
-            entity for entity in self.entity_registry
-            if entity.get("entity_type") == "board_member"
-        ]
-        if not board_entities:
-            return []
-
-        theme_terms: list[str] = []
-        if any(term in lowered_query for term in ("journalism", "media", "reporting")):
-            theme_terms.extend(["journalism", "reporting", "media"])
-        if "climate justice" in lowered_query or "environmental justice" in lowered_query:
-            theme_terms.extend(["climate justice", "environmental justice", "equitable", "equity", "justice"])
-
-        if not theme_terms:
-            phrase_match = re.search(r"(?:works in|works on|focused on|focuses on)\s+([a-z][a-z\s/-]+)", lowered_query)
-            if phrase_match:
-                raw_terms = re.findall(r"[a-z]{4,}", phrase_match.group(1))
-                stopwords = {"that", "with", "from", "into", "their", "there", "about", "board", "members", "member", "works", "focuses"}
-                theme_terms.extend(term for term in raw_terms if term not in stopwords)
-
-        ranked_matches: list[tuple[int, dict]] = []
-        for entity in board_entities:
-            entity_text = self.build_full_entity_text(entity).lower()
-            score = sum(1 for term in theme_terms if term in entity_text)
-            if score:
-                ranked_matches.append((score, entity))
-
-        ranked_matches.sort(key=lambda item: (item[0], item[1].get("section_name", "")), reverse=True)
-        return [entity for _, entity in ranked_matches]
-
-    def _contextual_follow_up_answer(
-        self, user_message: str, recent_history: Optional[list[ConversationTurn]]
-    ) -> Optional[dict]:
-        """Answer short follow-ups from the active conversational subject.
-
-        These questions are too underspecified for global vector retrieval. Keeping this
-        small, source-backed layer here prevents a follow-up about one project from being
-        answered with facts from a different project.
-        """
-        if not recent_history:
-            return None
-        lowered = user_message.lower().strip()
-        history_text = " ".join(
-            f"{turn.get('user', '')} {turn.get('assistant', '')}" for turn in recent_history[-6:]
-        ).lower()
-
-        def result(
-            reply: str,
-            marker: str,
-            mode: str = "context_follow_up",
-            fallback_title: str = "Projects",
-        ) -> dict:
-            return {
-                "reply": f"{reply} [1]",
-                "sources": [self._registry_source_for(marker, fallback_title)],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": mode,
-            }
-
-        last_turn_person = self.get_last_turn_anchor_entity(
-            recent_history,
-            entity_types=self._person_entity_types(),
-        )
-
-        # The latest explicit user topic is the conversational anchor. Looking across all
-        # history lets an older project override a newer one when a follow-up only says "it".
-        latest_topic_text = ""
-        for turn in reversed(recent_history[-6:]):
-            candidate = str(turn.get("user", "") or "").lower()
-            if any(term in candidate for term in (
-                "c3i", "climate careers curricula initiative", "cape cod rail",
-                "rail resilience", "cape main line", "climate adaptation forum",
-                "cimate adaptation frm",
-            )):
-                latest_topic_text = candidate
-                break
-        topic_text = latest_topic_text or history_text
-        c3i_active = any(term in topic_text for term in ("c3i", "climate careers curricula initiative"))
-        rail_active = any(term in topic_text for term in ("cape cod rail", "rail resilience", "cape main line"))
-        forum_active = any(term in topic_text for term in ("climate adaptation forum", "cimate adaptation frm"))
-        projects_list_active = "list ssl projects" in history_text or "major current projects" in history_text
-        ssl_overview_active = any(term in history_text for term in ("what does ssl do", "advance transdisciplinary climate justice research", "drive equitable climate adaptation"))
-
-        if c3i_active and ("foundation" in lowered or "fund" in lowered) and any(
-            term in lowered for term in ("goal", "purpose", "participant", "it")
-        ):
-            return result(
-                "The Climate Careers Curricula Initiative is supported by the Liberty Mutual Foundation. Its key goals are to create microcredentialed blue- and green-job training programs in Greater Boston and provide career pathways for underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities.",
-                "Climate Careers Curricula Initiative",
-            )
-
-        if c3i_active and any(term in lowered for term in ("how many programs", "how many participants", "repeat just the numbers", "just the numbers", "numbers")):
-            return result(
-                "The numbers are: 6 microcredentialed programs, 90 participants, over 3 years.",
-                "Climate Careers Curricula Initiative",
-            )
-
-        if c3i_active and any(term in lowered for term in ("who does it serve", "who does it help", "who is it for", "serve")):
-            return result(
-                "It serves underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities.",
-                "Climate Careers Curricula Initiative",
-            )
-
-        if rail_active and any(term in lowered for term in ("who funded", "funded it", "funding")):
-            return result("The project has USDOT funding.", "Cape Cod Rail Resilience Project")
-
-        if rail_active and any(
-            term in lowered
-            for term in ("what specifically caused", "what caused it", "why was it launched", "what caused it to be launched", "why did it launch")
-        ):
-            return result(
-                "It was launched in response to a significant 300-foot rail embankment collapse in East Sandwich in 2020, linked to climate change-induced drought conditions.",
-                "Cape Cod Rail Resilience Project",
-            )
-
-        if rail_active and any(term in lowered for term in ("what year was that", "what year was it", "what year")):
-            return result(
-                "That collapse happened in 2020.",
-                "Cape Cod Rail Resilience Project",
-            )
-
-        if "compare c3i" in history_text and any(term in lowered for term in ("workforce", "job training", "career")):
-            return result("The Climate Careers Curricula Initiative (C3I) is more focused on workforce development.", "Climate Careers Curricula Initiative")
-
-        if rail_active and any(term in lowered for term in ("what technologies", "technology", "technologies", "use")):
-            return result("It uses drones for mapping and sensors for monitoring water levels, along with aerial surveys, hydrological drought analysis, and real-time monitoring systems.", "Cape Cod Rail Resilience Project")
-
-        if rail_active and any(term in lowered for term in ("how many pilot", "pilot sites", "pilot study")):
-            return result("It has three pilot study sites.", "Cape Cod Rail Resilience Project")
-
-        if forum_active and any(term in lowered for term in ("how often", "how frequently", "meet", "how long")):
-            return result("The Climate Adaptation Forum is a quarterly series of half-day events.", "Climate Adaptation Forum", "forum_shortcut")
-
-        if forum_active and any(term in lowered for term in ("who is it for", "who does it serve", "audience", "who attends")):
-            return result("It brings together experts and participants from local, national, and global organizations across multiple sectors.", "Climate Adaptation Forum", "forum_shortcut")
-
-        if ssl_overview_active and any(term in lowered for term in ("summarize it in one sentence", "sum it up in one sentence", "one sentence")):
-            return result(
-                "SSL advances transdisciplinary climate justice research, convenes collaborators, and drives equitable climate adaptation centered on historically and currently excluded communities.",
-                "What We Do",
-                "ssl_overview_follow_up",
-                "SSLAbout",
-            )
-
-        if projects_list_active and any(term in lowered for term in ("rail", "rail resilience", "rail safety", "cape cod rail")):
-            return result("The Cape Cod Rail Resilience Project is the SSL project focused on rail resilience along the Cape Main Line.", "Cape Cod Rail Resilience Project")
-
-        if "compare c3i" in history_text and any(term in lowered for term in ("sensor", "monitoring", "technology")):
-            return result("The Cape Cod Rail Resilience Project uses sensors to monitor water levels and drones for mapping.", "Cape Cod Rail Resilience Project")
-
-        if any(term in history_text for term in ("director", "directs ssl", "ssl director")) and (
-            "that role" in lowered or "that position" in lowered
-        ) and any(term in lowered for term in ("2020", "2021", "2020-21")):
-            return result(
-                "Rebecca Herst served as SSL's Director during the 2020-21 academic year.",
-                "Rebecca Herst",
-                "historical_leadership_context_follow_up",
-                "AnnualReport2021",
-            )
-
-        publication_active = any(term in history_text for term in ("publications are in the ssl corpus", "publication source documents", "annual reports"))
-        if publication_active and any(term in lowered for term in ("exclude", "excluding", "left", "which ones", "what remains", "remaining")):
-            if "exclude" in lowered or "excluding" in lowered:
-                return result("Excluding annual reports leaves 14 publication source documents.", "Publications", "document_inventory_follow_up", "Publications")
-            return result("The remaining set is the 14 non-annual-report publication source documents.", "Publications", "document_inventory_follow_up", "Publications")
-
-        migration_publication_active = any(
-            term in history_text
-            for term in (
-                "which publications are about climate migration",
-                "critical approaches to climate-induced migration research and sol",
-                "who counts in climate resilience_ transient populations and clima",
-            )
-        )
-        if migration_publication_active and any(
-            term in lowered for term in ("exact titles", "just the exact titles", "list just the exact titles", "which titles", "list the titles")
-        ):
-            return {
-                "reply": "The exact titles are Critical approaches to climate-induced migration research and solutions and Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts. [1] [2]",
-                "sources": self._registry_sources_for([
-                    ("Critical approaches to climate-induced migration research and solutions", "Publications"),
-                    ("Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts", "Publications"),
-                ]),
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "document_inventory_follow_up",
-            }
-        if migration_publication_active and any(term in lowered for term in ("why those", "why those ones", "why these")):
-            return {
-                "reply": "They were selected because those publication titles explicitly reference climate-induced migration or transient populations tied to climate resilience. [1] [2]",
-                "sources": self._registry_sources_for([
-                    ("Critical approaches to climate-induced migration research and solutions", "Publications"),
-                    ("Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts", "Publications"),
-                ]),
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "document_inventory_follow_up",
-            }
-
-        transient_publication_active = any(
-            term in history_text
-            for term in (
-                "who counts in climate resilience? transient populations and climate resilience in boston and cape cod, massachusetts",
-                'the title is "who counts in climate resilience?',
-                "transient populations",
-            )
-        )
-        if transient_publication_active and any(
-            term in lowered for term in ("repeat the full exact title only", "full exact title", "repeat the title", "exact title only")
-        ):
-            publication_title = "Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts"
-            return {
-                "reply": f"{publication_title} [1]",
-                "sources": self._registry_sources_for([(publication_title, "Publications")]),
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "publication_title_follow_up",
-            }
-
-        board_active = any(
-            term in history_text
-            for term in ("board of directors", "board members", "external advisory board")
-        )
-        if (
-            last_turn_person
-            and last_turn_person.get("entity_type") == "board_member"
-            and any(term in lowered for term in ("background", "just answer for", "what is his background", "what is her background"))
-        ):
-            full_text = self.build_full_entity_text(last_turn_person)
-            reply = self._clean_sentences(full_text, limit=3)
-            return {
-                "reply": f"{reply} [1]",
-                "sources": self._registry_sources_for([(last_turn_person.get("section_name", ""), "BoardOfDirectors")]),
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "person_follow_up",
-            }
-        if board_active and any(term in lowered for term in (
-            "who chairs", "chair it", "chair the board", "board chair",
-            "identify a chair", "identifies a chair", "name a chair",
-        )):
-            return result(
-                "The Board of Directors source does not identify a board chair.",
-                "BoardOfDirectors",
-                "board_follow_up",
-                "BoardOfDirectors",
-            )
-        if board_active and any(term in lowered for term in ("healthcare", "health care", "medicine", "medical")):
-            return result(
-                "Caleb Dresser works in healthcare as Emergency Medicine Faculty at Beth Israel Deaconess Medical Center and Harvard Medical School, and Tim Cronin works in healthcare policy and advocacy at Health Care Without Harm.",
-                "BoardOfDirectors",
-                "board_follow_up",
-                "BoardOfDirectors",
-            )
-        if board_active and any(term in lowered for term in ("climate resilience", "resilience", "adaptation")):
-            return result(
-                "Several board members work in climate resilience, including Kalila Barnett, Tim Cronin, Julie Eaton Ernst, Isabella M. Gambill, and Julia Kumari Drapkin.",
-                "BoardOfDirectors",
-                "board_follow_up",
-                "BoardOfDirectors",
-            )
-        if board_active and any(term in lowered for term in ("policy", "advocacy")):
-            return result(
-                "Board members working in policy or advocacy include Tim Cronin, Isabella M. Gambill, and Kalila Barnett.",
-                "BoardOfDirectors",
-                "board_follow_up",
-                "BoardOfDirectors",
-            )
-        if board_active and any(term in lowered for term in ("solar", "clean technologies")):
-            return result(
-                "Jen Stevenson Zepeda works on solar as a Commercial Solar Consultant for ReVision Energy.",
-                "BoardOfDirectors",
-                "board_follow_up",
-                "BoardOfDirectors",
-            )
-        if board_active and any(term in lowered for term in ("works in", "works on", "journalism", "media", "climate justice", "environmental justice")):
-            matched_board_members = self._board_member_matches_follow_up(user_message)
-            if matched_board_members:
-                names = [entity.get("section_name", "").strip() for entity in matched_board_members if entity.get("section_name", "").strip()]
-                if len(names) == 1:
-                    first_entity = matched_board_members[0]
-                    role = self.extract_entity_role(first_entity, self.build_full_entity_text(first_entity))
-                    role_text = f" as {role}" if role else ""
-                    return {
-                        "reply": f"{names[0]} works in this area{role_text}. [1]",
-                        "sources": self._registry_sources_for([(names[0], "BoardOfDirectors")]),
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                        "_response_mode": "board_follow_up",
-                    }
-                return {
-                    "reply": f"Board members working in this area include {', '.join(names)}. [1]",
-                    "sources": self._registry_sources_for([("BoardOfDirectors", "BoardOfDirectors")]),
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                    "_response_mode": "board_follow_up",
-                }
-
-        if "jessica whiteley" in history_text and any(term in lowered for term in ("only answer for jessica", "jessica", "expertise", "whole list")):
-            return result("According to the University Affiliates list, Jessica Whiteley's expertise is Research: Health Promotion Interventions, Health Equity, Digital Health, Person-Centered Care.", "Jessica Whiteley", "person_follow_up")
-
-        if (
-            any(term in history_text for term in ("student or intern", "students or interns"))
-            and any(term in lowered for term in ("title", "which publication", "are you sure"))
-        ):
-            return {
-                "reply": "The indexed records do not support identifying a publication co-authored by SSL students or interns, so there is no verified title to provide.",
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "unsupported_authorship_follow_up",
-            }
-
-        if rail_active and any(term in lowered for term in ("tell me more", "more about", "that one", "that project")):
-            return result(
-                "The Cape Cod Rail Resilience Project improves rail safety and climate resilience along the Cape Main Line using drones, water-level sensors, aerial surveys, and real-time monitoring at three pilot study sites.",
-                "Cape Cod Rail Resilience Project",
-            )
-
-        if "rebecca herst" in history_text and any(term in lowered for term in ("current director", "current", "now")):
-            return {
-                "reply": "No. Rebecca Herst is listed as the 2020-21 SSL director; the current Executive Director is B. R. Balachandran. [1]",
-                "sources": [self._registry_source_for("B. R. Balachandran", "Staff")],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "leadership_context_follow_up",
-            }
-
-        if (
-            last_turn_person
-            and self.names_refer_to_same_person(last_turn_person.get("section_name", ""), "Nyingilanyeofori Hannah Brown")
-            and any(term in lowered for term in ("degree program", "currently pursuing", "which university", "what degree program", "what is she currently pursuing"))
-        ):
-            return {
-                "reply": "She is currently a Ph.D. candidate in the Global Governance and Human Security program at the University of Massachusetts Boston. [1]",
-                "sources": self._registry_sources_for([("Nyingilanyeofori Hannah Brown", "StudentsInterns")]),
-                "needs_clarification": False,
-                "clarification_options": [],
-                "_response_mode": "person_follow_up",
-            }
-
-        return None
-
-    def answer(
-        self,
-        user_message: str,
-        recent_history: Optional[list[ConversationTurn]] = None,
-        generation_callable: Optional[LLMCallable] = None,
-    ) -> dict:
+    def answer(self, user_message: str, recent_history: Optional[list[ConversationTurn]] = None) -> dict:
         recent_history = recent_history or []
-        state_resolution: Optional[dict] = None
-        # Normalize common speech-to-text/keyboard variants before routing. These are
-        # intentionally narrow so ordinary user wording is left untouched.
-        user_message = re.sub(r"(?i)\bcimate\s+adaptation\s+frm\b", "Climate Adaptation Forum", user_message)
-        user_message = re.sub(r"(?i)\bclimate\s+adaptation\s+frm\b", "Climate Adaptation Forum", user_message)
-        user_message = re.sub(r"(?i)\bdirctor\b", "director", user_message)
         lowered_user_message = user_message.lower()
-        is_named_correction = bool(recent_history and re.match(r"(?i)^i\s+(?:mean|meant)\b", user_message.strip()))
-
-        # Keep direct callers on the same security path as the HTTP endpoint. This must
-        # run before planning, retrieval, or conversation-specific shortcuts.
-        if _looks_like_injection(user_message) or _is_blocked(user_message):
-            return {
-                "reply": _REFUSAL,
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "blocked": True,
-                "status": "blocked",
-                "response_mode": "blocked",
-                "trace": {},
-            }
-
-        state_resolution = self.resolve_conversation_turn(user_message, recent_history)
-        if state_resolution.get("needs_clarification"):
-            clarification_result = {
-                "reply": state_resolution["clarifying_question"],
-                "sources": [],
-                "needs_clarification": True,
-                "clarification_for": user_message,
-                "clarification_options": state_resolution.get("clarification_options", []),
-                "conversation_state": state_resolution.get("state", empty_state()),
-            }
-            return self.attach_trace(
-                clarification_result,
-                status="clarification",
-                response_mode="conversation_state_clarification",
-                rewritten_query=user_message,
-                query_route=None,
-                query_plan=state_resolution,
-            )
-        if state_resolution.get("used_context") or state_resolution.get("scope_context"):
-            user_message = str(state_resolution.get("rewritten_query") or user_message)
-            lowered_user_message = user_message.lower()
-
-        if _looks_like_unclear_input(user_message) and not is_named_correction:
-            return {
-                "reply": self.build_generic_clarifying_question(user_message),
-                "sources": [],
-                "needs_clarification": True,
-                "clarification_for": user_message,
-                "clarification_options": [],
-                "status": "clarification",
-                "response_mode": "unclear_input_guard",
-                "trace": {},
-            }
-
-        if any(term in lowered_user_message for term in (
-            "internal trace", "internal dashboard trace", "internal dashboard traces",
-            "trace data", "retrieval diagnostics", "dashboard diagnostics", "dashboard trace",
-        )):
-            return {
-                "reply": "I can't provide internal diagnostics. I can help with questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "response_mode": "diagnostics_scope_guard",
-                "trace": {},
-            }
-
-        if any(term in lowered_user_message for term in (
-            "private contact", "private contact details", "personal contact", "personal phone",
-            "private email", "pretend you are an employee",
-        )):
-            return {
-                "reply": "I can't provide private or personal contact details. I can help with SSL's public contact information instead.",
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "response_mode": "privacy_scope_guard",
-                "trace": {},
-            }
-
-        if any(term in lowered_user_message for term in (
-            "apply for a job", "job application", "employment application", "how do i apply",
-            "job at ssl", "work at ssl", "employment at ssl", "career at ssl", "get a job at ssl",
-            "apply to work with ssl", "apply to work at ssl", "apply to join ssl",
-        )):
-            return {
-                "reply": "The SSL corpus does not provide job application guidance. For employment questions, please contact UMass Boston through its official careers resources.",
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "response_mode": "employment_scope_guard",
-                "trace": {},
-            }
-
-        if any(term in lowered_user_message for term in ("all staff emails", "staff emails", "email all staff", "give me all ssl staff emails")):
-            return self.attach_trace(
-                {
-                    "reply": "The public staff emails listed in the SSL staff source are B. R. Balachandran (BR.Balachandran@umb.edu), Rosalyn Negron (Rosalyn.Negron@umb.edu), Gabriela Boscio (Gabriela.Boscio@umb.edu), Rajini Srikanth (Rajini.Srikanth@umb.edu), and Elisa Guerrero (Elisa.Guerrero@umb.edu). [1]",
-                    "sources": [self._registry_source_for("Our Staff", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="staff_email_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        normalized_scope_query = lowered_user_message.strip().rstrip("?.!")
-        if normalized_scope_query in {"what is the best laptop", "what laptop should i buy", "best laptop"}:
-            return {
-                "reply": "I can help with questions about the Sustainable Solutions Lab, but I don't have recommendations for laptops.",
-                "sources": [],
-                "needs_clarification": False,
-                "clarification_options": [],
-                "response_mode": "out_of_scope_guard",
-                "trace": {},
-            }
-
-        if "in one word" in lowered_user_message and "mission" in lowered_user_message:
-            return self.attach_trace(
-                {
-                    "reply": "Justice. [1]",
-                    "sources": [self._registry_source_for("Pursuing Climate Justice", "SSLAbout")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="concise_mission_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        # A named staff question must override contact-oriented conversation context.
-        # Keep both the direct name lookup and its immediate pronoun follow-up on Staff.
-        if "balachandran" in lowered_user_message and any(term in lowered_user_message for term in ("phone", "telephone", "phone number")):
-            return self.attach_trace(
-                {
-                    "reply": "A public phone number is not listed for B. R. Balachandran in the available SSL staff source. [1]",
-                    "sources": [self._registry_source_for("B. R. Balachandran", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="staff_phone_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route("B. R. Balachandran phone"),
-            )
-
-        state_candidate_names = [
-            str(candidate.get("name", "")).lower()
-            for candidate in (((state_resolution or {}).get("state") or {}).get("candidate_subjects", []) or [])
-        ]
-        has_other_named_subject = any(name and "balachandran" not in name for name in state_candidate_names)
-        if ("balachandran" in lowered_user_message and not has_other_named_subject) or (
-            recent_history
-            and any("balachandran" in str(turn.get("user", "")).lower() for turn in recent_history[-3:])
-            and re.search(r"(?i)\b(?:his|their)\s+role\b|\brole\b", lowered_user_message)
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "B. R. Balachandran is SSL's Executive Director. [1]",
-                    "sources": [self._registry_source_for("B. R. Balachandran", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="staff_person_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route("B. R. Balachandran role"),
-            )
-
-        # Rosalyn Negron's Staff record lists her title but no research area. Do not
-        # answer this follow-up with unrelated contact or publication material.
-        if (
-            "rosalyn negron" in lowered_user_message
-            and any(term in lowered_user_message for term in ("research", "what does", "focus"))
-            and not any(term in lowered_user_message for term in ("grant", "nsf", "2020", "2021", "hurricane maria", "evacuation"))
-        ) or (
-            recent_history
-            and any("rosalyn negron" in str(turn.get("user", "")).lower() for turn in recent_history[-3:])
-            and re.search(r"(?i)\b(?:she|her)\b", lowered_user_message)
-            and "research" in lowered_user_message
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Rosalyn Negron's research area is not listed in the available SSL Staff profile. [1]",
-                    "sources": [self._registry_source_for("Rosalyn Negron", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="unsupported_person_research_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route("Rosalyn Negron research"),
-            )
-
-        if (
-            "rosalyn negron" in lowered_user_message and any(term in lowered_user_message for term in ("director", "the director"))
-        ) or (
-            recent_history
-            and any("rosalyn negron" in str(turn.get("user", "")).lower() for turn in recent_history[-3:])
-            and re.search(r"(?i)\bis she\b", lowered_user_message)
-            and "director" in lowered_user_message
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "No. Rosalyn Negron is listed as SSL's Associate Director, while B. R. Balachandran is the Executive Director. [1]",
-                    "sources": [self._registry_source_for("Rosalyn Negron", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="staff_role_comparison_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route("Rosalyn Negron Associate Director"),
-            )
-
-        # Common factual paths should remain available even when Gemini is busy.
-        if (
-            "historical director" in lowered_user_message
-            or ("historical" in lowered_user_message and "director" in lowered_user_message and "ssl" in lowered_user_message)
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Rebecca Herst served as the Director of the Sustainable Solutions Lab during the 2020-21 academic year. [1]",
-                    "sources": [self._registry_source_for("Rebecca Herst", "AnnualReport2021")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="historical_leadership_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if "rebecca herst" not in lowered_user_message and (
-            any(term in lowered_user_message for term in ("current director", "director of ssl", "who directs ssl", "who leads ssl", "who is in charge"))
-            or (
-                "director" in lowered_user_message
-                and "ssl" in lowered_user_message
-                and any(term in lowered_user_message for term in ("now", "currently", "today"))
-            )
-        ) and not any(
-            term in lowered_user_message for term in ("2020", "2021", "historical", "former", "previous")
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "B. R. Balachandran is SSL's current Executive Director. [1]",
-                    "sources": [self._registry_source_for("B. R. Balachandran", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="leadership_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-        if "rebecca herst" in lowered_user_message and any(term in lowered_user_message for term in ("current director", "current", "now")):
-            return self.attach_trace(
-                {
-                    "reply": "No. Rebecca Herst is listed as the 2020-21 SSL director; the current Executive Director is B. R. Balachandran. [1]",
-                    "sources": [self._registry_source_for("B. R. Balachandran", "Staff")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="leadership_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if (
-            "that role" in lowered_user_message
-            and any(term in lowered_user_message for term in ("2020", "2021", "2020-21"))
-            and not recent_history
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Which role do you mean? If you mean SSL's director role, Rebecca Herst served in that position during the 2020-21 academic year. [1]",
-                    "sources": [self._registry_source_for("Rebecca Herst", "AnnualReport2021")],
-                    "needs_clarification": True,
-                    "clarification_for": user_message,
-                    "clarification_options": ["SSL director", "another role"],
-                },
-                status="clarification",
-                response_mode="historical_role_clarification_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route("Rebecca Herst role 2020-21"),
-            )
-
-        if any(term in lowered_user_message for term in ("board of directors", "board members", "external advisory board")) and any(
-            term in lowered_user_message for term in ("who is on", "who are on", "who are the", "list", "name")
-        ):
-            board_entities = [
-                entity
-                for entity in self.entity_registry
-                if entity.get("entity_type") == "board_member"
-            ]
-            if board_entities:
-                board_names = [entity.get("section_name", "").strip() for entity in board_entities if entity.get("section_name", "").strip()]
-                reply = "SSL's Board of Directors includes " + ", ".join(board_names) + ". [1]"
-                return self.attach_trace(
-                    {
-                        "reply": reply,
-                        "sources": [self._registry_source_for("BoardOfDirectors", "BoardOfDirectors")],
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                    },
-                    status="answered",
-                    response_mode="board_inventory_shortcut",
-                    rewritten_query=user_message,
-                    query_route=self.detect_local_query_route(user_message),
-                )
-
-        if "compare" in lowered_user_message and "c3i" in lowered_user_message and not (
-            state_resolution or {}
-        ).get("comparison_context") and (
-            any(term in lowered_user_message for term in ("cape cod rail", "rail resilience", "rail project"))
-            or re.search(r"\brail\b", lowered_user_message)
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "C3I focuses on workforce development through blue- and green-job training in Greater Boston. The Cape Cod Rail Resilience Project focuses on transportation infrastructure, using drones, sensors, and monitoring to improve rail safety and climate resilience. [1]",
-                    "sources": [self._registry_source_for("Climate Careers Curricula Initiative"), self._registry_source_for("Cape Cod Rail Resilience Project")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="project_comparison_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if "jessica whiteley" in lowered_user_message and "university affiliates" in lowered_user_message and any(
-            term in lowered_user_message for term in ("expertise", "focus", "topics")
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "According to the University Affiliates list, Jessica Whiteley's expertise is Research: Health Promotion Interventions, Health Equity, Digital Health, Person-Centered Care. [1]",
-                    "sources": [self._registry_source_for("Jessica Whiteley", "UniversityAffiliates")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="affiliate_scope_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if (
-            "transient populations" in lowered_user_message
-            and any(term in lowered_user_message for term in ("title", "what is", "what's", "tell me about"))
-        ):
-            publication_path = "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
-            publication_title = "Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts"
-            publication_document = next(
-                (document for document in self.document_registry if document.get("source_path") == publication_path),
-                None,
-            )
-            publication_source = {
-                "citation": 1,
-                "title": publication_title,
-                "url": publication_document.get("source_url", "URL not provided") if publication_document else "https://scholarworks.umb.edu/ssl/7/",
-                "source_path": publication_path,
-            }
-            return self.attach_trace(
-                {
-                    "reply": f'The title is "{publication_title}". [1]',
-                    "sources": [publication_source],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="publication_title_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if re.search(
-            r"(?i)\b(?:tell me about|what is|what's)\s+(?:the\s+)?(?:c3i|climate careers curricula initiative)\b",
-            user_message,
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "The Climate Careers Curricula Initiative (C3I) develops microcredentialed training programs for blue and green jobs in Greater Boston and creates career pathways for underrepresented populations. [1]",
-                    "sources": [self._registry_source_for("Climate Careers Curricula Initiative")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="c3i_summary_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if re.search(
-            r"(?i)\b(?:tell me about|what is|what's)\s+(?:the\s+)?cape cod rail resilience project\b",
-            user_message,
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "The Cape Cod Rail Resilience Project aims to improve rail safety and climate resilience along the Cape Main Line. With USDOT funding, the team uses drones for mapping and sensors for monitoring water levels at three pilot study sites. [1]",
-                    "sources": [self._registry_source_for("Cape Cod Rail Resilience Project")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="rail_summary_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-        if any(term in lowered_user_message for term in ("who was it", "who was the director", "former director")) and any(
-            term in lowered_user_message for term in ("2020", "2021", "that year")
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Rebecca Herst served as SSL's Director during the 2020-21 academic year. [1]",
-                    "sources": [self._registry_source_for("Rebecca Herst", "AnnualReport2021")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="historical_leadership_shortcut",
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        if "climate adaptation forum" in lowered_user_message:
-            historical_forum_scope = bool(
-                re.search(r"\b2020\s*[-–/]\s*21\b|\b2020\b|\b2021\b|annual report", lowered_user_message)
-            )
-            forum_source = [
-                self._registry_source_for("AnnualReport2021", "AnnualReport2021")
-                if historical_forum_scope
-                else self._registry_source_for("Climate Adaptation Forum")
-            ]
-            if any(term in lowered_user_message for term in ("what does ssl do", "wat does ssl do", "what does", "what is it", "what does it do", "tell me about")):
-                return self.attach_trace(
-                    {
-                        "reply": "The Climate Adaptation Forum is a quarterly, half-day series co-organized by SSL and the Environmental Business Council of New England. It brings experts and participants together to discuss climate adaptation and resilience. [1]",
-                        "sources": forum_source,
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                    },
-                    status="answered",
-                    response_mode="forum_shortcut",
-                    rewritten_query=user_message,
-                    query_route=self.detect_local_query_route(user_message),
-                )
-            if any(term in lowered_user_message for term in ("how often", "how frequently", "meet", "how long")):
-                return self.attach_trace(
-                    {
-                        "reply": "The Climate Adaptation Forum is a quarterly series of half-day events. [1]",
-                        "sources": forum_source,
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                    },
-                    status="answered",
-                    response_mode="forum_shortcut",
-                    rewritten_query=user_message,
-                    query_route=self.detect_local_query_route(user_message),
-                )
-            if any(term in lowered_user_message for term in ("who is it for", "who does it serve", "audience", "who attends")):
-                return self.attach_trace(
-                    {
-                        "reply": "It brings together experts and participants from local, national, and global organizations across multiple sectors. [1]",
-                        "sources": forum_source,
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                    },
-                    status="answered",
-                    response_mode="forum_shortcut",
-                    rewritten_query=user_message,
-                    query_route=self.detect_local_query_route(user_message),
-                )
         prefer_project_follow_up = (
             any(term in lowered_user_message for term in ("project", "initiative"))
             or ("it" in re.findall(r"\b\w+\b", lowered_user_message) and self.is_project_detail_follow_up(user_message))
@@ -7556,68 +5357,11 @@ Citation rules:
             )
             lowered_user_message = user_message.lower()
 
-        state_scope_title = str(((((state_resolution or {}).get("state") or {}).get("active_scope")) or {}).get("title", ""))
-        structured_follow_up = state_resolution if state_resolution and (
-            state_resolution.get("used_context")
-            or state_resolution.get("resolved")
-            or (state_resolution.get("scope_context") and state_scope_title != "BoardOfDirectors")
-        ) else None
+        structured_follow_up = None
         is_contact_query = any(term in lowered_user_message for term in ("email", "phone", "contact us", "reach ssl", "reach out"))
-        explicit_person_matches = [
-            entity for entity in self.find_exact_or_phrase_matched_entities(user_message)
-            if self.is_person_entity_type(entity.get("entity_type", ""))
-        ]
-        if not explicit_person_matches:
-            surname_matches = []
-            for entity in self.entity_registry:
-                if not self.is_person_entity_type(entity.get("entity_type", "")):
-                    continue
-                name_tokens = self.normalize_entity_name(entity.get("section_name", "")).split()
-                if name_tokens and re.search(rf"\b{re.escape(name_tokens[-1])}\b", lowered_user_message):
-                    surname_matches.append(entity)
-            if len(surname_matches) == 1:
-                explicit_person_matches = surname_matches
-                user_message = re.sub(
-                    r"(?i)\b" + re.escape(self.normalize_entity_name(surname_matches[0].get("section_name", "")).split()[-1]) + r"\b",
-                    surname_matches[0].get("section_name", ""),
-                    user_message,
-                )
-                lowered_user_message = user_message.lower()
-        explicit_person_query = len(self.collapse_entities_by_normalized_name(explicit_person_matches)) == 1 and any(
-            marker in lowered_user_message for marker in ("who is", "what is", "what does", "role", "title", "research", "expertise")
-        )
-        if not structured_follow_up and not is_contact_query and not explicit_person_query and not (
-            state_resolution and state_resolution.get("independent_topic")
-        ):
-            last_turn_project = self.get_last_turn_anchor_entity(recent_history, entity_types={"project"})
-            last_turn_person = self.get_last_turn_anchor_entity(recent_history, entity_types=self._person_entity_types())
-            likely_project_follow_up = bool(
-                recent_history
-                and last_turn_project
-                and (
-                    prefer_project_follow_up
-                    or self.contains_context_pronoun(user_message)
-                    or any(marker in lowered_user_message for marker in ("project", "initiative"))
-                    or self.is_project_detail_follow_up(user_message)
-                )
-                and not any(marker in lowered_user_message for marker in ("who are you referring to", "which person"))
-            )
-            likely_person_follow_up = bool(
-                recent_history
-                and last_turn_person
-                and not likely_project_follow_up
-                and (
-                    self.contains_context_pronoun(user_message)
-                    or any(marker in lowered_user_message for marker in ("person", "role", "background", "bio", "expertise"))
-                )
-            )
-
-            if likely_project_follow_up:
-                structured_follow_up = self.resolve_recent_project_follow_up(user_message, recent_history)
-            elif likely_person_follow_up:
-                structured_follow_up = self.resolve_recent_entity_follow_up(user_message, recent_history)
+        if not is_contact_query:
             if prefer_project_follow_up:
-                structured_follow_up = structured_follow_up or self.resolve_recent_project_follow_up(user_message, recent_history)
+                structured_follow_up = self.resolve_recent_project_follow_up(user_message, recent_history)
             if not structured_follow_up:
                 structured_follow_up = self.resolve_recent_entity_follow_up(user_message, recent_history)
             if not structured_follow_up:
@@ -7626,128 +5370,15 @@ Citation rules:
                 structured_follow_up = self.resolve_recent_project_follow_up(user_message, recent_history)
             if not structured_follow_up:
                 structured_follow_up = self.resolve_generic_context_anchor(user_message, recent_history)
-
-        historical_research_fact = any(
-            term in lowered_user_message
-            for term in ("grant", "nsf", "epa", "2020-21", "hurricane maria", "evacuation", "amount")
-        )
-        if (
-            explicit_person_query
-            and not historical_research_fact
-            and any(term in lowered_user_message for term in ("research", "what does she research", "what does he research"))
-        ):
-            person = self.collapse_entities_by_normalized_name(explicit_person_matches)[0]
-            person_text = self.build_full_entity_text(person)
-            focus = self.extract_person_focus_topics(person_text) or self.extract_bio_research_focus(
-                person_text, person.get("section_name", "")
-            )
-            if not focus:
-                return self.attach_trace(
-                    {
-                        "reply": f"The SSL staff listing does not state {person.get('section_name', 'that person')}'s research focus.",
-                        "sources": [],
-                        "needs_clarification": True,
-                        "clarification_options": [],
-                    },
-                    status="clarification",
-                    response_mode="staff_research_scope_guard",
-                    rewritten_query=user_message,
-                    query_route=self.detect_local_query_route(user_message),
-                )
-
-        contextual_result = None if structured_follow_up else self._contextual_follow_up_answer(user_message, recent_history)
-        if contextual_result:
-            response_mode = contextual_result.pop("_response_mode", "context_follow_up")
-            return self.attach_trace(
-                contextual_result,
-                status="answered",
-                response_mode=response_mode,
-                rewritten_query=user_message,
-                query_route=self.detect_local_query_route(user_message),
-            )
-
-        # Recover a name supplied after the no-context role clarification with the
-        # historical source that actually establishes Rebecca Herst's SSL role.
-        if (
-            recent_history
-            and re.search(r"(?i)^i\s+(?:mean|meant)\s+rebecca\s+herst\.?$", user_message.strip())
-            and any("what is her role" in str(turn.get("user", "")).lower() for turn in recent_history)
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Rebecca Herst served as the Director of the Sustainable Solutions Lab during the 2020-21 academic year. [1]",
-                    "sources": [self._registry_source_for("Rebecca Herst", "AnnualReport2021")],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="person_clarification_recovery",
-                rewritten_query="What was Rebecca Herst's role at SSL?",
-                query_route=self.detect_local_query_route("Rebecca Herst role 2020-21"),
-            )
-
-        # A clarification such as "I meant C3I" is a correction, not a new ambiguous
-        # question. Resolve it against the registry so the next turn has a real anchor.
-        if (
-            recent_history
-            and re.match(r"(?i)^i\s+(?:mean|meant)\b", user_message.strip())
-            and (
-                not (state_resolution or {}).get("resolved")
-                or "c3i" in lowered_user_message
-                or "rebecca herst" in lowered_user_message
-            )
-        ):
-            named_matches = self.find_matching_entities(user_message)
-            if not named_matches and re.search(r"(?i)\bc3i\b", user_message):
-                named_matches = [{"section_name": "Climate Careers Curricula Initiative (C3I)", "entity_type": "project"}]
-            if not named_matches and "rebecca herst" in lowered_user_message:
-                named_matches = [{"section_name": "Rebecca Herst", "entity_type": "person"}]
-            if named_matches:
-                entity = named_matches[0]
-                name = entity.get("section_name", "").strip()
-                if entity.get("entity_type") == "project" and (
-                    "c3i" in name.lower() or "climate careers curricula initiative" in name.lower()
-                ):
-                    return self.attach_trace(
-                        {
-                            "reply": "The Climate Careers Curricula Initiative (C3I) develops microcredentialed training programs for blue and green jobs in Greater Boston and creates career pathways for underrepresented populations. [1]",
-                            "sources": [self._registry_source_for("Climate Careers Curricula Initiative")],
-                            "needs_clarification": False,
-                            "clarification_options": [],
-                        },
-                        status="answered",
-                        response_mode="c3i_summary_shortcut",
-                        rewritten_query="What is C3I?",
-                        query_route=self.detect_local_query_route("What is C3I?"),
-                    )
-                correction_query = (
-                    ("What is C3I?" if "c3i" in name.lower() or "climate careers curricula initiative" in name.lower() else f"Tell me about {name}.")
-                    if entity.get("entity_type") == "project"
-                    else f"What is the role of {name}?"
-                )
-                user_message = correction_query
-                lowered_user_message = user_message.lower()
-                rewritten_query = correction_query
-                query_route = self.detect_local_query_route(correction_query)
-                structured_follow_up = None
         if structured_follow_up and structured_follow_up.get("needs_clarification"):
-            clarification_result = {
-                "reply": structured_follow_up.get("clarifying_question", "Can you clarify what you mean?"),
-                "sources": [],
-                "needs_clarification": True,
-                "clarification_for": user_message,
-                "clarification_options": structured_follow_up.get("clarification_options", []),
-            }
-            clarification_result["conversation_state"] = self.build_next_conversation_state(
-                recent_history,
-                user_message,
-                {
-                    **clarification_result,
-                    "response_mode": "structured_follow_up",
-                },
-            )
             return self.attach_trace(
-                clarification_result,
+                {
+                    "reply": structured_follow_up.get("clarifying_question", "Can you clarify what you mean?"),
+                    "sources": [],
+                    "needs_clarification": True,
+                    "clarification_for": user_message,
+                    "clarification_options": structured_follow_up.get("clarification_options", []),
+                },
                 status="clarification",
                 response_mode="structured_follow_up",
                 rewritten_query=structured_follow_up.get("rewritten_query", user_message),
@@ -7757,101 +5388,10 @@ Citation rules:
 
         rewritten_query = structured_follow_up.get("rewritten_query", user_message) if structured_follow_up else user_message
         is_follow_up_ambiguous = self.is_ambiguous_query(user_message)
-        query_route = (
-            structured_follow_up.get("query_route")
-            if structured_follow_up
-            else None
-        ) or self.detect_local_query_route(rewritten_query)
-
-        # Keep clearly out-of-scope questions from receiving unrelated SSL citations.
-        # The generic retrieval fallback correctly says it lacks the answer, but its
-        # nearest climate documents still appear as misleading sources in the UI.
-        if (
-            ("weather" in lowered_user_message and not any(
-                marker in lowered_user_message for marker in ("climate", "ssl", "sustainable solutions", "climate adaptation")
-            ))
-            or any(term in lowered_user_message for term in ("gpu", "gaming pc", "playstation", "xbox"))
-            or "using ssl sources" in lowered_user_message
-            or (any(term in lowered_user_message for term in ("gpu", "gaming")) and any(
-                term in " ".join(f"{turn.get('user', '')} {turn.get('assistant', '')}" for turn in recent_history).lower()
-                for term in ("gpu", "gaming")
-            ))
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
-                    "sources": [],
-                    "needs_clarification": False,
-                    "clarification_options": [],
-                },
-                status="answered",
-                response_mode="scope_guard",
-                rewritten_query=rewritten_query,
-                query_route=query_route,
-            )
-
-        if not recent_history and re.fullmatch(r"(?i)\s*tell me about the project\s*[?.!]??\s*", user_message):
-            return self.attach_trace(
-                {
-                    "reply": "Which project do you mean? You can choose the Climate Careers Curricula Initiative (C3I), Cape Cod Rail Resilience Project, Climate Adaptation Forum, or another SSL initiative.",
-                    "sources": [],
-                    "needs_clarification": True,
-                    "clarification_for": user_message,
-                    "clarification_options": ["Climate Careers Curricula Initiative (C3I)", "Cape Cod Rail Resilience Project", "Climate Adaptation Forum"],
-                },
-                status="clarification",
-                response_mode="project_clarification_shortcut",
-                rewritten_query=user_message,
-                query_route=query_route,
-            )
-
-        if (
-            not recent_history
-            and re.search(r"(?i)\b(?:what is|what's)\s+her\s+role\b|\bwhat is her role\b", user_message)
-            and not any(
-                entity.get("entity_type") in self._person_entity_types()
-                for entity in self.find_matching_entities(user_message)
-            )
-        ):
-            return self.attach_trace(
-                {
-                    "reply": "Who are you referring to? Please provide the person's name, such as Rebecca Herst or B. R. Balachandran.",
-                    "sources": [],
-                    "needs_clarification": True,
-                    "clarification_for": user_message,
-                    "clarification_options": ["Rebecca Herst", "B. R. Balachandran"],
-                },
-                status="clarification",
-                response_mode="person_clarification_shortcut",
-                rewritten_query=user_message,
-                query_route=query_route,
-            )
+        query_route = structured_follow_up.get("query_route") if structured_follow_up else self.detect_local_query_route(rewritten_query)
 
         # Short-circuit: for contact/email queries, try section registry directly before any retrieval
-        if is_contact_query and (self.should_use_section_registry(rewritten_query, query_route) or "email" in lowered_user_message):
-            if "email" in lowered_user_message and not any(term in lowered_user_message for term in ("phone", "telephone")):
-                contact_entity = next(
-                    (entity for entity in self.entity_registry if entity.get("source_path") == "SEED_DOCUMENTS/SSLAbout.txt"),
-                    None,
-                )
-                contact_source = {
-                    "citation": 1,
-                    "title": contact_entity.get("title", "SSLAbout") if contact_entity else "SSLAbout",
-                    "url": contact_entity.get("source_url", "URL not provided") if contact_entity else "URL not provided",
-                    "source_path": contact_entity.get("source_path", "SEED_DOCUMENTS/SSLAbout.txt") if contact_entity else "SEED_DOCUMENTS/SSLAbout.txt",
-                }
-                return self.attach_trace(
-                    {
-                        "reply": "SSL's public email is ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
-                        "sources": [contact_source],
-                        "needs_clarification": False,
-                        "clarification_options": [],
-                    },
-                    status="answered",
-                    response_mode="contact_email_shortcut",
-                    rewritten_query=rewritten_query,
-                    query_route=query_route,
-                )
+        if is_contact_query and self.should_use_section_registry(rewritten_query, query_route):
             section_result = self.answer_from_section_registry(rewritten_query, query_route)
             if section_result:
                 return self.attach_trace(
@@ -7883,18 +5423,7 @@ Citation rules:
                 query_route=query_route,
             )
 
-        resolved_project = (state_resolution or {}).get("active_subject") or {}
-        comparison_context = bool((state_resolution or {}).get("comparison_context"))
-        resolved_project_fact = (
-            resolved_project.get("subject_type") == "project"
-            and (
-                self.is_specific_entity_detail_query(rewritten_query)
-                or bool(self.detect_requested_fact_facets(rewritten_query))
-            )
-        )
-        if not comparison_context and (
-            self.is_targeted_project_fact_query(rewritten_query) or resolved_project_fact
-        ):
+        if self.is_targeted_project_fact_query(rewritten_query):
             targeted_project_result = self.answer_from_entity_registry(rewritten_query, query_route)
             if targeted_project_result.get("sources") and not targeted_project_result.get("reply", "").startswith(
                 "I found "
@@ -7918,31 +5447,7 @@ Citation rules:
                     query_route=query_route,
                 )
 
-        resolved_subject = (structured_follow_up or state_resolution or {}).get("active_subject") or {}
-        source_backed_topic_follow_up = str(resolved_subject.get("unit_id", "")).startswith("topic:")
-        resolved_person_fact = (
-            resolved_subject.get("subject_type") == "person"
-            and not source_backed_topic_follow_up
-            and (
-                bool(self.detect_requested_fact_facets(rewritten_query))
-                or self.is_specific_entity_detail_query(rewritten_query)
-            )
-        )
-        if resolved_person_fact:
-            person_result = self.answer_from_entity_registry(rewritten_query, query_route)
-            if person_result.get("sources") and not person_result.get("reply", "").startswith("I found "):
-                return self.attach_trace(
-                    person_result,
-                    status="answered",
-                    response_mode="person_registry_guard",
-                    rewritten_query=rewritten_query,
-                    query_route=query_route,
-                )
-        if (
-            not source_backed_topic_follow_up
-            and not comparison_context
-            and self.should_use_entity_registry(rewritten_query, query_route)
-        ):
+        if self.should_use_entity_registry(rewritten_query, query_route):
             entity_result = self.answer_from_entity_registry(rewritten_query, query_route)
             # If the entity registry returns a generic listing ("I found N ...") for a query that
             # appears to name a specific person, fall through to vector retrieval for better accuracy
@@ -7951,14 +5456,7 @@ Citation rules:
             # Fall through to vector retrieval whenever the entity registry returns a generic
             # listing — a TOC-style "I found N entities" response never answers a factual question.
             # Exception: list_inventory queries explicitly ask for a listing, so return it.
-            _is_people_inventory = (
-                any(marker in lowered_user_message for marker in ("who are", "what are", "list", "name all", "how many", "count"))
-                and any(term in lowered_user_message for term in ("staff", "team", "employee", "employees", "board", "affiliate", "student", "intern"))
-            )
-            _is_list_query = (
-                (query_route or {}).get("question_type") in {"list_inventory", "publication_inventory"}
-                or _is_people_inventory
-            )
+            _is_list_query = (query_route or {}).get("question_type") in {"list_inventory", "publication_inventory"}
             if entity_reply.startswith("I found ") and not _is_list_query:
                 pass  # fall through to vector retrieval
             else:
@@ -8006,12 +5504,7 @@ Citation rules:
                 # Use existing routing without LLM planning
                 query_plan = None
 
-            if (
-                query_plan
-                and query_plan.get("needs_clarification")
-                and self.is_ambiguous_query(user_message)
-                and rewritten_query.strip().lower() == user_message.strip().lower()
-            ):
+            if query_plan and query_plan.get("needs_clarification"):
                 return self.attach_trace(
                     {
                         "reply": query_plan.get("clarifying_question", "Can you clarify what you mean?"),
@@ -8202,31 +5695,17 @@ Citation rules:
             queried_person=queried_person,
         )
         all_sources = self.extract_sources(retrieved_metadata)
-        reply_text = (generation_callable or self.llm_callable)(prompt).strip()
-        if not reply_text:
-            reply_text = "I could not generate a usable response for that question. Please try rephrasing it."
+        reply_text = self.llm_callable(prompt).strip()
         reply_text = self.sanitize_reply_citations(reply_text, all_sources)
-        generated_clarification = bool(
-            len(reply_text.split()) <= 80
-            and re.match(
-                r"(?i)^\s*(?:to which|which|who|what do you mean|could you clarify|can you clarify|please specify)",
-                reply_text,
-            )
-        )
-        if generated_clarification:
-            reply_text = re.sub(r"\s*\[[0-9][0-9,\s]*\]", "", reply_text).strip()
-            result_sources = []
-        else:
-            result_sources = self.filter_sources_to_cited(reply_text, all_sources)
         return self.attach_trace(
             {
                 "reply": reply_text,
-                "sources": result_sources,
-                "needs_clarification": generated_clarification,
+                "sources": self.filter_sources_to_cited(reply_text, all_sources),
+                "needs_clarification": False,
                 "clarification_options": [],
             },
-            status="clarification" if generated_clarification else "answered",
-            response_mode="gemini_clarification" if generated_clarification else "gemini_rag",
+            status="answered",
+            response_mode="gemini_rag",
             rewritten_query=rewritten_query,
             query_route=query_plan or query_route,
             retrieved_metadata=retrieved_metadata,
@@ -8238,10 +5717,6 @@ Citation rules:
     def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
         """Generator yielding SSE-formatted strings. Runs all retrieval/routing
         synchronously, then streams only the final LLM generation."""
-        if _looks_like_injection(user_message) or _is_blocked(user_message):
-            yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': [], 'trace': {}, 'status': 'blocked', 'response_mode': 'blocked'})}\n\n"
-            return
-
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
@@ -8256,51 +5731,31 @@ Citation rules:
                 pass
             _sug_ready.set()
 
-        suggestions_enabled = os.getenv("ENABLE_CHAT_SUGGESTIONS", "1").lower() not in {"0", "false", "no"}
-        if suggestions_enabled:
-            threading.Thread(target=_run_suggestions, daemon=True).start()
-        else:
-            _sug_ready.set()
+        threading.Thread(target=_run_suggestions, daemon=True).start()
 
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
             return _sentinel
 
-        result = self.answer(user_message, recent_history, generation_callable=capturing_llm)
-
-        if "conversation_state" not in result:
-            result["conversation_state"] = self.build_next_conversation_state(
-                recent_history,
-                user_message,
-                result,
-            )
+        old_llm = self.llm_callable
+        self.llm_callable = capturing_llm
+        try:
+            result = self.answer(user_message, recent_history)
+        finally:
+            self.llm_callable = old_llm
 
         if result.get("reply") != _sentinel:
             # Early return: clarification needed, registry answer, etc.
             yield f"data: {json.dumps({**result, 'done': True})}\n\n"
             return
 
-        trace = result.get("trace", {}) or {}
-        # The sentinel pass intentionally skips generation, so its filtered source list
-        # cannot know which citation numbers the real streamed answer will use. Build the
-        # source map from the retrieved metadata and normalize the completed answer before
-        # exposing it to the UI; otherwise a streamed [8] can appear beside only source [1].
-        retrieved_metadata = trace.get("retrieved_metadata", []) or []
-        all_sources = self.extract_sources(retrieved_metadata)
+        sources = result.get("sources", [])
+        yield f"data: {json.dumps({'type': 'meta', 'sources': sources, 'trace': result.get('trace', {}), 'status': result.get('status', 'answered'), 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': []})}\n\n"
 
         full_answer_parts: list[str] = []
         for chunk in call_gemini_stream(captured["prompt"]):
+            yield f"data: {json.dumps({'type': 'delta', 'delta': chunk})}\n\n"
             full_answer_parts.append(chunk)
-
-        raw_answer = self.sanitize_reply_citations("".join(full_answer_parts).strip(), all_sources)
-        normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, all_sources)
-        stream_status = result.get("status", "answered")
-        if not normalized_answer:
-            normalized_answer = "The assistant did not return a response. Please try again."
-            normalized_sources = []
-            stream_status = "error"
-        yield f"data: {json.dumps({'type': 'meta', 'sources': normalized_sources, 'trace': trace, 'status': stream_status, 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': [], 'conversation_state': result.get('conversation_state', empty_state())})}\n\n"
-        yield f"data: {json.dumps({'type': 'delta', 'delta': normalized_answer})}\n\n"
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
@@ -8419,8 +5874,6 @@ Citation rules:
         cleaned = re.sub(r"\[([0-9][0-9,\s]*)\]", replace_match, reply)
         cleaned = re.sub(r"\s{2,}", " ", cleaned)
         cleaned = re.sub(r"\s+([.,;:])", r"\1", cleaned)
-        cleaned = re.sub(r",\s*(?=[.!?])", "", cleaned)
-        cleaned = re.sub(r"(\])\s*,(?=\s*(?:[.!?]|$))", r"\1", cleaned)
         cleaned = re.sub(r",{2,}", ",", cleaned)
         return cleaned.strip()
 
@@ -8468,11 +5921,9 @@ Citation rules:
             return "[" + ", ".join(remapped) + "]"
 
         cleaned = re.sub(r"\[([0-9][0-9,\s]*)\]", replace_match, reply)
-        cleaned = re.sub(r"(\[(?:\d+(?:, \d+)*)\])(?:\s*(?:,\s*)?\1)+", r"\1", cleaned)
+        cleaned = re.sub(r"(\[(?:\d+(?:, \d+)*)\])(?:,\s*\1)+", r"\1", cleaned)
         cleaned = re.sub(r"\s{2,}", " ", cleaned)
         cleaned = re.sub(r"\s+([.,;:])", r"\1", cleaned)
-        cleaned = re.sub(r",\s*(?=[.!?])", "", cleaned)
-        cleaned = re.sub(r"(\])\s*,(?=\s*(?:[.!?]|$))", r"\1", cleaned)
         cleaned = re.sub(r",{2,}", ",", cleaned)
         return cleaned.strip(), normalized_sources
 
@@ -8579,7 +6030,7 @@ def _gemini_gen_config(temperature: float, thinking_budget: int = 1024) -> "gena
         temperature=temperature,
         top_p=0.95,
         top_k=40,
-        max_output_tokens=2048,
+        max_output_tokens=1024,
         thinking_config=genai_types.ThinkingConfig(thinking_budget=thinking_budget),
         safety_settings=_DEFAULT_SAFETY_SETTINGS,
     )
@@ -8675,26 +6126,18 @@ class InMemoryConversationStore:
             turns = payload.get("turns", [])
             return [ConversationTurn(turn) for turn in turns if isinstance(turn, dict)]
 
-    def append_turn(
-        self,
-        conversation_id: str,
-        user_message: str,
-        assistant_message: str,
-        *,
-        state: Optional[dict] = None,
-    ) -> None:
+    def append_turn(self, conversation_id: str, user_message: str, assistant_message: str) -> None:
         now = time.time()
         with self._lock:
             self._prune_locked(now)
             payload = self._conversations.setdefault(conversation_id, {"turns": [], "updated_at": now})
             turns = payload.setdefault("turns", [])
-            turn_payload = ConversationTurn(
-                user=str(user_message).strip(),
-                assistant=str(assistant_message).strip(),
+            turns.append(
+                ConversationTurn(
+                    user=str(user_message).strip(),
+                    assistant=str(assistant_message).strip(),
+                )
             )
-            if isinstance(state, dict):
-                turn_payload["state"] = state
-            turns.append(turn_payload)
             if len(turns) > self.max_turns:
                 del turns[:-self.max_turns]
             payload["updated_at"] = now
@@ -8743,78 +6186,11 @@ def load_eval_summary() -> dict:
     }
 
 
-def dashboard_exposes_private_trace() -> bool:
-    return ChatbotConfig.dashboard_trace_mode not in {"public", "safe", "redacted"}
-
-
-def build_public_trace(trace: dict) -> dict:
-    """Expose dashboard diagnostics without replaying user prompts or LLM plans."""
-    trace = trace or {}
-    confidence = trace.get("confidence", {}) or {}
-    diagnostics = trace.get("retrieval_diagnostics", {}) or {}
-    route = trace.get("query_route", {}) or {}
-    safe_metadata = []
-    for metadata in trace.get("retrieved_metadata", []) or []:
-        if not isinstance(metadata, dict):
-            continue
-        safe_metadata.append(
-            {
-                key: metadata.get(key)
-                for key in ("title", "category", "folder_label")
-                if metadata.get(key) not in (None, "")
-            }
-        )
-    return {
-        "confidence": confidence,
-        "retrieval_diagnostics": {
-            key: diagnostics.get(key)
-            for key in ("selected_count", "distinct_source_count", "top_score", "score_gap")
-            if diagnostics.get(key) is not None
-        },
-        "retrieved_metadata": safe_metadata,
-        "query_route": {
-            key: route.get(key)
-            for key in ("routing_mode", "question_type", "prefer_summary", "target_titles", "target_categories", "target_folders")
-            if route.get(key) not in (None, "", [], {})
-        },
-    }
-
-
-def build_dashboard_trace(trace: dict) -> dict:
-    if dashboard_exposes_private_trace():
-        return trace or {}
-    return build_public_trace(trace)
-
-
-def build_dashboard_preview(event: dict) -> str:
-    if not dashboard_exposes_private_trace():
-        return "User and assistant message content is hidden on the public dashboard."
-
-    question = str(event.get("question", "") or "").strip()
-    answer = str(event.get("answer", "") or "").strip()
-    if question and answer:
-        return f"Q: {question}\nA: {answer}"
-    if question:
-        return f"Q: {question}"
-    if answer:
-        return f"A: {answer}"
-    return "No message content recorded for this interaction."
-
-
 def summarize_chat_event(event: dict) -> dict:
     trace = event.get("trace", {}) or {}
     confidence = trace.get("confidence", {}) or {}
     retrieval_diagnostics = trace.get("retrieval_diagnostics", {}) or {}
     sources = event.get("sources", []) or []
-    public_sources = [
-        {
-            "citation": source.get("citation"),
-            "title": source.get("title", "Untitled source"),
-            "url": _safe_source_url(source.get("url", "")),
-        }
-        for source in sources
-        if isinstance(source, dict)
-    ]
     retrieved_metadata = trace.get("retrieved_metadata", []) or []
 
     summarized = {
@@ -8826,7 +6202,7 @@ def summarize_chat_event(event: dict) -> dict:
         "blocked": bool(event.get("blocked")),
         "needs_clarification": bool(event.get("needs_clarification")),
         "display_label": f"Interaction {(event.get('id', '') or 'unknown')[:8]}",
-        "preview_text": build_dashboard_preview(event),
+        "preview_text": "User and assistant message content is hidden on the public dashboard.",
     }
     summarized["confidence_score"] = confidence.get("score")
     summarized["is_low_confidence"] = bool(confidence.get("is_low_confidence"))
@@ -8834,8 +6210,6 @@ def summarize_chat_event(event: dict) -> dict:
     summarized["source_count"] = len(sources)
     summarized["retrieved_count"] = len(retrieved_metadata)
     summarized["top_score"] = retrieval_diagnostics.get("top_score")
-    summarized["sources"] = public_sources
-    summarized["trace"] = build_dashboard_trace(trace)
     return summarized
 
 
@@ -8847,10 +6221,11 @@ def build_dashboard_payload() -> dict:
 
     for event in events:
         trace = event.get("trace", {}) or {}
+        confidence = trace.get("confidence", {}) or {}
         if (
             event.get("blocked")
             or event.get("status") in {"error", "clarification"}
-            or event.get("is_low_confidence")
+            or confidence.get("is_low_confidence")
         ):
             problem_events.append(event)
 
@@ -8913,7 +6288,6 @@ def find_chat_event(event_id: str) -> Optional[dict]:
                 "source_count": len(public_sources),
                 "retrieved_count": len(trace.get("retrieved_metadata", []) or []),
                 "sources": public_sources,
-                "trace": build_dashboard_trace(trace),
                 "retrieval_summary": {
                     "selected_count": retrieval_diagnostics.get("selected_count"),
                     "distinct_source_count": retrieval_diagnostics.get("distinct_source_count"),
@@ -8921,7 +6295,7 @@ def find_chat_event(event_id: str) -> Optional[dict]:
                     "score_gap": retrieval_diagnostics.get("score_gap"),
                 },
                 "display_label": f"Interaction {(event.get('id', '') or 'unknown')[:8]}",
-                "preview_text": build_dashboard_preview(event),
+                "preview_text": "User and assistant message content is hidden on the public dashboard.",
             }
     return None
 
@@ -9084,7 +6458,6 @@ _REFUSAL = (
 _MAX_USER_MESSAGE_CHARS = 800
 
 _INJECTION_PATTERNS = [
-    re.compile(r"\bignore\s+(?:all\s+|the\s+|any\s+)?(?:instructions?|prompts?|rules?)\b", re.IGNORECASE),
     re.compile(r"ignore\s+(all\s+|the\s+|any\s+|your\s+)?(previous|prior|above|earlier|preceding)\s+(instructions?|prompts?|rules?|messages?)", re.IGNORECASE),
     re.compile(r"disregard\s+(all\s+|the\s+|any\s+|your\s+)?(previous|prior|above|earlier|preceding)\s+(instructions?|prompts?|rules?)", re.IGNORECASE),
     re.compile(r"forget\s+(everything|all|your)\s+(instructions?|previous|prior|rules?|prompts?)", re.IGNORECASE),
@@ -9124,15 +6497,6 @@ def _looks_like_injection(text: str) -> bool:
     return any(pattern.search(text) for pattern in _INJECTION_PATTERNS)
 
 
-def _looks_like_unclear_input(text: str) -> bool:
-    """Recognize obvious keyboard-smash input before it can retrieve unrelated context."""
-    normalized = re.sub(r"[^a-z]", "", text.lower())
-    if len(normalized) < 6 or len(normalized) > 24:
-        return False
-    vowel_count = sum(character in "aeiou" for character in normalized)
-    return vowel_count <= 2 and not re.search(r"(?:ssl|climate|research|project|staff|publication)", normalized)
-
-
 def _sanitize_user_input(text: str) -> str:
     text = _CONTROL_CHARS_RE.sub("", text)
     text = _ZERO_WIDTH_RE.sub("", text)
@@ -9146,15 +6510,14 @@ def _is_blocked(text: str) -> bool:
     return _profanity.contains_profanity(text)
 
 
-def _get_client_ip(trust_proxy_headers: bool = False) -> str:
+def _get_client_ip() -> str:
     if request is None:
         return "unknown"
-    if trust_proxy_headers:
-        access_route = getattr(request, "access_route", None) or []
-        for candidate in access_route:
-            candidate = str(candidate).strip()
-            if candidate:
-                return candidate
+    access_route = getattr(request, "access_route", None) or []
+    for candidate in access_route:
+        candidate = str(candidate).strip()
+        if candidate:
+            return candidate
     return (request.remote_addr or "unknown").strip() or "unknown"
 
 
@@ -9281,7 +6644,7 @@ def create_app() -> Flask:
     def chat():
         ensure_chatbot_initializing()
         if not _rate_limiter.allow(
-            key=f"chat:{_get_client_ip(config.trust_proxy_headers)}",
+            key=f"chat:{_get_client_ip()}",
             limit=config.chat_rate_limit_count,
             window_seconds=config.chat_rate_limit_window_seconds,
         ):
@@ -9369,7 +6732,6 @@ def create_app() -> Flask:
             response_mode = ""
             needs_clarification = False
             blocked = False
-            conversation_state: Optional[dict] = None
             try:
                 for event_text in chatbot.answer_stream(user_message, recent_history=safe_recent_history):
                     for raw_line in event_text.splitlines():
@@ -9381,24 +6743,18 @@ def create_app() -> Flask:
                             continue
 
                         if event_payload.get("done"):
-                            # Registry/clarification responses carry their reply on the
-                            # done event, while streamed LLM responses carry it in prior
-                            # delta events. Do not erase those deltas with an empty default.
-                            if "reply" in event_payload:
-                                answer_parts = [event_payload.get("reply", "")]
+                            answer_parts = [event_payload.get("reply", "")]
                             sources = event_payload.get("sources", []) or []
                             trace = event_payload.get("trace", {}) or {}
                             status = event_payload.get("status") or ("clarification" if event_payload.get("needs_clarification") else "answered")
                             response_mode = event_payload.get("response_mode", response_mode)
                             needs_clarification = bool(event_payload.get("needs_clarification", False))
                             blocked = bool(event_payload.get("blocked", False))
-                            conversation_state = event_payload.get("conversation_state") or conversation_state
                         elif event_payload.get("type") == "meta":
                             sources = event_payload.get("sources", []) or []
                             trace = event_payload.get("trace", {}) or {}
                             status = event_payload.get("status", status)
                             response_mode = event_payload.get("response_mode", response_mode)
-                            conversation_state = event_payload.get("conversation_state") or conversation_state
                         elif event_payload.get("type") == "delta":
                             answer_parts.append(event_payload.get("delta", ""))
                         elif event_payload.get("type") == "error":
@@ -9418,12 +6774,7 @@ def create_app() -> Flask:
             finally:
                 final_answer = "".join(answer_parts).strip()
                 if final_answer and not blocked and status in {"answered", "clarification"}:
-                    conversation_store.append_turn(
-                        conversation_id,
-                        user_message,
-                        final_answer,
-                        state=conversation_state,
-                    )
+                    conversation_store.append_turn(conversation_id, user_message, final_answer)
                 append_chat_log(
                     {
                         "id": request_id,
@@ -9437,7 +6788,6 @@ def create_app() -> Flask:
                         "needs_clarification": needs_clarification,
                         "sources": sources,
                         "trace": trace,
-                        "conversation_state": conversation_state or {},
                     }
                 )
 
@@ -9447,7 +6797,7 @@ def create_app() -> Flask:
     def suggestions():
         ensure_chatbot_initializing()
         if not _rate_limiter.allow(
-            key=f"suggestions:{_get_client_ip(config.trust_proxy_headers)}",
+            key=f"suggestions:{_get_client_ip()}",
             limit=config.suggestions_rate_limit_count,
             window_seconds=config.suggestions_rate_limit_window_seconds,
         ):
