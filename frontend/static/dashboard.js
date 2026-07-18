@@ -1,31 +1,42 @@
+const API_BASE_STORAGE_KEY = "ssl_api_base";
+
 function resolvedApiBase() {
   const params = new URLSearchParams(window.location.search);
   const override = params.get("api_base");
-  return override || window.API_BASE || "";
+  const stored = (() => {
+    try {
+      return window.localStorage.getItem(API_BASE_STORAGE_KEY) || "";
+    } catch {
+      return "";
+    }
+  })();
+  return (override || window.API_BASE || stored || "").replace(/\/+$/, "");
 }
 
 function dashboardDetailHref(eventId) {
-  const params = new URLSearchParams(window.location.search);
   const hrefParams = new URLSearchParams();
   hrefParams.set("id", eventId || "");
-  if (params.get("api_base")) {
-    hrefParams.set("api_base", params.get("api_base"));
+  const apiBase = resolvedApiBase();
+  if (apiBase) {
+    hrefParams.set("api_base", apiBase);
   }
   return `/dashboard-detail.html?${hrefParams.toString()}`;
 }
 
 function dashboardHomeHref() {
-  const params = new URLSearchParams(window.location.search);
   const hrefParams = new URLSearchParams();
-  if (params.get("api_base")) {
-    hrefParams.set("api_base", params.get("api_base"));
+  const apiBase = resolvedApiBase();
+  if (apiBase) {
+    hrefParams.set("api_base", apiBase);
   }
   const query = hrefParams.toString();
   return query ? `/dashboard.html?${query}` : "/dashboard.html";
 }
 
 function dashboardApiUrl(path) {
-  return `${resolvedApiBase()}${path}`;
+  const base = resolvedApiBase();
+  if (!base) return path;
+  return `${base}${path}`;
 }
 
 function setText(id, value) {
