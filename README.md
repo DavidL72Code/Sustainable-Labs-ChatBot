@@ -14,6 +14,52 @@ A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable 
 
 > The YAML frontmatter above is consumed by Hugging Face Spaces (Docker SDK). GitHub treats it as metadata and ignores it in rendering.
 
+## Why We Built This Chatbot
+
+The Sustainable Solutions Lab has information spread across project pages, staff profiles, annual reports, publications, and research summaries. A normal keyword search can find documents, but it does not reliably understand follow-up questions, pronouns, multiple facts in one question, or which source is authoritative.
+
+We built this assistant to provide a conversational research interface that:
+
+- Answers questions about SSL using the lab's own corpus rather than general model knowledge.
+- Makes source-backed research, people, projects, and publications easier to explore.
+- Remembers enough recent conversation to resolve follow-ups such as “what did she study?”
+- Handles multi-part questions by separating their facets and preserving evidence for each facet.
+- Shows citations and diagnostic information so an answer can be reviewed instead of trusted blindly.
+
+The design deliberately combines deterministic software with an LLM. Deterministic routing, source metadata, validation, and citation handling provide control and repeatability; the LLM handles language understanding, query rewriting, planning, and final composition where flexible language reasoning is useful.
+
+## End-to-End Pipeline
+
+```mermaid
+flowchart TD
+    A["User question"] --> B["Safety and input checks"]
+    B --> C["Conversation state"]
+    C --> D["LLM rewrite and query plan"]
+    D --> E["Resolve subject, intent, facets, and source scope"]
+    E --> F{ "Answer route" }
+    F -->|"Structured fact"| G["Entity or document registry"]
+    F -->|"Retrieval"| H["Dense + BM25 hybrid search"]
+    G --> I["Evidence and provenance checks"]
+    H --> I
+    I --> J["Freshness, scope, neighbor, and facet filtering"]
+    J --> K["Grounded Gemini answer"]
+    K --> L["Citation and answer-contract validation"]
+    L -->|"Valid"| M["Stream answer to frontend"]
+    L -->|"Invalid"| N["One corrective regeneration"]
+    N --> L
+```
+
+### Why the Pipeline Has These Stages
+
+1. **Conversation state comes first.** The state machine records the active subject, source scope, candidate subjects, and recent turns. This allows a follow-up to refer to a person, project, book, event, or organization even when that subject is not in the entity registry.
+2. **The rewrite is not the answer.** The LLM turns a contextual message into a standalone retrieval query and identifies the subject, intent, facets, and possible route. The original user question remains available for answer wording.
+3. **The plan controls retrieval.** The router chooses registry lookup, document lookup, or corpus retrieval. A registry miss is not treated as a final answer; the system falls back to retrieval when the corpus may still contain the fact.
+4. **Hybrid retrieval covers different failure modes.** Dense search handles paraphrases and concepts; BM25 handles exact names, titles, acronyms, and phrases. Metadata reranking then favors the correct source and section.
+5. **Evidence is scoped before generation.** The system keeps facet buckets separate, expands neighbors only within the same document unit, filters unrelated people or projects, and favors newer sources for current questions while preserving historical sources for dated questions.
+6. **The answer is validated after generation.** Citations are restricted to returned evidence. The answer contract checks requested counts, retrieval-only locator details, and other explicit constraints. If the draft violates the contract, one corrective generation is attempted instead of silently returning it.
+
+This architecture prevents the common RAG failure where retrieval found the right text but the final model mixed evidence, answered an unasked clause, omitted a facet, or ignored a constraint.
+
 ---
 
 ## 1. What We Built & How It Works
@@ -132,6 +178,29 @@ Use these folders to trace how the benchmark evolved over time:
 - `answered_question`: `yes` means the answer directly addressed the question that was asked.
 - `right_citations`: `yes` means the cited or returned sources match the relevant corpus sources.
 
+### How to Run and Interpret an Evaluation
+
+The evaluation process is designed to find failures before a full benchmark hides them in an aggregate score:
+
+1. **Run the targeted failure set first.** After a change, run the questions that previously failed plus nearby regression questions. Inspect the actual answer, sources, rewritten query, route, and retrieval trace—not just the judge score.
+2. **Run focused category subsets.** Use subsets for multi-turn context, multi-facet answers, citations, registry fallback, freshness, and routing. This shows whether a fix solved a class of failures or only one example.
+3. **Run the full 208-question set.** The canonical questions live in `question_eval_set/2026-07-11/questions_final_208.json`. The runner sends each question or conversation to the chatbot, then uses a separate judge pass to score the answer against the supplied corpus references.
+4. **Resume instead of repeating completed work.** If an API quota or transient provider error interrupts a run, save the completed artifact, compute the remaining IDs, and run only those IDs after the quota resets or a key is rotated. Merge segments only after checking for duplicate IDs.
+5. **Group failures by root cause.** Separate unanswered questions, hallucinations, wrong citations, incomplete facets, subject-resolution errors, stale-source errors, and contract violations. Fix the shared pipeline stage, then rerun the failed subset and its regression neighbors.
+6. **Require a clean final benchmark.** A passing result requires every question to be answered, no hallucinations, and correct citations. A high average score is not enough if even one question is incomplete or unsupported.
+
+Example targeted run:
+
+```bash
+EVAL_QUESTIONS_FILE=question_eval_set/2026-07-11/questions_final_208.json \
+EVAL_OUTPUT_FILE=Eval_ordered/2026-07-27/main/question_eval_targeted.json \
+EVAL_CASE_IDS=fs_123,fs_139 \
+EVAL_OVERWRITE=true \
+python3 run_questions_eval.py
+```
+
+Each result records the question, answer, sources, rewritten query, route, retrieval diagnostics, confidence, scores, and classification flags. This makes an evaluation an explainable debugging artifact rather than only a pass/fail number.
+
 ### Final Phase Summary
 
 The final phase focused on making answers come from the right source more consistently. We expanded people-lookup retrieval, cleaned up mixed or truncated bio text, strengthened reranking for exact entity matches, and added hard routing for ambiguous questions like grants, projects, and SSL self-description queries. After the last key rotation, we reran the full 208-question benchmark and then organized both the question sets and eval outputs by date so the progression is easier to review.
@@ -188,6 +257,7 @@ Steps:
 - `TRUST_PROXY_HEADERS` — set to `1` only when the deployment has a trusted reverse proxy that supplies client IP headers; otherwise rate limiting uses the direct peer address.
 - `DASHBOARD_TRACE_MODE` — defaults to `staff`, which exposes question/answer previews plus full pipeline traces for troubleshooting. Set to `public` if the dashboard API is exposed outside staff-only access and should redact prompts/planning fields.
    - Optionally `GEMINI_MODEL` to override the default model.
+   - Optionally `REWRITE_MODEL` to override the fast rewrite/classification model; the default is `gemma-4-26b-a4b-it`.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
 5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
 
