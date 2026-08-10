@@ -1,0 +1,2227 @@
+{
+  "generated_at": "2026-07-20T23:38:25.197601+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-19/questions_latest_failures.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.0,
+      "citations": 3.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 2,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fm_015",
+      "kind": "multi_turn",
+      "type": "follow_up_student_vishal_verma",
+      "question": "Who supervises his doctoral work at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "assistant": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. [1]"
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        },
+        {
+          "user": "What are his two main research projects?",
+          "assistant": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof Paul Kirshen from the School for the Environment (SFE). [1]"
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "StudentsInterns"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "conversation state active-subject route"
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "trace": {
+            "rewritten_query": "Who is Vishal Verma at SSL?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Who is Vishal Verma at SSL?"
+          }
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "trace": {
+            "rewritten_query": "Where did he complete his undergraduate and master's education? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Where did he complete his undergraduate and master's education? (subject: Vishal Verma)"
+          }
+        },
+        {
+          "user": "What are his two main research projects?",
+          "trace": {
+            "rewritten_query": "What are his two main research projects? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "What are his two main research projects? (subject: Vishal Verma)"
+          }
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "trace": {
+            "rewritten_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant failed to answer the specific question regarding the supervisor, despite the information being available in the provided source."
+    },
+    {
+      "id": "fm_031",
+      "kind": "multi_turn",
+      "type": "follow_up_art_cultural_resilience_event",
+      "question": "Who moderated the event?",
+      "conversation": [
+        {
+          "user": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+          "assistant": "The Climate Emergency Preparedness: Art x Cultural Resilience event was hosted in May to address the interconnected, expanding crises of climate change, ecological collapse, institutional racism, and economic inequality [1]. While focus is often placed on immediate crisis response and the built environment, this event explored the wisdom and beauty of different cultures, cultural organizing, and artistic expression in the development of resilient and sustainable communities [1]. The event featured the following participants:\n* **Speakers:** Erin Genia, Artist-in-Residence at the City of Boston, and Meghan Venable-Thomas, Cultural Resilience Program Director at Enterprise Community Partners.\n* **Moderator:** Kim Szeto, Public Art Program Director at the New England Foundation for the Arts."
+        },
+        {
+          "user": "Who were the speakers at that event?",
+          "assistant": "The speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event were: * **Erin Genia:** Artist-in-Residence, City of Boston [1].\n* **Meghan Venable-Thomas:** Cultural Resilience Program Director, Enterprise Community Partners [1]."
+        },
+        {
+          "user": "Who moderated the event?",
+          "assistant": "Regarding the Climate Emergency Preparedness: Art x Cultural Resilience event, the moderator was Kim Szeto, the Public Art Program Director at the New England Foundation for the Arts [1]. Regarding the All We Can Save event, Steve Curwood served as the moderator [2]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Regarding the Climate Emergency Preparedness: Art x Cultural Resilience event, the moderator was Kim Szeto, the Public Art Program Director at the New England Foundation for the Arts [1]. Regarding the All We Can Save event, Steve Curwood served as the moderator [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 350
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 3
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who moderated the event?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "global",
+          "prefer_summary": true,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [],
+          "reason": "Fallback global retrieval route."
+        },
+        "retrieved_metadata": [
+          {
+            "entity_type": "",
+            "document_type": "pdf",
+            "category": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "chunk_index": 350,
+            "folder_label": "Publications",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "section_name": "",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "section_index": -1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "section_index": -1,
+            "folder_label": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "category": "Publications",
+            "chunk_index": 348,
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "document_type": "pdf",
+            "chunk_level": "summary",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "entity_type": "",
+            "section_name": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "section_index": -1,
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "folder_label": "Publications",
+            "section_name": "",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "chunk_level": "summary",
+            "category": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "entity_type": "",
+            "chunk_index": 15,
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "document_type": "pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "section_name": "",
+            "category": "Publications",
+            "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "chunk_index": 7,
+            "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+            "source_url": "https://scholarworks.umb.edu/ssl/1/",
+            "document_type": "pdf",
+            "section_index": -1,
+            "chunk_level": "summary",
+            "entity_type": "",
+            "folder_label": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "chunk_index": 0,
+            "entity_type": "affiliate",
+            "title": "UniversityAffiliates",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+            "category": "General",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "section_name": "Paul Watanabe",
+            "document_type": "txt",
+            "section_index": 13,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+            "section_index": 25,
+            "entity_type": "section",
+            "chunk_index": 3,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "folder_label": "Annual Reports",
+            "category": "Annual Reports",
+            "document_type": "txt",
+            "chunk_index": 1,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+            "section_index": 25,
+            "entity_type": "section",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "entity_type": "",
+            "section_index": -1,
+            "document_type": "pdf",
+            "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "folder_label": "Publications",
+            "section_name": "",
+            "chunk_level": "detail",
+            "title": "johnson_wp21mj1",
+            "chunk_index": 163,
+            "category": "Publications",
+            "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+            "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?"
+          },
+          {
+            "section_name": "",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "chunk_index": 349,
+            "section_index": -1,
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "folder_label": "Publications",
+            "document_type": "pdf",
+            "entity_type": "",
+            "category": "Publications",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-350",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "section_name": "",
+            "chunk_level": "summary",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "category": "Publications",
+            "chunk_index": 351,
+            "section_index": -1,
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "document_type": "pdf",
+            "entity_type": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-350",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "",
+            "chunk_level": "summary",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "folder_label": "Publications",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "category": "Publications",
+            "entity_type": "",
+            "document_type": "pdf",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "chunk_index": 14,
+            "section_index": -1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-15",
+            "neighbor_distance": 1
+          },
+          {
+            "section_index": -1,
+            "category": "Publications",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "section_name": "",
+            "document_type": "pdf",
+            "folder_label": "Publications",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "entity_type": "",
+            "chunk_index": 16,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-15",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "folder_label": "Annual Reports",
+            "chunk_index": 2,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_index": 25,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+            "entity_type": "section",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-3",
+            "neighbor_distance": 1
+          },
+          {
+            "section_index": -1,
+            "section_name": "",
+            "folder_label": "Publications",
+            "chunk_index": 164,
+            "category": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+            "document_type": "pdf",
+            "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "chunk_level": "detail",
+            "title": "johnson_wp21mj1",
+            "entity_type": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf::detail-chunk-163",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "",
+            "chunk_index": 347,
+            "section_index": -1,
+            "document_type": "pdf",
+            "source_url": "https://scholarworks.umb.edu/ssl/2/",
+            "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+            "folder_label": "Publications",
+            "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "section_name": "",
+            "chunk_level": "summary",
+            "category": "Publications",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-348",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "",
+            "category": "Publications",
+            "source_url": "https://scholarworks.umb.edu/ssl/1/",
+            "entity_type": "",
+            "chunk_level": "summary",
+            "chunk_index": 6,
+            "document_type": "pdf",
+            "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+            "folder_label": "Publications",
+            "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "unit_id": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "section_index": -1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who moderated the event?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf::summary-chunk-7",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 5,
+          "top_score": 0.9136986301369864,
+          "second_score": 0.9135135135135135,
+          "score_gap": 0.0001851166234728696,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.6,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap",
+            "global_route_on_contextual_query",
+            "ambiguous_query"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "global",
+          "prefer_summary": true,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [],
+          "reason": "Fallback global retrieval route."
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+          "trace": {
+            "rewritten_query": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE, exact phrase match for Climate Emergency Preparedness, exact phrase match for Cultural Resilience"
+            },
+            "retrieved_metadata": [
+              {
+                "chunk_index": 1,
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 26,
+                "category": "Annual Reports",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "section_index": 26,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 2,
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "chunk_index": 0,
+                "section_index": 26,
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "entity_type": "section",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "chunk_index": 3,
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "chunk_level": "detail",
+                "section_index": 26,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "section_index": 26,
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_index": 0,
+                "title": "AnnualReport2021",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-22-partner-testimonial",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 1,
+                "section_index": 22,
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "section_name": "PARTNER TESTIMONIAL",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 1,
+                "section_index": 25,
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "section_index": 27,
+                "chunk_index": 1,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+              },
+              {
+                "category": "Annual Reports",
+                "section_name": "PARTNER TESTIMONIAL",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "section_index": 22,
+                "chunk_index": 2,
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-22-partner-testimonial",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-22-partner-testimonial::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "chunk_index": 2,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 27,
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 25,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "entity_type": "section",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-22-partner-testimonial",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "chunk_index": 0,
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "section_name": "PARTNER TESTIMONIAL",
+                "section_index": 22,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-22-partner-testimonial::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_index": 25,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 0,
+                "section_index": 27,
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "chunk_index": 3,
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "section_index": 25,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-1",
+                "neighbor_distance": 2
+              },
+              {
+                "chunk_index": 3,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+                "entity_type": "section",
+                "section_index": 27,
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas::detail-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 1,
+              "top_score": 5.2549418297197255,
+              "second_score": 5.203317307692307,
+              "score_gap": 0.051624522027418074,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE, exact phrase match for Climate Emergency Preparedness, exact phrase match for Cultural Resilience"
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+          }
+        },
+        {
+          "user": "Who were the speakers at that event?",
+          "trace": {
+            "rewritten_query": "Who were the speakers at that event?",
+            "query_route": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": true,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            },
+            "retrieved_metadata": [
+              {
+                "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+                "folder_label": "Publications",
+                "title": "johnson_wp21mj1",
+                "entity_type": "",
+                "section_name": "",
+                "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "category": "Publications",
+                "chunk_index": 60,
+                "document_type": "pdf",
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "section_index": 26,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "category": "Publications",
+                "source_url": "https://scholarworks.umb.edu/ssl/3/",
+                "chunk_index": 43,
+                "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+                "chunk_level": "summary",
+                "section_name": "",
+                "entity_type": "",
+                "section_index": -1,
+                "document_type": "pdf",
+                "unit_id": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "folder_label": "Publications",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "source_url": "https://scholarworks.umb.edu/ssl/8/",
+                "folder_label": "Publications",
+                "section_index": -1,
+                "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "category": "Publications",
+                "section_name": "",
+                "chunk_level": "summary",
+                "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+                "entity_type": "",
+                "document_type": "pdf",
+                "chunk_index": 9,
+                "unit_id": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+                "chunk_index": 74,
+                "source_url": "https://scholarworks.umb.edu/ssl/11/",
+                "section_name": "",
+                "folder_label": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+                "document_type": "pdf",
+                "category": "Publications",
+                "entity_type": "",
+                "unit_id": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+                "section_index": -1,
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "category": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "section_name": "",
+                "section_index": -1,
+                "chunk_index": 111,
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "chunk_level": "detail",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "entity_type": "",
+                "document_type": "pdf",
+                "folder_label": "Publications",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "chunk_index": 1,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "section_index": 25,
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "entity_type": "",
+                "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+                "source_url": "https://scholarworks.umb.edu/ssl/6/",
+                "category": "Publications",
+                "folder_label": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+                "section_index": -1,
+                "document_type": "pdf",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+                "chunk_index": 7,
+                "section_name": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?"
+              },
+              {
+                "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+                "section_name": "",
+                "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "entity_type": "",
+                "chunk_index": 61,
+                "category": "Publications",
+                "title": "johnson_wp21mj1",
+                "folder_label": "Publications",
+                "document_type": "pdf",
+                "section_index": -1,
+                "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf::summary-chunk-60",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "category": "Publications",
+                "section_name": "",
+                "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+                "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "chunk_index": 59,
+                "folder_label": "Publications",
+                "title": "johnson_wp21mj1",
+                "section_index": -1,
+                "document_type": "pdf",
+                "entity_type": "",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf::summary-chunk-60",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "pdf",
+                "entity_type": "",
+                "section_index": -1,
+                "section_name": "",
+                "chunk_index": 10,
+                "folder_label": "Publications",
+                "category": "Publications",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+                "source_url": "https://scholarworks.umb.edu/ssl/8/",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf::summary-chunk-9",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "",
+                "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+                "section_index": -1,
+                "unit_id": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "section_name": "",
+                "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "category": "Publications",
+                "chunk_index": 42,
+                "source_url": "https://scholarworks.umb.edu/ssl/3/",
+                "folder_label": "Publications",
+                "document_type": "pdf",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf::summary-chunk-43",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "",
+                "chunk_index": 44,
+                "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "section_index": -1,
+                "source_url": "https://scholarworks.umb.edu/ssl/3/",
+                "unit_id": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "entity_type": "",
+                "document_type": "pdf",
+                "category": "Publications",
+                "folder_label": "Publications",
+                "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf::summary-chunk-43",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "pdf",
+                "chunk_index": 8,
+                "chunk_level": "summary",
+                "category": "Publications",
+                "source_url": "https://scholarworks.umb.edu/ssl/8/",
+                "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "section_name": "",
+                "unit_id": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "section_index": -1,
+                "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+                "folder_label": "Publications",
+                "entity_type": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf::summary-chunk-9",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 25,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "entity_type": "section",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Publications",
+                "entity_type": "",
+                "section_name": "",
+                "document_type": "pdf",
+                "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+                "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+                "section_index": -1,
+                "unit_id": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+                "category": "Publications",
+                "chunk_level": "detail",
+                "chunk_index": 8,
+                "source_url": "https://scholarworks.umb.edu/ssl/6/",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who were the speakers at that event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf::detail-chunk-7",
+                "neighbor_distance": 1
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 7,
+              "top_score": 1.0147058823529411,
+              "second_score": 0.9815250215703193,
+              "score_gap": 0.033180860782621835,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.6,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap",
+                "global_route_on_contextual_query",
+                "ambiguous_query"
+              ]
+            },
+            "query_plan": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": true,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+          }
+        },
+        {
+          "user": "Who moderated the event?",
+          "trace": {
+            "rewritten_query": "Who moderated the event?",
+            "query_route": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": true,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            },
+            "retrieved_metadata": [
+              {
+                "entity_type": "",
+                "document_type": "pdf",
+                "category": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "chunk_index": 350,
+                "folder_label": "Publications",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "section_name": "",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "section_index": -1,
+                "folder_label": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "category": "Publications",
+                "chunk_index": 348,
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "document_type": "pdf",
+                "chunk_level": "summary",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "entity_type": "",
+                "section_name": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "section_index": -1,
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "folder_label": "Publications",
+                "section_name": "",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "chunk_level": "summary",
+                "category": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "entity_type": "",
+                "chunk_index": 15,
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "document_type": "pdf",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "section_name": "",
+                "category": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "chunk_index": 7,
+                "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+                "source_url": "https://scholarworks.umb.edu/ssl/1/",
+                "document_type": "pdf",
+                "section_index": -1,
+                "chunk_level": "summary",
+                "entity_type": "",
+                "folder_label": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "chunk_index": 0,
+                "entity_type": "affiliate",
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "folder_label": "",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "category": "General",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Paul Watanabe",
+                "document_type": "txt",
+                "section_index": 13,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "section_index": 25,
+                "entity_type": "section",
+                "chunk_index": 3,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "chunk_index": 1,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "section_index": 25,
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "entity_type": "",
+                "section_index": -1,
+                "document_type": "pdf",
+                "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "folder_label": "Publications",
+                "section_name": "",
+                "chunk_level": "detail",
+                "title": "johnson_wp21mj1",
+                "chunk_index": 163,
+                "category": "Publications",
+                "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+                "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?"
+              },
+              {
+                "section_name": "",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "chunk_index": 349,
+                "section_index": -1,
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "folder_label": "Publications",
+                "document_type": "pdf",
+                "entity_type": "",
+                "category": "Publications",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-350",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "section_name": "",
+                "chunk_level": "summary",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "category": "Publications",
+                "chunk_index": 351,
+                "section_index": -1,
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "document_type": "pdf",
+                "entity_type": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-350",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "",
+                "chunk_level": "summary",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "folder_label": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "category": "Publications",
+                "entity_type": "",
+                "document_type": "pdf",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "chunk_index": 14,
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-15",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": -1,
+                "category": "Publications",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "section_name": "",
+                "document_type": "pdf",
+                "folder_label": "Publications",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "entity_type": "",
+                "chunk_index": 16,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-15",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 25,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "entity_type": "section",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save::detail-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": -1,
+                "section_name": "",
+                "folder_label": "Publications",
+                "chunk_index": 164,
+                "category": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "source_url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+                "document_type": "pdf",
+                "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "chunk_level": "detail",
+                "title": "johnson_wp21mj1",
+                "entity_type": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf::detail-chunk-163",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "",
+                "chunk_index": 347,
+                "section_index": -1,
+                "document_type": "pdf",
+                "source_url": "https://scholarworks.umb.edu/ssl/2/",
+                "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+                "folder_label": "Publications",
+                "unit_id": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "section_name": "",
+                "chunk_level": "summary",
+                "category": "Publications",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf::summary-chunk-348",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "",
+                "category": "Publications",
+                "source_url": "https://scholarworks.umb.edu/ssl/1/",
+                "entity_type": "",
+                "chunk_level": "summary",
+                "chunk_index": 6,
+                "document_type": "pdf",
+                "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+                "folder_label": "Publications",
+                "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "unit_id": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who moderated the event?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf::summary-chunk-7",
+                "neighbor_distance": 1
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 5,
+              "top_score": 0.9136986301369864,
+              "second_score": 0.9135135135135135,
+              "score_gap": 0.0001851166234728696,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.6,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap",
+                "global_route_on_contextual_query",
+                "ambiguous_query"
+              ]
+            },
+            "query_plan": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": true,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "Who moderated the event?"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct based on the corpus, but the citation mapping is incorrect. Citation [1] points to an irrelevant document, while the information is actually found in the Annual Report (which is citation [2])."
+    },
+    {
+      "id": "fm_043",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_kerrie_wilkins",
+      "question": "What is her expertise as listed in the SSL university affiliates?",
+      "conversation": [
+        {
+          "user": "Which SSL university affiliates focus on gender, race, or mental health?",
+          "assistant": "Based on the retrieved documents, the following Sustainable Solutions Lab (SSL) affiliates focus on gender, race, or mental health: Kerrie Wilkins is an SSL university affiliate whose expertise includes intersectionality, women and girls of color, social justice, and mental health [1]. Lorna Rivera is an SSL faculty affiliate who serves as an associate professor of women's, gender, and sexuality studies [2]. I don't have information in the available documents regarding other SSL university affiliates focusing on these specific topics."
+        },
+        {
+          "user": "Tell me about Kerrie Wilkins's title at UMass Boston.",
+          "assistant": "Kerrie Wilkins's title is Graduate Program Director/Associate Professor. [1]"
+        },
+        {
+          "user": "What is her expertise as listed in the SSL university affiliates?",
+          "assistant": "Kerrie Wilkins's stated expertise includes Intersectionality, Women and girls of Color, Social Justice, mental health. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Kerrie Wilkins's stated expertise includes Intersectionality, Women and girls of Color, Social Justice, mental health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is her expertise as listed in the SSL university affiliates? (subject: Kerrie Wilkins)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route"
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Which SSL university affiliates focus on gender, race, or mental health?",
+          "trace": {
+            "rewritten_query": "Which SSL university affiliates focus on gender, race, or mental health?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Local first-pass multi-label route: affiliate sources"
+            },
+            "retrieved_metadata": [
+              {
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "section_index": 15,
+                "chunk_index": 0,
+                "title": "UniversityAffiliates",
+                "entity_type": "affiliate",
+                "category": "General",
+                "section_name": "Kerrie Wilkins",
+                "folder_label": "",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "document_type": "txt",
+                "section_index": 2,
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "section_name": "CLIMATE ACTION TERMINOLOGY",
+                "chunk_index": 0,
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-2-climate-action-terminology",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "chunk_index": 2,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "section_name": "FACULTY AFFILIATES",
+                "section_index": 4,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "chunk_index": 1,
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "section_index": 4,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "section_name": "FACULTY AFFILIATES",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "section_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "title": "AnnualReport2021",
+                "chunk_index": 1,
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "section_name": "RESEARCH",
+                "section_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "section_name": "Jessica Whiteley",
+                "chunk_level": "summary",
+                "folder_label": "",
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-14-jessica-whiteley",
+                "category": "General",
+                "section_index": 14,
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "title": "UniversityAffiliates",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "section_index": 16,
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-16-seed-grant-winner",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "section_name": "SEED GRANT WINNER",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?"
+              },
+              {
+                "section_name": "RESEARCH",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "chunk_index": 2,
+                "category": "Annual Reports",
+                "section_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "section_name": "RESEARCH",
+                "folder_label": "Annual Reports",
+                "section_index": 7,
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "section_index": 4,
+                "section_name": "FACULTY AFFILIATES",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "chunk_index": 3,
+                "section_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "section_name": "RESEARCH",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates focus on gender, race, or mental health?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 12,
+              "selected_count": 12,
+              "distinct_source_count": 2,
+              "top_score": 2.176551724137931,
+              "second_score": 2.1620481927710844,
+              "score_gap": 0.014503531366846456,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 4,
+              "evidence_buckets": {
+                "main": 12
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Local first-pass multi-label route: affiliate sources"
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "education",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "Which SSL university affiliates focus on gender, race, or mental health?"
+          }
+        },
+        {
+          "user": "Tell me about Kerrie Wilkins's title at UMass Boston.",
+          "trace": {
+            "rewritten_query": "Tell me about Kerrie Wilkins's title at UMass Boston.",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+              "name": "Kerrie Wilkins",
+              "subject_type": "person",
+              "title": "UniversityAffiliates",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "name": "Kerrie Wilkins",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "name": "Kerrie Wilkins",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "last_query": "Tell me about Kerrie Wilkins's title at UMass Boston."
+          }
+        },
+        {
+          "user": "What is her expertise as listed in the SSL university affiliates?",
+          "trace": {
+            "rewritten_query": "What is her expertise as listed in the SSL university affiliates? (subject: Kerrie Wilkins)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+              "name": "Kerrie Wilkins",
+              "subject_type": "person",
+              "title": "UniversityAffiliates",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "name": "Kerrie Wilkins",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "education",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "name": "Kerrie Wilkins",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "last_query": "What is her expertise as listed in the SSL university affiliates? (subject: Kerrie Wilkins)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Kerrie Wilkins from the provided source document."
+    }
+  ]
+}

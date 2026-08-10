@@ -1,0 +1,111 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_034",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_084",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_086",
+      "type": "specific_fact",
+      "question": "What is Camille Martinez's stated expertise as an SSL university affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_093",
+      "type": "specific_fact",
+      "question": "Which two SSL-affiliated professors is Katsyris Rivera Kientz working with, and on what project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_114",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_151",
+      "type": "specific_fact",
+      "question": "What are Ante Ivčević's three focus areas as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_156",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_006",
+      "type": "follow_up_annual_report_awards",
+      "turns": [
+        "What research awards and honors are mentioned in SSL's 2020-21 year in review?",
+        "Tell me specifically about the EPA grant that was awarded.",
+        "What was Paul Kirshen recognized for and by which organization?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_010",
+      "type": "follow_up_student_isa_whalen",
+      "turns": [
+        "Who is Isa Whalen?",
+        "What is her cultural background and where is she originally from?",
+        "What specific research project is she working on at SSL, and with which faculty member?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_015",
+      "type": "follow_up_student_vishal_verma",
+      "turns": [
+        "Who is Vishal Verma at SSL?",
+        "Where did he complete his undergraduate and master's education?",
+        "What are his two main research projects?",
+        "Who supervises his doctoral work at UMass Boston?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_038",
+      "type": "follow_up_student_jennifer_friedrich_detail",
+      "turns": [
+        "Who is Jennifer Friedrich and what is her background?",
+        "What is her consultancy and what does it cover?",
+        "What boards and committees has she served on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ]
+}

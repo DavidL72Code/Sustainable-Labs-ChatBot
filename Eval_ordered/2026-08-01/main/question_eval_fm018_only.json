@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-08-02T02:53:03.739845+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-01/questions_fm018_only.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 2.0,
+      "citations": 3.0
+    },
+    "classification_counts": {
+      "answered_yes": 0,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_018",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_events",
+      "question": "Who were the panelists at that event and which radio show co-sponsored it?",
+      "conversation": [
+        {
+          "user": "What special events did SSL host in the 2020-21 period according to the annual report?",
+          "assistant": "In the 2020-21 period, the Sustainable Solutions Lab (SSL) faculty hosted several special climate change events [1]. These included: - **ALL WE CAN SAVE**: In December, the SSL hosted a virtual conversation that featured renowned leaders in the climate adaptation field who contributed to the anthology *ALL WE CAN SAVE* [1]. - **Indigenous People's Day Celebration**: This included a discussion titled \"Climate Change and Indigenous Resistance: An Intergenerational and Inter-Tribal Conversation\" [1]. - **ART EVENTS**: The SSL also hosted various art events [1]."
+        },
+        {
+          "user": "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+          "assistant": "In December, the Sustainable Solutions Lab (SSL) hosted a virtual conversation that featured renowned leaders in the climate adaptation field who contributed to the anthology *ALL WE CAN SAVE: Truth, Courage, and Solutions for the Climate Crisis* [1],. **Book Themes**\nThe anthology highlights the need for transformational climate leadership that is more characteristically feminine, more faithfully feminist, and rooted in compassion, connection, creativity, and collaboration. **Event Participants**\nThe panelists for the event included the following individuals:\n- **Katharine K. Wilkinson**, co-editor, - **Colette Pichon Battle**, contributor, - **Jainey K. Bavishi**, contributor, - **Susanne C. Moser**, contributor, **Sponsorship and Moderation**\nThe event was co-sponsored by the nationally-syndicated radio show **Living on Earth**, and **Steve Curwood** served as the moderator."
+        },
+        {
+          "user": "Who were the panelists at that event and which radio show co-sponsored it?",
+          "assistant": "For the All We Can Save event, the radio show that co-sponsored it was Living on Earth. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "For the All We Can Save event, the radio show that co-sponsored it was Living on Earth. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the co-sponsoring radio show but failed to list the panelists as requested in the question."
+    }
+  ]
+}

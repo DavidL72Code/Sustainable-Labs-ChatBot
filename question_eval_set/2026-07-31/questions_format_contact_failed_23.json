@@ -1,0 +1,279 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_010",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_004",
+      "type": "follow_up_visiting_scholars",
+      "turns": [
+        "Who has served as a visiting scholar at SSL?",
+        "Tell me about Ante Iv\u010devi\u0107's background and research focus.",
+        "What time period did he spend at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_008",
+      "type": "follow_up_board_julie_ernst",
+      "turns": [
+        "Who is Julie Eaton Ernst on SSL's board?",
+        "What is her professional specialty and current employer?",
+        "What awards has she received throughout her career?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fm_009",
+      "type": "follow_up_student_hannah_brown",
+      "turns": [
+        "Who is Nyingilanyeofori Hannah Brown and what is her role at SSL?",
+        "What is her professional and academic background before SSL?",
+        "What degree program is she currently pursuing and at which university?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_010",
+      "type": "follow_up_student_isa_whalen",
+      "turns": [
+        "Who is Isa Whalen?",
+        "What is her cultural background and where is she originally from?",
+        "What specific research project is she working on at SSL, and with which faculty member?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_015",
+      "type": "follow_up_student_vishal_verma",
+      "turns": [
+        "Who is Vishal Verma at SSL?",
+        "Where did he complete his undergraduate and master's education?",
+        "What are his two main research projects?",
+        "Who supervises his doctoral work at UMass Boston?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_016",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "turns": [
+        "Who is Johnna Flahive and what is her research focus?",
+        "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+        "What institution did she join after her work with SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_017",
+      "type": "follow_up_cliir_details",
+      "turns": [
+        "What is the CLIIR Initiative?",
+        "What funding supported its launch?",
+        "What are the three themes it focuses on and why were those themes chosen according to the source?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fm_020",
+      "type": "follow_up_student_levente_mezo",
+      "turns": [
+        "Who is Levente Mezo and what does he study at UMass Boston?",
+        "What program is he helping to build at SSL?",
+        "Who is he collaborating with on this initiative?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_022",
+      "type": "follow_up_board_isabella_gambill",
+      "turns": [
+        "Who is Isabella Gambill on SSL's board?",
+        "What is her current role at A Better City?",
+        "What is her educational background?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fm_024",
+      "type": "follow_up_visiting_scholar_cassandre",
+      "turns": [
+        "Who was Cassandre Rey-Thibault at SSL?",
+        "What is her academic background and research focus?",
+        "What did she work on specifically during her time at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_027",
+      "type": "follow_up_maria_ivanova",
+      "turns": [
+        "What honors or appointments did SSL-affiliated faculty receive in the 2020-21 annual report?",
+        "Tell me about Maria Ivanova's appointment.",
+        "What is notable about the WCRP's membership call that led to her selection?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_030",
+      "type": "follow_up_portable_memories_event",
+      "turns": [
+        "What special arts-related events did SSL host in the 2020-21 period?",
+        "Tell me about the Portable Memories in Rising Seas event.",
+        "What organization co-hosted that event with SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_031",
+      "type": "follow_up_art_cultural_resilience_event",
+      "turns": [
+        "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+        "Who were the speakers at that event?",
+        "Who moderated the event?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_035",
+      "type": "follow_up_affiliate_katsyris",
+      "turns": [
+        "Who are some SSL students working on climate and social justice research?",
+        "Tell me about Katsyris Rivera Kientz's background.",
+        "Which professors is she working with and on what research topic?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_036",
+      "type": "follow_up_student_chidimma",
+      "turns": [
+        "Who is Chidimma Ozor at SSL?",
+        "What are her professional credentials and background?",
+        "What is her doctoral program and year of study?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_038",
+      "type": "follow_up_student_jennifer_friedrich_detail",
+      "turns": [
+        "Who is Jennifer Friedrich and what is her background?",
+        "What is her consultancy and what does it cover?",
+        "What boards and committees has she served on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_039",
+      "type": "follow_up_visiting_scholar_ante",
+      "turns": [
+        "Tell me about Ante Iv\u010devi\u0107's academic background.",
+        "What was his master's degree in and what did he do after that?",
+        "What is his PhD institution and what fellowship did he hold?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_040",
+      "type": "follow_up_cassandre_detail",
+      "turns": [
+        "Who is Cassandre Rey-Thibault?",
+        "What is her PhD specialty and what fund supports her postdoctoral research?",
+        "What work did she specifically conduct during her time at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_041",
+      "type": "follow_up_patricio_belloy_focus",
+      "turns": [
+        "Who is Patricio Belloy and what does he currently do?",
+        "What is his stated research focus on the SSL website?",
+        "What three universities did he attend for his degrees?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_042",
+      "type": "follow_up_affiliate_paul_watanabe",
+      "turns": [
+        "Which SSL university affiliates work in political science or policy?",
+        "Tell me about Paul Watanabe's role.",
+        "What is his area of expertise?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fm_043",
+      "type": "follow_up_affiliate_kerrie_wilkins",
+      "turns": [
+        "Which SSL university affiliates focus on gender, race, or mental health?",
+        "Tell me about Kerrie Wilkins's title at UMass Boston.",
+        "What is her expertise as listed in the SSL university affiliates?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fm_044",
+      "type": "follow_up_c3i_details_extended",
+      "turns": [
+        "What is the Climate Careers Curricula Initiative?",
+        "What populations does it specifically aim to serve?",
+        "What are the three key program elements of the initiative?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ]
+}

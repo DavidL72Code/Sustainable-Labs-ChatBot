@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {"id":"fs_041","type":"people_lookup","question":"Who supervises Vishal Verma's doctoral research?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_062","type":"people_lookup","question":"What is Isabella Gambill's undergraduate institution and her field of study there?","target_sources":["SEED_DOCUMENTS/BoardOfDirectors.txt"]},
+    {"id":"fs_103","type":"specific_fact","question":"What is Cassandre Rey-Thibault's PhD specialty?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_113","type":"specific_fact","question":"By what margin do respondents in the Views that Matter report believe climate change can be stopped rather than that it is too late?","target_sources":["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]}
+  ],
+  "multi_turn": [
+    {"id":"fm_001","type":"follow_up_rail_project","turns":["What is the Cape Cod Rail Resilience Project?","What specifically caused it to be launched?","What technologies does it use and how many pilot study sites does it have?"],"target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fm_002","type":"follow_up_c3i_details","turns":["Tell me about the Climate Careers Curricula Initiative.","What foundation funds it and what are the key goals for participants?","How many programs and participants does it plan to reach, and over what timeframe?"],"target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fm_015","type":"follow_up_student_vishal_verma","turns":["Who is Vishal Verma at SSL?","Where did he complete his undergraduate and master's education?","What are his two main research projects?","Who supervises his doctoral work at UMass Boston?"],"target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]}
+  ]
+}

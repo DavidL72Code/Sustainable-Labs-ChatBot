@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-08-09T02:50:04.801387+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 4.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy holds a PhD and an MSc in Public Policy from UMass Boston [1, 2]. Patricio Belloy earned an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 346,
+          "evidence_id": "evidence_13",
+          "evidence_bucket": "main",
+          "evidence_query": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in? education location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus. Source 1 is the correct source; Source 2 is less relevant to the specific education details but does not contain incorrect information."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "single_turn": [
+    {"id":"fs_059","type":"people_lookup","question":"Where did Kalila Barnett serve as Executive Director before joining the Barr Foundation, and for how many years?","target_sources":["SEED_DOCUMENTS/BoardOfDirectors.txt"]},
+    {"id":"fs_063","type":"people_lookup","question":"What is Georgia Mavrommati's area of expertise at UMass Boston?","target_sources":["SEED_DOCUMENTS/UniversityAffiliates.txt"]},
+    {"id":"fs_075","type":"specific_fact","question":"How many schools and institutes does SSL partner with across UMass Boston according to the 2020-21 annual report?","target_sources":["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]},
+    {"id":"fs_091","type":"specific_fact","question":"Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_108","type":"specific_fact","question":"How many faculty participated in SSL's Climate Justice Deep Dive program?","target_sources":["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]},
+    {"id":"fs_120","type":"specific_fact","question":"How many people are on the World Climate Research Programme Joint Scientific Committee that Maria Ivanova joined?","target_sources":["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]},
+    {"id":"fs_149","type":"specific_fact","question":"What is Patricio Belloy's research focus as listed on the SSL website?","target_sources":["SEED_DOCUMENTS/Staff.txt"]}
+  ],
+  "multi_turn": [
+    {"id":"fm_019","type":"follow_up_annual_report_core_team","turns":["Who made up SSL's core team in the 2020-21 year in review?","Which team member focuses on conflict resolution and global governance?","What is that person's full title and department at UMass Boston?"],"target_sources":["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]},
+    {"id":"fm_035","type":"follow_up_affiliate_katsyris","turns":["Who are some SSL students working on climate and social justice research?","Tell me about Katsyris Rivera Kientz's background.","Which professors is she working with and on what research topic?"],"target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]}
+  ]
+}

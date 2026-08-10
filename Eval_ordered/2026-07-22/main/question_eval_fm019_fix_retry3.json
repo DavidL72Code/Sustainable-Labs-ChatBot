@@ -1,0 +1,777 @@
+{
+  "generated_at": "2026-07-22T16:24:14.206406+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "The Sustainable Solutions Lab core team in the 2020-21 year consisted of the following members [1]: * **Ellen Douglas**, Professor of Hydrology, School for the Environment [1]\n* **David Levy**, Professor of Management, College of Management [1]\n* **Rosalyn Negron**, Associate Professor of Anthropology, College of Liberal Arts [1]\n* **J. Cedric Woods**, Director of the Institute for New England Native American Studies and Director of the Critical Ethnic and Community Studies Program, College of Liberal Arts [1]\n* **Jessica Whiteley**, Associate Professor and Associate Dean of Research, College of Nursing and Health Management [1]\n* **Stacy D. VanDeveer**, Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School [1]"
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "The following team members focus on conflict resolution and global governance: * **Stacy D. VanDeveer** is a Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School [1]. * **Maria H. Ivanova** is an Associate Professor of Global Governance and Graduate Program Director in the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is that person's full title and department at UMass Boston? (subject: Stacy D. VanDeveer and Rosalyn Negron and Jessica Whiteley and Cedric Woods)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "answer_requirements": [
+            "employment",
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "trace": {
+            "rewritten_query": "Who made up SSL's core team in the 2020-21 year in review?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, publication and report sources, explicit annual report hard-scoped to the matched report, mission and about section sources",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 3,
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "FACULTY HONORS",
+                "section_index": 29,
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "section_index": 20,
+                "entity_type": "section",
+                "section_name": "SHAPING THE CONVERSATION",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-20-shaping-the-conversation",
+                "chunk_index": 0,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "category": "Annual Reports",
+                "section_index": 2,
+                "chunk_level": "summary",
+                "section_name": "CLIMATE ACTION TERMINOLOGY",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_index": 0,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-2-climate-action-terminology",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-5-farewell",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "section_name": "FAREWELL",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "chunk_index": 0,
+                "section_index": 5,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "chunk_level": "summary",
+                "chunk_index": 0,
+                "section_name": "DIRECTOR'S MESSAGE",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-0-directors-message",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "section_index": 0,
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "chunk_index": 0,
+                "section_index": 25,
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "category": "Annual Reports",
+                "section_index": 7,
+                "section_name": "RESEARCH",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "chunk_index": 1,
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "section_index": 7,
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "chunk_index": 2,
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 0,
+                "section_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "section_name": "RESEARCH",
+                "section_index": 7,
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_index": 3,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 11,
+              "selected_count": 11,
+              "distinct_source_count": 1,
+              "top_score": 5.003636363636365,
+              "second_score": 4.463815789473684,
+              "score_gap": 0.5398205741626807,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 3,
+              "evidence_buckets": {
+                "main": 11
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, publication and report sources, explicit annual report hard-scoped to the matched report, mission and about section sources",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": null,
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "trace": {
+            "rewritten_query": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 3,
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "section_index": 4,
+                "chunk_level": "summary",
+                "chunk_index": 1,
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "entity_type": "section",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "section_name": "FACULTY AFFILIATES",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "chunk_index": 2,
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "section_index": 9,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_index": 3,
+                "section_name": "STUDENT TESTIMONIAL",
+                "section_index": 19,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "section_index": 9,
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "chunk_index": 3,
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards",
+                "section_name": "RESEARCH AWARDS",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 2,
+                "entity_type": "section",
+                "section_index": 28,
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "STUDENT TESTIMONIAL",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "document_type": "txt",
+                "section_index": 19,
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "chunk_index": 2,
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "title": "AnnualReport2021",
+                "chunk_index": 0,
+                "section_name": "SPECIAL THANKS TO OUR PARTNERS",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "section_index": 31,
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-31-special-thanks-to-our-partners",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "section_index": 9,
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "title": "AnnualReport2021",
+                "section_index": 19,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "chunk_index": 4,
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_name": "STUDENT TESTIMONIAL",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "chunk_index": 1,
+                "section_name": "RESEARCH AWARDS",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "section_index": 28,
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 2,
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 4,
+                "section_name": "FACULTY AFFILIATES",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "FACULTY AFFILIATES",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_index": 4,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "folder_label": "Annual Reports",
+                "section_name": "STUDENT TESTIMONIAL",
+                "chunk_level": "summary",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "document_type": "txt",
+                "chunk_index": 1,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 19,
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 2
+              },
+              {
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "section_index": 9,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 4,
+                "chunk_level": "summary",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "folder_label": "Annual Reports",
+                "section_index": 9,
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 1,
+              "top_score": 4.776406249999999,
+              "second_score": 4.645441176470588,
+              "score_gap": 0.13096507352941078,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "trace": {
+            "rewritten_query": "What is that person's full title and department at UMass Boston? (subject: Stacy D. VanDeveer and Rosalyn Negron and Jessica Whiteley and Cedric Woods)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "employment",
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the full title and department of Stacy D. VanDeveer as listed in Slide 6 of the provided annual report."
+    }
+  ]
+}

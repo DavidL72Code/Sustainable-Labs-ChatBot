@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-08-07T21:49:39.627136+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 7,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.71,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 7,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 6,
+      "right_citations_yes": 7,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_049",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is The Emerald Tutu and who leads it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "The Emerald Tutu is a visionary nature-based floating infrastructure designed for urban-scale coastal flood protection [1]. It is led by project lead Gabriel Cira [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The model correctly identified the information from the source but included a contradictory and incorrect statement at the end claiming the information was not available in the documents."
+    },
+    {
+      "id": "fs_054",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What award did Julie Eaton Ernst receive in 2018 and from which organization?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julie Eaton Ernst received the 2018 Ascending Leader Award from the Environmental Business Council (EBC) of New England [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Julie Eaton Ernst",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_056",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Julia Kumari Drapkin's company and what does it do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julia Kumari Drapkin is the CEO and founder of ISeeChange [1]. ISeeChange is a climate data and engagement platform designed to help cities combat climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution and accurately noted that the source text did not contain information regarding her undergraduate program."
+    },
+    {
+      "id": "fs_095",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Grace Derboghossian earned a Bachelor in nursing [1]. She received this degree from the Lebanese American University [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Grace Derboghossian",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_155",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Jennifer Friedrich's undergraduate degree and from which university?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich earned a Bachelor\u2019s of Art degree (Magna Cum Laude) from UMass Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Jennifer Friedrich",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text."
+    },
+    {
+      "id": "fm_006",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_awards",
+      "question": "What was Paul Kirshen recognized for and by which organization?",
+      "conversation": [
+        {
+          "user": "What research awards and honors are mentioned in SSL's 2020-21 year in review?",
+          "assistant": "The following research awards and honors are mentioned in the Sustainable Solutions Lab's 2021 annual report: **Research Awards**\n- Lorena Estrada-Martinez received a three-year grant of $800,000 from the US Environmental Protection Agency (EPA) to conduct a study entitled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\" [1].\n- Rosalyn Negron received a grant of $253,862 from the National Science Foundation for a project entitled \"Social & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being\" [1].\n- In 2021, the Sustainable Solutions Lab awarded research grants of up to $50,000 to support faculty research focused on climate justice. This included a $48,000 Research Grant awarded to Ellen Douglas, Evan Stewart, and Johnna Flahive for a project entitled \"Novel Research in Climate Justice: Including Transient Populations in Climate Resiliency\". **Faculty Honors**\n- Paul Kirshen received the Clemens Herschel award for his work as principal investigator of the report entitled \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\".\n- Maria Ivanova was appointed to a four-year term on the World Climate Research Programme (WCRP) Joint Scientific Committee."
+        },
+        {
+          "user": "Tell me specifically about the EPA grant that was awarded.",
+          "assistant": "The US Environmental Protection Agency (EPA) awarded Lorena Estrada-Martinez, assistant professor of environment and public health in the School for the Environment, a three-year grant of $800,000 [1].\n- **Research Focus**: The grant supports a study entitled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Purpose**: The study examines health risks in Vieques, Puerto Rico, resulting from contamination created by decades of U.S. military occupation, which included the use of chemical and biological weapons [1].\n- **Methodology**: The project is supported by a partnership between the research team and the local community to ensure all are equally involved in decision-making and knowledge-sharing.\n- **Research Team**: The team includes SSL faculty members Bob Chen, interim dean of the School for the Environment and professor of organic geochemistry; Rosalyn Negron, associate professor of anthropology in the College of Liberal Arts; and Lorna Rivera, director of the Mauricio Gaston Institute for Latino Community Development and Public Policy."
+        },
+        {
+          "user": "What was Paul Kirshen recognized for and by which organization?",
+          "assistant": "Paul Kirshen was recognized by the Boston Society of Civil Engineers Section, which awarded him the Clemens Herschel award [1]. He received this recognition for his work as the principal investigator of the report entitled \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" [1]. The award recognizes an individual who has published a paper that is \"useful, commendable, and worthy of grateful acknowledgment\"."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Paul Kirshen was recognized by the Boston Society of Civil Engineers Section, which awarded him the Clemens Herschel award [1]. He received this recognition for his work as the principal investigator of the report entitled \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" [1]. The award recognizes an individual who has published a paper that is \"useful, commendable, and worthy of grateful acknowledgment\".",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What was Paul Kirshen recognized for and by which organization? (subject: RESEARCH AWARDS) honor"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus."
+    }
+  ]
+}

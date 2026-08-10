@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-07T22:06:13.256498+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution and accurately noted that the source text did not contain information regarding her undergraduate program."
+    },
+    {
+      "id": "fs_148",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Johnna Flahive** joined the Climate Resilience Institute (CRI) [1]. The Climate Resilience Institute is located at the University of Miami [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What institute did Johnna Flahive join after her work with SSL, and where is it located? affiliation location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_158",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Chidimma Ozor's cultural identity and where is she from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "**Cultural Identity**\nChidimma Ozor Commer is a US-born Nigerian [1]. **Location**\nChidimma Ozor Commer is from Ann Arbor, MI [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the requested information from the provided corpus."
+    }
+  ]
+}

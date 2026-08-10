@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-07-17T01:15:04.381021+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 6,
+    "average_scores": {
+      "clarity": 4.17,
+      "professional_tone": 4.33,
+      "correctness_vs_corpus": 4.67,
+      "citations": 4.67
+    },
+    "classification_counts": {
+      "answered_yes": 6,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 6,
+      "right_citations_yes": 6,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_064",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Katherine Dafforn's academic title and primary area of research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Katherine Dafforn is a Distinguished Professor. Their stated expertise includes Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the title and expertise listed for Katherine Dafforn in the provided corpus."
+    },
+    {
+      "id": "fs_094",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's research focus and which faculty member is she working with at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Grace Derboghossian: She is working with professor Dr. She is working with professor Dr Lisa Heelan Fancher on a research-based study that will examine the association between living in an environmental justice community in Boston and Suffolk County and its effect on birth outcomes. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer contains a repetitive stuttering error ('She is working with professor Dr. She is working with professor Dr'). It correctly identifies the faculty member and the specific study, but fails to mention her broader research interest regarding social networks and health behaviors."
+    },
+    {
+      "id": "fs_149",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Patricio Belloy's research focus as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy's research and practice explore how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate but describes his research via his bio rather than citing the specific 'Focus' field explicitly listed in the corpus."
+    },
+    {
+      "id": "fs_159",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Gabrie Boscio Santos's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Gabriela Boscio's title is Associate Director. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the staff member and provided the accurate title from the provided corpus, despite the slight variation in the name provided in the prompt."
+    },
+    {
+      "id": "fm_016",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "question": "What institution did she join after her work with SSL?",
+      "conversation": [
+        {
+          "user": "Who is Johnna Flahive and what is her research focus?",
+          "assistant": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]"
+        },
+        {
+          "user": "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+          "assistant": "Johnna Flahive's research exploring how coastal inundation impacts people living unhoused and seasonal workers in Massachusetts was funded by the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program [1]."
+        },
+        {
+          "user": "What institution did she join after her work with SSL?",
+          "assistant": "Johnna Flahive: joined the Climate Resilience Institute (CRI) at the University of Miami [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive: joined the Climate Resilience Institute (CRI) at the University of Miami [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided source document."
+    },
+    {
+      "id": "fm_040",
+      "kind": "multi_turn",
+      "type": "follow_up_cassandre_detail",
+      "question": "What work did she specifically conduct during her time at SSL?",
+      "conversation": [
+        {
+          "user": "Who is Cassandre Rey-Thibault?",
+          "assistant": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]"
+        },
+        {
+          "user": "What is her PhD specialty and what fund supports her postdoctoral research?",
+          "assistant": "Cassandre Rey-Thibault\u2019s stated expertise includes risk prevention and crisis management, coastal urban territories. [1]"
+        },
+        {
+          "user": "What work did she specifically conduct during her time at SSL?",
+          "assistant": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault (Summer 2024)\nFocus: risk prevention and crisis management, coastal urban territories\nBio: I am a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. I hold a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. My research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. In coastal urban areas such as Boston, knowledge production and risk management practices must evolve to address their interactions and combinations. At SSL, I conducted research interviews and studied the evolution of risk governance in the metropolitan area and assisted the SSL team in fostering collaborative research on climate social resilience in Boston.\nLinkedIn https://www.linkedin.com/in/cassandre-rey-thibault-942a1b112/ [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided the correct information but failed to synthesize it, instead dumping the entire bio paragraph rather than extracting the specific answer to the user's question."
+    }
+  ]
+}

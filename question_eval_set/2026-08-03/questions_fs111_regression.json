@@ -1,0 +1,11 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_111",
+      "type": "specific_fact",
+      "question": "According to the Views that Matter report, what share of Boston-area residents of color believe climate change is happening in Massachusetts?",
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    }
+  ],
+  "multi_turn": []
+}

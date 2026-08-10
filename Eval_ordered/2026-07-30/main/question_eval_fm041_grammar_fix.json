@@ -1,0 +1,293 @@
+{
+  "generated_at": "2026-07-30T06:20:51.494043+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-30/fm041.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_041",
+      "kind": "multi_turn",
+      "type": "follow_up_patricio_belloy_focus",
+      "question": "What three universities did he attend for his degrees?",
+      "conversation": [
+        {
+          "user": "Who is Patricio Belloy and what does he currently do?",
+          "assistant": "Patricio Belloy is a researcher and practitioner whose work explores how environmental, energy, and climate policy can promote community development through meaningful engagement and knowledge co-production [1]. Regarding his employment, he is currently an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1]."
+        },
+        {
+          "user": "What is his stated research focus on the SSL website?",
+          "assistant": "Patricio Belloy's stated focus includes Equitable climate resilience, climate and renewable energy education, human wellbeing, community development. [1]"
+        },
+        {
+          "user": "What three universities did he attend for his degrees?",
+          "assistant": "Patricio Belloy holds a PhD and an MSc in Public Policy from UMass Boston, and an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy holds a PhD and an MSc in Public Policy from UMass Boston, and an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Patricio Belloy and what does he currently do?",
+          "trace": {
+            "rewritten_query": "Who is Patricio Belloy and what does he currently do?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": [
+                "employment"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "Who is Patricio Belloy and what does he currently do?"
+          }
+        },
+        {
+          "user": "What is his stated research focus on the SSL website?",
+          "trace": {
+            "rewritten_query": "What is his stated research focus on the SSL website? (subject: Patricio Belloy)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "Staff"
+              ],
+              "target_categories": [
+                "Annual Reports",
+                "General"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+                "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, exact phrase match for Patricio Belloy",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": [
+                "research"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What is his stated research focus on the SSL website? (subject: Patricio Belloy)"
+          }
+        },
+        {
+          "user": "What three universities did he attend for his degrees?",
+          "trace": {
+            "rewritten_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "education",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three universities mentioned in the source text: UMass Boston, Leipzig University, and Wroc\u0142aw University."
+    }
+  ]
+}

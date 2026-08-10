@@ -1,0 +1,352 @@
+{
+  "generated_at": "2026-08-09T19:26:22.602126+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 10,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 10,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 10,
+      "right_citations_yes": 10,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Evidence Bucket: main\nTitle: SSLAbout\nSource URL: https://www.umb.edu/ssl/\nSource Path: SEED_DOCUMENTS/SSLAbout.txt\nSection Name: Pursuing Climate Justice\nEntity Type: section\nChunk Level: detail\nChunk Index: 0 Document Labels: SSLAbout | General | Pursuing Climate Justice | Section | Detail Pursuing Climate Justice\nThe Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_005",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab office at UMass Boston is located in the Healey Library, on the 10th floor, in Room 13 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Contact Us",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the location details (Healey Library, 10th floor, Room 13) from the provided corpus."
+    },
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Regarding her work with SSL, Sarah Mayorga values the opportunity to be both expert and novice [1]. Regarding her work with the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is space for her curiosity and further exploration [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text regarding Sarah Mayorga's values."
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text and directly addresses the user's question."
+    },
+    {
+      "id": "fs_008",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What is the email address used to contact SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address from the provided corpus and includes the appropriate citation."
+    },
+    {
+      "id": "fs_053",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Julie Eaton Ernst's professional specialty and her current employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julie Eaton Ernst specializes in resilient design practices and navigating the intersection of policy and engineered solutions [1]. Her current employer is HNTB [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Julie Eaton Ernst's specialty and employer based on the provided corpus."
+    },
+    {
+      "id": "fs_054",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What award did Julie Eaton Ernst receive in 2018 and from which organization?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julie Eaton Ernst received the 2018 Ascending Leader Award from the Environmental Business Council (EBC) of New England [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Julie Eaton Ernst",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "**Education** Isabella M. Gambill earned a Masters in Conservation Leadership from the University of Cambridge [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_056",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Julia Kumari Drapkin's company and what does it do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julia Kumari Drapkin is the CEO and founder of ISeeChange [1]. The company is a climate data and engagement platform that helps cities combat climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_058",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Jen Stevenson Zepeda is currently employed by ReVision Energy [1]. The company is an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    }
+  ]
+}

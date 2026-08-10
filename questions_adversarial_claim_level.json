@@ -1,0 +1,23 @@
+{
+  "single_turn": [
+    {
+      "id": "adv_gabriela_title_neighbor",
+      "type": "adversarial_claim_level",
+      "question": "What is Gabriela Boscio's title?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "adv_jen_title_distractor",
+      "type": "adversarial_claim_level",
+      "question": "What is Jen Stevenson Zepeda's professional title?",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    },
+    {
+      "id": "adv_two_person_facets",
+      "type": "adversarial_claim_level",
+      "question": "What is Johnna Flahive's research focus, and what research interests does Nick Johnson have?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    }
+  ],
+  "multi_turn": []
+}

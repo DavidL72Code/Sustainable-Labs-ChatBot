@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_063",
+      "type": "people_lookup",
+      "question": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

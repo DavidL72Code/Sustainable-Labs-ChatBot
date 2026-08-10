@@ -1,0 +1,65 @@
+{
+  "single_turn": [],
+  "multi_turn": [
+    {
+      "id": "fm_031",
+      "type": "follow_up_art_cultural_resilience_event",
+      "turns": [
+        "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+        "Who were the speakers at that event?",
+        "Who moderated the event?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_032",
+      "type": "follow_up_epa_grant_vieques",
+      "turns": [
+        "What was the EPA grant awarded in the 2020-21 period?",
+        "What is the Vieques study about and what caused the health risks it is investigating?",
+        "Who are the SSL faculty members supporting Lorena Estrada-Martinez's research team?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_033",
+      "type": "follow_up_vandeveer_research",
+      "turns": [
+        "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+        "What was the research on the Massachusetts MVP program about?",
+        "What is the East Boston study that VanDeveer's team worked on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_034",
+      "type": "follow_up_ssl_core_team_2021",
+      "turns": [
+        "Who are the core team members listed in the 2020-21 SSL annual report?",
+        "What is Ellen Douglas's title and department?",
+        "What is David Levy's title and department?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_035",
+      "type": "follow_up_affiliate_katsyris",
+      "turns": [
+        "Who are some SSL students working on climate and social justice research?",
+        "Tell me about Katsyris Rivera Kientz's background.",
+        "Which professors is she working with and on what research topic?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ]
+}

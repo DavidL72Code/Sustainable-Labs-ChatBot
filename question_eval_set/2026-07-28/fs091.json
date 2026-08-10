@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_091",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

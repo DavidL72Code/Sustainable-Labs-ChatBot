@@ -1,0 +1,37 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_034",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_035",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_045",
+      "type": "people_lookup",
+      "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_087",
+      "type": "people_lookup",
+      "question": "What is Denise Patmon's title and what department does she chair at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

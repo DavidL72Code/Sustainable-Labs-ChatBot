@@ -1,0 +1,54 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_010",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_091",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_119",
+      "type": "specific_fact",
+      "question": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_025",
+      "type": "follow_up_views_that_matter",
+      "turns": [
+        "What is the Views that Matter report?",
+        "What are the key findings about how different racial groups view climate change in Boston?",
+        "What does the report say about how white respondents view whether climate change affects some people more than others?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_033",
+      "type": "follow_up_vandeveer_research",
+      "turns": [
+        "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+        "What was the research on the Massachusetts MVP program about?",
+        "What is the East Boston study that VanDeveer's team worked on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

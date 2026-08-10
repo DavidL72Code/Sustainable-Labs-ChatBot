@@ -1,0 +1,54 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_027",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_097",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_100",
+      "type": "specific_fact",
+      "question": "What is Anna Matviichuk's major and current year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_016",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "turns": [
+        "Who is Johnna Flahive and what is her research focus?",
+        "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+        "What institution did she join after her work with SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_033",
+      "type": "follow_up_vandeveer_research",
+      "turns": [
+        "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+        "What was the research on the Massachusetts MVP program about?",
+        "What is the East Boston study that VanDeveer's team worked on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

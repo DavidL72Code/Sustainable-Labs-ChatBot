@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-08-02T14:03:33.837674+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-02/questions_current_four_flags.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_034",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault served as a visiting scholar at SSL during Summer 2024. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_035",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nyingilanyeofori Hannah Brown serves as the program coordinator at the SSL, a position tied to the NSF CRISES planning grant [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Hannah Brown's role and the associated grant based on the provided corpus and uses the correct citation."
+    },
+    {
+      "id": "fs_045",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Ashley Miranda Smith is a Senior at UMass Boston, majoring in Communication and double minoring in Cinema Studies and Professional and New Media Writing. Since her freshman year, she has worked within SSL as a Communications Fellow; a role that includes managing the institute\u2019s social media, editing SSL\u2019s website content, and working alongside Associate Director Gabriela Boscio Santos to produce and release SSL\u2019s monthly newsletters. In her free time, you can find her watching a film at the movie theater, scrolling through social media, or reading a novel. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identified Ashley Miranda's role as a Communications Fellow and correctly named Gabriela Boscio Santos as the staff member she works with for newsletters, based directly on the provided corpus."
+    },
+    {
+      "id": "fs_087",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Denise Patmon's title and what department does she chair at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Denise Patmon's title is Director & Professor A, and she chairs Leadership in Education at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Denise Patmon's title and department."
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "generated_at": "2026-08-07T18:31:23.153227+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 5,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 5,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 5,
+      "right_citations_yes": 5,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_062",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's undergraduate institution and her field of study there?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill attended the following undergraduate institution and pursued the specified field of study: **Undergraduate Education**\nIsabella M. Gambill earned a Bachelor of Arts degree from Wellesley College [1]. **Field of Study**\nIsabella M. Gambill studied environmental studies during her undergraduate education [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the undergraduate institution (Wellesley College) and the field of study (environmental studies) as stated in the provided corpus."
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution and accurately noted that the source text did not contain information regarding her undergraduate program."
+    },
+    {
+      "id": "fs_095",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "- Undergraduate Degree: Grace Derboghossian received a Bachelor in nursing [1].\n- Location: She earned her undergraduate degree from the Lebanese American University [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Grace Derboghossian",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the degree and institution as stated in the provided corpus."
+    },
+    {
+      "id": "fs_101",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ante Iv\u010devi\u0107's PhD institution and what fellowship did he hold during his doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "- Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1].\n- Ante Iv\u010devi\u0107 was an H2020 fellow [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Ante Iv\u010devi\u0107",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the PhD institution and fellowship information from the provided corpus."
+    },
+    {
+      "id": "fm_039",
+      "kind": "multi_turn",
+      "type": "follow_up_visiting_scholar_ante",
+      "question": "What is his PhD institution and what fellowship did he hold?",
+      "conversation": [
+        {
+          "user": "Tell me about Ante Iv\u010devi\u0107's academic background.",
+          "assistant": "After Ante Iv\u010devi\u0107's MSc studies in geophysics and oceanography-marine environment, Ante Iv\u010devi\u0107 continued Ante Iv\u010devi\u0107's research in risk management, and Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University (H2020 fellow). [1]"
+        },
+        {
+          "user": "What was his master's degree in and what did he do after that?",
+          "assistant": "Ante Iv\u010devi\u0107\u2019s master\u2019s degree was in geophysics and oceanography-marine environment [1]. Following those studies, Ante Iv\u010devi\u0107 continued research in risk management and holds a PhD from Aix-Marseille University, where Ante Iv\u010devi\u0107 was an H2020 fellow [1]. The available documents do not state that requested detail."
+        },
+        {
+          "user": "What is his PhD institution and what fellowship did he hold?",
+          "assistant": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1]. Ante Iv\u010devi\u0107 was an H2020 fellow [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1]. Ante Iv\u010devi\u0107 was an H2020 fellow [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Ante Iv\u010devi\u0107",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the PhD institution and fellowship information directly from the provided corpus."
+    }
+  ]
+}

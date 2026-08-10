@@ -1,0 +1,50 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_008",
+      "type": "contact_paraphrase",
+      "question": "What is the email address used to contact SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_023",
+      "type": "follow_up_students_social_justice",
+      "turns": [
+        "Which SSL students focus on racial or social justice research?",
+        "Tell me about Nick Johnson's background and research interests.",
+        "What is Chidimma Ozor's doctoral research about?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_035",
+      "type": "follow_up_affiliate_katsyris",
+      "turns": [
+        "Who are some SSL students working on climate and social justice research?",
+        "Tell me about Katsyris Rivera Kientz's background.",
+        "Which professors is she working with and on what research topic?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_037",
+      "type": "follow_up_student_grace",
+      "turns": [
+        "Who are SSL's alumni students?",
+        "Tell me about Grace Derboghossian.",
+        "What faculty member is she working with and what is her research about?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ]
+}

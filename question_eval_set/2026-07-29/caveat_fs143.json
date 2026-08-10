@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_143",
+      "type": "specific_fact",
+      "question": "What is the Decision Support Hub mentioned in the CLIIR Initiative description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

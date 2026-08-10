@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-07-21T16:17:11.972462+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Kelawili Whalen is working with Dr. Cedric Woods on the research topic of Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo [1]. Whether she works with SSL is not stated in the provided record [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who is Isa Whalen working with at SSL and on what specific research topic? (subject: Isa Kelawili Whalen)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "StudentsInterns"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "activity",
+            "collaboration",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the research topic and collaborator but failed to infer that the subject is affiliated with the SSL, despite the document being a list of SSL students and interns."
+    }
+  ]
+}

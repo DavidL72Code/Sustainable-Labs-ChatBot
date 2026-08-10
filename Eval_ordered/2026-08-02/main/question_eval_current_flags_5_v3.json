@@ -1,0 +1,209 @@
+{
+  "generated_at": "2026-08-02T05:08:25.415001+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-02/questions_current_flags_5.json",
+  "summary": {
+    "total_cases": 5,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 5,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 5,
+      "right_citations_yes": 5,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rajini Srikanth serves as the Dean of Faculty and Inter-Faculty Initiatives [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_097",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Levente \u201cLevi\u201d Mezo: minors in Community Development. Additional interests include urban planning, transportation planning, and affordable housing advocacy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the minor and additional interests for Levente Mezo from the provided corpus."
+    },
+    {
+      "id": "fs_100",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Anna Matviichuk's major and current year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Anna Matviichuk is a junior at UMass Boston, majoring in marketing. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fm_016",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "question": "What institution did she join after her work with SSL?",
+      "conversation": [
+        {
+          "user": "Who is Johnna Flahive and what is her research focus?",
+          "assistant": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]"
+        },
+        {
+          "user": "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+          "assistant": "The research on coastal inundation impacts on unhoused and seasonal workers was funded by the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program [1]."
+        },
+        {
+          "user": "What institution did she join after her work with SSL?",
+          "assistant": "The record notes that she is currently leading a working group in collaboration with SSL and has also joined the Climate Resilience Institute (CRI) at the University of Miami [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The record notes that she is currently leading a working group in collaboration with SSL and has also joined the Climate Resilience Institute (CRI) at the University of Miami [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus bio for Johnna Flahive."
+    },
+    {
+      "id": "fm_033",
+      "kind": "multi_turn",
+      "type": "follow_up_vandeveer_research",
+      "question": "What is the East Boston study that VanDeveer's team worked on?",
+      "conversation": [
+        {
+          "user": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+          "assistant": "**Identity of Stacy D. VanDeveer** The available documents do not contain information describing who Stacy D. VanDeveer is, other than identifying him as a principal investigator [1]. **Research Led by Stacy D. VanDeveer** Stacy D. VanDeveer led a research project titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" [1]. The objective of this study was to understand conditions in and across municipalities [1]."
+        },
+        {
+          "user": "What was the research on the Massachusetts MVP program about?",
+          "assistant": "The research project titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" focused on the Basic Municipal Vulnerability Assessment for Climate Change Adaptation in the Greater Boston Metropolitan Area [1]. The objective of this study was to understand conditions in and across municipalities [1]. As of 2020, over 80% of Massachusetts cities and towns had participated in the MVP program, and the research findings are being used to improve the design of the program for equitable inclusion [1]."
+        },
+        {
+          "user": "What is the East Boston study that VanDeveer's team worked on?",
+          "assistant": "The available documents do not provide information regarding whether Stacy D. VanDeveer\u2019s team worked on the study titled \"CONDITIONS AND RECOMMENDATIONS FOR EQUITABLE CLIMATE RESILIENCE IN EAST BOSTON\" [1]. While the document mentions this study title, it does not explicitly link it to the research team led by Stacy D. VanDeveer [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The available documents do not provide information regarding whether Stacy D. VanDeveer\u2019s team worked on the study titled \"CONDITIONS AND RECOMMENDATIONS FOR EQUITABLE CLIMATE RESILIENCE IN EAST BOSTON\" [1]. While the document mentions this study title, it does not explicitly link it to the research team led by Stacy D. VanDeveer [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the East Boston study that VanDeveer's team worked on?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified that while the document lists the East Boston study, it does not explicitly attribute it to VanDeveer's team, avoiding a hallucinated connection."
+    }
+  ]
+}

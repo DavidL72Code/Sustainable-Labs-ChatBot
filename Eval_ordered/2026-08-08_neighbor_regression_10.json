@@ -1,0 +1,413 @@
+{
+  "generated_at": "2026-08-09T02:33:54.656022+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 10,
+    "average_scores": {
+      "clarity": 4.7,
+      "professional_tone": 4.8,
+      "correctness_vs_corpus": 4.8,
+      "citations": 4.8
+    },
+    "classification_counts": {
+      "answered_yes": 10,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 9,
+      "right_citations_yes": 10,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy earned a PhD and an MSc in Public Policy from UMass Boston [1]. He also earned an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland [1], [2]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 346,
+          "evidence_id": "evidence_13",
+          "evidence_bucket": "main",
+          "evidence_query": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in? education location"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 3,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the degrees and institutions from the corpus, but included a contradictory and incorrect final sentence stating that the documents did not contain the requested information."
+    },
+    {
+      "id": "fs_047",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "**Professional Background**\nIsa Kelawili Whalen is a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1]. She previously received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle [1]. **Cultural Identity**\nIsa Kelawili Whalen is an indigenous Chamoru woman [1]. **Origin**\nIsa Kelawili Whalen is from the southern village of Umatac, Guam [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Isa Kelawili Whalen",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_053",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Julie Eaton Ernst's professional specialty and her current employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julie Eaton Ernst specializes in resilient design practices and navigating the intersection of policy and engineered solutions [1]. She is currently employed by HNTB, where she serves as the Climate Resilience Practice Leader [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Julie Eaton Ernst's specialty and employer."
+    },
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill holds a Master\u2019s degree in Conservation Leadership from the University of Cambridge [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution and accurately noted that the source text did not contain information regarding her undergraduate program."
+    },
+    {
+      "id": "fs_095",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "**Education**\n- Grace Derboghossian received a Bachelor in nursing [1].\n- She earned this degree from the Lebanese American University [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Grace Derboghossian",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_101",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ante Iv\u010devi\u0107's PhD institution and what fellowship did he hold during his doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Education**\n- Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1].\n- During his doctoral research, he was an H2020 fellow [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Ante Iv\u010devi\u0107",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the PhD institution and fellowship information directly from the provided corpus."
+    },
+    {
+      "id": "fs_103",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault holds a PhD in geography [1][2]. Her specialty is in risk prevention and crisis management policies in French urban areas [1]. Additionally, the 2025 Impact Report notes that her research focuses on risk prevention and crisis management policies specifically within French coastal urban areas [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 12,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Cassandre Rey-Thibault's PhD specialty? education"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and well-written. It correctly identifies the PhD specialty from the provided corpus. It includes an additional citation [2] that was not part of the expected target sources, but the information remains consistent with the primary source."
+    },
+    {
+      "id": "fs_148",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive joined the Climate Resilience Institute (CRI) [1]. The Climate Resilience Institute is located at the University of Miami [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What institute did Johnna Flahive join after her work with SSL, and where is it located? affiliation location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the information from the provided corpus text."
+    },
+    {
+      "id": "fs_156",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich has served on the following boards and committees:\n- She is a director of the Marshfield Agricultural and Horticultural Society [1].\n- She has served on town boards and committees [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Jennifer Friedrich",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text, which is limited to the Marshfield Agricultural and Horticultural Society and general town boards/committees."
+    }
+  ]
+}

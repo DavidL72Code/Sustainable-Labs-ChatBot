@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-07-16T22:57:17.074143+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-16/questions_dynamic_repairs_fs146_final.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_146",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does the C3I program say it will do with local and state policymakers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "We will work with local and state policymakers to share our findings on addressing systemic barriers to entry in blue and green jobs. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    }
+  ]
+}

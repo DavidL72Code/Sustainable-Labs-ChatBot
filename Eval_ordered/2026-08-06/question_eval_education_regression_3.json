@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-08-06T05:29:15.179048+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.67,
+      "citations": 4.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 2,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_095",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Grace Derboghossian earned a Bachelor in nursing from Lebanese American University and earned her enroute Master in nursing science from University of Massachusetts Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Grace Derboghossian's educational background."
+    },
+    {
+      "id": "fs_101",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ante Iv\u010devi\u0107's PhD institution and what fellowship did he hold during his doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the PhD institution but failed to answer the second part of the question regarding the fellowship (H2020 fellow)."
+    },
+    {
+      "id": "fm_039",
+      "kind": "multi_turn",
+      "type": "follow_up_visiting_scholar_ante",
+      "question": "What is his PhD institution and what fellowship did he hold?",
+      "conversation": [
+        {
+          "user": "Tell me about Ante Iv\u010devi\u0107's academic background.",
+          "assistant": "After Ante Iv\u010devi\u0107's MSc studies in geophysics and oceanography-marine environment, Ante Iv\u010devi\u0107 continued Ante Iv\u010devi\u0107's research in risk management, and Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University (H2020 fellow). [1]"
+        },
+        {
+          "user": "What was his master's degree in and what did he do after that?",
+          "assistant": "Ante Iv\u010devi\u0107's master's degree field was geophysics and oceanography-marine environment. [1]"
+        },
+        {
+          "user": "What is his PhD institution and what fellowship did he hold?",
+          "assistant": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the PhD institution but failed to answer the second part of the question regarding the fellowship (H2020 fellow)."
+    }
+  ]
+}

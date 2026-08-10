@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-07-28T21:20:47.649935+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-28/fs063.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_063",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Georgia Mavrommati's areas of expertise at UMass Boston are complex systems, deliberative valuation, and environmental policy [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    }
+  ]
+}

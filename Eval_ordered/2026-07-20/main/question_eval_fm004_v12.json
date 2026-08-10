@@ -1,0 +1,1106 @@
+{
+  "generated_at": "2026-07-20T21:29:54.497574+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-19/questions_latest_failures.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_004",
+      "kind": "multi_turn",
+      "type": "follow_up_visiting_scholars",
+      "question": "What time period did he spend at SSL?",
+      "conversation": [
+        {
+          "user": "Who has served as a visiting scholar at SSL?",
+          "assistant": "The following individuals have served as visiting scholars at the Sustainable Solutions Lab (SSL): * **Cassandre Rey-Thibault** served as a visiting scholar during the summer of 2024 [1].\n* **Ante Iv\u010devi\u0107** served as a visiting scholar from the fall of 2023 through the spring of 2024."
+        },
+        {
+          "user": "Tell me about Ante Iv\u010devi\u0107's background and research focus.",
+          "assistant": "Ante Iv\u010devi\u0107's stated focus includes coastal governance, integrated coastal zone management, science-policy. [1]"
+        },
+        {
+          "user": "What time period did he spend at SSL?",
+          "assistant": "The available documents do not state the specific time period that Patricio Belloy spent at the Sustainable Solutions Lab (SSL). The documents only note that he formerly assisted with the lab's work on climate resilience [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The available documents do not state the specific time period that Patricio Belloy spent at the Sustainable Solutions Lab (SSL). The documents only note that he formerly assisted with the lab's work on climate resilience [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What time period did he spend at SSL?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route"
+        },
+        "retrieved_metadata": [
+          {
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_name": "Cassandre Rey-Thibault",
+            "chunk_index": 0,
+            "section_index": 7,
+            "entity_type": "visiting_scholar",
+            "chunk_level": "summary",
+            "folder_label": "",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "title": "Staff",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "chunk_level": "summary",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_name": "Johnna Flahive",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_index": 0,
+            "category": "General",
+            "entity_type": "affiliate",
+            "title": "Staff",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "section_index": 6,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "section_name": "Patricio Belloy",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_index": 5,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "folder_label": "",
+            "category": "General",
+            "chunk_index": 0,
+            "title": "Staff",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "document_type": "txt",
+            "entity_type": "affiliate",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "title": "Staff",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "document_type": "txt",
+            "entity_type": "visiting_scholar",
+            "section_index": 7,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_level": "detail",
+            "folder_label": "",
+            "chunk_index": 2,
+            "section_name": "Cassandre Rey-Thibault",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "chunk_index": 2,
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "title": "Staff",
+            "section_index": 6,
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_name": "Johnna Flahive",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "chunk_level": "detail",
+            "entity_type": "affiliate",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "chunk_level": "detail",
+            "folder_label": "",
+            "document_type": "txt",
+            "category": "General",
+            "section_name": "Patricio Belloy",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "entity_type": "affiliate",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "title": "Staff",
+            "section_index": 5,
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "section_name": "Johnna Flahive",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "document_type": "txt",
+            "title": "Staff",
+            "section_index": 6,
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_index": 1,
+            "folder_label": "",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "title": "Staff",
+            "section_index": 7,
+            "section_name": "Cassandre Rey-Thibault",
+            "document_type": "txt",
+            "entity_type": "visiting_scholar",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "chunk_level": "detail",
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?"
+          },
+          {
+            "category": "General",
+            "section_index": 7,
+            "section_name": "Cassandre Rey-Thibault",
+            "chunk_level": "detail",
+            "chunk_index": 3,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "entity_type": "visiting_scholar",
+            "document_type": "txt",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "category": "General",
+            "section_index": 6,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "section_name": "Johnna Flahive",
+            "document_type": "txt",
+            "folder_label": "",
+            "chunk_index": 3,
+            "chunk_level": "detail",
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "title": "Staff",
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "chunk_level": "detail",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_index": 5,
+            "category": "General",
+            "section_name": "Patricio Belloy",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "Patricio Belloy",
+            "entity_type": "affiliate",
+            "chunk_level": "detail",
+            "title": "Staff",
+            "document_type": "txt",
+            "category": "General",
+            "folder_label": "",
+            "chunk_index": 2,
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_index": 5,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_index": 0,
+            "entity_type": "visiting_scholar",
+            "chunk_level": "detail",
+            "category": "General",
+            "section_index": 7,
+            "folder_label": "",
+            "title": "Staff",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_name": "Cassandre Rey-Thibault",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault::detail-chunk-2",
+            "neighbor_distance": 2
+          },
+          {
+            "section_index": 6,
+            "title": "Staff",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_index": 0,
+            "category": "General",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "folder_label": "",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "entity_type": "affiliate",
+            "section_name": "Johnna Flahive",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive::detail-chunk-2",
+            "neighbor_distance": 2
+          },
+          {
+            "document_type": "txt",
+            "chunk_index": 3,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "section_name": "Patricio Belloy",
+            "category": "General",
+            "section_index": 5,
+            "entity_type": "affiliate",
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "chunk_level": "detail",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What time period did he spend at SSL?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 15,
+          "selected_count": 15,
+          "distinct_source_count": 1,
+          "top_score": 3.5669354838709673,
+          "second_score": 3.56640625,
+          "score_gap": 0.0005292338709672606,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 7,
+          "evidence_buckets": {
+            "main": 15
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.55,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage",
+            "weak_score_gap",
+            "ambiguous_query"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route"
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "Who has served as a visiting scholar at SSL?",
+          "trace": {
+            "rewritten_query": "Who has served as a visiting scholar at SSL?",
+            "query_route": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": false,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            },
+            "retrieved_metadata": [
+              {
+                "folder_label": "Annual Reports",
+                "title": "UMB-SSL-2025-Impact_Report",
+                "section_index": -1,
+                "chunk_level": "detail",
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "entity_type": "",
+                "section_name": "",
+                "document_type": "pdf",
+                "chunk_index": 8,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?"
+              },
+              {
+                "document_type": "pdf",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "section_name": "",
+                "chunk_level": "detail",
+                "title": "UMB-SSL-2025-Impact_Report",
+                "entity_type": "",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "chunk_index": 33,
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?"
+              },
+              {
+                "entity_type": "",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "section_name": "",
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "section_index": -1,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "title": "UMB-SSL-2025-Impact_Report",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "chunk_index": 32,
+                "document_type": "pdf",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?"
+              },
+              {
+                "section_name": "FACULTY HONORS",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+                "document_type": "txt",
+                "section_index": 29,
+                "chunk_index": 2,
+                "chunk_level": "detail",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?"
+              },
+              {
+                "category": "Annual Reports",
+                "section_name": "INVESTING IN FACULTY",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-8-investing-in-faculty",
+                "document_type": "txt",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "section_index": 8,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "chunk_index": 9,
+                "entity_type": "",
+                "section_index": -1,
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "category": "Annual Reports",
+                "section_name": "",
+                "document_type": "pdf",
+                "chunk_level": "detail",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "folder_label": "Annual Reports",
+                "title": "UMB-SSL-2025-Impact_Report",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-8",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "",
+                "chunk_index": 34,
+                "title": "UMB-SSL-2025-Impact_Report",
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "folder_label": "Annual Reports",
+                "document_type": "pdf",
+                "section_index": -1,
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "section_name": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-33",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 7,
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "chunk_level": "detail",
+                "document_type": "pdf",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "section_name": "",
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "section_index": -1,
+                "title": "UMB-SSL-2025-Impact_Report",
+                "entity_type": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-8",
+                "neighbor_distance": 1
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "FACULTY HONORS",
+                "chunk_level": "detail",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_index": 29,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+                "chunk_index": 3,
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "section_index": 29,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+                "title": "AnnualReport2021",
+                "section_name": "FACULTY HONORS",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_index": 8,
+                "section_name": "INVESTING IN FACULTY",
+                "chunk_index": 2,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-8-investing-in-faculty",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-8-investing-in-faculty::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "section_name": "INVESTING IN FACULTY",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "chunk_index": 0,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-8-investing-in-faculty",
+                "chunk_level": "detail",
+                "section_index": 8,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-8-investing-in-faculty::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 35,
+                "chunk_level": "detail",
+                "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+                "category": "Annual Reports",
+                "section_name": "",
+                "title": "UMB-SSL-2025-Impact_Report",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "entity_type": "",
+                "document_type": "pdf",
+                "section_index": -1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who has served as a visiting scholar at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-33",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 13,
+              "selected_count": 13,
+              "distinct_source_count": 2,
+              "top_score": 0.48412698412698413,
+              "second_score": 0.36885245901639346,
+              "score_gap": 0.11527452511059066,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 13
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.65,
+              "is_low_confidence": false,
+              "reasons": [
+                "low_top_candidate_score",
+                "weak_score_gap"
+              ]
+            },
+            "query_plan": {
+              "question_type": "specific_fact",
+              "routing_mode": "global",
+              "prefer_summary": false,
+              "target_titles": [],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Fallback global retrieval route."
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "Who has served as a visiting scholar at SSL?"
+          }
+        },
+        {
+          "user": "Tell me about Ante Iv\u010devi\u0107's background and research focus.",
+          "trace": {
+            "rewritten_query": "Tell me about Ante Iv\u010devi\u0107's background and research focus.",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+              "name": "Ante Iv\u010devi\u0107",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+                "name": "Ante Iv\u010devi\u0107",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "background",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+                "name": "Ante Iv\u010devi\u0107",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "Tell me about Ante Iv\u010devi\u0107's background and research focus."
+          }
+        },
+        {
+          "user": "What time period did he spend at SSL?",
+          "trace": {
+            "rewritten_query": "What time period did he spend at SSL?",
+            "query_route": {
+              "question_type": "specific_fact",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [
+              {
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "section_name": "Cassandre Rey-Thibault",
+                "chunk_index": 0,
+                "section_index": 7,
+                "entity_type": "visiting_scholar",
+                "chunk_level": "summary",
+                "folder_label": "",
+                "category": "General",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "title": "Staff",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "chunk_level": "summary",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "section_name": "Johnna Flahive",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "chunk_index": 0,
+                "category": "General",
+                "entity_type": "affiliate",
+                "title": "Staff",
+                "folder_label": "",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+                "section_index": 6,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "section_name": "Patricio Belloy",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "section_index": 5,
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "folder_label": "",
+                "category": "General",
+                "chunk_index": 0,
+                "title": "Staff",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "document_type": "txt",
+                "entity_type": "affiliate",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "title": "Staff",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+                "category": "General",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "document_type": "txt",
+                "entity_type": "visiting_scholar",
+                "section_index": 7,
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "chunk_level": "detail",
+                "folder_label": "",
+                "chunk_index": 2,
+                "section_name": "Cassandre Rey-Thibault",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "chunk_index": 2,
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "title": "Staff",
+                "section_index": 6,
+                "category": "General",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "section_name": "Johnna Flahive",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+                "chunk_level": "detail",
+                "entity_type": "affiliate",
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "chunk_level": "detail",
+                "folder_label": "",
+                "document_type": "txt",
+                "category": "General",
+                "section_name": "Patricio Belloy",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "entity_type": "affiliate",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "title": "Staff",
+                "section_index": 5,
+                "chunk_index": 1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+                "section_name": "Johnna Flahive",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "document_type": "txt",
+                "title": "Staff",
+                "section_index": 6,
+                "category": "General",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "chunk_index": 1,
+                "folder_label": "",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "title": "Staff",
+                "section_index": 7,
+                "section_name": "Cassandre Rey-Thibault",
+                "document_type": "txt",
+                "entity_type": "visiting_scholar",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+                "category": "General",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "chunk_level": "detail",
+                "chunk_index": 1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?"
+              },
+              {
+                "category": "General",
+                "section_index": 7,
+                "section_name": "Cassandre Rey-Thibault",
+                "chunk_level": "detail",
+                "chunk_index": 3,
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+                "title": "Staff",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "entity_type": "visiting_scholar",
+                "document_type": "txt",
+                "folder_label": "",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "category": "General",
+                "section_index": 6,
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+                "section_name": "Johnna Flahive",
+                "document_type": "txt",
+                "folder_label": "",
+                "chunk_index": 3,
+                "chunk_level": "detail",
+                "title": "Staff",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "title": "Staff",
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "chunk_level": "detail",
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "section_index": 5,
+                "category": "General",
+                "section_name": "Patricio Belloy",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "Patricio Belloy",
+                "entity_type": "affiliate",
+                "chunk_level": "detail",
+                "title": "Staff",
+                "document_type": "txt",
+                "category": "General",
+                "folder_label": "",
+                "chunk_index": 2,
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "section_index": 5,
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "chunk_index": 0,
+                "entity_type": "visiting_scholar",
+                "chunk_level": "detail",
+                "category": "General",
+                "section_index": 7,
+                "folder_label": "",
+                "title": "Staff",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+                "document_type": "txt",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "section_name": "Cassandre Rey-Thibault",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault::detail-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "section_index": 6,
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "chunk_index": 0,
+                "category": "General",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+                "folder_label": "",
+                "document_type": "txt",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "entity_type": "affiliate",
+                "section_name": "Johnna Flahive",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive::detail-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "document_type": "txt",
+                "chunk_index": 3,
+                "source_path": "SEED_DOCUMENTS/Staff.txt",
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "section_name": "Patricio Belloy",
+                "category": "General",
+                "section_index": 5,
+                "entity_type": "affiliate",
+                "title": "Staff",
+                "source_url": "https://www.umb.edu/ssl/people/",
+                "chunk_level": "detail",
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What time period did he spend at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 15,
+              "selected_count": 15,
+              "distinct_source_count": 1,
+              "top_score": 3.5669354838709673,
+              "second_score": 3.56640625,
+              "score_gap": 0.0005292338709672606,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 7,
+              "evidence_buckets": {
+                "main": 15
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.55,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage",
+                "weak_score_gap",
+                "ambiguous_query"
+              ]
+            },
+            "query_plan": {
+              "question_type": "specific_fact",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+              "name": "Ante Iv\u010devi\u0107",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+                "name": "Ante Iv\u010devi\u0107",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+                "name": "Ante Iv\u010devi\u0107",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What time period did he spend at SSL?"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified that the provided corpus does not contain information regarding the specific time period Patricio Belloy spent at SSL."
+    }
+  ]
+}

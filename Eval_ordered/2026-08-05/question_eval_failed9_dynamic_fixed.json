@@ -1,0 +1,362 @@
+{
+  "generated_at": "2026-08-05T17:47:53.514892+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-03/questions_failed_9_regression.json",
+  "summary": {
+    "total_cases": 9,
+    "average_scores": {
+      "clarity": 4.89,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.78,
+      "citations": 4.67
+    },
+    "classification_counts": {
+      "answered_yes": 9,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 9,
+      "right_citations_yes": 8,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_059",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Kalila Barnett serve as Executive Director before joining the Barr Foundation, and for how many years?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "**Leadership**\n- Kalila Barnett served as the Executive Director at Alternatives for Community and Environment (ACE) [1]. **Location**\n- I don't have information regarding the location of Alternatives for Community and Environment (ACE) in the available documents. **Quantity**\n- Kalila Barnett served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Kalila Barnett",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the organization and duration. It also correctly noted that the specific location of the organization was not provided in the source text."
+    },
+    {
+      "id": "fs_063",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Georgia Mavrommati is listed as Associate Professor. The listed expertise includes complex systems; deliberative valuation; environmental policy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_075",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many schools and institutes does SSL partner with across UMass Boston according to the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "SSL partners with five schools and four\ninstitutes. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided annual report (Slide 4)."
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz graduated from the University of Puerto Rico in Cayey. The undergraduate program is not specified for Katsyris Rivera Kientz in the available record. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the university from the corpus and accurately stated that the undergraduate program was not specified in the provided text."
+    },
+    {
+      "id": "fs_108",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many faculty participated in SSL's Climate Justice Deep Dive program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "20 faculty participated in the program. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus, which explicitly states in Slide 20 that 20 faculty participated in the Climate Justice Deep Dive program."
+    },
+    {
+      "id": "fs_120",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many people are on the World Climate Research Programme Joint Scientific Committee that Maria Ivanova joined?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The committee has 18 members. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus, which states that Maria Ivanova joined an 18-person committee."
+    },
+    {
+      "id": "fs_149",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Patricio Belloy's research focus as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy's research and practice explore how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production [1]. **Research Projects**\n- His research explores the political context in which actors and institutions influence policy and policy change in climate resilience and its connection to social justice in Boston [2].\n- He has completed an assessment of resilience planning in East Boston through a climate justice lens, a case study on how climate research informs public policy discussions, and a project exploring how the climate crisis will impact the housing crisis [2, 3].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 4,
+          "evidence_id": "evidence_9",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Patricio Belloy's research focus as listed on the SSL website? research"
+        },
+        {
+          "citation": 3,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 8,
+          "evidence_id": "evidence_10",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Patricio Belloy's research focus as listed on the SSL website? research"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided a summary of the bio rather than the specific 'Focus' list explicitly stated in the corpus. It also included unnecessary citations from annual reports instead of relying solely on the Staff page."
+    },
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "The Sustainable Solutions Lab core team for the 2020-21 year consisted of the following individuals:\n- **Ellen Douglas**, Professor of Hydrology, School for the Environment [1]\n- **David Levy**, Professor of Management, College of Management [1]\n- **Rosalyn Negron**, Associate Professor of Anthropology, College of Liberal Arts [1]\n- **J. Cedric Woods**, Director of the Institute for New England Native American Studies and Director of the Critical Ethnic and Community Studies Program, College of Liberal Arts [1]\n- **Jessica Whiteley**, Associate Professor and Associate Dean of Research, College of Nursing and Health Management [1]\n- **Stacy D. VanDeveer**, Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School [1]\n- **Rebecca Herst**, Director of the Sustainable Solutions Lab"
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "The following individuals are associated with the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School:\n- **Stacy D. VanDeveer** is a member of the Sustainable Solutions Lab core team and serves as a Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance.\n- **Maria H. Ivanova** is an Associate Professor of Global Governance and Graduate Program Director in the Department of Conflict Resolution, Human Security, and Global Governance [1]."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "In the 2020-21 SSL Annual Report core team listing, Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the individual's full title and department as listed in the provided annual report."
+    },
+    {
+      "id": "fm_035",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_katsyris",
+      "question": "Which professors is she working with and on what research topic?",
+      "conversation": [
+        {
+          "user": "Who are some SSL students working on climate and social justice research?",
+          "assistant": "Yes. SSL documents describe student involvement in several ways:\n- SSL says undergraduate and graduate students work with the lab on numerous fronts to increase climate justice [1].\n- SSL describes faculty and students as foundational to its work and connects that work to research funding and professional development [2].\n- The annual report describes SSL Lab Meetings as a space where graduate students engage with scholars and participate in discussions [2].\nFor current opportunities or to ask about getting involved, contact SSL at ssl@umb.edu. [1]"
+        },
+        {
+          "user": "Tell me about Katsyris Rivera Kientz's background.",
+          "assistant": "Katsyris Rivera Kientz: She graduated from the University of Puerto Rico in Cayey and completed her Master at UMB\u2019s Transnational, Cultural and Community Studies program. Her research interests lie at the intersection of Political Sociology; Transnational activism; Colonialism; National Identity; Education; Race and gender issues; Natural and not-so-natural disasters, and the Puerto Rico-United States political relationship. She is working with Professor Paul Watanabe and Professor Lorena Estrada Martinez on a project that will explore how different Greater Bostonians understand and experience climate change differently. [1]"
+        },
+        {
+          "user": "Which professors is she working with and on what research topic?",
+          "assistant": "Katsyris Rivera Kientz is working with Professor Paul Watanabe and Professor Lorena Estrada Martinez on a project that will explore how different Greater Bostonians understand and experience climate change differently. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz is working with Professor Paul Watanabe and Professor Lorena Estrada Martinez on a project that will explore how different Greater Bostonians understand and experience climate change differently. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and supported by the corpus. While the corpus also mentions a second project with Professor Rosalyn Negron, the answer correctly identifies the primary project mentioned."
+    }
+  ]
+}

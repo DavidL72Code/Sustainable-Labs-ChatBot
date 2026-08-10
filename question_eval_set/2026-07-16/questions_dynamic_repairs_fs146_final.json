@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_146",
+      "type": "specific_fact",
+      "question": "What does the C3I program say it will do with local and state policymakers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

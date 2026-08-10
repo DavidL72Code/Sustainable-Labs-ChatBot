@@ -1,0 +1,915 @@
+{
+  "generated_at": "2026-07-28T02:21:25.576178+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_adversarial_cross_source.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.67,
+      "citations": 3.33
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "adv_cross_gabriela_nick",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Gabriela Boscio serves as the Associate Director [2]. Nick Johnson's research interests are in Black and Indigenous self-determination, land rights, and political ecology [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nick Johnson",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Gabriela Boscio",
+          "entity_type": "staff_member",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Gabriela Boscio, entity match for Nick Johnson",
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "section_index": 1,
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "category": "Annual Reports",
+            "chunk_index": 1,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "section_index": 15,
+            "entity_type": "section",
+            "section_name": "SEED GRANT WINNER",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "chunk_level": "summary",
+            "folder_label": "",
+            "category": "General",
+            "entity_type": "person",
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-6-nick-johnson",
+            "section_index": 6,
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "section_name": "Nick Johnson",
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "document_type": "txt",
+            "title": "StudentsInterns",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "entity_type": "section",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_index": 1,
+            "title": "AnnualReport2021",
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 2,
+            "folder_label": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "category": "General",
+            "title": "Staff",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_level": "summary",
+            "section_index": 2,
+            "entity_type": "staff_member",
+            "chunk_index": 0,
+            "section_name": "Gabriela Boscio",
+            "folder_label": "",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "chunk_index": 2,
+            "chunk_level": "summary",
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "section_index": 4,
+            "section_name": "FACULTY AFFILIATES",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "category": "Annual Reports",
+            "section_index": 11,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "section_name": "RESEARCH GRANT WINNER",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "folder_label": "Annual Reports",
+            "chunk_index": 4,
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-12-research-grant-winner",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "folder_label": "Annual Reports",
+            "chunk_index": 3,
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "detail",
+            "section_index": 12,
+            "section_name": "RESEARCH GRANT WINNER",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "title": "AnnualReport2021",
+            "chunk_level": "detail",
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "folder_label": "Annual Reports",
+            "section_index": 1,
+            "chunk_index": 1,
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 3,
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 11,
+            "section_name": "RESEARCH GRANT WINNER",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner::detail-chunk-4",
+            "neighbor_distance": 1
+          },
+          {
+            "category": "Annual Reports",
+            "section_index": 12,
+            "chunk_level": "detail",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-12-research-grant-winner",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "chunk_index": 2,
+            "folder_label": "Annual Reports",
+            "section_name": "RESEARCH GRANT WINNER",
+            "entity_type": "section",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-12-research-grant-winner::detail-chunk-3",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "folder_label": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_index": 1,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "chunk_index": 3,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "FACULTY AFFILIATES",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+            "document_type": "txt",
+            "chunk_index": 1,
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_index": 4,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_index": 2,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_name": "SEED GRANT WINNER",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 15,
+            "entity_type": "section",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "folder_label": "Annual Reports",
+            "section_index": 15,
+            "section_name": "SEED GRANT WINNER",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "chunk_level": "summary",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "chunk_index": 2,
+            "title": "AnnualReport2021",
+            "folder_label": "Annual Reports",
+            "section_name": "RESEARCH GRANT WINNER",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+            "section_index": 11,
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner::detail-chunk-4",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 3,
+          "top_score": 5.782658227848101,
+          "second_score": 5.142987012987012,
+          "score_gap": 0.6396712148610888,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Gabriela Boscio, entity match for Nick Johnson",
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Gabriela Boscio's title and Nick Johnson's research interests using the provided corpus and correct citations."
+    },
+    {
+      "id": "adv_cross_belloy_michael",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Patricio Belloy\u2019s research explores the political context in which actors and institutions influence policy and policy change regarding climate resilience and its connection to social justice in Boston [1]. His research and practice also examine how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production [2]. Furthermore, he works on a case study regarding how climate research informs public policy discussions and a project investigating how the climate crisis will impact the housing crisis [1]. Michael Johnson\u2019s stated expertise is in management science planning models for public-sector facility location and service [3].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+        },
+        {
+          "citation": 3,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Michael Johnson",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "UniversityAffiliates"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, entity match for Michael Johnson",
+          "answer_requirements": [
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "section_index": 19,
+            "folder_label": "Annual Reports",
+            "chunk_index": 2,
+            "section_name": "STUDENT TESTIMONIAL",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "entity_type": "section",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "summary",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "entity_type": "affiliate",
+            "category": "General",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "title": "Staff",
+            "section_index": 5,
+            "section_name": "Patricio Belloy",
+            "chunk_level": "summary",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "folder_label": "",
+            "section_name": "Michael Johnson",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "title": "UniversityAffiliates",
+            "category": "General",
+            "entity_type": "affiliate",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "section_index": 6,
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-6-michael-johnson",
+            "chunk_level": "summary",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "chunk_index": 1,
+            "section_index": 7,
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "section_name": "RESEARCH",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_index": 11,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "chunk_index": 4,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "RESEARCH GRANT WINNER",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "folder_label": "Annual Reports",
+            "category": "Annual Reports",
+            "chunk_index": 2,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "section_name": "SEED GRANT WINNER",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 15,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "CLIMATE JUSTICE RESEARCH DATABASE",
+            "title": "AnnualReport2021",
+            "entity_type": "section",
+            "section_index": 10,
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database",
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "chunk_index": 3,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "folder_label": "Annual Reports",
+            "section_index": 19,
+            "category": "Annual Reports",
+            "chunk_index": 4,
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "STUDENT TESTIMONIAL",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_name": "STUDENT TESTIMONIAL",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "section_index": 19,
+            "chunk_index": 1,
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "category": "Annual Reports",
+            "chunk_index": 1,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "section_index": 15,
+            "entity_type": "section",
+            "section_name": "SEED GRANT WINNER",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "chunk_index": 2,
+            "section_index": 10,
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "detail",
+            "category": "Annual Reports",
+            "section_name": "CLIMATE JUSTICE RESEARCH DATABASE",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database::detail-chunk-3",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "chunk_index": 3,
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "section_index": 19,
+            "chunk_level": "summary",
+            "section_name": "STUDENT TESTIMONIAL",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 3,
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 11,
+            "section_name": "RESEARCH GRANT WINNER",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner::detail-chunk-4",
+            "neighbor_distance": 1
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "folder_label": "Annual Reports",
+            "section_name": "STUDENT TESTIMONIAL",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "chunk_index": 3,
+            "section_index": 19,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::detail-chunk-4",
+            "neighbor_distance": 1
+          },
+          {
+            "section_index": 7,
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "section_name": "RESEARCH",
+            "chunk_index": 2,
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 5,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 19,
+            "section_name": "STUDENT TESTIMONIAL",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::detail-chunk-4",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 3,
+          "top_score": 5.158660714285714,
+          "second_score": 5.024003974167909,
+          "score_gap": 0.13465674011780582,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "UniversityAffiliates"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, entity match for Michael Johnson",
+          "answer_requirements": [
+            "research"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies Michael Johnson's expertise. However, for Patricio Belloy, it cites an external document (AnnualReport2021) not present in the provided corpus and includes specific research details not found in the provided Staff.txt source."
+    },
+    {
+      "id": "adv_cross_jen_johnna",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Jen Stevenson Zepeda's professional title, and what is Johnna Flahive's research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Jen Stevenson Zepeda's professional title, and what is Johnna Flahive's research focus?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Jen Stevenson Zepeda, entity match for Johnna Flahive, Flahive specific-fact hard-scoped to Staff.txt only",
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant only answered the second part of the question regarding Johnna Flahive. It failed to provide Jen Stevenson Zepeda's professional title, which was available in the provided corpus."
+    }
+  ]
+}

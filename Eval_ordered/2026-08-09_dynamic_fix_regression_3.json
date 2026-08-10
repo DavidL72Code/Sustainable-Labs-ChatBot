@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-08-09T05:58:18.930236+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.67,
+      "citations": 3.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 2
+    }
+  },
+  "results": [
+    {
+      "id": "fs_089",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Michael Johnson's current title at UMass Boston according to the SSL affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Michael Johnson is listed as Professor and Chair, Department of Public Policy and Public Affairs. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant used the wrong source document (Annual Report instead of the University Affiliates list) and provided an incorrect title. The corpus explicitly lists Michael Johnson's title as 'Special Assistant to the Chancellor'."
+    },
+    {
+      "id": "fs_103",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault holds a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas [1]. Some documents further specify that her research focuses on risk prevention and crisis management policies in French coastal urban areas [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 12,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Cassandre Rey-Thibault's PhD specialty? education"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies the PhD specialty from the provided text. However, it includes a second citation that is not part of the expected target sources and is not supported by the provided corpus reference."
+    },
+    {
+      "id": "fs_157",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Chidimma Ozor's doctoral program and year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Chidimma Ozor Commer's doctoral program and year of study at UMass Boston are as follows:\n- **Doctoral Program**: Chidimma Ozor Commer is a student in the School of Global Inclusion and Social Development [1].\n- **Year of Study**: Chidimma Ozor Commer is a second-year doctoral student [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the doctoral program and year of study from the provided corpus."
+    }
+  ]
+}

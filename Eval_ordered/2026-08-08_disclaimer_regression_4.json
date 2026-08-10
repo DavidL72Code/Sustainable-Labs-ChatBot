@@ -1,0 +1,179 @@
+{
+  "generated_at": "2026-08-08T18:02:43.949359+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 4.5,
+      "professional_tone": 4.5,
+      "correctness_vs_corpus": 4.25,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 3,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Patricio Belloy** earned a PhD and an MSc in Public Policy from UMass Boston [1]. **Patricio Belloy** also earned an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The model correctly extracted the information from the corpus but included a contradictory and incorrect final sentence claiming the information was not available."
+    },
+    {
+      "id": "fs_047",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "**Isa Kelawili Whalen**\n- Isa Kelawili Whalen is a Master\u2019s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1]. She previously earned a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle [1].\n- She is an indigenous Chamoru woman [1].\n- She is from the southern village of Umatac, Guam [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Isa Kelawili Whalen",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and fully supported by the provided corpus text."
+    },
+    {
+      "id": "fs_051",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Tim Cronin's current title and employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Tim Cronin's current title is Associate Director of Policy and Advocacy, and his employer is Health Care Without Harm [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fm_006",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_awards",
+      "question": "What was Paul Kirshen recognized for and by which organization?",
+      "conversation": [
+        {
+          "user": "What research awards and honors are mentioned in SSL's 2020-21 year in review?",
+          "assistant": "The following research awards and honors are mentioned in the Annual Report 2021: **Research Awards**\n- Lorena Estrada-Martinez was awarded a three-year grant of $800,000 from the US Environmental Protection Agency (EPA) for a project entitled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico.\" [1]\n- Rosalyn Negron received a grant of $253,862 from the National Science Foundation for a project entitled \"Social & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being.\" - Ellen Douglas, Evan Stewart, and Johnna Flahive received a $48,000 SSL Climate Justice Research Grant for a project entitled \"Novel Research in Climate Justice: Including Transient Populations in Climate Resiliency.\" **Faculty Honors**\n- Paul Kirshen received the Clemens Herschel award from the Boston Society of Civil Engineers Section for his work as principal investigator of the \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" report.\n- Maria Ivanova was appointed to a four-year term on the World Climate Research Programme (WCRP) Joint Scientific Committee."
+        },
+        {
+          "user": "Tell me specifically about the EPA grant that was awarded.",
+          "assistant": "The US Environmental Protection Agency (EPA) awarded Lorena Estrada-Martinez, an assistant professor of environment and public health in the School for the Environment, a three-year grant of $800,000 [1].\n- **Research Focus**: The grant supports a project entitled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Project Purpose**: The study will investigate health risks in Vieques, Puerto Rico, where the ecological and human populations have been significantly impacted by decades of U.S. military occupation, including the use of chemical and biological weapons [1].\n- **Methodology**: The study will be supported by a partnership between the research team and the local community to ensure all parties are equally involved in decision-making and knowledge-sharing.\n- **Research Team**: The team includes SSL faculty members Bob Chen, interim dean of the School for the Environment (SFE) and professor of organic geochemistry; Rosalyn Negron, associate professor of anthropology in the College of Liberal Arts; and Lorna Rivera, director of the Mauricio Gaston Institute for Latino Community Development and Public Policy."
+        },
+        {
+          "user": "What was Paul Kirshen recognized for and by which organization?",
+          "assistant": "The available documents provide the following information regarding the recognition of **Paul Kirshen**:\n- **Recognition**: **Paul Kirshen** was awarded the Clemens Herschel award for his work as the principal investigator of the \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" report [1]. This award recognizes an individual who has published a paper that is considered \"useful, commendable, and worthy of grateful acknowledgment\".\n- **Organization**: The award was presented by the **Boston Society of Civil Engineers Section** [1]. The available documents do not state any information regarding **Vishal Verma**."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The available documents provide the following information regarding the recognition of **Paul Kirshen**:\n- **Recognition**: **Paul Kirshen** was awarded the Clemens Herschel award for his work as the principal investigator of the \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" report [1]. This award recognizes an individual who has published a paper that is considered \"useful, commendable, and worthy of grateful acknowledgment\".\n- **Organization**: The award was presented by the **Boston Society of Civil Engineers Section** [1]. The available documents do not state any information regarding **Vishal Verma**.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What was Paul Kirshen recognized for and by which organization? (subject: RESEARCH AWARDS) honor"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the award (Clemens Herschel award) and the organization (Boston Society of Civil Engineers Section) as stated in the corpus."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "single_turn": [],
+  "multi_turn": [
+    {
+      "id": "fm_005",
+      "type": "follow_up_staff_roles",
+      "turns": [
+        "Who are the current core staff members at SSL?",
+        "What is Gabriela Boscio Santos's role?",
+        "What does Elisa Guerrero do at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    }
+  ]
+}

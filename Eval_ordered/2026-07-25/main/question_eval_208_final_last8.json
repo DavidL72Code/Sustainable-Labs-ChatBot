@@ -1,0 +1,1354 @@
+{
+  "generated_at": "2026-07-26T03:34:04.811547+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_041",
+      "kind": "multi_turn",
+      "type": "follow_up_patricio_belloy_focus",
+      "question": "What three universities did he attend for his degrees?",
+      "conversation": [
+        {
+          "user": "Who is Patricio Belloy and what does he currently do?",
+          "assistant": "Patricio Belloy is an academic researcher and Assistant Professor [1]. He currently serves as an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1]. The purpose of his research and practice is to explore how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production [1]."
+        },
+        {
+          "user": "What is his stated research focus on the SSL website?",
+          "assistant": "Patricio Belloy's stated focus includes Equitable climate resilience, climate and renewable energy education, human wellbeing, community development. [1]"
+        },
+        {
+          "user": "What three universities did he attend for his degrees?",
+          "assistant": "Patricio Belloy attended the following three universities for his degrees: UMass Boston, Leipzig University, and Wroc\u0142aw University [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy attended the following three universities for his degrees: UMass Boston, Leipzig University, and Wroc\u0142aw University [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "education"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Patricio Belloy and what does he currently do?",
+          "trace": {
+            "rewritten_query": "Who is Patricio Belloy and what does he currently do?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "Who is Patricio Belloy and what does he currently do?"
+          }
+        },
+        {
+          "user": "What is his stated research focus on the SSL website?",
+          "trace": {
+            "rewritten_query": "What is his stated research focus on the SSL website? (subject: Patricio Belloy)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "Staff"
+              ],
+              "target_categories": [
+                "Annual Reports",
+                "General"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+                "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, exact phrase match for Patricio Belloy",
+              "answer_requirements": [
+                "location",
+                "research"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What is his stated research focus on the SSL website? (subject: Patricio Belloy)"
+          }
+        },
+        {
+          "user": "What three universities did he attend for his degrees?",
+          "trace": {
+            "rewritten_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "education"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+              "name": "Patricio Belloy",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "education",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+                "name": "Patricio Belloy",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What three universities did he attend for his degrees? (subject: Patricio Belloy)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the three universities (UMass Boston, Leipzig University, and Wroc\u0142aw University) from the provided corpus text."
+    },
+    {
+      "id": "fm_042",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_paul_watanabe",
+      "question": "What is his area of expertise?",
+      "conversation": [
+        {
+          "user": "Which SSL university affiliates work in political science or policy?",
+          "assistant": "Based on the retrieved documents, the following Sustainable Solutions Lab (SSL) university affiliates work in political science or policy: * **Paul Watanabe:** He is a Professor of Political Science in the College of Liberal Arts [1], [2].\n* **Michael Johnson:** He is a Professor and Chair of the Department of Public Policy and Public Affairs at the McCormack Graduate School, and serves as a Graduate Program Director for Public Policy & Public Affairs.\n* **Amit Patel:** He is an Assistant Professor in the Department of Public Policy and Public Affairs at the McCormack Graduate School. Regarding their education, I don't have that information in the available documents."
+        },
+        {
+          "user": "Tell me about Paul Watanabe's role.",
+          "assistant": "**Role and Professional Title**\nPaul Watanabe serves as a Professor of Political Science [1]. **Areas of Expertise**\nPaul Watanabe\u2019s expertise includes American Foreign Policy, American Political Behavior, and Ethnic Group Politics [1]. **Additional Roles**\nI don't have information in the available documents regarding any other specific roles or administrative positions held by Paul Watanabe."
+        },
+        {
+          "user": "What is his area of expertise?",
+          "assistant": "**Areas of Expertise**\nPaul Watanabe\u2019s areas of expertise include American Foreign Policy, American Political Behavior, and Ethnic Group Politics [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "**Areas of Expertise**\nPaul Watanabe\u2019s areas of expertise include American Foreign Policy, American Political Behavior, and Ethnic Group Politics [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Paul Watanabe",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is his area of expertise? (subject: Paul Watanabe)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "title": "UniversityAffiliates",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "section_name": "Paul Watanabe",
+            "entity_type": "affiliate",
+            "chunk_level": "full_bio",
+            "chunk_index": 0
+          },
+          {
+            "folder_label": "",
+            "section_index": 13,
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "chunk_level": "summary",
+            "document_type": "txt",
+            "category": "General",
+            "entity_type": "affiliate",
+            "chunk_index": 0,
+            "section_name": "Paul Watanabe",
+            "title": "UniversityAffiliates",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "section_name": "Jessica Whiteley",
+            "entity_type": "affiliate",
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-14-jessica-whiteley",
+            "chunk_level": "summary",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "chunk_index": 0,
+            "category": "General",
+            "section_index": 14,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-5-susan-gauss",
+            "chunk_index": 0,
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "document_type": "txt",
+            "category": "General",
+            "section_name": "Susan Gauss",
+            "chunk_level": "summary",
+            "title": "UniversityAffiliates",
+            "section_index": 5,
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "section_index": 11,
+            "entity_type": "affiliate",
+            "title": "UniversityAffiliates",
+            "chunk_level": "summary",
+            "document_type": "txt",
+            "folder_label": "",
+            "section_name": "Evan Stewart",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "chunk_index": 0,
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-11-evan-stewart",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "entity_type": "affiliate",
+            "folder_label": "",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "section_name": "Camille Curtis Martinez",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-7-camille-curtis-martinez",
+            "section_index": 7,
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "category": "General",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "entity_type": "affiliate",
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-2-lorena-estrada-martinez",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "section_name": "Lorena Estrada-Martinez",
+            "title": "UniversityAffiliates",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "chunk_level": "summary",
+            "section_index": 2,
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "entity_type": "affiliate",
+            "section_name": "Dania Francis",
+            "chunk_index": 0,
+            "section_index": 4,
+            "category": "General",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-4-dania-francis",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "category": "General",
+            "chunk_level": "summary",
+            "section_name": "Lorna Rivera",
+            "folder_label": "",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "section_index": 10,
+            "entity_type": "affiliate",
+            "title": "UniversityAffiliates",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-10-lorna-rivera",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 8,
+          "selected_count": 8,
+          "distinct_source_count": 1,
+          "top_score": 4.4741485986250655,
+          "second_score": 3.7964062500000004,
+          "score_gap": 0.6777423486250651,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 0,
+          "evidence_buckets": {
+            "main": 8
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage"
+          ]
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "research"
+          ]
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "Which SSL university affiliates work in political science or policy?",
+          "trace": {
+            "rewritten_query": "Which SSL university affiliates work in political science or policy?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Local first-pass multi-label route: affiliate sources",
+              "answer_requirements": [
+                "education"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "folder_label": "",
+                "category": "General",
+                "section_name": "Paul Watanabe",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "chunk_index": 0,
+                "entity_type": "affiliate",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "section_index": 13,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "chunk_index": 0,
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "section_index": 1,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "folder_label": "Annual Reports",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "section_index": 4,
+                "section_name": "FACULTY AFFILIATES",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 31,
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-31-special-thanks-to-our-partners",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "chunk_index": 0,
+                "title": "AnnualReport2021",
+                "section_name": "SPECIAL THANKS TO OUR PARTNERS",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "section_index": 19,
+                "chunk_index": 3,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "STUDENT TESTIMONIAL",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "section_index": 19,
+                "entity_type": "section",
+                "chunk_index": 2,
+                "section_name": "STUDENT TESTIMONIAL",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "section_name": "SEED GRANT WINNER",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "entity_type": "section",
+                "section_index": 15,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "document_type": "txt",
+                "title": "UniversityAffiliates",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-6-michael-johnson",
+                "chunk_level": "summary",
+                "folder_label": "",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "entity_type": "affiliate",
+                "section_name": "Michael Johnson",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "category": "General",
+                "chunk_index": 0,
+                "section_index": 6,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "section_index": 4,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "chunk_index": 1,
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "section_name": "FACULTY AFFILIATES",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "title": "AnnualReport2021",
+                "section_name": "SEED GRANT WINNER",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 15,
+                "chunk_index": 2,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 19,
+                "section_name": "STUDENT TESTIMONIAL",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "chunk_index": 4,
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 0,
+                "section_name": "SEED GRANT WINNER",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "section_index": 15,
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "section",
+                "section_name": "STUDENT TESTIMONIAL",
+                "chunk_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "section_index": 19,
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 2
+              },
+              {
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "chunk_index": 0,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "entity_type": "section",
+                "document_type": "txt",
+                "section_name": "FACULTY AFFILIATES",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_index": 4,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 19,
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "section_name": "STUDENT TESTIMONIAL",
+                "chunk_index": 0,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which SSL university affiliates work in political science or policy? education",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-2",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 15,
+              "selected_count": 15,
+              "distinct_source_count": 2,
+              "top_score": 2.409245108896272,
+              "second_score": 2.4075540518237335,
+              "score_gap": 0.00169105707253836,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 7,
+              "evidence_buckets": {
+                "main": 15
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [],
+              "reason": "Local first-pass multi-label route: affiliate sources",
+              "answer_requirements": [
+                "education"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "idle",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "education",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": "Which SSL university affiliates work in political science or policy?"
+          }
+        },
+        {
+          "user": "Tell me about Paul Watanabe's role.",
+          "trace": {
+            "rewritten_query": "Tell me about Paul Watanabe's role.",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Paul Watanabe",
+                "entity_type": "affiliate",
+                "chunk_level": "full_bio",
+                "chunk_index": 0
+              },
+              {
+                "section_index": 13,
+                "category": "General",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "entity_type": "affiliate",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "title": "UniversityAffiliates",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "section_name": "Paul Watanabe",
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "category": "General",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "chunk_index": 0,
+                "title": "UniversityAffiliates",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-16-cedric-woods",
+                "section_index": 16,
+                "folder_label": "",
+                "entity_type": "affiliate",
+                "section_name": "Cedric Woods",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-8-georgia-mavrommati",
+                "title": "UniversityAffiliates",
+                "folder_label": "",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Georgia Mavrommati",
+                "section_index": 8,
+                "entity_type": "affiliate",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "category": "General",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "title": "UniversityAffiliates",
+                "document_type": "txt",
+                "folder_label": "",
+                "entity_type": "affiliate",
+                "chunk_level": "summary",
+                "category": "General",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "section_index": 11,
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-11-evan-stewart",
+                "chunk_index": 0,
+                "section_name": "Evan Stewart",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "document_type": "txt",
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-3-jesse-farmer",
+                "chunk_index": 0,
+                "folder_label": "",
+                "section_index": 3,
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Jesse Farmer",
+                "category": "General",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "section_name": "Kerrie Wilkins",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-15-kerrie-wilkins",
+                "section_index": 15,
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "category": "General",
+                "chunk_index": 0,
+                "entity_type": "affiliate",
+                "document_type": "txt",
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "category": "General",
+                "document_type": "txt",
+                "title": "UniversityAffiliates",
+                "chunk_index": 0,
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "section_name": "Camille Curtis Martinez",
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-7-camille-curtis-martinez",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_index": 7,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              },
+              {
+                "title": "UniversityAffiliates",
+                "chunk_index": 0,
+                "entity_type": "affiliate",
+                "chunk_level": "detail",
+                "section_name": "Paul Watanabe",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "category": "General",
+                "document_type": "txt",
+                "folder_label": "",
+                "section_index": 13,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Tell me about Paul Watanabe's role. purpose"
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 8,
+              "selected_count": 8,
+              "distinct_source_count": 1,
+              "top_score": 4.424148598625066,
+              "second_score": 3.6966666666666668,
+              "score_gap": 0.7274819319583989,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 0,
+              "evidence_buckets": {
+                "main": 8
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "purpose"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+              "name": "Paul Watanabe",
+              "subject_type": "person",
+              "title": "UniversityAffiliates",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "name": "Paul Watanabe",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "name": "Paul Watanabe",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "last_query": "Tell me about Paul Watanabe's role."
+          }
+        },
+        {
+          "user": "What is his area of expertise?",
+          "trace": {
+            "rewritten_query": "What is his area of expertise? (subject: Paul Watanabe)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "research"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Paul Watanabe",
+                "entity_type": "affiliate",
+                "chunk_level": "full_bio",
+                "chunk_index": 0
+              },
+              {
+                "folder_label": "",
+                "section_index": 13,
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "category": "General",
+                "entity_type": "affiliate",
+                "chunk_index": 0,
+                "section_name": "Paul Watanabe",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "section_name": "Jessica Whiteley",
+                "entity_type": "affiliate",
+                "title": "UniversityAffiliates",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-14-jessica-whiteley",
+                "chunk_level": "summary",
+                "folder_label": "",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "chunk_index": 0,
+                "category": "General",
+                "section_index": 14,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "entity_type": "affiliate",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-5-susan-gauss",
+                "chunk_index": 0,
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "document_type": "txt",
+                "category": "General",
+                "section_name": "Susan Gauss",
+                "chunk_level": "summary",
+                "title": "UniversityAffiliates",
+                "section_index": 5,
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "section_index": 11,
+                "entity_type": "affiliate",
+                "title": "UniversityAffiliates",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "folder_label": "",
+                "section_name": "Evan Stewart",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "chunk_index": 0,
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-11-evan-stewart",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "entity_type": "affiliate",
+                "folder_label": "",
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "section_name": "Camille Curtis Martinez",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-7-camille-curtis-martinez",
+                "section_index": 7,
+                "title": "UniversityAffiliates",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "category": "General",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "entity_type": "affiliate",
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-2-lorena-estrada-martinez",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "section_name": "Lorena Estrada-Martinez",
+                "title": "UniversityAffiliates",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "chunk_level": "summary",
+                "section_index": 2,
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "title": "UniversityAffiliates",
+                "document_type": "txt",
+                "entity_type": "affiliate",
+                "section_name": "Dania Francis",
+                "chunk_index": 0,
+                "section_index": 4,
+                "category": "General",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-4-dania-francis",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+                "category": "General",
+                "chunk_level": "summary",
+                "section_name": "Lorna Rivera",
+                "folder_label": "",
+                "document_type": "txt",
+                "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+                "section_index": 10,
+                "entity_type": "affiliate",
+                "title": "UniversityAffiliates",
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-10-lorna-rivera",
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is his area of expertise? (subject: Paul Watanabe) research"
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 8,
+              "selected_count": 8,
+              "distinct_source_count": 1,
+              "top_score": 4.4741485986250655,
+              "second_score": 3.7964062500000004,
+              "score_gap": 0.6777423486250651,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 0,
+              "evidence_buckets": {
+                "main": 8
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "UniversityAffiliates"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ],
+              "reason": "conversation state active-subject route",
+              "answer_requirements": [
+                "research"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+              "name": "Paul Watanabe",
+              "subject_type": "person",
+              "title": "UniversityAffiliates",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "name": "Paul Watanabe",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+                "name": "Paul Watanabe",
+                "subject_type": "person",
+                "title": "UniversityAffiliates",
+                "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              }
+            ],
+            "last_query": "What is his area of expertise? (subject: Paul Watanabe)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Paul Watanabe in the provided source document."
+    }
+  ]
+}

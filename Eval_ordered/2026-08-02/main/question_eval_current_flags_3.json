@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-08-02T04:44:42.845282+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-02/questions_current_flags_3.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rajini Srikanth\u2019s title is Dean of Faculty and Inter-Faculty Initiatives [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_097",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Levente \u201cLevi\u201d Mezo: minors in Community Development. Additional interests include urban planning, transportation planning, and affordable housing advocacy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the minor and additional interests for Levente Mezo from the provided corpus."
+    },
+    {
+      "id": "fs_100",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Anna Matviichuk's major and current year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Anna Matviichuk is a junior at UMass Boston, majoring in marketing. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    }
+  ]
+}

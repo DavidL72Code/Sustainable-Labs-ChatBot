@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-09T01:20:40.856565+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill earned a Masters in Conservation Leadership from the University of Cambridge [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_148",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Affiliation**\nJohnna Flahive joined the Climate Resilience Institute (CRI) [1]. **Location**\nThe Climate Resilience Institute (CRI) is located at the University of Miami [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What institute did Johnna Flahive join after her work with SSL, and where is it located? affiliation location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_156",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich serves as a director of the Marshfield Agricultural and Horticultural Society [1]. Regarding her service on town boards and committees, the available documents state that she has served on them, but they do not provide the specific names of those town boards and committees [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Jennifer Friedrich",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately reflects the information provided in the corpus, correctly identifying the one named organization and noting that the specific names of the town boards and committees are not provided in the source text."
+    }
+  ]
+}

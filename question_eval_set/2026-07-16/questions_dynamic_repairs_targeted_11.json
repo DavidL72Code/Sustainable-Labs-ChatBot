@@ -1,0 +1,127 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_003",
+      "type": "specific_fact",
+      "question": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_129",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_146",
+      "type": "specific_fact",
+      "question": "What does the C3I program say it will do with local and state policymakers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_002",
+      "type": "follow_up_c3i_details",
+      "turns": [
+        "Tell me about the Climate Careers Curricula Initiative.",
+        "What foundation funds it and what are the key goals for participants?",
+        "How many programs and participants does it plan to reach, and over what timeframe?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fm_010",
+      "type": "follow_up_student_isa_whalen",
+      "turns": [
+        "Who is Isa Whalen?",
+        "What is her cultural background and where is she originally from?",
+        "What specific research project is she working on at SSL, and with which faculty member?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_015",
+      "type": "follow_up_student_vishal_verma",
+      "turns": [
+        "Who is Vishal Verma at SSL?",
+        "Where did he complete his undergraduate and master's education?",
+        "What are his two main research projects?",
+        "Who supervises his doctoral work at UMass Boston?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_017",
+      "type": "follow_up_cliir_details",
+      "turns": [
+        "What is the CLIIR Initiative?",
+        "What funding supported its launch?",
+        "What are the three themes it focuses on and why were those themes chosen according to the source?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fm_018",
+      "type": "follow_up_annual_report_events",
+      "turns": [
+        "What special events did SSL host in the 2020-21 period according to the annual report?",
+        "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+        "Who were the panelists at that event and which radio show co-sponsored it?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_027",
+      "type": "follow_up_maria_ivanova",
+      "turns": [
+        "What honors or appointments did SSL-affiliated faculty receive in the 2020-21 annual report?",
+        "Tell me about Maria Ivanova's appointment.",
+        "What is notable about the WCRP's membership call that led to her selection?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_034",
+      "type": "follow_up_ssl_core_team_2021",
+      "turns": [
+        "Who are the core team members listed in the 2020-21 SSL annual report?",
+        "What is Ellen Douglas's title and department?",
+        "What is David Levy's title and department?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_044",
+      "type": "follow_up_c3i_details_extended",
+      "turns": [
+        "What is the Climate Careers Curricula Initiative?",
+        "What populations does it specifically aim to serve?",
+        "What are the three key program elements of the initiative?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    }
+  ]
+}

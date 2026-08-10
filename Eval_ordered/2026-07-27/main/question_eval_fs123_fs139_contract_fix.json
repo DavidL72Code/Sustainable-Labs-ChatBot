@@ -1,0 +1,392 @@
+{
+  "generated_at": "2026-07-27T16:16:01.838644+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_123",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The Fifty-Fifty art collective presented the multimedia project titled Portable Memories in Rising Seas [1]. Regarding the event's hosts, the available documents state that the event was co-hosted by the Climigration Network [1], but they do not contain information indicating that the Sustainable Solutions Lab (SSL) was a co-host.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, exact phrase match for Climigration Network",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [
+          {
+            "document_type": "txt",
+            "entity_type": "section",
+            "chunk_level": "summary",
+            "chunk_index": 0,
+            "section_index": 27,
+            "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+            "category": "Annual Reports",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+          },
+          {
+            "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_index": 27,
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 1,
+          "top_score": 3.6947058823529413,
+          "second_score": 3.6846774193548386,
+          "score_gap": 0.010028462998102672,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.75,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage",
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, exact phrase match for Climigration Network",
+          "answer_requirements": []
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the project and accurately noted that the provided text only explicitly names the Climigration Network as a co-host, despite the document being an SSL report."
+    },
+    {
+      "id": "fs_139",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are the three program elements of the Climate Careers Curricula Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "* Curriculum Development: The initiative collaborates with industry partners, community-based organizations, and academic experts to develop microcredentialed training programs for high-demand blue and green jobs [1].\n* Community Engagement: The program recruits participants from environmental justice communities by working closely with local organizations and city programs [1].\n* Partnerships for Career Pathways: The initiative establishes partnerships with employers to create pathways from training to employment, including internships, job placement assistance, and mentoring [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, c3 initiative sources, workforce training routes to C3I project, entity match for Climate Careers Curricula Initiative (C3I), exact phrase match for Climate Careers Curricula Initiative",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [
+          {
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "category": "General",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "section_index": 2,
+            "entity_type": "project",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "chunk_level": "summary",
+            "title": "Projects",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "chunk_level": "summary",
+            "section_index": 2,
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "category": "General",
+            "document_type": "txt",
+            "entity_type": "project",
+            "chunk_index": 1,
+            "title": "Projects",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "document_type": "txt",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-4-climate-inequality-and-integrative-resilience-cliir-initiative",
+            "entity_type": "project",
+            "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+            "section_index": 4,
+            "title": "Projects",
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "folder_label": "",
+            "category": "General",
+            "chunk_index": 0,
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "folder_label": "",
+            "title": "Projects",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "section_index": 2,
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "chunk_level": "detail",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "document_type": "txt",
+            "entity_type": "project",
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "document_type": "txt",
+            "entity_type": "project",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "chunk_index": 4,
+            "chunk_level": "detail",
+            "title": "Projects",
+            "section_index": 2,
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "section_index": 2,
+            "title": "Projects",
+            "folder_label": "",
+            "entity_type": "project",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "category": "General",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "entity_type": "project",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "chunk_index": 2,
+            "section_index": 2,
+            "title": "Projects",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "chunk_level": "detail",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "category": "General",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          },
+          {
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "section_index": 2,
+            "title": "Projects",
+            "unit_id": "SEED_DOCUMENTS/Projects.txt#project-2-climate-careers-curricula-initiative-c3i",
+            "section_name": "Climate Careers Curricula Initiative (C3I)",
+            "chunk_index": 3,
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Projects.txt",
+            "source_url": "https://www.umb.edu/ssl/projects/",
+            "entity_type": "project",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What are the three program elements of the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 8,
+          "selected_count": 8,
+          "distinct_source_count": 1,
+          "top_score": 5.333817685047194,
+          "second_score": 5.332296380090498,
+          "score_gap": 0.0015213049566957793,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 0,
+          "evidence_buckets": {
+            "main": 8
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.75,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage",
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, c3 initiative sources, workforce training routes to C3I project, entity match for Climate Careers Curricula Initiative (C3I), exact phrase match for Climate Careers Curricula Initiative",
+          "answer_requirements": []
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified three of the program elements but missed the fourth element, 'Continuous Evaluation', which is explicitly listed in the source text."
+    }
+  ]
+}

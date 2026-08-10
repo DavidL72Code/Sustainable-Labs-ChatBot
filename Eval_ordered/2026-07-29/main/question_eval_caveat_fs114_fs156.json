@@ -1,0 +1,459 @@
+{
+  "generated_at": "2026-07-29T23:12:24.445544+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-29/caveat_fs114_fs156.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_114",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) received $20,000 from the Barr Foundation [1]. The purpose of this funding was \"to deepen our commitment to centering Racial Justice in our work and support our efforts to be an anti-racist research institute at UMB\" [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+            "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+            "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+          ],
+          "reason": "Local first-pass multi-label route: grant and funding details route to Annual Reports, exact phrase match for Barr Foundation",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "funding",
+            "purpose",
+            "time"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "section_index": 17,
+            "title": "AnnualReport2021",
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+          },
+          {
+            "folder_label": "Annual Reports",
+            "category": "Annual Reports",
+            "section_index": 17,
+            "entity_type": "section",
+            "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+          },
+          {
+            "folder_label": "Annual Reports",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "chunk_level": "detail",
+            "document_type": "pdf",
+            "section_name": "",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "chunk_index": 43,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "entity_type": "",
+            "category": "Annual Reports",
+            "section_index": -1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+          },
+          {
+            "section_name": "",
+            "folder_label": "Annual Reports",
+            "category": "Annual Reports",
+            "chunk_index": 9,
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "document_type": "pdf",
+            "title": "UMB-SSL-2025-Impact_Report",
+            "entity_type": "",
+            "section_index": -1,
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+          },
+          {
+            "document_type": "pdf",
+            "title": "UMB-SSL-2025-Impact_Report",
+            "section_name": "",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "chunk_level": "detail",
+            "category": "Annual Reports",
+            "folder_label": "Annual Reports",
+            "section_index": -1,
+            "entity_type": "",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "chunk_index": 24,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "chunk_index": 25,
+            "section_index": -1,
+            "folder_label": "Annual Reports",
+            "title": "UMB-SSL-2025-Impact_Report",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "chunk_level": "detail",
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "section_name": "",
+            "category": "Annual Reports",
+            "document_type": "pdf",
+            "entity_type": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-24",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "chunk_index": 2,
+            "chunk_level": "detail",
+            "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+            "folder_label": "Annual Reports",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color",
+            "section_index": 17,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "document_type": "pdf",
+            "entity_type": "",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "section_name": "",
+            "section_index": -1,
+            "chunk_index": 44,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::detail-chunk-43",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "section_index": -1,
+            "document_type": "pdf",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "section_name": "",
+            "chunk_index": 8,
+            "category": "Annual Reports",
+            "title": "UMB-SSL-2025-Impact_Report",
+            "entity_type": "",
+            "folder_label": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-9",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "",
+            "entity_type": "",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "chunk_level": "detail",
+            "section_index": -1,
+            "document_type": "pdf",
+            "category": "Annual Reports",
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "title": "UMB-SSL-2025-Impact_Report",
+            "chunk_index": 10,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-9",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "document_type": "pdf",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "source_url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+            "chunk_index": 23,
+            "section_name": "",
+            "section_index": -1,
+            "title": "UMB-SSL-2025-Impact_Report",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf::detail-chunk-24",
+            "neighbor_distance": 1
+          },
+          {
+            "category": "Annual Reports",
+            "document_type": "pdf",
+            "section_index": -1,
+            "chunk_level": "detail",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "chunk_index": 42,
+            "title": "UMB-SSL-2022-Annual_Report",
+            "section_name": "",
+            "entity_type": "",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::detail-chunk-43",
+            "neighbor_distance": 1
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "title": "AnnualReport2021",
+            "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color",
+            "section_index": 17,
+            "chunk_index": 0,
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? funding purpose time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-17-barr-foundation-awards-additional-funds-to-support-faculty-of-color::detail-chunk-1",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 13,
+          "selected_count": 13,
+          "distinct_source_count": 3,
+          "top_score": 3.395245901639345,
+          "second_score": 3.24393300248139,
+          "score_gap": 0.1513128991579551,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 13
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+            "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+            "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+          ],
+          "reason": "Local first-pass multi-label route: grant and funding details route to Annual Reports, exact phrase match for Barr Foundation",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "funding",
+            "purpose",
+            "time"
+          ]
+        },
+        "retrieved_context": [
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\nEntity Type: section\nChunk Level: detail\nChunk Index: 1\n\nDocument Labels: AnnualReport2021 | Annual Reports | BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR | Section | Detail\n\nSLIDE 31 \u2014 BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\n================================================================================\nSSL received $20,000 from the Barr Foundation to deepen our commitment to\ncentering Racial Justice in our work and support our efforts to be an anti-racist\nresearch institute at UMB. As part of this effort, SSL provided Summer\nAnti-Racism Research Funding to seven projects led by affiliated faculty with",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\nEntity Type: section\nChunk Level: summary\nChunk Index: 0\n\nDocument Labels: AnnualReport2021 | Annual Reports | BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR | Section | Summary\n\nBARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\n\nSLIDE 31 \u2014 BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\n================================================================================\nSSL received $20,000 from the Barr Foundation to deepen our commitment to\ncentering Racial Justice in our work and support our efforts to be an anti-racist\nresearch institute at UMB. As part of this effort, SSL provided Summer\nAnti-Racism Research Funding to seven projects led by affiliated faculty with\ngrants of up to $2,500 for climate justice research that do at least one of\nthe following:\n- Identify disproportionate impacts of climate change on different racial groups\n- Propose anti-racist policy changes to address climate disparities\n- Center BIPOC voices in the research efforts\n================================================================================",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2022-Annual_Report\nSource URL: https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf\nChunk Level: detail\nChunk Index: 43\n\nDocument Labels: UMB-SSL-2022-Annual_Report | Annual Reports | Detail\n\n(MA) representative Jeffrey Roy\u2014a co-author of \nthe recently-signed MA climate legislation who \nhas credited this trip with helping reinforce his \ncommitment to legislative action to support \nMA's green transition. This trip was made \npossible through the administrative support \nof the Collins Center for Public Management \nand the leadership of the former dean of the \nMcCormack Graduate School, David Cash.\n2022 Barr Foundation Study Tour to Denmark \n19\nWhat We Do\nShaping the \nConversation\nRecognitions",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 9\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nposition at UMB\u2019s School for the Environment and a research position at the \nUniversity of North Texas at Denton (UNT). \nIn 2018, with generous support from the Barr Foundation, SSL underwent \nan in-depth multi-stakeholder Strategic Planning efort, which set up crucial \nframeworks, priorities, and governance. Since then, there have been several \nsmaller-scale processes, the most recent of which was in 2024, which helped SSL \nidentify strategic and governance priorities for the next 5 years.",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 24\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nResilience (CLIIR) Initiative was launched in Making under Deep Uncertainty. \n2023 thanks to a generous center planning \nThe planning grant was completed in the fallgrant from the National Science Foundation \nof 2024. SSL\u2019s goal was to apply to NSF for a(NSF) Centers for Research and Innovation \nCenter Grant to establish CLIIR as a formalin Science, the Environment and Society \nCenter for translating basic research into(CRISES) program. \nimpactful solutions through a transdisciplinary",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 25\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nimpactful solutions through a transdisciplinary \nThe initiative focused on exploring the approach. We envisioned our center as a \nintersections of inequality and climate decision support hub for community groups, \nchange through a focus on three themes: policymakers, planners, and engineers working \nclimate migration, indigenous knowledge and in climate resilience. Unfortunately, the NSF \ngovernance, and health impacts of climate CRISES program was suspended. Despite these",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\nEntity Type: section\nChunk Level: detail\nChunk Index: 2\n\nDocument Labels: AnnualReport2021 | Annual Reports | BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR | Section | Detail\n\ngrants of up to $2,500 for climate justice research that do at least one of\nthe following:\n- Identify disproportionate impacts of climate change on different racial groups\n- Propose anti-racist policy changes to address climate disparities\n- Center BIPOC voices in the research efforts\n================================================================================",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2022-Annual_Report\nSource URL: https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf\nChunk Level: detail\nChunk Index: 44\n\nDocument Labels: UMB-SSL-2022-Annual_Report | Annual Reports | Detail\n\nWhat We Do\nShaping the \nConversation\nRecognitions\nPhoto courtesy \nof Robert Chen.\nThank Y ou\nWe feel grateful to be a part of a community of researchers and practitioners \npushing to make a more just and resilient world for all. Thank you for your \ncontinued commitment to this work and for your partnership. \nThank you to our partners.",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 8\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nregion. We are forever grateful for her leadership and vision. \nIn February 2024, SSL welcomed our new Executive Director, \nDr. B.R. Balachandran, who has since made great strides in \nexpanding funding and programs for SSL and shepherding us \ninto a new chapter. He came to SSL with signifcant experience and scholarship \nin urban and regional planning focused on post-disaster recovery, disaster \nmitigation, and sustainability. Before becoming SSL\u2019s ED, he held a visiting faculty",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 10\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nCoconuts, land crabs, and people: \nInvestigating the value of an Afro-Caribbean \nEcosystem in Puerto Rico \nMay 3, 2024 \nHealing Colonial Wounds: \nA More-Than-Human Approach \nto Indigenous Justice \nFebruary 7, 2025 \nEast of Eden: A short history of \nthe long environmental (in)justice \nin East Boston \nOctober 4, 2024 \nDisaster Schooling in US Contexts: \nReparative Education Praxis in Times \nof Emergent Disasters \nMay 2, 2025\n5 6\n2025 Impact Report \n5 6\n\u201c\nIt's not a coincidence that I\u2019ve come to nearly every",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2025-Impact_Report\nSource URL: https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf\nChunk Level: detail\nChunk Index: 23\n\nDocument Labels: UMB-SSL-2025-Impact_Report | Annual Reports | Detail\n\nreal-world cases on campus and beyond. Ofered in Spring 2025, \nthis course provides an interdisciplinary exploration of sustainability \nchallenges and opportunities, tailored specifcally for students in the \nUMass Boston Honors College. \n2025 Impact Report 77 88\n9 \n2025 Impact Report \n \n \n \n \n   \n \n  \n \n \n \n \n \n \n \n \n  \n \n \n \n  \n \n  \n \nNew Initiatives \nCLIIR \nThe Climate Inequality and Integrative Modeling, Systems Dynamics, and Decision-",
+          "Evidence Bucket: main\nTitle: UMB-SSL-2022-Annual_Report\nSource URL: https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1\nSource Path: SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf\nChunk Level: detail\nChunk Index: 42\n\nDocument Labels: UMB-SSL-2022-Annual_Report | Annual Reports | Detail\n\nintended to help Denmark transition to a non-fossil fuel-\nbased economy. The group included SSL faculty Michael \nJohnson, Amit Patel, and Robert Chen, and SSL doctoral \nstudents Jessica Lillquist, Margaret Gatonye, Patricio \nBelloy, and Kelsey Edmond\u2014representing subject areas \nsuch as Environmental Science, Global Governance \nand Human Security, and Public Policy. The inter-\ndisciplinary team also included Massachusetts \n(MA) representative Jeffrey Roy\u2014a co-author of",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR\nEntity Type: section\nChunk Level: detail\nChunk Index: 0\n\nDocument Labels: AnnualReport2021 | Annual Reports | BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR | Section | Detail\n\nBARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR"
+        ]
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus (Slide 31)."
+    },
+    {
+      "id": "fs_156",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich serves as a director of the Marshfield Agricultural and Horticultural Society [1]. Additionally, she has served on town boards and committees.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What board and local committees has Jennifer Friedrich served on?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "service"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text."
+    }
+  ]
+}

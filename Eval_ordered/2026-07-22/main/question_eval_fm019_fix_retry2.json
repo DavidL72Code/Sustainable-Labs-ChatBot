@@ -1,0 +1,1957 @@
+{
+  "generated_at": "2026-07-22T16:21:34.920125+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.0,
+      "citations": 3.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "The Sustainable Solutions Lab core team for the 2020-21 year consisted of the following members [1]: * Ellen Douglas, Professor of Hydrology, School for the Environment [1]\n* David Levy, Professor of Management, College of Management [1]\n* Rosalyn Negron, Associate Professor of Anthropology, College of Liberal Arts [1]\n* J. Cedric Woods, Director of the Institute for New England Native American Studies and Director of the Critical Ethnic and Community Studies Program, College of Liberal Arts [1]\n* Jessica Whiteley, Associate Professor and Associate Dean of Research, College of Nursing and Health Management [1]\n* Stacy D. VanDeveer, Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School [1]"
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "The following team members focus on conflict resolution and global governance: * Stacy D. VanDeveer serves as the Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School [1].\n* Maria H. Ivanova serves as an Associate Professor of Global Governance and Graduate Program Director in the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "Regarding the requested information: **Employment**\n* Stacy D. VanDeveer serves as a Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School [1]. * I don't have information regarding the full title and department of Maria H. Ivanova in the available documents. **Purpose**\n* The provided documents do not explicitly state a specific \"purpose\" for Stacy D. VanDeveer beyond her role as a member of the Sustainable Solutions Lab core team [1].\n* I don't have information regarding the purpose of Maria H. Ivanova in the available documents."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Regarding the requested information: **Employment**\n* Stacy D. VanDeveer serves as a Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School [1]. * I don't have information regarding the full title and department of Maria H. Ivanova in the available documents. **Purpose**\n* The provided documents do not explicitly state a specific \"purpose\" for Stacy D. VanDeveer beyond her role as a member of the Sustainable Solutions Lab core team [1].\n* I don't have information regarding the purpose of Maria H. Ivanova in the available documents.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "answer_requirements": [
+            "employment",
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "chunk_index": 0,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "section_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-2-climate-action-terminology",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "document_type": "txt",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "section_name": "CLIMATE ACTION TERMINOLOGY",
+            "section_index": 2,
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "category": "Annual Reports",
+            "chunk_index": 1,
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "section_index": 15,
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "chunk_level": "summary",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "SEED GRANT WINNER",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "document_type": "txt",
+            "folder_label": "Annual Reports",
+            "section_index": 21,
+            "chunk_level": "summary",
+            "chunk_index": 1,
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_name": "THOUGHT LEADERSHIP",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-6-chancellor-quote",
+            "section_index": 6,
+            "entity_type": "section",
+            "chunk_index": 0,
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "CHANCELLOR QUOTE",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "chunk_level": "summary",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "section_name": "CONTACT INFORMATION",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "section_index": 32,
+            "folder_label": "Annual Reports",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-32-contact-information",
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 1,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "section_index": 1,
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "chunk_index": 2,
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "section_index": 1,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+          },
+          {
+            "chunk_index": 2,
+            "category": "Annual Reports",
+            "section_name": "SEED GRANT WINNER",
+            "chunk_level": "summary",
+            "folder_label": "Annual Reports",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_index": 15,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "section_name": "THOUGHT LEADERSHIP",
+            "chunk_level": "summary",
+            "category": "Annual Reports",
+            "section_index": 21,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "entity_type": "section",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+            "chunk_index": 2,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "section_index": 1,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "summary",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "entity_type": "section",
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "section_index": 15,
+            "section_name": "SEED GRANT WINNER",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "section_index": 21,
+            "chunk_level": "summary",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 0,
+            "section_name": "THOUGHT LEADERSHIP",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership::summary-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "section_index": 1,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "folder_label": "Annual Reports",
+            "chunk_index": 3,
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 14,
+          "selected_count": 14,
+          "distinct_source_count": 1,
+          "top_score": 4.691124673060157,
+          "second_score": 4.64780487804878,
+          "score_gap": 0.04331979501137706,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 6,
+          "evidence_buckets": {
+            "main": 14
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.55,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage",
+            "weak_score_gap",
+            "ambiguous_query"
+          ]
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "answer_requirements": [
+            "employment",
+            "purpose"
+          ]
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "trace": {
+            "rewritten_query": "Who made up SSL's core team in the 2020-21 year in review?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, publication and report sources, explicit annual report hard-scoped to the matched report, mission and about section sources",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "section_index": 3,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "section_name": "FACULTY HONORS",
+                "section_index": 29,
+                "folder_label": "Annual Reports",
+                "chunk_index": 0,
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "chunk_index": 0,
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-20-shaping-the-conversation",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "section_name": "SHAPING THE CONVERSATION",
+                "section_index": 20,
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "section_name": "CLIMATE ACTION TERMINOLOGY",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "entity_type": "section",
+                "chunk_index": 0,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-2-climate-action-terminology",
+                "section_index": 2,
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-5-farewell",
+                "section_index": 5,
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "section_name": "FAREWELL",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-0-directors-message",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_name": "DIRECTOR'S MESSAGE",
+                "document_type": "txt",
+                "section_index": 0,
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "chunk_level": "summary",
+                "section_index": 25,
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-25-special-events-all-we-can-save",
+                "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+                "folder_label": "Annual Reports",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "section_name": "RESEARCH",
+                "section_index": 7,
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 1,
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 7,
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "section_index": 7,
+                "section_name": "RESEARCH",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_level": "summary",
+                "chunk_index": 3,
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 7,
+                "entity_type": "section",
+                "section_name": "RESEARCH",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who made up SSL's core team in the 2020-21 year in review?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 11,
+              "selected_count": 11,
+              "distinct_source_count": 1,
+              "top_score": 5.003636363636365,
+              "second_score": 4.463815789473684,
+              "score_gap": 0.5398205741626807,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 3,
+              "evidence_buckets": {
+                "main": 11
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, publication and report sources, explicit annual report hard-scoped to the matched report, mission and about section sources",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": null,
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "trace": {
+            "rewritten_query": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "section_index": 3,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "chunk_index": 1,
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "FACULTY AFFILIATES",
+                "section_index": 4,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "section_index": 9,
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 19,
+                "chunk_index": 3,
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "section_name": "STUDENT TESTIMONIAL",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "title": "AnnualReport2021",
+                "section_index": 9,
+                "chunk_level": "summary",
+                "chunk_index": 3,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "section_index": 28,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "RESEARCH AWARDS",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "chunk_index": 2,
+                "section_index": 19,
+                "entity_type": "section",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "section_name": "STUDENT TESTIMONIAL",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-31-special-thanks-to-our-partners",
+                "section_index": 31,
+                "title": "AnnualReport2021",
+                "chunk_index": 0,
+                "document_type": "txt",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "section_name": "SPECIAL THANKS TO OUR PARTNERS",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)"
+              },
+              {
+                "chunk_index": 1,
+                "section_index": 9,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "STUDENT TESTIMONIAL",
+                "document_type": "txt",
+                "chunk_index": 4,
+                "section_index": 19,
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "chunk_index": 1,
+                "section_index": 28,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "section_name": "RESEARCH AWARDS",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards",
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-28-research-awards::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": 4,
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "section_name": "FACULTY AFFILIATES",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_index": 0,
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "FACULTY AFFILIATES",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 4,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "STUDENT TESTIMONIAL",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "section_index": 19,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 2
+              },
+              {
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 9,
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "chunk_index": 4,
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_name": "CLIMATE JUSTICE DEEP DIVE",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 9,
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "chunk_level": "summary",
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Which team member focuses on conflict resolution and global governance? (subject: AnnualReport2021)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::summary-chunk-2",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 1,
+              "top_score": 4.776406249999999,
+              "second_score": 4.645441176470588,
+              "score_gap": 0.13096507352941078,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "trace": {
+            "rewritten_query": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "employment",
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "chunk_index": 0,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "section_index": 1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-2-climate-action-terminology",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "section_name": "CLIMATE ACTION TERMINOLOGY",
+                "section_index": 2,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "category": "Annual Reports",
+                "chunk_index": 1,
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "section_index": 15,
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "SEED GRANT WINNER",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "section_index": 21,
+                "chunk_level": "summary",
+                "chunk_index": 1,
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "THOUGHT LEADERSHIP",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-6-chancellor-quote",
+                "section_index": 6,
+                "entity_type": "section",
+                "chunk_index": 0,
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "CHANCELLOR QUOTE",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "section_name": "CONTACT INFORMATION",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_index": 32,
+                "folder_label": "Annual Reports",
+                "chunk_index": 0,
+                "chunk_level": "summary",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-32-contact-information",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "section_index": 1,
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_index": 2,
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "section_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose"
+              },
+              {
+                "chunk_index": 2,
+                "category": "Annual Reports",
+                "section_name": "SEED GRANT WINNER",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 15,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "section_name": "THOUGHT LEADERSHIP",
+                "chunk_level": "summary",
+                "category": "Annual Reports",
+                "section_index": 21,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+                "chunk_index": 2,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "section_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_index": 15,
+                "section_name": "SEED GRANT WINNER",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-15-seed-grant-winner::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "section_index": 21,
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 0,
+                "section_name": "THOUGHT LEADERSHIP",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-21-thought-leadership::summary-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "section_index": 1,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "folder_label": "Annual Reports",
+                "chunk_index": 3,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is that person's full title and department at UMass Boston? (subject: AnnualReport2021) employment purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 14,
+              "selected_count": 14,
+              "distinct_source_count": 1,
+              "top_score": 4.691124673060157,
+              "second_score": 4.64780487804878,
+              "score_gap": 0.04331979501137706,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 6,
+              "evidence_buckets": {
+                "main": 14
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.55,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage",
+                "weak_score_gap",
+                "ambiguous_query"
+              ]
+            },
+            "query_plan": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "employment",
+                "purpose"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "AnnualReport2021",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "folder": "Annual Reports"
+            },
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to retrieve information about Maria H. Ivanova that is explicitly stated in the provided corpus (Slide 7, 21, and 45)."
+    },
+    {
+      "id": "fm_021",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_adaptation_forum",
+      "question": "What types of topics and participants does it typically bring together?",
+      "conversation": [
+        {
+          "user": "What is the Climate Adaptation Forum?",
+          "assistant": "The Climate Adaptation Forum is a quarterly, half-day series co-sponsored with the Environmental Business Council [1]. Its purpose is to provide opportunities for people in the field to cross-pollinate ideas and share solutions, with the intersection of climate resilience, race, and equity embedded in every discussion [1]."
+        },
+        {
+          "user": "When was it established and how often does it take place?",
+          "assistant": "The Climate Adaptation Forum was established in 2017 [2]. It takes place on a quarterly basis [1]."
+        },
+        {
+          "user": "What types of topics and participants does it typically bring together?",
+          "assistant": "The Climate Adaptation Forum brings together experts and thought leaders from local, national, and global organizations, as well as diverse speakers and attendees across multiple sectors [1]. The forum focuses on topics related to climate adaptation and resilience, specifically including infrastructure resilience, environmental justice, and innovative adaptation strategies [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum brings together experts and thought leaders from local, national, and global organizations, as well as diverse speakers and attendees across multiple sectors [1]. The forum focuses on topics related to climate adaptation and resilience, specifically including infrastructure resilience, environmental justice, and innovative adaptation strategies [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What types of topics and participants does it typically bring together? (subject: Climate Adaptation Forum)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "active project descriptive follow-up source scope",
+          "answer_requirements": [
+            "audience",
+            "topic"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "What is the Climate Adaptation Forum?",
+          "trace": {
+            "rewritten_query": "What is the Climate Adaptation Forum?",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "Projects"
+              ],
+              "target_categories": [
+                "Annual Reports",
+                "General"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "Local first-pass multi-label route: forum-specific sources, entity match for CLIMATE ADAPTATION FORUM, entity match for Climate Adaptation Forum, exact phrase match for Climate Adaptation Forum",
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+              "name": "Climate Adaptation Forum",
+              "subject_type": "project",
+              "title": "Projects",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "last_query": "What is the Climate Adaptation Forum?"
+          }
+        },
+        {
+          "user": "When was it established and how often does it take place?",
+          "trace": {
+            "rewritten_query": "When was it established and how often does it take place? (subject: Climate Adaptation Forum)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021",
+                "Projects"
+              ],
+              "target_categories": [
+                "Annual Reports",
+                "General"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "Local first-pass multi-label route: forum-specific sources, entity match for CLIMATE ADAPTATION FORUM, entity match for Climate Adaptation Forum, exact phrase match for Climate Adaptation Forum",
+              "answer_requirements": [
+                "time"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "folder_label": "Annual Reports",
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "chunk_index": 2,
+                "document_type": "txt",
+                "section_name": "CLIMATE ADAPTATION FORUM",
+                "section_index": 23,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-23-climate-adaptation-forum",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-23-climate-adaptation-forum",
+                "section_name": "CLIMATE ADAPTATION FORUM",
+                "category": "Annual Reports",
+                "chunk_index": 1,
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "section_index": 23,
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "section_index": 23,
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_index": 0,
+                "chunk_level": "detail",
+                "section_name": "CLIMATE ADAPTATION FORUM",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-23-climate-adaptation-forum",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "chunk_index": 3,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "section_name": "CLIMATE ADAPTATION FORUM",
+                "section_index": 23,
+                "category": "Annual Reports",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-23-climate-adaptation-forum",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "summary",
+                "document_type": "txt",
+                "section_name": "CLIMATE ADAPTATION FORUM",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-23-climate-adaptation-forum",
+                "section_index": 23,
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "chunk_level": "detail",
+                "chunk_index": 1,
+                "title": "AnnualReport2021",
+                "section_index": 26,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Projects.txt",
+                "chunk_index": 2,
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "section_index": 1,
+                "source_url": "https://www.umb.edu/ssl/projects/",
+                "category": "General",
+                "section_name": "Climate Adaptation Forum",
+                "folder_label": "",
+                "entity_type": "project",
+                "title": "Projects",
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "folder_label": "Annual Reports",
+                "section_index": 24,
+                "chunk_index": 2,
+                "title": "AnnualReport2021",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-24-climate-justice-partnerships",
+                "chunk_level": "detail",
+                "section_name": "CLIMATE JUSTICE PARTNERSHIPS",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time"
+              },
+              {
+                "chunk_index": 1,
+                "section_name": "Climate Adaptation Forum",
+                "source_path": "SEED_DOCUMENTS/Projects.txt",
+                "section_index": 1,
+                "title": "Projects",
+                "entity_type": "project",
+                "chunk_level": "detail",
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "document_type": "txt",
+                "folder_label": "",
+                "source_url": "https://www.umb.edu/ssl/projects/",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "detail",
+                "source_path": "SEED_DOCUMENTS/Projects.txt",
+                "source_url": "https://www.umb.edu/ssl/projects/",
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "section_name": "Climate Adaptation Forum",
+                "document_type": "txt",
+                "chunk_index": 3,
+                "folder_label": "",
+                "entity_type": "project",
+                "section_index": 1,
+                "title": "Projects",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 26,
+                "title": "AnnualReport2021",
+                "chunk_index": 2,
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "section_name": "CLIMATE JUSTICE PARTNERSHIPS",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-24-climate-justice-partnerships",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 1,
+                "folder_label": "Annual Reports",
+                "section_index": 24,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-24-climate-justice-partnerships::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": 26,
+                "chunk_index": 0,
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "entity_type": "section",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 3,
+                "folder_label": "Annual Reports",
+                "section_name": "CLIMATE JUSTICE PARTNERSHIPS",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 24,
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-24-climate-justice-partnerships",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-24-climate-justice-partnerships::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "section_index": 1,
+                "folder_label": "",
+                "section_name": "Climate Adaptation Forum",
+                "title": "Projects",
+                "entity_type": "project",
+                "source_path": "SEED_DOCUMENTS/Projects.txt",
+                "category": "General",
+                "source_url": "https://www.umb.edu/ssl/projects/",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum::detail-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "category": "Annual Reports",
+                "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+                "chunk_index": 3,
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience",
+                "section_index": 26,
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "When was it established and how often does it take place? (subject: Climate Adaptation Forum) time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-26-climate-emergency-preparedness-art-x-cultural-resilience::detail-chunk-1",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 2,
+              "top_score": 5.253638583638583,
+              "second_score": 5.201302083333333,
+              "score_gap": 0.052336500305250055,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021",
+                "Projects"
+              ],
+              "target_categories": [
+                "Annual Reports",
+                "General"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "Local first-pass multi-label route: forum-specific sources, entity match for CLIMATE ADAPTATION FORUM, entity match for Climate Adaptation Forum, exact phrase match for Climate Adaptation Forum",
+              "answer_requirements": [
+                "time"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+              "name": "Climate Adaptation Forum",
+              "subject_type": "project",
+              "title": "Projects",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "time",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "last_query": "When was it established and how often does it take place? (subject: Climate Adaptation Forum)"
+          }
+        },
+        {
+          "user": "What types of topics and participants does it typically bring together?",
+          "trace": {
+            "rewritten_query": "What types of topics and participants does it typically bring together? (subject: Climate Adaptation Forum)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Projects"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "active project descriptive follow-up source scope",
+              "answer_requirements": [
+                "audience",
+                "topic"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+              "name": "Climate Adaptation Forum",
+              "subject_type": "project",
+              "title": "Projects",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "audience",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Projects.txt#project-1-climate-adaptation-forum",
+                "name": "Climate Adaptation Forum",
+                "subject_type": "project",
+                "title": "Projects",
+                "source_path": "SEED_DOCUMENTS/Projects.txt"
+              }
+            ],
+            "last_query": "What types of topics and participants does it typically bring together? (subject: Climate Adaptation Forum)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the participants and topics of the Climate Adaptation Forum."
+    }
+  ]
+}

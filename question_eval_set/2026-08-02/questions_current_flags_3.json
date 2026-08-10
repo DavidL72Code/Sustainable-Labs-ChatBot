@@ -1,0 +1,29 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_027",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_097",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_100",
+      "type": "specific_fact",
+      "question": "What is Anna Matviichuk's major and current year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

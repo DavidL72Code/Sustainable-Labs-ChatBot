@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-08-09T03:31:56.763913+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 4.5
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Education** Patricio Belloy earned a PhD and a Master of Science (MSc) in Public Policy from UMass Boston [1, 2]. He also earned a Master of Arts (MA) in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland [1, 2]. **Location** The PhD and Master of Science degrees were earned at UMass Boston [1, 2]. The Master of Arts degree was earned at Leipzig University in Germany and Wroc\u0142aw University in Poland [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 346,
+          "evidence_id": "evidence_13",
+          "evidence_bucket": "main",
+          "evidence_query": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in? education location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided staff bio. Citation 1 is the correct source; citation 2 is extraneous but does not detract from the accuracy."
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution and accurately noted that the source text did not contain information regarding her undergraduate program."
+    }
+  ]
+}

@@ -1,0 +1,1947 @@
+{
+  "generated_at": "2026-07-24T01:06:22.575159+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 4.5
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_159",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Gabrie Boscio Santos's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Gabriela Boscio\u2019s title at the Sustainable Solutions Lab is Associate Director [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Gabriela Boscio",
+          "entity_type": "staff_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "employment"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_name": "Gabriela Boscio",
+            "entity_type": "staff_member",
+            "chunk_level": "full_bio",
+            "chunk_index": 0
+          },
+          {
+            "document_type": "txt",
+            "title": "Staff",
+            "entity_type": "staff_member",
+            "folder_label": "",
+            "section_index": 2,
+            "section_name": "Gabriela Boscio",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "category": "General",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "title": "Staff",
+            "chunk_index": 0,
+            "section_name": "Gabriela Boscio",
+            "category": "General",
+            "section_index": 2,
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "entity_type": "staff_member",
+            "folder_label": "",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "title": "Staff",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "entity_type": "affiliate",
+            "section_index": 5,
+            "document_type": "txt",
+            "section_name": "Patricio Belloy",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "chunk_level": "summary",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "chunk_level": "summary",
+            "folder_label": "",
+            "section_name": "Johnna Flahive",
+            "title": "Staff",
+            "entity_type": "affiliate",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "chunk_index": 0,
+            "section_index": 6,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "entity_type": "staff_member",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "document_type": "txt",
+            "folder_label": "",
+            "chunk_index": 0,
+            "section_name": "B. R. Balachandran",
+            "chunk_level": "summary",
+            "section_index": 0,
+            "title": "Staff",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-0-b-r-balachandran",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "folder_label": "",
+            "entity_type": "visiting_scholar",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-7-cassandre-rey-thibault",
+            "title": "Staff",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_index": 7,
+            "category": "General",
+            "chunk_level": "summary",
+            "section_name": "Cassandre Rey-Thibault",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "entity_type": "visiting_scholar",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_index": 8,
+            "chunk_level": "summary",
+            "title": "Staff",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#visiting_scholar-8-ante-iv\u010devi\u0107",
+            "section_name": "Ante Iv\u010devi\u0107",
+            "category": "General",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_name": "Patricio Belloy",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "entity_type": "affiliate",
+            "section_index": 5,
+            "chunk_level": "detail",
+            "folder_label": "",
+            "chunk_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment"
+          },
+          {
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "section_index": 5,
+            "chunk_level": "detail",
+            "title": "Staff",
+            "entity_type": "affiliate",
+            "document_type": "txt",
+            "category": "General",
+            "section_name": "Patricio Belloy",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "folder_label": "",
+            "title": "Staff",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "chunk_index": 2,
+            "section_index": 5,
+            "section_name": "Patricio Belloy",
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "title": "Staff",
+            "folder_label": "",
+            "chunk_level": "detail",
+            "entity_type": "affiliate",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_name": "Patricio Belloy",
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "chunk_index": 3,
+            "section_index": 5,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Gabrie Boscio Santos's title at SSL? (subject: Gabriela Boscio) employment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 11,
+          "selected_count": 11,
+          "distinct_source_count": 1,
+          "top_score": 4.684148598625066,
+          "second_score": 3.9341485986250664,
+          "score_gap": 0.75,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 3,
+          "evidence_buckets": {
+            "main": 11
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage"
+          ]
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "employment"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the staff member and provided the accurate title from the provided corpus, despite the slight variation in the name provided in the prompt."
+    },
+    {
+      "id": "fm_033",
+      "kind": "multi_turn",
+      "type": "follow_up_vandeveer_research",
+      "question": "What is the East Boston study that VanDeveer's team worked on?",
+      "conversation": [
+        {
+          "user": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+          "assistant": "Stacy D. VanDeveer served as a principal investigator at the Sustainable Solutions Lab (SSL) [1]. Stacy D. VanDeveer led a research project titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" [1]. The objective of this study was to understand conditions in and across municipalities [1]."
+        },
+        {
+          "user": "What was the research on the Massachusetts MVP program about?",
+          "assistant": "The research titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" had the objective of understanding conditions in and across municipalities [1]. In 2020, over 80% of Massachusetts cities and towns had participated in the MVP program [1]. The findings from this study are being used to improve program design for equitable inclusion [1]."
+        },
+        {
+          "user": "What is the East Boston study that VanDeveer's team worked on?",
+          "assistant": "The study titled \"Conditions and Recommendations for Equitable Climate Resilience in East Boston\" examined environmental justice concerns to generate a better understanding of how these concerns apply to climate planning for residents through a justice lens [2]. The research used a framework of \"just adaptation\" and involved secondary document analysis of existing resilience plans, with recommendations developed through partnerships with residents and organizations [2]. Patricio Belloy, a student working with Professor Stacy VanDeveer, completed an assessment of resilience planning in East Boston through a climate justice lens [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The study titled \"Conditions and Recommendations for Equitable Climate Resilience in East Boston\" examined environmental justice concerns to generate a better understanding of how these concerns apply to climate planning for residents through a justice lens [2]. The research used a framework of \"just adaptation\" and involved secondary document analysis of existing resilience plans, with recommendations developed through partnerships with residents and organizations [2]. Patricio Belloy, a student working with Professor Stacy VanDeveer, completed an assessment of resilience planning in East Boston through a climate justice lens [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 8,
+          "evidence_id": "evidence_11",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+        },
+        {
+          "citation": 2,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 4,
+          "evidence_id": "evidence_14",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "SSLAbout",
+            "Staff"
+          ],
+          "target_categories": [
+            "Annual Reports"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+            "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+          ],
+          "reason": "Local first-pass multi-label route: staff-related sources, exact phrase match for East Boston, exact phrase match for Stacy D. VanDeveer",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [
+          {
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 0,
+            "title": "AnnualReport2021",
+            "section_index": 3,
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "section_name": "THE TEAM: CORE & OVERSIGHT",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "document_type": "txt",
+            "section_index": 7,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "section_name": "RESEARCH",
+            "chunk_level": "summary",
+            "folder_label": "Annual Reports",
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 3,
+            "title": "AnnualReport2021",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+            "entity_type": "section",
+            "section_name": "THE TEAM: CORE & OVERSIGHT",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "section_index": 3,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "folder_label": "Annual Reports",
+            "chunk_index": 2,
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "chunk_index": 8,
+            "category": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 7,
+            "section_name": "RESEARCH",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "title": "AnnualReport2021",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "chunk_index": 4,
+            "section_index": 19,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_name": "STUDENT TESTIMONIAL",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "title": "AnnualReport2021",
+            "chunk_level": "detail",
+            "section_name": "STUDENT TESTIMONIAL",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "section_index": 19,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 6,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "folder_label": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "section_index": 1,
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "chunk_index": 2,
+            "document_type": "txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "chunk_index": 7,
+            "document_type": "pdf",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "entity_type": "",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "category": "Annual Reports",
+            "section_index": -1,
+            "section_name": "",
+            "chunk_level": "summary",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          },
+          {
+            "document_type": "txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "section_name": "RESEARCH",
+            "entity_type": "section",
+            "section_index": 7,
+            "folder_label": "Annual Reports",
+            "chunk_index": 2,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-3",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "document_type": "pdf",
+            "section_index": -1,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "entity_type": "",
+            "chunk_index": 6,
+            "chunk_level": "summary",
+            "section_name": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::summary-chunk-7",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "",
+            "document_type": "pdf",
+            "chunk_index": 8,
+            "entity_type": "",
+            "category": "Annual Reports",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "chunk_level": "summary",
+            "folder_label": "Annual Reports",
+            "section_index": -1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::summary-chunk-7",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "section_name": "STUDENT TESTIMONIAL",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+            "title": "AnnualReport2021",
+            "chunk_index": 3,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "section_index": 19,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::detail-chunk-4",
+            "neighbor_distance": 1
+          },
+          {
+            "section_index": 1,
+            "chunk_index": 1,
+            "folder_label": "Annual Reports",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "RESEARCH",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "section_index": 7,
+            "chunk_index": 4,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-3",
+            "neighbor_distance": 1
+          },
+          {
+            "section_name": "RESEARCH",
+            "chunk_index": 7,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "section_index": 7,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-8",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+            "chunk_index": 9,
+            "category": "Annual Reports",
+            "section_index": 7,
+            "title": "AnnualReport2021",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "section_name": "RESEARCH",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-8",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 2,
+          "top_score": 5.704925373134328,
+          "second_score": 5.236129032258065,
+          "score_gap": 0.46879634087626343,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "SSLAbout",
+            "Staff"
+          ],
+          "target_categories": [
+            "Annual Reports"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+            "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+          ],
+          "reason": "Local first-pass multi-label route: staff-related sources, exact phrase match for East Boston, exact phrase match for Stacy D. VanDeveer",
+          "answer_requirements": []
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+          "trace": {
+            "rewritten_query": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for RESEARCH, exact phrase match for Stacy D. VanDeveer",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "section_index": 1,
+                "chunk_index": 1,
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_index": 2,
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "chunk_level": "detail",
+                "section_index": 1,
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_index": 1,
+                "title": "AnnualReport2021",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "chunk_index": 8,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 7,
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "section_name": "RESEARCH",
+                "chunk_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_index": 7,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "RESEARCH",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_level": "detail",
+                "chunk_index": 1,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "section_index": 7,
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 11,
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 1,
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "section_name": "RESEARCH GRANT WINNER",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "section_name": "CLIMATE JUSTICE RESEARCH DATABASE",
+                "document_type": "txt",
+                "chunk_index": 2,
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "section_index": 10,
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database",
+                "chunk_level": "detail",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+              },
+              {
+                "chunk_index": 1,
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "CLIMATE JUSTICE RESEARCH DATABASE",
+                "folder_label": "Annual Reports",
+                "section_index": 10,
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "title": "AnnualReport2021",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 1,
+                "chunk_index": 0,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_index": 9,
+                "category": "Annual Reports",
+                "section_index": 7,
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-8",
+                "neighbor_distance": 1
+              },
+              {
+                "category": "Annual Reports",
+                "chunk_index": 2,
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_index": 7,
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_name": "RESEARCH GRANT WINNER",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "section_index": 11,
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 10,
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "section_name": "CLIMATE JUSTICE RESEARCH DATABASE",
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "chunk_index": 3,
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-10-climate-justice-research-database::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "detail",
+                "category": "Annual Reports",
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "chunk_index": 0,
+                "section_index": 7,
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-1",
+                "neighbor_distance": 1
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 11,
+                "section_name": "RESEARCH GRANT WINNER",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-11-research-grant-winner::detail-chunk-1",
+                "neighbor_distance": 1
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 1,
+              "top_score": 5.105540540540541,
+              "second_score": 5.1026373626373625,
+              "score_gap": 0.002903177903178289,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.55,
+              "is_low_confidence": false,
+              "reasons": [
+                "weak_score_gap",
+                "ambiguous_query",
+                "ambiguous_without_history"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": false,
+              "target_titles": [
+                "AnnualReport2021"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+              ],
+              "reason": "Local first-pass multi-label route: entity match for RESEARCH, exact phrase match for Stacy D. VanDeveer",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "topic:stacy-d-vandeveer",
+              "name": "Stacy D. VanDeveer",
+              "subject_type": "person",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "",
+                "source_path": ""
+              }
+            ],
+            "last_query": "Who is Stacy D. VanDeveer and what research did he lead at SSL?"
+          }
+        },
+        {
+          "user": "What was the research on the Massachusetts MVP program about?",
+          "trace": {
+            "rewritten_query": "What was the research on the Massachusetts MVP program about?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "Projects"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: project-related sources, entity match for RESEARCH",
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "section_index": 7,
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_level": "summary",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 0,
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "section_index": 1,
+                "title": "AnnualReport2021",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "document_type": "txt",
+                "section_index": 7,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_name": "RESEARCH",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 3,
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "section_name": "STUDENT TESTIMONIAL",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 19,
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "chunk_index": 3,
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "section_name": "STUDENT TESTIMONIAL",
+                "section_index": 19,
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_index": 2,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "category": "Annual Reports",
+                "section_name": "RESEARCH",
+                "chunk_index": 9,
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 7,
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "section_index": 7,
+                "chunk_index": 4,
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "chunk_index": 8,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 7,
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose"
+              },
+              {
+                "folder_label": "Annual Reports",
+                "chunk_index": 1,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "summary",
+                "section_name": "RESEARCH",
+                "document_type": "txt",
+                "section_index": 7,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "document_type": "txt",
+                "entity_type": "section",
+                "section_index": 7,
+                "chunk_level": "detail",
+                "section_name": "RESEARCH",
+                "chunk_index": 3,
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-4",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "title": "AnnualReport2021",
+                "chunk_index": 10,
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_index": 7,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-9",
+                "neighbor_distance": 1
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "RESEARCH",
+                "chunk_index": 5,
+                "section_index": 7,
+                "title": "AnnualReport2021",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-4",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 4,
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "section_index": 19,
+                "folder_label": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "entity_type": "section",
+                "section_name": "STUDENT TESTIMONIAL",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "RESEARCH",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "section_index": 7,
+                "chunk_index": 4,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_index": 19,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "summary",
+                "title": "AnnualReport2021",
+                "chunk_index": 1,
+                "category": "Annual Reports",
+                "section_name": "STUDENT TESTIMONIAL",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::summary-chunk-3",
+                "neighbor_distance": 2
+              },
+              {
+                "category": "Annual Reports",
+                "chunk_index": 2,
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "title": "AnnualReport2021",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_index": 7,
+                "entity_type": "section",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What was the research on the Massachusetts MVP program about? purpose",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-4",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 1,
+              "top_score": 5.223888888888888,
+              "second_score": 5.071627906976745,
+              "score_gap": 0.15226098191214366,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.85,
+              "is_low_confidence": false,
+              "reasons": [
+                "narrow_source_coverage"
+              ]
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "Projects"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              ],
+              "reason": "Local first-pass multi-label route: project-related sources, entity match for RESEARCH",
+              "answer_requirements": [
+                "purpose"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "topic:stacy-d-vandeveer",
+              "name": "Stacy D. VanDeveer",
+              "subject_type": "person",
+              "title": "AnnualReport2021",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "AnnualReport2021",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "",
+                "source_path": ""
+              }
+            ],
+            "last_query": "What was the research on the Massachusetts MVP program about?"
+          }
+        },
+        {
+          "user": "What is the East Boston study that VanDeveer's team worked on?",
+          "trace": {
+            "rewritten_query": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout",
+                "Staff"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+                "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+                "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+                "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, exact phrase match for East Boston, exact phrase match for Stacy D. VanDeveer",
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [
+              {
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 0,
+                "title": "AnnualReport2021",
+                "section_index": 3,
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "document_type": "txt",
+                "section_index": 7,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_name": "RESEARCH",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "entity_type": "section",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "chunk_index": 3,
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+                "entity_type": "section",
+                "section_name": "THE TEAM: CORE & OVERSIGHT",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "section_index": 3,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "chunk_index": 8,
+                "category": "Annual Reports",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "section_index": 7,
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "chunk_index": 4,
+                "section_index": 19,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "section_name": "STUDENT TESTIMONIAL",
+                "document_type": "txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "section_name": "STUDENT TESTIMONIAL",
+                "entity_type": "section",
+                "category": "Annual Reports",
+                "section_index": 19,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_index": 6,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "document_type": "txt",
+                "folder_label": "Annual Reports",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "section_index": 1,
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "chunk_index": 2,
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "chunk_index": 7,
+                "document_type": "pdf",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "folder_label": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "entity_type": "",
+                "title": "UMB-SSL-2022-Annual_Report",
+                "category": "Annual Reports",
+                "section_index": -1,
+                "section_name": "",
+                "chunk_level": "summary",
+                "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+              },
+              {
+                "document_type": "txt",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "title": "AnnualReport2021",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_level": "summary",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "category": "Annual Reports",
+                "section_name": "RESEARCH",
+                "entity_type": "section",
+                "section_index": 7,
+                "folder_label": "Annual Reports",
+                "chunk_index": 2,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "folder_label": "Annual Reports",
+                "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+                "title": "UMB-SSL-2022-Annual_Report",
+                "category": "Annual Reports",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "document_type": "pdf",
+                "section_index": -1,
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "entity_type": "",
+                "chunk_index": 6,
+                "chunk_level": "summary",
+                "section_name": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::summary-chunk-7",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "",
+                "document_type": "pdf",
+                "chunk_index": 8,
+                "entity_type": "",
+                "category": "Annual Reports",
+                "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "title": "UMB-SSL-2022-Annual_Report",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "chunk_level": "summary",
+                "folder_label": "Annual Reports",
+                "section_index": -1,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::summary-chunk-7",
+                "neighbor_distance": 1
+              },
+              {
+                "document_type": "txt",
+                "section_name": "STUDENT TESTIMONIAL",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial",
+                "title": "AnnualReport2021",
+                "chunk_index": 3,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "entity_type": "section",
+                "section_index": 19,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-19-student-testimonial::detail-chunk-4",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": 1,
+                "chunk_index": 1,
+                "folder_label": "Annual Reports",
+                "title": "AnnualReport2021",
+                "category": "Annual Reports",
+                "entity_type": "section",
+                "chunk_level": "detail",
+                "section_name": "WHO WE ARE / WHAT WE DO",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "RESEARCH",
+                "document_type": "txt",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "category": "Annual Reports",
+                "title": "AnnualReport2021",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "chunk_level": "summary",
+                "entity_type": "section",
+                "folder_label": "Annual Reports",
+                "section_index": 7,
+                "chunk_index": 4,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::summary-chunk-3",
+                "neighbor_distance": 1
+              },
+              {
+                "section_name": "RESEARCH",
+                "chunk_index": 7,
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "folder_label": "Annual Reports",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "section_index": 7,
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "entity_type": "section",
+                "document_type": "txt",
+                "category": "Annual Reports",
+                "chunk_level": "detail",
+                "title": "AnnualReport2021",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-8",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "section",
+                "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research",
+                "chunk_index": 9,
+                "category": "Annual Reports",
+                "section_index": 7,
+                "title": "AnnualReport2021",
+                "chunk_level": "detail",
+                "folder_label": "Annual Reports",
+                "document_type": "txt",
+                "section_name": "RESEARCH",
+                "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-7-research::detail-chunk-8",
+                "neighbor_distance": 1
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 16,
+              "selected_count": 16,
+              "distinct_source_count": 2,
+              "top_score": 5.704925373134328,
+              "second_score": 5.236129032258065,
+              "score_gap": 0.46879634087626343,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 8,
+              "evidence_buckets": {
+                "main": 16
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.95,
+              "is_low_confidence": false,
+              "reasons": []
+            },
+            "query_plan": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout",
+                "Staff"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+                "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+                "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+                "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+                "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+                "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+                "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+                "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+                "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+                "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+              ],
+              "reason": "Local first-pass multi-label route: staff-related sources, exact phrase match for East Boston, exact phrase match for Stacy D. VanDeveer",
+              "answer_requirements": []
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "topic:stacy-d-vandeveer",
+              "name": "Stacy D. VanDeveer",
+              "subject_type": "person",
+              "title": "UMB-SSL-2022-Annual_Report",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "UMB-SSL-2022-Annual_Report",
+                "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "topic:stacy-d-vandeveer",
+                "name": "Stacy D. VanDeveer",
+                "subject_type": "person",
+                "title": "",
+                "source_path": ""
+              }
+            ],
+            "last_query": "What is the East Boston study that VanDeveer's team worked on? (subject: Stacy D. VanDeveer)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately describes the study and its methodology as found in the 2021 Annual Report. The citations are relevant and support the claims made."
+    }
+  ]
+}

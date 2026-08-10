@@ -1,0 +1,539 @@
+{
+  "generated_at": "2026-07-30T03:58:19.859459+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-29/registry_requirement_failures_4.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Sarah Mayorga values the opportunity to be both expert and novice in her work with SSL [1]. Regarding the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is space for her curiosity and further exploration, which has allowed her to pose questions connecting climate change and racial justice in a way she would not have previously [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: Sarah Mayorga about source, collaborative-specific sources, entity match for RESEARCH, entity match for Northeast Climate Justice Research Collaborative, exact phrase match for Sarah Mayorga, exact phrase match for Associate Professor, exact phrase match for Brandeis University, exact phrase match for Northeast Climate Justice Research Collaborative, SSL self-description hard-scoped to SSLAbout only",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "value"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the provided corpus text and correctly cites the source."
+    },
+    {
+      "id": "fs_028",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Patricio Belloy currently do professionally and at which institution?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy currently serves as an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does Patricio Belloy currently do professionally and at which institution?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "employment"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_050",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Gabriel Cira teaches the Architecture of Boston course at MassArt, which connects cooperative infrastructure history with the future of climate resilience [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "teaching"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_118",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What was Maria Ivanova appointed to during the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Maria Ivanova was appointed to the World Climate Research Programme (WCRP) Joint Scientific Committee (JSC) [1]. This appointment is for a four-year term.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What was Maria Ivanova appointed to during the 2020-21 period?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for Maria Ivanova",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "appointment"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+            "entity_type": "section",
+            "chunk_index": 2,
+            "section_name": "FACULTY HONORS",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "folder_label": "Annual Reports",
+            "document_type": "txt",
+            "section_index": 29,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+          },
+          {
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+            "folder_label": "Annual Reports",
+            "chunk_index": 5,
+            "section_name": "CLIMATE JUSTICE DEEP DIVE",
+            "document_type": "txt",
+            "section_index": 9,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+          },
+          {
+            "document_type": "txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "section_index": 4,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_name": "FACULTY AFFILIATES",
+            "entity_type": "section",
+            "folder_label": "Annual Reports",
+            "chunk_level": "detail",
+            "chunk_index": 2,
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+          },
+          {
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "section_index": 29,
+            "title": "AnnualReport2021",
+            "section_name": "FACULTY HONORS",
+            "entity_type": "section",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "chunk_index": 3,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+          },
+          {
+            "section_index": 3,
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "title": "AnnualReport2021",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 2,
+            "section_name": "THE TEAM: CORE & OVERSIGHT",
+            "document_type": "txt",
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "folder_label": "Annual Reports",
+            "chunk_level": "detail",
+            "category": "Annual Reports",
+            "section_name": "FACULTY HONORS",
+            "section_index": 29,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 1,
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-29-faculty-honors::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "section",
+            "section_index": 9,
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_index": 6,
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+            "section_name": "CLIMATE JUSTICE DEEP DIVE",
+            "folder_label": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::detail-chunk-5",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+            "title": "AnnualReport2021",
+            "section_index": 4,
+            "section_name": "FACULTY AFFILIATES",
+            "folder_label": "Annual Reports",
+            "chunk_index": 1,
+            "entity_type": "section",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "folder_label": "Annual Reports",
+            "chunk_index": 3,
+            "section_index": 4,
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates",
+            "section_name": "FACULTY AFFILIATES",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-4-faculty-affiliates::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "section_name": "THE TEAM: CORE & OVERSIGHT",
+            "category": "Annual Reports",
+            "folder_label": "Annual Reports",
+            "chunk_index": 1,
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+            "section_index": 3,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "section_index": 3,
+            "document_type": "txt",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "title": "AnnualReport2021",
+            "chunk_index": 3,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight",
+            "entity_type": "section",
+            "section_name": "THE TEAM: CORE & OVERSIGHT",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-3-the-team-core-oversight::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "folder_label": "Annual Reports",
+            "section_index": 9,
+            "chunk_index": 4,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "document_type": "txt",
+            "section_name": "CLIMATE JUSTICE DEEP DIVE",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::detail-chunk-5",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "section_name": "CLIMATE JUSTICE DEEP DIVE",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "title": "AnnualReport2021",
+            "entity_type": "section",
+            "chunk_index": 3,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive",
+            "category": "Annual Reports",
+            "section_index": 9,
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What was Maria Ivanova appointed to during the 2020-21 period? appointment",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-9-climate-justice-deep-dive::detail-chunk-5",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 13,
+          "selected_count": 13,
+          "distinct_source_count": 1,
+          "top_score": 1.9852459016393442,
+          "second_score": 1.9340977822580645,
+          "score_gap": 0.05114811938127972,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 13
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for Maria Ivanova",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "appointment"
+          ]
+        },
+        "retrieved_context": [
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY HONORS\nEntity Type: section\nChunk Level: detail\nChunk Index: 2\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY HONORS | Section | Detail\n\nthe report included several SSL faculty, as well as SSL director Rebecca Herst.\nThe award recognizes an individual who has published a paper that is \"useful,\ncommendable, and worthy of grateful acknowledgment.\"\n---\nMARIA IVANOVA APPOINTED TO THE WORLD CLIMATE RESEARCH PROGRAMME\nJOINT SCIENTIFIC COMMITTEE\nMaria Ivanova, associate professor in the McCormack Graduate School and Director\nof the Center for Governance and Sustainability, has been appointed for a",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: CLIMATE JUSTICE DEEP DIVE\nEntity Type: section\nChunk Level: detail\nChunk Index: 5\n\nDocument Labels: AnnualReport2021 | Annual Reports | CLIMATE JUSTICE DEEP DIVE | Section | Detail\n\nC. Ann Gakumo\nAssociate Professor, Chair of Nursing, College of Nursing and Health Sciences\nSusan Gauss\nChair and Associate Professor of Latin American and Iberian Studies,\nCollege of Liberal Arts\nBrian Halley\nSenior Acquisitions Editor, UMass Press, Office of the Provost\nLisa Heelan-Fancher\nAssistant Professor, College of Nursing and Health Science\nMaria H. Ivanova\nAssociate Professor of Global Governance and Graduate Program Director,",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY AFFILIATES\nEntity Type: section\nChunk Level: detail\nChunk Index: 2\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY AFFILIATES | Section | Detail\n\nKeren Horn\nAssociate Professor of Economics, College of Liberal Arts\nMaria H. Ivanova\nAssociate Professor of Global Governance and Graduate Program Director,\nDepartment of Conflict Resolution, Human Security, and Global Governance,\nMcCormack Graduate School\nMichael Johnson\nProfessor and Chair, Department of Public Policy and Public Affairs,\nMcCormack Graduate School\nPaul Kirshen\nProfessor of Climate Adaptation, School for the Environment\nJose G. Martinez-Reyes",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY HONORS\nEntity Type: section\nChunk Level: detail\nChunk Index: 3\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY HONORS | Section | Detail\n\nfour-year term to the World Climate Research Programme (WCRP) Joint Scientific\nCommittee (JSC). This is the first time since WCRP was established in 1980 that\nit made a membership call specifically for social and economic scientists as part\nof its new strategic plan. Professor Ivanova was selected from over 130 applicants\nto join the 18-person committee.\n================================================================================",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: THE TEAM: CORE & OVERSIGHT\nEntity Type: section\nChunk Level: detail\nChunk Index: 2\n\nDocument Labels: AnnualReport2021 | Annual Reports | THE TEAM: CORE & OVERSIGHT | Section | Detail\n\nJessica Whiteley\nAssociate Professor, Associate Dean of Research,\nCollege of Nursing and Health Management\nStacy D. VanDeveer\nProfessor and Chair, Department of Conflict Resolution, Human Security,\nand Global Governance, McCormack Graduate School\nUMASS BOSTON OVERSIGHT COMMITTEE:\nDean Jane Adams \u2014 College of Liberal Arts\nInterim Dean Arindam Bandopadhyaya \u2014 College of Management\nDean David W. Cash \u2014 John W. McCormack Graduate School of Policy and Global Studies",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY HONORS\nEntity Type: section\nChunk Level: detail\nChunk Index: 1\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY HONORS | Section | Detail\n\nSLIDE 45 \u2014 FACULTY HONORS\n================================================================================\nPAUL KIRSHEN RECEIVED CLEMENS HERSCHEL AWARD\nThe Boston Society of Civil Engineers Section awarded Paul Kirshen, professor of\nclimate adaptation, School for the Environment, the Clemens Herschel award for\nhis work as principal investigator of the \"Feasibility of Harbor-wide Barrier\nSystems: Preliminary Analysis for Boston Harbor\" report. The team contributing to",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: CLIMATE JUSTICE DEEP DIVE\nEntity Type: section\nChunk Level: detail\nChunk Index: 6\n\nDocument Labels: AnnualReport2021 | Annual Reports | CLIMATE JUSTICE DEEP DIVE | Section | Detail\n\nDepartment of Conflict Resolution, Human Security, and Global Governance,\nMcCormack Graduate School\nPaul Kirshen\nProfessor of Climate Adaptation, School for the Environment\nDavid L. Levy\nProfessor of Management and Director, Center for Sustainable Enterprise and\nRegional Competitiveness, College of Management\nCamille Curtis Martinez\nLecturer, College of Liberal Arts\nJose Martinez-Reyes\nAssociate Professor of Anthropology, College of Liberal Arts and\nSchool for the Environment\nRosalyn Negron",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY AFFILIATES\nEntity Type: section\nChunk Level: detail\nChunk Index: 1\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY AFFILIATES | Section | Detail\n\nSLIDE 7 \u2014 FACULTY AFFILIATES\n================================================================================\nLeyla D. Brown-Vincent\nAssistant Professor of Africana Studies, College of Liberal Arts\nKathrin Boerner\nAssociate Professor, Department of Gerontology, McCormack Graduate School\nCamille Curtis Martinez\nLecturer, College of Liberal Arts\nLorena Estrada-Martinez\nAssistant Professor of Environment and Public Health, School for the Environment\nKeren Horn",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: FACULTY AFFILIATES\nEntity Type: section\nChunk Level: detail\nChunk Index: 3\n\nDocument Labels: AnnualReport2021 | Annual Reports | FACULTY AFFILIATES | Section | Detail\n\nJose G. Martinez-Reyes\nAssociate Professor of Anthropology, College of Liberal Arts and\nSchool for the Environment\nAmit Patel\nAssistant Professor, Department of Public Policy and Public Affairs,\nMcCormack Graduate School\nAntonio Raciti\nAssistant Professor of Ecological Design, School for the Environment\nKenneth Reardon\nProfessor of Urban Planning, School for the Environment\nLorna Rivera\nDirector, Mauricio Gaston Institute for Latino Community\nAssociate Professor of Women's, Gender, and Sexuality Studies,",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: THE TEAM: CORE & OVERSIGHT\nEntity Type: section\nChunk Level: detail\nChunk Index: 1\n\nDocument Labels: AnnualReport2021 | Annual Reports | THE TEAM: CORE & OVERSIGHT | Section | Detail\n\nSLIDE 6 \u2014 THE TEAM: CORE & OVERSIGHT\n================================================================================\nSUSTAINABLE SOLUTIONS LAB CORE TEAM:\nEllen Douglas\nProfessor of Hydrology, School for the Environment\nDavid Levy\nProfessor of Management, College of Management\nRosalyn Negron\nAssociate Professor of Anthropology, College of Liberal Arts\nJ. Cedric Woods\nDirector, Institute for New England Native American Studies\nDirector, Critical Ethnic and Community Studies Program, College of Liberal Arts",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: THE TEAM: CORE & OVERSIGHT\nEntity Type: section\nChunk Level: detail\nChunk Index: 3\n\nDocument Labels: AnnualReport2021 | Annual Reports | THE TEAM: CORE & OVERSIGHT | Section | Detail\n\nInterim Dean Bob Chen \u2014 School for the Environment\nDean Linda Thompson \u2014 College of Nursing and Health Sciences\nJ. Cedric Woods \u2014 Director of the Institute for New England Native American\nStudies and representative of the CANALA Institutes\n================================================================================",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: CLIMATE JUSTICE DEEP DIVE\nEntity Type: section\nChunk Level: detail\nChunk Index: 4\n\nDocument Labels: AnnualReport2021 | Annual Reports | CLIMATE JUSTICE DEEP DIVE | Section | Detail\n\n================================================================================\nGonzalo Bacigalupe\nProfessor of Counseling and School Psychology,\nCollege of Education and Human Development\nLayla D. Brown-Vincent\nAssistant Professor of Africana Studies, College of Liberal Arts\nNatasha Bryant\nManaging Director and Senior Research Associate, Leading Age LTSS Center\nDavid W. Cash\nDean and Associate Professor, McCormack Graduate School\nDania V. Francis\nAssistant Professor of Economics, College of Liberal Arts",
+          "Evidence Bucket: main\nTitle: AnnualReport2021\nSource URL: https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1\nSource Path: SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt\nSection Name: CLIMATE JUSTICE DEEP DIVE\nEntity Type: section\nChunk Level: detail\nChunk Index: 3\n\nDocument Labels: AnnualReport2021 | Annual Reports | CLIMATE JUSTICE DEEP DIVE | Section | Detail\n\ntake it in a new and much more meaningful direction.\"\nBrian Halley @brianhalley, Oct 16, 2020:\n\"Just have to applaud an amazing 'Climate Justice Deep Dive' group at\n@UMassBoston where I get to Zoom with brilliant faculty and discuss environmental\nracism and climate and white supremacy in a tangible and fascinating way, every\ntwo weeks, woman guests & readings.\"\n================================================================================\nSLIDES 21-23 \u2014 CLIMATE JUSTICE DEEP DIVE PARTICIPANTS"
+        ]
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus (Slide 45 of the Annual Report 2021)."
+    }
+  ]
+}

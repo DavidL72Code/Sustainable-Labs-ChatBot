@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-09T01:18:31.612106+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 2.33,
+      "citations": 2.33
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 2,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 2
+    }
+  },
+  "results": [
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "**Education** Isabella M. Gambill earned a Master's degree in Conservation Leadership from the University of Cambridge [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_148",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "- The available documents do not state the location of an institute joined after her work with the Sustainable Solutions Lab [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to extract the information from the provided corpus, which explicitly states that Johnna Flahive joined the Climate Resilience Institute (CRI) at the University of Miami."
+    },
+    {
+      "id": "fs_156",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "The available documents do not state this detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Tim Cronin",
+          "entity_type": "board_member",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What board and local committees has Jennifer Friedrich served on? service"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to extract information explicitly present in the provided corpus. The text states that Jennifer Friedrich is a director of the Marshfield Agricultural and Horticultural Society and has served on town boards and committees."
+    }
+  ]
+}

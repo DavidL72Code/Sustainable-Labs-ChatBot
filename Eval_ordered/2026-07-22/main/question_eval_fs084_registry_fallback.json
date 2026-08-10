@@ -1,0 +1,256 @@
+{
+  "generated_at": "2026-07-22T04:24:25.596273+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 4.0,
+      "professional_tone": 4.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_084",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Regarding the information for Paul Watanabe: **Education**\nI don't have that information in the available documents. **Purpose**\nI don't have that information in the available documents. **Research**\nPaul Watanabe\u2019s expertise includes American Foreign Policy, American Political Behavior, Ethnic Group Politics, and... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Paul Watanabe",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "education",
+            "purpose",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "category": "General",
+            "chunk_index": 0,
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+            "document_type": "txt",
+            "section_index": 13,
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "title": "UniversityAffiliates",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "entity_type": "affiliate",
+            "section_name": "Paul Watanabe",
+            "chunk_level": "summary",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-1-katherine-dafforn",
+            "document_type": "txt",
+            "section_name": "Katherine Dafforn",
+            "chunk_index": 0,
+            "category": "General",
+            "section_index": 1,
+            "chunk_level": "summary",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "title": "UniversityAffiliates",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "document_type": "txt",
+            "section_name": "Lorna Rivera",
+            "chunk_index": 0,
+            "section_index": 10,
+            "chunk_level": "summary",
+            "title": "UniversityAffiliates",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "entity_type": "affiliate",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-10-lorna-rivera",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "section_name": "Dania Francis",
+            "folder_label": "",
+            "entity_type": "affiliate",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-4-dania-francis",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "title": "UniversityAffiliates",
+            "category": "General",
+            "chunk_level": "summary",
+            "section_index": 4,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "chunk_index": 0,
+            "folder_label": "",
+            "chunk_level": "summary",
+            "section_name": "Cedric Woods",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-16-cedric-woods",
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "entity_type": "affiliate",
+            "category": "General",
+            "section_index": 16,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "chunk_index": 0,
+            "folder_label": "",
+            "section_name": "Jessica Whiteley",
+            "document_type": "txt",
+            "section_index": 14,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-14-jessica-whiteley",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "title": "UniversityAffiliates",
+            "entity_type": "affiliate",
+            "chunk_level": "summary",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "entity_type": "affiliate",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-9-denise-patmon",
+            "chunk_level": "summary",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "section_index": 9,
+            "folder_label": "",
+            "document_type": "txt",
+            "section_name": "Denise Patmon",
+            "title": "UniversityAffiliates",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          },
+          {
+            "chunk_level": "summary",
+            "title": "UniversityAffiliates",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "category": "General",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-11-evan-stewart",
+            "section_name": "Evan Stewart",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "section_index": 11,
+            "document_type": "txt",
+            "folder_label": "",
+            "entity_type": "affiliate",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates? education purpose research"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 8,
+          "selected_count": 8,
+          "distinct_source_count": 1,
+          "top_score": 4.573870967741936,
+          "second_score": 3.9725000000000006,
+          "score_gap": 0.6013709677419352,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 0,
+          "evidence_buckets": {
+            "main": 8
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage"
+          ]
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "education",
+            "purpose",
+            "research"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the expertise from the corpus, but includes unnecessary filler sections for information that was not requested."
+    }
+  ]
+}

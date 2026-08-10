@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-07-30T04:50:01.467825+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-29/caveat_fs143.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_143",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the Decision Support Hub mentioned in the CLIIR Initiative description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "According to the SSL website, the Decision Support Hub is referenced within the CLIIR (Climate Inequality and Integrative Resilience) Initiative as a tool being built to advance the study of individual and collective decision-making. The CLIIR Initiative\u2019s three focus areas \u2014 Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health \u2014 serve as testing grounds for building it. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is the Decision Support Hub mentioned in the CLIIR Initiative description? (subject: Climate Inequality and Integrative Resilience (CLIIR) Initiative)",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Projects.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, cliir-related sources, entity match for Climate Inequality and Integrative Resilience (CLIIR) Initiative, exact phrase match for Decision Support Hub, exact phrase match for CLIIR Initiative, exact phrase match for Climate Inequality, exact phrase match for Integrative Resilience",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the Decision Support Hub's role within the CLIIR Initiative."
+    }
+  ]
+}

@@ -1,0 +1,1213 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_001",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_002",
+      "type": "specific_fact",
+      "question": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_003",
+      "type": "specific_fact",
+      "question": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_004",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_005",
+      "type": "contact_paraphrase",
+      "question": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_006",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_007",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_008",
+      "type": "contact_paraphrase",
+      "question": "What is the email address used to contact SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ]
+    },
+    {
+      "id": "fs_009",
+      "type": "specific_fact",
+      "question": "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_010",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_011",
+      "type": "specific_fact",
+      "question": "In what year was the Climate Adaptation Forum established?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_012",
+      "type": "specific_fact",
+      "question": "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_013",
+      "type": "specific_fact",
+      "question": "How many total participants does the C3I program aim to enroll over its three-year run?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_014",
+      "type": "specific_fact",
+      "question": "What percentage of C3I participants are expected to come from underrepresented groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_015",
+      "type": "specific_fact",
+      "question": "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_016",
+      "type": "specific_fact",
+      "question": "In what year did the rail embankment collapse at East Sandwich occur?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_017",
+      "type": "specific_fact",
+      "question": "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_018",
+      "type": "specific_fact",
+      "question": "What federal agency provides funding for the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_019",
+      "type": "specific_fact",
+      "question": "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_020",
+      "type": "specific_fact",
+      "question": "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_021",
+      "type": "specific_fact",
+      "question": "What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_022",
+      "type": "enumeration",
+      "question": "What resources does someone gain access to by joining the Northeast Climate Justice Research Collaborative? Name at least three.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_023",
+      "type": "people_lookup",
+      "question": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_024",
+      "type": "specific_fact",
+      "question": "How frequently does the Climate Adaptation Forum meet and how long are its events?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_025",
+      "type": "people_lookup",
+      "question": "What is Rosalyn Negron's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_026",
+      "type": "people_lookup",
+      "question": "What is Elisa Guerrero's role at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_027",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_028",
+      "type": "people_lookup",
+      "question": "What does Patricio Belloy currently do professionally and at which institution?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_029",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_030",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_031",
+      "type": "specific_fact",
+      "question": "What two organizations funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_032",
+      "type": "specific_fact",
+      "question": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_033",
+      "type": "people_lookup",
+      "question": "What institution is Cassandre Rey-Thibault affiliated with in Paris, and what fund supports her postdoctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_034",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_035",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_036",
+      "type": "people_lookup",
+      "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_037",
+      "type": "people_lookup",
+      "question": "What are Levente Mezo's two fields of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_038",
+      "type": "specific_fact",
+      "question": "What is the goal of the program Levente Mezo is helping build at SSL with Executive Director Dr. Balachandran?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_039",
+      "type": "people_lookup",
+      "question": "Where did Vishal Verma complete his undergraduate and master's education?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_040",
+      "type": "specific_fact",
+      "question": "What river basin in India is a primary focus of Vishal Verma's research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_041",
+      "type": "people_lookup",
+      "question": "Who supervises Vishal Verma's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_042",
+      "type": "people_lookup",
+      "question": "What project is Jennifer Friedrich working on as a Graduate Research Assistant at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_043",
+      "type": "people_lookup",
+      "question": "What doctoral program is Nick Johnson enrolled in and where is he originally from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_044",
+      "type": "people_lookup",
+      "question": "What tasks does Anna Matviichuk perform as a Communications Fellow at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_045",
+      "type": "people_lookup",
+      "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_046",
+      "type": "people_lookup",
+      "question": "What is the focus of Chidimma Ozor's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_047",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_048",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_049",
+      "type": "specific_fact",
+      "question": "What is The Emerald Tutu and who leads it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_050",
+      "type": "people_lookup",
+      "question": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_051",
+      "type": "people_lookup",
+      "question": "What is Tim Cronin's current title and employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_052",
+      "type": "specific_fact",
+      "question": "What Boston city working group was Tim Cronin appointed to chair in 2023, and who appointed him?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_053",
+      "type": "people_lookup",
+      "question": "What is Julie Eaton Ernst's professional specialty and her current employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_054",
+      "type": "specific_fact",
+      "question": "What award did Julie Eaton Ernst receive in 2018 and from which organization?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_055",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_056",
+      "type": "people_lookup",
+      "question": "What is Julia Kumari Drapkin's company and what does it do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_057",
+      "type": "people_lookup",
+      "question": "What is Amy Korté's title at Arrowstreet?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_058",
+      "type": "people_lookup",
+      "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_059",
+      "type": "people_lookup",
+      "question": "Where did Kalila Barnett serve as Executive Director before joining the Barr Foundation, and for how many years?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_060",
+      "type": "people_lookup",
+      "question": "What does Caleb Dresser's research focus on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_061",
+      "type": "people_lookup",
+      "question": "At which hospital and medical school does Caleb Dresser work as an Emergency Medicine physician?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_062",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's undergraduate institution and her field of study there?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_063",
+      "type": "people_lookup",
+      "question": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_064",
+      "type": "people_lookup",
+      "question": "What is Katherine Dafforn's academic title and primary area of research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_065",
+      "type": "people_lookup",
+      "question": "What is Jesse Farmer's research focus at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_066",
+      "type": "people_lookup",
+      "question": "What is Dania Francis's area of expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_067",
+      "type": "people_lookup",
+      "question": "What is Evan Stewart's academic specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_068",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_069",
+      "type": "people_lookup",
+      "question": "What is Lorena Estrada-Martinez's area of expertise as a UMass Boston affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_070",
+      "type": "people_lookup",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_071",
+      "type": "people_lookup",
+      "question": "What is Jessica Whiteley's expertise according to the SSL university affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_072",
+      "type": "people_lookup",
+      "question": "What institute does Lorna Rivera direct and what is her listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_073",
+      "type": "people_lookup",
+      "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_074",
+      "type": "specific_fact",
+      "question": "What two-part mission does SSL state for itself in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_075",
+      "type": "specific_fact",
+      "question": "How many schools and institutes does SSL partner with across UMass Boston according to the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_076",
+      "type": "specific_fact",
+      "question": "What EPA grant did Lorena Estrada-Martinez receive, how large was it, and what study does it fund?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_077",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_078",
+      "type": "specific_fact",
+      "question": "What award did Paul Kirshen receive from the Boston Society of Civil Engineers, and which report was it given for?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_079",
+      "type": "specific_fact",
+      "question": "What percentage of SSL's funding comes from external sources, and what percentage goes directly into climate justice research, according to the 2020-21 report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_080",
+      "type": "specific_fact",
+      "question": "What event did SSL host in December 2020 related to the anthology 'All We Can Save,' and which nationally-syndicated radio show co-sponsored it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_081",
+      "type": "people_lookup",
+      "question": "What is Susan Gauss's academic title at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_082",
+      "type": "specific_fact",
+      "question": "What is Susan Gauss's stated area of expertise as a UMass Boston affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_083",
+      "type": "people_lookup",
+      "question": "What is Paul Watanabe's academic title at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_084",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_085",
+      "type": "people_lookup",
+      "question": "What is Camille Martinez's title at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_086",
+      "type": "specific_fact",
+      "question": "What is Camille Martinez's stated expertise as an SSL university affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_087",
+      "type": "people_lookup",
+      "question": "What is Denise Patmon's title and what department does she chair at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_088",
+      "type": "specific_fact",
+      "question": "What is Kerrie Wilkins's expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_089",
+      "type": "people_lookup",
+      "question": "What is Michael Johnson's current title at UMass Boston according to the SSL affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_090",
+      "type": "people_lookup",
+      "question": "What is Fabian Torres-Ardila's role at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_091",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_092",
+      "type": "specific_fact",
+      "question": "What are Katsyris Rivera Kientz's research interests?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_093",
+      "type": "specific_fact",
+      "question": "Which two SSL-affiliated professors is Katsyris Rivera Kientz working with, and on what project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_094",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's research focus and which faculty member is she working with at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_095",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghossian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_096",
+      "type": "specific_fact",
+      "question": "What doctoral program is Nick Johnson enrolled in at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_097",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_098",
+      "type": "specific_fact",
+      "question": "What three areas of study did Isa Whalen pursue in her undergraduate degree at the University of Washington?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_099",
+      "type": "specific_fact",
+      "question": "What master's program is Isa Whalen currently enrolled in at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_100",
+      "type": "specific_fact",
+      "question": "What is Anna Matviichuk's major and current year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_101",
+      "type": "specific_fact",
+      "question": "What is Ante Ivčević's PhD institution and what fellowship did he hold during his doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_102",
+      "type": "specific_fact",
+      "question": "What was Ante Ivčević's master's degree field of study?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_103",
+      "type": "specific_fact",
+      "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_104",
+      "type": "specific_fact",
+      "question": "What specific work did Cassandre Rey-Thibault conduct during her time at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_105",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report, what intersection does SSL describe itself as working at as an applied research and action institute?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_106",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report, how does Boston rank globally in terms of vulnerability to sea-level rise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_107",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report's Slide 4, what is Boston's ranking for racial wealth inequality in the U.S.?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_108",
+      "type": "specific_fact",
+      "question": "How many faculty participated in SSL's Climate Justice Deep Dive program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_109",
+      "type": "specific_fact",
+      "question": "Who co-created the Climate Justice Deep Dive program with SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_110",
+      "type": "specific_fact",
+      "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_111",
+      "type": "specific_fact",
+      "question": "According to the Views that Matter report, what share of Boston-area residents of color believe climate change is happening in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_112",
+      "type": "specific_fact",
+      "question": "What does the Views that Matter report say about white respondents' views on whether climate change impacts some people more than others?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_113",
+      "type": "specific_fact",
+      "question": "By what margin do respondents in the Views that Matter report believe climate change can be stopped rather than that it is too late?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_114",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_115",
+      "type": "specific_fact",
+      "question": "What is the maximum amount individual faculty could receive through SSL's Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_116",
+      "type": "specific_fact",
+      "question": "What must Summer Anti-Racism Research Funding projects do? Name at least one of the required criteria.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_117",
+      "type": "specific_fact",
+      "question": "How many projects received SSL's Summer Anti-Racism Research Funding in 2020-21?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_118",
+      "type": "specific_fact",
+      "question": "What was Maria Ivanova appointed to during the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_119",
+      "type": "specific_fact",
+      "question": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_120",
+      "type": "specific_fact",
+      "question": "How many people are on the World Climate Research Programme Joint Scientific Committee that Maria Ivanova joined?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_121",
+      "type": "specific_fact",
+      "question": "What are the four session topics the Climate Adaptation Forum covered in the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_122",
+      "type": "specific_fact",
+      "question": "What was the average number of attendees per Climate Adaptation Forum session in the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_123",
+      "type": "specific_fact",
+      "question": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_124",
+      "type": "specific_fact",
+      "question": "Who were the speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event hosted by SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_125",
+      "type": "specific_fact",
+      "question": "Who moderated the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_126",
+      "type": "specific_fact",
+      "question": "What Boston Globe article did Rebecca Herst co-author in April 2021, and who was her co-author?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_127",
+      "type": "specific_fact",
+      "question": "What is the Views that Matter report about and who was it released in partnership with?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_128",
+      "type": "specific_fact",
+      "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_129",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_130",
+      "type": "specific_fact",
+      "question": "How does the 2020-21 SSL annual report define 'climate justice'?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_131",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_132",
+      "type": "specific_fact",
+      "question": "What is David Levy's title and department in the 2020-21 SSL core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_133",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_134",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_135",
+      "type": "specific_fact",
+      "question": "What was Stacy D. VanDeveer's research on the Massachusetts MVP program about?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_136",
+      "type": "specific_fact",
+      "question": "What is the UMass Boston Campus Goal for 2020-21 as stated in the annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_137",
+      "type": "specific_fact",
+      "question": "What is Pratyush Bharati's topic for the SSL Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_138",
+      "type": "specific_fact",
+      "question": "In the 2020-21 annual report, what type of series did SSL hold in spring 2021 to explore climate justice partnerships?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_139",
+      "type": "specific_fact",
+      "question": "What are the three program elements of the Climate Careers Curricula Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_140",
+      "type": "specific_fact",
+      "question": "How many microcredentialed programs does C3I plan to develop and over what time period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_141",
+      "type": "specific_fact",
+      "question": "What are the three organizations that collaborate on the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_142",
+      "type": "specific_fact",
+      "question": "What three research methods does the Cape Cod Rail Resilience Project combine?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_143",
+      "type": "specific_fact",
+      "question": "What is the Decision Support Hub mentioned in the CLIIR Initiative description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_144",
+      "type": "specific_fact",
+      "question": "What does SSL say the NE Climate Justice Research Collaborative's membership map is updated?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_145",
+      "type": "specific_fact",
+      "question": "What populations does the C3I program specifically focus on serving?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_146",
+      "type": "specific_fact",
+      "question": "What does the C3I program say it will do with local and state policymakers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_147",
+      "type": "specific_fact",
+      "question": "What is Johnna Flahive's Focus field as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_148",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_149",
+      "type": "specific_fact",
+      "question": "What is Patricio Belloy's research focus as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_150",
+      "type": "specific_fact",
+      "question": "What three universities did Patricio Belloy attend and in which countries are the European ones located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_151",
+      "type": "specific_fact",
+      "question": "What are Ante Ivčević's three focus areas as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

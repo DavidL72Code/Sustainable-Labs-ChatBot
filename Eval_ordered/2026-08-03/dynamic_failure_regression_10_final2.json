@@ -1,0 +1,380 @@
+{
+  "generated_at": "2026-08-03T18:09:34.892984+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-03/questions_dynamic_failure_regression_10.json",
+  "summary": {
+    "total_cases": 10,
+    "average_scores": {
+      "clarity": 4.7,
+      "professional_tone": 4.9,
+      "correctness_vs_corpus": 4.6,
+      "citations": 4.7
+    },
+    "classification_counts": {
+      "answered_yes": 9,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 10,
+      "right_citations_yes": 9,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_028",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Patricio Belloy currently do professionally and at which institution?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy is currently Assistant Professor at the Institute of Economics at Universidad Austral de Chile. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_042",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What project is Jennifer Friedrich working on as a Graduate Research Assistant at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Currently she is a Graduate Research Assistant for \u201cImproving Rail Safety, Efficiency and Climate Resilience on Cape Cod\u201d working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text regarding Jennifer Friedrich's role and project."
+    },
+    {
+      "id": "fs_047",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Kelawili Whalen is indigenous Chamoru woman from the southern village of Umatac, Guam. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, directly supported by the provided corpus, and correctly cites the source."
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Whalen is working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_095",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghassian's undergraduate degree and where did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "**Undergraduate Degree**\nGrace Derboghossian earned a Bachelor in nursing [1]. **Institution**\nShe received her undergraduate degree from the Lebanese American University [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Grace Derboghossian",
+          "entity_type": "person",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Grace Derboghassian's undergraduate degree and where did she earn it? education location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the degree and institution as stated in the provided corpus."
+    },
+    {
+      "id": "fs_111",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "According to the Views that Matter report, what share of Boston-area residents of color believe climate change is happening in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Watanabe, and Katsyris Rivera-Kientz, Views that Matter: Race and Opinions on Climate Change of Boston Area Residents (Boston: Sustainable Solutions Lab at the University of Massachusetts Boston and the Hyams Foundation, 2020) Voices That Matter | 29 | Boston Area Residents of Color Discuss Climate Change Appendix FOCUS GROUP MODERATOR GUIDE QUESTIONS Introduction to group discussion [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided a bibliographic citation but failed to extract the specific answer (8 in 10) found in the provided corpus. It also failed to use the correct source document."
+    },
+    {
+      "id": "fs_142",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three research methods does the Cape Cod Rail Resilience Project combine?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "**Research Methods** The Cape Cod Rail Resilience Project combines the following three research methods:\n- Aerial surveys [1]\n- Hydrological drought analysis [1]\n- Real-time monitoring systems [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What three research methods does the Cape Cod Rail Resilience Project combine? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three research methods mentioned in the provided corpus text."
+    },
+    {
+      "id": "fm_011",
+      "kind": "multi_turn",
+      "type": "follow_up_collaborative",
+      "question": "Who convenes the Collaborative?",
+      "conversation": [
+        {
+          "user": "What is the Northeast Climate Justice Research Collaborative?",
+          "assistant": "Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]"
+        },
+        {
+          "user": "What specific resources and benefits does membership provide?",
+          "assistant": "Joining the Northeast Climate Justice Research Collaborative gives members access to:\n1. Seed grants to support climate justice research in the Northeast [1]\n2. Workshops to support researchers' ability to leverage their work and make it actionable [1]\n3. Collaborative gatherings, convenings, and networking opportunities [1]\n4. SSL's climate justice literature Mendeley library [1]\n5. The Collaborative listserv for sharing ideas, questions, and resources [1]"
+        },
+        {
+          "user": "Who convenes the Collaborative?",
+          "assistant": "The Northeast Climate Justice Research Collaborative is convened by the Sustainable Solutions Lab (SSL) at UMass Boston [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Northeast Climate Justice Research Collaborative is convened by the Sustainable Solutions Lab (SSL) at UMass Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fm_019",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_core_team",
+      "question": "What is that person's full title and department at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who made up SSL's core team in the 2020-21 year in review?",
+          "assistant": "The Sustainable Solutions Lab (SSL) core team consisted of the following members:\n- **Ellen Douglas**, Professor of Hydrology, School for the Environment [1]\n- **David Levy**, Professor of Management, College of Management [1]\n- **Rosalyn Negron**, Associate Professor of Anthropology, College of Liberal Arts [1]\n- **J. Cedric Woods**, Director, Institute for New England Native American Studies and Director, Critical Ethnic and Community Studies Program, College of Liberal Arts [1]\n- **Jessica Whiteley**, Associate Professor, Associate Dean of Research, College of Nursing and Health Management [1]\n- **Stacy D. VanDeveer**, Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School [1]"
+        },
+        {
+          "user": "Which team member focuses on conflict resolution and global governance?",
+          "assistant": "The following individuals listed in AnnualReport2021 focus on conflict resolution and global governance:\n- **Stacy D. VanDeveer** is a member of the Sustainable Solutions Lab Core Team and serves as the Professor and Chair of the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School.\n- **Maria H. Ivanova** is a faculty affiliate who serves as an Associate Professor of Global Governance and Graduate Program Director in the Department of Conflict Resolution, Human Security, and Global Governance at the McCormack Graduate School [1]."
+        },
+        {
+          "user": "What is that person's full title and department at UMass Boston?",
+          "assistant": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified Stacy D. VanDeveer's full title and department as listed in the provided annual report."
+    },
+    {
+      "id": "fm_025",
+      "kind": "multi_turn",
+      "type": "follow_up_views_that_matter",
+      "question": "What does the report say about how white respondents view whether climate change affects some people more than others?",
+      "conversation": [
+        {
+          "user": "What is the Views that Matter report?",
+          "assistant": "The **Views that Matter** report, titled \"Views That Matter: Race and Opinions on Climate Change of Boston Area Residents,\" is a research project designed to address the exclusion of affected communities from discussions regarding climate change impacts, policy solutions, and adaptation strategies [1]. **Methodology**\nThe report surveys the views of climate change across racial groups in the Boston area and intentionally includes a large sampling of people of color [1]. **Partnership and Purpose**\nThe report was released in partnership with the Barr Foundation. According to Lorna Rivera of the Mauricio Gaston Institute for Latino Community, the report was created to include the voices of communities of color because most local and national climate change studies conducted to date had focused only on the voices and experiences of the white population."
+        },
+        {
+          "user": "What are the key findings about how different racial groups view climate change in Boston?",
+          "assistant": "Based on the provided reports, the key findings regarding how different racial groups in the Greater Boston area view climate change are as follows: **General Beliefs and Impacts**\n- Residents of the Greater Boston region, regardless of race, widely believe that climate change is occurring in Massachusetts.\n- A small sector of each racial group believes that climate change is \"probably not happening,\" with fewer Asian American and Latino/a residents holding this viewpoint than Black or white residents.\n- Residents generally agree that climate change is currently or will soon be causing coastal flooding. **Health Perspectives**\n- Approximately three-fourths of white residents and all other racial groups agree that climate change will worsen existing health conditions and result in new health challenges [1].\n- Before the survey, one-third of white residents had given \"a great deal\" of thought to how climate change might affect human health [1]. **Emergency Preparedness**\n- White residents lead all other racial groups in preparation for four out of five measured emergency activities.\n- Regarding general emergency preparedness, 59% of respondents have enough food, medicine, and other necessities in stock; 61% know how to contact or meet family or friends during an emergency; 61% have a way to protect important valuables; and 74% have insurance for their homes or belongings."
+        },
+        {
+          "user": "What does the report say about how white respondents view whether climate change affects some people more than others?",
+          "assistant": "According to the Views That Matter report in the 2020-21 SSL Annual Report (Slides 11\u201312), white respondents are the least inclined to view climate change impacts as affecting some people more than others. Respondents of color are more inclined than whites to believe that the effects are shared \u201cequally.\u201d [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the Views That Matter report in the 2020-21 SSL Annual Report (Slides 11\u201312), white respondents are the least inclined to view climate change impacts as affecting some people more than others. Respondents of color are more inclined than whites to believe that the effects are shared \u201cequally.\u201d [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately summarized the findings from the 'Views That Matter' report as presented in the provided corpus (Slides 11-12)."
+    }
+  ]
+}

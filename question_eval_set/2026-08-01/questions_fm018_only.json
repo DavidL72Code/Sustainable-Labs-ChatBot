@@ -1,0 +1,17 @@
+{
+  "single_turn": [],
+  "multi_turn": [
+    {
+      "id": "fm_018",
+      "type": "follow_up_annual_report_events",
+      "turns": [
+        "What special events did SSL host in the 2020-21 period according to the annual report?",
+        "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+        "Who were the panelists at that event and which radio show co-sponsored it?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

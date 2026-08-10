@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-08-09T19:03:45.662665+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Evidence Bucket: main\nTitle: SSLAbout\nSource URL: https://www.umb.edu/ssl/\nSource Path: SEED_DOCUMENTS/SSLAbout.txt\nSection Name: Pursuing Climate Justice\nEntity Type: section\nChunk Level: detail\nChunk Index: 0 Document Labels: SSLAbout | General | Pursuing Climate Justice | Section | Detail Pursuing Climate Justice\nThe Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_058",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Jen Stevenson Zepeda is currently employed by ReVision Energy [1]. The company is an employee-owned B Corp that installs solar, battery storage, and other clean technologies [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-09T01:15:04.520851+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 4.0,
+      "professional_tone": 4.0,
+      "correctness_vs_corpus": 2.33,
+      "citations": 2.33
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 2,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 1,
+      "right_citations_no": 2
+    }
+  },
+  "results": [
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "The available documents do not state Isabella M. Gambill's master's degree. Gambill earned her master's degree.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is Isabella Gambill's master's degree and from which university did she earn it? (subject: Isabella M. Gambill) education"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to retrieve the information present in the corpus. The corpus explicitly states that Isabella M. Gambill holds a Masters in Conservation Leadership from the University of Cambridge."
+    },
+    {
+      "id": "fs_148",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What institute did Johnna Flahive join after her work with SSL, and where is it located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**Affiliation**\nJohnna Flahive joined the Climate Resilience Institute (CRI) [1]. **Location**\nThe Climate Resilience Institute (CRI) is located at the University of Miami [1]. **Timing**. The documents indicate that she is currently leading a working group in collaboration with the Sustainable Solutions Lab (SSL) while also having joined the Climate Resilience Institute (CRI) [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What institute did Johnna Flahive join after her work with SSL, and where is it located? affiliation location"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the institute and its location based on the provided corpus text."
+    },
+    {
+      "id": "fs_156",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "I don't have that information in the available documents. The provided materials do not contain any information regarding Jennifer Friedrich.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Tim Cronin",
+          "entity_type": "board_member",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What board and local committees has Jennifer Friedrich served on? service"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model failed to retrieve the information present in the provided StudentsInterns.txt document, which explicitly mentions that Jennifer Friedrich is a director of the Marshfield Agricultural and Horticultural Society and has served on town boards and committees."
+    }
+  ]
+}

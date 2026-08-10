@@ -1,0 +1,21 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_034",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_156",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

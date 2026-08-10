@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-07-29T18:52:24.843213+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-28/fs091.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1]. The source identifies the institution but does not name the undergraduate degree program. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, entity match for Katsyris Rivera Kientz, exact phrase match for Katsyris Rivera Kientz",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "education",
+            "location"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the undergraduate institution from the corpus and accurately noted that the specific undergraduate program was not mentioned in the provided text."
+    }
+  ]
+}

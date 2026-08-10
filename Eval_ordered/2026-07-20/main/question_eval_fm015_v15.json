@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-07-20T22:20:45.849655+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-19/questions_latest_failures.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 2.0,
+      "citations": 2.0
+    },
+    "classification_counts": {
+      "answered_yes": 0,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_015",
+      "kind": "multi_turn",
+      "type": "follow_up_student_vishal_verma",
+      "question": "Who supervises his doctoral work at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "assistant": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. [1]"
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        },
+        {
+          "user": "What are his two main research projects?",
+          "assistant": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof Paul Kirshen from the School for the Environment (SFE). [1]"
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "conversation state active-scope route"
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "trace": {
+            "rewritten_query": "Who is Vishal Verma at SSL?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Who is Vishal Verma at SSL?"
+          }
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "trace": {
+            "rewritten_query": "Where did he complete his undergraduate and master's education? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "StudentsInterns"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ],
+              "reason": "conversation state active-subject route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": null,
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Where did he complete his undergraduate and master's education? (subject: Vishal Verma)"
+          }
+        },
+        {
+          "user": "What are his two main research projects?",
+          "trace": {
+            "rewritten_query": "What are his two main research projects? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Projects"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "conversation state active-scope route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL projects",
+              "title": "Projects",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            "pending_query": null,
+            "last_intent": "research",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "What are his two main research projects? (subject: Vishal Verma)"
+          }
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "trace": {
+            "rewritten_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "Projects"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Projects.txt"
+              ],
+              "reason": "conversation state active-scope route"
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+              "name": "Vishal Verma",
+              "subject_type": "person",
+              "title": "StudentsInterns",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL projects",
+              "title": "Projects",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-2-vishal-verma",
+                "name": "Vishal Verma",
+                "subject_type": "person",
+                "title": "StudentsInterns",
+                "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+              }
+            ],
+            "last_query": "Who supervises his doctoral work at UMass Boston? (subject: Vishal Verma)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant failed to answer the specific question regarding the supervisor, despite the information being available in the provided source."
+    }
+  ]
+}

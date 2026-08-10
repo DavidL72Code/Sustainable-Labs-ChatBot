@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-08-02T15:05:45.693229+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-02/questions_current_roster_flags.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_131",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Ellen Douglas's title is Professor of Hydrology, and the department is School for the Environment. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the 'Core Team' section of the 2020-21 SSL annual report."
+    },
+    {
+      "id": "fs_132",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is David Levy's title and department in the 2020-21 SSL core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, David Levy's title is Professor of Management, and the department is College of Management. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies David Levy's title and department as listed in the 2020-21 SSL core team section of the provided annual report."
+    },
+    {
+      "id": "fs_133",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the title listed in the core team section of the provided annual report."
+    },
+    {
+      "id": "fs_134",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 6), J. Cedric Woods is listed as the representative of the CANALA Institutes on the UMass Boston Oversight Committee, in his role as Director of the Institute for New England Native American Studies. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies J. Cedric Woods as the representative of the CANALA Institutes based on the provided annual report."
+    }
+  ]
+}

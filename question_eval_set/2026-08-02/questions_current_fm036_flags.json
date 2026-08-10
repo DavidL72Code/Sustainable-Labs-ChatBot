@@ -1,0 +1,77 @@
+{
+  "single_turn": [],
+  "multi_turn": [
+    {
+      "id": "fm_033",
+      "type": "follow_up_vandeveer_research",
+      "turns": [
+        "Who is Stacy D. VanDeveer and what research did he lead at SSL?",
+        "What was the research on the Massachusetts MVP program about?",
+        "What is the East Boston study that VanDeveer's team worked on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_034",
+      "type": "follow_up_ssl_core_team_2021",
+      "turns": [
+        "Who are the core team members listed in the 2020-21 SSL annual report?",
+        "What is Ellen Douglas's title and department?",
+        "What is David Levy's title and department?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_035",
+      "type": "follow_up_affiliate_katsyris",
+      "turns": [
+        "Who are some SSL students working on climate and social justice research?",
+        "Tell me about Katsyris Rivera Kientz's background.",
+        "Which professors is she working with and on what research topic?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_036",
+      "type": "follow_up_student_chidimma",
+      "turns": [
+        "Who is Chidimma Ozor at SSL?",
+        "What are her professional credentials and background?",
+        "What is her doctoral program and year of study?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_037",
+      "type": "follow_up_student_grace",
+      "turns": [
+        "Who are SSL's alumni students?",
+        "Tell me about Grace Derboghossian.",
+        "What faculty member is she working with and what is her research about?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fm_038",
+      "type": "follow_up_student_jennifer_friedrich_detail",
+      "turns": [
+        "Who is Jennifer Friedrich and what is her background?",
+        "What is her consultancy and what does it cover?",
+        "What boards and committees has she served on?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ]
+}

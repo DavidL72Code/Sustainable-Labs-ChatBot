@@ -1,0 +1,23 @@
+{
+  "single_turn": [
+    {
+      "id": "adv_cross_gabriela_nick",
+      "type": "adversarial_cross_source",
+      "question": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt", "SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "adv_cross_belloy_michael",
+      "type": "adversarial_cross_source",
+      "question": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt", "SEED_DOCUMENTS/UniversityAffiliates.txt"]
+    },
+    {
+      "id": "adv_cross_jen_johnna",
+      "type": "adversarial_cross_source",
+      "question": "What is Jen Stevenson Zepeda's professional title, and what is Johnna Flahive's research focus?",
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt", "SEED_DOCUMENTS/Staff.txt"]
+    }
+  ],
+  "multi_turn": []
+}

@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-08-02T02:45:41.262367+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-01/questions_after_contact_multiturn_flags_5.json",
+  "summary": {
+    "total_cases": 5,
+    "average_scores": {
+      "clarity": 4.2,
+      "professional_tone": 4.2,
+      "correctness_vs_corpus": 4.2,
+      "citations": 4.2
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 5,
+      "right_citations_yes": 4,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum is co-organized by SSL and the Environmental Business Council of New England. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_043",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What doctoral program is Nick Johnson enrolled in and where is he originally from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nick Johnson is enrolled in the Global Inclusion and Social Development Program [1]. He is originally from Philadelphia, PA [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_150",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three universities did Patricio Belloy attend and in which countries are the European ones located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "**University Education** Patricio Belloy attended the following three universities:\n- UMass Boston [1], - Leipzig University [1], - Wroc\u0142aw University [1], **European University Locations** The European universities mentioned are located in the following countries:\n- Leipzig University is located in Germany [1]. - Wroc\u0142aw University is located in Poland [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the three universities and the countries for the European institutions as stated in the provided corpus."
+    },
+    {
+      "id": "fs_152",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are the two major and two minor fields Ashley Miranda studies at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Ashley Miranda Smith: The source lists one major, not two: Communication. It lists two minors: Cinema Studies and Professional and New Media Writing. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified that the user's premise regarding two majors was incorrect based on the provided text and accurately listed the actual major and minors."
+    },
+    {
+      "id": "fm_018",
+      "kind": "multi_turn",
+      "type": "follow_up_annual_report_events",
+      "question": "Who were the panelists at that event and which radio show co-sponsored it?",
+      "conversation": [
+        {
+          "user": "What special events did SSL host in the 2020-21 period according to the annual report?",
+          "assistant": "The Sustainable Solutions Lab (SSL) hosted several special climate change events during the 2020-2021 period, including: - A virtual conversation regarding the anthology *ALL WE CAN SAVE*, which highlighted renowned leaders in the climate adaptation field [1]. - A celebration of Indigenous People's Day, which featured a discussion titled \"Climate Change and Indigenous Resistance: An Intergenerational and Inter-Tribal Conversation\" [1]. - ART EVENTS [1]."
+        },
+        {
+          "user": "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+          "assistant": "In December 2020, the Sustainable Solutions Lab hosted a virtual conversation focused on the anthology *ALL WE CAN SAVE: Truth, Courage, and Solutions for the Climate Crisis* [1]. **Event Details**\n- The event spotlighted renowned leaders in the climate adaptation field who contributed to the anthology [1]. - The anthology highlights the need for transformational climate leadership that is characteristically feminine, faithfully feminist, and rooted in compassion, connection, creativity, and collaboration [1]. **Participants and Sponsorship**\n- The event was co-sponsored by the nationally-syndicated radio show **Living on Earth**. - **Steve Curwood** served as the moderator for the discussion. - Panelists included co-editor **Katharine K. Wilkinson** and contributors **Colette Pichon Battle**, **Jainey K. Bavishi**, and **Susanne C. Moser**."
+        },
+        {
+          "user": "Who were the panelists at that event and which radio show co-sponsored it?",
+          "assistant": "I found 3 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "I found 3 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 1,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the user's question, instead providing a list of source documents."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_034",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_087",
+      "type": "people_lookup",
+      "question": "What is Denise Patmon's title and what department does she chair at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

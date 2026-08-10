@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-08-03T18:11:03.967802+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-03/questions_fs111_regression.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 2.0,
+      "professional_tone": 4.0,
+      "correctness_vs_corpus": 1.0,
+      "citations": 2.0
+    },
+    "classification_counts": {
+      "answered_yes": 0,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 0,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_111",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "According to the Views that Matter report, what share of Boston-area residents of color believe climate change is happening in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Watanabe, and Katsyris Rivera-Kientz, Views that Matter: Race and Opinions on Climate Change of Boston Area Residents (Boston: Sustainable Solutions Lab at the University of Massachusetts Boston and the Hyams Foundation, 2020) Voices That Matter | 29 | Boston Area Residents of Color Discuss Climate Change Appendix FOCUS GROUP MODERATOR GUIDE QUESTIONS Introduction to group discussion [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided a bibliographic citation but failed to extract the specific answer (8 in 10) found in the provided corpus. It also failed to use the correct source document."
+    }
+  ]
+}

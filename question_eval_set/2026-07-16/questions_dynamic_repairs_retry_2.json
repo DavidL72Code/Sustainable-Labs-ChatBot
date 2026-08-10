@@ -1,0 +1,22 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_145",
+      "type": "specific_fact",
+      "question": "What populations does the C3I program specifically focus on serving?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_022",
+      "type": "follow_up_board_isabella_gambill",
+      "turns": [
+        "Who is Isabella Gambill on SSL's board?",
+        "What is her current role at A Better City?",
+        "What is her educational background?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/BoardOfDirectors.txt"]
+    }
+  ]
+}

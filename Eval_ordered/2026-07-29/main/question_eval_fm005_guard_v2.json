@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-07-29T21:42:09.000107+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-29/fm005.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_005",
+      "kind": "multi_turn",
+      "type": "follow_up_staff_roles",
+      "question": "What does Elisa Guerrero do at SSL?",
+      "conversation": [
+        {
+          "user": "Who are the current core staff members at SSL?",
+          "assistant": "I found 5 staff members in the matched corpus scope. 1. B. R. Balachandran \u2014 Executive Director [1]\n2. Rosalyn Negron \u2014 Associate Director [1]\n3. Gabriela Boscio \u2014 Associate Director [1]\n4. Rajini Srikanth \u2014 Dean of Faculty and Inter-Faculty Initiatives [1]\n5. Elisa Guerrero \u2014 Community Engagement Manager [1]"
+        },
+        {
+          "user": "What is Gabriela Boscio Santos's role?",
+          "assistant": "Gabriela Boscio's role is Associate Director. [1]"
+        },
+        {
+          "user": "What does Elisa Guerrero do at SSL?",
+          "assistant": "Elisa Guerrero serves as the Community Engagement Manager [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero serves as the Community Engagement Manager [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does Elisa Guerrero do at SSL?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "turn_traces": [
+        {
+          "user": "Who are the current core staff members at SSL?",
+          "trace": {
+            "rewritten_query": "Who are the current core staff members at SSL?",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "soft",
+              "prefer_summary": true,
+              "target_titles": [
+                "AnnualReport2021",
+                "SSLAbout",
+                "Staff"
+              ],
+              "target_categories": [
+                "Annual Reports"
+              ],
+              "target_folders": [
+                "Annual Reports"
+              ],
+              "target_source_paths": [],
+              "reason": "Local first-pass multi-label route: staff-related sources",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "scoped",
+            "active_subject": null,
+            "candidate_subjects": [],
+            "active_scope": {
+              "name": "SSL staff",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "pending_query": null,
+            "last_intent": null,
+            "clarification_options": [],
+            "subject_history": [],
+            "last_query": null
+          }
+        },
+        {
+          "user": "What is Gabriela Boscio Santos's role?",
+          "trace": {
+            "rewritten_query": "What is Gabriela Boscio Santos's role?",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": []
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+              "name": "Gabriela Boscio",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+                "name": "Gabriela Boscio",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL staff",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+                "name": "Gabriela Boscio",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What is Gabriela Boscio Santos's role?"
+          }
+        },
+        {
+          "user": "What does Elisa Guerrero do at SSL?",
+          "trace": {
+            "rewritten_query": "What does Elisa Guerrero do at SSL?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "Staff"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "subject_scopes": [],
+              "combine_registry_retrieval": false,
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-4-elisa-guerrero",
+              "name": "Elisa Guerrero",
+              "subject_type": "person",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-4-elisa-guerrero",
+                "name": "Elisa Guerrero",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL staff",
+              "title": "Staff",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+                "name": "Gabriela Boscio",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              },
+              {
+                "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-4-elisa-guerrero",
+                "name": "Elisa Guerrero",
+                "subject_type": "person",
+                "title": "Staff",
+                "source_path": "SEED_DOCUMENTS/Staff.txt"
+              }
+            ],
+            "last_query": "What does Elisa Guerrero do at SSL?"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and directly supported by the provided corpus."
+    }
+  ]
+}

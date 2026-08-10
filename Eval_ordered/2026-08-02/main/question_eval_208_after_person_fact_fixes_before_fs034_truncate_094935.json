@@ -1,0 +1,1213 @@
+{
+  "generated_at": "2026-08-02T13:43:04.211490+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 38,
+    "average_scores": {
+      "clarity": 4.89,
+      "professional_tone": 4.89,
+      "correctness_vs_corpus": 4.89,
+      "citations": 4.89
+    },
+    "classification_counts": {
+      "answered_yes": 37,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 38,
+      "right_citations_yes": 38,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer directly and accurately quotes the vision statement provided in the source document."
+    },
+    {
+      "id": "fs_002",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) describes its practice of convening for networking and field-building as an effort to create spaces through its convenings, workshops, and events [1]. Within these spaces, the lab enables people to build relationships across boundaries, learn from one another, and work together [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately paraphrases the source text provided in the corpus and correctly cites the relevant document."
+    },
+    {
+      "id": "fs_003",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) defines \"Drive Equitable Climate Adaptation\" as a commitment to standing with communities that are historically and currently excluded from political power and economic resources [1]. The work within this category moves beyond the documentation of damage to focus on listening and exploring desired futures in collaboration with these communities [1]. Through research, events, and initiatives, the lab collaborates with others to move the region toward equitable adaptation [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus and directly addresses the user's question."
+    },
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab (SSL) facilitates transdisciplinary research that centers and is led by specific groups: - The transdisciplinary research at the Sustainable Solutions Lab centers historically and currently excluded communities [1]. - The transdisciplinary research at the Sustainable Solutions Lab is led by historically and currently excluded communities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text, correctly identifying that the research centers and is led by historically and currently excluded communities."
+    },
+    {
+      "id": "fs_005",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab office is located in the Healey Library, 10th Floor, Room 13 at UMass Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Contact Us",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the location details (Healey Library, 10th Floor, Room 13) from the provided source document."
+    },
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Sarah Mayorga values the opportunity to be both an expert and a novice in her work with SSL [1]. Regarding the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is space for her curiosity and further exploration, which has allowed her to pose questions connecting climate change and racial justice in new ways [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text, correctly attributing the sentiments to Sarah Mayorga."
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source text and directly addresses the user's question."
+    },
+    {
+      "id": "fs_008",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What is the email address used to contact SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address from the provided corpus and includes the appropriate citation."
+    },
+    {
+      "id": "fs_009",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum is co-organized by SSL and the Environmental Business Council of New England. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what year was the Climate Adaptation Forum established?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum was established in 2017. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_012",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Liberty Mutual Foundation (LMF) provides financial support for the Climate Careers Curricula Initiative [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What foundation provides financial support for the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_013",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many total participants does the C3I program aim to enroll over its three-year run?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston [1]. The program plans to enroll a total of 90 participants over a three-year period [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the C3I program's enrollment goals."
+    },
+    {
+      "id": "fs_014",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What percentage of C3I participants are expected to come from underrepresented groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) aims for 75% of participants to come from underrepresented groups [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_015",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project was launched in response to a 300-foot rail embankment collapse in East Sandwich in 2020, an event linked to climate change-induced drought conditions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific event triggered the launch of the Cape Cod Rail Resilience Project?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_016",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what year did the rail embankment collapse at East Sandwich occur?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The rail embankment collapse at East Sandwich occurred in 2020 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_017",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project uses drones for mapping [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies drones as the technology used for mapping, which is explicitly supported by the provided corpus."
+    },
+    {
+      "id": "fs_018",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What federal agency provides funding for the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project is funded by the USDOT [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the USDOT as the funding source based on the provided corpus and correctly cites the source document."
+    },
+    {
+      "id": "fs_019",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project operates three pilot study sites [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text, which explicitly mentions three pilot study sites."
+    },
+    {
+      "id": "fs_020",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Inequality and Integrative Resilience (CLIIR) Initiative was funded by a National Science Foundation planning grant through the Centers for Research Innovation in Science, Environment, and Society (CRISES) program [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_021",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The C3I microcredential programs cover job areas such as solar installation, energy auditing, and nature-based solutions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three job areas mentioned in the C3I project description within the provided corpus."
+    },
+    {
+      "id": "fs_022",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "question": "What resources does someone gain access to by joining the Northeast Climate Justice Research Collaborative? Name at least three.",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "According to the SSL website, joining the Northeast Climate Justice Research Collaborative grants access to: (1) seed grants to support climate justice research in the Northeast; (2) workshops to support researchers\u2019 ability to leverage their work and make it actionable; (3) collaborative gatherings, convenings, and networking opportunities; (4) SSL\u2019s climate justice literature Mendeley library; and (5) the Collaborative listserv for sharing ideas, questions, and resources. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the list of benefits from the provided corpus and correctly cited the source document."
+    },
+    {
+      "id": "fs_023",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Carlos Vel\u00e1squez and what two roles does he hold in relation to the Cape Cod Rail project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Carlos Vel\u00e1squez is a PhD candidate at UMass Boston and a project manager at MassDOT [1]. Regarding the Cape Cod Rail Resilience Project, he holds the following two roles: - PhD candidate at UMass Boston [1]\n- Project manager at MassDOT [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Carlos Vel\u00e1squez and what two roles does he hold in relation to the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project)"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Carlos Vel\u00e1squez and his professional roles as described in the provided corpus."
+    },
+    {
+      "id": "fs_024",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How frequently does the Climate Adaptation Forum meet and how long are its events?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum is a quarterly series of half-day events. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_025",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rosalyn Negron's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rosalyn Negron holds the title of Associate Director [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_026",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Elisa Guerrero's role at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero's title is Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Elisa Guerrero's role as Community Engagement Manager based on the provided staff list."
+    },
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Rajini Srikanth\u2019s title is Dean of Faculty and Inter-Faculty Initiatives [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_028",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Patricio Belloy currently do professionally and at which institution?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy currently serves as an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Patricio Belloy earned his PhD and MSc in Public Policy from UMass Boston [1]. He also earned an MA in Global Studies from Leipzig University in Germany and Wroc\u0142aw University in Poland [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Patricio Belloy's educational background."
+    },
+    {
+      "id": "fs_030",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the source document."
+    },
+    {
+      "id": "fs_031",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What two organizations funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts was funded by the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided source document."
+    },
+    {
+      "id": "fs_032",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Currently, Johnna Flahive is leading a working group in collaboration with SSL, the Climate Resilient Initiative for Unhoused People (CRIUP), aimed at developing plans for unhoused people. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided source text."
+    },
+    {
+      "id": "fs_033",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institution is Cassandre Rey-Thibault affiliated with in Paris, and what fund supports her postdoctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault is affiliated with the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris [1]. Her postdoctoral research is supported by the Bruno Latour Fund [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus source."
+    },
+    {
+      "id": "fs_034",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "[1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 1,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided a citation but failed to include any text in the response, therefore failing to answer the question."
+    },
+    {
+      "id": "fs_035",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nyingilanyeofori Hannah Brown serves as the program coordinator at the SSL [1]. Her position is tied to the NSF CRISES planning grant, which provides the funding for her role [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Hannah Brown's role and the specific grant mentioned in the source text."
+    },
+    {
+      "id": "fs_036",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Nyingilanyeofori Hannah Brown is currently a Ph.D. candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_037",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What are Levente Mezo's two fields of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Levente \u201cLevi\u201d Mezo is an undergraduate student at UMass Boston majoring in Political Science and Minoring in Community Development. He is currently working with Executive Director Dr Balakrishnan Balachandran on the foundations of a continuous, community-engaged program at SSL to provide a platform for collaboration between UMB and local community-based organizations. His other interests include urban planning, transportation planning, and affordable housing advocacy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Levente Mezo's major (Political Science) and minor (Community Development) as stated in the provided source document."
+    },
+    {
+      "id": "fs_038",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the goal of the program Levente Mezo is helping build at SSL with Executive Director Dr. Balachandran?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Levente Mezo is building the program under the leadership of Executive Director Dr. Balakrishnan Balachandran [1]. The purpose of the program is to provide a platform for collaboration between UMB and local community-based organizations [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the goal of the program from the provided corpus text and correctly cites the source."
+    }
+  ]
+}

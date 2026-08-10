@@ -1,0 +1,244 @@
+{
+  "generated_at": "2026-07-21T01:50:25.267947+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-19/questions_latest_failures.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_056",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Julia Kumari Drapkin's company and what does it do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julia Kumari Drapkin is the CEO and founder of ISeeChange [1]. The company is a climate data and engagement platform that helps cities combat climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Julia Kumari Drapkin's company and what does it do?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "employment",
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    },
+    {
+      "id": "fs_068",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati belongs to the Management Science & Info Sys department [1]. His stated expertise includes Social Media and Organizations, Green Information Systems, and Social Media and... [1]. The record does not state his purpose or research [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "purpose",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the department and expertise from the provided source. The citation is correctly applied."
+    },
+    {
+      "id": "fs_070",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Cedric Woods directs INENAS at UMass Boston [1]. The purpose of INENAS is not stated [1]. Information regarding his research is not stated [1]. His listed expertise includes tribal government, American Indian education, economic development, and chronic disease prevention [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "purpose",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the requested information from the provided corpus and correctly identified that additional details about the institute's purpose or his research were not present in the source."
+    },
+    {
+      "id": "fs_072",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institute does Lorna Rivera direct and what is her listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorna Rivera is the Director of the Gaston Institute [1]. * **Purpose:** The purpose of the Gaston Institute is not stated [1].\n* **Research:** Specific research is not stated, though her listed expertise includes Latina/o studies, Social Determinants of Health, Adult Literacy education, and Education [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What institute does Lorna Rivera direct and what is her listed expertise?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "UniversityAffiliates"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "purpose",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the requested information from the provided corpus and correctly cites the source."
+    }
+  ]
+}

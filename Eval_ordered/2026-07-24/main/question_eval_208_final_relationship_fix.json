@@ -1,0 +1,1297 @@
+{
+  "generated_at": "2026-07-24T04:15:10.507612+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 9,
+    "average_scores": {
+      "clarity": 4.67,
+      "professional_tone": 4.78,
+      "correctness_vs_corpus": 4.67,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 9,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 8,
+      "right_citations_yes": 9,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is SSL's vision for the future of the climate action space?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: mission and about section sources, SSL vision hard-scoped to SSLAbout with summary preference",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately quotes the vision statement directly from the provided source document."
+    },
+    {
+      "id": "fs_002",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Regarding the \"Convene for Networking and Field-Building\" activity, the Sustainable Solutions Lab (SSL) describes it as a process of creating spaces where people can build relationships across boundaries, learn from one another, and work together [1]. Regarding the method used for this activity, SSL utilizes convenings, workshops, and events to facilitate these interactions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: unique quoted corpus phrase hard-scoped to SEED_DOCUMENTS/SSLAbout.txt, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "method"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "entity_type": "section",
+            "source_url": "https://www.umb.edu/ssl/",
+            "folder_label": "",
+            "section_index": 2,
+            "title": "SSLAbout",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "chunk_level": "detail",
+            "category": "General",
+            "section_name": "What We Do",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "chunk_index": 0,
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "document_type": "txt",
+            "section_index": 2,
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "category": "General",
+            "title": "SSLAbout",
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "chunk_index": 1,
+            "section_name": "What We Do",
+            "source_url": "https://www.umb.edu/ssl/",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+          },
+          {
+            "section_index": 1,
+            "section_name": "Our Vision",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-1-our-vision",
+            "title": "SSLAbout",
+            "category": "General",
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "chunk_index": 0,
+            "folder_label": "",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+          },
+          {
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "chunk_index": 0,
+            "document_type": "txt",
+            "section_index": 2,
+            "source_url": "https://www.umb.edu/ssl/",
+            "entity_type": "section",
+            "category": "General",
+            "section_name": "What We Do",
+            "chunk_level": "summary",
+            "title": "SSLAbout",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+          },
+          {
+            "folder_label": "",
+            "category": "General",
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "section_name": "Pursuing Climate Justice",
+            "title": "SSLAbout",
+            "source_url": "https://www.umb.edu/ssl/",
+            "section_index": 0,
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-0-pursuing-climate-justice",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method"
+          },
+          {
+            "chunk_index": 1,
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "section_index": 2,
+            "section_name": "What We Do",
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do::summary-chunk-0",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "section",
+            "section_name": "What We Do",
+            "section_index": 2,
+            "chunk_index": 3,
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_level": "detail",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do::detail-chunk-1",
+            "neighbor_distance": 2
+          },
+          {
+            "section_index": 2,
+            "chunk_index": 2,
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "category": "General",
+            "folder_label": "",
+            "section_name": "What We Do",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "entity_type": "section",
+            "title": "SSLAbout",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities? method",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do::detail-chunk-0",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 8,
+          "selected_count": 8,
+          "distinct_source_count": 1,
+          "top_score": 3.514426229508197,
+          "second_score": 3.513870967741936,
+          "score_gap": 0.0005552617662609727,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 3,
+          "evidence_buckets": {
+            "main": 8
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: unique quoted corpus phrase hard-scoped to SEED_DOCUMENTS/SSLAbout.txt, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "method"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the provided corpus and correctly cites the source."
+    },
+    {
+      "id": "fs_003",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Regarding the \"Drive Equitable Climate Adaptation\" category of its work, the Sustainable Solutions Lab (SSL) stands with communities that have been historically and currently excluded from political power and economic resources [1]. The purpose of this work is to move the region toward equitable adaptation by collaborating with others through research, events, and initiatives [1]. Rather than focusing solely on documenting damage, the lab prioritizes listening to these communities and exploring desired futures together [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for Drive Equitable Climate Adaptation, unique quoted corpus phrase hard-scoped to SEED_DOCUMENTS/SSLAbout.txt",
+          "answer_requirements": [
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "source_url": "https://www.umb.edu/ssl/",
+            "category": "General",
+            "section_index": 2,
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "chunk_index": 2,
+            "title": "SSLAbout",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "section_name": "What We Do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "chunk_level": "detail",
+            "category": "General",
+            "folder_label": "",
+            "chunk_index": 1,
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "section_index": 2,
+            "entity_type": "section",
+            "section_name": "What We Do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "category": "General",
+            "chunk_level": "detail",
+            "section_index": 2,
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "section_name": "What We Do",
+            "folder_label": "",
+            "title": "SSLAbout",
+            "source_url": "https://www.umb.edu/ssl/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+          },
+          {
+            "entity_type": "section",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "title": "SSLAbout",
+            "category": "General",
+            "section_name": "What We Do",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "section_index": 2,
+            "chunk_index": 3,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+          },
+          {
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "section_name": "What We Do",
+            "category": "General",
+            "entity_type": "section",
+            "folder_label": "",
+            "title": "SSLAbout",
+            "chunk_level": "summary",
+            "document_type": "txt",
+            "section_index": 2,
+            "source_url": "https://www.umb.edu/ssl/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose"
+          },
+          {
+            "chunk_index": 1,
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "section_index": 2,
+            "section_name": "What We Do",
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work? purpose",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do::summary-chunk-0",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 6,
+          "selected_count": 6,
+          "distinct_source_count": 1,
+          "top_score": 3.5938797814207657,
+          "second_score": 3.576935483870968,
+          "score_gap": 0.01694429754979776,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 1,
+          "evidence_buckets": {
+            "main": 6
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for Drive Equitable Climate Adaptation, unique quoted corpus phrase hard-scoped to SEED_DOCUMENTS/SSLAbout.txt",
+          "answer_requirements": [
+            "purpose"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately synthesizes the information from the provided corpus regarding the 'Drive Equitable Climate Adaptation' category."
+    },
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "**Audience**\nThe Sustainable Solutions Lab (SSL) states that its transdisciplinary research centers historically and currently excluded communities [1]. **Leadership**\nThe Sustainable Solutions Lab (SSL) states that its transdisciplinary research is led by historically and currently excluded communities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who does SSL say its transdisciplinary research centers and is led by?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: SSL transdisciplinary/scope-expansion sources, entity match for RESEARCH, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "audience",
+            "leadership"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "document_type": "txt",
+            "folder_label": "",
+            "title": "SSLAbout",
+            "entity_type": "section",
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-0-pursuing-climate-justice",
+            "section_index": 0,
+            "section_name": "Pursuing Climate Justice",
+            "chunk_level": "detail",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+          },
+          {
+            "section_index": 2,
+            "section_name": "What We Do",
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "folder_label": "",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "category": "General",
+            "chunk_index": 0,
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "source_url": "https://www.umb.edu/ssl/",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+          },
+          {
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "title": "SSLAbout",
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_index": 3,
+            "category": "General",
+            "section_index": 2,
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "document_type": "txt",
+            "folder_label": "",
+            "section_name": "What We Do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+          },
+          {
+            "section_index": 2,
+            "chunk_index": 2,
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "category": "General",
+            "folder_label": "",
+            "section_name": "What We Do",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "entity_type": "section",
+            "title": "SSLAbout",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+          },
+          {
+            "section_index": 1,
+            "section_name": "Our Vision",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-1-our-vision",
+            "title": "SSLAbout",
+            "category": "General",
+            "entity_type": "section",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "chunk_index": 0,
+            "folder_label": "",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do",
+            "chunk_level": "detail",
+            "category": "General",
+            "folder_label": "",
+            "chunk_index": 1,
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "source_url": "https://www.umb.edu/ssl/",
+            "section_index": 2,
+            "entity_type": "section",
+            "section_name": "What We Do",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "Who does SSL say its transdisciplinary research centers and is led by? audience leadership",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/SSLAbout.txt#section-2-what-we-do::detail-chunk-0",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 6,
+          "selected_count": 6,
+          "distinct_source_count": 1,
+          "top_score": 3.4638797814207654,
+          "second_score": 3.4138797814207655,
+          "score_gap": 0.04999999999999982,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 1,
+          "evidence_buckets": {
+            "main": 6
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: SSL transdisciplinary/scope-expansion sources, entity match for RESEARCH, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "audience",
+            "leadership"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant misinterpreted the phrase 'centers... communities' as 'excluded communities' in the first part of the answer, which is a significant factual error. The second part regarding leadership is correct."
+    },
+    {
+      "id": "fs_005",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "The Sustainable Solutions Lab office at UMass Boston is located in the Healey Library, on the 10th floor, in room 13 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Contact Us",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "SEED_DOCUMENTS/Projects.txt",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+            "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+            "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+            "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+            "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "SEED_DOCUMENTS/SSLAbout.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for UMass Boston",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [
+          {
+            "section_index": 1,
+            "title": "AnnualReport2021",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "category": "Annual Reports",
+            "chunk_index": 1,
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+          },
+          {
+            "section_index": -1,
+            "entity_type": "",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "category": "Annual Reports",
+            "chunk_index": 26,
+            "section_name": "",
+            "document_type": "pdf",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "folder_label": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+          },
+          {
+            "section_index": 8,
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-8-ashley-miranda-smith",
+            "title": "StudentsInterns",
+            "folder_label": "",
+            "entity_type": "person",
+            "chunk_level": "detail",
+            "category": "General",
+            "section_name": "Ashley Miranda Smith",
+            "document_type": "txt",
+            "chunk_index": 2,
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+          },
+          {
+            "section_index": 3,
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+            "unit_id": "SEED_DOCUMENTS/SSLAbout.txt#section-3-contact-us",
+            "document_type": "txt",
+            "title": "SSLAbout",
+            "source_url": "https://www.umb.edu/ssl/",
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "folder_label": "",
+            "category": "General",
+            "section_name": "Contact Us",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+          },
+          {
+            "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+            "chunk_index": 36,
+            "entity_type": "",
+            "chunk_level": "detail",
+            "category": "Publications",
+            "folder_label": "Publications",
+            "section_index": -1,
+            "document_type": "pdf",
+            "section_name": "",
+            "unit_id": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "source_url": "https://scholarworks.umb.edu/ssl/4/",
+            "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?"
+          },
+          {
+            "chunk_level": "detail",
+            "entity_type": "section",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "title": "AnnualReport2021",
+            "category": "Annual Reports",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "chunk_index": 2,
+            "folder_label": "Annual Reports",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "section_index": 1,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "category": "Annual Reports",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "section_index": -1,
+            "document_type": "pdf",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "chunk_index": 27,
+            "section_name": "",
+            "folder_label": "Annual Reports",
+            "entity_type": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::detail-chunk-26",
+            "neighbor_distance": 1
+          },
+          {
+            "chunk_level": "detail",
+            "source_url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+            "folder_label": "Annual Reports",
+            "document_type": "pdf",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "title": "UMB-SSL-2022-Annual_Report",
+            "chunk_index": 25,
+            "section_name": "",
+            "section_index": -1,
+            "entity_type": "",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "category": "Annual Reports",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf::detail-chunk-26",
+            "neighbor_distance": 1
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "section_name": "",
+            "source_url": "https://scholarworks.umb.edu/ssl/4/",
+            "chunk_index": 35,
+            "section_index": -1,
+            "document_type": "pdf",
+            "category": "Publications",
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+            "folder_label": "Publications",
+            "entity_type": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf::detail-chunk-36",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "pdf",
+            "folder_label": "Publications",
+            "chunk_index": 37,
+            "category": "Publications",
+            "section_name": "",
+            "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+            "unit_id": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "entity_type": "",
+            "section_index": -1,
+            "chunk_level": "detail",
+            "source_url": "https://scholarworks.umb.edu/ssl/4/",
+            "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf::detail-chunk-36",
+            "neighbor_distance": 1
+          },
+          {
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "section_name": "WHO WE ARE / WHAT WE DO",
+            "section_index": 1,
+            "chunk_index": 0,
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-1-who-we-are-what-we-do::detail-chunk-1",
+            "neighbor_distance": 1
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-8-ashley-miranda-smith",
+            "entity_type": "person",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "section_index": 8,
+            "title": "StudentsInterns",
+            "category": "General",
+            "folder_label": "",
+            "section_name": "Ashley Miranda Smith",
+            "chunk_level": "detail",
+            "chunk_index": 3,
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/StudentsInterns.txt#person-8-ashley-miranda-smith::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "section_index": 8,
+            "chunk_level": "detail",
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "section_name": "Ashley Miranda Smith",
+            "title": "StudentsInterns",
+            "entity_type": "person",
+            "chunk_index": 1,
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-8-ashley-miranda-smith",
+            "folder_label": "",
+            "category": "General",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/StudentsInterns.txt#person-8-ashley-miranda-smith::detail-chunk-2",
+            "neighbor_distance": 1
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 13,
+          "selected_count": 13,
+          "distinct_source_count": 5,
+          "top_score": 2.2776923076923077,
+          "second_score": 2.2369117647058823,
+          "score_gap": 0.040780542986425417,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 13
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.85,
+          "is_low_confidence": false,
+          "reasons": [
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "SEED_DOCUMENTS/Projects.txt",
+            "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+            "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+            "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+            "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+            "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+            "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+            "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+            "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+            "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+            "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+            "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+            "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+            "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+            "SEED_DOCUMENTS/SSLAbout.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: exact phrase match for UMass Boston",
+          "answer_requirements": []
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the location details (Healey Library, 10th floor, room 13) from the provided source document."
+    },
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "Sarah Mayorga says she values being able to work as both an expert and a novice. Through the Northeast Climate Justice Research Collaborative, she says her training and research are valued while she has room for curiosity and for connecting climate change with racial justice. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: Sarah Mayorga about source, collaborative-specific sources, entity match for RESEARCH, entity match for Northeast Climate Justice Research Collaborative, exact phrase match for Sarah Mayorga, exact phrase match for Associate Professor, exact phrase match for Brandeis University, exact phrase match for Northeast Climate Justice Research Collaborative, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "education",
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the quote provided in the source document and directly addresses the user's question."
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "SSLAbout"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt"
+          ],
+          "reason": "Local first-pass multi-label route: SSL transdisciplinary/scope-expansion sources, entity match for RESEARCH, SSL self-description hard-scoped to SSLAbout only",
+          "answer_requirements": [
+            "method",
+            "quantity"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus and directly addresses the user's question."
+    },
+    {
+      "id": "fs_008",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "question": "What is the email address used to contact SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "output": "SSL's public email is ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is the email address used to contact SSL?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "SSLAbout",
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/SSLAbout.txt",
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "Local first-pass multi-label route: contact and about sources",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address from the provided corpus and includes relevant location details."
+    },
+    {
+      "id": "fs_009",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the launch date as Spring 2022, which is directly supported by the provided corpus."
+    }
+  ]
+}

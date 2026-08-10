@@ -1,0 +1,78 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_028",
+      "type": "people_lookup",
+      "question": "What does Patricio Belloy currently do professionally and at which institution?",
+      "target_sources": ["SEED_DOCUMENTS/Staff.txt"]
+    },
+    {
+      "id": "fs_042",
+      "type": "people_lookup",
+      "question": "What project is Jennifer Friedrich working on as a Graduate Research Assistant at SSL?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "fs_047",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "fs_048",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "fs_095",
+      "type": "specific_fact",
+      "question": "What is Grace Derboghassian's undergraduate degree and where did she earn it?",
+      "target_sources": ["SEED_DOCUMENTS/StudentsInterns.txt"]
+    },
+    {
+      "id": "fs_111",
+      "type": "specific_fact",
+      "question": "According to the Views that Matter report, what share of Boston-area residents of color believe climate change is happening in Massachusetts?",
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "fs_142",
+      "type": "specific_fact",
+      "question": "What three research methods does the Cape Cod Rail Resilience Project combine?",
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_011",
+      "type": "follow_up_collaborative",
+      "turns": [
+        "What is the Northeast Climate Justice Research Collaborative?",
+        "What specific resources and benefits does membership provide?",
+        "Who convenes the Collaborative?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Projects.txt"]
+    },
+    {
+      "id": "fm_019",
+      "type": "follow_up_annual_report_core_team",
+      "turns": [
+        "Who made up SSL's core team in the 2020-21 year in review?",
+        "Which team member focuses on conflict resolution and global governance?",
+        "What is that person's full title and department at UMass Boston?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    },
+    {
+      "id": "fm_025",
+      "type": "follow_up_views_that_matter",
+      "turns": [
+        "What is the Views that Matter report?",
+        "What are the key findings about how different racial groups view climate change in Boston?",
+        "What does the report say about how white respondents view whether climate change affects some people more than others?"
+      ],
+      "target_sources": ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
+    }
+  ]
+}

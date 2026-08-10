@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_156",
+      "type": "specific_fact",
+      "question": "What board and local committees has Jennifer Friedrich served on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

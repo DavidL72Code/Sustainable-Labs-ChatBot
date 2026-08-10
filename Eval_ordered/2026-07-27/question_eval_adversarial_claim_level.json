@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-07-28T02:17:11.134238+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_adversarial_claim_level.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.67,
+      "citations": 3.67
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "adv_gabriela_title_neighbor",
+      "kind": "single_turn",
+      "type": "adversarial_claim_level",
+      "question": "What is Gabriela Boscio's title?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Gabriela Boscio's title is Associate Director [1]. Regarding her employment, she is affiliated with the University of Massachusetts Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Gabriela Boscio's title?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "employment"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Gabriela Boscio's title as Associate Director based on the provided corpus."
+    },
+    {
+      "id": "adv_jen_title_distractor",
+      "kind": "single_turn",
+      "type": "adversarial_claim_level",
+      "question": "What is Jen Stevenson Zepeda's professional title?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Jen Stevenson Zepeda\u2019s professional title is Commercial Solar Consultant at ReVision Energy [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Jen Stevenson Zepeda's professional title?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "answer_requirements": [
+            "employment"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the professional title of Jen Stevenson Zepeda as stated in the provided corpus."
+    },
+    {
+      "id": "adv_two_person_facets",
+      "kind": "single_turn",
+      "type": "adversarial_claim_level",
+      "question": "What is Johnna Flahive's research focus, and what research interests does Nick Johnson have?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Johnna Flahive's research focus, and what research interests does Nick Johnson have?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "hard",
+          "prefer_summary": true,
+          "target_titles": [
+            "Staff"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Staff.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Johnna Flahive, entity match for Nick Johnson, exact phrase match for Nick Johnson, Flahive specific-fact hard-scoped to Staff.txt only",
+          "answer_requirements": [
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided incorrect information for Johnna Flahive that is not supported by the provided corpus and failed to address the question regarding Nick Johnson's research interests."
+    }
+  ]
+}

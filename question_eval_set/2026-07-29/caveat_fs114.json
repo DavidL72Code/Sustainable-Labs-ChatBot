@@ -1,0 +1,13 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_114",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

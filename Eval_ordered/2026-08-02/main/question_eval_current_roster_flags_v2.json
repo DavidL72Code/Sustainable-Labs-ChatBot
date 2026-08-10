@@ -1,0 +1,151 @@
+{
+  "generated_at": "2026-08-02T14:57:09.465731+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-02/questions_current_roster_flags.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.75,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 4,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_131",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Ellen Douglas's title is Associate Dean, Professor of Hydrology, and the department is School for the Environment. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the individual's titles and department from the document. While the 'Associate Dean' title appears in the research grant section (Slide 25) rather than the specific 'Core Team' listing (Slide 6), the information is factually accurate according to the provided corpus."
+    },
+    {
+      "id": "fs_132",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is David Levy's title and department in the 2020-21 SSL core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "**Employment** In the 2020-21 Sustainable Solutions Lab core team listing, David Levy holds the title of Professor of Management within the College of Management [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "THE TEAM: CORE & OVERSIGHT",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is David Levy's title and department in the 2020-21 SSL core team listing? employment"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the 2020-21 SSL core team listing within the corpus."
+    },
+    {
+      "id": "fs_133",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "In the 2020-21 SSL Annual Report (Slide 6), Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, and Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the title from the 'Core Team' section on Slide 6 of the provided annual report."
+    },
+    {
+      "id": "fs_134",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 6), J. Cedric Woods is listed as the representative of the CANALA Institutes on the UMass Boston Oversight Committee, in his role as Director of the Institute for New England Native American Studies. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies J. Cedric Woods as the representative of the CANALA Institutes based on the provided annual report."
+    }
+  ]
+}

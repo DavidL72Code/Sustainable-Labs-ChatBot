@@ -1,0 +1,696 @@
+{
+  "generated_at": "2026-07-28T02:36:42.696125+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "questions_adversarial_cross_source.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.33,
+      "citations": 4.33
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "adv_cross_gabriela_nick",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Regarding employment, Gabriela Boscio serves as the Associate Director [1]. Regarding research, Nick Johnson\u2019s research interests are in Black and Indigenous self-determination, land rights, and political ecology [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Gabriela Boscio",
+          "entity_type": "staff_member",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "subject_1",
+          "evidence_query": "Gabriela Boscio: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+        },
+        {
+          "citation": 2,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nick Johnson",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Nick Johnson: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Gabriela Boscio's title, and what are Nick Johnson's research interests?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Gabriela Boscio, entity match for Nick Johnson, multiple named subjects expanded to independent source scopes",
+          "subject_scopes": [
+            {
+              "name": "Gabriela Boscio",
+              "source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ]
+            },
+            {
+              "name": "Nick Johnson",
+              "source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ]
+            }
+          ],
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "section_name": "Gabriela Boscio",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "entity_type": "staff_member",
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+            "section_index": 2,
+            "title": "Staff",
+            "folder_label": "",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Gabriela Boscio: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#staff_member-2-gabriela-boscio",
+            "section_name": "Gabriela Boscio",
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "category": "General",
+            "folder_label": "",
+            "chunk_level": "detail",
+            "chunk_index": 0,
+            "document_type": "txt",
+            "entity_type": "staff_member",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "section_index": 2,
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Gabriela Boscio: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "category": "General",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "chunk_level": "summary",
+            "section_index": 5,
+            "document_type": "txt",
+            "entity_type": "affiliate",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "title": "Staff",
+            "section_name": "Patricio Belloy",
+            "folder_label": "",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Gabriela Boscio: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "document_type": "txt",
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-6-johnna-flahive",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "entity_type": "affiliate",
+            "chunk_index": 0,
+            "section_index": 6,
+            "title": "Staff",
+            "category": "General",
+            "section_name": "Johnna Flahive",
+            "folder_label": "",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Gabriela Boscio: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "section_name": "Nick Johnson",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-6-nick-johnson",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "category": "General",
+            "folder_label": "",
+            "section_index": 6,
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "title": "StudentsInterns",
+            "entity_type": "person",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Nick Johnson: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "category": "General",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-6-nick-johnson",
+            "section_index": 6,
+            "title": "StudentsInterns",
+            "document_type": "txt",
+            "section_name": "Nick Johnson",
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "chunk_level": "detail",
+            "chunk_index": 2,
+            "entity_type": "person",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Nick Johnson: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "title": "StudentsInterns",
+            "section_index": 6,
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "category": "General",
+            "chunk_index": 1,
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-6-nick-johnson",
+            "document_type": "txt",
+            "folder_label": "",
+            "entity_type": "person",
+            "section_name": "Nick Johnson",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Nick Johnson: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          },
+          {
+            "chunk_level": "detail",
+            "category": "General",
+            "section_name": "Nick Johnson",
+            "section_index": 6,
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/students/",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "folder_label": "",
+            "entity_type": "person",
+            "title": "StudentsInterns",
+            "unit_id": "SEED_DOCUMENTS/StudentsInterns.txt#person-6-nick-johnson",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Nick Johnson: What is Gabriela Boscio's title, and what are Nick Johnson's research interests? employment research"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 8,
+          "selected_count": 8,
+          "distinct_source_count": 2,
+          "top_score": 3.484148598625066,
+          "second_score": 2.734148598625066,
+          "score_gap": 0.75,
+          "facet_count": 0,
+          "facet_ids": [
+            "subject_1",
+            "subject_2"
+          ],
+          "document_neighbor_count": 0,
+          "evidence_buckets": {
+            "subject_1": 4,
+            "subject_2": 4
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Gabriela Boscio, entity match for Nick Johnson, multiple named subjects expanded to independent source scopes",
+          "subject_scopes": [
+            {
+              "name": "Gabriela Boscio",
+              "source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ]
+            },
+            {
+              "name": "Nick Johnson",
+              "source_paths": [
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ]
+            }
+          ],
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Gabriela Boscio's title and Nick Johnson's research interests using the provided source documents."
+    },
+    {
+      "id": "adv_cross_belloy_michael",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt",
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Patricio Belloy's research and practice explore how environmental, energy, and climate policy and action can concurrently promote community development through meaningful engagement and knowledge co-production [1]. Michael Johnson's expertise is in management science planning models for public-sector facility location and service [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "subject_1",
+          "evidence_query": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+        },
+        {
+          "citation": 2,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Michael Johnson",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_6",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Michael Johnson: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise?",
+        "query_route": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "UniversityAffiliates"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, entity match for Michael Johnson, multiple named subjects expanded to independent source scopes",
+          "subject_scopes": [
+            {
+              "name": "Patricio Belloy",
+              "source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ]
+            },
+            {
+              "name": "Michael Johnson",
+              "source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ]
+            }
+          ],
+          "answer_requirements": [
+            "research"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "title": "Staff",
+            "section_name": "Patricio Belloy",
+            "entity_type": "affiliate",
+            "section_index": 5,
+            "chunk_level": "summary",
+            "folder_label": "",
+            "document_type": "txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "chunk_index": 0,
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "category": "General",
+            "title": "Staff",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "section_name": "Patricio Belloy",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "section_index": 5,
+            "chunk_index": 1,
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "entity_type": "affiliate",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_name": "Patricio Belloy",
+            "title": "Staff",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "entity_type": "affiliate",
+            "chunk_index": 2,
+            "chunk_level": "detail",
+            "section_index": 5,
+            "document_type": "txt",
+            "folder_label": "",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "folder_label": "",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "category": "General",
+            "section_index": 5,
+            "title": "Staff",
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "entity_type": "affiliate",
+            "section_name": "Patricio Belloy",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/Staff.txt",
+            "unit_id": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy",
+            "source_url": "https://www.umb.edu/ssl/people/",
+            "section_index": 5,
+            "chunk_level": "detail",
+            "chunk_index": 3,
+            "title": "Staff",
+            "section_name": "Patricio Belloy",
+            "document_type": "txt",
+            "entity_type": "affiliate",
+            "folder_label": "",
+            "category": "General",
+            "retrieval_facet_ids": "subject_1",
+            "retrieval_facet_queries": "Patricio Belloy: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/Staff.txt#affiliate-5-patricio-belloy::detail-chunk-1",
+            "neighbor_distance": 2
+          },
+          {
+            "section_name": "Michael Johnson",
+            "section_index": 6,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-6-michael-johnson",
+            "chunk_level": "summary",
+            "document_type": "txt",
+            "title": "UniversityAffiliates",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "chunk_index": 0,
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "category": "General",
+            "entity_type": "affiliate",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Michael Johnson: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-6-michael-johnson",
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "chunk_index": 0,
+            "entity_type": "affiliate",
+            "folder_label": "",
+            "section_index": 6,
+            "section_name": "Michael Johnson",
+            "chunk_level": "detail",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Michael Johnson: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "document_type": "txt",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "category": "General",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "section_name": "Jessica Whiteley",
+            "title": "UniversityAffiliates",
+            "chunk_index": 0,
+            "chunk_level": "summary",
+            "section_index": 14,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-14-jessica-whiteley",
+            "folder_label": "",
+            "entity_type": "affiliate",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Michael Johnson: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          },
+          {
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/UniversityAffiliates.txt#affiliate-13-paul-watanabe",
+            "section_name": "Paul Watanabe",
+            "folder_label": "",
+            "source_url": "https://www.umb.edu/ssl/people/university-affiliates/",
+            "entity_type": "affiliate",
+            "title": "UniversityAffiliates",
+            "document_type": "txt",
+            "section_index": 13,
+            "chunk_level": "summary",
+            "category": "General",
+            "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+            "retrieval_facet_ids": "subject_2",
+            "retrieval_facet_queries": "Michael Johnson: What is Patricio Belloy's research focus, and what is Michael Johnson's stated expertise? research"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 9,
+          "selected_count": 9,
+          "distinct_source_count": 2,
+          "top_score": 3.6344262295081973,
+          "second_score": 2.883072916666667,
+          "score_gap": 0.7513533128415304,
+          "facet_count": 0,
+          "facet_ids": [
+            "subject_1",
+            "subject_2"
+          ],
+          "document_neighbor_count": 1,
+          "evidence_buckets": {
+            "subject_1": 5,
+            "subject_2": 4
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "broad_overview",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "AnnualReport2021",
+            "Staff",
+            "UniversityAffiliates"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/UniversityAffiliates.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Patricio Belloy, entity match for Michael Johnson, multiple named subjects expanded to independent source scopes",
+          "subject_scopes": [
+            {
+              "name": "Patricio Belloy",
+              "source_paths": [
+                "SEED_DOCUMENTS/Staff.txt"
+              ]
+            },
+            {
+              "name": "Michael Johnson",
+              "source_paths": [
+                "SEED_DOCUMENTS/UniversityAffiliates.txt"
+              ]
+            }
+          ],
+          "answer_requirements": [
+            "research"
+          ]
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the research focus and expertise for both individuals from the provided source documents."
+    },
+    {
+      "id": "adv_cross_jen_johnna",
+      "kind": "single_turn",
+      "type": "adversarial_cross_source",
+      "question": "What is Jen Stevenson Zepeda's professional title, and what is Johnna Flahive's research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt",
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What is Jen Stevenson Zepeda's professional title, and what is Johnna Flahive's research focus?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "BoardOfDirectors",
+            "Staff",
+            "StudentsInterns"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "SEED_DOCUMENTS/Staff.txt",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Jen Stevenson Zepeda, entity match for Johnna Flahive, Flahive specific-fact hard-scoped to Staff.txt only, multiple named subjects expanded to independent source scopes",
+          "subject_scopes": [
+            {
+              "name": "Jen Stevenson Zepeda",
+              "source_paths": [
+                "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              ]
+            },
+            {
+              "name": "Johnna Flahive",
+              "source_paths": [
+                "SEED_DOCUMENTS/Staff.txt",
+                "SEED_DOCUMENTS/StudentsInterns.txt"
+              ]
+            }
+          ],
+          "answer_requirements": [
+            "employment",
+            "research"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant only answered the second part of the question regarding Johnna Flahive. It failed to provide Jen Stevenson Zepeda's professional title, which was available in the provided corpus."
+    }
+  ]
+}

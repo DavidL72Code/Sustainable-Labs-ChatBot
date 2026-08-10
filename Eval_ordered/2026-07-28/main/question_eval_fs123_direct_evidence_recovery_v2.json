@@ -1,0 +1,159 @@
+{
+  "generated_at": "2026-07-28T17:01:31.093968+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_123",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The project was Portable Memories in Rising Seas. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?",
+        "query_route": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, exact phrase match for Climigration Network",
+          "subject_scopes": [],
+          "answer_requirements": []
+        },
+        "retrieved_metadata": [
+          {
+            "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "chunk_index": 0,
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+            "section_index": 27,
+            "folder_label": "Annual Reports",
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "category": "Annual Reports",
+            "chunk_level": "summary",
+            "entity_type": "section",
+            "title": "AnnualReport2021",
+            "document_type": "txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+          },
+          {
+            "source_url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+            "title": "AnnualReport2021",
+            "unit_id": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt#section-27-portable-memories-in-rising-seas",
+            "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "document_type": "txt",
+            "category": "Annual Reports",
+            "section_index": 27,
+            "folder_label": "Annual Reports",
+            "entity_type": "section",
+            "chunk_index": 1,
+            "chunk_level": "detail",
+            "section_name": "PORTABLE MEMORIES IN RISING SEAS",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What multimedia project did the Fifty-Fifty art collective present at the event co-hosted by SSL and the Climigration Network?"
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 16,
+          "selected_count": 16,
+          "distinct_source_count": 1,
+          "top_score": 3.6947058823529413,
+          "second_score": 3.6846774193548386,
+          "score_gap": 0.010028462998102672,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 8,
+          "evidence_buckets": {
+            "main": 16
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.75,
+          "is_low_confidence": false,
+          "reasons": [
+            "narrow_source_coverage",
+            "weak_score_gap"
+          ]
+        },
+        "query_plan": {
+          "question_type": "specific_fact",
+          "routing_mode": "soft",
+          "prefer_summary": true,
+          "target_titles": [
+            "Projects"
+          ],
+          "target_categories": [],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+          ],
+          "reason": "Local first-pass multi-label route: project-related sources, exact phrase match for Climigration Network",
+          "subject_scopes": [],
+          "answer_requirements": []
+        }
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    }
+  ]
+}

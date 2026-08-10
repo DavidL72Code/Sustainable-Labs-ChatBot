@@ -1,0 +1,37 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_131",
+      "type": "specific_fact",
+      "question": "What is Ellen Douglas's title and department in the 2020-21 SSL annual report core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_132",
+      "type": "specific_fact",
+      "question": "What is David Levy's title and department in the 2020-21 SSL core team listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_133",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_134",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ],
+  "multi_turn": []
+}

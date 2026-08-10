@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-07-16T23:36:11.826375+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-16/questions_dynamic_repairs_retry_2.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 4.5
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 2,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_145",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What populations does the C3I program specifically focus on serving?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "This comprehensive, community-centered approach focuses on providing career pathways for underrepresented populations, especially vulnerable young adults, people of color, and low-income adults from environmental justice communities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the target populations for the C3I program."
+    },
+    {
+      "id": "fm_022",
+      "kind": "multi_turn",
+      "type": "follow_up_board_isabella_gambill",
+      "question": "What is her educational background?",
+      "conversation": [
+        {
+          "user": "Who is Isabella Gambill on SSL's board?",
+          "assistant": "Isabella M. Gambill\nAssistant Director of Climate, Energy, & Resilience, A Better City\nIn her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. She helps staff the Commercial Real Estate Working Group of the Green Ribbon Commission (GRC) and serves on the Community Advisory Board for Boston\u2019s 20-Year Urban Forest Plan, the Advisory Group for the GRC\u2019s Climate Justice Initiative, and the Steering Committee for a MA/Boston Climate Bank. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. In addition to the Sustainable Solutions Lab Board, Isabella is honored to serve on the Board of Visitors and Young Leaders Council of Fenway Health. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]"
+        },
+        {
+          "user": "What is her current role at A Better City?",
+          "assistant": "Isabella M. Gambill's title is Assistant Director of Climate, Energy, & Resilience, A Better City. [1]"
+        },
+        {
+          "user": "What is her educational background?",
+          "assistant": "Isabella M. Gambill: Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill: Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. Prior to joining A Better City, she worked as a Policy Officer for the United Nations\u2019 Biodiversity Law and Governance Initiative and on domestic and international conservation networks with the Lincoln Institute of Land Policy. Isabella holds a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the educational background but includes extraneous information about her professional work history that was not requested."
+    }
+  ]
+}

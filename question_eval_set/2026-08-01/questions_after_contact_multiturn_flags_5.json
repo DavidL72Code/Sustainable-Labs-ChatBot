@@ -1,0 +1,50 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_010",
+      "type": "specific_fact",
+      "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fs_043",
+      "type": "people_lookup",
+      "question": "What doctoral program is Nick Johnson enrolled in and where is he originally from?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_150",
+      "type": "specific_fact",
+      "question": "What three universities did Patricio Belloy attend and in which countries are the European ones located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_152",
+      "type": "specific_fact",
+      "question": "What are the two major and two minor fields Ashley Miranda studies at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_018",
+      "type": "follow_up_annual_report_events",
+      "turns": [
+        "What special events did SSL host in the 2020-21 period according to the annual report?",
+        "Tell me about the 'All We Can Save' event SSL hosted in December 2020.",
+        "Who were the panelists at that event and which radio show co-sponsored it?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

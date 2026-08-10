@@ -1,0 +1,858 @@
+{
+  "generated_at": "2026-07-21T16:46:49.757393+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 4.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 1,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fm_003",
+      "kind": "multi_turn",
+      "type": "follow_up_board_tim_cronin",
+      "question": "What role did Mayor Wu appoint him to in 2023?",
+      "conversation": [
+        {
+          "user": "Who is Tim Cronin on SSL's External Advisory Board?",
+          "assistant": "The provided entity record does not state whether Tim Cronin has a collaboration or affiliation with SSL's External Advisory Board [1]."
+        },
+        {
+          "user": "What is his background in Boston climate and health policy?",
+          "assistant": "Tim Cronin\u2019s background in Boston climate and health policy includes facilitating a Boston Green Ribbon Commission (GRC) working group and serving as the Chair of Boston's BERDO Health Institution Working Group, a position to which he was appointed by Mayor Wu in 2023 [1]. In 2019, he served as the MetroCommon scenario planning co-chair for the Metropolitan Area Planning Council (MAPC), where he supported the organization's 2050 Greater Boston region plan [1]. Additionally, he has worked at the Climate Action Business Association (CABA) and Climate XChange Education & Research (CXC) [1]. In his current role as Associate Director of Policy and Advocacy at Health Care Without Harm, he oversees a policy portfolio focused on advancing local solutions at the intersection of healthcare, decarbonization, and community climate resilience [1]. The purpose of his background is not stated [1]."
+        },
+        {
+          "user": "What role did Mayor Wu appoint him to in 2023?",
+          "assistant": "Regarding the leadership role, in 2023, Tim Cronin was appointed by Mayor Wu to serve as the Chair of Boston's BERDO Health Institution Working Group [1]. Regarding the time, this appointment occurred in 2023 [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Regarding the leadership role, in 2023, Tim Cronin was appointed by Mayor Wu to serve as the Chair of Boston's BERDO Health Institution Working Group [1]. Regarding the time, this appointment occurred in 2023 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Tim Cronin",
+          "entity_type": "board_member",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "answer_requirements": [
+            "leadership",
+            "time"
+          ]
+        },
+        "retrieved_metadata": [
+          {
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "title": "BoardOfDirectors",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "document_type": "txt",
+            "section_index": 2,
+            "chunk_level": "detail",
+            "category": "General",
+            "entity_type": "board_member",
+            "folder_label": "",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+            "chunk_index": 1,
+            "section_name": "Tim Cronin",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "title": "BoardOfDirectors",
+            "entity_type": "board_member",
+            "document_type": "txt",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "folder_label": "",
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+            "section_name": "Tim Cronin",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "section_index": 2,
+            "chunk_level": "detail",
+            "chunk_index": 2,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "title": "BoardOfDirectors",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "folder_label": "",
+            "section_index": 2,
+            "chunk_index": 0,
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+            "entity_type": "board_member",
+            "section_name": "Tim Cronin",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "document_type": "txt",
+            "chunk_index": 0,
+            "section_name": "Tim Cronin",
+            "title": "BoardOfDirectors",
+            "chunk_level": "summary",
+            "entity_type": "board_member",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+            "section_index": 2,
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "category": "General",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "category": "General",
+            "folder_label": "",
+            "section_index": 8,
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+            "document_type": "txt",
+            "entity_type": "board_member",
+            "title": "BoardOfDirectors",
+            "chunk_index": 2,
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "section_name": "Jen Stevenson Zepeda",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "chunk_level": "detail",
+            "entity_type": "board_member",
+            "folder_label": "",
+            "section_index": 7,
+            "document_type": "txt",
+            "title": "BoardOfDirectors",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+            "section_name": "Julia Kumari Drapkin",
+            "category": "General",
+            "chunk_index": 2,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "section_name": "Isabella M. Gambill",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "chunk_index": 4,
+            "folder_label": "",
+            "title": "BoardOfDirectors",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "document_type": "txt",
+            "entity_type": "board_member",
+            "category": "General",
+            "section_index": 5,
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "title": "BoardOfDirectors",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "entity_type": "board_member",
+            "document_type": "txt",
+            "chunk_level": "detail",
+            "category": "General",
+            "folder_label": "",
+            "section_name": "Julia Kumari Drapkin",
+            "chunk_index": 1,
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "section_index": 7,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+          },
+          {
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "entity_type": "board_member",
+            "category": "General",
+            "chunk_level": "detail",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+            "section_index": 8,
+            "document_type": "txt",
+            "chunk_index": 1,
+            "section_name": "Jen Stevenson Zepeda",
+            "title": "BoardOfDirectors",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "folder_label": "",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "title": "BoardOfDirectors",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "section_name": "Isabella M. Gambill",
+            "chunk_index": 3,
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+            "document_type": "txt",
+            "folder_label": "",
+            "category": "General",
+            "section_index": 5,
+            "entity_type": "board_member",
+            "chunk_level": "detail",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill::detail-chunk-4",
+            "neighbor_distance": 1
+          },
+          {
+            "section_index": 8,
+            "chunk_level": "detail",
+            "section_name": "Jen Stevenson Zepeda",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+            "title": "BoardOfDirectors",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "document_type": "txt",
+            "entity_type": "board_member",
+            "category": "General",
+            "folder_label": "",
+            "chunk_index": 3,
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+            "neighbor_distance": 1
+          },
+          {
+            "entity_type": "board_member",
+            "chunk_index": 0,
+            "section_index": 8,
+            "chunk_level": "detail",
+            "category": "General",
+            "folder_label": "",
+            "document_type": "txt",
+            "title": "BoardOfDirectors",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "section_name": "Jen Stevenson Zepeda",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+            "neighbor_distance": 2
+          },
+          {
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "title": "BoardOfDirectors",
+            "section_index": 7,
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "entity_type": "board_member",
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "folder_label": "",
+            "section_name": "Julia Kumari Drapkin",
+            "chunk_index": 0,
+            "category": "General",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin::detail-chunk-2",
+            "neighbor_distance": 2
+          },
+          {
+            "section_name": "Isabella M. Gambill",
+            "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+            "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+            "section_index": 5,
+            "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+            "chunk_index": 2,
+            "folder_label": "",
+            "title": "BoardOfDirectors",
+            "chunk_level": "detail",
+            "document_type": "txt",
+            "entity_type": "board_member",
+            "category": "General",
+            "retrieval_facet_ids": "main",
+            "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+            "retrieval_expansion": "document_neighbor",
+            "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill::detail-chunk-4",
+            "neighbor_distance": 2
+          }
+        ],
+        "retrieval_diagnostics": {
+          "candidate_count": 14,
+          "selected_count": 14,
+          "distinct_source_count": 1,
+          "top_score": 3.8441485986250665,
+          "second_score": 3.6930729166666674,
+          "score_gap": 0.15107568195839916,
+          "facet_count": 0,
+          "facet_ids": [
+            "main"
+          ],
+          "document_neighbor_count": 6,
+          "evidence_buckets": {
+            "main": 14
+          },
+          "registry_facet_count": 0
+        },
+        "confidence": {
+          "score": 0.95,
+          "is_low_confidence": false,
+          "reasons": []
+        },
+        "query_plan": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-scope route",
+          "answer_requirements": [
+            "leadership",
+            "time"
+          ]
+        }
+      },
+      "turn_traces": [
+        {
+          "user": "Who is Tim Cronin on SSL's External Advisory Board?",
+          "trace": {
+            "rewritten_query": "Who is Tim Cronin on SSL's External Advisory Board?",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "BoardOfDirectors"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "collaboration"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+              "name": "Tim Cronin",
+              "subject_type": "person",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL Board of Directors",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "pending_query": null,
+            "last_intent": "fact",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "last_query": "Who is Tim Cronin on SSL's External Advisory Board?"
+          }
+        },
+        {
+          "user": "What is his background in Boston climate and health policy?",
+          "trace": {
+            "rewritten_query": "What is his background in Boston climate and health policy? (subject: Tim Cronin)",
+            "query_route": {
+              "question_type": "broad_overview",
+              "routing_mode": "hard",
+              "prefer_summary": true,
+              "target_titles": [
+                "BoardOfDirectors"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "purpose"
+              ]
+            },
+            "retrieved_metadata": [],
+            "retrieval_diagnostics": {},
+            "confidence": {},
+            "query_plan": {}
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+              "name": "Tim Cronin",
+              "subject_type": "person",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL Board of Directors",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "pending_query": null,
+            "last_intent": "background",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "last_query": "What is his background in Boston climate and health policy? (subject: Tim Cronin)"
+          }
+        },
+        {
+          "user": "What role did Mayor Wu appoint him to in 2023?",
+          "trace": {
+            "rewritten_query": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin)",
+            "query_route": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "BoardOfDirectors"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "leadership",
+                "time"
+              ]
+            },
+            "retrieved_metadata": [
+              {
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "title": "BoardOfDirectors",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "document_type": "txt",
+                "section_index": 2,
+                "chunk_level": "detail",
+                "category": "General",
+                "entity_type": "board_member",
+                "folder_label": "",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "chunk_index": 1,
+                "section_name": "Tim Cronin",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "title": "BoardOfDirectors",
+                "entity_type": "board_member",
+                "document_type": "txt",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "folder_label": "",
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "section_name": "Tim Cronin",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "section_index": 2,
+                "chunk_level": "detail",
+                "chunk_index": 2,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "title": "BoardOfDirectors",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "folder_label": "",
+                "section_index": 2,
+                "chunk_index": 0,
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "entity_type": "board_member",
+                "section_name": "Tim Cronin",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "document_type": "txt",
+                "chunk_index": 0,
+                "section_name": "Tim Cronin",
+                "title": "BoardOfDirectors",
+                "chunk_level": "summary",
+                "entity_type": "board_member",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "section_index": 2,
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "category": "General",
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "category": "General",
+                "folder_label": "",
+                "section_index": 8,
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+                "document_type": "txt",
+                "entity_type": "board_member",
+                "title": "BoardOfDirectors",
+                "chunk_index": 2,
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "section_name": "Jen Stevenson Zepeda",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "chunk_level": "detail",
+                "entity_type": "board_member",
+                "folder_label": "",
+                "section_index": 7,
+                "document_type": "txt",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+                "section_name": "Julia Kumari Drapkin",
+                "category": "General",
+                "chunk_index": 2,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "section_name": "Isabella M. Gambill",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "chunk_index": 4,
+                "folder_label": "",
+                "title": "BoardOfDirectors",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "document_type": "txt",
+                "entity_type": "board_member",
+                "category": "General",
+                "section_index": 5,
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "title": "BoardOfDirectors",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "entity_type": "board_member",
+                "document_type": "txt",
+                "chunk_level": "detail",
+                "category": "General",
+                "folder_label": "",
+                "section_name": "Julia Kumari Drapkin",
+                "chunk_index": 1,
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "section_index": 7,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time"
+              },
+              {
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "entity_type": "board_member",
+                "category": "General",
+                "chunk_level": "detail",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+                "section_index": 8,
+                "document_type": "txt",
+                "chunk_index": 1,
+                "section_name": "Jen Stevenson Zepeda",
+                "title": "BoardOfDirectors",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "folder_label": "",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "section_name": "Isabella M. Gambill",
+                "chunk_index": 3,
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+                "document_type": "txt",
+                "folder_label": "",
+                "category": "General",
+                "section_index": 5,
+                "entity_type": "board_member",
+                "chunk_level": "detail",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill::detail-chunk-4",
+                "neighbor_distance": 1
+              },
+              {
+                "section_index": 8,
+                "chunk_level": "detail",
+                "section_name": "Jen Stevenson Zepeda",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+                "title": "BoardOfDirectors",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "document_type": "txt",
+                "entity_type": "board_member",
+                "category": "General",
+                "folder_label": "",
+                "chunk_index": 3,
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+                "neighbor_distance": 1
+              },
+              {
+                "entity_type": "board_member",
+                "chunk_index": 0,
+                "section_index": 8,
+                "chunk_level": "detail",
+                "category": "General",
+                "folder_label": "",
+                "document_type": "txt",
+                "title": "BoardOfDirectors",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "section_name": "Jen Stevenson Zepeda",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-8-jen-stevenson-zepeda::detail-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "title": "BoardOfDirectors",
+                "section_index": 7,
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "entity_type": "board_member",
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "folder_label": "",
+                "section_name": "Julia Kumari Drapkin",
+                "chunk_index": 0,
+                "category": "General",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-7-julia-kumari-drapkin::detail-chunk-2",
+                "neighbor_distance": 2
+              },
+              {
+                "section_name": "Isabella M. Gambill",
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+                "section_index": 5,
+                "source_url": "https://www.umb.edu/ssl/people/board-of-directors/",
+                "chunk_index": 2,
+                "folder_label": "",
+                "title": "BoardOfDirectors",
+                "chunk_level": "detail",
+                "document_type": "txt",
+                "entity_type": "board_member",
+                "category": "General",
+                "retrieval_facet_ids": "main",
+                "retrieval_facet_queries": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin) leadership time",
+                "retrieval_expansion": "document_neighbor",
+                "neighbor_of": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-5-isabella-m-gambill::detail-chunk-4",
+                "neighbor_distance": 2
+              }
+            ],
+            "retrieval_diagnostics": {
+              "candidate_count": 14,
+              "selected_count": 14,
+              "distinct_source_count": 1,
+              "top_score": 3.8441485986250665,
+              "second_score": 3.6930729166666674,
+              "score_gap": 0.15107568195839916,
+              "facet_count": 0,
+              "facet_ids": [
+                "main"
+              ],
+              "document_neighbor_count": 6,
+              "evidence_buckets": {
+                "main": 14
+              },
+              "registry_facet_count": 0
+            },
+            "confidence": {
+              "score": 0.95,
+              "is_low_confidence": false,
+              "reasons": []
+            },
+            "query_plan": {
+              "question_type": "people_lookup",
+              "routing_mode": "hard",
+              "prefer_summary": false,
+              "target_titles": [
+                "BoardOfDirectors"
+              ],
+              "target_categories": [],
+              "target_folders": [],
+              "target_source_paths": [
+                "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              ],
+              "reason": "conversation state active-scope route",
+              "answer_requirements": [
+                "leadership",
+                "time"
+              ]
+            }
+          },
+          "conversation_state": {
+            "version": 3,
+            "mode": "focused",
+            "active_subject": {
+              "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+              "name": "Tim Cronin",
+              "subject_type": "person",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "candidate_subjects": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "active_scope": {
+              "name": "SSL Board of Directors",
+              "title": "BoardOfDirectors",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            "pending_query": null,
+            "last_intent": "role",
+            "clarification_options": [],
+            "subject_history": [
+              {
+                "unit_id": "SEED_DOCUMENTS/BoardOfDirectors.txt#board_member-2-tim-cronin",
+                "name": "Tim Cronin",
+                "subject_type": "person",
+                "title": "BoardOfDirectors",
+                "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+              }
+            ],
+            "last_query": "What role did Mayor Wu appoint him to in 2023? (subject: Tim Cronin)"
+          }
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and correctly cites the provided corpus. The phrasing is slightly repetitive but remains professional and clear."
+    }
+  ]
+}

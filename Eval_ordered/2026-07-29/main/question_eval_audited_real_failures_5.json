@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-07-29T20:55:39.300564+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-29/audited_real_failures_5.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.33,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 2,
+      "right_citations_yes": 3,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what year was the Climate Adaptation Forum established?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum was established in 2017. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "In what year was the Climate Adaptation Forum established?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [
+            "AnnualReport2021",
+            "Projects"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+            "SEED_DOCUMENTS/Projects.txt"
+          ],
+          "reason": "Local first-pass multi-label route: forum-specific sources, entity match for CLIMATE ADAPTATION FORUM, entity match for Climate Adaptation Forum, exact phrase match for Climate Adaptation Forum",
+          "subject_scopes": []
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text."
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Isa Whalen is working with Dr. Cedric Woods [1]. Their research topic is Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo [1]. Whether Isa Whalen works with or is affiliated with SSL is not stated in the record [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "Who is Isa Whalen working with at SSL and on what specific research topic? (subject: Isa Kelawili Whalen)",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "soft",
+          "prefer_summary": false,
+          "target_titles": [
+            "AnnualReport2021",
+            "StudentsInterns"
+          ],
+          "target_categories": [
+            "Annual Reports",
+            "General"
+          ],
+          "target_folders": [
+            "Annual Reports"
+          ],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+            "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+            "SEED_DOCUMENTS/StudentsInterns.txt"
+          ],
+          "reason": "Local first-pass multi-label route: entity match for RESEARCH, entity match for Isa Kelawili Whalen, exact phrase match for Isa Whalen, exact phrase match for Isa Kelawili Whalen",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "collaboration",
+            "research",
+            "topic"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the collaborator and research topic but incorrectly claimed the document did not state her affiliation with SSL, despite the document being a list of SSL students."
+    },
+    {
+      "id": "fs_050",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Gabriel Cira teaches the \"Architecture of Boston\" course at MassArt [1]. The course connects cooperative infrastructure history with the future of climate resilience [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "trace": {
+        "rewritten_query": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+        "query_route": {
+          "question_type": "people_lookup",
+          "routing_mode": "hard",
+          "prefer_summary": false,
+          "target_titles": [
+            "BoardOfDirectors"
+          ],
+          "target_categories": [],
+          "target_folders": [],
+          "target_source_paths": [
+            "SEED_DOCUMENTS/BoardOfDirectors.txt"
+          ],
+          "reason": "conversation state active-subject route",
+          "subject_scopes": [],
+          "combine_registry_retrieval": false,
+          "answer_requirements": [
+            "purpose"
+          ]
+        },
+        "retrieved_metadata": [],
+        "retrieval_diagnostics": {},
+        "confidence": {},
+        "query_plan": {}
+      },
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus."
+    }
+  ]
+}

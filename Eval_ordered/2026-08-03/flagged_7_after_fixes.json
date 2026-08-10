@@ -1,0 +1,307 @@
+{
+  "generated_at": "2026-08-04T03:45:01.023713+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-08-03/questions_flagged_7.json",
+  "summary": {
+    "total_cases": 7,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.43,
+      "citations": 4.57
+    },
+    "classification_counts": {
+      "answered_yes": 5,
+      "answered_no": 2,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 7,
+      "right_citations_yes": 6,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_041",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who supervises Vishal Verma's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the supervisor based on the provided corpus and correctly cites the source."
+    },
+    {
+      "id": "fs_062",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's undergraduate institution and her field of study there?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill earned a Bachelor of Arts degree in environmental studies from Wellesley College and a Masters in Conservation Leadership from the University of Cambridge. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the undergraduate institution and field of study from the provided corpus."
+    },
+    {
+      "id": "fs_103",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Cassandre Rey-Thibault holds a PhD in geography [1]. Her specialization is in risk prevention and crisis management policies in French urban areas [1]. Other documents further specify that her research focuses on risk prevention and crisis management policies in French coastal urban areas.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus and correctly cites the source."
+    },
+    {
+      "id": "fs_113",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "By what margin do respondents in the Views that Matter report believe climate change can be stopped rather than that it is too late?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Respondents across all groups believe that climate change can be stopped rather than that it is too late by a margin of about 2 to 1 [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "By what margin do respondents in the Views that Matter report believe climate change can be stopped rather than that it is too late?"
+        },
+        {
+          "citation": 2,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 9,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "By what margin do respondents in the Views that Matter report believe climate change can be stopped rather than that it is too late?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct based on the provided corpus. However, the assistant cited a second source that was not included in the provided corpus reference."
+    },
+    {
+      "id": "fm_001",
+      "kind": "multi_turn",
+      "type": "follow_up_rail_project",
+      "question": "What technologies does it use and how many pilot study sites does it have?",
+      "conversation": [
+        {
+          "user": "What is the Cape Cod Rail Resilience Project?",
+          "assistant": "The Cape Cod Rail Resilience Project aims to improve rail safety and climate resilience along the Cape Main Line. With USDOT funding, the team uses drones for mapping and sensors for monitoring water levels at three pilot study sites. [1]"
+        },
+        {
+          "user": "What specifically caused it to be launched?",
+          "assistant": "The Cape Cod Rail Resilience Project was launched in response to a significant 300-foot rail embankment collapse that occurred in East Sandwich in 2020 [1]. This event was linked to drought conditions caused by climate change [1]."
+        },
+        {
+          "user": "What technologies does it use and how many pilot study sites does it have?",
+          "assistant": "With USDOT funding, the team is using drones for mapping and sensors for monitoring water levels. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "With USDOT funding, the team is using drones for mapping and sensors for monitoring water levels. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the technologies used but failed to answer the second part of the question regarding the number of pilot study sites, which is explicitly stated as three in the provided corpus."
+    },
+    {
+      "id": "fm_002",
+      "kind": "multi_turn",
+      "type": "follow_up_c3i_details",
+      "question": "How many programs and participants does it plan to reach, and over what timeframe?",
+      "conversation": [
+        {
+          "user": "Tell me about the Climate Careers Curricula Initiative.",
+          "assistant": "The Climate Careers Curricula Initiative (C3I) develops microcredentialed training programs for blue and green jobs in Greater Boston and creates career pathways for underrepresented populations. [1]"
+        },
+        {
+          "user": "What foundation funds it and what are the key goals for participants?",
+          "assistant": "The Climate Careers Curricula Initiative (C3I) is supported by the Liberty Mutual Foundation (LMF) [1]. **Goals for Participants**\n- The initiative aims to create and offer microcredentialed training programs for high-demand blue and green jobs in Greater Boston [1].\n- A primary goal is to provide career pathways for underrepresented populations, specifically vulnerable young adults, people of color, and low-income adults from environmental justice communities [1].\n- The program seeks to establish partnerships with employers to create pathways from training to employment, including internships, job placement assistance, and mentoring.\n- The initiative aims to enroll 90 participants over three years, with a goal of having 75% of participants come from underrepresented groups."
+        },
+        {
+          "user": "How many programs and participants does it plan to reach, and over what timeframe?",
+          "assistant": "The initiative plans to develop six microcredentialed programs over three years, covering areas such as solar installation, energy auditing, and nature-based solutions. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The initiative plans to develop six microcredentialed programs over three years, covering areas such as solar installation, energy auditing, and nature-based solutions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate regarding the number of programs and the timeframe, but it failed to address the part of the question asking for the number of participants (90)."
+    },
+    {
+      "id": "fm_015",
+      "kind": "multi_turn",
+      "type": "follow_up_student_vishal_verma",
+      "question": "Who supervises his doctoral work at UMass Boston?",
+      "conversation": [
+        {
+          "user": "Who is Vishal Verma at SSL?",
+          "assistant": "Vishal Verma is a PhD student at UMass Boston in the School for the Environment (SFE). He has a background in environmental economics, GIS analysis, remote sensing, and climate change adaptation. Vishal has graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        },
+        {
+          "user": "Where did he complete his undergraduate and master's education?",
+          "assistant": "Vishal Verma graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. [1]"
+        },
+        {
+          "user": "What are his two main research projects?",
+          "assistant": "Vishal Verma is currently involved in two main research projects:\n- Research focused on the Kosi River Basin in Bihar, India [1].\n- The MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts [1]."
+        },
+        {
+          "user": "Who supervises his doctoral work at UMass Boston?",
+          "assistant": "Vishal Verma graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Vishal Verma graduated from Banaras Hindu University, Varanasi, India, and completed his Master's from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the supervisor based on the provided corpus. While it repeats background information from previous turns, the core question is answered accurately."
+    }
+  ]
+}
