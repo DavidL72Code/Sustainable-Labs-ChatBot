@@ -10,7 +10,9 @@ function resolvedApiBase() {
       return "";
     }
   })();
-  return (override || window.API_BASE || stored || "").replace(/\/+$/, "");
+  const requested = (override || window.API_BASE || stored || "").replace(/\/+$/, "");
+  const defaultApiBase = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+  return requested === defaultApiBase || requested === window.location.origin ? requested : defaultApiBase;
 }
 
 function dashboardDetailHref(eventId) {
@@ -39,9 +41,32 @@ function dashboardApiUrl(path) {
   return `${base}${path}`;
 }
 
+async function logoutAdmin() {
+  await fetch(dashboardApiUrl("/api/admin/logout"), {
+    method: "POST",
+    credentials: "include",
+  });
+  const login = new URL("/admin-login.html", window.location.origin);
+  const base = resolvedApiBase();
+  if (base !== window.location.origin) login.searchParams.set("api_base", base);
+  window.location.replace(login.toString());
+}
+
 function setText(id, value) {
   const node = document.getElementById(id);
   if (node) node.textContent = value;
+}
+
+function sanitizeDashboardUrl(value) {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (!trimmed || trimmed === "URL not provided") return null;
+  try {
+    const parsed = new URL(trimmed, window.location.origin);
+    return parsed.protocol === "http:" || parsed.protocol === "https:" ? parsed.href : null;
+  } catch {
+    return null;
+  }
 }
 
 function createStatusPill(status) {
@@ -156,7 +181,14 @@ async function loadDashboardPage() {
   if (!body) return;
 
   try {
-    const response = await fetch(dashboardApiUrl("/api/dashboard"));
+    const response = await fetch(dashboardApiUrl("/api/dashboard"), { credentials: "include" });
+    if (response.status === 401) {
+      const login = new URL("/admin-login.html", window.location.origin);
+      const base = resolvedApiBase();
+      if (base !== window.location.origin) login.searchParams.set("api_base", base);
+      window.location.replace(login.toString());
+      return;
+    }
     if (!response.ok) throw new Error(`Dashboard request failed (${response.status})`);
     const dashboard = await response.json();
 
@@ -293,12 +325,13 @@ function renderSources(sources) {
     const title = document.createElement("strong");
     title.textContent = source.title || "Untitled source";
     item.appendChild(title);
-    if (source.url && source.url !== "URL not provided") {
+    const safeUrl = sanitizeDashboardUrl(source.url);
+    if (safeUrl) {
       const link = document.createElement("a");
-      link.href = source.url;
+      link.href = safeUrl;
       link.target = "_blank";
       link.rel = "noreferrer";
-      link.textContent = source.url;
+      link.textContent = safeUrl;
       item.appendChild(link);
     }
     list.appendChild(item);
@@ -318,7 +351,14 @@ async function loadDashboardDetailPage() {
   }
 
   try {
-    const response = await fetch(dashboardApiUrl(`/api/dashboard/interaction/${encodeURIComponent(eventId)}`));
+    const response = await fetch(dashboardApiUrl(`/api/dashboard/interaction/${encodeURIComponent(eventId)}`), { credentials: "include" });
+    if (response.status === 401) {
+      const login = new URL("/admin-login.html", window.location.origin);
+      const base = resolvedApiBase();
+      if (base !== window.location.origin) login.searchParams.set("api_base", base);
+      window.location.replace(login.toString());
+      return;
+    }
     if (response.status === 404) {
       const text = document.getElementById("detailEmptyText");
       if (text) text.textContent = "That log entry could not be found in the local JSONL file.";
@@ -360,10 +400,12 @@ async function loadDashboardDetailPage() {
 }
 
 if (document.getElementById("historyTableBody")) {
+  document.getElementById("logoutButton")?.addEventListener("click", logoutAdmin);
   loadDashboardPage();
 }
 
 if (document.getElementById("detailEmpty")) {
+  document.getElementById("logoutButton")?.addEventListener("click", logoutAdmin);
   const dashboardBackLink = document.querySelector('a[href="/dashboard.html"]');
   if (dashboardBackLink) {
     dashboardBackLink.href = dashboardHomeHref();

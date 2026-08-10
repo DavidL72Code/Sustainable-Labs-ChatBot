@@ -115,6 +115,49 @@ class ChatbotRegressionTests(unittest.TestCase):
         )
         self.assertIn("employment", facets)
 
+    def test_profile_evidence_extracts_requested_facts_without_case_names(self):
+        source = {
+            "citation": 1,
+            "title": "StudentsInterns",
+            "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+            "url": "https://example.test/students",
+        }
+        answer = self.bot.extract_person_profile_facts_answer(
+            "What project is Jennifer Friedrich working on as a Graduate Research Assistant at SSL?",
+            "Jennifer Friedrich",
+            "Jennifer Friedrich Currently she is a Graduate Research Assistant for “Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod” working with Balakrishnan Balachandran, Ph.D.",
+            source,
+        )
+        self.assertIsNotNone(answer)
+        self.assertIn("Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod", answer["reply"])
+
+    def test_comparative_report_question_is_not_follow_up_ambiguity(self):
+        self.assertFalse(
+            self.bot.is_ambiguous_query(
+                "What does the report say about how white respondents view whether climate change affects some people more than others?"
+            )
+        )
+
+    def test_deictic_follow_up_anchors_to_prior_clue_sentence(self):
+        history = [
+            {
+                "user": "Who made up SSL's core team in the 2020-21 year in review?",
+                "assistant": "The core team included Rosalyn Negron, Jessica Whiteley, and J. Cedric Woods.",
+            },
+            {
+                "user": "Which team member focuses on conflict resolution and global governance?",
+                "assistant": "J. Cedric Woods focuses on conflict resolution and global governance.",
+            },
+        ]
+        resolved = self.bot.resolve_generic_context_anchor(
+            "What is that person's full title and department at UMass Boston?",
+            history,
+        )
+        self.assertIsNotNone(resolved)
+        self.assertIn("Cedric Woods", resolved["rewritten_query"])
+        self.assertNotIn("Rosalyn Negron", resolved["rewritten_query"])
+        self.assertNotIn("Jessica Whiteley", resolved["rewritten_query"])
+
     def test_relationship_prompt_requires_same_evidence_unit(self):
         prompt = self.bot.build_prompt(
             user_message="What is the East Boston study that VanDeveer's team worked on?",
@@ -869,6 +912,50 @@ class ChatbotRegressionTests(unittest.TestCase):
 
         overview = self.bot.answer("What does SSL do?")
         self.assertTrue(overview["reply"])
+
+    def test_public_contact_uses_ssl_contact_record(self):
+        self.bot.entity_registry = [
+            {
+                "section_name": "Contact Us",
+                "entity_type": "contact",
+                "title": "SSLAbout",
+                "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+                "source_url": "https://www.umb.edu/ssl/",
+            }
+        ]
+        answer = self.bot.answer("How can I contact SSL staff to discuss potential involvement?")
+        self.assertIn("ssl@umb.edu", answer["reply"])
+        self.assertEqual(answer["response_mode"], "contact_email_shortcut")
+        self.assertEqual(answer["sources"][0]["source_path"], "SEED_DOCUMENTS/SSLAbout.txt")
+
+    def test_entity_follow_up_rewrite_preserves_subject_when_llm_does_not(self):
+        history = [
+            {
+                "user": "Tell me about Ante Ivčević's background and research focus.",
+                "assistant": "Ante Ivčević researches coastal governance.",
+            }
+        ]
+        rewritten = self.bot.build_entity_follow_up_rewrite(
+            "What time period did he spend at SSL?",
+            "Ante Ivčević",
+            recent_history=history,
+        )
+        self.assertEqual(
+            rewritten,
+            "What time period did he spend at SSL? (subject: Ante Ivčević)",
+        )
+
+    def test_inline_markdown_bullets_are_normalized(self):
+        blob = (
+            "SSL has focus areas: **Research Focus Areas** "
+            "* **Whole-community resilience:** supports communities. "
+            "* **Risk governance:** studies coastal risk."
+        )
+        cleaned = self.bot.normalize_markdown_structure(blob)
+        self.assertIn("SSL has focus areas:\n\n**Research Focus Areas**", cleaned)
+        self.assertIn("\n- **Whole-community resilience:** supports communities.", cleaned)
+        self.assertIn("\n- **Risk governance:** studies coastal risk.", cleaned)
+        self.assertNotIn(". * **", cleaned)
 
     def test_c3i_correction_job_scope_board_follow_up_and_publication_titles(self):
         c3i = self.bot.answer(

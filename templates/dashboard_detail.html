@@ -23,6 +23,7 @@
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <form method="post" action="{{ url_for('admin_logout') }}"><button type="submit">Sign out</button></form>
         <a href="{{ url_for('index') }}">Chat</a>
       </nav>
     </div>

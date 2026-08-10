@@ -219,6 +219,27 @@ The final phase focused on making answers come from the right source more consis
    ```bash
    export GEMINI_API_KEY=your_key_here
    ```
+
+### Admin Dashboard Authentication
+
+Dashboard HTML and API routes require an authenticated admin session. Configure these deployment secrets; authentication fails closed when any are missing:
+
+```bash
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD_HASH='your-werkzeug-password-hash'
+export DASHBOARD_SESSION_SECRET='long-random-session-secret'
+export CORS_ORIGINS='https://your-frontend.example'
+export SESSION_COOKIE_SECURE=1
+export SESSION_COOKIE_SAMESITE=None
+```
+
+Generate a password hash without storing the plaintext password in the app:
+
+```bash
+python3 -c "from werkzeug.security import generate_password_hash; print(generate_password_hash(input('Password: ')))"
+```
+
+Set `SESSION_COOKIE_SECURE=0` only for local HTTP development. Never expose dashboard routes without configuring the admin credentials and session secret.
 3. **Run the server**
    ```bash
    python3 Chatbot.py

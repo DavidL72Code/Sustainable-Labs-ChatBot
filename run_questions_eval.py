@@ -12,13 +12,19 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 QUESTIONS_PATH = PROJECT_ROOT / os.getenv("EVAL_QUESTIONS_FILE", "questions.json")
 OUTPUT_PATH = PROJECT_ROOT / os.getenv("EVAL_OUTPUT_FILE", "question_eval_results.json")
 OVERWRITE_RESULTS = os.getenv("EVAL_OVERWRITE", "").lower() in {"1", "true", "yes"}
+STOP_ON_FAILURE = os.getenv("EVAL_STOP_ON_FAILURE", "").lower() in {"1", "true", "yes"}
+ONLY_IDS = {
+    item.strip()
+    for item in os.getenv("EVAL_ONLY_IDS", "").split(",")
+    if item.strip()
+}
 
 ChatbotConfig = None
 ConversationTurn = None
 call_gemini = None
 create_chatbot = None
 LAST_GEMINI_CALL_AT = 0.0
-MIN_GEMINI_INTERVAL_SECONDS = 4.5
+MIN_GEMINI_INTERVAL_SECONDS = float(os.getenv("EVAL_MIN_GEMINI_INTERVAL_SECONDS", "4.5"))
 
 
 def load_dotenv_simple(env_path: Path) -> None:
@@ -224,7 +230,17 @@ def run_multi_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
     for turn in turns:
         last_result = chatbot.answer(turn, recent_history=recent_history)
         transcript.append({"user": turn, "assistant": last_result["reply"]})
-        recent_history.append(ConversationTurn(user=turn, assistant=last_result["reply"]))
+        turn_payload = ConversationTurn(user=turn, assistant=last_result["reply"])
+        conversation_state = last_result.get("conversation_state")
+        if not isinstance(conversation_state, dict):
+            conversation_state = chatbot.build_next_conversation_state(
+                recent_history,
+                turn,
+                last_result,
+            )
+        if isinstance(conversation_state, dict):
+            turn_payload["state"] = conversation_state
+        recent_history.append(turn_payload)
 
     assert last_result is not None
     final_question = turns[-1]
@@ -291,6 +307,17 @@ def summarize_results(results: list[dict[str, Any]]) -> dict[str, Any]:
             "right_citations_no": count_flag("right_citations", "no"),
         },
     }
+
+
+def is_failure(result: dict[str, Any]) -> bool:
+    classification = result["classification"]
+    scores = result["scores"]
+    return (
+        classification["answered_question"] != "yes"
+        or classification["hallucinated"] != "no"
+        or classification["right_citations"] != "yes"
+        or scores["correctness_vs_corpus"] < 4
+    )
 
 
 def save_results(results: list[dict[str, Any]]) -> None:
@@ -391,21 +418,37 @@ def main() -> None:
     results: list[dict[str, Any]] = load_existing_results()
     completed_ids = {result["id"] for result in results}
 
+    stopped_early = False
     for item in questions.get("single_turn", []):
+        if ONLY_IDS and item["id"] not in ONLY_IDS:
+            continue
         if item["id"] in completed_ids:
             print(f"Skipping {item['id']} (already completed)...")
             continue
         print(f"Running {item['id']}...")
-        results.append(run_single_turn(chatbot, item))
+        result = run_single_turn(chatbot, item)
+        results.append(result)
         save_results(results)
+        if STOP_ON_FAILURE and is_failure(result):
+            print(f"Stopping on failure: {item['id']}", flush=True)
+            stopped_early = True
+            break
 
     for item in questions.get("multi_turn", []):
+        if stopped_early:
+            break
+        if ONLY_IDS and item["id"] not in ONLY_IDS:
+            continue
         if item["id"] in completed_ids:
             print(f"Skipping {item['id']} (already completed)...")
             continue
         print(f"Running {item['id']}...")
-        results.append(run_multi_turn(chatbot, item))
+        result = run_multi_turn(chatbot, item)
+        results.append(result)
         save_results(results)
+        if STOP_ON_FAILURE and is_failure(result):
+            print(f"Stopping on failure: {item['id']}", flush=True)
+            break
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

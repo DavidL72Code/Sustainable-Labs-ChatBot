@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login · SSL Chatbot</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <main class="dashboard-shell" style="max-width: 30rem; margin: 8rem auto;">
+    <section class="panel">
+      <div class="panel-header"><h1>Admin Login</h1><span>SSL Chatbot Dashboard</span></div>
+      <p id="loginError" role="alert" hidden></p>
+      <form id="adminLoginForm">
+        <p><label for="username">Username</label><br><input id="username" autocomplete="username" required></p>
+        <p><label for="password">Password</label><br><input id="password" type="password" autocomplete="current-password" required></p>
+        <button type="submit">Sign in</button>
+      </form>
+    </section>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const defaultApiBase = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+    const requestedBase = (params.get("api_base") || defaultApiBase).replace(/\/+$/, "");
+    const allowedBase = requestedBase === defaultApiBase || requestedBase === window.location.origin ? requestedBase : defaultApiBase;
+    const form = document.getElementById("adminLoginForm");
+    const error = document.getElementById("loginError");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      error.hidden = true;
+      try {
+        const response = await fetch(`${allowedBase}/api/admin/login`, {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: usernameInput.value, password: passwordInput.value }),
+        });
+        if (!response.ok) throw new Error((await response.json()).error || "Login failed.");
+        const dashboard = new URL("/dashboard.html", window.location.origin);
+        if (allowedBase !== window.location.origin) dashboard.searchParams.set("api_base", allowedBase);
+        window.location.href = dashboard.toString();
+      } catch (loginError) {
+        error.textContent = loginError.message || "Login failed.";
+        error.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>

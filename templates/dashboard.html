@@ -23,6 +23,7 @@
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="{{ url_for('index') }}">Chat</a>
+        <form method="post" action="{{ url_for('admin_logout') }}"><button type="submit">Sign out</button></form>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer">Visit SSL</a>
       </nav>
     </div>
