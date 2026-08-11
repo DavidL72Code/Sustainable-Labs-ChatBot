@@ -240,6 +240,8 @@ python3 -c "from werkzeug.security import generate_password_hash; print(generate
 ```
 
 Set `SESSION_COOKIE_SECURE=0` only for local HTTP development. Never expose dashboard routes without configuring the admin credentials and session secret.
+
+Bare hostnames such as `your-frontend.example` are also accepted and normalized to `https://your-frontend.example`; wildcards and paths are rejected.
 3. **Run the server**
    ```bash
    python3 Chatbot.py

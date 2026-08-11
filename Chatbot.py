@@ -15126,7 +15126,13 @@ def create_app() -> Flask:
         return response
 
     if CORS is not None:
-        origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()]
+        raw_origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()]
+        # Accept a bare deployment hostname from platform environment settings,
+        # but normalize it to an exact HTTPS origin before enabling credentialed CORS.
+        origins = [
+            origin if "://" in origin else f"https://{origin}"
+            for origin in raw_origins
+        ]
         invalid_origins = []
         for origin in origins:
             parsed_origin = urlsplit(origin)
