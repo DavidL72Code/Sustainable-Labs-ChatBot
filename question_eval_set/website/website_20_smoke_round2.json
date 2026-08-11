@@ -1,0 +1,24 @@
+{
+  "single_turn": [
+    {"id":"fs_021","type":"specific_fact","question":"What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_022","type":"enumeration","question":"What resources does someone gain access to by joining the Northeast Climate Justice Research Collaborative? Name at least three.","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_023","type":"people_lookup","question":"Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_024","type":"specific_fact","question":"How frequently does the Climate Adaptation Forum meet and how long are its events?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_025","type":"people_lookup","question":"What is Rosalyn Negron's title at SSL?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_026","type":"people_lookup","question":"What is Elisa Guerrero's role at SSL?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_027","type":"people_lookup","question":"What is Rajini Srikanth's title at SSL?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_028","type":"people_lookup","question":"What does Patricio Belloy currently do professionally and at which institution?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_029","type":"people_lookup","question":"Where did Patricio Belloy earn his PhD and master's degree, and what were they in?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_030","type":"people_lookup","question":"What is Johnna Flahive's stated research focus?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_031","type":"specific_fact","question":"What two organizations funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_032","type":"specific_fact","question":"What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_033","type":"people_lookup","question":"What institution is Cassandre Rey-Thibault affiliated with in Paris, and what fund supports her postdoctoral research?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_034","type":"people_lookup","question":"During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?","target_sources":["SEED_DOCUMENTS/Staff.txt"]},
+    {"id":"fs_035","type":"people_lookup","question":"What is Hannah Brown's role at SSL and what grant is her position tied to?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_036","type":"people_lookup","question":"What degree program is Hannah Brown currently pursuing and at which university?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_037","type":"people_lookup","question":"What are Levente Mezo's two fields of study at UMass Boston?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_038","type":"specific_fact","question":"What is the goal of the program Levente Mezo is helping build at SSL with Executive Director Dr. Balachandran?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_039","type":"people_lookup","question":"Where did Vishal Verma complete his undergraduate and master's education?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_040","type":"specific_fact","question":"What river basin in India is a primary focus of Vishal Verma's research?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]}
+  ]
+}

@@ -1,0 +1,862 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786419199.3051388,
+  "capture_only": true,
+  "case_count": 20,
+  "results": [
+    {
+      "id": "fs_021",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?",
+          "answer": "The C3I microcredential programs cover job areas such as solar installation, energy auditing, and nature-based solutions. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "819c60a425d649938d46bbc72283e304",
+          "elapsed_seconds": 1.158,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The C3I microcredential programs cover job areas such as solar installation, energy auditing, and nature-based solutions. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_022",
+      "kind": "single_turn",
+      "type": "enumeration",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What resources does someone gain access to by joining the Northeast Climate Justice Research Collaborative? Name at least three.",
+          "answer": "Joining the Northeast Climate Justice Research Collaborative gives members access to:\n1. Seed grants to support climate justice research in the Northeast [1]\n2. Workshops to support researchers' ability to leverage their work and make it actionable [1]\n3. Collaborative gatherings, convenings, and networking opportunities [1]\n4. SSL's climate justice literature Mendeley library [1]\n5. The Collaborative listserv for sharing ideas, questions, and resources [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f104188d7c114983875be64255630205",
+          "elapsed_seconds": 1.094,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Joining the Northeast Climate Justice Research Collaborative gives members access to:\n1. Seed grants to support climate justice research in the Northeast [1]\n2. Workshops to support researchers' ability to leverage their work and make it actionable [1]\n3. Collaborative gatherings, convenings, and networking opportunities [1]\n4. SSL's climate justice literature Mendeley library [1]\n5. The Collaborative listserv for sharing ideas, questions, and resources [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_023",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4c76ed410d754927b97bf66d07cb2257",
+          "elapsed_seconds": 3.833,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_024",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "How frequently does the Climate Adaptation Forum meet and how long are its events?",
+          "answer": "The Climate Adaptation Forum is a quarterly series of half-day events. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "3d41339f2e284c64ae62218f2250d8f3",
+          "elapsed_seconds": 2.242,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Adaptation Forum is a quarterly series of half-day events. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_025",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Rosalyn Negron's title at SSL?",
+          "answer": "Rosalyn Negron's title is Associate Director. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "0a5372c22ce9472b9d9eace7a9f8d4e6",
+          "elapsed_seconds": 0.848,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Rosalyn Negron's title is Associate Director. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_026",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Elisa Guerrero's role at SSL?",
+          "answer": "Elisa Guerrero's title is Community Engagement Manager. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4d57be5e6d284662a1efcb30f0227fe7",
+          "elapsed_seconds": 0.889,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Elisa Guerrero's title is Community Engagement Manager. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Rajini Srikanth's title at SSL?",
+          "answer": "Rajini Srikanth's title is Dean of Faculty and Inter-Faculty Initiatives. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c77a13ee1fab43ca9d19fc35b818c1f3",
+          "elapsed_seconds": 0.741,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Rajini Srikanth's title is Dean of Faculty and Inter-Faculty Initiatives. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_028",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does Patricio Belloy currently do professionally and at which institution?",
+          "answer": "Patricio Belloy currently serves as an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "7181d087a3994f66bcf71b1fe24a6d0a",
+          "elapsed_seconds": 3.115,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Patricio Belloy currently serves as an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+          "answer": "**Education**\n- Patricio Belloy earned a PhD and an MSc in Public Policy from UMass Boston [1].\n- Patricio Belloy earned an MA in Global Studies from Leipzig University in Germany and Wrocław University in Poland [1, 2]. **Location**\n- Patricio Belloy is currently an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Patricio Belloy",
+              "entity_type": "affiliate",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            },
+            {
+              "citation": 2,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 346,
+              "evidence_id": "evidence_11",
+              "evidence_bucket": "main",
+              "evidence_query": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in? education location"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c3b766cb5a3d4138b284bec2d9436599",
+          "elapsed_seconds": 4.636,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Education**\n- Patricio Belloy earned a PhD and an MSc in Public Policy from UMass Boston [1].\n- Patricio Belloy earned an MA in Global Studies from Leipzig University in Germany and Wrocław University in Poland [1, 2]. **Location**\n- Patricio Belloy is currently an Assistant Professor at the Institute of Economics at Universidad Austral de Chile [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 346,
+          "evidence_id": "evidence_11",
+          "evidence_bucket": "main",
+          "evidence_query": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in? education location"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_030",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Johnna Flahive's stated research focus?",
+          "answer": "Johnna Flahive’s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "0e176fcf90a74ae49dfc15203e979c35",
+          "elapsed_seconds": 0.728,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Johnna Flahive’s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_031",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What two organizations funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts?",
+          "answer": "Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts was funded by the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration’s (NOAA) Adaptation Sciences (AdSci) program [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "05d9de5b835140949603d45af34955bd",
+          "elapsed_seconds": 2.106,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts was funded by the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration’s (NOAA) Adaptation Sciences (AdSci) program [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_032",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP?",
+          "answer": "[1] The available documents do not state that requested detail.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Johnna Flahive",
+              "entity_type": "affiliate",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP? collaboration"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "51fd68fc65c24b4396bb8269003c9dc1",
+          "elapsed_seconds": 1.254,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "[1] The available documents do not state that requested detail.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP? collaboration"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_033",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What institution is Cassandre Rey-Thibault affiliated with in Paris, and what fund supports her postdoctoral research?",
+          "answer": "Cassandre Rey-Thibault is affiliated with the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris [1]. Her postdoctoral research is supported by the Bruno Latour Fund [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "1330439073f64d2e98a953a2d74f0888",
+          "elapsed_seconds": 2.541,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Cassandre Rey-Thibault is affiliated with the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris [1]. Her postdoctoral research is supported by the Bruno Latour Fund [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_034",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "During what time period did Cassandre Rey-Thibault serve as a visiting scholar at SSL?",
+          "answer": "Cassandre Rey-Thibault served as a visiting scholar at SSL during the summer of 2024 [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "59632030bcae4c139873261d39f30ad6",
+          "elapsed_seconds": 2.108,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Cassandre Rey-Thibault served as a visiting scholar at SSL during the summer of 2024 [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_035",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Hannah Brown's role at SSL and what grant is her position tied to?",
+          "answer": "Nyingilanyeofori Hannah Brown serves as the program coordinator at the SSL [1]. Her position is tied to the NSF CRISES planning grant, which provides the funding for her role [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "8afba955c2db4f10b8ce10c9542c389a",
+          "elapsed_seconds": 3.086,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Nyingilanyeofori Hannah Brown serves as the program coordinator at the SSL [1]. Her position is tied to the NSF CRISES planning grant, which provides the funding for her role [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_036",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "985ac3c11bbe44f9adce9097e14d2bc0",
+          "elapsed_seconds": 2.146,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_037",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What are Levente Mezo's two fields of study at UMass Boston?",
+          "answer": "Levente “Levi” Mezo is an undergraduate student at UMass Boston majoring in Political Science and Minoring in Community Development. He is currently working with Executive Director Dr Balakrishnan Balachandran on the foundations of a continuous, community-engaged program at SSL to provide a platform for collaboration between UMB and local community-based organizations. His other interests include urban planning, transportation planning, and affordable housing advocacy. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f2384d7229d740aaaa40063340ce1e20",
+          "elapsed_seconds": 1.741,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Levente “Levi” Mezo is an undergraduate student at UMass Boston majoring in Political Science and Minoring in Community Development. He is currently working with Executive Director Dr Balakrishnan Balachandran on the foundations of a continuous, community-engaged program at SSL to provide a platform for collaboration between UMB and local community-based organizations. His other interests include urban planning, transportation planning, and affordable housing advocacy. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_038",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the goal of the program Levente Mezo is helping build at SSL with Executive Director Dr. Balachandran?",
+          "answer": "The program is intended to provide a platform for collaboration between UMB and local community-based organizations. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "2b6ead5a533f49e19839e1ac86e0b61a",
+          "elapsed_seconds": 2.409,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The program is intended to provide a platform for collaboration between UMB and local community-based organizations. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_039",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Vishal Verma complete his undergraduate and master's education?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4a038af0bf0a40a397242050153d8bb6",
+          "elapsed_seconds": 1.855,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_040",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What river basin in India is a primary focus of Vishal Verma's research?",
+          "answer": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof Paul Kirshen from the School for the Environment (SFE). [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "1e80a2dbf8a0431bb4d85c9097f612f0",
+          "elapsed_seconds": 0.765,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Vishal Verma: Currently, Vishal is involved in research projects focused on the Kosi River Basin in Bihar, India, and the MassDOT SSL project focused on train line safety and resilience in coastal Massachusetts. His ongoing research explores the removal of the embankments on the Kosi River, flood forecasting, and the assessment of vulnerability and adaptation strategies in the context of present and future climatic conditions, employing theoretical frameworks like Integrated Water Resource Management, System Dynamics modeling, and cost-benefit analysis under the supervision of Prof Paul Kirshen from the School for the Environment (SFE). [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}
