@@ -1,0 +1,16 @@
+{
+  "multi_turn": [
+    {
+      "id": "website_railway_publications_interns",
+      "type": "deployed_website_quality_smoke",
+      "turns": [
+        "What publications has SSL produced?",
+        "What is the railway initiative?",
+        "Who were the researchers involved in the railway initiative?",
+        "Is there a contact person for the railway initiative?",
+        "Can students apply to be interns with the railway initiative?",
+        "What are the specific goals of the railway initiatives?"
+      ]
+    }
+  ]
+}
