@@ -184,10 +184,58 @@ Corpus reference:
     }
 
 
+def run_stream_answer(chatbot: Any, question: str, conversation: list[dict[str, str]] | None = None) -> dict[str, Any]:
+    """Capture the same streaming path used by the HTTP website endpoint."""
+    answer_parts: list[str] = []
+    sources: list[dict[str, Any]] = []
+    trace: dict[str, Any] = {}
+    status = "answered"
+    response_mode = ""
+    needs_clarification = False
+    stream_error = ""
+
+    for frame in chatbot.answer_stream(question, recent_history=conversation or []):
+        for line in str(frame).splitlines():
+            if not line.startswith("data: "):
+                continue
+            try:
+                event = json.loads(line[6:])
+            except json.JSONDecodeError:
+                continue
+            if event.get("type") == "meta":
+                sources = event.get("sources", []) or []
+                trace = event.get("trace", {}) or {}
+                status = event.get("status", status)
+                response_mode = event.get("response_mode", response_mode)
+                needs_clarification = bool(event.get("needs_clarification", False))
+            elif event.get("type") == "delta":
+                answer_parts.append(str(event.get("delta", "")))
+            elif event.get("type") == "error":
+                stream_error = str(event.get("error", ""))
+                status = "error"
+            elif "reply" in event:
+                answer_parts = [str(event.get("reply", ""))]
+                sources = event.get("sources", []) or []
+                trace = event.get("trace", {}) or {}
+                status = event.get("status", status)
+                response_mode = event.get("response_mode", response_mode)
+                needs_clarification = bool(event.get("needs_clarification", False))
+
+    return {
+        "reply": "".join(answer_parts).strip(),
+        "sources": sources,
+        "trace": trace,
+        "status": status,
+        "response_mode": response_mode,
+        "needs_clarification": needs_clarification,
+        "stream_error": stream_error,
+    }
+
+
 def run_single_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
     question = item["question"]
     target_sources = item.get("target_sources", [])
-    result = chatbot.answer(question, recent_history=[])
+    result = run_stream_answer(chatbot, question, conversation=[])
     corpus_reference = build_corpus_reference(target_sources)
     judgment = judge_response(
         prompt_kind=item.get("type", "single_turn"),
@@ -217,6 +265,7 @@ def run_single_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
             "right_citations": judgment["right_citations"],
         },
         "notes": judgment["notes"],
+        "stream_error": result.get("stream_error", ""),
     }
 
 
@@ -228,7 +277,7 @@ def run_multi_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
     last_result: dict[str, Any] | None = None
 
     for turn in turns:
-        last_result = chatbot.answer(turn, recent_history=recent_history)
+        last_result = run_stream_answer(chatbot, turn, conversation=recent_history)
         transcript.append({"user": turn, "assistant": last_result["reply"]})
         turn_payload = ConversationTurn(user=turn, assistant=last_result["reply"])
         conversation_state = last_result.get("conversation_state")

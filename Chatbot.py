@@ -14040,6 +14040,14 @@ Citation rules:
             reply_text = self.clean_registry_answer_text(reply_text, user_message)
             reply_text = self.normalize_markdown_structure(reply_text)
             result_sources = self.filter_sources_to_cited(reply_text, all_sources)
+        reply_text, result_sources, generated_clarification = self.finalize_generated_answer(
+            user_message,
+            reply_text,
+            all_sources,
+            retrieved_metadata,
+            retrieved_context,
+            query_plan or query_route,
+        )
         return self.attach_trace(
             {
                 "reply": reply_text,
@@ -14057,6 +14065,71 @@ Citation rules:
             query_plan=query_plan,
             retrieved_context=retrieved_context,
         )
+
+    def finalize_generated_answer(
+        self,
+        user_message: str,
+        reply_text: str,
+        all_sources: list[dict],
+        retrieved_metadata: list[dict],
+        retrieved_context: list[str],
+        query_route: Optional[dict] = None,
+    ) -> tuple[str, list[dict], bool]:
+        """Finalize sync and streamed generations through one answer contract."""
+        query_route = query_route or {}
+        reply_text = self.sanitize_reply_citations(str(reply_text or ""), all_sources)
+        if self.validate_answer_contract(user_message, reply_text, query_route):
+            direct = self.extract_direct_evidence_answer(
+                user_message, retrieved_context, retrieved_metadata
+            )
+            if direct and self.has_substantive_answer(direct.get("reply", "")):
+                reply_text = direct["reply"]
+                all_sources = direct.get("sources", all_sources)
+        reply_text = self.sanitize_answer_contract(user_message, reply_text)
+        reply_text = self.sanitize_unsupported_negative_claims(
+            user_message, reply_text, retrieved_context
+        )
+        reply_text = self.sanitize_definition_caveat(user_message, reply_text)
+        reply_text = self.enforce_concise_broad_answer(reply_text, user_message, query_route)
+        reply_text = self.complete_missing_requested_facets(
+            user_message, reply_text, all_sources, retrieved_context
+        )
+        reply_text = self.sanitize_unsupported_negative_claims(
+            user_message, reply_text, retrieved_context
+        )
+        reply_text = self.sanitize_definition_caveat(user_message, reply_text)
+        reply_text = self.enforce_concise_broad_answer(reply_text, user_message, query_route)
+
+        queried_person = self.extract_queried_person_name(user_message)
+        activity = self.extract_person_research_activity_answer(
+            user_message, queried_person, retrieved_context
+        )
+        if activity and re.search(r"(?i)\b(?:research|focus|interests?)\b", user_message):
+            if re.search(r"(?i)\b(?:not stated|not available|no information|do not have)\b", reply_text):
+                reply_text = activity
+
+        relationship = self.extract_person_project_connection_answer(
+            user_message, queried_person, retrieved_context
+        )
+        if relationship and any(term in user_message.lower() for term in ("project", "projects", "connected to")):
+            reply_text = relationship
+
+        generated_clarification = bool(
+            len(reply_text.split()) <= 80
+            and re.match(
+                r"(?i)^\s*(?:to which|which|who|what do you mean|could you clarify|can you clarify|please specify)",
+                reply_text,
+            )
+        )
+        if not generated_clarification and not self.has_substantive_answer(reply_text):
+            reply_text = "The available documents do not state that detail."
+            all_sources = []
+        if generated_clarification:
+            reply_text = re.sub(r"\s*\[[0-9][0-9,\s]*\]", "", reply_text).strip()
+            return reply_text, [], True
+        reply_text = self.clean_registry_answer_text(reply_text, user_message)
+        reply_text = self.normalize_markdown_structure(reply_text)
+        return reply_text, self.filter_sources_to_cited(reply_text, all_sources), False
 
     def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
         """Generator yielding SSE-formatted strings. Runs all retrieval/routing
@@ -14152,9 +14225,18 @@ Citation rules:
             trace.get("retrieved_context", []) or [],
         )
         raw_answer = self.normalize_markdown_structure(raw_answer)
-        cited_sources = self.filter_sources_to_cited(raw_answer, all_sources)
-        normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, cited_sources)
         stream_status = result.get("status", "answered")
+        raw_answer, cited_sources, generated_clarification = self.finalize_generated_answer(
+            user_message,
+            raw_answer,
+            all_sources,
+            retrieved_metadata,
+            trace.get("retrieved_context", []) or [],
+            query_route,
+        )
+        if generated_clarification:
+            stream_status = "clarification"
+        normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, cited_sources)
         if not self.has_substantive_answer(normalized_answer):
             # Do not expose a citation-only or punctuation-only model output.
             # Prefer a deterministic answer from the retrieved evidence; if it
