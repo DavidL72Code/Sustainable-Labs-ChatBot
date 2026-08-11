@@ -1,0 +1,909 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786417538.2410738,
+  "capture_only": true,
+  "case_count": 20,
+  "results": [
+    {
+      "id": "fs_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is SSL's vision for the future of the climate action space?",
+          "answer": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "7b894e03542a42de88d8efe6ccba0cde",
+          "elapsed_seconds": 1.162,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_002",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "76233e5ea8b3466f86585eb803b2d726",
+          "elapsed_seconds": 3.369,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_003",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+          "answer": "The Sustainable Solutions Lab defines the work of \"Drive Equitable Climate Adaptation\" through the following approaches: **Commitment to Communities**\nThe Sustainable Solutions Lab stands with communities that have been historically and are currently excluded from economic resources and political power [1]. **Focus of Work**\nThe work performed under this category goes beyond the documentation of damage; instead, it focuses on truly listening to these communities and exploring desired futures together [1]. **Collaborative Methods**\nThrough the use of research, initiatives, and events, the Sustainable Solutions Lab collaborates with others to move the region toward equitable adaptation [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+              "section_name": "What We Do",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 2,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+            }
+          ],
+          "suggestions": [
+            "What specific methods does SSL use to collaborate with communities?",
+            "Does SSL focus on documenting climate damage in its work?",
+            "Who does SSL prioritize in its commitment to communities?"
+          ],
+          "status": "answered",
+          "conversation_id": "1fac885e3af942bca63dcffd9bc5c6f8",
+          "elapsed_seconds": 6.623,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab defines the work of \"Drive Equitable Climate Adaptation\" through the following approaches: **Commitment to Communities**\nThe Sustainable Solutions Lab stands with communities that have been historically and are currently excluded from economic resources and political power [1]. **Focus of Work**\nThe work performed under this category goes beyond the documentation of damage; instead, it focuses on truly listening to these communities and exploring desired futures together [1]. **Collaborative Methods**\nThrough the use of research, initiatives, and events, the Sustainable Solutions Lab collaborates with others to move the region toward equitable adaptation [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+        }
+      ],
+      "final_suggestions": [
+        "What specific methods does SSL use to collaborate with communities?",
+        "Does SSL focus on documenting climate damage in its work?",
+        "Who does SSL prioritize in its commitment to communities?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+          "answer": "Evidence Bucket: main\nTitle: SSLAbout\nSource URL: https://www.umb.edu/ssl/\nSource Path: SEED_DOCUMENTS/SSLAbout.txt\nSection Name: Pursuing Climate Justice\nEntity Type: section\nChunk Level: detail\nChunk Index: 0 Document Labels: SSLAbout | General | Pursuing Climate Justice | Section | Detail Pursuing Climate Justice\nThe Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+              "section_name": "Pursuing Climate Justice",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? leadership"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e18665a63fff45ab8c05f0fc88a40cf0",
+          "elapsed_seconds": 1.27,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Evidence Bucket: main\nTitle: SSLAbout\nSource URL: https://www.umb.edu/ssl/\nSource Path: SEED_DOCUMENTS/SSLAbout.txt\nSection Name: Pursuing Climate Justice\nEntity Type: section\nChunk Level: detail\nChunk Index: 0 Document Labels: SSLAbout | General | Pursuing Climate Justice | Section | Detail Pursuing Climate Justice\nThe Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by? leadership"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_005",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What specific building, floor, and room number is SSL's office at UMass Boston?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "31c5cd15111d46b4bc40981d7a9437ce",
+          "elapsed_seconds": 0.827,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+          "answer": "Sarah Mayorga values the opportunity to be both an expert and a novice in her work with SSL [1]. Regarding the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is space for her curiosity and further exploration [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "212cf227da45481eb8edc34369d00eed",
+          "elapsed_seconds": 3.789,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Sarah Mayorga values the opportunity to be both an expert and a novice in her work with SSL [1]. Regarding the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is space for her curiosity and further exploration [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+          "answer": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b00f584f08a3444d95c74f46963a26ec",
+          "elapsed_seconds": 0.643,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_008",
+      "kind": "single_turn",
+      "type": "contact_paraphrase",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the email address used to contact SSL?",
+          "answer": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "348315dd646b4b12b75326564cc32df4",
+          "elapsed_seconds": 1.017,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_009",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+          "answer": "Northeast Climate Justice Research Collaborative Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "882250f892aa4b9685528033a80ac8ac",
+          "elapsed_seconds": 0.995,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Northeast Climate Justice Research Collaborative Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_010",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+          "answer": "The Climate Adaptation Forum is co-organized by SSL and the Environmental Business Council of New England. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "85e0be69722446f58453758f83e331c8",
+          "elapsed_seconds": 0.962,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Adaptation Forum is co-organized by SSL and the Environmental Business Council of New England. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "In what year was the Climate Adaptation Forum established?",
+          "answer": "The Climate Adaptation Forum was established in 2017. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "df3a5ca86251492e92e55d49bf3dc332",
+          "elapsed_seconds": 0.985,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Adaptation Forum was established in 2017. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_012",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+          "answer": "The Liberty Mutual Foundation (LMF) provides financial support for the Climate Careers Curricula Initiative [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Climate Careers Curricula Initiative (C3I)",
+              "entity_type": "project",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What foundation provides financial support for the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+            }
+          ],
+          "suggestions": [
+            "What is the Climate Careers Curricula Initiative?",
+            "Does the Liberty Mutual Foundation support any other SSL initiatives?",
+            "What is the role of the Liberty Mutual Foundation in the Climate Careers Curricula Initiative?"
+          ],
+          "status": "answered",
+          "conversation_id": "efd7568a34eb495f9d8a5eb98ce3c503",
+          "elapsed_seconds": 4.447,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Liberty Mutual Foundation (LMF) provides financial support for the Climate Careers Curricula Initiative [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What foundation provides financial support for the Climate Careers Curricula Initiative? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "final_suggestions": [
+        "What is the Climate Careers Curricula Initiative?",
+        "Does the Liberty Mutual Foundation support any other SSL initiatives?",
+        "What is the role of the Liberty Mutual Foundation in the Climate Careers Curricula Initiative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_013",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "How many total participants does the C3I program aim to enroll over its three-year run?",
+          "answer": "The Climate Careers Curricula Initiative (C3I) aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston [1]. Over its three-year run, the program aims to enroll a total of 90 participants [1]. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "df0286e39ac04e6c891178b8a4656c6f",
+          "elapsed_seconds": 2.58,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Careers Curricula Initiative (C3I) aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston [1]. Over its three-year run, the program aims to enroll a total of 90 participants [1]. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_014",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What percentage of C3I participants are expected to come from underrepresented groups?",
+          "answer": "The Climate Careers Curricula Initiative (C3I) expects 75% of its participants to come from underrepresented groups [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "d00a93a8b3744be192c1e00e7026ac4b",
+          "elapsed_seconds": 2.293,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Careers Curricula Initiative (C3I) expects 75% of its participants to come from underrepresented groups [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_015",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+          "answer": "The Cape Cod Rail Resilience Project was launched in response to a significant 300-foot rail embankment collapse in East Sandwich in 2020 [1]. This event was linked to climate change-induced drought conditions [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Cape Cod Rail Resilience Project",
+              "entity_type": "project",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What specific event triggered the launch of the Cape Cod Rail Resilience Project? program initiative working with research assistant team includes"
+            }
+          ],
+          "suggestions": [
+            "What specific climate change-induced conditions contributed to the rail embankment collapse?",
+            "Where exactly did the 300-foot rail embankment collapse occur?",
+            "In what year did the East Sandwich rail embankment collapse take place?"
+          ],
+          "status": "answered",
+          "conversation_id": "19a7bc6905e34f9a9aa23e70b81f1593",
+          "elapsed_seconds": 5.812,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Cape Cod Rail Resilience Project was launched in response to a significant 300-foot rail embankment collapse in East Sandwich in 2020 [1]. This event was linked to climate change-induced drought conditions [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific event triggered the launch of the Cape Cod Rail Resilience Project? program initiative working with research assistant team includes"
+        }
+      ],
+      "final_suggestions": [
+        "What specific climate change-induced conditions contributed to the rail embankment collapse?",
+        "Where exactly did the 300-foot rail embankment collapse occur?",
+        "In what year did the East Sandwich rail embankment collapse take place?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_016",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "In what year did the rail embankment collapse at East Sandwich occur?",
+          "answer": "The rail embankment collapse at East Sandwich occurred in 2020 [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "328107b78ad84322bc8b107ddc88bac9",
+          "elapsed_seconds": 2.302,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The rail embankment collapse at East Sandwich occurred in 2020 [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_017",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+          "answer": "The Cape Cod Rail Resilience Project uses drones for mapping [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "2b6a6eca16e64f6b9482e61f2fc907d5",
+          "elapsed_seconds": 2.091,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Cape Cod Rail Resilience Project uses drones for mapping [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_018",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What federal agency provides funding for the Cape Cod Rail Resilience Project?",
+          "answer": "The federal agency that provides funding for the Cape Cod Rail Resilience Project is the USDOT [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "a55f1866ceb64f23ac4fa8b0a7c17e6d",
+          "elapsed_seconds": 1.846,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The federal agency that provides funding for the Cape Cod Rail Resilience Project is the USDOT [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_019",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+          "answer": "The Cape Cod Rail Resilience Project operates at three pilot study sites [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "96faa7b98d9746d88eb81be07d595b3f",
+          "elapsed_seconds": 2.061,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Cape Cod Rail Resilience Project operates at three pilot study sites [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_020",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+          "answer": "The CLIIR Initiative was funded by a National Science Foundation planning grant through the Centers for Research Innovation in Science, Environment, and Society (CRISES) program [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "48f8abbed75b46d7b113d54518b60b41",
+          "elapsed_seconds": 2.633,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The CLIIR Initiative was funded by a National Science Foundation planning grant through the Centers for Research Innovation in Science, Environment, and Society (CRISES) program [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}

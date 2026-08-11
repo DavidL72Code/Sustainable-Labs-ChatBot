@@ -1,0 +1,24 @@
+{
+  "single_turn": [
+    {"id":"fs_001","type":"broad_overview","question":"What is SSL's vision for the future of the climate action space?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_002","type":"specific_fact","question":"How does SSL describe 'Convene for Networking and Field-Building' as one of its core activities?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_003","type":"specific_fact","question":"What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_004","type":"specific_fact","question":"Who does SSL say its transdisciplinary research centers and is led by?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_005","type":"contact_paraphrase","question":"What specific building, floor, and room number is SSL's office at UMass Boston?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_006","type":"specific_fact","question":"What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_007","type":"specific_fact","question":"How does SSL describe its approach to expanding what 'counts' as climate research?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_008","type":"contact_paraphrase","question":"What is the email address used to contact SSL?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+    {"id":"fs_009","type":"specific_fact","question":"In what season and year was the Northeast Climate Justice Research Collaborative launched?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_010","type":"specific_fact","question":"What organization co-organizes the Climate Adaptation Forum alongside SSL?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_011","type":"specific_fact","question":"In what year was the Climate Adaptation Forum established?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_012","type":"specific_fact","question":"What foundation provides financial support for the Climate Careers Curricula Initiative?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_013","type":"specific_fact","question":"How many total participants does the C3I program aim to enroll over its three-year run?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_014","type":"specific_fact","question":"What percentage of C3I participants are expected to come from underrepresented groups?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_015","type":"specific_fact","question":"What specific event triggered the launch of the Cape Cod Rail Resilience Project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_016","type":"specific_fact","question":"In what year did the rail embankment collapse at East Sandwich occur?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_017","type":"specific_fact","question":"What aerial technology does the Cape Cod Rail Resilience Project use for mapping?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_018","type":"specific_fact","question":"What federal agency provides funding for the Cape Cod Rail Resilience Project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_019","type":"specific_fact","question":"How many pilot study sites does the Cape Cod Rail Resilience Project operate?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_020","type":"specific_fact","question":"What NSF program provided the planning grant that funded the CLIIR Initiative?","target_sources":["SEED_DOCUMENTS/Projects.txt"]}
+  ]
+}
