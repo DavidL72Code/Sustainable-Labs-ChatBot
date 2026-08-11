@@ -1,0 +1,958 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786420476.754454,
+  "capture_only": true,
+  "case_count": 20,
+  "results": [
+    {
+      "id": "fs_041",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who supervises Vishal Verma's doctoral research?",
+          "answer": "Vishal Verma earned a Master's in from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "65677103c35e46c2a46c68c6efed0ab1",
+          "elapsed_seconds": 1.749,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Vishal Verma earned a Master's in from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_042",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What project is Jennifer Friedrich working on as a Graduate Research Assistant at SSL?",
+          "answer": "Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Currently she is a Graduate Research Assistant for “Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod” working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "9698d3428ab94da4948825501ca17f7d",
+          "elapsed_seconds": 1.228,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Currently she is a Graduate Research Assistant for “Improving Rail Safety, Efficiency and Climate Resilience on Cape Cod” working with Balakrishnan Balachandran, Ph.D., AICP and Executive Director of SSL. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_043",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What doctoral program is Nick Johnson enrolled in and where is he originally from?",
+          "answer": "**Doctoral Program**\nNick Johnson is a third-year doctoral student in the Global Inclusion and Social Development Program [1]. **Location**\nNick Johnson is from Philadelphia, PA [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Nick Johnson",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "bceef01eb0da448d9896ad6c35bc77b1",
+          "elapsed_seconds": 3.751,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Doctoral Program**\nNick Johnson is a third-year doctoral student in the Global Inclusion and Social Development Program [1]. **Location**\nNick Johnson is from Philadelphia, PA [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nick Johnson",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_044",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What tasks does Anna Matviichuk perform as a Communications Fellow at SSL?",
+          "answer": "Anna Matviichuk is a junior at the College of Management at UMass Boston, majoring in marketing. Since her sophomore year, she has been working as a Communications Fellow at SSL. Her role includes producing and releasing monthly newsletters, creating digital art elements, and managing the organization’s social media accounts. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "1044857ba3b24e2d9d06c1aaccfe9251",
+          "elapsed_seconds": 1.047,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Anna Matviichuk is a junior at the College of Management at UMass Boston, majoring in marketing. Since her sophomore year, she has been working as a Communications Fellow at SSL. Her role includes producing and releasing monthly newsletters, creating digital art elements, and managing the organization’s social media accounts. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_045",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+          "answer": "Ashley Miranda Ashley Miranda Smith is a Senior at UMass Boston, majoring in Communication and double minoring in Cinema Studies and Professional and New Media Writing. Since her freshman year, she has worked within SSL as a Communications Fellow; a role that includes managing the institute’s social media, editing SSL’s website content, and working alongside Associate Director Gabriela Boscio Santos to produce and release SSL’s monthly newsletters. In her free time, you can find her watching a film at the movie theater, scrolling through social media, or reading a novel. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b78303623d794df9b74148c08878ed67",
+          "elapsed_seconds": 1.826,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Ashley Miranda Ashley Miranda Smith is a Senior at UMass Boston, majoring in Communication and double minoring in Cinema Studies and Professional and New Media Writing. Since her freshman year, she has worked within SSL as a Communications Fellow; a role that includes managing the institute’s social media, editing SSL’s website content, and working alongside Associate Director Gabriela Boscio Santos to produce and release SSL’s monthly newsletters. In her free time, you can find her watching a film at the movie theater, scrolling through social media, or reading a novel. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_046",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the focus of Chidimma Ozor's doctoral research?",
+          "answer": "**Research Focus** Chidimma Ozor Commer’s research explores how local and indigenous knowledge and wisdom can dismantle the white savior industrial complex with respect to social impact and social enterprise organizations [1]. Additionally, her research investigates the relationship between activism, advocacy, self-care, and social work [1]. **Education** Chidimma Ozor Commer is a second-year doctoral student in the School of Global Inclusion and Social Development [1]. She also holds the following credentials: LLMSW-Clinical Practice, MSW, and MA [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Chidimma Ozor Commer",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c8b458c593874069a413f36c7edc0162",
+          "elapsed_seconds": 4.981,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Research Focus** Chidimma Ozor Commer’s research explores how local and indigenous knowledge and wisdom can dismantle the white savior industrial complex with respect to social impact and social enterprise organizations [1]. Additionally, her research investigates the relationship between activism, advocacy, self-care, and social work [1]. **Education** Chidimma Ozor Commer is a second-year doctoral student in the School of Global Inclusion and Social Development [1]. She also holds the following credentials: LLMSW-Clinical Practice, MSW, and MA [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_047",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Isa Whalen, what is her cultural identity, and where is she from?",
+          "answer": "**Isa Kelawili Whalen**\n- Isa Kelawili Whalen is a Master’s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1]. She previously received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle [1]. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo [1].\n- Isa Kelawili Whalen is an indigenous Chamoru woman [1].\n- She is from the southern village of Umatac, Guam [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Isa Kelawili Whalen",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "85de52ee05594dc7bfd9875fe080014e",
+          "elapsed_seconds": 4.792,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Isa Kelawili Whalen**\n- Isa Kelawili Whalen is a Master’s student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1]. She previously received a Bachelor of Arts in Honors Anthropology, Oceania and Pacific Islander Studies, and Diversity from the University of Washington Seattle [1]. She is currently working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo [1].\n- Isa Kelawili Whalen is an indigenous Chamoru woman [1].\n- She is from the southern village of Umatac, Guam [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Isa Kelawili Whalen",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+          "answer": "Isa Kelawili Whalen is working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "158b77e6b7f44923bf83c3d2727023b9",
+          "elapsed_seconds": 2.177,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Isa Kelawili Whalen is working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_049",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is The Emerald Tutu and who leads it?",
+          "answer": "The Emerald Tutu is a visionary nature-based floating infrastructure designed for urban-scale coastal flood protection [1]. The project is led by Gabriel Cira, who serves as the project lead [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "2ed7f69e26d54ad5a4cd882ace993082",
+          "elapsed_seconds": 3.143,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Emerald Tutu is a visionary nature-based floating infrastructure designed for urban-scale coastal flood protection [1]. The project is led by Gabriel Cira, who serves as the project lead [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_050",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What course does Gabriel Cira teach at MassArt and what does it connect?",
+          "answer": "Gabriel Cira teaches the Architecture of Boston course at MassArt, which connects cooperative infrastructure history with the future of climate resilience [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4f48e2d069764503b424407e02f2b5d0",
+          "elapsed_seconds": 2.299,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Gabriel Cira teaches the Architecture of Boston course at MassArt, which connects cooperative infrastructure history with the future of climate resilience [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_051",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Tim Cronin's current title and employer?",
+          "answer": "Tim Cronin's title is Associate Director of Policy and Advocacy at Health Care Without Harm. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c216efd203f64f408e2f5d35df3918f4",
+          "elapsed_seconds": 0.718,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Tim Cronin's title is Associate Director of Policy and Advocacy at Health Care Without Harm. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_052",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What Boston city working group was Tim Cronin appointed to chair in 2023, and who appointed him?",
+          "answer": "In 2023, Tim Cronin was appointed by Mayor Wu to chair Boston's BERDO Health Institution Working Group [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "680ac2f0e44348218827071f7b9980f6",
+          "elapsed_seconds": 2.586,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "In 2023, Tim Cronin was appointed by Mayor Wu to chair Boston's BERDO Health Institution Working Group [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_053",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Julie Eaton Ernst's professional specialty and her current employer?",
+          "answer": "Julie Eaton Ernst specializes in resilient design practices and navigating the intersection of policy and engineered solutions [1]. Her current employer is HNTB [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "72ba78b869f349e59b62595a89e576cf",
+          "elapsed_seconds": 1.785,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Julie Eaton Ernst specializes in resilient design practices and navigating the intersection of policy and engineered solutions [1]. Her current employer is HNTB [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_054",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What award did Julie Eaton Ernst receive in 2018 and from which organization?",
+          "answer": "Julie Eaton Ernst received the 2018 Ascending Leader Award from the Environmental Business Council (EBC) of New England [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Julie Eaton Ernst",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "9d8a4bcc3b84457b958419e973a063d5",
+          "elapsed_seconds": 2.971,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Julie Eaton Ernst received the 2018 Ascending Leader Award from the Environmental Business Council (EBC) of New England [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Julie Eaton Ernst",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_055",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Isabella Gambill's master's degree and from which university did she earn it?",
+          "answer": "**Master's Degree**\nIsabella M. Gambill holds a Masters in Conservation Leadership [1]. **University**\nIsabella M. Gambill earned her master's degree from the University of Cambridge [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Isabella M. Gambill",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "86922d6172ed416abf8fdc637bf4029a",
+          "elapsed_seconds": 4.579,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Master's Degree**\nIsabella M. Gambill holds a Masters in Conservation Leadership [1]. **University**\nIsabella M. Gambill earned her master's degree from the University of Cambridge [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_056",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Julia Kumari Drapkin's company and what does it do?",
+          "answer": "Julia Kumari Drapkin is the CEO and founder of ISeeChange [1]. ISeeChange is a climate data and engagement platform that helps cities combat climate change [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "97efda6c99b842f3ac1ada387c709c45",
+          "elapsed_seconds": 1.931,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Julia Kumari Drapkin is the CEO and founder of ISeeChange [1]. ISeeChange is a climate data and engagement platform that helps cities combat climate change [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_057",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Amy Korté's title at Arrowstreet?",
+          "answer": "Amy Korté's title is President, Arrowstreet. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e2fbea73763848adb15a17fa82776da7",
+          "elapsed_seconds": 0.481,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Amy Korté's title is President, Arrowstreet. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_058",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+          "answer": "Jen Stevenson Zepeda is currently employed by ReVision Energy [1]. The company is an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "dbdd9ef943354420b82561995ee6162a",
+          "elapsed_seconds": 1.983,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Jen Stevenson Zepeda is currently employed by ReVision Energy [1]. The company is an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_059",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Kalila Barnett serve as Executive Director before joining the Barr Foundation, and for how many years?",
+          "answer": "Kalila Barnett served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Kalila Barnett",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6db03922ce9b46ed9ec58a37ff63bcc3",
+          "elapsed_seconds": 5.485,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Kalila Barnett served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Kalila Barnett",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_060",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does Caleb Dresser's research focus on?",
+          "answer": "[1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Caleb Dresser",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "920c6666a3484074a0ed7e1fbadbd06d",
+          "elapsed_seconds": 1.171,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "[1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Caleb Dresser",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}
