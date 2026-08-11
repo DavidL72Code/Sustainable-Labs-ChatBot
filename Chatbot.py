@@ -14031,22 +14031,7 @@ Citation rules:
         _sentinel = "\x00STREAM"
         captured: dict = {}
 
-        # Start generating suggestions concurrently — runs while the main answer streams
-        _suggestions: list[str] = []
-        _sug_ready = threading.Event()
-
-        def _run_suggestions() -> None:
-            try:
-                _suggestions.extend(self.generate_suggestions(user_message))
-            except Exception:
-                pass
-            _sug_ready.set()
-
         suggestions_enabled = os.getenv("ENABLE_CHAT_SUGGESTIONS", "1").lower() not in {"0", "false", "no"}
-        if suggestions_enabled:
-            threading.Thread(target=_run_suggestions, daemon=True).start()
-        else:
-            _sug_ready.set()
 
         def capturing_llm(prompt: str, **kwargs) -> str:
             captured["prompt"] = prompt
@@ -14079,13 +14064,31 @@ Citation rules:
             full_answer_parts.append(chunk)
 
         raw_answer = self.sanitize_reply_citations("".join(full_answer_parts).strip(), all_sources)
+        query_route = trace.get("query_route") or {}
+        # Keep streamed answers on the same post-generation contract path as
+        # chatbot.answer(), which the regression runner calls directly.
+        raw_answer = self.sanitize_answer_contract(user_message, raw_answer)
+        raw_answer = self.sanitize_unsupported_negative_claims(
+            user_message,
+            raw_answer,
+            trace.get("retrieved_context", []) or [],
+        )
+        raw_answer = self.sanitize_definition_caveat(user_message, raw_answer)
+        raw_answer = self.enforce_concise_broad_answer(raw_answer, user_message, query_route)
+        raw_answer = self.complete_missing_requested_facets(
+            user_message,
+            raw_answer,
+            all_sources,
+            trace.get("retrieved_context", []) or [],
+        )
         raw_answer = self.sanitize_unsupported_negative_claims(
             user_message,
             raw_answer,
             trace.get("retrieved_context", []) or [],
         )
         raw_answer = self.normalize_markdown_structure(raw_answer)
-        normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, all_sources)
+        cited_sources = self.filter_sources_to_cited(raw_answer, all_sources)
+        normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, cited_sources)
         stream_status = result.get("status", "answered")
         if not normalized_answer:
             normalized_answer = "The assistant did not return a response. Please try again."
@@ -14096,10 +14099,15 @@ Citation rules:
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
 
-        # Suggestions started ~answer_duration ago — usually already done, wait briefly
-        _sug_ready.wait(timeout=12)
-        if _suggestions:
-            yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': _suggestions})}\n\n"
+        if suggestions_enabled and stream_status == "answered":
+            suggestions = self.generate_suggestions(
+                user_message,
+                normalized_answer,
+                retrieved_context=trace.get("retrieved_context", []) or [],
+                query_route=query_route,
+            )
+            if suggestions:
+                yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
 
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
@@ -14215,7 +14223,9 @@ Citation rules:
                 if token.isdigit():
                     cited_numbers.add(int(token))
         if not cited_numbers:
-            return self.deduplicate_sources(sources)
+            # Retrieved documents are not evidence unless the answer explicitly
+            # cites them. This keeps the UI source list honest.
+            return []
         return self.deduplicate_sources([source for source in sources if source.get("citation") in cited_numbers])
 
     def sanitize_reply_citations(self, reply: str, sources: list[dict]) -> str:
@@ -14382,26 +14392,76 @@ Citation rules:
         return sources
     
 
-    def generate_suggestions(self, user_message: str, answer: str = "") -> list[str]:
+    def _filter_supported_suggestions(
+        self,
+        suggestions: list[str],
+        retrieved_context: Optional[list[str]] = None,
+        query_route: Optional[dict] = None,
+    ) -> list[str]:
+        """Keep suggestion chips tied to facts the corpus can actually retrieve."""
+        if not suggestions:
+            return []
+        stopwords = {
+            "what", "which", "who", "where", "when", "why", "how", "can", "could",
+            "would", "does", "did", "is", "are", "was", "were", "the", "a", "an",
+            "about", "more", "tell", "me", "ssl", "sustainable", "solutions", "lab",
+            "specific", "please", "their", "its", "this", "that", "these", "those",
+        }
+        procedural = {"apply", "application", "requirements", "deadline", "eligibility", "contact", "cost", "fee", "register", "join"}
+        accepted: list[str] = []
+        for suggestion in suggestions:
+            text = str(suggestion).strip()
+            if not text or text in accepted:
+                continue
+            route = self.detect_local_query_route(text)
+            context, _, diagnostics = self.retrieve_context(text, top_k=5, query_route=route)
+            if not context:
+                continue
+            confidence = self.assess_retrieval_confidence(text, route, context, [], diagnostics)
+            if confidence.get("is_low_confidence"):
+                continue
+            corpus = " ".join(context).lower()
+            words = re.findall(r"[a-z0-9]+", text.lower())
+            anchors = [word for word in words if len(word) >= 4 and word not in stopwords]
+            if not anchors:
+                continue
+            matched = sum(1 for word in anchors if word in corpus or word.rstrip("s") in corpus)
+            if matched / len(anchors) < 0.6:
+                continue
+            if any(word in procedural for word in anchors) and not any(word in corpus for word in procedural if word in anchors):
+                continue
+            accepted.append(text)
+            if len(accepted) == 3:
+                break
+        return accepted
+
+    def generate_suggestions(
+        self,
+        user_message: str,
+        answer: str = "",
+        retrieved_context: Optional[list[str]] = None,
+        query_route: Optional[dict] = None,
+    ) -> list[str]:
         if answer.strip():
             context_block = (
                 f"Question: {user_message}\n\n"
                 f"The chatbot answered:\n{answer}\n\n"
-                "Based on the question and answer, suggest exactly 3 short follow-up questions "
-                "a new user might want to explore next.\n"
+                "Based on the question and answer, suggest up to 3 short follow-up questions "
+                "whose answers are explicitly supported by the answer or retrieved evidence. "
+                "Do not suggest procedures, goals, application steps, or other facts unless stated.\n"
             )
         else:
             context_block = (
                 f"Question: {user_message}\n\n"
-                "Suggest exactly 3 short follow-up questions a new user might want to explore "
-                "after asking the question above.\n"
+                "Suggest up to 3 short follow-up questions that are answerable from the available "
+                "SSL evidence; return fewer or [] when support is absent.\n"
             )
 
         prompt = (
             "A user is chatting with a chatbot about the Sustainable Solutions Lab (SSL).\n\n"
             + context_block
             + "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
-            "Return ONLY a valid JSON array of 3 strings. No preamble, no markdown fences.\n"
+            "Return ONLY a valid JSON array of up to 3 strings. No preamble, no markdown fences.\n"
             'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
         )
 
@@ -14411,7 +14471,11 @@ Citation rules:
             raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
             suggestions = json.loads(raw)
             if isinstance(suggestions, list):
-                return [str(s).strip() for s in suggestions[:3] if str(s).strip()]
+                return self._filter_supported_suggestions(
+                    [str(s).strip() for s in suggestions[:3] if str(s).strip()],
+                    retrieved_context=retrieved_context,
+                    query_route=query_route,
+                )
         except Exception:
             pass
         return []
