@@ -14012,6 +14012,21 @@ Citation rules:
                 reply_text,
             )
         )
+        if not generated_clarification and not self.has_substantive_answer(reply_text):
+            # A citation or punctuation is not an answer. Recover from the
+            # retrieved evidence when possible; otherwise fail closed without
+            # presenting a source as support for an empty response.
+            direct_evidence_answer = self.extract_direct_evidence_answer(
+                user_message,
+                retrieved_context,
+                retrieved_metadata,
+            )
+            if direct_evidence_answer and self.has_substantive_answer(direct_evidence_answer.get("reply", "")):
+                reply_text = direct_evidence_answer["reply"]
+                all_sources = direct_evidence_answer.get("sources", all_sources)
+            else:
+                reply_text = "The available documents do not state that detail."
+                all_sources = []
         if generated_clarification:
             reply_text = re.sub(r"\s*\[[0-9][0-9,\s]*\]", "", reply_text).strip()
             result_sources = []
@@ -14089,6 +14104,18 @@ Citation rules:
         # Keep streamed answers on the same post-generation contract path as
         # chatbot.answer(), which the regression runner calls directly.
         raw_answer = self.sanitize_answer_contract(user_message, raw_answer)
+        contract_violations = self.validate_answer_contract(user_message, raw_answer, query_route)
+        if contract_violations:
+            # The streamed path must enforce the same requested-facet contract
+            # as the non-streaming path. This recovers count/list answers from
+            # the source evidence when the model emits only a trailing fragment.
+            direct_evidence_answer = self.extract_direct_evidence_answer(
+                user_message,
+                trace.get("retrieved_context", []) or [],
+                retrieved_metadata,
+            )
+            if direct_evidence_answer and self.has_substantive_answer(direct_evidence_answer.get("reply", "")):
+                raw_answer = direct_evidence_answer["reply"]
         raw_answer = self.sanitize_unsupported_negative_claims(
             user_message,
             raw_answer,
@@ -14122,7 +14149,25 @@ Citation rules:
         cited_sources = self.filter_sources_to_cited(raw_answer, all_sources)
         normalized_answer, normalized_sources = self.normalize_result_citations(raw_answer, cited_sources)
         stream_status = result.get("status", "answered")
-        if not normalized_answer:
+        if not self.has_substantive_answer(normalized_answer):
+            # Do not expose a citation-only or punctuation-only model output.
+            # Prefer a deterministic answer from the retrieved evidence; if it
+            # cannot produce one, fail closed without attaching unrelated sources.
+            direct_evidence_answer = self.extract_direct_evidence_answer(
+                user_message,
+                trace.get("retrieved_context", []) or [],
+                retrieved_metadata,
+            )
+            if direct_evidence_answer and self.has_substantive_answer(direct_evidence_answer.get("reply", "")):
+                normalized_answer, normalized_sources = self.normalize_result_citations(
+                    direct_evidence_answer["reply"],
+                    direct_evidence_answer.get("sources", []),
+                )
+            else:
+                normalized_answer = "The available documents do not state that detail."
+                normalized_sources = []
+                stream_status = "answered"
+        if not self.has_substantive_answer(normalized_answer):
             normalized_answer = "The assistant did not return a response. Please try again."
             normalized_sources = []
             stream_status = "error"
@@ -14282,6 +14327,14 @@ Citation rules:
         cleaned = re.sub(r"(\])\s*,(?=\s*(?:[.!?]|$))", r"\1", cleaned)
         cleaned = re.sub(r",{2,}", ",", cleaned)
         return cleaned.strip()
+
+    def has_substantive_answer(self, reply: str) -> bool:
+        """Return false for citation-only, punctuation-only, or empty replies."""
+        if not str(reply or "").strip():
+            return False
+        without_citations = re.sub(r"\s*\[[0-9][0-9,\s]*\]", "", str(reply))
+        without_markup = re.sub(r"[*_`#>-]", " ", without_citations)
+        return bool(re.search(r"[A-Za-z0-9]", without_markup))
 
     def normalize_markdown_structure(self, reply: str) -> str:
         """Repair common streamed Markdown blobs without changing answer facts."""
