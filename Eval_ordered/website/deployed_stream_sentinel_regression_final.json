@@ -1,0 +1,182 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786419689.0207412,
+  "capture_only": true,
+  "case_count": 3,
+  "results": [
+    {
+      "id": "fs_023",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?",
+          "answer": "**Identity and Roles of Carlos Velásquez** Carlos Velásquez is a PhD candidate at UMass Boston and a project manager at MassDOT [1]. In relation to the Cape Cod Rail Resilience Project, he holds the role of project lead [1]. The available documents do not explicitly define a second distinct role for him specifically within the project, other than his professional titles as a PhD candidate and project manager [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Cape Cod Rail Resilience Project",
+              "entity_type": "project",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project) program initiative working with research assistant team includes responsible for manages supports engagement"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "8a99c15d927f4848813a15435e1d5a17",
+          "elapsed_seconds": 5.994,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Identity and Roles of Carlos Velásquez** Carlos Velásquez is a PhD candidate at UMass Boston and a project manager at MassDOT [1]. In relation to the Cape Cod Rail Resilience Project, he holds the role of project lead [1]. The available documents do not explicitly define a second distinct role for him specifically within the project, other than his professional titles as a PhD candidate and project manager [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project) program initiative working with research assistant team includes responsible for manages supports engagement"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_036",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+          "answer": "Nyingilanyeofori Hannah Brown is currently a Ph.D. candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Nyingilanyeofori Hannah Brown",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "a473dc76e41a4d8aa78e87d027b6fc5e",
+          "elapsed_seconds": 8.566,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Nyingilanyeofori Hannah Brown is currently a Ph.D. candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_039",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Vishal Verma complete his undergraduate and master's education?",
+          "answer": "Vishal Verma completed his undergraduate education at Banaras Hindu University in Varanasi, India [1]. Vishal Verma completed his master's education at the Indian Institute of Technology (IIT) Gandhinagar, India [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Vishal Verma",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "faee5bc55e974ffbaf6d55dc3e1fd902",
+          "elapsed_seconds": 4.036,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Vishal Verma completed his undergraduate education at Banaras Hindu University in Varanasi, India [1]. Vishal Verma completed his master's education at the Indian Institute of Technology (IIT) Gandhinagar, India [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Vishal Verma",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}
