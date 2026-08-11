@@ -9958,6 +9958,12 @@ Citation rules:
                 str(result.get("reply", "")),
                 result.get("sources", []) or [],
             )
+            if status == "answered" and not self.has_substantive_answer(normalized_reply):
+                # Structured extraction routes can return before the streamed
+                # post-processing guard. Never expose a citation-only or
+                # punctuation-only reply as an answered result.
+                normalized_reply = "The available documents do not state that detail."
+                normalized_sources = []
             result["reply"] = normalized_reply
             result["sources"] = normalized_sources
         result.setdefault("status", status)
