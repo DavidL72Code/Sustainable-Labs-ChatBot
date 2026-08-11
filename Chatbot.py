@@ -130,9 +130,25 @@ class RetrievalChatbot:
         self.bm25_idf: dict[str, float] = {}
         self.avg_document_length: float = 0.0
         self.query_cache: dict[str, dict] = {}
+        self.verified_question_bank = self._load_verified_question_bank()
         self.llm_planning_skips: int = 0
         self.llm_planning_calls: int = 0
         self._initialize_search_index()
+
+    def _load_verified_question_bank(self) -> list[dict]:
+        path = PROJECT_ROOT / "verified_question_bank.json"
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return []
+        if not isinstance(payload, list):
+            return []
+        return [
+            item for item in payload
+            if isinstance(item, dict)
+            and str(item.get("question", "")).strip()
+            and isinstance(item.get("target_sources", []), list)
+        ]
 
     def _get_or_create_collection(self) -> Collection:
         return self.client.get_or_create_collection(name=self.config.collection_name)
@@ -14442,43 +14458,50 @@ Citation rules:
         retrieved_context: Optional[list[str]] = None,
         query_route: Optional[dict] = None,
     ) -> list[str]:
-        if answer.strip():
-            context_block = (
-                f"Question: {user_message}\n\n"
-                f"The chatbot answered:\n{answer}\n\n"
-                "Based on the question and answer, suggest up to 3 short follow-up questions "
-                "whose answers are explicitly supported by the answer or retrieved evidence. "
-                "Do not suggest procedures, goals, application steps, or other facts unless stated.\n"
-            )
-        else:
-            context_block = (
-                f"Question: {user_message}\n\n"
-                "Suggest up to 3 short follow-up questions that are answerable from the available "
-                "SSL evidence; return fewer or [] when support is absent.\n"
-            )
+        if not self.verified_question_bank or not answer.strip():
+            return []
+        if re.search(
+            r"(?i)\b(?:i\s+don['’]t\s+have|does not state|do not state|not stated|not available|did not return)\b",
+            answer,
+        ):
+            return []
 
-        prompt = (
-            "A user is chatting with a chatbot about the Sustainable Solutions Lab (SSL).\n\n"
-            + context_block
-            + "Focus on SSL's research, staff, projects, publications, or initiatives.\n"
-            "Return ONLY a valid JSON array of up to 3 strings. No preamble, no markdown fences.\n"
-            'Example: ["What projects is SSL currently working on?", "Who leads SSL?", "How is SSL funded?"]'
-        )
+        stopwords = {
+            "what", "which", "who", "where", "when", "why", "how", "does", "did",
+            "is", "are", "was", "were", "the", "a", "an", "about", "more", "tell",
+            "me", "ssl", "sustainable", "solutions", "lab", "specific", "their", "its",
+            "this", "that", "these", "those", "and", "for", "from", "with", "into",
+        }
+        current_tokens = {
+            token for token in re.findall(r"[a-z0-9]+", f"{user_message} {answer}".lower())
+            if len(token) >= 4 and token not in stopwords
+        }
+        ranked: list[tuple[int, str]] = []
+        current_question = re.sub(r"\s+", " ", user_message.strip().lower())
+        for item in self.verified_question_bank:
+            question = str(item["question"]).strip()
+            if question.lower() == current_question:
+                continue
+            candidate_tokens = {
+                token for token in re.findall(r"[a-z0-9]+", question.lower())
+                if len(token) >= 4 and token not in stopwords
+            }
+            overlap = len(current_tokens & candidate_tokens)
+            if overlap == 0:
+                continue
+            route = self.detect_local_query_route(question)
+            context, metadata, diagnostics = self.retrieve_context(question, top_k=5, query_route=route)
+            target_sources = {str(path) for path in item.get("target_sources", [])}
+            retrieved_paths = {str(meta.get("source_path", "")) for meta in metadata}
+            if not context or (target_sources and not target_sources.intersection(retrieved_paths)):
+                continue
+            confidence = self.assess_retrieval_confidence(question, route, context, metadata, diagnostics)
+            if confidence.get("is_low_confidence"):
+                continue
+            ranked.append((overlap, question))
 
-        try:
-            raw = call_gemini(prompt, temperature=0.4, thinking_budget=0)
-            raw = raw.strip()
-            raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.MULTILINE).strip()
-            suggestions = json.loads(raw)
-            if isinstance(suggestions, list):
-                return self._filter_supported_suggestions(
-                    [str(s).strip() for s in suggestions[:3] if str(s).strip()],
-                    retrieved_context=retrieved_context,
-                    query_route=query_route,
-                )
-        except Exception:
-            pass
-        return []
+        ranked.sort(key=lambda pair: (-pair[0], pair[1]))
+        return [question for _, question in ranked[:3]]
 
 
 _gemini_client: Optional[object] = None

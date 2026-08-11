@@ -1,0 +1,20 @@
+[
+  {"id":"fs_001","question":"What is SSL's vision for the future of the climate action space?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_003","question":"What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_004","question":"Who does SSL say its transdisciplinary research centers and is led by?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_006","question":"What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_007","question":"How does SSL describe its approach to expanding what counts as climate research?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_008","question":"What is the email address used to contact SSL?","target_sources":["SEED_DOCUMENTS/SSLAbout.txt"]},
+  {"id":"fs_009","question":"In what season and year was the Northeast Climate Justice Research Collaborative launched?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_010","question":"What organization co-organizes the Climate Adaptation Forum alongside SSL?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_011","question":"In what year was the Climate Adaptation Forum established?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_012","question":"What foundation provides financial support for the Climate Careers Curricula Initiative?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_013","question":"How many total participants does the C3I program aim to enroll over its three-year run?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_014","question":"What percentage of C3I participants are expected to come from underrepresented groups?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_015","question":"What specific event triggered the launch of the Cape Cod Rail Resilience Project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_016","question":"In what year did the rail embankment collapse at East Sandwich occur?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_017","question":"What aerial technology does the Cape Cod Rail Resilience Project use for mapping?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_018","question":"What federal agency provides funding for the Cape Cod Rail Resilience Project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_019","question":"How many pilot study sites does the Cape Cod Rail Resilience Project operate?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+  {"id":"fs_020","question":"What NSF program provided the planning grant that funded the CLIIR Initiative?","target_sources":["SEED_DOCUMENTS/Projects.txt"]}
+]
