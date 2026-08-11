@@ -14062,7 +14062,10 @@ Citation rules:
                 result,
             )
 
-        if result.get("reply") != _sentinel:
+        # The normal answer contract may append clarification text to the
+        # sentinel, so compare by prefix. Otherwise the internal marker leaks
+        # into the user's response and bypasses streamed citation handling.
+        if not str(result.get("reply", "")).startswith(_sentinel):
             # Early return: clarification needed, registry answer, etc.
             yield f"data: {json.dumps({**result, 'done': True})}\n\n"
             return
@@ -14079,7 +14082,9 @@ Citation rules:
         for chunk in call_gemini_stream(captured["prompt"]):
             full_answer_parts.append(chunk)
 
-        raw_answer = self.sanitize_reply_citations("".join(full_answer_parts).strip(), all_sources)
+        raw_answer = "".join(full_answer_parts).strip()
+        raw_answer = raw_answer.replace(_sentinel, "").strip()
+        raw_answer = self.sanitize_reply_citations(raw_answer, all_sources)
         query_route = trace.get("query_route") or {}
         # Keep streamed answers on the same post-generation contract path as
         # chatbot.answer(), which the regression runner calls directly.
@@ -14089,6 +14094,17 @@ Citation rules:
             raw_answer,
             trace.get("retrieved_context", []) or [],
         )
+        if re.search(
+            r"(?i)\b(?:i\s+don['’]t\s+have|not stated|does not state|do not state|not available)\b",
+            raw_answer,
+        ):
+            direct_evidence_answer = self.extract_direct_evidence_answer(
+                user_message,
+                trace.get("retrieved_context", []) or [],
+                retrieved_metadata,
+            )
+            if direct_evidence_answer:
+                raw_answer = direct_evidence_answer.get("reply", raw_answer)
         raw_answer = self.sanitize_definition_caveat(user_message, raw_answer)
         raw_answer = self.enforce_concise_broad_answer(raw_answer, user_message, query_route)
         raw_answer = self.complete_missing_requested_facets(

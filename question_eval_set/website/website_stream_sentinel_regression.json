@@ -1,0 +1,7 @@
+{
+  "single_turn": [
+    {"id":"fs_023","type":"people_lookup","question":"Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?","target_sources":["SEED_DOCUMENTS/Projects.txt"]},
+    {"id":"fs_036","type":"people_lookup","question":"What degree program is Hannah Brown currently pursuing and at which university?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]},
+    {"id":"fs_039","type":"people_lookup","question":"Where did Vishal Verma complete his undergraduate and master's education?","target_sources":["SEED_DOCUMENTS/StudentsInterns.txt"]}
+  ]
+}
