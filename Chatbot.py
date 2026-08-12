@@ -1524,9 +1524,14 @@ class RetrievalChatbot:
                 "design",
                 "support throughout the research process",
             ])
-        if any(term in lowered for term in ("research", "focus", "background", "expertise")):
+        if any(term in lowered for term in ("research", "focus", "background", "expertise", "area", "areas", "topic", "topics", "subject")):
             additions.extend([
                 "scholarship",
+                "expertise",
+                "focus",
+                "research interests",
+                "areas of study",
+                "topics",
                 "research position",
                 "visiting faculty",
                 "urban and regional planning",
@@ -1543,12 +1548,15 @@ class RetrievalChatbot:
                 "research assistant",
                 "team includes",
             ])
-        if any(term in lowered for term in ("purpose", "goal", "role")):
+        if any(term in lowered for term in ("purpose", "goal", "role", "responsible", "responsibility", "function", "position", "title")):
             additions.extend([
                 "responsible for",
                 "manages",
                 "supports",
                 "engagement",
+                "title",
+                "position",
+                "role",
                 "program",
             ])
         additions = [item for item in dict.fromkeys(additions) if item.lower() not in query.lower()]
@@ -1595,10 +1603,91 @@ class RetrievalChatbot:
                 "duration",
                 "enroll participants",
             ])
+        if any(term in combined for term in ("network", "kind of", "type of", "what is", "description")):
+            additions.extend([
+                "network",
+                "organization",
+                "transdisciplinary",
+                "academic and community researchers",
+                "description",
+                "purpose",
+            ])
         additions = [item for item in dict.fromkeys(additions) if item.lower() not in lowered]
         if not additions:
             return query
         return f"{query} {' '.join(additions[:14])}"
+
+    def retrieval_evidence_coverage(
+        self,
+        query: str,
+        candidates: list[dict],
+        query_route: Optional[dict] = None,
+    ) -> bool:
+        """Detect whether the original query already retrieved usable evidence.
+
+        This intentionally favors the original query. Expansion is only allowed
+        when the baseline results lack both the requested subject and a useful
+        fact marker, preventing paraphrase expansion from disturbing easy hits.
+        """
+        if not candidates:
+            return False
+        documents = [str(candidate.get("document", "")) for candidate in candidates[:6]]
+        searchable = "\n".join(documents).lower()
+        subject = str((query_route or {}).get("resolved_subject") or "").strip()
+        if not subject:
+            subject_matches = self.find_exact_or_phrase_matched_entities(query)
+            if len(subject_matches) == 1:
+                subject = str(subject_matches[0].get("name") or subject_matches[0].get("section_name") or "").strip()
+        subject_tokens = [token for token in re.findall(r"[a-z][a-z'’-]+", subject.lower()) if len(token) >= 3]
+        subject_hit = bool(subject_tokens and sum(token in searchable for token in subject_tokens) >= max(1, min(2, len(subject_tokens))))
+
+        requested = self.detect_requested_fact_facets(query)
+        marker_groups = {
+            "research": ("expertise", "focus:", "research", "specializ", "areas of study", "topics"),
+            "employment": ("title:", "role", "position", "manager", "director", "professor", "responsible"),
+            "leadership": ("director", "manager", "lead", "convened by", "supervises"),
+            "purpose": ("purpose", "goal", "aim", "objective", "network", "initiative", "program"),
+            "topic": ("topic", "theme", "subject", "focus", "areas"),
+            "affiliation": ("affiliated", "university", "institution", "professor", "school"),
+        }
+        markers = []
+        for facet in requested:
+            markers.extend(marker_groups.get(facet, ()))
+        marker_hit = bool(markers and any(marker in searchable for marker in markers))
+        query_terms = [
+            token for token in re.findall(r"[a-z][a-z0-9-]+", query.lower())
+            if len(token) >= 4 and token not in {
+                "what", "which", "when", "where", "who", "does", "this", "that", "from", "with", "about",
+                "listed", "according", "areas", "included", "associated", "question",
+            }
+        ]
+        lexical_hits = sum(any(re.search(rf"\b{re.escape(term)}\b", document.lower()) for document in documents) for term in query_terms)
+        lexical_coverage = lexical_hits >= max(2, min(4, len(query_terms) // 3 or 2))
+        if subject:
+            return subject_hit and (marker_hit or lexical_coverage)
+        return marker_hit or lexical_coverage
+
+    @staticmethod
+    def merge_retrieval_variants(primary: list[dict], baseline: list[dict]) -> list[dict]:
+        """Merge expanded and original results without discarding baseline hits."""
+        merged: dict[str, dict] = {}
+        for candidate in primary:
+            key = str(candidate.get("id"))
+            merged[key] = dict(candidate)
+            merged[key]["retrieval_variant"] = "expanded"
+        for candidate in baseline:
+            key = str(candidate.get("id"))
+            if key not in merged:
+                item = dict(candidate)
+                item["retrieval_variant"] = "original"
+                item["score"] = float(item.get("score", item.get("hybrid_score", 0.0))) + 0.12
+                merged[key] = item
+            else:
+                merged[key]["score"] = max(
+                    float(merged[key].get("score", 0.0)),
+                    float(candidate.get("score", candidate.get("hybrid_score", 0.0))) + 0.12,
+                )
+        return sorted(merged.values(), key=lambda item: float(item.get("score", item.get("hybrid_score", 0.0))), reverse=True)
 
     def retrieve_context(
         self,
@@ -1670,6 +1759,7 @@ class RetrievalChatbot:
                 subject_name = str(scope.get("name", "")).strip()
                 jobs.append({
                     "id": f"subject_{index}",
+                "baseline_query": f"{subject_name}: {query}",
                 "query": self.expand_topic_retrieval_query(
                     self.expand_person_deep_facet_query(f"{subject_name}: {retrieval_query}", subject_route),
                     subject_route,
@@ -1677,7 +1767,7 @@ class RetrievalChatbot:
                     "route": subject_route,
                 })
         else:
-            jobs = [{"id": "main", "query": retrieval_query, "route": query_profile}]
+            jobs = [{"id": "main", "baseline_query": query, "query": retrieval_query, "route": query_profile}]
         for index, facet in enumerate(facets, start=1):
             facet_route = dict(query_profile)
             facet_route.update({
@@ -1709,6 +1799,7 @@ class RetrievalChatbot:
                 facet_route["routing_mode"] = "hard"
             jobs.append({
                 "id": str(facet.get("id") or f"facet_{index}"),
+                "baseline_query": facet_query_text,
                 "query": self.expand_topic_retrieval_query(
                     self.expand_person_deep_facet_query(
                         str(facet.get("standalone_query") or facet.get("question", "")).strip(),
@@ -1735,6 +1826,38 @@ class RetrievalChatbot:
             )
             ranked = self.rerank_candidates(query=job["query"], candidates=fused_candidates, query_profile=job_route)
             ranked = self.apply_freshness_adjustment(query=job["query"], candidates=ranked, query_profile=job_route)
+            baseline_query = str(job.get("baseline_query") or "").strip()
+            if baseline_query and baseline_query != job["query"]:
+                baseline_dense = self.retrieve_dense_candidates(
+                    baseline_query,
+                    limit=candidate_pool,
+                    query_route=job_route,
+                )
+                baseline_bm25 = self.retrieve_bm25_candidates(
+                    baseline_query,
+                    limit=candidate_pool,
+                    query_route=job_route,
+                )
+                baseline_fused = self.fuse_candidates(
+                    query_profile=job_route,
+                    dense_candidates=baseline_dense,
+                    bm25_candidates=baseline_bm25,
+                )
+                baseline_ranked = self.rerank_candidates(
+                    query=baseline_query,
+                    candidates=baseline_fused,
+                    query_profile=job_route,
+                )
+                baseline_ranked = self.apply_freshness_adjustment(
+                    query=baseline_query,
+                    candidates=baseline_ranked,
+                    query_profile=job_route,
+                )
+                if self.retrieval_evidence_coverage(baseline_query, baseline_ranked, job_route):
+                    ranked = baseline_ranked
+                    job["query"] = baseline_query
+                else:
+                    ranked = self.merge_retrieval_variants(ranked, baseline_ranked)
             if not ranked:
                 recovery_terms = {
                     token
