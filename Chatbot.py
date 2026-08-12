@@ -1817,16 +1817,9 @@ class RetrievalChatbot:
         for job in jobs:
             job_route = job["route"]
             candidate_pool = self.choose_candidate_pool(job_route, max(requested_top_k, per_job_k))
-            dense_candidates = self.retrieve_dense_candidates(job["query"], limit=candidate_pool, query_route=job_route)
-            bm25_candidates = self.retrieve_bm25_candidates(job["query"], limit=candidate_pool, query_route=job_route)
-            fused_candidates = self.fuse_candidates(
-                query_profile=job_route,
-                dense_candidates=dense_candidates,
-                bm25_candidates=bm25_candidates,
-            )
-            ranked = self.rerank_candidates(query=job["query"], candidates=fused_candidates, query_profile=job_route)
-            ranked = self.apply_freshness_adjustment(query=job["query"], candidates=ranked, query_profile=job_route)
             baseline_query = str(job.get("baseline_query") or "").strip()
+            baseline_ranked: list[dict] = []
+            baseline_is_sufficient = False
             if baseline_query and baseline_query != job["query"]:
                 baseline_dense = self.retrieve_dense_candidates(
                     baseline_query,
@@ -1853,10 +1846,44 @@ class RetrievalChatbot:
                     candidates=baseline_ranked,
                     query_profile=job_route,
                 )
-                if self.retrieval_evidence_coverage(baseline_query, baseline_ranked, job_route):
-                    ranked = baseline_ranked
-                    job["query"] = baseline_query
-                else:
+                baseline_is_sufficient = self.retrieval_evidence_coverage(
+                    baseline_query,
+                    baseline_ranked,
+                    job_route,
+                )
+
+            # Preserve the original-query path whenever it already contains
+            # usable evidence. The expanded lane is a recovery path only.
+            if baseline_is_sufficient:
+                ranked = baseline_ranked
+                job["query"] = baseline_query
+            else:
+                dense_candidates = self.retrieve_dense_candidates(
+                    job["query"],
+                    limit=candidate_pool,
+                    query_route=job_route,
+                )
+                bm25_candidates = self.retrieve_bm25_candidates(
+                    job["query"],
+                    limit=candidate_pool,
+                    query_route=job_route,
+                )
+                fused_candidates = self.fuse_candidates(
+                    query_profile=job_route,
+                    dense_candidates=dense_candidates,
+                    bm25_candidates=bm25_candidates,
+                )
+                ranked = self.rerank_candidates(
+                    query=job["query"],
+                    candidates=fused_candidates,
+                    query_profile=job_route,
+                )
+                ranked = self.apply_freshness_adjustment(
+                    query=job["query"],
+                    candidates=ranked,
+                    query_profile=job_route,
+                )
+                if baseline_ranked:
                     ranked = self.merge_retrieval_variants(ranked, baseline_ranked)
             if not ranked:
                 recovery_terms = {
