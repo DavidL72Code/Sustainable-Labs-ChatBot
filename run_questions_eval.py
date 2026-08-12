@@ -419,7 +419,10 @@ def gemini_call_with_retry(prompt: str, *, model: str | None = None, temperature
         except Exception as exc:
             error_text = str(exc)
             lowered_error = error_text.lower()
-            transient_markers = ("429", "quota", "503", "unavailable", "500", "internal error", "deadline", "timeout")
+            transient_markers = (
+                "429", "quota", "503", "unavailable", "500", "internal error", "deadline", "timeout",
+                "connection reset", "readerror", "read error", "connection refused", "temporarily",
+            )
             if not any(marker in lowered_error for marker in transient_markers):
                 raise
 
