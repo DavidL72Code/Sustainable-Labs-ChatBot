@@ -9969,6 +9969,11 @@ Entity record:
                     if not match:
                         continue
                     sentence = re.sub(r"\s+", " ", match.group(0)).strip(" .")
+                    sentence = re.sub(
+                        r"(?i)^(?:[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\s+)?(?:[A-Za-z]{1,12}\s+)?Expertise:\s*",
+                        "The listed expertise includes ",
+                        sentence,
+                    ).strip(" .")
                     if field == "degrees" and not any(term in sentence.lower() for term in ("bachelor", "master", "engineering")):
                         continue
                     if field == "degrees":
@@ -15265,6 +15270,11 @@ Citation rules:
 
         cleaned = reply.replace("\r\n", "\n").replace("\r", "\n")
         cleaned = re.sub(r"[ \t]+\n", "\n", cleaned)
+        cleaned = re.sub(
+            r"(?i)(^|(?<=[.!?]\s))(?:[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\s+)?(?:[A-Za-z]{1,12}\s+)?Expertise:\s*",
+            r"\1The listed expertise includes ",
+            cleaned,
+        )
         cleaned = re.sub(r",\s*(?=[.!?])", "", cleaned)
         cleaned = re.sub(r"(\])\s*,(?=\s*(?:[.!?]|$))", r"\1", cleaned)
         cleaned = re.sub(r"\s+([.,;:])", r"\1", cleaned)
