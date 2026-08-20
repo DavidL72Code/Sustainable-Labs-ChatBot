@@ -92,6 +92,7 @@ class ChatbotConfig:
     chat_rate_limit_window_seconds: int = int(os.getenv("CHAT_RATE_LIMIT_WINDOW_SECONDS", "60"))
     suggestions_rate_limit_count: int = int(os.getenv("SUGGESTIONS_RATE_LIMIT_COUNT", "30"))
     suggestions_rate_limit_window_seconds: int = int(os.getenv("SUGGESTIONS_RATE_LIMIT_WINDOW_SECONDS", "60"))
+    suggestions_verify_retrieval: bool = os.getenv("SUGGESTIONS_VERIFY_RETRIEVAL", "0").lower() in {"1", "true", "yes"}
     conversation_ttl_seconds: int = int(os.getenv("CONVERSATION_TTL_SECONDS", "3600"))
 
 
@@ -15493,15 +15494,18 @@ Citation rules:
             overlap = len(current_tokens & candidate_tokens)
             if overlap == 0:
                 continue
-            route = self.detect_local_query_route(question)
-            context, metadata, diagnostics = self.retrieve_context(question, top_k=5, query_route=route)
             target_sources = {str(path) for path in item.get("target_sources", [])}
-            retrieved_paths = {str(meta.get("source_path", "")) for meta in metadata}
-            if not context or (target_sources and not target_sources.intersection(retrieved_paths)):
+            if not target_sources:
                 continue
-            confidence = self.assess_retrieval_confidence(question, route, context, metadata, diagnostics)
-            if confidence.get("is_low_confidence"):
-                continue
+            if self.config.suggestions_verify_retrieval:
+                route = self.detect_local_query_route(question)
+                context, metadata, diagnostics = self.retrieve_context(question, top_k=5, query_route=route)
+                retrieved_paths = {str(meta.get("source_path", "")) for meta in metadata}
+                if not context or not target_sources.intersection(retrieved_paths):
+                    continue
+                confidence = self.assess_retrieval_confidence(question, route, context, metadata, diagnostics)
+                if confidence.get("is_low_confidence"):
+                    continue
             ranked.append((overlap, question))
 
         ranked.sort(key=lambda pair: (-pair[0], pair[1]))
