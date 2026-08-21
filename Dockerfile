@@ -26,6 +26,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy the app
 COPY Chatbot.py ./
 COPY conversation_state.py ./
+COPY verified_question_bank.json ./
 COPY templates/ ./templates/
 COPY static/ ./static/
 
