@@ -4420,10 +4420,30 @@ Available entity names:
         return matched_entities
 
     def strip_embedding_labels(self, text: str) -> str:
-        if text.startswith("Document Labels:"):
-            _, _, remainder = text.partition("\n\n")
-            return remainder.strip() or text
-        return text.strip()
+        cleaned = str(text or "").strip()
+        if not cleaned:
+            return cleaned
+        if cleaned.startswith("Document Labels:"):
+            _, _, remainder = cleaned.partition("\n\n")
+            return remainder.strip() or cleaned
+        if cleaned.startswith("Evidence Bucket:"):
+            section_match = re.search(r"(?i)\bSection Name:\s*(.+?)\s+Entity Type:", cleaned)
+            labels_pos = cleaned.lower().find("document labels:")
+            if section_match and labels_pos >= 0:
+                section_name = re.sub(r"\s+", " ", section_match.group(1)).strip()
+                if section_name:
+                    after_labels = cleaned[labels_pos:]
+                    first = after_labels.lower().find(section_name.lower())
+                    second = after_labels.lower().find(section_name.lower(), first + len(section_name)) if first >= 0 else -1
+                    if second >= 0:
+                        return after_labels[second:].strip()
+            compact = re.sub(
+                r"(?is)^Evidence Bucket:\s*.*?\bDocument Labels:\s*",
+                "",
+                cleaned,
+            ).strip()
+            return compact or cleaned
+        return cleaned
 
     def best_registry_text(self, entity: dict) -> str:
         text_options = [
@@ -15270,6 +15290,7 @@ Citation rules:
             return reply
 
         cleaned = reply.replace("\r\n", "\n").replace("\r", "\n")
+        cleaned = self.strip_embedding_labels(cleaned)
         cleaned = re.sub(r"[ \t]+\n", "\n", cleaned)
         cleaned = re.sub(
             r"(?i)(^|(?<=[.!?]\s))(?:[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\s+)?(?:[A-Za-z]{1,12}\s+)?Expertise:\s*",
