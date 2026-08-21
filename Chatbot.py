@@ -12833,9 +12833,18 @@ Citation rules:
             )
 
         normalized_scope_query = lowered_user_message.strip().rstrip("?.!")
-        if normalized_scope_query in {"what is the best laptop", "what laptop should i buy", "best laptop"}:
+        asks_product_recommendation = (
+            any(term in lowered_user_message for term in (
+                "laptop", "computer", "phone", "tablet", "gpu", "gaming pc",
+                "playstation", "xbox", "headphones", "monitor",
+            ))
+            and any(term in lowered_user_message for term in (
+                "recommend", "recommendation", "should i buy", "best", "provide",
+            ))
+        )
+        if normalized_scope_query in {"what is the best laptop", "what laptop should i buy", "best laptop"} or asks_product_recommendation:
             return {
-                "reply": "I can help with questions about the Sustainable Solutions Lab, but I don't have recommendations for laptops.",
+                "reply": "I can help with questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives, but I don't provide product recommendations.",
                 "sources": [],
                 "needs_clarification": False,
                 "clarification_options": [],
