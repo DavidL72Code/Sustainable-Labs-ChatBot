@@ -32,21 +32,30 @@ The design deliberately combines deterministic software with an LLM. Determinist
 
 ```mermaid
 flowchart TD
-    A["User question"] --> B["Safety and input checks"]
-    B --> C["Conversation state"]
-    C --> D["LLM rewrite and query plan"]
-    D --> E["Resolve subject, intent, facets, and source scope"]
-    E --> F{ "Answer route" }
-    F -->|"Structured fact"| G["Entity or document registry"]
-    F -->|"Retrieval"| H["Dense + BM25 hybrid search"]
-    G --> I["Evidence and provenance checks"]
-    H --> I
-    I --> J["Freshness, scope, neighbor, and facet filtering"]
-    J --> K["Grounded Gemini answer"]
-    K --> L["Citation and answer-contract validation"]
-    L -->|"Valid"| M["Stream answer to frontend"]
-    L -->|"Invalid"| N["One corrective regeneration"]
-    N --> L
+    A["User question"] --> B["Safety checks and rate limits"]
+    B --> C["Conversation state resolver"]
+    C --> D["Local router"]
+    D --> E{"Needs LLM planning?"}
+    E -->|"No"| F["Deterministic query route"]
+    E -->|"Yes"| G["Gemini rewrite and facet planner"]
+    G --> F
+    F --> H{"Route family"}
+    H -->|"Registry or field fact"| I["Deterministic evidence extractor"]
+    H -->|"Corpus RAG"| J["Hybrid retrieval"]
+    J --> K["Dense vector search"]
+    J --> L["BM25 lexical search"]
+    K --> M["RRF fusion and metadata rerank"]
+    L --> M
+    M --> N["Facet buckets, source scope, neighbor expansion"]
+    I --> O["Evidence + source objects"]
+    N --> O
+    O --> P["Grounded Gemini composition when needed"]
+    P --> Q["Answer contract validation"]
+    I --> Q
+    Q --> R["Citation normalization and source filtering"]
+    R --> S["Markdown/display cleanup"]
+    S --> T["SSE response to frontend"]
+    T --> U["Verified-bank suggestion chips"]
 ```
 
 ### Why the Pipeline Has These Stages
@@ -55,10 +64,32 @@ flowchart TD
 2. **The rewrite is not the answer.** The LLM turns a contextual message into a standalone retrieval query and identifies the subject, intent, facets, and possible route. The original user question remains available for answer wording.
 3. **The plan controls retrieval.** The router chooses registry lookup, document lookup, or corpus retrieval. A registry miss is not treated as a final answer; the system falls back to retrieval when the corpus may still contain the fact.
 4. **Hybrid retrieval covers different failure modes.** Dense search handles paraphrases and concepts; BM25 handles exact names, titles, acronyms, and phrases. Metadata reranking then favors the correct source and section.
-5. **Evidence is scoped before generation.** The system keeps facet buckets separate, expands neighbors only within the same document unit, filters unrelated people or projects, and favors newer sources for current questions while preserving historical sources for dated questions.
-6. **The answer is validated after generation.** Citations are restricted to returned evidence. The answer contract checks requested counts, retrieval-only locator details, and other explicit constraints. If the draft violates the contract, one corrective generation is attempted instead of silently returning it.
+5. **Deterministic extraction handles fragile facts.** Repeated field-style facts such as names, titles, emails, affiliate expertise, program year, committee counts, or source-listed totals are extracted directly from evidence when possible. This avoids spending an LLM call on facts that are already present in a predictable structure.
+6. **Evidence is scoped before generation.** The system keeps facet buckets separate, expands neighbors only within the same document unit, filters unrelated people or projects, and favors newer sources for current questions while preserving historical sources for dated questions.
+7. **The answer is validated after generation.** Citations are restricted to returned evidence. The answer contract checks requested counts, retrieval-only locator details, missing facets, unsupported caveats, and raw retrieval-label leaks before the response reaches the UI.
+8. **Suggestions are verified-bank based.** Follow-up chips are selected from `verified_question_bank.json` instead of being invented live. Runtime ranking is intentionally cheap so suggestions do not drag the answer stream.
 
 This architecture prevents the common RAG failure where retrieval found the right text but the final model mixed evidence, answered an unasked clause, omitted a facet, or ignored a constraint.
+
+### Core Techniques and Methods
+
+| Technique | Where it is used | Why it matters |
+|---|---|---|
+| **Conversation-state resolution** | Follow-up handling before retrieval | Keeps pronouns and short follow-ups attached to the right person, project, source, or prior question. |
+| **Local route classifier** | Fast first-pass routing | Avoids unnecessary planner calls for obvious questions and applies source scopes early. |
+| **LLM query planning** | Ambiguous or multi-facet questions | Rewrites contextual questions into standalone retrieval queries and separates requested facts into facets. |
+| **Hybrid retrieval** | Corpus search | Combines semantic vector retrieval with BM25 exact-match retrieval so paraphrases, names, acronyms, and titles are all recoverable. |
+| **Reciprocal Rank Fusion** | Candidate merge | Fuses dense and sparse candidate lists without needing a trained reranker. |
+| **Metadata-aware reranking** | Candidate ordering | Boosts candidates matching route title, category, folder, source path, section name, and exact query anchors. |
+| **Facet-bucket retrieval** | Multi-part questions | Retrieves each requested sub-question separately so one easy fact does not crowd out another. |
+| **Document-unit neighbor expansion** | Evidence repair | Adds adjacent chunks from the same source unit when a fact spans chunk boundaries. |
+| **Entity and document registries** | People, projects, sections, field facts | Gives the system structured fallback paths when vector retrieval is too broad or too narrow. |
+| **Deterministic evidence extractors** | Field facts, counts, roster details, contact info | Produces stable answers for source-stated facts without relying on generative wording. |
+| **Answer contract validation** | Post-generation guardrail | Checks that the answer addresses the requested facets, counts, scope, and locator constraints. |
+| **Citation normalization** | Final response packaging | Filters sources to cited evidence, renumbers citations, and prevents citations from pointing to unused or unrelated sources. |
+| **Display cleanup** | Final streamed text | Removes backend retrieval labels, malformed punctuation, citation-only fragments, and leaked stream sentinels. |
+| **Verified question bank suggestions** | Post-answer follow-up chips | Recommends only curated answerable questions and avoids slow live retrieval over every candidate by default. |
+| **Admin-session dashboard** | Staff diagnostics | Protects traces and chat diagnostics behind login while preserving debug visibility for maintainers. |
 
 ---
 
@@ -70,10 +101,11 @@ The chatbot answers questions about SSL research projects, publications, staff, 
 
 - **Grounded answers** drawn directly from SSL source documents (annual reports, project pages, publications, staff bios).
 - **Streaming responses** — text appears token by token as Gemini generates it, using Server-Sent Events.
-- **Suggested questions** — six clickable pill buttons on first load to help users get started.
+- **Suggested questions** — starter buttons on first load plus verified follow-up chips after some answers.
 - **Recent questions sidebar** — in-session navigation that scrolls the chat back to a previous question on click.
 - **Content filter** — blocks profanity, hate speech, threats, and SSL/UMB-targeted harassment with a custom whitelist for legitimate academic terms (e.g. `assessment`, `massachusetts`, bird species) and a custom block list for org-specific phrases.
 - **Friendly error handling** — Gemini 503/429 errors surface as "high demand, try again" instead of raw stack traces.
+- **Citation-aware answers** — citations are normalized against the final answer and filtered to sources actually shown to the user.
 - **Analytics dashboard** at `/dashboard` for reviewing chat history, source mappings, retrieval diagnostics, confidence scores, latency, and evaluation results.
 
 ### The Retrieval Pipeline
@@ -82,7 +114,7 @@ The interesting work happens *before* the LLM is called. A user question goes th
 
 #### a) Intent Classification & Query Routing
 
-When a question comes in, the chatbot first figures out **what kind of question it is** and **which slice of the corpus is most relevant**. This is done in three layers:
+When a question comes in, the chatbot first figures out **what kind of question it is** and **which slice of the corpus is most relevant**. This is done in layers:
 
 1. **Keyword-based local router** ([`detect_local_query_route`](Chatbot.py#L1388)) — a fast, deterministic classifier that tags the question with:
    - A **question type**: `broad_overview`, `specific_fact`, `people_lookup`, `publication_inventory`, or `list_inventory`.
@@ -90,6 +122,7 @@ When a question comes in, the chatbot first figures out **what kind of question 
    - A **`prefer_summary` hint** that biases ranking toward short summary chunks vs. detail chunks.
 2. **Heuristic LLM-planning gate** ([`should_use_llm_planning`](Chatbot.py#L104)) — decides whether the question is ambiguous enough to deserve a more expensive LLM-powered planning call. Skips the LLM when confidence is decent, the query is short, targets are already found, or the topic is obviously clear. Saves tokens and latency on easy questions.
 3. **LLM query planner** ([`plan_query_with_llm`](Chatbot.py#L1722)) — only invoked when the gate says the heuristic wasn't enough. Given a catalog of titles, categories, folders, and entity names, Gemini picks the right routing scope itself.
+4. **Facet extraction** — multi-part questions are split into focused sub-questions so retrieval can preserve evidence for each requested fact instead of letting one dominant chunk crowd out the rest.
 
 #### b) Ensemble / Hybrid Search
 
@@ -111,9 +144,39 @@ A separate entity registry is built at ingest time from staff, board, affiliate,
 - Resolve pronouns and "what about her?" follow-ups against recent conversation turns ([`resolve_recent_entity_follow_up`](Chatbot.py#L2179)).
 - Detect multi-group people-overview asks vs. specific-entity-detail asks so the response shape matches the question.
 
-#### e) Generation
+#### e) Deterministic Answer Paths
+
+Not every answer needs a generative model. For predictable source-stated facts, the app can answer directly from retrieved or registry evidence:
+
+- Roster fields such as title, department, institute, affiliate expertise, email, and phone.
+- Count or total facts when a source directly states the number.
+- Person/project relationship sentences that can be quoted or lightly normalized from one evidence block.
+- Structured “not stated” fallbacks when retrieval genuinely does not contain the requested fact.
+
+These paths are intentionally dynamic: they are based on source structure, field labels, requested facets, and retrieval evidence rather than hard-coded case IDs.
+
+#### f) Generation and Post-Processing
 
 Retrieved chunks are formatted into a prompt and sent to Gemini via a **singleton client** (created once at startup, reused across requests). `max_output_tokens` is set to 2048 — appropriate for RAG and still below the default 8192. The response is streamed back to the client over SSE.
+
+Before a response is shown, the answer passes through:
+
+- Citation sanitization and renumbering.
+- Answer-contract validation for missing facets, wrong counts, unsupported caveats, and malformed responses.
+- Direct-evidence fallback if the generated answer fails the contract.
+- Final Markdown/display cleanup to remove raw retrieval labels, leaked stream sentinels, citation-only fragments, and punctuation blemishes.
+
+#### g) Suggested Questions
+
+The initial page can show static starter questions. After an answered chat turn, dynamic follow-up chips are chosen from [`verified_question_bank.json`](verified_question_bank.json):
+
+1. The current question and answer are tokenized.
+2. Verified bank questions are ranked by overlap.
+3. Questions without target sources are ignored.
+4. The exact question just asked is excluded.
+5. Up to three follow-ups are sent as a separate SSE `suggestions` event after the answer is done.
+
+For production speed, runtime suggestions do **not** rerun retrieval over every candidate by default. Set `SUGGESTIONS_VERIFY_RETRIEVAL=1` to re-enable the slower retrieval-verification gate. The verified bank is copied into the Hugging Face Docker image so production has the same suggestion source as local development.
 
 ### Document Ingestion
 
@@ -160,6 +223,7 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 | **`question_eval_set/`** | Date-organized question sets used for eval runs |
 | **`Eval_ordered/`** | Date-organized evaluation outputs, with `main`, `citation_fix`, and `failed_subset` subfolders |
 | **`question_eval_iter*.json`** | Legacy iterative evaluation snapshots used to track regressions and improvements |
+| **`verified_question_bank.json`** | Curated source-backed follow-up questions used for production suggestion chips |
 | **Analytics dashboard** | Staff diagnostics: per-interaction question/answer preview, trace JSON, retrieval diagnostics, source usage, corpus coverage, problem cases (blocked, clarification, error, low-confidence), evaluation summary with score key |
 
 ### Evaluation Folders
@@ -219,6 +283,14 @@ The final phase focused on making answers come from the right source more consis
    ```bash
    export GEMINI_API_KEY=your_key_here
    ```
+3. **Run the server**
+   ```bash
+   python3 Chatbot.py
+   ```
+4. Open `http://localhost:7860` for the chat UI.
+5. Open `http://localhost:7860/dashboard` for the analytics dashboard.
+
+The default port is `7860` (Hugging Face Spaces convention). Override with `PORT` or `CHATBOT_PORT` if needed. Set `CHATBOT_HOST=127.0.0.1` to bind to localhost only.
 
 ### Admin Dashboard Authentication
 
@@ -242,25 +314,29 @@ python3 -c "from werkzeug.security import generate_password_hash; print(generate
 Set `SESSION_COOKIE_SECURE=0` only for local HTTP development. Never expose dashboard routes without configuring the admin credentials and session secret.
 
 Bare hostnames such as `your-frontend.example` are also accepted and normalized to `https://your-frontend.example`; wildcards and paths are rejected.
-3. **Run the server**
-   ```bash
-   python3 Chatbot.py
-   ```
-4. Open `http://localhost:7860` for the chat UI.
-5. Open `http://localhost:7860/dashboard` for the analytics dashboard.
-
-The default port is `7860` (Hugging Face Spaces convention). Override with `PORT` or `CHATBOT_PORT` if needed. Set `CHATBOT_HOST=127.0.0.1` to bind to localhost only.
 
 ### Split Deployment: Hugging Face (backend) + Vercel (frontend)
 
 To avoid the Hugging Face Spaces iframe chrome, the backend and frontend deploy separately:
 
+```mermaid
+flowchart LR
+    U["Browser"] --> V["Vercel static frontend"]
+    V -->|"SSE /api/chat"| HF["Hugging Face Space"]
+    V -->|"/api/suggestions"| HF
+    V -->|"/api/dashboard with credentials"| HF
+    HF --> F["Flask app"]
+    F --> C["chroma_db snapshot"]
+    F --> B["verified_question_bank.json"]
+    F --> G["Gemini API"]
+    F --> L["local interaction logs"]
+    C --> F
+    B --> F
+    G --> F
+    L --> F
 ```
-[ Vercel: static site ]  ── fetch ──►  [ Hugging Face Space (Docker): Flask API ]
-   frontend/index.html                   /api/chat, /api/suggestions
-   frontend/dashboard*.html              /api/dashboard, /api/dashboard/interaction/<id>
-   frontend/static/                      ChromaDB + Gemini
-```
+
+Vercel serves only static HTML/CSS/JS. Hugging Face runs the Dockerized Flask backend, the prebuilt vector store, the verified suggestion bank, admin sessions, and Gemini calls.
 
 #### Backend on Hugging Face Spaces (Docker SDK)
 
@@ -269,6 +345,7 @@ The repo is already wired up for this:
 - [`.dockerignore`](.dockerignore) — excludes dev/benchmark artifacts from the image.
 - README frontmatter at the top of this file declares `sdk: docker` + `app_port: 7860`.
 - [`Chatbot.py`](Chatbot.py) wires up `flask-cors` and reads `CORS_ORIGINS` from env.
+- [`verified_question_bank.json`](verified_question_bank.json) is copied into the image so production suggestion chips use the same curated bank as local tests.
 
 Steps:
 
@@ -276,9 +353,10 @@ Steps:
 2. Push this repo to the Space's git remote.
 3. In **Space Settings → Variables and secrets**, set:
    - `GEMINI_API_KEY` — your Gemini key (secret).
-- `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Cross-origin API access is disabled if unset.
-- `TRUST_PROXY_HEADERS` — set to `1` only when the deployment has a trusted reverse proxy that supplies client IP headers; otherwise rate limiting uses the direct peer address.
-- `DASHBOARD_TRACE_MODE` — defaults to `staff`, which exposes question/answer previews plus full pipeline traces for troubleshooting. Set to `public` if the dashboard API is exposed outside staff-only access and should redact prompts/planning fields.
+   - `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Cross-origin API access is disabled if unset.
+   - `TRUST_PROXY_HEADERS` — set to `1` only when the deployment has a trusted reverse proxy that supplies client IP headers; otherwise rate limiting uses the direct peer address.
+   - `DASHBOARD_TRACE_MODE` — defaults to `staff`, which exposes question/answer previews plus full pipeline traces for troubleshooting. Set to `public` if the dashboard API is exposed outside staff-only access and should redact prompts/planning fields.
+   - `SUGGESTIONS_VERIFY_RETRIEVAL` — optional. Defaults to `0` for fast verified-bank suggestions. Set to `1` if you want suggestions to rerun retrieval over each candidate at runtime.
    - Optionally `GEMINI_MODEL` to override the default model.
    - Optionally `REWRITE_MODEL` to override the fast rewrite/classification model; the default is `gemma-4-26b-a4b-it`.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
@@ -308,5 +386,6 @@ The [`frontend/`](frontend/) directory is a ready-to-deploy static site.
 
 - **Cold starts** — free HF Spaces sleep after inactivity. First request after sleep still loads ChromaDB and the embedding model, but does not index documents. The Dockerfile pre-downloads the model to remove the model-download delay.
 - **CORS** — `flask-cors` is wired to `/api/*` only. SSE works cross-origin as long as your Vercel domain is in `CORS_ORIGINS`.
+- **Suggestions** — production suggestions require `verified_question_bank.json` inside the Docker image. If `/api/suggestions` returns empty for otherwise relevant answered questions, confirm the Dockerfile copies that file and the Space has rebuilt.
 - **Dashboard persistence** — interaction logs live on disk. On ephemeral filesystems they reset on every restart. The dashboard UI now lives in the static frontend, while its data still comes from the backend's `/api/dashboard` endpoints.
 - **`GEMINI_API_KEY`** — never commit it. Use Space secrets only.
