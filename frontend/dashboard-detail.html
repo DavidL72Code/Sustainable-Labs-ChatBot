@@ -49,7 +49,7 @@
           <span id="detailTimestamp"></span>
         </div>
         <div class="mapping-strip" aria-label="Chat answer mapping">
-          <span>Public event summary</span>
+          <span>Staff-only event summary</span>
           <strong>tracks</strong>
           <span>status and confidence</span>
           <strong>with</strong>
@@ -85,8 +85,39 @@
 
       <article class="panel">
         <div class="panel-header">
-          <h2>Retrieval Summary</h2>
+          <h2>Answer Path</h2>
+          <span id="detailPathLabel"></span>
         </div>
+        <div id="pathTable"></div>
+        <p class="empty-state" id="pathEmpty" hidden>No pipeline steps were recorded for this interaction.</p>
+        <dl class="detail-stats single-column" id="routeStats"></dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Latency Breakdown</h2>
+          <span id="detailLatencyTotal"></span>
+        </div>
+        <dl class="detail-stats single-column" id="latencyStats"></dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>Token Cost</h2>
+          <span id="detailCostTotal"></span>
+        </div>
+        <dl class="detail-stats" id="tokenStats"></dl>
+        <div id="tokenTable"></div>
+        <p class="empty-state" id="tokenEmpty" hidden>No LLM token usage was recorded for this interaction.</p>
+        <p class="muted-value" id="tokenUnpricedNote" hidden>Some models have no configured price. Set LLM_PRICE_TABLE_JSON to price them.</p>
+      </article>
+
+      <article class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Retrieval Scores</h2>
+        </div>
+        <div id="retrievalScoreTable"></div>
+        <p class="empty-state" id="retrievalScoreEmpty" hidden>No per-chunk retrieval scores were recorded for this interaction.</p>
         <pre class="json-block" id="retrievalSummary"></pre>
       </article>
     </section>

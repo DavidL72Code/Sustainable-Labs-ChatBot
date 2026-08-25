@@ -90,10 +90,83 @@ function createScorePill(score, isLowConfidence) {
   return pill;
 }
 
+function formatNumber(value) {
+  const number = Number(value || 0);
+  return Number.isFinite(number) ? number.toLocaleString() : "0";
+}
+
+function formatSeconds(milliseconds) {
+  const seconds = Number(milliseconds || 0) / 1000;
+  if (seconds > 0 && seconds < 0.01) return "<0.01 s";
+  return `${seconds.toFixed(2)} s`;
+}
+
+function formatCost(value) {
+  if (value === null || value === undefined) return "unpriced";
+  return `$${Number(value).toFixed(6)}`;
+}
+
+function createMetricCell(primary, secondary) {
+  const cell = document.createElement("td");
+  const main = document.createElement("span");
+  main.className = "count-pair";
+  main.textContent = primary;
+  cell.appendChild(main);
+  if (secondary) {
+    const note = document.createElement("span");
+    note.className = "muted-value";
+    note.textContent = secondary;
+    cell.appendChild(note);
+  }
+  return cell;
+}
+
+function renderMetricsTable(containerId, emptyId, headers, rows) {
+  const container = document.getElementById(containerId);
+  const empty = document.getElementById(emptyId);
+  if (!container) return;
+  container.innerHTML = "";
+  if (!rows.length) {
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  const table = document.createElement("table");
+  table.className = "metrics-table";
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  headers.forEach((header) => {
+    const th = document.createElement("th");
+    th.textContent = header;
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  const tbody = document.createElement("tbody");
+  rows.forEach((cells) => {
+    const tr = document.createElement("tr");
+    cells.forEach((value) => {
+      const td = document.createElement("td");
+      if (value instanceof Node) td.appendChild(value);
+      else td.textContent = value;
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.append(thead, tbody);
+  container.appendChild(table);
+}
+
+function createKindPill(kind) {
+  const pill = document.createElement("span");
+  pill.className = `kind-pill kind-${kind || "step"}`;
+  pill.textContent = kind || "step";
+  return pill;
+}
+
 function renderEmptyRow(message) {
   const row = document.createElement("tr");
   const cell = document.createElement("td");
-  cell.colSpan = 5;
+  cell.colSpan = 9;
   cell.className = "empty-state";
   cell.textContent = message;
   row.appendChild(cell);
@@ -197,6 +270,11 @@ async function loadDashboardPage() {
     setText("metricLowConfidence", String(dashboard.stats?.low_confidence ?? 0));
     setText("metricBlocked", String(dashboard.stats?.blocked ?? 0));
     setText("metricErrors", String(dashboard.stats?.errors ?? 0));
+    setText("metricAvgLatency", formatSeconds(dashboard.stats?.avg_latency_ms));
+    setText("metricTotalTokens", formatNumber(dashboard.stats?.total_tokens));
+    setText("metricAvgTokens", `${formatNumber(dashboard.stats?.avg_tokens)} avg / answer`);
+    setText("metricTotalCost", `$${Number(dashboard.stats?.total_cost_usd || 0).toFixed(4)}`);
+    setText("metricAvgCost", `${formatCost(dashboard.stats?.avg_cost_usd ?? 0)} avg / answer`);
 
     body.innerHTML = "";
     const history = dashboard.chat_history || [];
@@ -234,10 +312,34 @@ async function loadDashboardPage() {
         retrieved.textContent = `${event.retrieved_count || 0} retrieved`;
         sourceCell.append(shown, retrieved);
 
-        const latencyCell = document.createElement("td");
-        latencyCell.textContent = `${event.latency_ms || 0} ms`;
+        const pathCell = document.createElement("td");
+        const pathLabel = document.createElement("span");
+        pathLabel.className = "path-label";
+        pathLabel.textContent = event.path_label || event.response_mode || "direct";
+        pathLabel.title = event.path_label || "";
+        pathCell.appendChild(pathLabel);
 
-        row.append(statusCell, mappingCell, confidenceCell, sourceCell, latencyCell);
+        const retrievalCell = event.top_score === null || event.top_score === undefined
+          ? createMetricCell("N/A")
+          : createMetricCell(`top ${Number(event.top_score).toFixed(3)}`, `gap ${Number(event.score_gap || 0).toFixed(3)}`);
+
+        const tokenCell = event.total_tokens
+          ? createMetricCell(formatNumber(event.total_tokens), `${event.token_usage?.call_count || 0} call(s)`)
+          : createMetricCell("N/A");
+
+        const costCell = document.createElement("td");
+        costCell.textContent = formatCost(event.cost_usd);
+
+        const latencyCell = document.createElement("td");
+        latencyCell.textContent = formatSeconds(event.latency_ms);
+        if (event.latency_breakdown) {
+          const note = document.createElement("span");
+          note.className = "muted-value";
+          note.textContent = `retrieval ${formatSeconds(event.latency_breakdown.retrieval_ms)} / llm ${formatSeconds(event.latency_breakdown.llm_ms)}`;
+          latencyCell.appendChild(note);
+        }
+
+        row.append(statusCell, mappingCell, confidenceCell, pathCell, sourceCell, retrievalCell, tokenCell, costCell, latencyCell);
         body.appendChild(row);
       });
     }
@@ -381,7 +483,7 @@ async function loadDashboardDetailPage() {
       stats.innerHTML = "";
       stats.append(
         renderDetailStat("Status", createStatusPill(event.status || "answered")),
-        renderDetailStat("Latency", `${event.latency_ms || 0} ms`),
+        renderDetailStat("Latency", formatSeconds(event.latency_ms)),
         renderDetailStat("Mode", event.response_mode || "unknown"),
         renderDetailStat("Clarification", event.needs_clarification ? "yes" : "no"),
         renderDetailStat("Blocked", event.blocked ? "yes" : "no"),
@@ -393,6 +495,88 @@ async function loadDashboardDetailPage() {
     renderConfidenceSection(event);
     renderSources(event.sources || []);
     setText("retrievalSummary", JSON.stringify(event.retrieval_summary || {}, null, 2));
+
+    setText("detailPathLabel", event.path_label || event.response_mode || "direct");
+    renderMetricsTable(
+      "pathTable",
+      "pathEmpty",
+      ["#", "Step", "Kind", "Model", "Latency", "Tokens"],
+      (event.path || []).map((step, index) => [
+        String(index + 1),
+        step.step || "",
+        createKindPill(step.kind),
+        step.model || "—",
+        formatSeconds(step.latency_ms),
+        step.total_tokens ? formatNumber(step.total_tokens) : "—",
+      ])
+    );
+
+    const routeStats = document.getElementById("routeStats");
+    if (routeStats) {
+      routeStats.innerHTML = "";
+      const route = event.route_summary || {};
+      routeStats.append(
+        renderDetailStat("Response mode", route.response_mode || event.response_mode || "unknown"),
+        renderDetailStat("Routing mode", route.routing_mode || "unknown"),
+        renderDetailStat("Question type", route.question_type || "unknown")
+      );
+    }
+
+    const latencyStats = document.getElementById("latencyStats");
+    if (latencyStats) {
+      const breakdown = event.latency_breakdown || {};
+      latencyStats.innerHTML = "";
+      latencyStats.append(
+        renderDetailStat("Retrieval", formatSeconds(breakdown.retrieval_ms)),
+        renderDetailStat("LLM calls", formatSeconds(breakdown.llm_ms)),
+        renderDetailStat("Other", formatSeconds(breakdown.other_ms))
+      );
+    }
+    setText("detailLatencyTotal", `${formatSeconds(event.latency_ms)} total`);
+
+    const usage = event.token_usage || {};
+    setText("detailCostTotal", formatCost(usage.cost_usd));
+    const tokenStats = document.getElementById("tokenStats");
+    if (tokenStats) {
+      tokenStats.innerHTML = "";
+      tokenStats.append(
+        renderDetailStat("Input", formatNumber(usage.input_tokens)),
+        renderDetailStat("Output", formatNumber(usage.output_tokens)),
+        renderDetailStat("Thinking", formatNumber(usage.thinking_tokens)),
+        renderDetailStat("Cached", formatNumber(usage.cached_tokens)),
+        renderDetailStat("Total", formatNumber(usage.total_tokens)),
+        renderDetailStat("LLM calls", String(usage.call_count || 0))
+      );
+    }
+    renderMetricsTable(
+      "tokenTable",
+      "tokenEmpty",
+      ["Stage", "Model", "In", "Out", "Think", "Cost"],
+      (event.llm_calls || []).map((call) => [
+        call.step || "",
+        call.model || "",
+        formatNumber(call.input_tokens),
+        formatNumber(call.output_tokens),
+        formatNumber(call.thinking_tokens),
+        formatCost(call.cost_usd),
+      ])
+    );
+    const unpricedNote = document.getElementById("tokenUnpricedNote");
+    if (unpricedNote) unpricedNote.hidden = usage.fully_priced !== false;
+
+    renderMetricsTable(
+      "retrievalScoreTable",
+      "retrievalScoreEmpty",
+      ["Rank", "Score", "Title", "Section", "Chunk", "Source"],
+      (event.retrieval_scores || []).map((rowData) => [
+        String(rowData.rank ?? ""),
+        rowData.forced ? "pinned" : Number(rowData.score || 0).toFixed(4),
+        rowData.title || "—",
+        rowData.section_name || "—",
+        rowData.chunk_index === null || rowData.chunk_index === undefined ? "—" : String(rowData.chunk_index),
+        rowData.source_path || "—",
+      ])
+    );
   } catch (error) {
     const text = document.getElementById("detailEmptyText");
     if (text) text.textContent = error.message || "Unable to load interaction details.";

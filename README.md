@@ -359,6 +359,7 @@ Steps:
    - `SUGGESTIONS_VERIFY_RETRIEVAL` — optional. Defaults to `0` for fast verified-bank suggestions. Set to `1` if you want suggestions to rerun retrieval over each candidate at runtime.
    - Optionally `GEMINI_MODEL` to override the default model.
    - Optionally `REWRITE_MODEL` to override the fast rewrite/classification model; the default is `gemma-4-26b-a4b-it`.
+   - Optionally `LLM_PRICE_TABLE_JSON` to price token usage on the dashboard, e.g. `{"gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40, "cached": 0.025}}`. Values are USD per 1M tokens; `cached` defaults to a quarter of the input rate. Models with no entry show token counts with an `unpriced` cost.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
 5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
 

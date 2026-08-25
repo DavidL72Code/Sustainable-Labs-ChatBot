@@ -51,13 +51,27 @@
         <span>Errors</span>
         <strong>{{ dashboard.stats.errors }}</strong>
       </article>
+      <article class="metric-card">
+        <span>Avg Latency</span>
+        <strong>{{ dashboard.stats.avg_latency_ms | seconds }}</strong>
+      </article>
+      <article class="metric-card">
+        <span>Total Tokens</span>
+        <strong>{{ '{:,}'.format(dashboard.stats.total_tokens or 0) }}</strong>
+        <small class="metric-note">{{ '{:,}'.format(dashboard.stats.avg_tokens or 0) }} avg / answer</small>
+      </article>
+      <article class="metric-card">
+        <span>Token Cost</span>
+        <strong>${{ '%.4f' % (dashboard.stats.total_cost_usd or 0) }}</strong>
+        <small class="metric-note">${{ '%.6f' % (dashboard.stats.avg_cost_usd or 0) }} avg / answer</small>
+      </article>
     </section>
 
     <section class="dashboard-grid">
       <article class="panel panel-wide">
         <div class="panel-header">
           <h2>Chat History</h2>
-          <span>Public operational summary</span>
+          <span>Staff-only operational summary</span>
         </div>
         {% if dashboard.chat_history %}
           <div class="history-table-wrap">
@@ -67,7 +81,11 @@
                   <th>Status</th>
                   <th>Chat Mapping</th>
                   <th>Confidence</th>
+                  <th>Path</th>
                   <th>Sources</th>
+                  <th>Retrieval</th>
+                  <th>Tokens</th>
+                  <th>Cost</th>
                   <th>Latency</th>
                 </tr>
               </thead>
@@ -92,10 +110,43 @@
                       {% endif %}
                     </td>
                     <td>
+                      <span class="path-label" title="{{ event.path_label }}">{{ event.path_label or event.response_mode or 'direct' }}</span>
+                    </td>
+                    <td>
                       <span class="count-pair">{{ event.source_count }} shown</span>
                       <span class="muted-value">{{ event.retrieved_count }} retrieved</span>
                     </td>
-                    <td>{{ event.latency_ms or 0 }} ms</td>
+                    <td>
+                      {% if event.top_score is not none %}
+                        <span class="count-pair">top {{ '%.3f' % event.top_score }}</span>
+                        <span class="muted-value">gap {{ '%.3f' % (event.score_gap or 0) }}</span>
+                      {% else %}
+                        <span class="muted-value">N/A</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if event.total_tokens %}
+                        <span class="count-pair">{{ '{:,}'.format(event.total_tokens) }}</span>
+                        <span class="muted-value">{{ event.token_usage.call_count or 0 }} call(s)</span>
+                      {% else %}
+                        <span class="muted-value">N/A</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if event.cost_usd is not none %}
+                        ${{ '%.6f' % event.cost_usd }}
+                      {% else %}
+                        <span class="muted-value">unpriced</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {{ event.latency_ms | seconds }}
+                      {% if event.latency_breakdown %}
+                        <span class="muted-value">
+                          retrieval {{ event.latency_breakdown.retrieval_ms | seconds }} / llm {{ event.latency_breakdown.llm_ms | seconds }}
+                        </span>
+                      {% endif %}
+                    </td>
                   </tr>
                 {% endfor %}
               </tbody>

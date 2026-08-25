@@ -7,6 +7,7 @@ import math
 import json
 import os
 import re
+import sys
 import threading
 import time
 import uuid
@@ -108,6 +109,223 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 CHAT_LOG_PATH = PROJECT_ROOT / "logs" / "chat_events.jsonl"
 EVAL_RESULTS_PATH = PROJECT_ROOT / "question_eval_results.json"
 _ACTIVE_QUERY_PLAN: ContextVar[Optional[dict]] = ContextVar("active_query_plan", default=None)
+
+
+# ---------------------------------------------------------------------------
+# Per-request telemetry: stage latency, pipeline path, token cost.
+# ---------------------------------------------------------------------------
+_ACTIVE_TELEMETRY: ContextVar[Optional[dict]] = ContextVar("active_telemetry", default=None)
+
+# USD per 1M tokens. Override per deployment with LLM_PRICE_TABLE_JSON, e.g.
+# {"gemini-3.1-flash-lite": {"input": 0.1, "output": 0.4}}
+_DEFAULT_LLM_PRICES: dict[str, dict[str, float]] = {
+    "gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40},
+    "gemini-3.1-flash": {"input": 0.30, "output": 2.50},
+    "gemini-3.1-pro": {"input": 1.25, "output": 10.00},
+    "gemma": {"input": 0.0, "output": 0.0},
+}
+
+
+def llm_price_table() -> dict[str, dict[str, float]]:
+    table = {name: dict(prices) for name, prices in _DEFAULT_LLM_PRICES.items()}
+    raw = os.getenv("LLM_PRICE_TABLE_JSON", "").strip()
+    if raw:
+        try:
+            overrides = json.loads(raw)
+        except json.JSONDecodeError:
+            overrides = {}
+        for model, prices in (overrides or {}).items():
+            if isinstance(prices, dict):
+                entry = {
+                    "input": float(prices.get("input", 0.0) or 0.0),
+                    "output": float(prices.get("output", 0.0) or 0.0),
+                }
+                if prices.get("cached") is not None:
+                    entry["cached"] = float(prices.get("cached") or 0.0)
+                table[str(model)] = entry
+    return table
+
+
+def price_for_model(model: str) -> Optional[dict[str, float]]:
+    table = llm_price_table()
+    if model in table:
+        return table[model]
+    for name, prices in table.items():
+        if model.startswith(name) or name in model:
+            return prices
+    return None
+
+
+def reset_request_telemetry() -> dict:
+    """Start a fresh telemetry record for the current request/answer call."""
+    telemetry = {"steps": [], "started_at": time.perf_counter()}
+    _ACTIVE_TELEMETRY.set(telemetry)
+    return telemetry
+
+
+def record_pipeline_step(step: str, kind: str, latency_ms: float, **detail) -> None:
+    telemetry = _ACTIVE_TELEMETRY.get()
+    if telemetry is None:
+        return
+    record = {"step": step, "kind": kind, "latency_ms": round(float(latency_ms), 2)}
+    record.update({key: value for key, value in detail.items() if value is not None})
+    telemetry["steps"].append(record)
+
+
+def _usage_counts(usage: object) -> dict[str, int]:
+    def count(*names: str) -> int:
+        for name in names:
+            value = getattr(usage, name, None)
+            if value is None and isinstance(usage, dict):
+                value = usage.get(name)
+            if value:
+                try:
+                    return int(value)
+                except (TypeError, ValueError):
+                    continue
+        return 0
+
+    input_tokens = count("prompt_token_count", "input_tokens")
+    output_tokens = count("candidates_token_count", "output_tokens")
+    thinking_tokens = count("thoughts_token_count", "thinking_tokens")
+    cached_tokens = count("cached_content_token_count", "cached_tokens")
+    total_tokens = count("total_token_count", "total_tokens") or (
+        input_tokens + output_tokens + thinking_tokens
+    )
+    return {
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "thinking_tokens": thinking_tokens,
+        "cached_tokens": cached_tokens,
+        "total_tokens": total_tokens,
+    }
+
+
+def estimate_call_cost(model: str, counts: dict[str, int]) -> Optional[float]:
+    prices = price_for_model(model)
+    if prices is None:
+        return None
+    billed_output = counts.get("output_tokens", 0) + counts.get("thinking_tokens", 0)
+    # prompt_token_count already includes cached tokens, which bill at a lower
+    # rate. Default the cached rate to a quarter of the input rate unless the
+    # deployment configures one explicitly.
+    cached_tokens = min(counts.get("cached_tokens", 0), counts.get("input_tokens", 0))
+    fresh_input = counts.get("input_tokens", 0) - cached_tokens
+    cached_rate = prices.get("cached", prices.get("input", 0.0) * 0.25)
+    cost = (
+        fresh_input * prices.get("input", 0.0)
+        + cached_tokens * cached_rate
+        + billed_output * prices.get("output", 0.0)
+    ) / 1_000_000
+    return round(cost, 8)
+
+
+def record_llm_call(*, model: str, stage: str, usage: object, latency_ms: float, streamed: bool) -> None:
+    counts = _usage_counts(usage)
+    record_pipeline_step(
+        stage,
+        "llm",
+        latency_ms,
+        model=model,
+        streamed=streamed,
+        cost_usd=estimate_call_cost(model, counts),
+        priced=price_for_model(model) is not None,
+        **counts,
+    )
+
+
+def _caller_stage(default: str = "llm_call") -> str:
+    """Label an LLM call by the pipeline function that issued it."""
+    frame = sys._getframe(1)
+    for _ in range(6):
+        frame = frame.f_back
+        if frame is None:
+            return default
+        name = frame.f_code.co_name
+        if name.startswith("_") or name in {
+            "call_gemini", "call_gemini_stream", "<lambda>", "record_llm_call",
+        }:
+            continue
+        return name
+    return default
+
+
+def summarize_request_telemetry(response_mode: str = "", query_route: Optional[dict] = None) -> dict:
+    """Roll the recorded steps into dashboard-ready latency/path/cost fields."""
+    telemetry = _ACTIVE_TELEMETRY.get() or {"steps": []}
+    steps = list(telemetry.get("steps", []))
+
+    totals = {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "cached_tokens": 0,
+        "total_tokens": 0,
+        "cost_usd": 0.0,
+        "call_count": 0,
+    }
+    by_model: dict[str, dict] = {}
+    fully_priced = True
+    for step in steps:
+        if step.get("kind") != "llm":
+            continue
+        totals["call_count"] += 1
+        for key in ("input_tokens", "output_tokens", "thinking_tokens", "cached_tokens", "total_tokens"):
+            totals[key] += int(step.get(key, 0) or 0)
+        cost = step.get("cost_usd")
+        if cost is None:
+            fully_priced = False
+        else:
+            totals["cost_usd"] += float(cost)
+        model_bucket = by_model.setdefault(
+            str(step.get("model", "unknown")),
+            {"calls": 0, "total_tokens": 0, "cost_usd": 0.0},
+        )
+        model_bucket["calls"] += 1
+        model_bucket["total_tokens"] += int(step.get("total_tokens", 0) or 0)
+        model_bucket["cost_usd"] = round(model_bucket["cost_usd"] + float(cost or 0.0), 8)
+
+    totals["cost_usd"] = round(totals["cost_usd"], 8)
+    totals["fully_priced"] = fully_priced
+    totals["by_model"] = by_model
+
+    latency_breakdown = {"retrieval_ms": 0.0, "llm_ms": 0.0, "other_ms": 0.0}
+    for step in steps:
+        bucket = {
+            "retrieval": "retrieval_ms",
+            "llm": "llm_ms",
+        }.get(str(step.get("kind")), "other_ms")
+        latency_breakdown[bucket] += float(step.get("latency_ms", 0.0) or 0.0)
+    latency_breakdown = {key: round(value, 2) for key, value in latency_breakdown.items()}
+
+    route = query_route or {}
+    path_steps = [
+        {
+            "step": step.get("step", ""),
+            "kind": step.get("kind", ""),
+            "latency_ms": step.get("latency_ms", 0.0),
+            "total_tokens": step.get("total_tokens"),
+            "model": step.get("model"),
+        }
+        for step in steps
+    ]
+    label_parts = [str(step.get("step", "")) for step in steps if step.get("step")]
+    if response_mode:
+        label_parts.append(str(response_mode))
+    return {
+        "token_usage": totals,
+        "llm_calls": [step for step in steps if step.get("kind") == "llm"],
+        "stage_timings": steps,
+        "latency_breakdown": latency_breakdown,
+        "path": path_steps,
+        "path_label": " -> ".join(dict.fromkeys(label_parts)) or (response_mode or "direct"),
+        "route_summary": {
+            "response_mode": response_mode,
+            "routing_mode": route.get("routing_mode", ""),
+            "question_type": route.get("question_type", ""),
+            "prefer_summary": route.get("prefer_summary"),
+        },
+    }
 
 
 class RetrievalChatbot:
@@ -1622,6 +1840,25 @@ class RetrievalChatbot:
         top_k: Optional[int] = None,
         query_route: Optional[dict] = None,
     ) -> tuple[list[str], list[dict], dict]:
+        """Timed wrapper so the dashboard can attribute latency to retrieval."""
+        started_at = time.perf_counter()
+        context, metadata, diagnostics = self._retrieve_context(query, top_k=top_k, query_route=query_route)
+        record_pipeline_step(
+            "retrieval",
+            "retrieval",
+            (time.perf_counter() - started_at) * 1000,
+            selected_count=(diagnostics or {}).get("selected_count"),
+            candidate_count=(diagnostics or {}).get("candidate_count"),
+            top_score=(diagnostics or {}).get("top_score"),
+        )
+        return context, metadata, diagnostics
+
+    def _retrieve_context(
+        self,
+        query: str,
+        top_k: Optional[int] = None,
+        query_route: Optional[dict] = None,
+    ) -> tuple[list[str], list[dict], dict]:
         if self.collection.count() == 0:
             return [], [], {
                 "candidate_count": 0,
@@ -2003,9 +2240,20 @@ class RetrievalChatbot:
         context_blocks: list[str] = []
         metadata_blocks: list[dict] = []
 
-        for candidate in reranked_candidates:
+        for rank, candidate in enumerate(reranked_candidates, start=1):
             chunk_text = candidate["document"]
             metadata = dict(candidate.get("metadata") or {})
+            # Keep the ranking evidence on the chunk so the staff dashboard can
+            # show per-source retrieval scores next to the answer.
+            metadata["retrieval_rank"] = rank
+            metadata["retrieval_score"] = round(
+                float(candidate.get("score", candidate.get("hybrid_score", 0.0)) or 0.0), 6
+            )
+            metadata["retrieval_hybrid_score"] = round(float(candidate.get("hybrid_score", 0.0) or 0.0), 6)
+            if candidate.get("dense_score") is not None:
+                metadata["retrieval_dense_score"] = round(float(candidate.get("dense_score") or 0.0), 6)
+            if candidate.get("bm25_score") is not None:
+                metadata["retrieval_bm25_score"] = round(float(candidate.get("bm25_score") or 0.0), 6)
             metadata["retrieval_facet_ids"] = ",".join(candidate.get("facet_ids", [candidate.get("facet_id", "main")]))
             metadata["retrieval_facet_queries"] = " || ".join(candidate.get("facet_queries", [candidate.get("facet_query", retrieval_query)]))
             if candidate.get("neighbor_of"):
@@ -2058,6 +2306,17 @@ class RetrievalChatbot:
                 bucket_id: len(bucket_candidates.get(bucket_id, []))
                 for bucket_id in ordered_bucket_ids
             },
+            "selected_scores": [
+                {
+                    "rank": metadata.get("retrieval_rank"),
+                    "score": metadata.get("retrieval_score"),
+                    "title": metadata.get("title", ""),
+                    "section_name": metadata.get("section_name", ""),
+                    "chunk_index": metadata.get("chunk_index"),
+                    "source_path": metadata.get("source_path", ""),
+                }
+                for metadata in metadata_blocks
+            ],
         }
 
         return context_blocks, metadata_blocks, diagnostics
@@ -10691,6 +10950,10 @@ Citation rules:
             "retrieval_diagnostics": retrieval_diagnostics or {},
             "confidence": confidence or {},
             "query_plan": effective_query_plan,
+            "telemetry": summarize_request_telemetry(
+                response_mode=str(result.get("response_mode", response_mode) or ""),
+                query_route=query_route,
+            ),
         }
         if retrieved_context is not None:
             result["trace"]["retrieved_context"] = retrieved_context
@@ -12505,6 +12768,7 @@ Citation rules:
     ) -> dict:
         recent_history = recent_history or []
         _ACTIVE_QUERY_PLAN.set(None)
+        reset_request_telemetry()
         state_resolution: Optional[dict] = None
         # Normalize common speech-to-text/keyboard variants before routing. These are
         # intentionally narrow so ordinary user wording is left untouched.
@@ -14973,9 +15237,18 @@ Citation rules:
         reply_text = self.normalize_markdown_structure(reply_text)
         return reply_text, self.filter_sources_to_cited(reply_text, all_sources), False
 
+    def with_telemetry(self, trace: dict, response_mode: str = "", query_route: Optional[dict] = None) -> dict:
+        trace = dict(trace or {})
+        trace["telemetry"] = summarize_request_telemetry(
+            response_mode=response_mode,
+            query_route=query_route if query_route is not None else trace.get("query_route"),
+        )
+        return trace
+
     def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
         """Generator yielding SSE-formatted strings. Runs all retrieval/routing
         synchronously, then streams only the final LLM generation."""
+        reset_request_telemetry()
         if _looks_like_injection(user_message) or _is_blocked(user_message):
             yield f"data: {json.dumps({'done': True, 'blocked': True, 'reply': _REFUSAL, 'sources': [], 'trace': {}, 'status': 'blocked', 'response_mode': 'blocked'})}\n\n"
             return
@@ -15010,6 +15283,10 @@ Citation rules:
         # into the user's response and bypasses streamed citation handling.
         if not str(result.get("reply", "")).startswith(_sentinel):
             # Early return: clarification needed, registry answer, etc.
+            result["trace"] = self.with_telemetry(
+                result.get("trace", {}) or {},
+                response_mode=str(result.get("response_mode", "") or ""),
+            )
             if "reply" in result:
                 result["reply"] = re.sub(
                     r"(\[[0-9][0-9,\s]*\])\s*,\s*(?=[.!?]|$)",
@@ -15028,7 +15305,7 @@ Citation rules:
         all_sources = self.extract_sources(retrieved_metadata)
 
         full_answer_parts: list[str] = []
-        for chunk in call_gemini_stream(captured["prompt"]):
+        for chunk in call_gemini_stream(captured["prompt"], stage="generation"):
             full_answer_parts.append(chunk)
 
         raw_answer = "".join(full_answer_parts).strip()
@@ -15119,6 +15396,9 @@ Citation rules:
             r"\1",
             normalized_answer,
         )
+        # The streamed generation call finishes after answer() built the trace,
+        # so refresh telemetry to include its tokens and latency.
+        trace = self.with_telemetry(trace, response_mode=str(result.get("response_mode", "gemini_rag") or ""), query_route=query_route)
         yield f"data: {json.dumps({'type': 'meta', 'sources': normalized_sources, 'trace': trace, 'status': stream_status, 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': [], 'conversation_state': result.get('conversation_state', empty_state())})}\n\n"
         yield f"data: {json.dumps({'type': 'delta', 'delta': normalized_answer})}\n\n"
 
@@ -15573,27 +15853,49 @@ def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[
     client = _get_gemini_client()
     model_name = model or cfg.gemini_model
     temp = temperature if temperature is not None else cfg.gemini_temperature
+    stage = _caller_stage()
+    started_at = time.perf_counter()
     response = client.models.generate_content(
         model=model_name,
         contents=prompt,
         config=_gemini_gen_config(temp, thinking_budget=thinking_budget),
     )
+    record_llm_call(
+        model=model_name,
+        stage=stage,
+        usage=getattr(response, "usage_metadata", None),
+        latency_ms=(time.perf_counter() - started_at) * 1000,
+        streamed=False,
+    )
     return response.text.strip()
 
 
-def call_gemini_stream(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None):
+def call_gemini_stream(prompt: str, model: Optional[str] = None, temperature: Optional[float] = None, stage: Optional[str] = None):
     """Yields text chunks as they stream from the Gemini API."""
     cfg = ChatbotConfig()
     client = _get_gemini_client()
     model_name = model or cfg.gemini_model
     temp = temperature if temperature is not None else cfg.gemini_temperature
+    stage = stage or _caller_stage(default="generation")
+    started_at = time.perf_counter()
+    usage = None
     for chunk in client.models.generate_content_stream(
         model=model_name,
         contents=prompt,
         config=_gemini_gen_config(temp),
     ):
+        chunk_usage = getattr(chunk, "usage_metadata", None)
+        if chunk_usage is not None:
+            usage = chunk_usage
         if chunk.text:
             yield chunk.text
+    record_llm_call(
+        model=model_name,
+        stage=stage,
+        usage=usage,
+        latency_ms=(time.perf_counter() - started_at) * 1000,
+        streamed=True,
+    )
 
 
 def format_recent_history(recent_history: list[ConversationTurn]) -> str:
@@ -15602,6 +15904,60 @@ def format_recent_history(recent_history: list[ConversationTurn]) -> str:
         for index, turn in enumerate(recent_history, start=1)
         if turn.get("user") and turn.get("assistant")
     )
+
+
+# Fields the chat client is allowed to receive. Retrieval traces, telemetry,
+# token cost, and conversation state are staff-only and stay on the dashboard.
+_PUBLIC_CHAT_EVENT_FIELDS = frozenset(
+    {
+        "type",
+        "delta",
+        "done",
+        "reply",
+        "sources",
+        "status",
+        "blocked",
+        "needs_clarification",
+        "clarification_options",
+        "suggestions",
+        "error",
+        "conversation_id",
+    }
+)
+
+
+def public_chat_event(payload: dict) -> dict:
+    return {key: value for key, value in payload.items() if key in _PUBLIC_CHAT_EVENT_FIELDS}
+
+
+def redact_chat_stream_event(event_text: str) -> str:
+    """Strip staff-only fields before an SSE frame reaches the chat client."""
+    redacted_lines: list[str] = []
+    for raw_line in event_text.splitlines():
+        if not raw_line.startswith("data: "):
+            redacted_lines.append(raw_line)
+            continue
+        try:
+            payload = json.loads(raw_line[6:])
+        except json.JSONDecodeError:
+            # Unparseable frames cannot be verified as safe, so drop them.
+            continue
+        if not isinstance(payload, dict):
+            continue
+        redacted_lines.append("data: " + json.dumps(public_chat_event(payload)))
+    return "\n".join(redacted_lines) + ("\n\n" if event_text.endswith("\n\n") else "")
+
+
+def format_seconds(milliseconds: object) -> str:
+    """Render a millisecond duration as seconds for the staff dashboard."""
+    try:
+        value = float(milliseconds or 0)
+    except (TypeError, ValueError):
+        value = 0.0
+    seconds = value / 1000
+    if 0 < seconds < 0.01:
+        return "<0.01 s"
+    return f"{seconds:.2f} s"
 
 
 def utc_timestamp() -> str:
@@ -15730,6 +16086,48 @@ def dashboard_exposes_private_trace() -> bool:
     return ChatbotConfig.dashboard_trace_mode not in {"public", "safe", "redacted"}
 
 
+def extract_retrieval_scores(trace: dict) -> list[dict]:
+    """Per-chunk retrieval scores, newest logs first and older logs degraded safely."""
+    trace = trace or {}
+    diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+    scored = [item for item in (diagnostics.get("selected_scores") or []) if isinstance(item, dict)]
+    if not scored:
+        for index, metadata in enumerate(trace.get("retrieved_metadata", []) or [], start=1):
+            if not isinstance(metadata, dict) or metadata.get("retrieval_score") is None:
+                continue
+            scored.append(
+                {
+                    "rank": metadata.get("retrieval_rank", index),
+                    "score": metadata.get("retrieval_score"),
+                    "title": metadata.get("title", ""),
+                    "section_name": metadata.get("section_name", ""),
+                    "chunk_index": metadata.get("chunk_index"),
+                    "source_path": metadata.get("source_path", ""),
+                }
+            )
+    for item in scored:
+        # Recovery candidates are pinned with a sentinel score; label them
+        # instead of showing a meaningless six-figure number.
+        item["forced"] = float(item.get("score") or 0.0) >= 1_000_000
+    return sorted(scored, key=lambda item: item.get("rank") or 0)
+
+
+def extract_telemetry(trace: dict) -> dict:
+    telemetry = (trace or {}).get("telemetry", {}) or {}
+    token_usage = telemetry.get("token_usage", {}) or {}
+    return {
+        "path_label": telemetry.get("path_label", ""),
+        "path": telemetry.get("path", []) or [],
+        "llm_calls": telemetry.get("llm_calls", []) or [],
+        "stage_timings": telemetry.get("stage_timings", []) or [],
+        "latency_breakdown": telemetry.get("latency_breakdown", {}) or {},
+        "route_summary": telemetry.get("route_summary", {}) or {},
+        "token_usage": token_usage,
+        "total_tokens": token_usage.get("total_tokens"),
+        "cost_usd": token_usage.get("cost_usd"),
+    }
+
+
 def build_public_trace(trace: dict) -> dict:
     """Expose dashboard diagnostics without replaying user prompts or LLM plans."""
     trace = trace or {}
@@ -15743,17 +16141,25 @@ def build_public_trace(trace: dict) -> dict:
         safe_metadata.append(
             {
                 key: metadata.get(key)
-                for key in ("title", "category", "folder_label")
+                for key in (
+                    "title", "category", "folder_label",
+                    "retrieval_rank", "retrieval_score", "retrieval_hybrid_score",
+                )
                 if metadata.get(key) not in (None, "")
             }
         )
+    public_diagnostics = {
+        key: diagnostics.get(key)
+        for key in ("selected_count", "distinct_source_count", "top_score", "second_score", "score_gap")
+        if diagnostics.get(key) is not None
+    }
+    public_diagnostics["selected_scores"] = extract_retrieval_scores(trace)
     return {
         "confidence": confidence,
-        "retrieval_diagnostics": {
-            key: diagnostics.get(key)
-            for key in ("selected_count", "distinct_source_count", "top_score", "score_gap")
-            if diagnostics.get(key) is not None
-        },
+        # Operational telemetry carries no prompt or answer text, so it stays
+        # visible even when message content is hidden.
+        "telemetry": trace.get("telemetry", {}) or {},
+        "retrieval_diagnostics": public_diagnostics,
         "retrieved_metadata": safe_metadata,
         "query_route": {
             key: route.get(key)
@@ -15817,6 +16223,15 @@ def summarize_chat_event(event: dict) -> dict:
     summarized["source_count"] = len(sources)
     summarized["retrieved_count"] = len(retrieved_metadata)
     summarized["top_score"] = retrieval_diagnostics.get("top_score")
+    summarized["score_gap"] = retrieval_diagnostics.get("score_gap")
+    summarized["retrieval_scores"] = extract_retrieval_scores(trace)
+    telemetry = extract_telemetry(trace)
+    summarized["path_label"] = telemetry["path_label"] or (event.get("response_mode") or "")
+    summarized["path"] = telemetry["path"]
+    summarized["token_usage"] = telemetry["token_usage"]
+    summarized["total_tokens"] = telemetry["total_tokens"]
+    summarized["cost_usd"] = telemetry["cost_usd"]
+    summarized["latency_breakdown"] = telemetry["latency_breakdown"]
     summarized["sources"] = public_sources
     summarized["trace"] = build_dashboard_trace(trace)
     return summarized
@@ -15845,8 +16260,17 @@ def build_dashboard_payload() -> dict:
             category = metadata.get("category") or metadata.get("folder_label") or "Uncategorized"
             category_counts[category] += 1
 
+    total_tokens = sum(int(event.get("total_tokens") or 0) for event in events)
+    total_cost = round(sum(float(event.get("cost_usd") or 0.0) for event in events), 6)
+    latencies = [float(event.get("latency_ms") or 0.0) for event in events if event.get("latency_ms")]
+
     stats = {
         "total": len(events),
+        "total_tokens": total_tokens,
+        "total_cost_usd": total_cost,
+        "avg_tokens": int(total_tokens / len(events)) if events else 0,
+        "avg_cost_usd": round(total_cost / len(events), 6) if events else 0.0,
+        "avg_latency_ms": round(sum(latencies) / len(latencies), 1) if latencies else 0.0,
         "blocked": sum(1 for event in events if event.get("blocked")),
         "clarifications": sum(1 for event in events if event.get("needs_clarification")),
         "errors": sum(1 for event in events if event.get("status") == "error"),
@@ -15905,6 +16329,8 @@ def find_chat_event(event_id: str) -> Optional[dict]:
                 },
                 "display_label": f"Interaction {(event.get('id', '') or 'unknown')[:8]}",
                 "preview_text": build_dashboard_preview(event),
+                "retrieval_scores": extract_retrieval_scores(trace),
+                **extract_telemetry(trace),
             }
     return None
 
@@ -16203,6 +16629,7 @@ def create_app() -> Flask:
     app.config["JSON_SORT_KEYS"] = False
     app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 3600  # cache static files for 1 hour
     app.secret_key = config.dashboard_session_secret
+    app.jinja_env.filters["seconds"] = format_seconds
     app.config.update(
         SESSION_COOKIE_HTTPONLY=True,
         SESSION_COOKIE_SAMESITE=os.getenv("SESSION_COOKIE_SAMESITE", "None"),
@@ -16512,7 +16939,7 @@ def create_app() -> Flask:
                             status = "error"
                             answer_parts = [event_payload.get("error", "")]
 
-                    yield event_text
+                    yield redact_chat_stream_event(event_text)
             except Exception as exc:
                 err_str = str(exc)
                 if any(code in err_str for code in ("503", "UNAVAILABLE", "high demand", "429", "RESOURCE_EXHAUSTED", "quota")):
@@ -16530,6 +16957,12 @@ def create_app() -> Flask:
                         user_message,
                         final_answer,
                         state=conversation_state,
+                    )
+                if isinstance(trace, dict) and not trace.get("telemetry"):
+                    trace = dict(trace)
+                    trace["telemetry"] = summarize_request_telemetry(
+                        response_mode=response_mode,
+                        query_route=trace.get("query_route"),
                     )
                 append_chat_log(
                     {

@@ -43,7 +43,7 @@
             <span>{{ event.timestamp }}</span>
           </div>
           <div class="mapping-strip" aria-label="Chat answer mapping">
-            <span>Public event summary</span>
+            <span>Staff-only event summary</span>
             <strong>tracks</strong>
             <span>status and confidence</span>
             <strong>with</strong>
@@ -61,7 +61,7 @@
           </div>
           <dl class="detail-stats">
             <div><dt>Status</dt><dd><span class="status-pill status-{{ event.status or 'answered' }}">{{ event.status or 'answered' }}</span></dd></div>
-            <div><dt>Latency</dt><dd>{{ event.latency_ms or 0 }} ms</dd></div>
+            <div><dt>Latency</dt><dd>{{ event.latency_ms | seconds }}</dd></div>
             <div><dt>Mode</dt><dd>{{ event.response_mode or 'unknown' }}</dd></div>
             <div><dt>Clarification</dt><dd>{{ 'yes' if event.needs_clarification else 'no' }}</dd></div>
             <div><dt>Blocked</dt><dd>{{ 'yes' if event.blocked else 'no' }}</dd></div>
@@ -113,8 +113,128 @@
 
         <article class="panel">
           <div class="panel-header">
-            <h2>Retrieval Summary</h2>
+            <h2>Answer Path</h2>
+            <span>{{ event.path_label or event.response_mode or 'direct' }}</span>
           </div>
+          {% if event.path %}
+            <table class="metrics-table">
+              <thead>
+                <tr><th>#</th><th>Step</th><th>Kind</th><th>Model</th><th>Latency</th><th>Tokens</th></tr>
+              </thead>
+              <tbody>
+                {% for step in event.path %}
+                  <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ step.step }}</td>
+                    <td><span class="kind-pill kind-{{ step.kind }}">{{ step.kind }}</span></td>
+                    <td>{{ step.model or '—' }}</td>
+                    <td>{{ step.latency_ms | seconds }}</td>
+                    <td>{{ '{:,}'.format(step.total_tokens) if step.total_tokens else '—' }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="empty-state">No pipeline steps were recorded for this interaction.</p>
+          {% endif %}
+          {% if event.route_summary %}
+            <dl class="detail-stats single-column">
+              <div><dt>Response mode</dt><dd>{{ event.route_summary.response_mode or event.response_mode or 'unknown' }}</dd></div>
+              <div><dt>Routing mode</dt><dd>{{ event.route_summary.routing_mode or 'unknown' }}</dd></div>
+              <div><dt>Question type</dt><dd>{{ event.route_summary.question_type or 'unknown' }}</dd></div>
+            </dl>
+          {% endif %}
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Latency Breakdown</h2>
+            <span>{{ event.latency_ms | seconds }} total</span>
+          </div>
+          {% if event.latency_breakdown %}
+            <dl class="detail-stats single-column">
+              <div><dt>Retrieval</dt><dd>{{ event.latency_breakdown.retrieval_ms | seconds }}</dd></div>
+              <div><dt>LLM calls</dt><dd>{{ event.latency_breakdown.llm_ms | seconds }}</dd></div>
+              <div><dt>Other</dt><dd>{{ event.latency_breakdown.other_ms | seconds }}</dd></div>
+            </dl>
+          {% else %}
+            <p class="empty-state">No stage timings were recorded for this interaction.</p>
+          {% endif %}
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Token Cost</h2>
+            {% if event.token_usage and event.token_usage.cost_usd is not none %}
+              <span>${{ '%.6f' % event.token_usage.cost_usd }}</span>
+            {% endif %}
+          </div>
+          {% if event.llm_calls %}
+            <dl class="detail-stats">
+              <div><dt>Input</dt><dd>{{ '{:,}'.format(event.token_usage.input_tokens or 0) }}</dd></div>
+              <div><dt>Output</dt><dd>{{ '{:,}'.format(event.token_usage.output_tokens or 0) }}</dd></div>
+              <div><dt>Thinking</dt><dd>{{ '{:,}'.format(event.token_usage.thinking_tokens or 0) }}</dd></div>
+              <div><dt>Cached</dt><dd>{{ '{:,}'.format(event.token_usage.cached_tokens or 0) }}</dd></div>
+              <div><dt>Total</dt><dd>{{ '{:,}'.format(event.token_usage.total_tokens or 0) }}</dd></div>
+              <div><dt>LLM calls</dt><dd>{{ event.token_usage.call_count or 0 }}</dd></div>
+            </dl>
+            <table class="metrics-table">
+              <thead>
+                <tr><th>Stage</th><th>Model</th><th>In</th><th>Out</th><th>Think</th><th>Cost</th></tr>
+              </thead>
+              <tbody>
+                {% for call in event.llm_calls %}
+                  <tr>
+                    <td>{{ call.step }}</td>
+                    <td>{{ call.model }}</td>
+                    <td>{{ '{:,}'.format(call.input_tokens or 0) }}</td>
+                    <td>{{ '{:,}'.format(call.output_tokens or 0) }}</td>
+                    <td>{{ '{:,}'.format(call.thinking_tokens or 0) }}</td>
+                    <td>{% if call.cost_usd is not none %}${{ '%.6f' % call.cost_usd }}{% else %}unpriced{% endif %}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% if event.token_usage and not event.token_usage.fully_priced %}
+              <p class="muted-value">Some models have no configured price. Set LLM_PRICE_TABLE_JSON to price them.</p>
+            {% endif %}
+          {% else %}
+            <p class="empty-state">No LLM token usage was recorded for this interaction.</p>
+          {% endif %}
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Retrieval Scores</h2>
+            <span>{{ event.retrieved_count }} chunks retrieved</span>
+          </div>
+          {% if event.retrieval_scores %}
+            <table class="metrics-table">
+              <thead>
+                <tr><th>Rank</th><th>Score</th><th>Title</th><th>Section</th><th>Chunk</th><th>Source</th></tr>
+              </thead>
+              <tbody>
+                {% for row in event.retrieval_scores %}
+                  <tr>
+                    <td>{{ row.rank }}</td>
+                    <td>
+                      {% if row.forced %}
+                        <span class="score-pill">pinned</span>
+                      {% else %}
+                        <span class="score-pill">{{ '%.4f' % (row.score or 0) }}</span>
+                      {% endif %}
+                    </td>
+                    <td>{{ row.title or '—' }}</td>
+                    <td>{{ row.section_name or '—' }}</td>
+                    <td>{{ row.chunk_index if row.chunk_index is not none else '—' }}</td>
+                    <td class="path-label">{{ row.source_path or '—' }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="empty-state">No per-chunk retrieval scores were recorded for this interaction.</p>
+          {% endif %}
           <pre class="json-block">{{ event.retrieval_summary | tojson(indent=2) }}</pre>
         </article>
       </section>

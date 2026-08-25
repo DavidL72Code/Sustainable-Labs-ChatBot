@@ -63,13 +63,27 @@
         <span>Errors</span>
         <strong id="metricErrors">-</strong>
       </article>
+      <article class="metric-card">
+        <span>Avg Latency</span>
+        <strong id="metricAvgLatency">-</strong>
+      </article>
+      <article class="metric-card">
+        <span>Total Tokens</span>
+        <strong id="metricTotalTokens">-</strong>
+        <small class="metric-note" id="metricAvgTokens"></small>
+      </article>
+      <article class="metric-card">
+        <span>Token Cost</span>
+        <strong id="metricTotalCost">-</strong>
+        <small class="metric-note" id="metricAvgCost"></small>
+      </article>
     </section>
 
     <section class="dashboard-grid">
       <article class="panel panel-wide">
         <div class="panel-header">
           <h2>Chat History</h2>
-          <span>Public operational summary</span>
+          <span>Staff-only operational summary</span>
         </div>
         <div class="history-table-wrap">
           <table class="history-table">
@@ -78,13 +92,17 @@
                 <th>Status</th>
                 <th>Chat Mapping</th>
                 <th>Confidence</th>
+                <th>Path</th>
                 <th>Sources</th>
+                <th>Retrieval</th>
+                <th>Tokens</th>
+                <th>Cost</th>
                 <th>Latency</th>
               </tr>
             </thead>
             <tbody id="historyTableBody">
               <tr>
-                <td colspan="5" class="empty-state">Loading dashboard data...</td>
+                <td colspan="9" class="empty-state">Loading dashboard data...</td>
               </tr>
             </tbody>
           </table>
