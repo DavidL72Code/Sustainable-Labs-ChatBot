@@ -476,3 +476,215 @@ chatForm.addEventListener("submit", async (event) => {
   const message = messageInput.value.trim();
   await submitMessageFlow(message);
 });
+
+/* ---------------------------------------------------------------------------
+ * Optional visitor accounts.
+ *
+ * Signing in only controls whether this visitor's own history is saved. Without
+ * an account the assistant works exactly as before and nothing is stored, so
+ * the UI never blocks the chat behind a login.
+ * ------------------------------------------------------------------------- */
+const accountArea = document.getElementById("accountArea");
+const accountEmail = document.getElementById("accountEmail");
+const signInButton = document.getElementById("signInButton");
+const signOutButton = document.getElementById("signOutButton");
+const authOverlay = document.getElementById("authOverlay");
+const authForm = document.getElementById("authForm");
+const authEmail = document.getElementById("authEmail");
+const authPassword = document.getElementById("authPassword");
+const authError = document.getElementById("authError");
+const authTitle = document.getElementById("authTitle");
+const authSubmit = document.getElementById("authSubmit");
+const authSwitchText = document.getElementById("authSwitchText");
+const authSwitchButton = document.getElementById("authSwitchButton");
+const authClose = document.getElementById("authClose");
+const sidebarNote = document.getElementById("sidebarNote");
+
+let authMode = "login";
+let signedIn = false;
+
+function apiUrl(path) {
+  // Served by Flask: no API_BASE, so relative paths are right. Served as the
+  // static site on Vercel: API_BASE points at the deployed backend.
+  const base = (typeof window !== "undefined" && window.API_BASE)
+    ? String(window.API_BASE).replace(/\/+$/, "")
+    : "";
+  return `${base}${path}`;
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const signingUp = mode === "signup";
+  authTitle.textContent = signingUp ? "Create an account" : "Sign in";
+  authSubmit.textContent = signingUp ? "Create account" : "Sign in";
+  authSwitchText.textContent = signingUp ? "Already have an account?" : "New here?";
+  authSwitchButton.textContent = signingUp ? "Sign in" : "Create an account";
+  authPassword.setAttribute("autocomplete", signingUp ? "new-password" : "current-password");
+  authError.hidden = true;
+}
+
+function openAuth() {
+  setAuthMode("login");
+  authOverlay.hidden = false;
+  authEmail.focus();
+}
+
+function closeAuth() {
+  authOverlay.hidden = true;
+  authForm.reset();
+  authError.hidden = true;
+}
+
+function showAuthError(message) {
+  authError.textContent = message;
+  authError.hidden = false;
+}
+
+function renderAccountState(email) {
+  signedIn = Boolean(email);
+  accountArea.hidden = false;
+  accountEmail.textContent = email || "";
+  accountEmail.hidden = !signedIn;
+  signInButton.hidden = signedIn;
+  signOutButton.hidden = !signedIn;
+  if (sidebarNote) sidebarNote.hidden = signedIn;
+}
+
+async function refreshAccountState() {
+  try {
+    const response = await fetch(apiUrl("/api/visitor/session"), { credentials: "include" });
+    if (!response.ok) return;
+    const data = await response.json();
+    // Accounts are only offered when the deployment has Supabase configured.
+    if (!data.available) {
+      accountArea.hidden = true;
+      if (sidebarNote) sidebarNote.hidden = true;
+      return;
+    }
+    renderAccountState(data.signed_in ? data.email : "");
+    if (data.signed_in) await loadSavedConversations();
+  } catch {
+    /* Accounts are optional; a failure here must never block the chat. */
+  }
+}
+
+async function loadSavedConversations() {
+  if (!signedIn || !sidebarList) return;
+  try {
+    const response = await fetch(apiUrl("/api/visitor/conversations"), { credentials: "include" });
+    if (!response.ok) return;
+    const { conversations = [] } = await response.json();
+    if (!conversations.length) return;
+    sidebarList.innerHTML = "";
+    conversations.forEach((conversation) => {
+      const item = document.createElement("li");
+      item.className = "sidebar-item";
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "sidebar-link";
+      button.title = conversation.title || "Saved chat";
+      button.textContent = conversation.title || "Saved chat";
+      button.addEventListener("click", () => openSavedConversation(conversation.id));
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "sidebar-delete";
+      remove.title = "Delete this saved chat";
+      remove.setAttribute("aria-label", `Delete ${conversation.title || "saved chat"}`);
+      remove.textContent = "×";
+      remove.addEventListener("click", async (event) => {
+        event.stopPropagation();
+        await fetch(apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversation.id)}`), {
+          method: "DELETE",
+          credentials: "include",
+        });
+        item.remove();
+      });
+
+      item.append(button, remove);
+      sidebarList.appendChild(item);
+    });
+  } catch {
+    /* Leave whatever the sidebar already shows. */
+  }
+}
+
+async function openSavedConversation(conversationId) {
+  try {
+    const response = await fetch(
+      apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversationId)}`),
+      { credentials: "include" }
+    );
+    if (!response.ok) return;
+    const { messages = [] } = await response.json();
+    chatMessages.innerHTML = "";
+    messages.forEach((message) => {
+      appendMessage(
+        message.role === "user" ? "user" : "assistant",
+        message.role === "user" ? "You" : "Sustainable Labs",
+        message.content || "",
+        message.sources || []
+      );
+    });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch {
+    /* Ignore: the live chat still works. */
+  }
+}
+
+authForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const email = authEmail.value.trim();
+  const password = authPassword.value;
+  if (!email || password.length < 8) {
+    showAuthError("Enter your email and a password of at least 8 characters.");
+    return;
+  }
+  authSubmit.disabled = true;
+  try {
+    const response = await fetch(apiUrl(`/api/visitor/${authMode === "signup" ? "signup" : "login"}`), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      showAuthError(data.error || "That did not work. Please try again.");
+      return;
+    }
+    if (data.confirm_email) {
+      showAuthError("Check your email to confirm the account, then sign in.");
+      setAuthMode("login");
+      return;
+    }
+    renderAccountState(data.email || email);
+    closeAuth();
+    await loadSavedConversations();
+  } catch {
+    showAuthError("Could not reach the server. Please try again.");
+  } finally {
+    authSubmit.disabled = false;
+  }
+});
+
+signInButton?.addEventListener("click", openAuth);
+authClose?.addEventListener("click", closeAuth);
+authSwitchButton?.addEventListener("click", () => setAuthMode(authMode === "signup" ? "login" : "signup"));
+authOverlay?.addEventListener("click", (event) => {
+  if (event.target === authOverlay) closeAuth();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && authOverlay && !authOverlay.hidden) closeAuth();
+});
+
+signOutButton?.addEventListener("click", async () => {
+  await fetch(apiUrl("/api/visitor/logout"), { method: "POST", credentials: "include" });
+  renderAccountState("");
+  if (sidebarList) {
+    sidebarList.innerHTML = '<li class="sidebar-empty">Your questions will appear here.</li>';
+  }
+});
+
+refreshAccountState();

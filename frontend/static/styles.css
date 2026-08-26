@@ -719,3 +719,187 @@ body {
 
   .composer { padding: 10px 12px; }
 }
+
+/* Optional visitor accounts: sign-in control and dialog. */
+.account-area {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* An explicit display value beats the default [hidden] rule, so restate it.
+   Without this the sign-in control shows on deployments that have no accounts
+   configured. */
+.account-area[hidden],
+.account-email[hidden] {
+  display: none;
+}
+
+.account-email {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 600;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-button {
+  background: none;
+  /* .header-ssl-link is styled for the yellow pills, whose dark text is
+     invisible on this transparent variant. */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font: inherit;
+}
+
+.account-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.sidebar-note {
+  margin: 10px 12px 0;
+  color: #5b6472;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-delete {
+  flex: none;
+  background: none;
+  border: 0;
+  color: #8b95a3;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.sidebar-delete:hover {
+  background: #f0f2f6;
+  color: #b3261e;
+}
+
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(11, 26, 47, 0.55);
+}
+
+.auth-overlay[hidden] {
+  display: none;
+}
+
+.auth-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(11, 26, 47, 0.28);
+}
+
+.auth-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.auth-blurb {
+  margin: 0 0 16px;
+  color: #5b6472;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.auth-dialog label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3d4757;
+}
+
+.auth-dialog input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid #d4d9e1;
+  border-radius: 8px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.auth-dialog input:focus {
+  outline: 2px solid #1b4a8a;
+  outline-offset: 1px;
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 11px;
+  border: 0;
+  border-radius: 8px;
+  background: #1b4a8a;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.auth-error {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #fdecea;
+  color: #b3261e;
+  font-size: 12px;
+}
+
+.auth-switch {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #5b6472;
+}
+
+.auth-switch button {
+  background: none;
+  border: 0;
+  color: #1b4a8a;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.auth-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: 0;
+  color: #8b95a3;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}

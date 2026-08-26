@@ -27,6 +27,11 @@
       <nav class="header-links" aria-label="Header navigation">
         <a href="{{ url_for('dashboard') }}" class="header-ssl-link">Dashboard</a>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer" class="header-ssl-link">Visit SSL</a>
+        <span id="accountArea" class="account-area" hidden>
+          <span id="accountEmail" class="account-email"></span>
+          <button type="button" id="signInButton" class="header-ssl-link account-button">Sign in</button>
+          <button type="button" id="signOutButton" class="header-ssl-link account-button" hidden>Sign out</button>
+        </span>
       </nav>
     </div>
   </header>
@@ -47,6 +52,9 @@
         <ul class="sidebar-list" id="sidebarList">
           <li class="sidebar-empty">Your questions will appear here.</li>
         </ul>
+        <p class="sidebar-note" id="sidebarNote" hidden>
+          Sign in to keep your chat history. Without an account nothing you ask is saved.
+        </p>
       </aside>
 
       <section class="chat-card" aria-label="Chat interface">
@@ -105,6 +113,30 @@
     </span>
     <span class="footer-credit">Built by Team 1 &ldquo;RAG's to Riches&rdquo;</span>
   </footer>
+
+  <div class="auth-overlay" id="authOverlay" hidden>
+    <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button type="button" class="auth-close" id="authClose" aria-label="Close">&times;</button>
+      <h2 id="authTitle">Sign in</h2>
+      <p class="auth-blurb" id="authBlurb">
+        Signing in saves your chat history so you can pick up where you left off.
+        You can keep using the assistant without an account &mdash; nothing you
+        ask is saved unless you sign in.
+      </p>
+      <form id="authForm" novalidate>
+        <label for="authEmail">Email</label>
+        <input type="email" id="authEmail" autocomplete="email" required>
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" autocomplete="current-password" required minlength="8">
+        <p class="auth-error" id="authError" hidden></p>
+        <button type="submit" class="auth-submit" id="authSubmit">Sign in</button>
+      </form>
+      <p class="auth-switch">
+        <span id="authSwitchText">New here?</span>
+        <button type="button" id="authSwitchButton">Create an account</button>
+      </p>
+    </div>
+  </div>
 
   <template id="messageTemplate">
     <article class="message">
