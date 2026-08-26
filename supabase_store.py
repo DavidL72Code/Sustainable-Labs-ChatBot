@@ -170,6 +170,109 @@ class SupabaseStore:
         )
         return result is not None
 
+    # -- visitor accounts and history --------------------------------------
+    #
+    # These use the visitor's own access token, never the service role key, so
+    # the row-level policies decide what each visitor can see. Staff tables are
+    # never touched here, and these tables are never read with the service role.
+    def visitor_sign_up(self, email: str, password: str) -> Optional[dict]:
+        if not self.auth_enabled or not email or not password:
+            return None
+        result = self._request(
+            "POST", "/auth/v1/signup", key=self.anon_key,
+            body={"email": email, "password": password},
+        )
+        return result if isinstance(result, dict) else None
+
+    def visitor_sign_in(self, email: str, password: str) -> Optional[dict]:
+        """Return the visitor's session, including the access token."""
+        if not self.auth_enabled or not email or not password:
+            return None
+        result = self._request(
+            "POST", "/auth/v1/token?grant_type=password", key=self.anon_key,
+            body={"email": email, "password": password},
+        )
+        if not isinstance(result, dict) or not result.get("access_token"):
+            return None
+        return result
+
+    def visitor_refresh(self, refresh_token: str) -> Optional[dict]:
+        """Exchange a refresh token so a visitor is not signed out every hour."""
+        if not self.auth_enabled or not refresh_token:
+            return None
+        result = self._request(
+            "POST", "/auth/v1/token?grant_type=refresh_token", key=self.anon_key,
+            body={"refresh_token": refresh_token},
+        )
+        if not isinstance(result, dict) or not result.get("access_token"):
+            return None
+        return result
+
+    def _as_visitor(
+        self,
+        method: str,
+        path: str,
+        access_token: str,
+        body: Optional[dict | list] = None,
+        extra_headers: Optional[dict[str, str]] = None,
+    ) -> Optional[Any]:
+        if not self.auth_enabled or not access_token:
+            return None
+        headers = {"Authorization": f"Bearer {access_token}"}
+        headers.update(extra_headers or {})
+        # The apikey stays the public anon key; the bearer token is the
+        # visitor's, so PostgREST evaluates the policies as that visitor.
+        return self._request(method, path, key=self.anon_key, body=body, headers=headers)
+
+    def list_visitor_conversations(self, access_token: str, limit: int = 30) -> list[dict]:
+        query = urllib.parse.urlencode(
+            {"select": "*", "order": "updated_at.desc", "limit": max(1, min(limit, 200))}
+        )
+        result = self._as_visitor("GET", f"/rest/v1/visitor_conversations?{query}", access_token)
+        return result if isinstance(result, list) else []
+
+    def create_visitor_conversation(self, access_token: str, user_id: str, title: str) -> Optional[str]:
+        result = self._as_visitor(
+            "POST", "/rest/v1/visitor_conversations", access_token,
+            body=[{"user_id": user_id, "title": (title or "New chat")[:120]}],
+            extra_headers={"Prefer": "return=representation"},
+        )
+        if isinstance(result, list) and result:
+            return str(result[0].get("id", "")) or None
+        return None
+
+    def append_visitor_messages(self, access_token: str, rows: list[dict]) -> bool:
+        if not rows:
+            return False
+        result = self._as_visitor(
+            "POST", "/rest/v1/visitor_messages", access_token,
+            body=rows, extra_headers={"Prefer": "return=minimal"},
+        )
+        return result is not None
+
+    def fetch_visitor_messages(self, access_token: str, conversation_id: str) -> list[dict]:
+        query = urllib.parse.urlencode(
+            {"select": "*", "conversation_id": f"eq.{conversation_id}", "order": "created_at.asc"}
+        )
+        result = self._as_visitor("GET", f"/rest/v1/visitor_messages?{query}", access_token)
+        return result if isinstance(result, list) else []
+
+    def touch_visitor_conversation(self, access_token: str, conversation_id: str) -> None:
+        query = urllib.parse.urlencode({"id": f"eq.{conversation_id}"})
+        self._as_visitor(
+            "PATCH", f"/rest/v1/visitor_conversations?{query}", access_token,
+            body={"updated_at": "now()"}, extra_headers={"Prefer": "return=minimal"},
+        )
+
+    def delete_visitor_conversation(self, access_token: str, conversation_id: str) -> bool:
+        """A visitor can always delete their own history."""
+        query = urllib.parse.urlencode({"id": f"eq.{conversation_id}"})
+        result = self._as_visitor(
+            "DELETE", f"/rest/v1/visitor_conversations?{query}", access_token,
+            extra_headers={"Prefer": "return=minimal"},
+        )
+        return result is not None
+
     # -- auth --------------------------------------------------------------
     def sign_in(self, email: str, password: str) -> Optional[dict]:
         """Verify one employee against Supabase Auth.

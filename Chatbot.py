@@ -17144,6 +17144,114 @@ def create_app() -> Flask:
             return jsonify({"error": "Interaction not found."}), 404
         return jsonify(event)
 
+    # -- visitor accounts --------------------------------------------------
+    #
+    # Signing in is optional. An anonymous visitor is stored nowhere, exactly as
+    # before. A signed-in visitor gets their own history, readable only by them:
+    # these routes pass the visitor's own token to Supabase, so the row-level
+    # policies do the enforcing rather than the code below.
+    def visitor_token() -> str:
+        return str(session.get("visitor_token", ""))
+
+    def refresh_visitor_token() -> str:
+        refreshed = supabase_store.visitor_refresh(str(session.get("visitor_refresh", "")))
+        if not refreshed:
+            return ""
+        session["visitor_token"] = refreshed.get("access_token", "")
+        session["visitor_refresh"] = refreshed.get("refresh_token", session.get("visitor_refresh", ""))
+        return str(session["visitor_token"])
+
+    def start_visitor_session(payload: dict) -> dict:
+        user = payload.get("user") or {}
+        session["visitor_token"] = payload.get("access_token", "")
+        session["visitor_refresh"] = payload.get("refresh_token", "")
+        session["visitor_id"] = str(user.get("id", ""))
+        session["visitor_email"] = str(user.get("email", ""))
+        return {"signed_in": True, "email": session["visitor_email"]}
+
+    def visitor_auth_available() -> bool:
+        return supabase_store.auth_enabled
+
+    @app.post("/api/visitor/signup")
+    def visitor_signup():
+        if not visitor_auth_available():
+            return jsonify({"error": "Accounts are not enabled on this deployment."}), 503
+        if not _rate_limiter.allow(
+            key=f"visitor-signup:{_get_client_ip(config.trust_proxy_headers)}",
+            limit=5, window_seconds=900,
+        ):
+            return jsonify({"error": _RATE_LIMIT_MESSAGE}), 429
+        payload = request.get_json(silent=True) or {}
+        email = str(payload.get("email", "")).strip()
+        password = str(payload.get("password", ""))
+        if not email or len(password) < 8:
+            return jsonify({"error": "Enter an email and a password of at least 8 characters."}), 400
+        result = supabase_store.visitor_sign_up(email, password)
+        if not result:
+            return jsonify({"error": "Could not create that account."}), 400
+        # Projects with email confirmation on return no session until confirmed.
+        if result.get("access_token"):
+            return jsonify(start_visitor_session(result))
+        return jsonify({"signed_in": False, "confirm_email": True})
+
+    @app.post("/api/visitor/login")
+    def visitor_login():
+        if not visitor_auth_available():
+            return jsonify({"error": "Accounts are not enabled on this deployment."}), 503
+        if not _rate_limiter.allow(
+            key=f"visitor-login:{_get_client_ip(config.trust_proxy_headers)}",
+            limit=10, window_seconds=900,
+        ):
+            return jsonify({"error": _RATE_LIMIT_MESSAGE}), 429
+        payload = request.get_json(silent=True) or {}
+        result = supabase_store.visitor_sign_in(
+            str(payload.get("email", "")).strip(), str(payload.get("password", ""))
+        )
+        if not result:
+            return jsonify({"error": "Invalid email or password."}), 401
+        return jsonify(start_visitor_session(result))
+
+    @app.post("/api/visitor/logout")
+    def visitor_logout():
+        for key in ("visitor_token", "visitor_refresh", "visitor_id", "visitor_email"):
+            session.pop(key, None)
+        return jsonify({"signed_in": False})
+
+    @app.get("/api/visitor/session")
+    def visitor_session():
+        return jsonify({
+            "available": visitor_auth_available(),
+            "signed_in": bool(visitor_token()),
+            "email": str(session.get("visitor_email", "")),
+        })
+
+    @app.get("/api/visitor/conversations")
+    def visitor_conversations():
+        token = visitor_token()
+        if not token:
+            return jsonify({"conversations": []})
+        conversations = supabase_store.list_visitor_conversations(token)
+        if not conversations:
+            refreshed = refresh_visitor_token()
+            if refreshed:
+                conversations = supabase_store.list_visitor_conversations(refreshed)
+        return jsonify({"conversations": conversations})
+
+    @app.get("/api/visitor/conversations/<conversation_id>")
+    def visitor_conversation_messages(conversation_id: str):
+        token = visitor_token()
+        if not token:
+            return jsonify({"error": "Sign in to view your saved chats."}), 401
+        messages = supabase_store.fetch_visitor_messages(token, conversation_id)
+        return jsonify({"messages": messages})
+
+    @app.delete("/api/visitor/conversations/<conversation_id>")
+    def visitor_delete_conversation(conversation_id: str):
+        token = visitor_token()
+        if not token:
+            return jsonify({"error": "Sign in to manage your saved chats."}), 401
+        return jsonify({"deleted": supabase_store.delete_visitor_conversation(token, conversation_id)})
+
     @app.get("/api/health")
     def health():
         with chatbot_state_lock:
@@ -17239,6 +17347,25 @@ def create_app() -> Flask:
 
             return Response(stream_with_context(warming_stream()), mimetype="text/event-stream", headers=sse_headers)
 
+        visitor_access_token = str(session.get("visitor_token", ""))
+        visitor_user_id = str(session.get("visitor_id", ""))
+        visitor_conversation_id = ""
+        if visitor_access_token and visitor_user_id:
+            # Mutating the session has to happen here: once the streamed
+            # response starts, Set-Cookie can no longer be sent.
+            mapping = dict(session.get("visitor_conversation_map", {}) or {})
+            visitor_conversation_id = str(mapping.get(conversation_id, ""))
+            if not visitor_conversation_id:
+                created = supabase_store.create_visitor_conversation(
+                    visitor_access_token, visitor_user_id, user_message
+                )
+                if created:
+                    visitor_conversation_id = created
+                    mapping[conversation_id] = created
+                    # Keep the cookie small; older chats stay in Supabase and
+                    # are still listed in the sidebar.
+                    session["visitor_conversation_map"] = dict(list(mapping.items())[-10:])
+
         def generate():
             answer_parts: list[str] = []
             sources: list[dict] = []
@@ -17307,6 +17434,31 @@ def create_app() -> Flask:
                     trace["telemetry"] = summarize_request_telemetry(
                         response_mode=response_mode,
                         query_route=trace.get("query_route"),
+                    )
+                if visitor_conversation_id and final_answer and not blocked:
+                    # The visitor's own history, saved because they asked for
+                    # it. Written with their token, so it is readable only by
+                    # them and never appears on the staff dashboard.
+                    supabase_store.append_visitor_messages(
+                        visitor_access_token,
+                        [
+                            {
+                                "conversation_id": visitor_conversation_id,
+                                "user_id": visitor_user_id,
+                                "role": "user",
+                                "content": user_message,
+                            },
+                            {
+                                "conversation_id": visitor_conversation_id,
+                                "user_id": visitor_user_id,
+                                "role": "assistant",
+                                "content": final_answer,
+                                "sources": sources or [],
+                            },
+                        ],
+                    )
+                    supabase_store.touch_visitor_conversation(
+                        visitor_access_token, visitor_conversation_id
                     )
                 append_chat_log(
                     {

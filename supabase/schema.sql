@@ -124,3 +124,56 @@ order by 1 desc;
 alter table public.chat_metrics enable row level security;
 alter table public.flagged_chats enable row level security;
 alter table public.admin_audit_events enable row level security;
+
+-- ---------------------------------------------------------------------------
+-- Visitor chat history.
+--
+-- Entirely separate from the staff tables above. Signing in is optional: an
+-- anonymous visitor is stored nowhere, exactly as before. A signed-in visitor
+-- gets their own history and can only ever see their own.
+--
+-- Isolation is enforced by Postgres, not by application code. The backend uses
+-- the visitor's own access token for these tables, so the policies below decide
+-- what they can see. The service role key is never used against them.
+-- ---------------------------------------------------------------------------
+create table if not exists public.visitor_conversations (
+    id         uuid primary key default gen_random_uuid(),
+    user_id    uuid not null references auth.users (id) on delete cascade,
+    title      text not null default 'New chat',
+    created_at timestamptz not null default now(),
+    updated_at timestamptz not null default now()
+);
+
+create index if not exists visitor_conversations_user_idx
+    on public.visitor_conversations (user_id, updated_at desc);
+
+create table if not exists public.visitor_messages (
+    id              bigserial primary key,
+    conversation_id uuid not null references public.visitor_conversations (id) on delete cascade,
+    user_id         uuid not null references auth.users (id) on delete cascade,
+    role            text not null check (role in ('user', 'assistant')),
+    content         text not null,
+    sources         jsonb not null default '[]'::jsonb,
+    created_at      timestamptz not null default now()
+);
+
+create index if not exists visitor_messages_conversation_idx
+    on public.visitor_messages (conversation_id, created_at);
+
+alter table public.visitor_conversations enable row level security;
+alter table public.visitor_messages enable row level security;
+
+-- A visitor may read, write, and delete their own rows and nobody else's.
+-- auth.uid() comes from the caller's JWT, so these cannot be bypassed from the
+-- client or by a mistake in the backend.
+drop policy if exists "own conversations" on public.visitor_conversations;
+create policy "own conversations" on public.visitor_conversations
+    for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+drop policy if exists "own messages" on public.visitor_messages;
+create policy "own messages" on public.visitor_messages
+    for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+-- Staff tables carry no visitor identity. Reviewing a flagged answer shows the
+-- question and the retrieval trace, never who asked it, so quality review
+-- cannot become a way to read one named person's chat history.

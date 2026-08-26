@@ -394,9 +394,12 @@ with no sources. Tune the thresholds with `FLAG_MIN_TOP_SCORE` and
 
 1. Create a Supabase project (the free tier is enough).
 2. In **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql).
-3. In **Authentication → Providers → Email**, turn **off** "Enable sign ups".
-   Supabase allows public signup by default; leaving it on would let anyone
-   register and reach the dashboard.
+3. In **Authentication → Providers → Email**, decide on signups:
+   * Leave **Enable sign ups** ON if visitors may create accounts to save their
+     own chat history. Staff access does not depend on this being off: a
+     self-registered visitor has no staff role, so they cannot reach the
+     dashboard.
+   * Turn it OFF if only staff will ever have accounts.
 4. In **Authentication → Users**, invite each employee by email. They set their
    own password from the invite link. Then open each user and set their
    **App Metadata** to:
@@ -437,6 +440,30 @@ python3 make_admin_users.py alice bob carol
 
 Each employee still gets their own login, but changing the roster means editing
 the secret and restarting the Space.
+
+### Visitor accounts and chat history
+
+Signing in is optional and only affects whether a visitor's own history is
+saved. Nothing about the chatbot's answers changes.
+
+* **Anonymous visitors are stored nowhere.** No account means no conversation
+  and no message rows, exactly as before. Their answers still contribute the
+  content-free numbers in `chat_metrics`.
+* **A signed-in visitor gets their own history**, in `visitor_conversations`
+  and `visitor_messages`, and can delete it at any time.
+* **Visitors can only ever see their own.** These tables are read and written
+  with the visitor's own access token, never the service role key, and their
+  policies are `auth.uid() = user_id`. Postgres does the enforcing, so a bug in
+  the backend cannot expose one visitor's history to another.
+* **Staff see flagged answers from everyone, and no visitor identity.**
+  `flagged_chats` carries the question and the retrieval trace but no user id or
+  email, so quality review cannot become a way to read one named person's chat
+  history. The dashboard never queries the visitor tables.
+
+Visitor endpoints: `POST /api/visitor/signup`, `POST /api/visitor/login`,
+`POST /api/visitor/logout`, `GET /api/visitor/session`,
+`GET /api/visitor/conversations`, `GET /api/visitor/conversations/<id>`,
+`DELETE /api/visitor/conversations/<id>`.
 
 #### Frontend on Vercel (static site)
 
