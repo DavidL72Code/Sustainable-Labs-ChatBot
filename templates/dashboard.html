@@ -23,6 +23,7 @@
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="{{ url_for('index') }}">Chat</a>
+        {% if admin_username %}<span class="signed-in-as">{{ admin_username }}</span>{% endif %}
         <form method="post" action="{{ url_for('admin_logout') }}"><button type="submit">Sign out</button></form>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer">Visit SSL</a>
       </nav>
@@ -60,6 +61,20 @@
         <strong>{{ '{:,}'.format(dashboard.stats.total_tokens or 0) }}</strong>
         <small class="metric-note">{{ '{:,}'.format(dashboard.stats.avg_tokens or 0) }} avg / answer</small>
       </article>
+      {% if dashboard.stats.avg_confidence_score %}
+      <article class="metric-card">
+        <span>Avg Confidence</span>
+        <strong>{{ dashboard.stats.avg_confidence_score }}</strong>
+        <small class="metric-note">avg top score {{ dashboard.stats.avg_top_score }}</small>
+      </article>
+      {% endif %}
+      {% if dashboard.storage == 'supabase' %}
+      <article class="metric-card">
+        <span>Flagged</span>
+        <strong>{{ dashboard.stats.flagged }}</strong>
+        <small class="metric-note">of {{ dashboard.stats.total }} answers</small>
+      </article>
+      {% endif %}
       <article class="metric-card">
         <span>Token Cost</span>
         <strong>${{ '%.4f' % (dashboard.stats.total_cost_usd or 0) }}</strong>
@@ -70,8 +85,14 @@
     <section class="dashboard-grid">
       <article class="panel panel-wide">
         <div class="panel-header">
-          <h2>Chat History</h2>
-          <span>Staff-only operational summary</span>
+          <h2>{{ 'Flagged for Review' if dashboard.storage == 'supabase' else 'Chat History' }}</h2>
+          <span>
+            {%- if dashboard.storage == 'supabase' -%}
+              Transcripts are stored only for flagged answers
+            {%- else -%}
+              Staff-only operational summary
+            {%- endif -%}
+          </span>
         </div>
         {% if dashboard.chat_history %}
           <div class="history-table-wrap">
@@ -81,6 +102,7 @@
                   <th>Status</th>
                   <th>Chat Mapping</th>
                   <th>Confidence</th>
+                  {% if dashboard.storage == 'supabase' %}<th>Flagged For</th>{% endif %}
                   <th>Path</th>
                   <th>Sources</th>
                   <th>Retrieval</th>
@@ -109,6 +131,14 @@
                         <span class="muted-value">N/A</span>
                       {% endif %}
                     </td>
+                    {% if dashboard.storage == 'supabase' %}
+                    <td>
+                      {% for reason in event.flag_reasons %}
+                        <span class="flag-pill flag-{{ reason }}">{{ reason.replace('_', ' ') }}</span>
+                      {% endfor %}
+                      {% if event.reviewed_by %}<span class="muted-value">reviewed by {{ event.reviewed_by }}</span>{% endif %}
+                    </td>
+                    {% endif %}
                     <td>
                       <span class="path-label" title="{{ event.path_label }}">{{ event.path_label or event.response_mode or 'direct' }}</span>
                     </td>
@@ -153,9 +183,47 @@
             </table>
           </div>
         {% else %}
-          <p class="empty-state">No chat logs yet. Ask the chatbot a question and refresh this page.</p>
+          <p class="empty-state">
+            {% if dashboard.storage == 'supabase' %}
+              No answers have been flagged for review. Good answers are counted in the metrics above but leave no transcript.
+            {% else %}
+              No chat logs yet. Ask the chatbot a question and refresh this page.
+            {% endif %}
+          </p>
         {% endif %}
       </article>
+
+      {% if dashboard.daily %}
+      <article class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Daily Quality &amp; Cost</h2>
+          <span>Covers every answer, including ones with no stored transcript</span>
+        </div>
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Day</th><th>Chats</th><th>Flagged</th><th>Avg Confidence</th>
+              <th>Avg Top Score</th><th>Avg Latency</th><th>p95 Latency</th><th>Tokens</th><th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for day in dashboard.daily %}
+              <tr>
+                <td>{{ day.day }}</td>
+                <td>{{ day.chat_count }}</td>
+                <td>{{ day.flagged_count }}</td>
+                <td>{{ day.avg_confidence_score if day.avg_confidence_score is not none else '—' }}</td>
+                <td>{{ day.avg_top_score if day.avg_top_score is not none else '—' }}</td>
+                <td>{{ day.avg_latency_ms | seconds }}</td>
+                <td>{{ day.p95_latency_ms | seconds }}</td>
+                <td>{{ '{:,}'.format(day.total_tokens or 0) }}</td>
+                <td>${{ '%.4f' % (day.total_cost_usd or 0) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </article>
+      {% endif %}
 
       <article class="panel">
         <div class="panel-header">

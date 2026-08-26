@@ -20,6 +20,7 @@ from typing import Callable, Optional
 from urllib.parse import urlsplit
 
 from conversation_state import ConversationStateMachine, empty_state, normalize_state, unique_subjects
+from supabase_store import SupabaseStore
 
 import chromadb
 from chromadb.api.models.Collection import Collection
@@ -88,6 +89,14 @@ class ChatbotConfig:
     admin_username: str = os.getenv("ADMIN_USERNAME", "").strip()
     admin_password_hash: str = os.getenv("ADMIN_PASSWORD_HASH", "").strip()
     dashboard_session_secret: str = os.getenv("DASHBOARD_SESSION_SECRET", "").strip()
+    admin_users_json: str = os.getenv("ADMIN_USERS_JSON", "").strip()
+    # Answers scoring below this retrieval strength are kept for staff review.
+    # Set FLAG_MIN_SCORE_GAP above 0 to also flag near-tied top chunks.
+    flag_min_top_score: float = float(os.getenv("FLAG_MIN_TOP_SCORE", "0.90"))
+    flag_min_score_gap: float = float(os.getenv("FLAG_MIN_SCORE_GAP", "0"))
+    # With Supabase configured the local JSONL is redundant, and on an
+    # ephemeral Space it is lost on restart anyway. Keep it for local dev.
+    chat_log_to_file: bool = os.getenv("CHAT_LOG_TO_FILE", "").lower() in {"1", "true", "yes"}
     debug_mode: bool = os.getenv("FLASK_DEBUG", "0") == "1"
     chat_rate_limit_count: int = int(os.getenv("CHAT_RATE_LIMIT_COUNT", "10"))
     chat_rate_limit_window_seconds: int = int(os.getenv("CHAT_RATE_LIMIT_WINDOW_SECONDS", "60"))
@@ -15948,6 +15957,59 @@ def redact_chat_stream_event(event_text: str) -> str:
     return "\n".join(redacted_lines) + ("\n\n" if event_text.endswith("\n\n") else "")
 
 
+# A throwaway hash compared against when a username does not exist, so a bad
+# username costs the same time as a bad password.
+_DUMMY_PASSWORD_HASH = (
+    "pbkdf2:sha256:600000$dashboardDummy$"
+    "0000000000000000000000000000000000000000000000000000000000000000"
+)
+
+
+def load_admin_users(config: "ChatbotConfig") -> dict[str, str]:
+    """Map each dashboard user to their password hash.
+
+    ADMIN_USERS_JSON holds {"username": "<werkzeug password hash>"} so a team
+    can share the dashboard without sharing one login. The older single-user
+    ADMIN_USERNAME/ADMIN_PASSWORD_HASH pair still works and is merged in, so an
+    existing deployment keeps working until it is migrated.
+    """
+    users: dict[str, str] = {}
+    raw = (config.admin_users_json or "").strip()
+    if raw:
+        try:
+            parsed = json.loads(raw)
+        except json.JSONDecodeError:
+            print("ADMIN_USERS_JSON is not valid JSON; ignoring it.", flush=True)
+            parsed = {}
+        if isinstance(parsed, dict):
+            for username, password_hash in parsed.items():
+                name = str(username).strip()
+                digest = str(password_hash).strip()
+                if name and digest:
+                    users[name] = digest
+        else:
+            print("ADMIN_USERS_JSON must be a JSON object of username -> password hash.", flush=True)
+    if config.admin_username and config.admin_password_hash:
+        users.setdefault(config.admin_username, config.admin_password_hash)
+    return users
+
+
+def verify_admin_credentials(users: dict[str, str], username: str, password: str) -> bool:
+    """Check one dashboard credential pair without leaking which name exists."""
+    from werkzeug.security import check_password_hash
+
+    stored_hash = users.get(username)
+    # Always run a comparison so a wrong username and a wrong password take a
+    # similar amount of time, which keeps the form from confirming who has an
+    # account.
+    candidate = stored_hash or _DUMMY_PASSWORD_HASH
+    try:
+        matched = check_password_hash(candidate, password)
+    except Exception:
+        return False
+    return bool(stored_hash) and matched
+
+
 def format_seconds(milliseconds: object) -> str:
     """Render a millisecond duration as seconds for the staff dashboard."""
     try:
@@ -15964,12 +16026,160 @@ def utc_timestamp() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+ADMIN_AUDIT_LOG_PATH = PROJECT_ROOT / "logs" / "admin_events.jsonl"
+
+supabase_store = SupabaseStore()
+
+# Retrieval pins a recovered entity profile with a sentinel score. It is a
+# forced inclusion, not a real similarity, so it must never reach a threshold
+# comparison or a daily average.
+_PINNED_RETRIEVAL_SCORE = 1_000_000
+
+
+def _real_score(value: object) -> Optional[float]:
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return None
+    return None if score >= _PINNED_RETRIEVAL_SCORE else score
+
+
+def classify_answer_flags(event: dict) -> list[str]:
+    """Decide whether an answer needs staff review, and why.
+
+    Only flagged answers have their question and answer text stored, so this
+    is the boundary between "a number in the metrics table" and "a transcript
+    a human will read".
+    """
+    trace = event.get("trace", {}) or {}
+    diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+    confidence = trace.get("confidence", {}) or {}
+    status = str(event.get("status", "") or "")
+    reasons: list[str] = []
+
+    if event.get("blocked"):
+        reasons.append("blocked")
+    if status == "error":
+        reasons.append("error")
+    if status == "clarification" or event.get("needs_clarification"):
+        reasons.append("clarification")
+    if confidence.get("is_low_confidence"):
+        reasons.append("low_confidence")
+
+    top_score = _real_score(diagnostics.get("top_score"))
+    score_gap = _real_score(diagnostics.get("score_gap"))
+    min_top = ChatbotConfig.flag_min_top_score
+    min_gap = ChatbotConfig.flag_min_score_gap
+    if min_top > 0 and top_score is not None and top_score < min_top:
+        reasons.append("weak_retrieval")
+    if min_gap > 0 and score_gap is not None and score_gap < min_gap:
+        reasons.append("narrow_score_gap")
+    if status == "answered" and not (event.get("sources") or []):
+        reasons.append("no_sources")
+
+    return list(dict.fromkeys(reasons))
+
+
+def build_chat_metrics_row(event: dict, flags: list[str]) -> dict:
+    """A numbers-only row. Never include question or answer text here."""
+    trace = event.get("trace", {}) or {}
+    diagnostics = trace.get("retrieval_diagnostics", {}) or {}
+    confidence = trace.get("confidence", {}) or {}
+    telemetry = trace.get("telemetry", {}) or {}
+    usage = telemetry.get("token_usage", {}) or {}
+    breakdown = telemetry.get("latency_breakdown", {}) or {}
+    return {
+        "id": event.get("id", ""),
+        "created_at": event.get("timestamp") or utc_timestamp(),
+        "status": event.get("status") or "answered",
+        "response_mode": event.get("response_mode") or "",
+        "path_label": telemetry.get("path_label") or "",
+        "blocked": bool(event.get("blocked")),
+        "needs_clarification": bool(event.get("needs_clarification")),
+        "latency_ms": event.get("latency_ms"),
+        "retrieval_ms": breakdown.get("retrieval_ms"),
+        "llm_ms": breakdown.get("llm_ms"),
+        "total_tokens": usage.get("total_tokens"),
+        "input_tokens": usage.get("input_tokens"),
+        "output_tokens": usage.get("output_tokens"),
+        "cost_usd": usage.get("cost_usd"),
+        "llm_call_count": usage.get("call_count"),
+        "confidence_score": confidence.get("score"),
+        "is_low_confidence": bool(confidence.get("is_low_confidence")),
+        "top_score": _real_score(diagnostics.get("top_score")),
+        "score_gap": _real_score(diagnostics.get("score_gap")),
+        "source_count": len(event.get("sources") or []),
+        "retrieved_count": len(trace.get("retrieved_metadata") or []),
+        "flagged": bool(flags),
+        "flag_reasons": flags,
+    }
+
+
+def append_admin_audit_event(action: str, username: str, detail: str = "") -> None:
+    """Record who signed in and what they opened.
+
+    The dashboard shows real visitor questions, so each view is attributable to
+    a named employee rather than a shared account.
+    """
+    if not username:
+        return
+    try:
+        ADMIN_AUDIT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        entry = {
+            "timestamp": utc_timestamp(),
+            "action": action,
+            "username": username,
+        }
+        if detail:
+            entry["detail"] = detail
+        if supabase_store.enabled:
+            supabase_store.record_audit_event(
+                {
+                    "created_at": entry["timestamp"],
+                    "username": entry["username"],
+                    "action": entry["action"],
+                    "detail": entry.get("detail"),
+                }
+            )
+            return
+        with ADMIN_AUDIT_LOG_PATH.open("a", encoding="utf-8") as file:
+            file.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError:
+        # Auditing must never take the dashboard down.
+        pass
+
+
 def append_chat_log(event: dict) -> None:
-    CHAT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     event.setdefault("id", uuid.uuid4().hex)
     event.setdefault("timestamp", utc_timestamp())
-    with CHAT_LOG_PATH.open("a", encoding="utf-8") as file:
-        file.write(json.dumps(event, ensure_ascii=False) + "\n")
+    flags = classify_answer_flags(event)
+
+    if supabase_store.enabled:
+        # Every answer contributes numbers; only a flagged one leaves a
+        # transcript behind.
+        supabase_store.record_chat_metrics(build_chat_metrics_row(event, flags))
+        if flags:
+            supabase_store.record_flagged_chat(
+                {
+                    "id": event.get("id", ""),
+                    "created_at": event.get("timestamp") or utc_timestamp(),
+                    "conversation_id": event.get("conversation_id", ""),
+                    "question": event.get("question", ""),
+                    "answer": event.get("answer", ""),
+                    "flag_reasons": flags,
+                    "sources": event.get("sources", []) or [],
+                    "trace": event.get("trace", {}) or {},
+                }
+            )
+        if not ChatbotConfig.chat_log_to_file:
+            return
+
+    try:
+        CHAT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with CHAT_LOG_PATH.open("a", encoding="utf-8") as file:
+            file.write(json.dumps(event, ensure_ascii=False) + "\n")
+    except OSError as exc:
+        print(f"Could not append to the local chat log: {exc}", flush=True)
 
 
 class InMemoryRateLimiter:
@@ -16237,7 +16447,93 @@ def summarize_chat_event(event: dict) -> dict:
     return summarized
 
 
+def supabase_event_from_row(row: dict) -> dict:
+    """Shape a flagged Supabase row like a local chat log event."""
+    metrics = row.get("chat_metrics") or {}
+    if isinstance(metrics, list):
+        metrics = metrics[0] if metrics else {}
+    return {
+        "id": row.get("id", ""),
+        "conversation_id": row.get("conversation_id", ""),
+        "timestamp": row.get("created_at", ""),
+        "question": row.get("question", ""),
+        "answer": row.get("answer", ""),
+        "sources": row.get("sources", []) or [],
+        "trace": row.get("trace", {}) or {},
+        "status": metrics.get("status") or "answered",
+        "response_mode": metrics.get("response_mode") or "",
+        "latency_ms": metrics.get("latency_ms") or 0,
+        "blocked": bool(metrics.get("blocked")),
+        "needs_clarification": bool(metrics.get("needs_clarification")),
+        "flag_reasons": row.get("flag_reasons", []) or [],
+        "reviewed_by": row.get("reviewed_by") or "",
+        "reviewed_at": row.get("reviewed_at") or "",
+    }
+
+
+def build_supabase_dashboard_payload() -> dict:
+    """Dashboard fed by Supabase.
+
+    Transcripts exist only for flagged answers, so the history table becomes a
+    review queue. Headline numbers come from the content-free metrics table so
+    they still describe all traffic rather than only the failures.
+    """
+    flagged_rows = supabase_store.fetch_flagged_chats(limit=50)
+    events = [summarize_chat_event(supabase_event_from_row(row)) for row in flagged_rows]
+    for event, row in zip(events, flagged_rows):
+        event["flag_reasons"] = row.get("flag_reasons", []) or []
+        event["reviewed_by"] = row.get("reviewed_by") or ""
+
+    metrics = supabase_store.fetch_chat_metrics(limit=500)
+    daily = supabase_store.fetch_daily_metrics(days=30)
+
+    def total(field: str) -> float:
+        return sum(float(row.get(field) or 0) for row in metrics)
+
+    def mean(field: str) -> float:
+        values = [float(row[field]) for row in metrics if row.get(field) is not None]
+        return round(sum(values) / len(values), 4) if values else 0.0
+
+    source_counts: Counter[str] = Counter()
+    category_counts: Counter[str] = Counter()
+    for event in events:
+        for source in event.get("sources", []) or []:
+            source_counts[source.get("title") or "Unknown source"] += 1
+        for metadata in (event.get("trace", {}) or {}).get("retrieved_metadata", []) or []:
+            category_counts[metadata.get("category") or metadata.get("folder_label") or "Uncategorized"] += 1
+
+    stats = {
+        "total": len(metrics),
+        "blocked": sum(1 for row in metrics if row.get("blocked")),
+        "clarifications": sum(1 for row in metrics if row.get("needs_clarification")),
+        "errors": sum(1 for row in metrics if row.get("status") == "error"),
+        "low_confidence": sum(1 for row in metrics if row.get("is_low_confidence")),
+        "flagged": sum(1 for row in metrics if row.get("flagged")),
+        "total_tokens": int(total("total_tokens")),
+        "total_cost_usd": round(total("cost_usd"), 6),
+        "avg_tokens": int(mean("total_tokens")),
+        "avg_cost_usd": round(mean("cost_usd"), 6),
+        "avg_latency_ms": round(mean("latency_ms"), 1),
+        "avg_confidence_score": mean("confidence_score"),
+        "avg_top_score": mean("top_score"),
+    }
+
+    return {
+        "storage": "supabase",
+        "stats": stats,
+        "chat_history": events,
+        "recent_events": events[:25],
+        "problem_events": events[:12],
+        "daily": daily,
+        "source_usage": source_counts.most_common(12),
+        "category_usage": category_counts.most_common(8),
+        "eval": load_eval_summary(),
+    }
+
+
 def build_dashboard_payload() -> dict:
+    if supabase_store.enabled:
+        return build_supabase_dashboard_payload()
     events = [summarize_chat_event(event) for event in load_chat_events()]
     source_counts: Counter[str] = Counter()
     category_counts: Counter[str] = Counter()
@@ -16282,6 +16578,8 @@ def build_dashboard_payload() -> dict:
     }
 
     return {
+        "storage": "local",
+        "daily": [],
         "stats": stats,
         "chat_history": events[:50],
         "recent_events": events[:25],
@@ -16293,7 +16591,12 @@ def build_dashboard_payload() -> dict:
 
 
 def find_chat_event(event_id: str) -> Optional[dict]:
-    for event in load_chat_events():
+    if supabase_store.enabled:
+        rows = [row for row in supabase_store.fetch_flagged_chats(limit=500) if row.get("id") == event_id]
+        events = [supabase_event_from_row(row) for row in rows]
+    else:
+        events = load_chat_events()
+    for event in events:
         if event.get("id") == event_id:
             trace = event.get("trace", {}) or {}
             confidence = trace.get("confidence", {}) or {}
@@ -16636,11 +16939,48 @@ def create_app() -> Flask:
         SESSION_COOKIE_SECURE=os.getenv("SESSION_COOKIE_SECURE", "1").lower() in {"1", "true", "yes"},
     )
 
+    def admin_users() -> dict[str, str]:
+        return load_admin_users(config)
+
     def admin_auth_configured() -> bool:
-        return bool(config.admin_username and config.admin_password_hash and config.dashboard_session_secret)
+        if not config.dashboard_session_secret:
+            return False
+        return bool(supabase_store.auth_enabled or admin_users())
+
+    def authenticate_admin(username: str, password: str) -> str:
+        """Return the signed-in identity, or an empty string on failure.
+
+        Supabase Auth is checked first so staff can be added or removed from
+        the Supabase dashboard without a Space restart. Env-configured users
+        remain valid so a deployment without Supabase still works.
+        """
+        if supabase_store.auth_enabled:
+            user = supabase_store.sign_in(username, password)
+            if user:
+                return str(user.get("email") or username)
+        if verify_admin_credentials(admin_users(), username, password):
+            return username
+        return ''
 
     def admin_is_authenticated() -> bool:
-        return bool(session.get("admin_authenticated")) if session is not None else False
+        if session is None or not session.get("admin_authenticated"):
+            return False
+        username = str(session.get("admin_username", ""))
+        if session.get("admin_source") == "supabase":
+            # Supabase sessions are validated at sign-in. Revoking a user there
+            # takes effect when their cookie expires or they sign out.
+            return bool(username)
+        # Re-check the signed-in name against the current user list so removing
+        # someone from ADMIN_USERS_JSON ends their session at the next request
+        # instead of only blocking new logins.
+        return username in admin_users()
+
+    def start_admin_session(username: str) -> None:
+        session.clear()
+        session["admin_authenticated"] = True
+        session["admin_username"] = username
+        session["admin_source"] = "supabase" if supabase_store.auth_enabled else "env"
+        append_admin_audit_event("login", username)
 
     def admin_required(api: bool = False):
         def decorator(view):
@@ -16723,15 +17063,9 @@ def create_app() -> Flask:
                 return render_template("admin_login.html", error=_RATE_LIMIT_MESSAGE, next=next_path), 429
             username = str(request.form.get("username", "")).strip()
             password = str(request.form.get("password", ""))
-            try:
-                from werkzeug.security import check_password_hash
-                valid_password = check_password_hash(config.admin_password_hash, password)
-            except Exception:
-                valid_password = False
-            if username == config.admin_username and valid_password:
-                session.clear()
-                session["admin_authenticated"] = True
-                session["admin_username"] = config.admin_username
+            identity = authenticate_admin(username, password)
+            if identity:
+                start_admin_session(identity)
                 safe_next = next_path if next_path.startswith("/") and not next_path.startswith("//") else url_for("dashboard")
                 return redirect(safe_next)
             return render_template("admin_login.html", error="Invalid admin credentials.", next=next_path), 401
@@ -16740,6 +17074,7 @@ def create_app() -> Flask:
 
     @app.post("/admin/logout")
     def admin_logout():
+        append_admin_audit_event("logout", str(session.get("admin_username", "")))
         session.clear()
         return redirect(url_for("admin_login"))
 
@@ -16756,36 +17091,44 @@ def create_app() -> Flask:
         payload = request.get_json(silent=True) or {}
         username = str(payload.get("username", "")).strip()
         password = str(payload.get("password", ""))
-        try:
-            from werkzeug.security import check_password_hash
-            valid_password = check_password_hash(config.admin_password_hash, password)
-        except Exception:
-            valid_password = False
-        if username != config.admin_username or not valid_password:
+        identity = authenticate_admin(username, password)
+        if not identity:
             return jsonify({"error": "Invalid admin credentials."}), 401
-        session.clear()
-        session["admin_authenticated"] = True
-        session["admin_username"] = config.admin_username
-        return jsonify({"authenticated": True})
+        start_admin_session(identity)
+        return jsonify({"authenticated": True, "username": identity})
 
     @app.post("/api/admin/logout")
     def admin_api_logout():
+        append_admin_audit_event("logout", str(session.get("admin_username", "")))
         session.clear()
         return jsonify({"authenticated": False})
 
     @app.get("/api/admin/session")
     def admin_api_session():
-        return jsonify({"authenticated": admin_is_authenticated()})
+        authenticated = admin_is_authenticated()
+        return jsonify({
+            "authenticated": authenticated,
+            "username": session.get("admin_username", "") if authenticated else "",
+        })
 
     @app.get("/dashboard")
     @admin_required()
     def dashboard():
-        return render_template("dashboard.html", dashboard=build_dashboard_payload())
+        return render_template(
+            "dashboard.html",
+            dashboard=build_dashboard_payload(),
+            admin_username=session.get("admin_username", ""),
+        )
 
     @app.get("/dashboard/interaction/<event_id>")
     @admin_required()
     def dashboard_interaction(event_id: str):
-        return render_template("dashboard_detail.html", event=find_chat_event(event_id))
+        append_admin_audit_event("view_interaction", str(session.get("admin_username", "")), event_id)
+        return render_template(
+            "dashboard_detail.html",
+            event=find_chat_event(event_id),
+            admin_username=session.get("admin_username", ""),
+        )
 
     @app.get("/api/dashboard")
     @admin_required(api=True)
@@ -16795,6 +17138,7 @@ def create_app() -> Flask:
     @app.get("/api/dashboard/interaction/<event_id>")
     @admin_required(api=True)
     def dashboard_interaction_api(event_id: str):
+        append_admin_audit_event("view_interaction", str(session.get("admin_username", "")), event_id)
         event = find_chat_event(event_id)
         if event is None:
             return jsonify({"error": "Interaction not found."}), 404

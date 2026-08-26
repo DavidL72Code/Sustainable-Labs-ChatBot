@@ -359,9 +359,63 @@ Steps:
    - `SUGGESTIONS_VERIFY_RETRIEVAL` — optional. Defaults to `0` for fast verified-bank suggestions. Set to `1` if you want suggestions to rerun retrieval over each candidate at runtime.
    - Optionally `GEMINI_MODEL` to override the default model.
    - Optionally `REWRITE_MODEL` to override the fast rewrite/classification model; the default is `gemma-4-26b-a4b-it`.
+   - `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` — enable durable dashboard storage and per-employee sign-in. See "Staff dashboard storage" below. Leave unset to fall back to the local JSONL log.
+   - Optionally `FLAG_MIN_TOP_SCORE` (default `0.90`) and `FLAG_MIN_SCORE_GAP` (default `0`, disabled) to tune which answers are kept for review.
+   - Optionally `ADMIN_USERS_JSON` for env-configured dashboard accounts when Supabase Auth is not used.
    - Optionally `LLM_PRICE_TABLE_JSON` to price token usage on the dashboard, e.g. `{"gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40, "cached": 0.025}}`. Values are USD per 1M tokens; `cached` defaults to a quarter of the input rate. Models with no entry show token counts with an `unpriced` cost.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
 5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
+
+### Staff dashboard storage
+
+The Space filesystem is ephemeral, so `logs/chat_events.jsonl` is wiped on every
+restart. Point the dashboard at Supabase to keep its history, and to let several
+employees sign in with their own accounts.
+
+**What gets stored.** Content and metrics are deliberately separate:
+
+| Table | Contents | Written for |
+| --- | --- | --- |
+| `chat_metrics` | numbers only — latency, path, tokens, cost, confidence, retrieval scores. **No question or answer text.** | every answer |
+| `flagged_chats` | the full transcript, sources, and trace | flagged answers only |
+| `admin_audit_events` | who signed in, and which interaction they opened | each dashboard action |
+| `daily_metrics` | a view: per-day counts, avg/p95 latency, tokens, cost, avg confidence and retrieval score | derived |
+
+An ordinary visitor chat therefore leaves no transcript behind, while the
+dashboard's headline numbers still describe all traffic rather than only the
+failures.
+
+**An answer is flagged when** it was blocked, errored, needed clarification, came
+back low confidence, retrieved nothing above `FLAG_MIN_TOP_SCORE`, or answered
+with no sources. Tune the thresholds with `FLAG_MIN_TOP_SCORE` and
+`FLAG_MIN_SCORE_GAP`.
+
+**Setup**
+
+1. Create a Supabase project (the free tier is enough).
+2. In **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql).
+3. In **Authentication → Users**, invite each employee by email. They set their
+   own password from the invite link. Adding or removing staff needs no restart
+   and no redeploy.
+4. In **Project Settings → API**, copy the project URL, the `anon` key, and the
+   `service_role` key.
+5. Add all three to the Space as **Secrets** (not Variables):
+   `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
+   `DASHBOARD_SESSION_SECRET` must also be set for sessions to work.
+
+The `service_role` key bypasses row-level security, so it belongs only in the
+Space secrets — never in the frontend or the repo. Both tables have RLS enabled
+with no permissive policy, so a leaked `anon` key cannot read transcripts.
+
+**Without Supabase**, set `ADMIN_USERS_JSON` to a JSON object of username to
+password hash and generate it with:
+
+```bash
+python3 make_admin_users.py alice bob carol
+```
+
+Each employee still gets their own login, but changing the roster means editing
+the secret and restarting the Space.
 
 #### Frontend on Vercel (static site)
 
