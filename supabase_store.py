@@ -189,4 +189,32 @@ class SupabaseStore:
         if not isinstance(result, dict):
             return None
         user = result.get("user")
-        return user if isinstance(user, dict) else None
+        if not isinstance(user, dict):
+            return None
+        if not self.is_staff(user):
+            print(
+                f"Rejected dashboard sign-in for {user.get('email', 'unknown')}: "
+                "the account is not marked as staff.",
+                flush=True,
+            )
+            return None
+        return user
+
+    @staticmethod
+    def is_staff(user: dict) -> bool:
+        """Only accounts explicitly marked as staff may reach the dashboard.
+
+        Supabase projects allow public email signup by default, and visitor
+        accounts may later share this project, so a valid login is not by
+        itself proof of employment. app_metadata is writable only with the
+        service role key, so a user cannot grant themselves this role.
+        """
+        metadata = user.get("app_metadata")
+        if not isinstance(metadata, dict):
+            return False
+        if str(metadata.get("role", "")).strip().lower() == "staff":
+            return True
+        roles = metadata.get("roles")
+        if isinstance(roles, list):
+            return any(str(role).strip().lower() == "staff" for role in roles)
+        return False

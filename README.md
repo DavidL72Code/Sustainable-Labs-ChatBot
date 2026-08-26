@@ -394,14 +394,35 @@ with no sources. Tune the thresholds with `FLAG_MIN_TOP_SCORE` and
 
 1. Create a Supabase project (the free tier is enough).
 2. In **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql).
-3. In **Authentication → Users**, invite each employee by email. They set their
-   own password from the invite link. Adding or removing staff needs no restart
-   and no redeploy.
-4. In **Project Settings → API**, copy the project URL, the `anon` key, and the
+3. In **Authentication → Providers → Email**, turn **off** "Enable sign ups".
+   Supabase allows public signup by default; leaving it on would let anyone
+   register and reach the dashboard.
+4. In **Authentication → Users**, invite each employee by email. They set their
+   own password from the invite link. Then open each user and set their
+   **App Metadata** to:
+
+   ```json
+   { "role": "staff" }
+   ```
+
+   Only accounts carrying this role can sign in to the dashboard. App metadata
+   is writable only with the service role key, so a user cannot grant it to
+   themselves, and a visitor account in the same project can never reach staff
+   data. Adding or removing staff needs no restart and no redeploy.
+5. In **Project Settings → API**, copy the project URL, the `anon` key, and the
    `service_role` key.
-5. Add all three to the Space as **Secrets** (not Variables):
+6. Add all three to the Space as **Secrets** (not Variables):
    `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
    `DASHBOARD_SESSION_SECRET` must also be set for sessions to work.
+
+Verify the whole setup with:
+
+```bash
+python3 verify_supabase.py
+```
+
+It checks the environment, confirms each table is reachable, writes and reads
+back a test row, exercises the daily rollup, and cleans up after itself.
 
 The `service_role` key bypasses row-level security, so it belongs only in the
 Space secrets — never in the frontend or the repo. Both tables have RLS enabled
