@@ -197,7 +197,7 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 |---|---|
 | **Python 3** | Language |
 | **Flask** | Web server, REST API, SSE streaming |
-| **Google Gemini** (`google-genai`) | LLM for answer generation and query planning. Default model: `gemini-3.1-flash-lite` |
+| **Google Gemini** (`google-genai`) | LLM for answer generation and query planning. Default model: `gemini-3.5-flash-lite` |
 | **ChromaDB** | Local vector store for embeddings + metadata |
 | **sentence-transformers** (`all-MiniLM-L6-v2`) | Local embedding model — runs on CPU, no API calls |
 | **BM25** (custom implementation) | Sparse lexical retrieval, paired with dense for hybrid search |
@@ -362,7 +362,7 @@ Steps:
    - `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` — enable durable dashboard storage and per-employee sign-in. See "Staff dashboard storage" below. Leave unset to fall back to the local JSONL log.
    - Optionally `FLAG_MIN_TOP_SCORE` (default `0.90`) and `FLAG_MIN_SCORE_GAP` (default `0`, disabled) to tune which answers are kept for review.
    - Optionally `ADMIN_USERS_JSON` for env-configured dashboard accounts when Supabase Auth is not used.
-   - Optionally `LLM_PRICE_TABLE_JSON` to price token usage on the dashboard, e.g. `{"gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40, "cached": 0.025}}`. Values are USD per 1M tokens; `cached` defaults to a quarter of the input rate. Models with no entry show token counts with an `unpriced` cost.
+   - Optionally `LLM_PRICE_TABLE_JSON` to price token usage on the dashboard, e.g. `{"gemini-3.5-flash-lite": {"input": 0.10, "output": 0.40, "cached": 0.025}}`. Values are USD per 1M tokens; `cached` defaults to a quarter of the input rate. Models with no entry show token counts with an `unpriced` cost.
 4. Wait for the Space to build. The endpoint is `https://<user>-<space>.hf.space`.
 5. On free Spaces the filesystem is ephemeral. This deployment commits a prebuilt `chroma_db/` snapshot and loads it at runtime; it intentionally does not rebuild from `SEED_DOCUMENTS/`. If the snapshot is missing or empty, the API reports a startup error instead of spending the launch window indexing documents.
 

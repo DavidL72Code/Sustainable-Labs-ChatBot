@@ -78,7 +78,7 @@ class ChatbotConfig:
     recent_history_turns: int = int(os.getenv("RECENT_HISTORY_TURNS", "6"))
     always_llm_query_planning: bool = os.getenv("ALWAYS_LLM_QUERY_PLANNING", "1").lower() in {"1", "true", "yes"}
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
-    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
     rewrite_model: str = os.getenv("REWRITE_MODEL", "gemma-4-26b-a4b-it")
     gemini_temperature: float = float(os.getenv("GEMINI_TEMPERATURE", "0.7"))
     web_host: str = os.getenv("CHATBOT_HOST", "0.0.0.0")
@@ -128,6 +128,8 @@ _ACTIVE_TELEMETRY: ContextVar[Optional[dict]] = ContextVar("active_telemetry", d
 # USD per 1M tokens. Override per deployment with LLM_PRICE_TABLE_JSON, e.g.
 # {"gemini-3.1-flash-lite": {"input": 0.1, "output": 0.4}}
 _DEFAULT_LLM_PRICES: dict[str, dict[str, float]] = {
+    "gemini-3.5-flash-lite": {"input": 0.10, "output": 0.40},
+    "gemini-3.5-flash": {"input": 0.30, "output": 2.50},
     "gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40},
     "gemini-3.1-flash": {"input": 0.30, "output": 2.50},
     "gemini-3.1-pro": {"input": 1.25, "output": 10.00},
@@ -15864,11 +15866,23 @@ def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[
     temp = temperature if temperature is not None else cfg.gemini_temperature
     stage = _caller_stage()
     started_at = time.perf_counter()
-    response = client.models.generate_content(
-        model=model_name,
-        contents=prompt,
-        config=_gemini_gen_config(temp, thinking_budget=thinking_budget),
-    )
+    try:
+        response = client.models.generate_content(
+            model=model_name,
+            contents=prompt,
+            config=_gemini_gen_config(temp, thinking_budget=thinking_budget),
+        )
+    except Exception as exc:
+        # Newer models reject thinking_budget=0 outright. Retrying with the
+        # default budget keeps a model swap from breaking the fast rewrite
+        # path, at the cost of a few thinking tokens on that call.
+        if thinking_budget != 0 or "INVALID_ARGUMENT" not in str(exc):
+            raise
+        response = client.models.generate_content(
+            model=model_name,
+            contents=prompt,
+            config=_gemini_gen_config(temp),
+        )
     record_llm_call(
         model=model_name,
         stage=stage,
