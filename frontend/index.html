@@ -130,12 +130,17 @@
         ask is saved unless you sign in.
       </p>
       <form id="authForm" novalidate>
-        <label for="authEmail">Email</label>
-        <input type="email" id="authEmail" autocomplete="email" required>
-        <label for="authPassword">Password</label>
-        <input type="password" id="authPassword" autocomplete="current-password" required minlength="8">
+        <div class="auth-field" id="authEmailField">
+          <label for="authEmail">Email</label>
+          <input type="email" id="authEmail" autocomplete="email" required>
+        </div>
+        <div class="auth-field" id="authPasswordField">
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" autocomplete="current-password" required minlength="8">
+        </div>
         <p class="auth-error" id="authError" hidden></p>
         <button type="submit" class="auth-submit" id="authSubmit">Sign in</button>
+        <p class="auth-forgot"><button type="button" id="forgotLink">Forgot password?</button></p>
       </form>
       <p class="auth-switch">
         <span id="authSwitchText">New here?</span>

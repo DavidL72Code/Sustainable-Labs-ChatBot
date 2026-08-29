@@ -17225,6 +17225,50 @@ def create_app() -> Flask:
             return jsonify({"error": "Invalid email or password."}), 401
         return jsonify(start_visitor_session(result))
 
+    @app.post("/api/visitor/recover")
+    def visitor_recover():
+        if not visitor_auth_available():
+            return jsonify({"error": "Accounts are not enabled on this deployment."}), 503
+        payload = request.get_json(silent=True) or {}
+        email = str(payload.get("email", "")).strip()
+        # Rate limited per address as well as per IP so the endpoint cannot be
+        # used to flood one person's inbox.
+        allowed = _rate_limiter.allow(
+            key=f"visitor-recover:{_get_client_ip(config.trust_proxy_headers)}",
+            limit=5, window_seconds=900,
+        ) and _rate_limiter.allow(key=f"visitor-recover-email:{email.lower()}", limit=3, window_seconds=900)
+        if email and allowed:
+            supabase_store.visitor_recover(email, redirect_to=str(payload.get("redirect_to", "")).strip())
+        # Always the same answer: revealing which addresses have accounts would
+        # turn this into a membership oracle.
+        return jsonify({"sent": True})
+
+    @app.post("/api/visitor/reset-password")
+    def visitor_reset_password():
+        if not visitor_auth_available():
+            return jsonify({"error": "Accounts are not enabled on this deployment."}), 503
+        if not _rate_limiter.allow(
+            key=f"visitor-reset:{_get_client_ip(config.trust_proxy_headers)}",
+            limit=10, window_seconds=900,
+        ):
+            return jsonify({"error": _RATE_LIMIT_MESSAGE}), 429
+        payload = request.get_json(silent=True) or {}
+        token = str(payload.get("access_token", "")).strip()
+        password = str(payload.get("password", ""))
+        if not token or len(password) < 8:
+            return jsonify({"error": "Enter a new password of at least 8 characters."}), 400
+        user = supabase_store.visitor_update_password(token, password)
+        if not user:
+            return jsonify({"error": "That reset link has expired. Request a new one."}), 400
+        # The recovery token is already a valid session, so finish signed in.
+        # The user id has to be recorded too, or saved history would silently
+        # stop working after a reset.
+        return jsonify(start_visitor_session({
+            "access_token": token,
+            "refresh_token": str(payload.get("refresh_token", "")).strip(),
+            "user": user,
+        }))
+
     @app.post("/api/visitor/logout")
     def visitor_logout():
         for key in ("visitor_token", "visitor_refresh", "visitor_id", "visitor_email"):

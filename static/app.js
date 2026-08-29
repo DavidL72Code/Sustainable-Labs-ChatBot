@@ -494,6 +494,9 @@ const authSwitchText = document.getElementById("authSwitchText");
 const authSwitchButton = document.getElementById("authSwitchButton");
 const authClose = document.getElementById("authClose");
 const sidebarNote = document.getElementById("sidebarNote");
+const forgotLink = document.getElementById("forgotLink");
+const authEmailField = document.getElementById("authEmailField");
+const authPasswordField = document.getElementById("authPasswordField");
 
 let authMode = "login";
 let signedIn = false;
@@ -507,14 +510,35 @@ function apiUrl(path) {
   return `${base}${path}`;
 }
 
+// "recover" asks for an email only; "reset" sets a new password after the user
+// arrives from the emailed link.
+const AUTH_MODES = {
+  login:   { title: "Sign in",           submit: "Sign in",          switchText: "New here?",                switchLabel: "Create an account", autocomplete: "current-password" },
+  signup:  { title: "Create an account", submit: "Create account",   switchText: "Already have an account?", switchLabel: "Sign in",           autocomplete: "new-password" },
+  recover: { title: "Reset your password", submit: "Email me a link", switchText: "Remembered it?",          switchLabel: "Sign in",           autocomplete: "current-password" },
+  reset:   { title: "Choose a new password", submit: "Save password", switchText: "",                        switchLabel: "",                  autocomplete: "new-password" },
+};
+
+let recoveryToken = "";
+let recoveryRefresh = "";
+
 function setAuthMode(mode) {
   authMode = mode;
-  const signingUp = mode === "signup";
-  authTitle.textContent = signingUp ? "Create an account" : "Sign in";
-  authSubmit.textContent = signingUp ? "Create account" : "Sign in";
-  authSwitchText.textContent = signingUp ? "Already have an account?" : "New here?";
-  authSwitchButton.textContent = signingUp ? "Sign in" : "Create an account";
-  authPassword.setAttribute("autocomplete", signingUp ? "new-password" : "current-password");
+  const spec = AUTH_MODES[mode] || AUTH_MODES.login;
+  authTitle.textContent = spec.title;
+  authSubmit.textContent = spec.submit;
+  authSwitchText.textContent = spec.switchText;
+  authSwitchButton.textContent = spec.switchLabel;
+  authSwitchButton.hidden = !spec.switchLabel;
+  authPassword.setAttribute("autocomplete", spec.autocomplete);
+  // Recovery collects an email only; the reset step collects a password only.
+  // Toggle the wrapper divs, not parentElement -- the inputs sit directly in
+  // the form, so hiding a "parent" would hide the whole dialog.
+  if (authEmailField) authEmailField.hidden = mode === "reset";
+  authEmail.required = mode !== "reset";
+  if (authPasswordField) authPasswordField.hidden = mode === "recover";
+  authPassword.required = mode !== "recover";
+  if (forgotLink) forgotLink.hidden = mode !== "login";
   authError.hidden = true;
 }
 
@@ -628,10 +652,56 @@ async function openSavedConversation(conversationId) {
   }
 }
 
+async function submitRecover(email) {
+  await fetch(apiUrl("/api/visitor/recover"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ email, redirect_to: window.location.origin + window.location.pathname }),
+  });
+  // The reply is deliberately identical whether or not the address has an
+  // account, so the message here has to be too.
+  showAuthError("If that address has an account, a reset link is on its way.");
+  setAuthMode("login");
+}
+
+async function submitReset(password) {
+  const response = await fetch(apiUrl("/api/visitor/reset-password"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ access_token: recoveryToken, refresh_token: recoveryRefresh, password }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    showAuthError(data.error || "Could not set that password.");
+    return;
+  }
+  recoveryToken = "";
+  recoveryRefresh = "";
+  renderAccountState(data.email || "");
+  closeAuth();
+  await loadSavedConversations();
+}
+
 authForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const email = authEmail.value.trim();
   const password = authPassword.value;
+
+  if (authMode === "recover") {
+    if (!email) { showAuthError("Enter the email address for your account."); return; }
+    authSubmit.disabled = true;
+    try { await submitRecover(email); } finally { authSubmit.disabled = false; }
+    return;
+  }
+  if (authMode === "reset") {
+    if (password.length < 8) { showAuthError("Use a password of at least 8 characters."); return; }
+    authSubmit.disabled = true;
+    try { await submitReset(password); } finally { authSubmit.disabled = false; }
+    return;
+  }
+
   if (!email || password.length < 8) {
     showAuthError("Enter your email and a password of at least 8 characters.");
     return;
@@ -666,7 +736,27 @@ authForm?.addEventListener("submit", async (event) => {
 
 signInButton?.addEventListener("click", openAuth);
 authClose?.addEventListener("click", closeAuth);
-authSwitchButton?.addEventListener("click", () => setAuthMode(authMode === "signup" ? "login" : "signup"));
+authSwitchButton?.addEventListener("click", () =>
+  setAuthMode(authMode === "signup" ? "login" : authMode === "recover" ? "login" : "signup"));
+forgotLink?.addEventListener("click", () => setAuthMode("recover"));
+
+// Supabase returns the user here with the recovery token in the URL fragment.
+// Catch it on load and go straight to choosing a new password.
+function handleRecoveryRedirect() {
+  const hash = window.location.hash || "";
+  if (!hash.includes("type=recovery")) return false;
+  const params = new URLSearchParams(hash.replace(/^#/, ""));
+  recoveryToken = params.get("access_token") || "";
+  recoveryRefresh = params.get("refresh_token") || "";
+  // Clear the fragment so the token is not left sitting in the address bar.
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  if (!recoveryToken) return false;
+  accountArea.hidden = false;
+  authOverlay.hidden = false;
+  setAuthMode("reset");
+  authPassword.focus();
+  return true;
+}
 authOverlay?.addEventListener("click", (event) => {
   if (event.target === authOverlay) closeAuth();
 });
@@ -682,4 +772,4 @@ signOutButton?.addEventListener("click", async () => {
   }
 });
 
-refreshAccountState();
+if (!handleRecoveryRedirect()) refreshAccountState();

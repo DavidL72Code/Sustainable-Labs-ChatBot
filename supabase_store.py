@@ -196,6 +196,32 @@ class SupabaseStore:
             return None
         return result
 
+    def visitor_recover(self, email: str, redirect_to: str = "") -> bool:
+        """Ask Supabase to email a password reset link.
+
+        Returns True whenever the request was accepted. The caller must not
+        expose whether the address actually has an account.
+        """
+        if not self.auth_enabled or not email:
+            return False
+        path = "/auth/v1/recover"
+        if redirect_to:
+            path += "?" + urllib.parse.urlencode({"redirect_to": redirect_to})
+        return self._request("POST", path, key=self.anon_key, body={"email": email}) is not None
+
+    def visitor_update_password(self, access_token: str, password: str) -> Optional[dict]:
+        """Set a new password using the recovery token from the emailed link.
+
+        Returns the updated user so the caller can open a full session; the
+        recovery token is already a valid one.
+        """
+        if not self.auth_enabled or not access_token or not password:
+            return None
+        result = self._as_visitor(
+            "PUT", "/auth/v1/user", access_token, body={"password": password}
+        )
+        return result if isinstance(result, dict) else None
+
     def visitor_refresh(self, refresh_token: str) -> Optional[dict]:
         """Exchange a refresh token so a visitor is not signed out every hour."""
         if not self.auth_enabled or not refresh_token:
