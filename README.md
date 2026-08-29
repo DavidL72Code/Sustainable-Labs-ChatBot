@@ -412,6 +412,15 @@ with no sources. Tune the thresholds with `FLAG_MIN_TOP_SCORE` and
    is writable only with the service role key, so a user cannot grant it to
    themselves, and a visitor account in the same project can never reach staff
    data. Adding or removing staff needs no restart and no redeploy.
+
+   Older Supabase dashboards do not expose app metadata for editing. Use the
+   helper instead, which does the same thing from the command line:
+
+   ```bash
+   python3 make_staff.py someone@umb.edu           # grant dashboard access
+   python3 make_staff.py someone@umb.edu --remove  # revoke it
+   python3 make_staff.py --list                    # who has access
+   ```
 5. In **Project Settings → API**, copy the project URL, the `anon` key, and the
    `service_role` key.
 6. Add all three to the Space as **Secrets** (not Variables):
