@@ -1,4 +1,8 @@
+# Every env file, not just the bare one: a .env.local or .env.backup would
+# otherwise be committed with the Supabase and Gemini keys in it.
 .env
+.env.*
+!.env.example
 .DS_Store
 *.bin
 *.pyc
