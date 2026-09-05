@@ -20960,8 +20960,15 @@ def create_app() -> Flask:
         raw_origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()]
         # Accept a bare deployment hostname from platform environment settings,
         # but normalize it to an exact HTTPS origin before enabling credentialed CORS.
+        # Strip the trailing slash. The validator below accepts a path of "/"
+        # so "https://example.vercel.app/" is configured happily, but a browser
+        # never sends a trailing slash in Origin, so flask_cors compares
+        # "https://example.vercel.app" against the configured
+        # "https://example.vercel.app/", never matches, and emits no
+        # Access-Control-Allow-Credentials. The dashboard then 401s with the
+        # setting apparently in place.
         origins = [
-            origin if "://" in origin else f"https://{origin}"
+            (origin if "://" in origin else f"https://{origin}").rstrip("/")
             for origin in raw_origins
         ]
         invalid_origins = []
