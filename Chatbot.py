@@ -21147,7 +21147,13 @@ def create_app() -> Flask:
             return jsonify({"error": "Enter an email and a password of at least 8 characters."}), 400
         result = supabase_store.visitor_sign_up(email, password)
         if not result:
-            return jsonify({"error": "Could not create that account."}), 400
+            # Pass Supabase's own reason through. "Could not create that
+            # account" is the same message whether the address is already
+            # registered, signups are disabled for the project, the password
+            # failed policy, or the confirmation email hit a rate limit — so
+            # nobody could tell which had happened.
+            reason = getattr(supabase_store, "last_error", "") or "Could not create that account."
+            return jsonify({"error": reason}), 400
         # Projects with email confirmation on return no session until confirmed.
         if result.get("access_token"):
             return jsonify(start_visitor_session(result))

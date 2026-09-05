@@ -24,6 +24,27 @@ from typing import Any, Optional
 _TIMEOUT_SECONDS = float(os.getenv("SUPABASE_TIMEOUT_SECONDS", "8"))
 
 
+def _auth_error_message(detail: str) -> str:
+    """The human-readable reason from a Supabase auth error body, if present.
+
+    Supabase returns e.g. {"msg": "User already registered"} or
+    {"error_description": "..."}. Without this the caller can only say
+    "could not create that account", which hides whether the address is
+    already taken, signups are disabled, or the password failed policy.
+    """
+    try:
+        parsed = json.loads(detail)
+    except Exception:
+        return ""
+    if not isinstance(parsed, dict):
+        return ""
+    for field in ("msg", "message", "error_description", "error"):
+        value = parsed.get(field)
+        if isinstance(value, str) and value.strip():
+            return value.strip()[:200]
+    return ""
+
+
 class SupabaseStore:
     def __init__(
         self,
@@ -64,6 +85,7 @@ class SupabaseStore:
             "Content-Type": "application/json",
         }
         request_headers.update(headers or {})
+        self.last_error = ""
         data = json.dumps(body).encode("utf-8") if body is not None else None
         request = urllib.request.Request(
             f"{self.url}{path}", data=data, headers=request_headers, method=method
@@ -74,17 +96,24 @@ class SupabaseStore:
                 return json.loads(raw) if raw.strip() else True
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="replace")[:300]
+            self.last_error = _auth_error_message(detail)
             self._warn(f"Supabase {method} {path} failed ({exc.code}): {detail}")
         except Exception as exc:
+            self.last_error = ""
             self._warn(f"Supabase {method} {path} failed: {type(exc).__name__}: {exc}")
         return None
 
     def _warn(self, message: str) -> None:
-        # Log the first failure per process. A broken Supabase should be
-        # visible in the logs without flooding them on every request.
-        if not self._warned:
+        # De-duplicate by message rather than silencing everything after the
+        # first failure. The old rule meant one early hiccup hid every later
+        # error for the life of the process, so a failing signup left no trace
+        # in the logs at all.
+        seen = getattr(self, "_warned_messages", None)
+        if seen is None:
+            seen = self._warned_messages = set()
+        if message not in seen:
+            seen.add(message)
             print(message, flush=True)
-            self._warned = True
 
     def _insert_async(self, table: str, row: dict) -> None:
         if not self.enabled:
