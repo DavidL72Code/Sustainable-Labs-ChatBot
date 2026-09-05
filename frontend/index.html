@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://www.umb.edu/media/umassboston/site-assets/images/favicons/favicon_48x48.svg" type="image/svg+xml">
   <link rel="icon" href="https://www.umb.edu/media/umassboston/site-assets/images/favicons/favicon_96x96.png" type="image/png">
-  <link rel="stylesheet" href="/static/styles.css?v=b75b56e">
+  <link rel="stylesheet" href="/static/styles.css?v=5565800">
   <script>
     // Backend URL — set this to your Hugging Face Space.
     // Vercel: override at deploy time by editing this line or injecting via
@@ -54,7 +54,10 @@
     <div class="chat-layout">
 
       <aside class="sidebar" aria-label="Recent questions">
-        <div class="sidebar-header">Recent Questions</div>
+        <div class="sidebar-header">
+          <span>Recent Questions</span>
+          <button type="button" id="newChatButton" class="sidebar-new" title="Start a new chat">+ New</button>
+        </div>
         <ul class="sidebar-list" id="sidebarList">
           <li class="sidebar-empty">Your questions will appear here.</li>
         </ul>
@@ -139,6 +142,7 @@
           <input type="password" id="authPassword" autocomplete="current-password" required minlength="8">
         </div>
         <p class="auth-error" id="authError" hidden></p>
+        <p class="auth-notice" id="authNotice" hidden></p>
         <button type="submit" class="auth-submit" id="authSubmit">Sign in</button>
         <p class="auth-forgot"><button type="button" id="forgotLink">Forgot password?</button></p>
       </form>
@@ -195,6 +199,6 @@
       })
       .catch(() => {});
   </script>
-  <script src="/static/app.js?v=b75b56e"></script>
+  <script src="/static/app.js?v=5565800"></script>
 </body>
 </html>

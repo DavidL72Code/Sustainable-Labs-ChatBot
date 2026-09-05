@@ -755,6 +755,68 @@ body {
   white-space: nowrap;
 }
 
+/* Sidebar: new-chat control, active chat, delete affordance */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sidebar-new {
+  background: none;
+  border: 1px solid rgba(19, 34, 69, 0.25);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--header-bg, #132245);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sidebar-new:hover { background: rgba(19, 34, 69, 0.08); }
+
+.sidebar-item { display: flex; align-items: center; gap: 4px; }
+.sidebar-item .sidebar-link { flex: 1; text-align: left; }
+
+.sidebar-item.is-active {
+  background: rgba(19, 34, 69, 0.08);
+  border-radius: 8px;
+}
+
+.sidebar-delete {
+  background: none;
+  border: none;
+  color: rgba(19, 34, 69, 0.45);
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 120ms ease, color 120ms ease;
+}
+
+.sidebar-item:hover .sidebar-delete,
+.sidebar-delete:focus-visible { opacity: 1; }
+.sidebar-delete:hover { color: #b3261e; background: rgba(179, 38, 30, 0.1); }
+
+/* Signup succeeded and needs an action; not the same thing as a rejection. */
+.auth-notice {
+  margin: 8px 0 0;
+  padding: 9px 11px;
+  border-radius: 8px;
+  background: rgba(21, 101, 61, 0.1);
+  border: 1px solid rgba(21, 101, 61, 0.25);
+  color: #15653d;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.auth-notice[hidden] { display: none; }
+
 .account-button {
   /* Match the yellow header pills. This used to be a transparent chip with a
      white border, and `font: inherit` also discarded the pill's 13px/600, so

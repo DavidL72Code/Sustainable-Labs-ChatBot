@@ -485,6 +485,8 @@ chatForm.addEventListener("submit", async (event) => {
  * the UI never blocks the chat behind a login.
  * ------------------------------------------------------------------------- */
 const accountArea = document.getElementById("accountArea");
+const authNotice = document.getElementById("authNotice");
+const newChatButton = document.getElementById("newChatButton");
 const accountEmail = document.getElementById("accountEmail");
 const signInButton = document.getElementById("signInButton");
 const signOutButton = document.getElementById("signOutButton");
@@ -529,6 +531,7 @@ let recoveryRefresh = "";
 
 function setAuthMode(mode) {
   authMode = mode;
+  if (authNotice) authNotice.hidden = true;
   const spec = AUTH_MODES[mode] || AUTH_MODES.login;
   authTitle.textContent = spec.title;
   authSubmit.textContent = spec.submit;
@@ -562,6 +565,17 @@ function closeAuth() {
 function showAuthError(message) {
   authError.textContent = message;
   authError.hidden = false;
+  if (authNotice) authNotice.hidden = true;
+}
+
+function showAuthNotice(message) {
+  // "Check your email" is a successful signup, not a failure. It used to be
+  // rendered through showAuthError, so the one message people must act on
+  // looked identical to a rejected password.
+  if (!authNotice) return showAuthError(message);
+  authNotice.textContent = message;
+  authNotice.hidden = false;
+  authError.hidden = true;
 }
 
 function renderAccountState(email) {
@@ -592,6 +606,21 @@ async function refreshAccountState() {
   }
 }
 
+function markActiveConversation(activeId) {
+  if (!sidebarList) return;
+  sidebarList.querySelectorAll(".sidebar-item").forEach((item) => {
+    item.classList.toggle("is-active", item.dataset.conversationId === activeId);
+  });
+}
+
+function startNewConversation() {
+  // A fresh session: clear the id so the backend allocates a new one, empty
+  // the transcript, and drop the active highlight. The saved chats stay.
+  conversationId = "";
+  if (chatMessages) chatMessages.innerHTML = "";
+  markActiveConversation("");
+}
+
 async function loadSavedConversations() {
   if (!signedIn || !sidebarList) return;
   try {
@@ -603,6 +632,7 @@ async function loadSavedConversations() {
     conversations.forEach((conversation) => {
       const item = document.createElement("li");
       item.className = "sidebar-item";
+      item.dataset.conversationId = conversation.id;
 
       const button = document.createElement("button");
       button.type = "button";
@@ -619,29 +649,43 @@ async function loadSavedConversations() {
       remove.textContent = "×";
       remove.addEventListener("click", async (event) => {
         event.stopPropagation();
-        await fetch(apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversation.id)}`), {
-          method: "DELETE",
-          credentials: "include",
-        });
+        const label = conversation.title || "this saved chat";
+        // Deleting was immediate and irreversible on a single stray click.
+        if (!window.confirm(`Delete "${label}"?\n\nThis cannot be undone.`)) return;
+        const deleted = await fetch(
+          apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversation.id)}`),
+          { method: "DELETE", credentials: "include" }
+        ).catch(() => null);
+        if (!deleted || !deleted.ok) return;
         item.remove();
+        // If the open chat was the one removed, don't leave it on screen
+        // still accepting replies against a conversation that is gone.
+        if (conversationId === conversation.id) startNewConversation();
+        if (!sidebarList.querySelector(".sidebar-item")) restoreSidebarPlaceholder();
       });
 
       item.append(button, remove);
       sidebarList.appendChild(item);
     });
+    markActiveConversation(conversationId);
   } catch {
     /* Leave whatever the sidebar already shows. */
   }
 }
 
-async function openSavedConversation(conversationId) {
+async function openSavedConversation(savedId) {
   try {
     const response = await fetch(
-      apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversationId)}`),
+      apiUrl(`/api/visitor/conversations/${encodeURIComponent(savedId)}`),
       { credentials: "include" }
     );
     if (!response.ok) return;
     const { messages = [] } = await response.json();
+    // Adopt the saved id so the next message continues this conversation.
+    // Without this the transcript was rendered but the id stayed on whatever
+    // was current, so replying to an old chat silently began a new one.
+    conversationId = savedId;
+    markActiveConversation(savedId);
     chatMessages.innerHTML = "";
     messages.forEach((message) => {
       appendMessage(
@@ -725,8 +769,11 @@ authForm?.addEventListener("submit", async (event) => {
       return;
     }
     if (data.confirm_email) {
-      showAuthError("Check your email to confirm the account, then sign in.");
       setAuthMode("login");
+      showAuthNotice(
+        `Account created for ${email}. Check that inbox for a confirmation link — ` +
+        `you must confirm the address before you can sign in.`
+      );
       return;
     }
     renderAccountState(data.email || email);
@@ -737,6 +784,11 @@ authForm?.addEventListener("submit", async (event) => {
   } finally {
     authSubmit.disabled = false;
   }
+});
+
+newChatButton?.addEventListener("click", () => {
+  startNewConversation();
+  messageInput?.focus();
 });
 
 signInButton?.addEventListener("click", openAuth);
