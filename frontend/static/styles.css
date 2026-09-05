@@ -803,19 +803,15 @@ body {
 .sidebar-delete:focus-visible { opacity: 1; }
 .sidebar-delete:hover { color: #b3261e; background: rgba(179, 38, 30, 0.1); }
 
-/* Signup succeeded and needs an action; not the same thing as a rejection. */
-.auth-notice {
-  margin: 8px 0 0;
-  padding: 9px 11px;
-  border-radius: 8px;
-  background: rgba(21, 101, 61, 0.1);
-  border: 1px solid rgba(21, 101, 61, 0.25);
-  color: #15653d;
-  font-size: 13px;
-  line-height: 1.4;
-}
+/* Confirm-your-email dialog: its own box, shown after a successful signup. */
+.notice-dialog { max-width: 380px; text-align: left; }
 
-.auth-notice[hidden] { display: none; }
+.notice-body {
+  margin: 4px 0 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(19, 34, 69, 0.85);
+}
 
 .account-button {
   /* Match the yellow header pills. This used to be a transparent chip with a

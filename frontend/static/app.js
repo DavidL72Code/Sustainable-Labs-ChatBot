@@ -485,8 +485,10 @@ chatForm.addEventListener("submit", async (event) => {
  * the UI never blocks the chat behind a login.
  * ------------------------------------------------------------------------- */
 const accountArea = document.getElementById("accountArea");
-const authNotice = document.getElementById("authNotice");
 const newChatButton = document.getElementById("newChatButton");
+const confirmOverlay = document.getElementById("confirmOverlay");
+const confirmClose = document.getElementById("confirmClose");
+const confirmOk = document.getElementById("confirmOk");
 const accountEmail = document.getElementById("accountEmail");
 const signInButton = document.getElementById("signInButton");
 const signOutButton = document.getElementById("signOutButton");
@@ -531,7 +533,6 @@ let recoveryRefresh = "";
 
 function setAuthMode(mode) {
   authMode = mode;
-  if (authNotice) authNotice.hidden = true;
   const spec = AUTH_MODES[mode] || AUTH_MODES.login;
   authTitle.textContent = spec.title;
   authSubmit.textContent = spec.submit;
@@ -565,17 +566,21 @@ function closeAuth() {
 function showAuthError(message) {
   authError.textContent = message;
   authError.hidden = false;
-  if (authNotice) authNotice.hidden = true;
 }
 
-function showAuthNotice(message) {
-  // "Check your email" is a successful signup, not a failure. It used to be
-  // rendered through showAuthError, so the one message people must act on
-  // looked identical to a rejected password.
-  if (!authNotice) return showAuthError(message);
-  authNotice.textContent = message;
-  authNotice.hidden = false;
-  authError.hidden = true;
+function openConfirmDialog() {
+  // A dialog of its own, not a line inside the sign-in form. Signing up
+  // succeeded and the next step happens in the user's inbox, so the message
+  // should not sit in the same place as "wrong password" on a form they have
+  // just finished with.
+  if (!confirmOverlay) return;
+  closeAuth();
+  confirmOverlay.hidden = false;
+  confirmOk?.focus();
+}
+
+function closeConfirmDialog() {
+  if (confirmOverlay) confirmOverlay.hidden = true;
 }
 
 function renderAccountState(email) {
@@ -770,10 +775,7 @@ authForm?.addEventListener("submit", async (event) => {
     }
     if (data.confirm_email) {
       setAuthMode("login");
-      showAuthNotice(
-        `Account created for ${email}. Check that inbox for a confirmation link — ` +
-        `you must confirm the address before you can sign in.`
-      );
+      openConfirmDialog();
       return;
     }
     renderAccountState(data.email || email);
@@ -784,6 +786,15 @@ authForm?.addEventListener("submit", async (event) => {
   } finally {
     authSubmit.disabled = false;
   }
+});
+
+confirmOk?.addEventListener("click", closeConfirmDialog);
+confirmClose?.addEventListener("click", closeConfirmDialog);
+confirmOverlay?.addEventListener("click", (event) => {
+  if (event.target === confirmOverlay) closeConfirmDialog();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && confirmOverlay && !confirmOverlay.hidden) closeConfirmDialog();
 });
 
 newChatButton?.addEventListener("click", () => {
