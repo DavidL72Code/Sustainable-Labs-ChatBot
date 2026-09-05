@@ -102,6 +102,8 @@ body {
 }
 
 .header-ssl-link {
+  /* Keeps "Sign in" on one line; the narrow-screen padding otherwise wraps it. */
+  white-space: nowrap;
   font-size: 13px;
   font-weight: 600;
   color: var(--header-bg);
@@ -700,7 +702,15 @@ body {
 @media (max-width: 680px) {
   .site-header { padding: 0 16px; }
   .header-logo-name { font-size: 18px; }
-  .header-links { display: none; }
+  /* Keep the account controls on small screens. This was display:none, which
+     removed Sign in along with everything else, so a visitor on a phone had no
+     way to sign in or reach their saved history — the button was in the DOM
+     and visible, inside a nav the browser was not painting. Only the external
+     SSL link is dropped; it is repeated in the footer. */
+  .header-links { gap: 6px; }
+  .header-links a.header-ssl-link[href^="https://www.umb.edu"] { display: none; }
+  .header-links .header-ssl-link { padding: 5px 10px; font-size: 12px; }
+  .account-email { max-width: 96px; }
 
   .shell {
     width: calc(100vw - 16px);
