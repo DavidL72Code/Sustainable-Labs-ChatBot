@@ -14,7 +14,7 @@
     // Backend URL — set this to your Hugging Face Space.
     // Vercel: override at deploy time by editing this line or injecting via
     // a build step. Leave blank ("") to call the same origin as the page.
-    window.API_BASE = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+    window.API_BASE = "";  // same-origin: /api is proxied by vercel.json
   </script>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <span class="header-logo-tagline">Pursuing Climate Justice</span>
       </div>
       <nav class="header-links" aria-label="Header navigation">
-        <a id="dashboardLink" href="#" class="header-ssl-link">Dashboard</a>
+        <a id="dashboardLink" href="#" class="header-ssl-link" hidden>Dashboard</a>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer" class="header-ssl-link">Visit SSL</a>
         <span id="accountArea" class="account-area" hidden>
           <span id="accountEmail" class="account-email"></span>
@@ -183,7 +183,17 @@
     if (dashboardBase) {
       dashboardHref.searchParams.set("api_base", dashboardBase);
     }
-    document.getElementById("dashboardLink").href = dashboardHref.toString();
+    const dashboardLink = document.getElementById("dashboardLink");
+    dashboardLink.href = dashboardHref.toString();
+    // Staff-only. The link used to render for every visitor, which advertised
+    // an internal page to the public and sent them to a login they cannot pass.
+    // Reveal it only once the backend confirms a staff session.
+    fetch("/api/admin/session", { credentials: "include" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((session) => {
+        if (session && session.authenticated) dashboardLink.hidden = false;
+      })
+      .catch(() => {});
   </script>
   <script src="/static/app.js"></script>
 </body>

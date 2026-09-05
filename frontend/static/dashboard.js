@@ -11,8 +11,12 @@ function resolvedApiBase() {
     }
   })();
   const requested = (override || window.API_BASE || stored || "").replace(/\/+$/, "");
-  const defaultApiBase = "https://davidl72code-umb-sustainable-chatbot.hf.space";
-  return requested === defaultApiBase || requested === window.location.origin ? requested : defaultApiBase;
+  // Same-origin by default: vercel.json rewrites /api to the Space, so the
+  // session cookie is first-party. A cross-site cookie from hf.space is
+  // dropped by Safari and by Chrome's third-party cookie blocking, which made
+  // every dashboard call 401 no matter how CORS was configured.
+  const defaultApiBase = "";
+  return requested === window.location.origin ? requested : defaultApiBase;
 }
 
 function dashboardDetailHref(eventId) {

@@ -20,7 +20,11 @@
   </main>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const defaultApiBase = "https://davidl72code-umb-sustainable-chatbot.hf.space";
+    // Same-origin: /api is proxied by vercel.json so the session cookie is
+    // first-party. Pointing at hf.space directly makes it a third-party cookie,
+    // which Safari and Chrome drop, and the dashboard then 401s after a
+    // seemingly successful login.
+    const defaultApiBase = "";
     const requestedBase = (params.get("api_base") || defaultApiBase).replace(/\/+$/, "");
     const allowedBase = requestedBase === defaultApiBase || requestedBase === window.location.origin ? requestedBase : defaultApiBase;
     const form = document.getElementById("adminLoginForm");
