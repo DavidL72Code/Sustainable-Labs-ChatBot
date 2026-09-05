@@ -20955,6 +20955,7 @@ def create_app() -> Flask:
         response.headers.setdefault("Cross-Origin-Resource-Policy", "same-origin")
         return response
 
+    app.config["CORS_DIAGNOSTIC"] = {"library_available": CORS is not None, "origins_configured": 0}
     if CORS is not None:
         raw_origins = [origin.strip() for origin in config.cors_origins.split(",") if origin.strip()]
         # Accept a bare deployment hostname from platform environment settings,
@@ -20982,6 +20983,10 @@ def create_app() -> Flask:
             )
         if origins:
             CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=True)
+        app.config["CORS_DIAGNOSTIC"] = {
+            "library_available": True,
+            "origins_configured": len(origins),
+        }
 
     threading.Thread(target=initialize_chatbot, daemon=True).start()
 
@@ -21249,6 +21254,12 @@ def create_app() -> Flask:
             status = str(chatbot_state["status"])
             error = str(chatbot_state["error"])
         payload = {"status": status}
+        # Credentialed CORS is required for the Vercel frontend to hold a
+        # dashboard session. When CORS_ORIGINS is unset the browser silently
+        # drops the session cookie and every dashboard call returns 401, which
+        # looks like a login bug rather than a missing setting. Report the
+        # count only — never the origins themselves.
+        payload["cors"] = app.config.get("CORS_DIAGNOSTIC", {})
         if error:
             payload["error"] = error
         status_code = 503 if status == "error" else 200
