@@ -1,0 +1,41 @@
+{
+  "single_turn": [
+    {
+      "id": "n001",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n021",
+      "question": "How many residents in total participated in the focus group sessions?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+    },
+    {
+      "id": "n175",
+      "question": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+    },
+    {
+      "id": "n202",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+    }
+  ],
+  "multi_turn": []
+}

@@ -1,0 +1,303 @@
+{
+  "generated_at": "2026-08-12T03:20:29.970916+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 9,
+    "average_scores": {
+      "clarity": 4.44,
+      "professional_tone": 4.67,
+      "correctness_vs_corpus": 4.44,
+      "citations": 4.44
+    },
+    "classification_counts": {
+      "answered_yes": 9,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 8,
+      "right_citations_yes": 9,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_032",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What initiative is Johnna Flahive leading in collaboration with SSL and CRIUP?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Currently, I am leading a working group in collaboration with SSL, the Climate Resilient Initiative for Unhoused People (CRIUP), aimed at developing plans for unhoused people [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the source. It adopts the first-person perspective from the source text, which is acceptable but could be phrased more neutrally for a chatbot.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_060",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Caleb Dresser's research focus on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_064",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Katherine Dafforn's academic title and primary area of research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Title: Distinguished Professor. Expertise: Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity and [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is factually accurate based on the corpus, but the sentence ends abruptly with a citation, making it grammatically incomplete.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_065",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jesse Farmer's research focus at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Expertise: Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the research expertise for Jesse Farmer as provided in the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_066",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Dania Francis's area of expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Expertise: Racial economic disparities, economics of education, stratification economics [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and correctly cites the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_084",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Paul Watanabe's area of expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Expertise: American Foreign Policy, American Political Behavior, Ethnic Group Politics, and [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the expertise but includes the citation marker '[1]' as part of the list, which is a formatting error.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_086",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Camille Martinez's stated expertise as an SSL university affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Expertise: Environmental communication, Intercultural communication, Ethnography, Critical posthumanism, Media [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Camille Curtis Martinez from the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_088",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Kerrie Wilkins's expertise as listed in the SSL university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Expertise: Intersectionality, Women and girls of Color, Social Justice, mental health. Expertise: Tribal government, American Indian education, economic development, chronic disease prevention [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant incorrectly attributed the expertise of Cedric Woods to Kerrie Wilkins, resulting in a factual error.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_092",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are Katsyris Rivera Kientz's research interests?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Her research interests lie at the intersection of Political Sociology; Transnational activism; Colonialism; National Identity; Education; Race and gender issues; Natural and not-so-natural disasters, and the Puerto Rico-United States political relationship. She is also supporting Professor Rosalyn Negron on a project focused on equitable climate adaptation [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the research interests directly from the provided corpus text.",
+      "stream_error": ""
+    }
+  ]
+}

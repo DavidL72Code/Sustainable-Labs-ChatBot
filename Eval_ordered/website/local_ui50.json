@@ -1,0 +1,3541 @@
+{
+  "base_url": "http://127.0.0.1:7861",
+  "captured_at_epoch": 1788638342.5414772,
+  "capture_only": true,
+  "case_count": 50,
+  "results": [
+    {
+      "id": "fs_074",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What two-part mission does SSL state for itself in the 2020-21 year in review?",
+          "answer": "The Sustainable Solutions Lab (SSL) has a two-part mission to understand how climate change disproportionately impacts marginalized communities and to collaborate with them in developing equitable and sustainable solutions [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "WHO WE ARE / WHAT WE DO",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What two-part mission does SSL state for itself in the 2020-21 year in review?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "In what year was the Climate Adaptation Forum established?",
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+          ],
+          "status": "answered",
+          "conversation_id": "8e3da7b014b1444baf9dae7a805a713b",
+          "elapsed_seconds": 11.015,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) has a two-part mission to understand how climate change disproportionately impacts marginalized communities and to collaborate with them in developing equitable and sustainable solutions [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What two-part mission does SSL state for itself in the 2020-21 year in review?"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "In what year was the Climate Adaptation Forum established?",
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_110",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+          "answer": "The guest speakers who gave lectures on climate justice topics at the program were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE JUSTICE DEEP DIVE",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 2,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "0bb635f42ff244dea479d3257d2e999e",
+          "elapsed_seconds": 6.863,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The guest speakers who gave lectures on climate justice topics at the program were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_128",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+          "answer": "**Julie Wormser** has served as the Deputy Director of the Mystic River Watershed Association and as the Chief Climate Officer for the City of Cambridge [2]. Regarding SSL, she stated in the 2020-21 annual report that Rebecca and SSL have played an instrumental role in bridging the gap between predominantly white climate practitioners focused on the built environment and predominantly BIPOC environmental justice practitioners focused on social resilience [1], and she expressed gratitude for the existence of the Climate Adaptation Forum.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "STUDENT TESTIMONIAL",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 2,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report? Who is Julie Wormser what did she say about SSL in the 2020-21 annual report?"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 17,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "9406d35ec10d443d820127c5260aa236",
+          "elapsed_seconds": 10.252,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Julie Wormser** has served as the Deputy Director of the Mystic River Watershed Association and as the Chief Climate Officer for the City of Cambridge [2]. Regarding SSL, she stated in the 2020-21 annual report that Rebecca and SSL have played an instrumental role in bridging the gap between predominantly white climate practitioners focused on the built environment and predominantly BIPOC environmental justice practitioners focused on social resilience [1], and she expressed gratitude for the existence of the Climate Adaptation Forum.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report? Who is Julie Wormser what did she say about SSL in the 2020-21 annual report?"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 17,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_129",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+          "answer": "Climate adaptation is defined as a focus on better protecting people, homes, and communities from the impacts of the climate crisis [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE ACTION TERMINOLOGY",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_4",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "d64729405a24456d8965214d21afdc8d",
+          "elapsed_seconds": 8.067,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Climate adaptation is defined as a focus on better protecting people, homes, and communities from the impacts of the climate crisis [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n006",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the combined total count of all registered vessels across every size category for the city of Quincy?",
+          "answer": "The combined total count of all registered vessels across every size category for the city of Quincy is 1,420 [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 936,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the combined total count of all registered vessels across every size category for the city of Quincy?"
+            }
+          ],
+          "suggestions": [
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+          ],
+          "status": "answered",
+          "conversation_id": "949d2f92fc294d50a89fb051120c7e36",
+          "elapsed_seconds": 86.825,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The combined total count of all registered vessels across every size category for the city of Quincy is 1,420 [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 936,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the combined total count of all registered vessels across every size category for the city of Quincy?"
+        }
+      ],
+      "final_suggestions": [
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n125",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+          "answer": "Katsyris Rivera-Kientz collaborates with **Dr. Rosalyn Negron**, **Dr. Lorena Estrada-Martinez**, and **Dr. Paul Watanabe** on projects concerning equitable climate adaptation and public perceptions on climate change [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "STUDENT TESTIMONIAL",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 9,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "In what year was the Climate Adaptation Forum established?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "ecf90312688148a8afe3a4ef1dfd39e6",
+          "elapsed_seconds": 10.655,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Katsyris Rivera-Kientz collaborates with **Dr. Rosalyn Negron**, **Dr. Lorena Estrada-Martinez**, and **Dr. Paul Watanabe** on projects concerning equitable climate adaptation and public perceptions on climate change [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 9,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "In what year was the Climate Adaptation Forum established?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n146",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "turns": [
+        {
+          "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+          "answer": "Under 5 feet of sea-level rise, Table 7.9 lists the asset value of ecosystem services for the Mystic (in 2016 $ millions) across different discount rates as follows:\n- Sliding Scale: $7,073 (low) to $28,413 (high) [1].\n- 3 Percent: $4,958 (low) to $19,506 (high) [1].\n- 7 Percent: $2,582 (low) to $9,502 (high) [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 275,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?"
+            }
+          ],
+          "suggestions": [
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "b4cdf1e07ee2414e8bfe3e7f1ce44240",
+          "elapsed_seconds": 10.183,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Under 5 feet of sea-level rise, Table 7.9 lists the asset value of ecosystem services for the Mystic (in 2016 $ millions) across different discount rates as follows:\n- Sliding Scale: $7,073 (low) to $28,413 (high) [1].\n- 3 Percent: $4,958 (low) to $19,506 (high) [1].\n- 7 Percent: $2,582 (low) to $9,502 (high) [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 275,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?"
+        }
+      ],
+      "final_suggestions": [
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+          "answer": "In the survey, 27% of Black respondents believe that the impacts of climate change will be unequal [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+              "url": "https://scholarworks.umb.edu/ssl/5/",
+              "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 15,
+              "evidence_id": "evidence_4",
+              "evidence_bucket": "main",
+              "evidence_query": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?"
+            }
+          ],
+          "suggestions": [
+            "What percentage of C3I participants are expected to come from underrepresented groups?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "3fab9b67428c43dfa26c8e748f95d379",
+          "elapsed_seconds": 17.545,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "In the survey, 27% of Black respondents believe that the impacts of climate change will be unequal [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 15,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?"
+        }
+      ],
+      "final_suggestions": [
+        "What percentage of C3I participants are expected to come from underrepresented groups?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n202",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+          "answer": "- Location: Gutter/sidewalks [1]\n- Quantity: 5 [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 42,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers? location quantity"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6ea1919db47b4914b81248cfe2ed6e57",
+          "elapsed_seconds": 19.835,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "- Location: Gutter/sidewalks [1]\n- Quantity: 5 [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 42,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers? location quantity"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_029",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+          "answer": "Patricio Belloy earned his PhD and a Master of Science (MSc) in Public Policy from UMass Boston [1]. Furthermore, he earned a Master of Arts (MA) in Global Studies from Leipzig University in Germany and Wrocław University in Poland [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Patricio Belloy",
+              "entity_type": "affiliate",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "8cb9b4977d25482c9bd1d454d8619fa3",
+          "elapsed_seconds": 14.315,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Patricio Belloy earned his PhD and a Master of Science (MSc) in Public Policy from UMass Boston [1]. Furthermore, he earned a Master of Arts (MA) in Global Studies from Leipzig University in Germany and Wrocław University in Poland [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_085",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Camille Martinez's title at UMass Boston?",
+          "answer": "Camille Curtis Martinez's title is Lecturer. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e63e021daeff4a71a8e40ea84e4dd7f4",
+          "elapsed_seconds": 2.42,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Camille Curtis Martinez's title is Lecturer. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_036",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+          "answer": "**Nyingilanyeofori Hannah Brown** is currently pursuing a Ph.D. in the Global Governance and Human Security program at the University of Massachusetts, Boston [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Nyingilanyeofori Hannah Brown",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What NSF program provided the planning grant that funded the CLIIR Initiative?"
+          ],
+          "status": "answered",
+          "conversation_id": "ac8512ecdd5d4029a87648fc2c4818c3",
+          "elapsed_seconds": 15.049,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Nyingilanyeofori Hannah Brown** is currently pursuing a Ph.D. in the Global Governance and Human Security program at the University of Massachusetts, Boston [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "What NSF program provided the planning grant that funded the CLIIR Initiative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_058",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+          "answer": "Jen Stevenson Zepeda's current employer is ReVision (also referred to as ReVision Energy), which is an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "7e6a0bb14e1743778b0f79283f189a07",
+          "elapsed_seconds": 5.087,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Jen Stevenson Zepeda's current employer is ReVision (also referred to as ReVision Energy), which is an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_099",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What master's program is Isa Whalen currently enrolled in at UMass Boston?",
+          "answer": "**Isa Kelawili Whalen** is currently enrolled as a Master's student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Isa Kelawili Whalen",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What NSF program provided the planning grant that funded the CLIIR Initiative?"
+          ],
+          "status": "answered",
+          "conversation_id": "91b609fa35b3434991fc772d9bef68fe",
+          "elapsed_seconds": 14.09,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Isa Kelawili Whalen** is currently enrolled as a Master's student in Critical Ethnic and Community Studies at the University of Massachusetts Boston [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Isa Kelawili Whalen",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "What NSF program provided the planning grant that funded the CLIIR Initiative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n099",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What was the total number of stakeholder responses received from the social services and environmental sectors?",
+          "answer": "The total number of stakeholder responses received from the social services and environmental sectors was 13 [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 78,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What was the total number of stakeholder responses received from the social services and environmental sectors?"
+            }
+          ],
+          "suggestions": [
+            "How many total participants does the C3I program aim to enroll over its three-year run?"
+          ],
+          "status": "answered",
+          "conversation_id": "511cd39db9c644d5b0ebb2c417604e9c",
+          "elapsed_seconds": 47.56,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The total number of stakeholder responses received from the social services and environmental sectors was 13 [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 78,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What was the total number of stakeholder responses received from the social services and environmental sectors?"
+        }
+      ],
+      "final_suggestions": [
+        "How many total participants does the C3I program aim to enroll over its three-year run?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n096",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+          "answer": "The academic entity credited with the research and data regarding the projected annualized financial losses from flooding in Boston is the **UMass Boston Sustainable Solutions Lab** [1], which presented these loss projections alongside the Climate Ready Boston (CRB) 2016 report [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+              "url": "https://scholarworks.umb.edu/ssl/12/",
+              "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 118,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "ec2f538323d54830858628010e880324",
+          "elapsed_seconds": 12.726,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The academic entity credited with the research and data regarding the projected annualized financial losses from flooding in Boston is the **UMass Boston Sustainable Solutions Lab** [1], which presented these loss projections alongside the Climate Ready Boston (CRB) 2016 report [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 118,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_060",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does Caleb Dresser's research focus on?",
+          "answer": "His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c52defc178f34e3f8e64379da14e5e08",
+          "elapsed_seconds": 14.77,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_041",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who supervises Vishal Verma's doctoral research?",
+          "answer": "Vishal Verma earned a Master's in from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "dab5bfb2971e4c689c303c75919ec7fe",
+          "elapsed_seconds": 14.245,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Vishal Verma earned a Master's in from the Indian Institute of Technology (IIT) Gandhinagar, India. Vishal Verma's doctoral work is supervised by Prof. Paul Kirshen. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_122",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What was the average number of attendees per Climate Adaptation Forum session in the 2020-21 period?",
+          "answer": "According to the 2020-21 SSL Annual Report (Slide 39), the Climate Adaptation Forum averaged more than 200 attendees per forum session. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "50c168c9082343cd8fdffa3d759eec77",
+          "elapsed_seconds": 1.819,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "According to the 2020-21 SSL Annual Report (Slide 39), the Climate Adaptation Forum averaged more than 200 attendees per forum session. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_114",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+          "answer": "- Amount: The Barr Foundation granted SSL **$20,000** [1]. The available documents do not state this detail regarding the 2020-21 timeframe.\n- Purpose: The stated purpose was to deepen its commitment to centering racial justice in its work and support its efforts to be an anti-racist research institute at UMB [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? How much did the Barr Foundation grant SSL in 2020-21 what was the stated purpose?"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "cc139d1841404346b21b4d4fb7008f8e",
+          "elapsed_seconds": 12.907,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "- Amount: The Barr Foundation granted SSL **$20,000** [1]. The available documents do not state this detail regarding the 2020-21 timeframe.\n- Purpose: The stated purpose was to deepen its commitment to centering racial justice in its work and support its efforts to be an anti-racist research institute at UMB [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose? How much did the Barr Foundation grant SSL in 2020-21 what was the stated purpose?"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n097",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?",
+          "answer": "The **Sustainable Solutions Lab at the University of Massachusetts, Boston** conducted the report [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+              "url": "https://scholarworks.umb.edu/ssl/13/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 72,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?"
+            }
+          ],
+          "suggestions": [
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "9c1f3496aec346308a5e4ee74ba98a90",
+          "elapsed_seconds": 6.659,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The **Sustainable Solutions Lab at the University of Massachusetts, Boston** conducted the report [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 72,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n050",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project?",
+          "answer": "The Carbon Disclosure Project has recruited a quantity of around 650 institutional investors holding a combined asset value of $87 trillion who pressure companies to disclose their carbon [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+              "url": "https://scholarworks.umb.edu/ssl/12/",
+              "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 217,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project? quantity value"
+            }
+          ],
+          "suggestions": [
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?"
+          ],
+          "status": "answered",
+          "conversation_id": "666a614bc99649069c17e627b24e5dcd",
+          "elapsed_seconds": 11.018,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Carbon Disclosure Project has recruited a quantity of around 650 institutional investors holding a combined asset value of $87 trillion who pressure companies to disclose their carbon [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 217,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project? quantity value"
+        }
+      ],
+      "final_suggestions": [
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_026",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Elisa Guerrero's role at SSL?",
+          "answer": "Elisa Guerrero's title is Community Engagement Manager. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "1640b784df774e7ea7001f3867f5e182",
+          "elapsed_seconds": 0.605,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Elisa Guerrero's title is Community Engagement Manager. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n160",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the phone number for the affiliate who specializes in complex systems and environmental policy?",
+          "answer": "Georgia Mavrommati's listed office phone number is 617.287.7419. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "URL not provided",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4598d8398f384dc8b31931031c01dfff",
+          "elapsed_seconds": 0.11,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Georgia Mavrommati's listed office phone number is 617.287.7419. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n074",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What are some of the secondary benefits that cities might experience by implementing localized, shore-based adaptation measures instead of relying solely on a large-scale barrier?",
+          "answer": "Implementing shore-based adaptation measures provides multiple secondary benefits such as recreation, public access, open-space, and urban heat island cooling, which are particularly important for communities dealing with environmental and social injustice [1]. Additionally, these measures are capable of managing high tide nuisance flooding, which large-scale harbor-wide barriers do not do [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+              "url": "https://scholarworks.umb.edu/ssl/11/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 28,
+              "evidence_id": "evidence_5",
+              "evidence_bucket": "main",
+              "evidence_query": "What are some of the secondary benefits that cities might experience by implementing localized, shore-based adaptation measures instead of relying solely on a large-scale barrier? joining grants access seed grants workshops collaborative gatherings Mendeley library listserv"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+          ],
+          "status": "answered",
+          "conversation_id": "821c76c94a704942ad6165cd1e516f28",
+          "elapsed_seconds": 10.237,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Implementing shore-based adaptation measures provides multiple secondary benefits such as recreation, public access, open-space, and urban heat island cooling, which are particularly important for communities dealing with environmental and social injustice [1]. Additionally, these measures are capable of managing high tide nuisance flooding, which large-scale harbor-wide barriers do not do [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 28,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "What are some of the secondary benefits that cities might experience by implementing localized, shore-based adaptation measures instead of relying solely on a large-scale barrier? joining grants access seed grants workshops collaborative gatherings Mendeley library listserv"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n048",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the estimated annual revenue that legislative initiative H1726 would provide for clean energy, transportation, and climate resiliency projects?",
+          "answer": "Legislative initiative H1726 is estimated to generate approximately **$200–$300 million** annually to finance transportation, climate resiliency, and clean energy projects [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+              "url": "https://scholarworks.umb.edu/ssl/13/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 54,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the estimated annual revenue that legislative initiative H1726 would provide for clean energy, transportation, and climate resiliency projects?"
+            }
+          ],
+          "suggestions": [
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "693b96a48aea4258bb9272c2154b01ee",
+          "elapsed_seconds": 8.403,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Legislative initiative H1726 is estimated to generate approximately **$200–$300 million** annually to finance transportation, climate resiliency, and clean energy projects [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 54,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the estimated annual revenue that legislative initiative H1726 would provide for clean energy, transportation, and climate resiliency projects?"
+        }
+      ],
+      "final_suggestions": [
+        "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_073",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+          "answer": "Rebecca Herst served as the Director of the Sustainable Solutions Lab during the 2020-21 academic year. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "423c19446ba34e59b8f1cfa73b91e4c4",
+          "elapsed_seconds": 0.448,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Rebecca Herst served as the Director of the Sustainable Solutions Lab during the 2020-21 academic year. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_157",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Chidimma Ozor's doctoral program and year of study at UMass Boston?",
+          "answer": "Chidimma Ozor Commer is a second-year doctoral student in the School of Global Inclusion and Social Development [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Chidimma Ozor Commer",
+              "entity_type": "person",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "3cdb46067ed641d18dc89526ffed05fe",
+          "elapsed_seconds": 19.827,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Chidimma Ozor Commer is a second-year doctoral student in the School of Global Inclusion and Social Development [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_124",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who were the speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event hosted by SSL?",
+          "answer": "The speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event were **Erin Genia**, Artist-in-Residence for the City of Boston, and **Meghan Venable-Thomas**, Cultural Resilience Program Director at Enterprise Community Partners [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who were the speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event hosted by SSL?"
+            }
+          ],
+          "suggestions": [
+            "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "668d32f10eaf4882b89ff19fffaaa939",
+          "elapsed_seconds": 9.383,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event were **Erin Genia**, Artist-in-Residence for the City of Boston, and **Meghan Venable-Thomas**, Cultural Resilience Program Director at Enterprise Community Partners [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event hosted by SSL?"
+        }
+      ],
+      "final_suggestions": [
+        "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n023",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "turns": [
+        {
+          "question": "On what date was the study on climate preparedness in Boston officially published?",
+          "answer": "The study on community-led climate preparedness and resilience in Boston was officially published on September 22, 2024 (9-22-2024) [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+              "url": "https://scholarworks.umb.edu/ssl/1/",
+              "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "On what date was the study on climate preparedness in Boston officially published?"
+            }
+          ],
+          "suggestions": [
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "89ad4c11b44e46c198f052d7af21a352",
+          "elapsed_seconds": 8.177,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The study on community-led climate preparedness and resilience in Boston was officially published on September 22, 2024 (9-22-2024) [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "On what date was the study on climate preparedness in Boston officially published?"
+        }
+      ],
+      "final_suggestions": [
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_103",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+          "answer": "Cassandre Rey-Thibault holds a PhD in geography, with a specialty in risk prevention and crisis management policies in French urban areas [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Cassandre Rey-Thibault",
+              "entity_type": "visiting_scholar",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "d300bdccf3d04b39b6596e1343897142",
+          "elapsed_seconds": 9.366,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Cassandre Rey-Thibault holds a PhD in geography, with a specialty in risk prevention and crisis management policies in French urban areas [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n208",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?",
+          "answer": "The authors used Chat GPT4 to organize and clean the workshop verbatim transcripts and notes to create a rough draft of their commentary [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Critical approaches to climate-induced migration research and sol",
+              "url": "https://scholarworks.umb.edu/ssl/10/",
+              "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 21,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?"
+            }
+          ],
+          "suggestions": [
+            "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+            "What is the email address used to contact SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "7ed3fd45918d4459912cab834455ce22",
+          "elapsed_seconds": 13.655,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The authors used Chat GPT4 to organize and clean the workshop verbatim transcripts and notes to create a rough draft of their commentary [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 21,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?"
+        }
+      ],
+      "final_suggestions": [
+        "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+        "What is the email address used to contact SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_136",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the UMass Boston Campus Goal for 2020-21 as stated in the annual report?",
+          "answer": "For the 2020-21 academic year, UMass Boston's initial campus goal is to establish itself as a leading anti-racist, health-promoting public research university centered on excellence [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE ACTION TERMINOLOGY",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the UMass Boston Campus Goal for 2020-21 as stated in the annual report?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?"
+          ],
+          "status": "answered",
+          "conversation_id": "735038db8d374a1a8ee27798aeb55021",
+          "elapsed_seconds": 31.699,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "For the 2020-21 academic year, UMass Boston's initial campus goal is to establish itself as a leading anti-racist, health-promoting public research university centered on excellence [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the UMass Boston Campus Goal for 2020-21 as stated in the annual report?"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_115",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the maximum amount individual faculty could receive through SSL's Summer Anti-Racism Research Funding?",
+          "answer": "According to the 2020-21 SSL Annual Report (Slide 31), SSL received $20,000 from the Barr Foundation and provided Summer Anti-Racism Research Funding to seven projects led by affiliated faculty, with grants of up to $2,500 each. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "711b862053a944e29f96d37582cff62b",
+          "elapsed_seconds": 2.26,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "According to the 2020-21 SSL Annual Report (Slide 31), SSL received $20,000 from the Barr Foundation and provided Summer Anti-Racism Research Funding to seven projects led by affiliated faculty, with grants of up to $2,500 each. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_134",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+          "answer": "According to the 2020-21 SSL Annual Report (Slide 6), J. Cedric Woods is listed as the representative of the CANALA Institutes on the UMass Boston Oversight Committee, in his role as Director of the Institute for New England Native American Studies. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "16059b89ab7f476489abd30e9c41dea5",
+          "elapsed_seconds": 3.442,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "According to the 2020-21 SSL Annual Report (Slide 6), J. Cedric Woods is listed as the representative of the CANALA Institutes on the UMass Boston Oversight Committee, in his role as Director of the Institute for New England Native American Studies. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n082",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which municipal entity published findings in 2021 regarding how climate resilience regulations can negatively impact housing supply?",
+          "answer": "The **Cambridge Community Development Department** published work in 2021 regarding the **Cambridge Climate Resilience Zoning Task Force**, noting that climate adaptation planning can reduce housing development and limit housing options due to the use of expensive building materials [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 61,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Cambridge climate resilience zoning task force 2021 housing supply regulations"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "In what year was the Climate Adaptation Forum established?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "942cf1077e7e44aa9d7a680965e44e1d",
+          "elapsed_seconds": 14.905,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The **Cambridge Community Development Department** published work in 2021 regarding the **Cambridge Climate Resilience Zoning Task Force**, noting that climate adaptation planning can reduce housing development and limit housing options due to the use of expensive building materials [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 61,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Cambridge climate resilience zoning task force 2021 housing supply regulations"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "In what year was the Climate Adaptation Forum established?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_119",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?",
+          "answer": "The notable aspect of the World Climate Research Programme's membership call is that it was the first time since the programme's establishment in 1980 that a call was made specifically for social and economic scientists as part of its new strategic plan [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "FACULTY HONORS",
+              "entity_type": "section",
+              "chunk_level": "entity_profile",
+              "chunk_index": "",
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "4c905c581e8d4497a99037973acba466",
+          "elapsed_seconds": 12.274,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The notable aspect of the World Climate Research Programme's membership call is that it was the first time since the programme's establishment in 1980 that a call was made specifically for social and economic scientists as part of its new strategic plan [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY HONORS",
+          "entity_type": "section",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n009",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "turns": [
+        {
+          "question": "How many colleges and institutes have partnered together to form the Sustainable Solutions Lab at UMass Boston?",
+          "answer": "The Sustainable Solutions Lab at UMass Boston is formed by a partnership consisting of six colleges and four institutes [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+              "url": "https://scholarworks.umb.edu/ssl/6/",
+              "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 4,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "How many colleges and institutes have partnered together to form the Sustainable Solutions Lab at UMass Boston?"
+            }
+          ],
+          "suggestions": [
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?"
+          ],
+          "status": "answered",
+          "conversation_id": "f637f0e28d8341d98d97213f663ece81",
+          "elapsed_seconds": 19.376,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab at UMass Boston is formed by a partnership consisting of six colleges and four institutes [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 4,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How many colleges and institutes have partnered together to form the Sustainable Solutions Lab at UMass Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_068",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "turns": [
+        {
+          "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+          "answer": "Pratyush Bharati is listed as Professor in Management Science & Info Sys. the listed expertise includes Social Media and Organizations, Green Information Systems, Social Media. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "URL not provided",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6fca5cb56ff54dd9a0f9d8262c7127b6",
+          "elapsed_seconds": 0.599,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Pratyush Bharati is listed as Professor in Management Science & Info Sys. the listed expertise includes Social Media and Organizations, Green Information Systems, Social Media. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "n034",
+      "kind": "single_turn",
+      "type": "",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What strategy is mentioned to help protect senior citizens who do not have access to air conditioning during periods of extreme heat?",
+          "answer": "During periods of extreme heat, a strategy used to protect elderly individuals who do not have air conditioning is to try to take them to centers or similar locations so they can cool down [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+              "url": "https://scholarworks.umb.edu/ssl/6/",
+              "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 44,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What strategy is mentioned to help protect senior citizens who do not have access to air conditioning during periods of extreme heat?"
+            }
+          ],
+          "suggestions": [
+            "What is the email address used to contact SSL?",
+            "Who does SSL say its transdisciplinary research centers and is led by?"
+          ],
+          "status": "answered",
+          "conversation_id": "fc9026c23c78471990bf1c5b1479dc05",
+          "elapsed_seconds": 8.255,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "During periods of extreme heat, a strategy used to protect elderly individuals who do not have air conditioning is to try to take them to centers or similar locations so they can cool down [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 44,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What strategy is mentioned to help protect senior citizens who do not have access to air conditioning during periods of extreme heat?"
+        }
+      ],
+      "final_suggestions": [
+        "What is the email address used to contact SSL?",
+        "Who does SSL say its transdisciplinary research centers and is led by?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_026",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_justice_deep_dive",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What was the Climate Justice Deep Dive program that SSL hosted?",
+          "answer": "The Climate Justice Deep Dive is a semester-long program created with expert **Karla Tandon** and hosted by the Sustainable Solutions Lab to foster campus collaborations [1]. It provides a collaborative learning space for UMass Boston scholars to examine the intersections of climate change, inequality, and systemic racism, discuss current trends, and build interdisciplinary connections [2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE JUSTICE DEEP DIVE",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What was the Climate Justice Deep Dive program that SSL hosted?"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 12,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "What was the Climate Justice Deep Dive program that SSL hosted?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?"
+          ],
+          "status": "answered",
+          "conversation_id": "45163a73d87a44eaa1bde0b351d7d82e",
+          "elapsed_seconds": 9.456,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "How many faculty participated and who created it?",
+          "answer": "20 faculty participated in the program. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "45163a73d87a44eaa1bde0b351d7d82e",
+          "elapsed_seconds": 18.025,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Who were the guest speakers at the Climate Justice Deep Dive?",
+          "answer": "The guest speakers who gave lectures during the Climate Justice Deep Dive program were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE JUSTICE DEEP DIVE",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 1,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Who were the guest speakers at the Climate Justice Deep Dive?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "45163a73d87a44eaa1bde0b351d7d82e",
+          "elapsed_seconds": 11.287,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The guest speakers who gave lectures during the Climate Justice Deep Dive program were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the guest speakers at the Climate Justice Deep Dive?"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_004",
+      "kind": "multi_turn",
+      "type": "follow_up_visiting_scholars",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who has served as a visiting scholar at SSL?",
+          "answer": "The individuals who served as visiting scholars at SSL during the 2023–2024 period were **Cassandre Rey-Thibault** during the summer of 2024 [1], and **Ante Ivčević** from the fall of 2023 through the spring of 2024.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 42,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who has served as a visiting scholar at SSL?"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6ac236d6c5ef4dc4945ad41b75a7c374",
+          "elapsed_seconds": 10.425,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Tell me about Ante Ivčević's background and research focus.",
+          "answer": "Ante Ivčević's listed focus is coastal governance, integrated coastal zone management, science-policy. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6ac236d6c5ef4dc4945ad41b75a7c374",
+          "elapsed_seconds": 10.513,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What time period did he spend at SSL?",
+          "answer": "**Ante Ivčević** spent the time period from the fall of 2023 through the spring of 2024 at SSL [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Ante Ivčević",
+              "entity_type": "visiting_scholar",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6ac236d6c5ef4dc4945ad41b75a7c374",
+          "elapsed_seconds": 9.814,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "**Ante Ivčević** spent the time period from the fall of 2023 through the spring of 2024 at SSL [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Ante Ivčević",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_003",
+      "kind": "multi_turn",
+      "type": "follow_up_board_tim_cronin",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Tim Cronin on SSL's External Advisory Board?",
+          "answer": "Tim Cronin: Associate Director of Policy and Advocacy at Health Care Without Harm. Tim oversees Health Care Without Harm’s US state and local policy portfolio, focusing on advancing local solutions at the intersection of healthcare, decarbonization, and community climate resilience. He previously facilitated a Boston Green Ribbon Commission (GRC) working group and, in 2023, was appointed by Mayor Wu to Chair Boston's BERDO Health Institution Working Group. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e147cfa3cebc4c9fb95b1a9dec80fb36",
+          "elapsed_seconds": 2.195,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What is his background in Boston climate and health policy?",
+          "answer": "**Tim Cronin**'s background in Boston climate and health policy includes overseeing the US state and local policy portfolio for Health Care Without Harm, where he focuses on local solutions at the intersection of healthcare, decarbonization, and community climate resilience [1]. Furthermore, he has experience facilitating a working group for the Boston Green Ribbon Commission (GRC) and was appointed by Mayor Wu in 2023 to serve as Chair of Boston's BERDO Health Institution Working Group [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Tim Cronin",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "e147cfa3cebc4c9fb95b1a9dec80fb36",
+          "elapsed_seconds": 12.866,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What role did Mayor Wu appoint him to in 2023?",
+          "answer": "In 2023, **Tim Cronin** took on a leadership position when Mayor Wu appointed him to serve as the Chair of Boston's BERDO Health Institution Working Group [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+              "section_name": "Tim Cronin",
+              "entity_type": "board_member",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e147cfa3cebc4c9fb95b1a9dec80fb36",
+          "elapsed_seconds": 17.264,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "In 2023, **Tim Cronin** took on a leadership position when Mayor Wu appointed him to serve as the Chair of Boston's BERDO Health Institution Working Group [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Tim Cronin",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_013",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliates_marine_science",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL university affiliates have expertise in environmental or marine science?",
+          "answer": "The Sustainable Solutions Lab (SSL) affiliate who works in environmental policy and governance is Stacy D. VanDeveer [1]. He serves as the McCormack School faculty representative to the SSL, and his research focuses on environmental and energy politics, global environmental policymaking, and connections between environmental and security issues [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 154,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL university affiliates have expertise in environmental or marine science?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "25c065c42972409490721b8855e4c418",
+          "elapsed_seconds": 12.379,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Tell me about Katherine Dafforn's academic title and field.",
+          "answer": "Katherine Dafforn's's listed title is Distinguished Professor. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "URL not provided",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "25c065c42972409490721b8855e4c418",
+          "elapsed_seconds": 0.321,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What is Jesse Farmer's specific research focus?",
+          "answer": "The listed expertise includes Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "25c065c42972409490721b8855e4c418",
+          "elapsed_seconds": 16.538,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The listed expertise includes Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_016",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Johnna Flahive and what is her research focus?",
+          "answer": "Johnna Flahive’s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f1cf83e07754409aa80f35f400e94acf",
+          "elapsed_seconds": 1.01,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+          "answer": "Johnna Flahive's research on the impacts of coastal inundation on unhoused people and seasonal workers in Massachusetts was funded by the Sustainable Solutions Lab (SSL) alongside the National Oceanic and Atmospheric Administration’s (NOAA) Adaptation Sciences (AdSci) program [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Johnna Flahive",
+              "entity_type": "affiliate",
+              "chunk_level": "detail",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What funded her research on coastal inundation impacts on unhoused and seasonal workers? (subject: Johnna Flahive)"
+            }
+          ],
+          "suggestions": [
+            "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "f1cf83e07754409aa80f35f400e94acf",
+          "elapsed_seconds": 10.232,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What institution did she join after her work with SSL?",
+          "answer": "After her work with the Sustainable Solutions Lab, Johnna Flahive joined the Climate Resilience Institute (CRI) at the University of Miami [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Johnna Flahive",
+              "entity_type": "affiliate",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What institution did she join after her work with SSL? (subject: Johnna Flahive)"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "f1cf83e07754409aa80f35f400e94acf",
+          "elapsed_seconds": 9.27,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "After her work with the Sustainable Solutions Lab, Johnna Flahive joined the Climate Resilience Institute (CRI) at the University of Miami [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Johnna Flahive",
+          "entity_type": "affiliate",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What institution did she join after her work with SSL? (subject: Johnna Flahive)"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_040",
+      "kind": "multi_turn",
+      "type": "follow_up_cassandre_detail",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Cassandre Rey-Thibault?",
+          "answer": "(Summer 2024) Focus: risk prevention and crisis management, coastal urban territories Bio: Cassandre Rey-Thibault is a postdoctoral researcher at the Centre for European Studies and Comparative Politics (CEE) at Sciences Po Paris, funded by the Bruno Latour Fund. Cassandre Rey-Thibault holds a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas. Cassandre Rey-Thibault's research compares risk governance in coastal urban territories in the context of climate change, examining the evolution and limitations of traditional risk management paradigms. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6a3be573ab2e403b8dff57f968ad02fe",
+          "elapsed_seconds": 0.715,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What is her PhD specialty and what fund supports her postdoctoral research?",
+          "answer": "**Cassandre Rey-Thibault** holds a PhD in geography, specializing in risk prevention and crisis management policies in French urban areas [1]. Her postdoctoral research is supported by the Bruno Latour Fund [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Cassandre Rey-Thibault",
+              "entity_type": "visiting_scholar",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "6a3be573ab2e403b8dff57f968ad02fe",
+          "elapsed_seconds": 13.804,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What work did she specifically conduct during her time at SSL?",
+          "answer": "During her time at SSL, **Cassandre Rey-Thibault** conducted research interviews, studied the evolution of risk governance in the Boston metropolitan area, and supported the SSL team's efforts in collaborative climate resilience research [1, 2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt",
+              "section_name": "Cassandre Rey-Thibault",
+              "entity_type": "visiting_scholar",
+              "chunk_level": "full_bio",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": ""
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 19,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What work did she specifically conduct during her time at SSL? (subject: Cassandre Rey-Thibault) project program initiative working with research assistant team includes"
+            }
+          ],
+          "suggestions": [
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "6a3be573ab2e403b8dff57f968ad02fe",
+          "elapsed_seconds": 13.014,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "During her time at SSL, **Cassandre Rey-Thibault** conducted research interviews, studied the evolution of risk governance in the Boston metropolitan area, and supported the SSL team's efforts in collaborative climate resilience research [1, 2].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Cassandre Rey-Thibault",
+          "entity_type": "visiting_scholar",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 19,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What work did she specifically conduct during her time at SSL? (subject: Cassandre Rey-Thibault) project program initiative working with research assistant team includes"
+        }
+      ],
+      "final_suggestions": [
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_002",
+      "kind": "multi_turn",
+      "type": "follow_up_c3i_details",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "Tell me about the Climate Careers Curricula Initiative.",
+          "answer": "The Climate Careers Curricula Initiative (C3I) develops microcredentialed training programs for blue and green jobs in Greater Boston and creates career pathways for underrepresented populations. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "9e2342db8d0b4e7ead9733d2b3ce88e3",
+          "elapsed_seconds": 1.913,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What foundation funds it and what are the key goals for participants?",
+          "answer": "The Climate Careers Curricula Initiative is funded by the Liberty Mutual Foundation (LMF) [1]. The key goals for participants are to provide career pathways to employment—such as internships, job placement assistance, and mentoring—for underrepresented populations, including vulnerable young adults, people of color, and low-income adults, with a target of enrolling 90 participants over three years where 75% belong to underrepresented groups [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Climate Careers Curricula Initiative (C3I)",
+              "entity_type": "project",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Climate Careers Curricula Initiative (C3I): What foundation funds it and what are the key goals for participants? Climate Careers Curricula Initiative (C3I): What foundation funds it what are the key goals for participants?"
+            }
+          ],
+          "suggestions": [
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What percentage of C3I participants are expected to come from underrepresented groups?"
+          ],
+          "status": "answered",
+          "conversation_id": "9e2342db8d0b4e7ead9733d2b3ce88e3",
+          "elapsed_seconds": 13.02,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "How many programs and participants does it plan to reach, and over what timeframe?",
+          "answer": "The initiative plans to develop six microcredentialed programs over three years, covering areas such as solar installation, energy auditing, and nature-based solutions. The program aims to enroll 90 participants over 3 years, with 75% of participants coming from underrepresented groups. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "9e2342db8d0b4e7ead9733d2b3ce88e3",
+          "elapsed_seconds": 19.794,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The initiative plans to develop six microcredentialed programs over three years, covering areas such as solar installation, energy auditing, and nature-based solutions. The program aims to enroll 90 participants over 3 years, with 75% of participants coming from underrepresented groups. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_031",
+      "kind": "multi_turn",
+      "type": "follow_up_art_cultural_resilience_event",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+          "answer": "The Climate Emergency Preparedness: Art x Cultural Resilience event was a May gathering where speakers engaged in a conversation exploring the wisdom and beauty of various cultures, cultural organizing, and artistic expression to help develop resilient and sustainable communities [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?"
+            }
+          ],
+          "suggestions": [
+            "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "f12fea00c8b94e0390833303e0074eaa",
+          "elapsed_seconds": 9.56,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Who were the speakers at that event?",
+          "answer": "The speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event were **Erin Genia**, Artist-in-Residence for the City of Boston, and **Meghan Venable-Thomas**, Cultural Resilience Program Director at Enterprise Community Partners [1]. Additionally, **Kim Szeto**, Public Art Program Director at the New England Foundation for the Arts, served as the moderator for the event [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "CLIMATE EMERGENCY PREPAREDNESS: ART x CULTURAL RESILIENCE: Who were the speakers at that event?"
+            }
+          ],
+          "suggestions": [
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+            "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "f12fea00c8b94e0390833303e0074eaa",
+          "elapsed_seconds": 8.494,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Who moderated the event?",
+          "answer": "The event was moderated by Kim Szeto — Public Art Program Director, New England Foundation for the Arts [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f12fea00c8b94e0390833303e0074eaa",
+          "elapsed_seconds": 1.272,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The event was moderated by Kim Szeto — Public Art Program Director, New England Foundation for the Arts [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_021",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_adaptation_forum",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is the Climate Adaptation Forum?",
+          "answer": "SLIDE 39 — CLIMATE ADAPTATION FORUM Our quarterly, half-day series, co-sponsored with the Environmental Business Council, continued to provide opportunities for people in the field to cross-pollinate ideas and share solutions. The intersection of climate resilience, race, and equity was embedded in every Forum discussion. 200+ AVG. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b1404135cd694afa9d496251db5ccebe",
+          "elapsed_seconds": 0.782,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "When was it established and how often does it take place?",
+          "answer": "Check out our membership map (updated twice per year) [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b1404135cd694afa9d496251db5ccebe",
+          "elapsed_seconds": 11.178,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What types of topics and participants does it typically bring together?",
+          "answer": "The Climate Adaptation Forum brings together diverse participants such as experts, thought leaders, environmental and energy professionals, policymakers, municipal officials, NGOs, and practitioners from local, national, and global organizations [1, 2]. It covers critical topics including infrastructure resilience, environmental justice, and innovative adaptation strategies [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Climate Adaptation Forum",
+              "entity_type": "project",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Climate Adaptation Forum: What types of topics and participants does it typically bring together?"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 13,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Climate Adaptation Forum: What types of topics and participants does it typically bring together?"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "b1404135cd694afa9d496251db5ccebe",
+          "elapsed_seconds": 9.368,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Climate Adaptation Forum brings together diverse participants such as experts, thought leaders, environmental and energy professionals, policymakers, municipal officials, NGOs, and practitioners from local, national, and global organizations [1, 2]. It covers critical topics including infrastructure resilience, environmental justice, and innovative adaptation strategies [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Adaptation Forum",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Climate Adaptation Forum: What types of topics and participants does it typically bring together?"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 13,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Climate Adaptation Forum: What types of topics and participants does it typically bring together?"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fm_030",
+      "kind": "multi_turn",
+      "type": "follow_up_portable_memories_event",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What special arts-related events did SSL host in the 2020-21 period?",
+          "answer": "During the 2020-21 period, SSL faculty hosted art events as part of a series of special climate change events [1]. Additionally, the lab hosted an event in May featuring a conversation that explored artistic expression, cultural organizing, and the wisdom and beauty of different cultures to help develop resilient and sustainable communities.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "SPECIAL EVENTS: ALL WE CAN SAVE",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What special arts-related events did SSL host in the 2020-21 period?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "In what year was the Climate Adaptation Forum established?"
+          ],
+          "status": "answered",
+          "conversation_id": "7e066e62d3544322907d08ce1bd65b67",
+          "elapsed_seconds": 11.764,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Tell me about the Portable Memories in Rising Seas event.",
+          "answer": "SLIDE 43 — PORTABLE MEMORIES IN RISING SEAS This event, cohosted by the Climigration Network and featuring the Fifty-Fifty art collective's multimedia project Portable Memories in Rising Seas, was an opportunity to reflect on our relationships to the places we call home in the context of climate change and sea level rise. After watching short videos of communities facing relocation due to rising sea levels, attendees grappled with the implications of climate change as they manifest on individual and collective levels through drawings and group discussion. The Fifty-Fifty art collective encouraged participants to explore questions such as:\n- How are you affected by the climate crisis? [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "7e066e62d3544322907d08ce1bd65b67",
+          "elapsed_seconds": 2.751,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What organization co-hosted that event with SSL?",
+          "answer": "The event was co-hosted by the Climigration Network [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "7e066e62d3544322907d08ce1bd65b67",
+          "elapsed_seconds": 1.705,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The event was co-hosted by the Climigration Network [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}

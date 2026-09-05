@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-08-14T05:18:35.753880+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 6,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 1.67,
+      "citations": 1.33
+    },
+    "classification_counts": {
+      "answered_yes": 1,
+      "answered_no": 5,
+      "hallucinated_yes": 2,
+      "hallucinated_no": 4,
+      "right_citations_yes": 1,
+      "right_citations_no": 5
+    }
+  },
+  "results": [
+    {
+      "id": "novel_026",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What two kinds of engineering degrees does Julie Eaton Ernst have?",
+      "target_sources": [],
+      "output": "Julie Eaton Ernst: She has bachelor\u2019s degrees in Political Science (University of Rochester) and Civil Engineering (UMass Lowell) and a master\u2019s degree in Civil Engineering (UMass Lowell). [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant failed to identify two distinct kinds of engineering degrees, instead listing only one kind (Civil Engineering) at two different academic levels.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_031",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What studio did Amy Kort\u00e9 launch at Arrowstreet?",
+      "target_sources": [],
+      "output": "Amy Kort\u00e9: President, Arrowstreet. As President, Amy leads the design of much of Arrowstreet\u2019s residential work and has played a key role in orchestrating the firm\u2019s large-scale mixed-use and commercial projects in Boston, Cambridge, Worcester, and Revere. Her multi-disciplinary background in environmental design, retail design, and development allows her to deliver creative project solutions that bridge multiple disciplines. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided a professional biography of Amy Kort\u00e9 but failed to answer the specific question regarding which studio she launched at Arrowstreet.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_034",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What clean technologies does ReVision Energy install according to Jen Stevenson Zepeda's profile?",
+      "target_sources": [],
+      "output": "Commercial Solar Consultant, ReVision Energy. Jen Stevenson Zepeda (she/her) is a Commercial Solar Consultant for ReVision, an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England. In her role, Jen uses an educational approach to help nonprofits and businesses understand their decision to go solar. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus was empty, so the information provided by the assistant is unsupported by the context. Additionally, the citation provided is irrelevant to the question asked.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_038",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What email address is listed for Rajini Srikanth?",
+      "target_sources": [],
+      "output": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the specific question regarding Rajini Srikanth's email address, providing the general SSL lab email instead.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_043",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How often is the Northeast Collaborative membership map updated?",
+      "target_sources": [],
+      "output": "Joining the Northeast Climate Justice Research Collaborative gives members access to:\n1. Seed grants to support climate justice research in the Northeast [1]\n2. Workshops to support researchers' ability to leverage their work and make it actionable [1]\n3. Collaborative gatherings, convenings, and networking opportunities [1]\n4. SSL's climate justice literature Mendeley library [1]\n5. The Collaborative listserv for sharing ideas, questions, and resources [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question regarding the membership map update frequency, instead providing an irrelevant list of membership benefits.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_045",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What does the Climate Adaptation Forum provide besides presentations?",
+      "target_sources": [],
+      "output": "The Climate Adaptation Forum is a quarterly, half-day series co-organized by SSL and the Environmental Business Council of New England. It brings experts and participants together to discuss climate adaptation and resilience. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer fails to address the specific question regarding what the forum provides besides presentations, and the provided source is irrelevant to the query.",
+      "stream_error": ""
+    }
+  ]
+}

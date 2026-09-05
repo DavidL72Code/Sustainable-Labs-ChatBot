@@ -1,0 +1,92 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786419540.266028,
+  "capture_only": true,
+  "case_count": 3,
+  "results": [
+    {
+      "id": "fs_023",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who is Carlos Velásquez and what two roles does he hold in relation to the Cape Cod Rail project?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f28c57a953084f359f6b0571660ba5f1",
+          "elapsed_seconds": 3.024,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_036",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "a8b079f3dd6f447b86223533db9d31f5",
+          "elapsed_seconds": 2.205,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "fs_039",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Where did Vishal Verma complete his undergraduate and master's education?",
+          "answer": "\u0000STREAM The available documents do not state that requested detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "3dc8555a240a4b7498a8cadaac2c7eaa",
+          "elapsed_seconds": 1.529,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "\u0000STREAM The available documents do not state that requested detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}

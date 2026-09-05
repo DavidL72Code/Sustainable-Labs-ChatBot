@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-08-12T23:38:36.241731+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 4.75,
+      "professional_tone": 4.75,
+      "correctness_vs_corpus": 2.0,
+      "citations": 2.0
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 2,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 3
+    }
+  },
+  "results": [
+    {
+      "id": "novel_003",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which areas of ecology are listed as Katherine Dafforn's expertise?",
+      "target_sources": [],
+      "output": "The listed expertise includes Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus is empty, making it impossible to verify the assistant's claims. The assistant cites a source that is not supported by the provided reference material.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_004",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What public-health topics are associated with Lorena Estrada-Martinez's expertise?",
+      "target_sources": [],
+      "output": "The listed expertise includes Public health, social determinants of health inequities, Latino and immigrant. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer directly addresses the question. Verification against the corpus is not possible as the provided corpus reference was empty.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_013",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which political topics are included in Paul Watanabe's expertise?",
+      "target_sources": [],
+      "output": "The listed expertise includes American Foreign Policy, American Political Behavior, Ethnic Group Politics. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference was empty, making it impossible to verify the accuracy of the information. The assistant provided a citation when no target sources were expected.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_029",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What extreme-weather issue does Isabella Gambill lead work on?",
+      "target_sources": [],
+      "output": "Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference is empty, making it impossible to verify the claim. The citation provided is a generic board of directors page and does not appear to support the specific claim about extreme heat work.",
+      "stream_error": ""
+    }
+  ]
+}

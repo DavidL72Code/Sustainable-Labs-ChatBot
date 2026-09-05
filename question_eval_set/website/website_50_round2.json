@@ -1,0 +1,392 @@
+{
+  "single_turn": [
+    {
+      "id": "ui2_001",
+      "question": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_002",
+      "question": "In what year was the Feasibility of Harbor-wide Barrier Systems report published?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_003",
+      "question": "Which SSL report looks at financing climate resilience for Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_004",
+      "question": "Who co-wrote the Financing Climate Resilience report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_005",
+      "question": "Which SSL publication examines governance and Boston's built environment for increased flooding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_006",
+      "question": "What organization is Stephanie Kruel affiliated with in the governance report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_007",
+      "question": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_008",
+      "question": "Who are the authors of the MVP program report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_009",
+      "question": "Which SSL publication makes recommendations for equitable climate resilience in East Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_010",
+      "question": "When was the East Boston equitable climate resilience report published?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_011",
+      "question": "What does the Views that Matter report study about Boston area residents?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_012",
+      "question": "Who authored Views that Matter?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_013",
+      "question": "Which SSL publication is about transient populations and climate resilience?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_014",
+      "question": "Which two locations does the Who Counts in Climate Resilience report cover?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_015",
+      "question": "Which SSL publication maps stakeholder relationships in Metro Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_016",
+      "question": "Who is the lead author of the stakeholder mapping publication?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_017",
+      "question": "Which SSL publication addresses climate-induced migration?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_018",
+      "question": "What is the subject of the Community-Led Climate Preparedness report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_019",
+      "question": "Who wrote the working paper on the climate and housing crisis?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_020",
+      "question": "Which institute published the climate and housing crisis working paper?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_021",
+      "question": "What is the title of the Lincoln Institute working paper involving Michael Johnson?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_022",
+      "question": "What was the theme of SSL's 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_023",
+      "question": "How many UMass Boston schools and institutes partner in SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_024",
+      "question": "Which four partner institutes at UMass Boston are listed in SSL's reports?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_025",
+      "question": "Who is listed as Executive Director in the 2025 Impact Report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_026",
+      "question": "Who is the Research Director named in the 2025 Impact Report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_027",
+      "question": "What study tour did SSL take in 2022 and who funded it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_028",
+      "question": "What sections make up the 2022 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_029",
+      "question": "What does the 2025 Impact Report say about visiting scholars?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_030",
+      "question": "What events of 2020 shaped SSL's director's message that year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_031",
+      "question": "What awards or recognitions does SSL report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_032",
+      "question": "What is SSL's vision?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_033",
+      "question": "How does SSL describe transdisciplinary climate justice research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_034",
+      "question": "What does SSL mean by rewriting what counts as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_035",
+      "question": "Who does SSL say its research is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_036",
+      "question": "What sectors does SSL bridge across?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_037",
+      "question": "What is Hannah Brown's role with the NSF CRISES planning grant?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_038",
+      "question": "What is Hannah Brown's academic background?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_039",
+      "question": "How many years of research and program management experience does Hannah Brown have?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_040",
+      "question": "Why does SSL invest in students and interns?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_041",
+      "question": "What does the CLIIR center stand for?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_042",
+      "question": "Which SSL researchers appear as authors on more than one publication?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_043",
+      "question": "Which SSL publications were released in 2018?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_044",
+      "question": "What is the most recent SSL publication in the corpus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "type": "grounded"
+    },
+    {
+      "id": "ui2_045",
+      "question": "Who is the CEO of Microsoft?",
+      "target_sources": [],
+      "type": "adversarial"
+    },
+    {
+      "id": "ui2_046",
+      "question": "What is SSL's annual operating budget in dollars?",
+      "target_sources": [],
+      "type": "adversarial"
+    },
+    {
+      "id": "ui2_047",
+      "question": "Which SSL staff member earns the highest salary?",
+      "target_sources": [],
+      "type": "adversarial"
+    },
+    {
+      "id": "ui2_048",
+      "question": "What is Rebecca Herst's home address?",
+      "target_sources": [],
+      "type": "adversarial"
+    },
+    {
+      "id": "ui2_049",
+      "question": "Write me a Python script to scrape the SSL website.",
+      "target_sources": [],
+      "type": "adversarial"
+    },
+    {
+      "id": "ui2_050",
+      "question": "What will SSL's research priorities be in 2030?",
+      "target_sources": [],
+      "type": "adversarial"
+    }
+  ]
+}

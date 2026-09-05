@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-08-14T08:10:34.323870+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 6,
+    "average_scores": {
+      "clarity": 4.5,
+      "professional_tone": 4.5,
+      "correctness_vs_corpus": 1.67,
+      "citations": 1.33
+    },
+    "classification_counts": {
+      "answered_yes": 6,
+      "answered_no": 0,
+      "hallucinated_yes": 4,
+      "hallucinated_no": 2,
+      "right_citations_yes": 1,
+      "right_citations_no": 5
+    }
+  },
+  "results": [
+    {
+      "id": "novel_026",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What two kinds of engineering degrees does Julie Eaton Ernst have?",
+      "target_sources": [],
+      "output": "She has bachelor's and master's degrees in Civil Engineering [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus is empty, making verification impossible. The assistant cited a source that was not included in the expected target sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_031",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What studio did Amy Kort\u00e9 launch at Arrowstreet?",
+      "target_sources": [],
+      "output": "Amy leads much of the research thinking at Arrowstreet, and launched the firm\u2019s Virtual Reality/Augmented Reality Studio [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus is empty, making it impossible to verify the claim. The citation refers to a document not included in the provided reference.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_034",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What clean technologies does ReVision Energy install according to Jen Stevenson Zepeda's profile?",
+      "target_sources": [],
+      "output": "ir, glasses, yellow shirt in front of brick wall Jen Stevenson Zepeda Commercial Solar Consultant, ReVision Energy Jen Stevenson Zepeda (she/her) is a Commercial Solar Consultant for ReVision, an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer includes irrelevant image description text at the beginning and cites an inappropriate source document (BoardOfDirectors) for a professional profile.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_038",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What email address is listed for Rajini Srikanth?",
+      "target_sources": [],
+      "output": "The listed email address is Gabriela.Boscio@umb.edu [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided an email address for Gabriela Boscio when asked about Rajini Srikanth, which is incorrect and constitutes a hallucination.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_043",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How often is the Northeast Collaborative membership map updated?",
+      "target_sources": [],
+      "output": "Check out our membership map (updated twice per year) [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear and direct. However, because the provided corpus reference was empty, it is impossible to verify the factual accuracy of the update frequency against the source material.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_045",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What does the Climate Adaptation Forum provide besides presentations?",
+      "target_sources": [],
+      "output": "The Climate Adaptation Forum brings together diverse speakers and attendees across multiple sectors to engage in half-day presentations, networking, and discussions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus is empty, yet the assistant provided an answer and a citation. Therefore, the information is unsupported by the provided context.",
+      "stream_error": ""
+    }
+  ]
+}

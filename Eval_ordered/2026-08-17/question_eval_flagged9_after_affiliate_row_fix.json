@@ -1,0 +1,316 @@
+{
+  "generated_at": "2026-08-19T00:07:06.436896+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 9,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 9,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 9,
+      "right_citations_yes": 9,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_063",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Georgia Mavrommati's area of expertise at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes complex systems; deliberative valuation; environmental policy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Georgia Mavrommati from the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_064",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Katherine Dafforn's academic title and primary area of research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Katherine Dafforn's listed title is Distinguished Professor. the listed expertise includes Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the title and research expertise of Katherine Dafforn from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_068",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati is listed as Professor in Management Science & Info Sys. the listed expertise includes Social Media and Organizations, Green Information Systems, Social Media. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the department and expertise from the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_069",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Lorena Estrada-Martinez's area of expertise as a UMass Boston affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Public health, social determinants of health inequities, Latino and immigrant. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Lorena Estrada-Martinez from the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_070",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Cedric Woods's listed title is Director, INENAS. the listed expertise includes Tribal government, American Indian education, economic development, chronic disease prevention. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately extracted the requested information from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_072",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institute does Lorna Rivera direct and what is her listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorna Rivera is listed as Director, Gaston Institute. the listed expertise includes Latina/o studies, Social Determinants of Health, Adult Literacy education, Education. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the requested information from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_082",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Susan Gauss's stated area of expertise as a UMass Boston affiliate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Modern Mexican History, Latin American Political Economy, History of Commodities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Susan Gauss from the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_092",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are Katsyris Rivera Kientz's research interests?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Her research interests lie at the intersection of Political Sociology; Transnational activism; Colonialism; National Identity; Education; Race and gender issues; Natural and not-so-natural disasters, and the Puerto Rico-United States political relationship. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly derived from the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "fm_043",
+      "kind": "multi_turn",
+      "type": "follow_up_affiliate_kerrie_wilkins",
+      "question": "What is her expertise as listed in the SSL university affiliates?",
+      "conversation": [
+        {
+          "user": "Which SSL university affiliates focus on gender, race, or mental health?",
+          "assistant": "Based on the provided documents, the following SSL faculty affiliates focus on research related to gender or race:\n- **Lorna Rivera** is an Associate Professor of Women's, Gender, and Sexuality Studies in the College of Liberal Arts [1].\n- **Elizabeth L. Sweet** is an Assistant Professor of Equitable and Sustainable Development in the Department of Africana Studies [1].\n- **Leyla D. Brown-Vincent** is an Assistant Professor of Africana Studies in the College of Liberal Arts."
+        },
+        {
+          "user": "Tell me about Kerrie Wilkins's title at UMass Boston.",
+          "assistant": "Kerrie Wilkins's title is Graduate Program Director/Associate Professor. [1]"
+        },
+        {
+          "user": "What is her expertise as listed in the SSL university affiliates?",
+          "assistant": "The listed expertise includes Intersectionality, Women and girls of Color, Social Justice, mental health. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Intersectionality, Women and girls of Color, Social Justice, mental health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Kerrie Wilkins from the provided corpus."
+    }
+  ]
+}

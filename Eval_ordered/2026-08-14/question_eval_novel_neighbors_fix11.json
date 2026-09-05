@@ -1,0 +1,364 @@
+{
+  "generated_at": "2026-08-14T08:26:32.342606+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 11,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 2.45,
+      "citations": 2.64
+    },
+    "classification_counts": {
+      "answered_yes": 11,
+      "answered_no": 0,
+      "hallucinated_yes": 5,
+      "hallucinated_no": 6,
+      "right_citations_yes": 4,
+      "right_citations_no": 7
+    }
+  },
+  "results": [
+    {
+      "id": "novel_025",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the focus of Caleb Dresser's climate-related research?",
+      "target_sources": [],
+      "output": "He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is clear and professional. However, the provided source (a Board of Directors page) is likely not the most relevant or specific document to support the detailed description of his research focus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_027",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which committee does Julie Eaton Ernst chair for the Environmental Business Council?",
+      "target_sources": [],
+      "output": "Julie Eaton Ernst: She serves as chair of the Climate Change and Air Committee for the Environmental Business Council (EBC) of New England. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference is empty, making it impossible to verify the claim. The assistant cites a document that was not included in the provided context.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_030",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Amy Kort\u00e9's position at Arrowstreet?",
+      "target_sources": [],
+      "output": "Amy Kort\u00e9's title is President, Arrowstreet. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer provides a specific title, but the provided source is irrelevant to Arrowstreet and does not support the claim.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_032",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is ISeeChange, the organization led by Julia Kumari Drapkin?",
+      "target_sources": [],
+      "output": "ISeeChange is a climate data and engagement platform designed to help cities combat climate change [1]. Julia Kumari Drapkin serves as the organization's CEO and founder [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is clear and professional. However, the provided citation is a generic board of directors page and does not directly support the specific definition of ISeeChange provided.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_033",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Before founding ISeeChange, what kind of work did Julia Kumari Drapkin do?",
+      "target_sources": [],
+      "output": "CEO and Founder, ISeeChange. Julia Kumari Drapkin is the CEO of ISeeChange, a climate data and engagement platform to help cities combat climate change. Drapkin founded ISeeChange after reporting natural disasters and climate change for 12 years across the globe and in her own backyard on the Gulf Coast. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer provides biographical details that are not supported by the provided corpus (which is empty). The citation provided does not contain the information mentioned.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_035",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Where did Jen Stevenson Zepeda earn her master's degree?",
+      "target_sources": [],
+      "output": "Jen Stevenson Zepeda earned a Master's in Sustainable Design from the Boston Architectural College. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus is empty, yet the assistant provided specific information and a citation, indicating a hallucination relative to the provided context.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Elisa Guerrero responsible for as an SSL staff member?",
+      "target_sources": [],
+      "output": "Elisa Guerrero: Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear and professional. Verification against the corpus is not possible as the provided corpus reference is empty.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_039",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which three themes organize the CLIIR Initiative?",
+      "target_sources": [],
+      "output": "The three themes that organize the Climate Inequality and Integrative Resilience (CLIIR) Initiative are Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference is empty, making it impossible to verify the claims. The answer cites a source that is not present in the provided corpus, leading to a hallucination score.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_042",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What employment support is planned for C3I participants after training?",
+      "target_sources": [],
+      "output": "**Employment Support for C3I Participants** The Climate Careers Curricula Initiative (C3I) plans to provide employment support to participants by establishing partnerships with employers to create pathways from training to employment [1]. This support includes the following:\n- Internships [1], - Job placement assistance [1], - Mentoring [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What employment support is planned for C3I participants after training? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear and professional. Verification against the corpus is not possible as the provided corpus reference is empty, but the answer is internally consistent with the provided citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_044",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of network is the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [],
+      "output": "The Northeast Climate Justice Research Collaborative is a trans-disciplinary network for academic and community researchers in the Northeast [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of network is the Northeast Climate Justice Research Collaborative? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear, professional, and directly supported by the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_046",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which organizations and experts collaborate on the Cape Cod Rail project?",
+      "target_sources": [],
+      "output": "**Collaborating Organizations**\n- The organizations collaborating on the Cape Cod Rail Resilience Project include the Sustainable Solutions Lab (SSL), MassDOT, UMass Boston, and AECOM [1]. **Collaborating Experts**\n- Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT, leads the project [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which organizations and experts collaborate on the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project) working alongside worked with contributors authors acknowledgments project management editing design support throughout the research process program initiative working with"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear, professional, and accurately reflects the information provided in the single source document.",
+      "stream_error": ""
+    }
+  ]
+}

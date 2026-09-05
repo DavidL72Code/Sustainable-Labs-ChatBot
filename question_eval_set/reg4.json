@@ -1,0 +1,41 @@
+{
+ "single_turn": [
+  {
+   "id": "n012",
+   "question": "Who developed the Community Resilience Indicators framework suggested for monitoring neighborhood changes?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+  },
+  {
+   "id": "n096",
+   "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n125",
+   "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n156",
+   "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  }
+ ],
+ "multi_turn": []
+}

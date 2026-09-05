@@ -1,0 +1,2073 @@
+{
+  "generated_at": "2026-08-31T17:22:10.289838+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/2026-08-29/questions_fresh_208.json",
+  "summary": {
+    "total_cases": 72,
+    "average_scores": {
+      "clarity": 4.14,
+      "professional_tone": 4.61,
+      "correctness_vs_corpus": 1.76,
+      "citations": 1.54
+    },
+    "classification_counts": {
+      "answered_yes": 12,
+      "answered_no": 60,
+      "hallucinated_yes": 7,
+      "hallucinated_no": 65,
+      "right_citations_yes": 10,
+      "right_citations_no": 62
+    }
+  },
+  "results": [
+    {
+      "id": "n001",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "Patricio Belloy Focus: Equitable climate resilience, climate and renewable energy education, human wellbeing, community development [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant retrieved staff directory information rather than answering the question about the recommended professional expertise and community representation for the regional group.",
+      "stream_error": ""
+    },
+    {
+      "id": "n005",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many registered watercraft measuring between 26 and 40 feet were based in Hingham?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly stated it lacked the information because the provided corpus text cuts off before the relevant table, though it failed to retrieve the expected source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n006",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the combined total count of all registered vessels across every size category for the city of Quincy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "output": "35 5,566 3,274 Medford Middlesex 16,480 3,139 2,162 1,433 2,077 4,584 2,253 Milton Norfolk 0 0 0 0 0 0 0 Quincy Norfolk 0 0 0 0 0 0 0 Braintree Norfolk 0 0 0 0 0 0 0 Hingham Plymouth 0 0 0 0 0 0 0 Hull Plymouth 0 0 0 0 0 0 0 TOTAL 98,560 19,780 9,941 8,674 19,521 39,622 15,984 * Number of vulnerable [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 1,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided an unformatted raw text dump instead of a direct, clear answer to the question.",
+      "stream_error": ""
+    },
+    {
+      "id": "n009",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many colleges and institutes have partnered together to form the Sustainable Solutions Lab at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "this gap for Greater Boston. It presents the results of a survey administered by the MassINC Polling Group to more than 900 Asian American, Black, Latino/a, and white residents in Boston, Brookline, Cambridge, Chelsea, Everett, Lynn, Quincy, Revere, Somerville, and Winthrop. By engaging in a systematic [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant completely fails to answer the question about the number of colleges and institutes, instead outputting an irrelevant excerpt, and cites the incorrect source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n019",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What government agency released the 2021 report focusing on social vulnerability and climate impacts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "output": "I don't have that information in the available documents. The available documents do not state that requested detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains a reference to the 2021 U.S. Environmental Protection Agency (EPA) report in section 2.1, but the model failed to extract it and returned no sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "n021",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many residents in total participated in the focus group sessions?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "70 residents participated in the program. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly states 70 residents based on the corpus, but it cites the incorrect source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "n023",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "On what date was the study on climate preparedness in Boston officially published?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant stated it lacked the information because the returned sources were empty, but the corpus actually contains the publication date (September 22, 2024).",
+      "stream_error": ""
+    },
+    {
+      "id": "n025",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What methods can developers use to provide income-restricted housing when seeking zoning relief for projects with at least ten units?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided a list of SSL projects instead of answering the question about income-restricted housing, and returned incorrect citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n027",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What specific phenomenon occurs when greening and retrofitting housing initiatives inadvertently drive up living costs and displace vulnerable residents?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant completely missed the question about climate gentrification, instead providing a list of unrelated SSL projects and incorrect citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n028",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which researchers' conceptual model of equitable climate adaptation is applied to analyze Environmental Justice aspects within the MVP Program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The retrieval returned no sources, so the model correctly stated it lacked the information, even though the answer (Malloy & Ashcraft, 2020) is present in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n030",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which organization authored the research note concerning the requirement for emergency rental assistance during the recent economic and health crisis?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "output": "I don't have that information in the available documents. The available documents do not state that requested detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant stated it did not have the information because retrieval returned no sources, although the answer was present in the reference section of the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n033",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What do some participants identify as the main barrier to translating community awareness about environmental issues into effective action?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant stated it did not have the information and failed to retrieve the relevant source from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n034",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What strategy is mentioned to help protect senior citizens who do not have access to air conditioning during periods of extreme heat?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "Sea level rise, extreme weather events, and residential mobility and redevelopment in coastal communities may increase the risk of displacement for low- and moderate-income households (Keenan et al [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, providing an irrelevant response about sea level rise and displacement from the wrong source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which financial mechanisms are described as having the capacity to provide collateral for loans?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The chatbot failed to recognize that the provided document contains the answer in Table ES2, which outlines the functions of various financial mechanisms including providing loan collateral.",
+      "stream_error": ""
+    },
+    {
+      "id": "n039",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to the cited research, roughly what percentage of the US population acknowledges the existence of global warming?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus does contain this information (approximately 70% of Americans), but the assistant failed to retrieve it.",
+      "stream_error": ""
+    },
+    {
+      "id": "n040",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific demographic group faces heightened health risks due to their high representation in outdoor labor sectors exposed to extreme heat?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "output": "Community-Led Climate Preparedness and Resilience in Boston_ New | Publications | Detail face notable health risks due to their overrepresentation in outdoor labor sectors, which are more susceptible to extreme heat [39\u201341] [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is malformed and fails to name the demographic group (Latinos) specified in the corpus, starting instead with a document title string.",
+      "stream_error": ""
+    },
+    {
+      "id": "n046",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which 2018 legislation provided the legal codification for Executive Order 569?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains the answer in Box 2 (H.4835 Environmental Bond), but the chatbot failed to retrieve it and incorrectly stated it lacked the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n050",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains the answer on page 31 (around 650 institutional investors with $87 trillion in assets), but the assistant incorrectly claimed it did not have the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n053",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What percentage of stakeholders in the Metro Boston climate adaptation network reported that their work focuses on social resilience?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus explicitly states that 21% of stakeholders focused on social resilience (Table 1), but the assistant claimed the information was missing from the documents.",
+      "stream_error": ""
+    },
+    {
+      "id": "n054",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How does the racial demographic composition of the Metro Boston climate adaptation field compare to national labor statistics for related fields like Environmental Science and Sustainability Studies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "output": "Johnna Flahive's title is environmental sciences PhD candidate in the School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided completely irrelevant information about an individual rather than answering the question about racial demographics using the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n057",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many follow-up discussions has the Sustainable Solutions Lab facilitated since its June event to help bridge connections between different types of resilience efforts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "output": "Boston, Sustainable Solutions Lab | 5 4 Mechanisms for Financing and Incentivizing Resilience Investments T here is no one way to fund the $1\u2013$2.4 billion necessary to protect Boston from climate change impacts. 7 Different mechanisms are appropri- ate for different types of projects, scales of fundin [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided an irrelevant excerpt from a completely different document instead of answering the question about the over 40 follow-up conversations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n058",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which researchers are leading the project that examines the climate-related vulnerabilities of transient populations in Boston and Cape Cod?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "output": "I don't have that information in the available documents. The available documents do not state that requested detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus explicitly lists the research team (Ellen Douglas, Johnna Flahive, Evan Stewart) for the transient populations project, but the assistant incorrectly claimed the information was missing.",
+      "stream_error": ""
+    },
+    {
+      "id": "n059",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What specific public transportation system was noted as posing travel difficulties for community elders trying to reach medical appointments during extreme weather?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, returning a canned refusal/fallback response instead of extracting the MBTA from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n062",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific groups of transient individuals were analyzed to understand their risks associated with changing weather patterns in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, providing a generic canned response instead of extracting information from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n069",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What institutional factor limits the effectiveness of climate adaptation projects across different municipalities in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provides information about SSL initiatives instead of answering the question regarding institutional factors (such as Home Rule and the lack of regional governance) that limit climate adaptation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n070",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Why is it currently challenging to assess the progress and outcomes of the MVP program's planning and implementation efforts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "The available documents indicate that assessing progress is challenging because the steps between finishing a planning report and obtaining an Action Grant are less transparent than the public workshops and application process, and the match requirement can act as a limitation for some communities [1]. Regarding the motivation behind assessing the program's planning and implementation efforts, the available documents do not state this detail. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 48,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Why is it currently challenging to assess the progress and outcomes of the MVP program's planning and implementation efforts? responsible for manages supports engagement motivation purpose"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the corpus details regarding the challenges in assessing progress, match requirements, and the steps between planning reports and Action Grants, using the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n073",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How do the projected benefit-cost ratios of harbor-wide barrier systems compare to those of shore-based flood protection strategies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "output": "The projected benefit-cost ratios for harbor-wide barrier systems are less than 1.0 under all scenarios using a 7% discount rate, with the single exception of 1.05 [1]. In comparison, the benefit-cost ratios for a shore-based flood protection system in East Boston are estimated to be significantly higher, ranging from 3.22 to 5.3, which far exceeds the ratios projected for the barrier [1]. Regarding funding details for these systems, the available documents do not state this information.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 365,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "How do the projected benefit-cost ratios of harbor-wide barrier systems compare to those of shore-based flood protection strategies? program initiative working with research assistant team includes joining grants access seed grants workshops collaborative gatherings Mendeley library listserv funding"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer accurately compares the benefit-cost ratios using the corpus data, but the returned source file does not match the expected target source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n076",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to the survey, how many times more likely are high-income neighborhoods perceived to be ready for severe weather compared to low-income areas?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The chatbot failed to answer the question and returned a generic introductory response instead of utilizing the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n077",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Under the RCP 4.5 emission scenario, what is the projected timeline for a three-foot increase in sea levels compared to the earlier 2070 estimate?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "output": "SSL described its mission this way:\n1) Understand the disproportionate impacts of climate change on marginalized communities\n2) Partner with them to develop equitable and sustainable solutions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided an irrelevant mission statement from an annual report instead of answering the question about the sea level rise timeline.",
+      "stream_error": ""
+    },
+    {
+      "id": "n082",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which municipal entity published findings in 2021 regarding how climate resilience regulations can negatively impact housing supply?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to find the answer in the provided document, which explicitly mentions the Cambridge Climate Resilience Zoning Task Force (Cambridge Community Development Department).",
+      "stream_error": ""
+    },
+    {
+      "id": "n087",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who serves as the director of the Sustainable Solutions Lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "Rebecca Herst serves as the Director of the Sustainable Solutions Lab [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who serves as the director of the Sustainable Solutions Lab? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer correctly identifies Rebecca Herst as the director, but the returned source does not match the expected corpus source (AnnualReport2021.txt).",
+      "stream_error": ""
+    },
+    {
+      "id": "n096",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "I don't have that information in the available documents. The available documents do not state that requested detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant incorrectly stated the information was not in the documents, whereas the corpus attributes the research and data to the Sustainable Solutions Lab at the University of Massachusetts, Boston.",
+      "stream_error": ""
+    },
+    {
+      "id": "n097",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which research organization is identified as a contributor to the analysis of climate-related economic damage in the city of Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "Retrieval failed to return any sources, resulting in the model stating it did not have the information, even though the corpus contains the answer.",
+      "stream_error": ""
+    },
+    {
+      "id": "n099",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What was the total number of stakeholder responses received from the social services and environmental sectors?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The model stated it did not have the information, but the corpus mentions that 13 responses were obtained.",
+      "stream_error": ""
+    },
+    {
+      "id": "n100",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "On what date did the Boston Planning & Development Agency submit its proposal to the Massachusetts Office of Coastal Zone Management concerning the waterfront?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "output": "(Fall 2023 - Spring 2024) Focus: coastal governance, integrated coastal zone management, science-policy Bio: Ante Iv\u010devi\u0107's fundamental research interest is coastal governance in light of the accelerated global climate change. After Ante Iv\u010devi\u0107's MSc studies in geophysics and oceanography-marine environment, Ante Iv\u010devi\u0107 continued Ante Iv\u010devi\u0107's research in risk management, and Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University (H2020 fellow). Ante Iv\u010devi\u0107 contribute to improving the Mediterranean public policy related to coastal risk management, climate change adaptation, and disaster risk reduction. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 1,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided an irrelevant biography instead of the requested submission date (January 30, 2020).",
+      "stream_error": ""
+    },
+    {
+      "id": "n102",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many public governance tools are categorized across local, regional, state, and federal levels in the complete report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+      ],
+      "output": "I found 3 report source documents in the matched corpus scope. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, gave an unhelpful meta-response, and cited an irrelevant document instead of the governance report.",
+      "stream_error": ""
+    },
+    {
+      "id": "n104",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What factors do Black residents in Boston identify as primary contributors to their community's increased vulnerability to extreme weather events?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question and instead returned a standard boilerplate response, providing no information from the corpus and no citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n105",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific environmental hazards do residents in neighborhoods like Hyde Park and Roxbury cite as evidence of historical mistreatment that undermines their trust in climate preparedness efforts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "Residents in neighborhoods like Hyde Park and Roxbury cite the historical dumping of various chemicals and the use of their areas as dumping grounds for the town as evidence of mistreatment [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 59,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which specific environmental hazards do residents in neighborhoods like Hyde Park and Roxbury cite as evidence of historical mistreatment that undermines their trust in climate preparedness efforts?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct according to the text, but it cites the incorrect source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "n115",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In what year did the municipal government of Boston initiate its comprehensive strategy for addressing climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus states that the city of Boston began organizing its climate response (Climate Ready Boston) in 2016, but the chatbot incorrectly stated it did not have the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n116",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which organization provided the funding for the investigation into potential harbor-wide barrier configurations?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains information that the study was funded by the Barr Foundation, but the assistant incorrectly stated it did not have the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n119",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In what month and year was the publication regarding climate-induced migration released by the Sustainable Solutions Lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "output": "The publication regarding climate-induced migration was released in January 2025 by the Sustainable Solutions Lab [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "In what month and year was the publication regarding climate-induced migration released by the Sustainable Solutions Lab?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly states the month and year (January 2025) as indicated in the corpus header and uses the appropriate citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n124",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific population groups does the research suggest should be prioritized in policy interventions to ensure that efforts to address climate change do not lead to further displacement or inequality?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant incorrectly stated it did not have the information, whereas the corpus clearly identifies low- and moderate-income people and people of color as key populations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n125",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant fails to identify the specific researchers collaborating on equitable climate adaptation and public perceptions (such as Rosalyn Negron, Lorena Estrada-Martinez, and Paul Watanabe), instead providing unrelated project information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n128",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What specific criteria are suggested for evaluating the benefits of proposed adaptation projects?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question regarding criteria for evaluating proposed adaptation projects, instead discussing the Climate Adaptation Forum, and used an incorrect source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n130",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which state policy issue was most frequently rated as a high priority by Black survey participants?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "Health care was the state policy issue most frequently rated as a high priority by Black survey participants, with 81% of respondents identifying it as a high priority for the Massachusetts state government [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 83,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Which state policy issue was most frequently rated as a high priority by Black survey participants?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "Correctly identified health care as the top priority, but misstated the percentage as 81% (Health care is actually 84% in the survey data; 81% was the percentage for education).",
+      "stream_error": ""
+    },
+    {
+      "id": "n132",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "When was the report regarding the Municipal Vulnerability Preparedness program officially released by the Sustainable Solutions Lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "output": "The report regarding the Municipal Vulnerability Preparedness program, titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region,\" was released in April 2022 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "When was the report regarding the Municipal Vulnerability Preparedness program officially released by the Sustainable Solutions Lab? time"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the release date as April 2022 based on the corpus and includes the correct source citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n133",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Approximately how many institutions are represented in the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "output": "The available documents do not state that detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus states there are almost 40 institutions, but the retrieval system failed to return the document, leading the assistant to incorrectly claim the detail was absent.",
+      "stream_error": ""
+    },
+    {
+      "id": "n134",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which researcher is studying the effects of climate change on mental health in Dorchester, Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant incorrectly stated it did not have the information, which is present in the corpus regarding researcher Konstantina (Tania) Ploumi.",
+      "stream_error": ""
+    },
+    {
+      "id": "n138",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which issue was most frequently rated as a high priority among Black survey participants?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant incorrectly stated it lacked the information, but the corpus contains the exact survey breakdown in the appendix (showing Health Care was rated as a high priority by 84% of Black survey participants).",
+      "stream_error": ""
+    },
+    {
+      "id": "n141",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to the appendix data, what is the structure replacement value per square foot for single-family dwellings?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant correctly stated it lacked the information because the provided context chunk omitted the appendix data table.",
+      "stream_error": ""
+    },
+    {
+      "id": "n146",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How are total ecosystem asset values projected to change under sea level rise assuming there are no added shoreline protections or limits on marsh migration?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant incorrectly stated that it did not have the information, whereas the corpus contains relevant data regarding ecosystem asset values and sea level rise (such as Table 7.10).",
+      "stream_error": ""
+    },
+    {
+      "id": "n147",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which former dean of the McCormack Graduate School resigned to focus on clean energy initiatives?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The chatbot failed to answer the question, instead listing unrelated SSL projects and providing incorrect citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "n151",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How does the research team define the individuals or groups that are considered stakeholders within the Metro Boston climate adaptation context?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant stated it did not have the information, but the corpus explicitly defines stakeholders.",
+      "stream_error": ""
+    },
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The chatbot failed to find the information in the documents, whereas the corpus clearly states that 33% of Black respondents believe climate change will have a more severe impact on some people than others.",
+      "stream_error": ""
+    },
+    {
+      "id": "n158",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to a participant originally from Myanmar, what city infrastructure can be utilized to cool down streets during excessively hot weather?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant gave a generic canned response and failed to answer the question using the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n159",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which professor at UMass Boston contributes expertise in marine and estuarine ecology to the Sustainable Solutions Lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise is Social Media and Organizations, Green Information Systems, Social Media and... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The chatbot failed to identify Katherine Dafforn and instead provided details for the wrong professor (Pratyush Bharati).",
+      "stream_error": ""
+    },
+    {
+      "id": "n160",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the phone number for the affiliate who specializes in complex systems and environmental policy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "A phone number is not listed in SSL's available contact records. The listed contact email is ssl@umb.edu. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        },
+        {
+          "citation": 2,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The chatbot failed to retrieve the correct document and incorrectly claimed no phone number was listed, missing Georgia Mavrommati's phone number (617.287.7419) present in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n163",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who are the researchers credited with producing the 2018 study regarding climate change governance in Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant stated it did not have the information, but the corpus contains the researchers (Stephanie Kruel, Rebecca Herst, and David Cash).",
+      "stream_error": ""
+    },
+    {
+      "id": "n183",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which individuals are credited as the researchers behind the report on financing climate resilience published by the Sustainable Solutions Lab?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "output": "The individuals credited as the authors and researchers behind the financing climate resilience report are David L. Levy and Rebecca Herst [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which individuals are credited as the researchers behind the report on financing climate resilience published by the Sustainable Solutions Lab? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identifies David L. Levy and Rebecca Herst as the key researchers/authors credited in the report.",
+      "stream_error": ""
+    },
+    {
+      "id": "n184",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to FEMA statistics, what percentage of small businesses are unable to resume operations following a disaster?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus actually contains this exact statistic (about 40%), but the chatbot failed to find it and stated it didn't have the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n187",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What percentage of Latino/a survey participants believe that sea level rise is already taking place?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The information is present in the document (44% of Latino/a respondents stated sea level rise is 'Already happening' in the appendix table), but the assistant incorrectly claimed it lacked the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n188",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How much support do Asian American residents express for using state funds to assist local municipalities with climate change mitigation projects?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "output": "SSL's major current projects and initiatives include:\n1. Northeast Climate Justice Research Collaborative: Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]\n2. Climate Adaptation Forum: The Climate Adaptation Forum is a quarterly series of half-day events organized by the Environmental Business Council of New England and the Sustainable Solutions Lab (SSL) at UMass Boston, serves as a vital platform for addressing the pressing challenges of climate adaptation and resilience [1]\n3. Climate Careers Curricula Initiative (C3I): The Climate Careers Curricula Initiative (C3 Initiative), supported by the Liberty Mutual Foundation (LMF), aims to create and offer microcredentialed training programs for blue and green jobs in Greater Boston. [1]\n4. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]\n5. Climate Inequality and Integrative Resilience (CLIIR) Initiative: With climate resilience and inequality as an umbrella, the CLIIR Initiative focuses on three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant completely failed to answer the question about survey data, instead outputting a list of unrelated SSL projects, and used the wrong source citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n189",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which academic institution are all four co-authors affiliated with?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The document clearly states all four co-authors are affiliated with the University of Massachusetts Boston, but the chatbot failed to retrieve or provide this information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n192",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In what season and year was the Northeast Climate Justice Research Collaborative officially launched?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "output": "Launched in the Spring of 2022, the Northeast Climate Justice Research Collaborative (The Collaborative) is a trans-disciplinary network for academic and community researchers in the Northeast. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "Accurately states the season and year (Spring 2022) according to the corpus, but the returned source file does not match the expected target source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n193",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What were the primary objectives of the research project concerning transient populations?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "output": "The objectives of the research projects concerning transient populations include exploring how climate change initiatives affect transient groups such as seasonal workers and the homeless [1]. The research also investigates historical barriers and future opportunities for these groups in climate resilience policy and planning, examines ways for transient populations to participate as stakeholders in climate discourse, and develops a socio-ecological dynamic systems model to explore the connection between homeless populations and flood environments [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What were the primary objectives of the research project concerning transient populations? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability program initiative working with research assistant team includes audience"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The answer mentions a socio-ecological dynamic systems model which is not supported by the corpus. Additionally, it cites an annual report rather than the correct research publication.",
+      "stream_error": ""
+    },
+    {
+      "id": "n196",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What specific types of extreme weather events did the Sustainable Solutions Lab identify as having struck the Northeast coast of the United States in early 2018?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The information is present in the corpus (western Atlantic winter storms in January 2018 and three Nor'easters in March 2018), but the assistant incorrectly claimed it did not have the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n197",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "output": "The available documents do not mention specific creative techniques, but they state that authentic community engagement requires a combination of collaborations, analytic methods, co-learning, and technology to support learning and action regarding the housing and climate crises [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 69,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant incorrectly states that the documents do not mention specific creative techniques, missing methods such as community resource mapping, photographic expression, and body mapping that are noted on page 16 of the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n202",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The information is present in the corpus (Streets received 5 observations), but the model failed to find it and incorrectly claimed the information was missing.",
+      "stream_error": ""
+    },
+    {
+      "id": "n204",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the identification number associated with the National Science Foundation award that helped finance this project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "output": "The National Science Foundation awarded National Science Foundation $253,862 for \u201cSocial & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being.\u201d The study examines factors that shaped Puerto Ricans' evacuation decisions after Hurricane Maria. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant retrieves information about a different NSF award from an annual report rather than the target document, completely missing the correct award number (#2334216).",
+      "stream_error": ""
+    },
+    {
+      "id": "n205",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to estimates from the Woods Hole Group, what is the projected cost per linear foot for shoreline protection strategies in Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "The available record does not state the projected cost per linear foot for shoreline protection strategies in Boston, nor does it provide any funding estimates from the Cedric Woods Hole Group [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains the answer in footnote 10 ($9,000 per linear foot), but the assistant failed to find it and cited an irrelevant source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n206",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who served as the principal investigator for the 2017 interim report published by the National Institute of Building Sciences regarding natural hazard mitigation?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "Porter, k. served as the principal investigator for the 2017 interim report regarding natural hazard mitigation published by the National Institute of Building Sciences [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 377,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Who served as the principal investigator for the 2017 interim report published by the National Institute of Building Sciences regarding natural hazard mitigation?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Porter, k. as the principal investigator based on the corpus endnotes and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n207",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "On what date was the workshop regarding climate migration dialogues held at the University of Massachusetts Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "output": "I don't have that information in the available documents.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The corpus contains the answer (March 22, 2024) in the Ethics section, but the assistant incorrectly stated it lacked the information.",
+      "stream_error": ""
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "single_turn": [
+    {
+      "id": "n187",
+      "question": "What percentage of Latino/a survey participants believe that sea level rise is already taking place?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n188",
+      "question": "How much support do Asian American residents express for using state funds to assist local municipalities with climate change mitigation projects?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n001",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n082",
+      "question": "Which municipal entity published findings in 2021 regarding how climate resilience regulations can negatively impact housing supply?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n189",
+      "question": "Which academic institution are all four co-authors affiliated with?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n197",
+      "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    }
+  ]
+}

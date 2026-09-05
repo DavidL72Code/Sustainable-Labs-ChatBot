@@ -1,0 +1,463 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_074",
+      "type": "specific_fact",
+      "question": "What two-part mission does SSL state for itself in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_110",
+      "type": "specific_fact",
+      "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_128",
+      "type": "specific_fact",
+      "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_129",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "n006",
+      "question": "What is the combined total count of all registered vessels across every size category for the city of Quincy?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+    },
+    {
+      "id": "n125",
+      "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+    },
+    {
+      "id": "n146",
+      "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+    },
+    {
+      "id": "n156",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n202",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+    },
+    {
+      "id": "fs_029",
+      "type": "people_lookup",
+      "question": "Where did Patricio Belloy earn his PhD and master's degree, and what were they in?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fs_085",
+      "type": "people_lookup",
+      "question": "What is Camille Martinez's title at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fs_036",
+      "type": "people_lookup",
+      "question": "What degree program is Hannah Brown currently pursuing and at which university?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_058",
+      "type": "people_lookup",
+      "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_099",
+      "type": "specific_fact",
+      "question": "What master's program is Isa Whalen currently enrolled in at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "n099",
+      "question": "What was the total number of stakeholder responses received from the social services and environmental sectors?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+    },
+    {
+      "id": "n096",
+      "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "fs_060",
+      "type": "people_lookup",
+      "question": "What does Caleb Dresser's research focus on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_041",
+      "type": "people_lookup",
+      "question": "Who supervises Vishal Verma's doctoral research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_122",
+      "type": "specific_fact",
+      "question": "What was the average number of attendees per Climate Adaptation Forum session in the 2020-21 period?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_114",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "n097",
+      "question": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n050",
+      "question": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "fs_026",
+      "type": "people_lookup",
+      "question": "What is Elisa Guerrero's role at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "n160",
+      "question": "What is the phone number for the affiliate who specializes in complex systems and environmental policy?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+    },
+    {
+      "id": "n074",
+      "question": "What are some of the secondary benefits that cities might experience by implementing localized, shore-based adaptation measures instead of relying solely on a large-scale barrier?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+    },
+    {
+      "id": "n048",
+      "question": "What is the estimated annual revenue that legislative initiative H1726 would provide for clean energy, transportation, and climate resiliency projects?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+    },
+    {
+      "id": "fs_073",
+      "type": "people_lookup",
+      "question": "Who served as the Director of SSL during the 2020-21 academic year?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_157",
+      "type": "specific_fact",
+      "question": "What is Chidimma Ozor's doctoral program and year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    },
+    {
+      "id": "fs_124",
+      "type": "specific_fact",
+      "question": "Who were the speakers at the Climate Emergency Preparedness: Art x Cultural Resilience event hosted by SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "n023",
+      "question": "On what date was the study on climate preparedness in Boston officially published?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+    },
+    {
+      "id": "fs_103",
+      "type": "specific_fact",
+      "question": "What is Cassandre Rey-Thibault's PhD specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "n208",
+      "question": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+    },
+    {
+      "id": "fs_136",
+      "type": "specific_fact",
+      "question": "What is the UMass Boston Campus Goal for 2020-21 as stated in the annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_115",
+      "type": "specific_fact",
+      "question": "What is the maximum amount individual faculty could receive through SSL's Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_134",
+      "type": "specific_fact",
+      "question": "Who is listed as representative of the CANALA Institutes on the UMass Boston Oversight Committee in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "n082",
+      "question": "Which municipal entity published findings in 2021 regarding how climate resilience regulations can negatively impact housing supply?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "fs_119",
+      "type": "specific_fact",
+      "question": "What is notable about the World Climate Research Programme's membership call that led to Maria Ivanova's appointment?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "n009",
+      "question": "How many colleges and institutes have partnered together to form the Sustainable Solutions Lab at UMass Boston?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+    },
+    {
+      "id": "fs_068",
+      "type": "people_lookup",
+      "question": "What department does Pratyush Bharati belong to and what is his stated expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "n034",
+      "question": "What strategy is mentioned to help protect senior citizens who do not have access to air conditioning during periods of extreme heat?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_026",
+      "type": "follow_up_climate_justice_deep_dive",
+      "turns": [
+        "What was the Climate Justice Deep Dive program that SSL hosted?",
+        "How many faculty participated and who created it?",
+        "Who were the guest speakers at the Climate Justice Deep Dive?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_004",
+      "type": "follow_up_visiting_scholars",
+      "turns": [
+        "Who has served as a visiting scholar at SSL?",
+        "Tell me about Ante Iv\u010devi\u0107's background and research focus.",
+        "What time period did he spend at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_003",
+      "type": "follow_up_board_tim_cronin",
+      "turns": [
+        "Who is Tim Cronin on SSL's External Advisory Board?",
+        "What is his background in Boston climate and health policy?",
+        "What role did Mayor Wu appoint him to in 2023?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fm_013",
+      "type": "follow_up_affiliates_marine_science",
+      "turns": [
+        "Which SSL university affiliates have expertise in environmental or marine science?",
+        "Tell me about Katherine Dafforn's academic title and field.",
+        "What is Jesse Farmer's specific research focus?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ]
+    },
+    {
+      "id": "fm_016",
+      "type": "follow_up_affiliate_johnna_flahive",
+      "turns": [
+        "Who is Johnna Flahive and what is her research focus?",
+        "What funded her research on coastal inundation impacts on unhoused and seasonal workers?",
+        "What institution did she join after her work with SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_040",
+      "type": "follow_up_cassandre_detail",
+      "turns": [
+        "Who is Cassandre Rey-Thibault?",
+        "What is her PhD specialty and what fund supports her postdoctoral research?",
+        "What work did she specifically conduct during her time at SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ]
+    },
+    {
+      "id": "fm_002",
+      "type": "follow_up_c3i_details",
+      "turns": [
+        "Tell me about the Climate Careers Curricula Initiative.",
+        "What foundation funds it and what are the key goals for participants?",
+        "How many programs and participants does it plan to reach, and over what timeframe?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fm_031",
+      "type": "follow_up_art_cultural_resilience_event",
+      "turns": [
+        "What was the Climate Emergency Preparedness: Art x Cultural Resilience event?",
+        "Who were the speakers at that event?",
+        "Who moderated the event?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_021",
+      "type": "follow_up_climate_adaptation_forum",
+      "turns": [
+        "What is the Climate Adaptation Forum?",
+        "When was it established and how often does it take place?",
+        "What types of topics and participants does it typically bring together?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ]
+    },
+    {
+      "id": "fm_030",
+      "type": "follow_up_portable_memories_event",
+      "turns": [
+        "What special arts-related events did SSL host in the 2020-21 period?",
+        "Tell me about the Portable Memories in Rising Seas event.",
+        "What organization co-hosted that event with SSL?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+ "single_turn": [
+  {
+   "id": "n061",
+   "question": "Who are the researchers associated with the Sustainable Solutions Lab that authored the report on transient populations and climate resilience?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n087",
+   "question": "Who serves as the director of the Sustainable Solutions Lab?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n109",
+   "question": "Who is responsible for leading the engagement with regional tribes through the Institute for New England Native American Studies?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+  },
+  {
+   "id": "n111",
+   "question": "Who currently holds the position of Director at the Sustainable Solutions Lab?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n125",
+   "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  }
+ ],
+ "multi_turn": []
+}

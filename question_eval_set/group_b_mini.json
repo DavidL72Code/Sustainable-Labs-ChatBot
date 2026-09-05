@@ -1,0 +1,49 @@
+{
+  "single_turn": [
+    {
+      "id": "n019",
+      "question": "What government agency released the 2021 report focusing on social vulnerability and climate impacts?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+    },
+    {
+      "id": "n033",
+      "question": "What do some participants identify as the main barrier to translating community awareness about environmental issues into effective action?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+    },
+    {
+      "id": "n053",
+      "question": "What percentage of stakeholders in the Metro Boston climate adaptation network reported that their work focuses on social resilience?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+    },
+    {
+      "id": "n069",
+      "question": "What institutional factor limits the effectiveness of climate adaptation projects across different municipalities in Massachusetts?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+    },
+    {
+      "id": "n096",
+      "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+ "single_turn": [
+  {
+   "id": "n102",
+   "question": "How many public governance tools are categorized across local, regional, state, and federal levels in the complete report?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n001",
+   "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  }
+ ]
+}

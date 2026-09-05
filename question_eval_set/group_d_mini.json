@@ -1,0 +1,40 @@
+{
+  "single_turn": [
+    {
+      "id": "n001",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n050",
+      "question": "What is the total asset value held by the institutional investors that are currently pushing for corporate carbon disclosure via the Carbon Disclosure Project?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n097",
+      "question": "Which research organization is identified as a contributor to the analysis of climate-related economic damage in the city of Boston?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n184",
+      "question": "According to FEMA statistics, what percentage of small businesses are unable to resume operations following a disaster?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+    }
+  ]
+}

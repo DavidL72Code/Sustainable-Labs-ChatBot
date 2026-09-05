@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-09-05T19:36:16.467381+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/fix3.json",
+  "summary": {
+    "total_cases": 3,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 2.33,
+      "citations": 3.67
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 0,
+      "hallucinated_yes": 2,
+      "hallucinated_no": 1,
+      "right_citations_yes": 2,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "In the survey, 27% of Black respondents believe that the impacts of climate change will be unequal [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 15,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant incorrectly states that 27% of Black respondents believe impacts will be unequal. According to Figure 4, 33% of Black respondents hold this view, whereas 27% applies to Latino/a respondents.",
+      "stream_error": ""
+    },
+    {
+      "id": "n168",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the projected annual financial impact on the City of Boston specifically attributed to flooding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to the **Climate Ready Boston** report, the City of Boston is projected to experience annualized financial losses due to sea level rise and flooding amounting to $137 million beginning in the 2030s, $455 million beginning in the 2050s, and $1.39 billion beginning in the 2070s [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 9,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected annual financial impact on the City of Boston specifically attributed to flooding?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately cites the projected annualized financial losses from flooding and sea level rise as shown in Figure 1 of the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n199",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "In May 2018, the Sustainable Solutions Lab released a study titled **Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 9,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference does not contain the May 2018 release date for the study, making the detail unsupported by the reference text.",
+      "stream_error": ""
+    }
+  ]
+}

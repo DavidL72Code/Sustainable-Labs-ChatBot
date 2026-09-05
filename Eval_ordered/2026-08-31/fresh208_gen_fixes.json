@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-08-31T17:03:31.005040+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/2026-08-29/questions_fresh_208.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 4.0,
+      "professional_tone": 4.25,
+      "correctness_vs_corpus": 4.0,
+      "citations": 4.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "n001",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "Patricio Belloy Focus: Equitable climate resilience, climate and renewable energy education, human wellbeing, community development [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant retrieves an irrelevant staff member's focus instead of answering the question using the provided corpus regarding the working group's recommended expertise and community representation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n002",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the estimated range of capital required to cover Boston's climate adaptation needs leading up to 2030, excluding the costs of a harbor barrier?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "output": "The estimated range of capital required to cover Boston's climate adaptation needs up until 2030, excluding the costs of a harbor barrier, is between $1 billion and $2.4 billion [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 271,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the estimated range of capital required to cover Boston's climate adaptation needs leading up to 2030, excluding the costs of a harbor barrier?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the exact figure ($1 billion to $2.4 billion) found in the corpus and properly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n003",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many years into the future does Frances argue that climate change planning should extend?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "Frances raises the consideration of how to address climate challenges over the span of the next 20 years or the next 25 years [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 50,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "How many years into the future does Frances argue that climate change planning should extend? quantity"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using Frances's exact timeline mentioned in the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n004",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to Ian, what specific item from shopping does he mention missing while acknowledging the positive environmental change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "output": "Ian states that he misses the plastic bags from his shopping, while also expressing happiness that they are no longer used [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 140,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "According to Ian, what specific item from shopping does he mention missing while acknowledging the positive environmental change?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question based on Ian's quote in the corpus regarding plastic bags and uses the correct citation.",
+      "stream_error": ""
+    }
+  ]
+}

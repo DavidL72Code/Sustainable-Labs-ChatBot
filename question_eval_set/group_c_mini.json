@@ -1,0 +1,31 @@
+{
+  "single_turn": [
+    {
+      "id": "n076",
+      "question": "According to the survey, how many times more likely are high-income neighborhoods perceived to be ready for severe weather compared to low-income areas?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n187",
+      "question": "What percentage of Latino/a survey participants believe that sea level rise is already taking place?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n188",
+      "question": "How much support do Asian American residents express for using state funds to assist local municipalities with climate change mitigation projects?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    }
+  ]
+}

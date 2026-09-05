@@ -1,0 +1,32 @@
+{
+  "single_turn": [
+    {
+      "id": "n156",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n168",
+      "question": "What is the projected annual financial impact on the City of Boston specifically attributed to flooding?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+    },
+    {
+      "id": "n199",
+      "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+    }
+  ],
+  "multi_turn": []
+}

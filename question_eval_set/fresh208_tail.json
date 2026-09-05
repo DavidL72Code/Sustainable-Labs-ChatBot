@@ -1,0 +1,410 @@
+{
+ "single_turn": [
+  {
+   "id": "n164",
+   "question": "Which government programs were launched in New York to coordinate restoration and household support following the destruction caused by Superstorm Sandy?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n165",
+   "question": "How do the operational focuses of social sector organizations differ from environmental sector organizations when addressing weather and climate?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n166",
+   "question": "Over how many years are the average values for temperature and precipitation computed to create the project's baseline climate dataset?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n167",
+   "question": "Which three specific categories of actors must coordinate their efforts to achieve effective climate governance?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n168",
+   "question": "What is the projected annual financial impact on the City of Boston specifically attributed to flooding?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n169",
+   "question": "Which specific counties in Massachusetts were the geographic focus of the research supported by the Sustainable Solutions Lab?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n170",
+   "question": "According to the project findings, how do social sector organizations differ from environmental sector organizations in their approach to weather and climate challenges?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n171",
+   "question": "How much did the cost of housing climb in March 2021?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n172",
+   "question": "What is the intended impact of the affordable housing funding announced by Governor Charlie Baker for Massachusetts?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n173",
+   "question": "What quality rating is assigned to the muddy intertidal habitat in Boston Harbor due to ongoing contamination issues?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n174",
+   "question": "How will a five-foot rise in sea level impact the shallow intertidal mudfats currently located in the harbor?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n175",
+   "question": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  },
+  {
+   "id": "n176",
+   "question": "Which individuals are identified as the developers of the 'right to stay' framework?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  },
+  {
+   "id": "n177",
+   "question": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n178",
+   "question": "By what three main purposes can climate resilience investments be classified?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n179",
+   "question": "What is the annual amount of funding generated by the affordable housing linkage fees in Boston?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n180",
+   "question": "What is a primary concern regarding the use of resilience taxes and fees for small businesses or lower-income residents?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n181",
+   "question": "Who holds the position of Director for the Sustainable Solutions Lab?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+  },
+  {
+   "id": "n182",
+   "question": "In what month and year was the preliminary analysis report published by the Sustainable Solutions Lab?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+  },
+  {
+   "id": "n183",
+   "question": "Which individuals are credited as the researchers behind the report on financing climate resilience published by the Sustainable Solutions Lab?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n184",
+   "question": "According to FEMA statistics, what percentage of small businesses are unable to resume operations following a disaster?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n185",
+   "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n186",
+   "question": "Who partnered with the Sustainable Solutions Lab to develop the Climate Justice Deep Dive program?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n187",
+   "question": "What percentage of Latino/a survey participants believe that sea level rise is already taking place?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  },
+  {
+   "id": "n188",
+   "question": "How much support do Asian American residents express for using state funds to assist local municipalities with climate change mitigation projects?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  },
+  {
+   "id": "n189",
+   "question": "Which academic institution are all four co-authors affiliated with?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n190",
+   "question": "In what month and year was the working paper published?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n191",
+   "question": "Who currently serves as the Executive Director for the Sustainable Solutions Lab?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+  },
+  {
+   "id": "n192",
+   "question": "In what season and year was the Northeast Climate Justice Research Collaborative officially launched?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+  },
+  {
+   "id": "n193",
+   "question": "What were the primary objectives of the research project concerning transient populations?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n194",
+   "question": "According to the data on Massachusetts public agencies, what percentage of chief executive officers are people of color?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n195",
+   "question": "During the 2021 tourist season, what portion of employers in the Cape Cod region failed to provide housing for their temporary foreign workers?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n196",
+   "question": "What specific types of extreme weather events did the Sustainable Solutions Lab identify as having struck the Northeast coast of the United States in early 2018?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n197",
+   "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n198",
+   "question": "Beyond Boston and the 128 belt, what larger geographic region do participants argue must be involved to fairly share the responsibility of these policies?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n199",
+   "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+  },
+  {
+   "id": "n200",
+   "question": "With which university is the Sustainable Solutions Lab affiliated?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+  },
+  {
+   "id": "n201",
+   "question": "What proportion of surveyed H-2b workers are unaware of designated shelter locations during a major storm?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n202",
+   "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n203",
+   "question": "Which three individuals were primarily responsible for the conceptualization of the research study?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+  },
+  {
+   "id": "n204",
+   "question": "What is the identification number associated with the National Science Foundation award that helped finance this project?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+  },
+  {
+   "id": "n205",
+   "question": "According to estimates from the Woods Hole Group, what is the projected cost per linear foot for shoreline protection strategies in Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n206",
+   "question": "Who served as the principal investigator for the 2017 interim report published by the National Institute of Building Sciences regarding natural hazard mitigation?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n207",
+   "question": "On what date was the workshop regarding climate migration dialogues held at the University of Massachusetts Boston?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  },
+  {
+   "id": "n208",
+   "question": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  }
+ ],
+ "multi_turn": []
+}

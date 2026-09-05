@@ -1,0 +1,356 @@
+{
+ "single_turn": [
+  {
+   "id": "n002",
+   "question": "What is the estimated range of capital required to cover Boston's climate adaptation needs leading up to 2030, excluding the costs of a harbor barrier?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n015",
+   "question": "Between which two primary groups does the most significant collaboration gap exist within the regional adaptation network?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+  },
+  {
+   "id": "n016",
+   "question": "What are the four categories of resilience work identified in the network mapping?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+  },
+  {
+   "id": "n027",
+   "question": "What specific phenomenon occurs when greening and retrofitting housing initiatives inadvertently drive up living costs and displace vulnerable residents?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+  },
+  {
+   "id": "n037",
+   "question": "Which financial mechanisms are described as having the capacity to provide collateral for loans?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n041",
+   "question": "When did the Executive Office of Energy and Environmental Affairs release the report detailing climate change projections for major drainage basins in Massachusetts?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n060",
+   "question": "According to the text, what medical emergency did a participant named Fiona face with her son during an unusual November blizzard?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+  },
+  {
+   "id": "n063",
+   "question": "At which university is the Sustainable Solutions Lab located?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  },
+  {
+   "id": "n072",
+   "question": "Which category of climate resilience work is primarily driven by public and private sector stakeholders?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+  },
+  {
+   "id": "n083",
+   "question": "What is the projected cost range for constructing the proposed Boston harbor barrier?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n087",
+   "question": "Who serves as the director of the Sustainable Solutions Lab?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n090",
+   "question": "What concerns did residents express regarding the transparency and accountability of major corporations and government leaders in relation to climate change?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+  },
+  {
+   "id": "n092",
+   "question": "In what month and year was the report on stakeholder relationships in Metro Boston published?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+  },
+  {
+   "id": "n093",
+   "question": "When was this research report on climate resilience in East Boston published by the Sustainable Solutions Lab?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+  },
+  {
+   "id": "n095",
+   "question": "What two main barriers do local organizers identify as preventing marginalized populations from effectively participating in neighborhood planning?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+  },
+  {
+   "id": "n097",
+   "question": "Which research organization is identified as a contributor to the analysis of climate-related economic damage in the city of Boston?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n104",
+   "question": "What factors do Black residents in Boston identify as primary contributors to their community's increased vulnerability to extreme weather events?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+  },
+  {
+   "id": "n115",
+   "question": "In what year did the municipal government of Boston initiate its comprehensive strategy for addressing climate change?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+  },
+  {
+   "id": "n120",
+   "question": "Which academic institution serves as the host for the Sustainable Solutions Lab?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  },
+  {
+   "id": "n125",
+   "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n126",
+   "question": "On what date was the Boston Globe article titled 'The intersection of the climate crisis and social justice' published?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n135",
+   "question": "What specific body does the Sustainable Solutions Lab suggest the Governor of Massachusetts and the Mayor of Boston should create to evaluate potential paths for coastal resilience?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n138",
+   "question": "Which issue was most frequently rated as a high priority among Black survey participants?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  },
+  {
+   "id": "n142",
+   "question": "Which agency formulated the coastal flooding depth damage functions utilized by analysts after Hurricane Sandy?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n143",
+   "question": "What specific groups of individuals does this research identify as being frequently excluded from coastal Massachusetts climate planning initiatives?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n151",
+   "question": "How does the research team define the individuals or groups that are considered stakeholders within the Metro Boston climate adaptation context?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+  },
+  {
+   "id": "n156",
+   "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+  },
+  {
+   "id": "n157",
+   "question": "Which local planning agency do participants suggest should enforce environmental rules and mandate rooftop greenery for high-rise developments?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+  },
+  {
+   "id": "n162",
+   "question": "Which entity was proposed in a previous report to take on expanded responsibilities for stormwater management and flood protection?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+  },
+  {
+   "id": "n168",
+   "question": "What is the projected annual financial impact on the City of Boston specifically attributed to flooding?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+  },
+  {
+   "id": "n174",
+   "question": "How will a five-foot rise in sea level impact the shallow intertidal mudfats currently located in the harbor?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n176",
+   "question": "Which individuals are identified as the developers of the 'right to stay' framework?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+  },
+  {
+   "id": "n177",
+   "question": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n185",
+   "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n193",
+   "question": "What were the primary objectives of the research project concerning transient populations?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  },
+  {
+   "id": "n197",
+   "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n198",
+   "question": "Beyond Boston and the 128 belt, what larger geographic region do participants argue must be involved to fairly share the responsibility of these policies?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n199",
+   "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+  },
+  {
+   "id": "n205",
+   "question": "According to estimates from the Woods Hole Group, what is the projected cost per linear foot for shoreline protection strategies in Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  }
+ ],
+ "multi_turn": []
+}

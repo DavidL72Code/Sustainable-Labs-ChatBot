@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-09-04T23:05:47.641422+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/recheck4.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.25,
+      "citations": 4.25
+    },
+    "classification_counts": {
+      "answered_yes": 4,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "n001",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "For the Boston metro region [1], the regional working group is recommended to include senior-level individuals with relevant expertise from municipalities, business sectors like insurance, finance, and accounting, as well as property developers and CDCs, alongside representatives from community groups to address equity concerns.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 268,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the recommended professional expertise and community representation for the regional working group from the corpus with a valid citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n021",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many residents in total participated in the focus group sessions?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "70 residents participated in the program. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct according to the text (70 residents), but it cites the incorrect document.",
+      "stream_error": ""
+    },
+    {
+      "id": "n175",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The \"right to stay\" framework relies on three main demands: establishing legal rights for everyone displaced by climate crises, providing climate reparations to compensate Global South countries for the Global North's exploitative actions, and implementing just transitions that diversify, decentralize, and democratize economic activity while redistributing resources and power, which includes addressing Indigenous peoples' struggles for self-determination [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 45,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately lists the three core demands of the 'right to stay' framework as stated in the text and uses the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n202",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- **Location**: Streets and gutters/sidewalks received the highest number of reported flooding observations [1].\n- **Quantity**: A quantity of 5 reported observations for each of these locations [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 33,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers? location quantity"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant incorrectly claims that streets received 5 observations (matching gutters/sidewalks), whereas the corpus chart shows that streets received 3 and gutters/sidewalks received 5.",
+      "stream_error": ""
+    }
+  ]
+}

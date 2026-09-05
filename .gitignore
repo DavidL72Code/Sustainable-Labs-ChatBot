@@ -17,3 +17,4 @@ venv/
 
 # Local evaluation runs can contain hundreds of thousands of generated JSON lines.
 Eval_ordered/2026-07-*/
+chroma_db_minilm_384/

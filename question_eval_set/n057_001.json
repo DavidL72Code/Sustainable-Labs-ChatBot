@@ -1,0 +1,20 @@
+{
+ "single_turn": [
+  {
+   "id": "n057",
+   "question": "How many follow-up discussions has the Sustainable Solutions Lab facilitated since its June event to help bridge connections between different types of resilience efforts?",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+  },
+  {
+   "id": "n001",
+   "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  }
+ ]
+}

@@ -1,0 +1,278 @@
+{
+  "generated_at": "2026-08-12T22:55:25.346554+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 9,
+    "average_scores": {
+      "clarity": 4.11,
+      "professional_tone": 4.33,
+      "correctness_vs_corpus": 3.22,
+      "citations": 3.22
+    },
+    "classification_counts": {
+      "answered_yes": 6,
+      "answered_no": 3,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 8,
+      "right_citations_yes": 5,
+      "right_citations_no": 4
+    }
+  },
+  "results": [
+    {
+      "id": "novel_003",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which areas of ecology are listed as Katherine Dafforn's expertise?",
+      "target_sources": [],
+      "output": "Expertise: Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity and [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is grammatically incomplete, ending abruptly with a dangling citation. It fails to provide a coherent response to the question.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_004",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What public-health topics are associated with Lorena Estrada-Martinez's expertise?",
+      "target_sources": [],
+      "output": "Expertise: Public health, social determinants of health inequities, Latino and immigrant [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference is empty, so the assistant's claims cannot be verified. The answer is grammatically incomplete and relies on information outside the provided context.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_008",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which planning specialty is associated with Michael Johnson's expertise?",
+      "target_sources": [],
+      "output": "Expertise: Management science planning models for public-sector facility location and service [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear, professional, and directly addresses the question. As no corpus reference was provided for verification, the answer is accepted as accurate based on the provided citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_013",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which political topics are included in Paul Watanabe's expertise?",
+      "target_sources": [],
+      "output": "Expertise: American Foreign Policy, American Political Behavior, Ethnic Group Politics, and [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 3,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is incomplete and ends with a dangling citation reference, making the final sentence grammatically incorrect.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_016",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What subjects are included in Cedric Woods's expertise?",
+      "target_sources": [],
+      "output": "Expertise: Tribal government, American Indian education, economic development, chronic disease prevention [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear and professional. Verification against the corpus is not possible as the provided corpus reference is empty, but the answer correctly cites the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_029",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What extreme-weather issue does Isabella Gambill lead work on?",
+      "target_sources": [],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question, providing a generic system response instead of retrieving information from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Elisa Guerrero responsible for as an SSL staff member?",
+      "target_sources": [],
+      "output": "Elisa Guerrero: Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is clear and professional. Verification against the corpus is not possible as the provided corpus reference is empty.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_044",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of network is the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [],
+      "output": "The Northeast Climate Justice Research Collaborative is a trans-disciplinary network for academic and community researchers located in the Northeast [1]. The Collaborative is composed of researchers\u2014ranging from those who are experienced to those just beginning\u2014who are interested in actively working to advance policies and practices that ensure historically excluded communities are healthy and safe despite the changing climate [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of network is the Northeast Climate Justice Research Collaborative? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately defines the collaborative based on the provided source material.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_049",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Ante Iv\u010devi\u0107's research interest in relation to climate change?",
+      "target_sources": [],
+      "output": "The available documents do not state that detail.",
+      "sources": [],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified that the provided corpus did not contain information regarding Ante Iv\u010devi\u0107's research interests.",
+      "stream_error": ""
+    }
+  ]
+}

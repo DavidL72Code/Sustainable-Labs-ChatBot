@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-08-13T03:46:50.856970+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 1.0,
+      "citations": 1.0
+    },
+    "classification_counts": {
+      "answered_yes": 0,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 0,
+      "right_citations_yes": 0,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Professor of Counseling and School Psychology. Assistant Professor of Africana Studies, College of Liberal Arts. Managing Director and Senior Research Associate, Leading Age LTSS Center [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant provided incorrect titles for Rajini Srikanth. The provided corpus explicitly lists her title as 'Dean of Faculty and Inter-Faculty Initiatives'. The assistant used an irrelevant source and hallucinated information not present in the provided documents.",
+      "stream_error": ""
+    }
+  ]
+}

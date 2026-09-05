@@ -1,0 +1,104 @@
+{
+  "single_turn": [
+    {
+      "id": "n001",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+    },
+    {
+      "id": "n006",
+      "question": "What is the combined total count of all registered vessels across every size category for the city of Quincy?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+    },
+    {
+      "id": "n012",
+      "question": "Who developed the Community Resilience Indicators framework suggested for monitoring neighborhood changes?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+    },
+    {
+      "id": "n058",
+      "question": "Which researchers are leading the project that examines the climate-related vulnerabilities of transient populations in Boston and Cape Cod?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+    },
+    {
+      "id": "n075",
+      "question": "What percentage of white residents state they have insurance to safeguard their home and belongings?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n139",
+      "question": "What is the projected range for relative sea level rise in the Boston area by the year 2100?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+    },
+    {
+      "id": "n146",
+      "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+    },
+    {
+      "id": "n156",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+    },
+    {
+      "id": "n175",
+      "question": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+    },
+    {
+      "id": "n185",
+      "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+    },
+    {
+      "id": "n202",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+    }
+  ],
+  "multi_turn": []
+}

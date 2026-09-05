@@ -1,0 +1,949 @@
+{
+  "generated_at": "2026-09-04T20:41:56.641919+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/fix22.json",
+  "summary": {
+    "total_cases": 22,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.45,
+      "citations": 4.55
+    },
+    "classification_counts": {
+      "answered_yes": 22,
+      "answered_no": 0,
+      "hallucinated_yes": 3,
+      "hallucinated_no": 19,
+      "right_citations_yes": 20,
+      "right_citations_no": 2
+    }
+  },
+  "results": [
+    {
+      "id": "n005",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many registered watercraft measuring between 26 and 40 feet were based in Hingham?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "There were 321 registered watercraft measuring between 26 and 40 feet based in Hingham [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 936,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How many registered watercraft measuring between 26 and 40 feet were based in Hingham?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly extracted the number (321) from Table 9.2 in the corpus document and provided a proper citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n012",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who developed the Community Resilience Indicators framework suggested for monitoring neighborhood changes?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Community Resilience Indicators framework suggested for assessing and monitoring neighborhood outcomes was developed by Cutter et al. in 2008 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 82,
+          "evidence_id": "evidence_6",
+          "evidence_bucket": "main",
+          "evidence_query": "Who developed the Community Resilience Indicators framework suggested for monitoring neighborhood changes?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states that Cutter et al. (2008) developed the Community Resilience Indicators framework, which is supported by the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n022",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What were the primary themes identified during the analysis of the research discussions?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The analysis identified salient themes within specific groups as well as common themes across groups concerning climate preparedness [1]. Additionally, the research explored overarching themes across all groups that specifically related to individual, collective, and government responsibility for addressing climate change and its impacts [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 17,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What were the primary themes identified during the analysis of the research discussions?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer accurately reflects the contents of the corpus, but cites the incorrect document instead of the expected Voices that Matter report.",
+      "stream_error": ""
+    },
+    {
+      "id": "n061",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who are the researchers associated with the Sustainable Solutions Lab that authored the report on transient populations and climate resilience?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The researchers who authored the report on transient populations and climate resilience are **Johnna Flahive**, **Katsyris Rivera Kientz**, **Dlynzee Damas**, **Chris Watson**, **Evan Stewart**, and **Ellen Douglas** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 3,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately lists all the authors/researchers named in the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n063",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "At which university is the Sustainable Solutions Lab located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "Correctly states the university is UMass Boston based on the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n083",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the projected cost range for constructing the proposed Boston harbor barrier?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The projected cost ranges vary depending on the specific barrier option: $8.0\u2013$11.8 billion for the Outer Harbor Barrier [2], $6.5\u2013$8.7 billion for the Inner Harbor Barrier, and $7\u2013$15 billion for a harbor-wide barrier combined with related projects [3]. (Additionally, the Metro Boston Dike Barrier has a likely range of $35\u2013$85 billion [1]).",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 80,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected cost range for constructing the proposed Boston harbor barrier?"
+        },
+        {
+          "citation": 2,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 15,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        },
+        {
+          "citation": 3,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 97,
+          "evidence_id": "evidence_7",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected cost range for constructing the proposed Boston harbor barrier?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer directly and accurately provides the projected cost ranges for the proposed Boston harbor barriers using the appropriate sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "n094",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What specific types of training did an East Boston community organizer state that public agencies and developers currently lack?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "An East Boston community organizer stated that public agencies lack training in community outreach, equity, and racial or language justice [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 96,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific types of training did an East Boston community organizer state that public agencies and developers currently lack?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question by citing the specific training deficiencies mentioned by the East Boston community organizer in the text.",
+      "stream_error": ""
+    },
+    {
+      "id": "n096",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The academic entity credited in connection with the projected annualized losses for the city of Boston is the UMass Boston Sustainable Solutions Lab [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 118,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What academic entity is credited with the research and data regarding the projected annual financial losses from flooding in Boston?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies the UMass Boston Sustainable Solutions Lab as the academic entity connected to the report and data, supported by the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n097",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The report was conducted by the Sustainable Solutions Lab at the University of Massachusetts, Boston [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 72,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies the organization as the Sustainable Solutions Lab at UMass Boston, supported by the provided executive summary source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n109",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who is responsible for leading the engagement with regional tribes through the Institute for New England Native American Studies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Dr. Woods leads the efforts utilizing the Institute for New England Native American Studies (INENAS) to identify eligible tribes and tribal projects, as well as coordinate introductions with eligible regional tribes [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 18,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is responsible for leading the engagement with regional tribes through the Institute for New England Native American Studies?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question and correctly cites the source supporting the information.",
+      "stream_error": ""
+    },
+    {
+      "id": "n125",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "**Katsyris Rivera-Kientz** is collaborating with **Dr. Rosalyn Negron**, **Dr. Lorena Estrada-Martinez**, and **Dr. Paul Watanabe** on projects focused on equitable climate adaptation and public perceptions on climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "STUDENT TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identifies Katsyris Rivera-Kientz's collaborators on equitable climate adaptation and public perceptions as stated in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n139",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the projected range for relative sea level rise in the Boston area by the year 2100?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "By the year 2100, the relative sea level in the Boston area is projected to increase within ranges of 1.8 to 7.3 feet [1] and 3 to 6 feet [2]. Additionally, a moderate scenario analysis estimates a rise of 5 feet by 2100 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected range for relative sea level rise in the Boston area by the year 2100?"
+        },
+        {
+          "citation": 2,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 440,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected range for relative sea level rise in the Boston area by the year 2100?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the projections found in the corpus and appropriately cites the sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "n141",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "According to the appendix data, what is the structure replacement value per square foot for single-family dwellings?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The structure replacement value for single-family dwellings is $143.14 per square foot [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 1590,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "According to the appendix data, what is the structure replacement value per square foot for single-family dwellings?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the structure replacement value for single-family dwellings from Appendix D3 in the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n142",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which agency formulated the coastal flooding depth damage functions utilized by analysts after Hurricane Sandy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The **USACE** formulated the coastal flooding depth damage functions specific to the Northeast following Hurricane Sandy for the North Atlantic Coast Comprehensive Study (NACCS) report [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 1300,
+          "evidence_id": "evidence_7",
+          "evidence_bucket": "main",
+          "evidence_query": "Which agency formulated the coastal flooding depth damage functions utilized by analysts after Hurricane Sandy?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference does not contain the stated facts about USACE and the NACCS report, making the answer unsupported by the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n146",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The available documents do not state whether Table 7.9 is from the Feasibility of Harbor-wide Barrier Systems report. For the Mystic under 5 feet of sea level rise (2100), Table 7.9 lists the asset value of ecosystem services in millions of 2016 dollars as 7,073 and 28,413 for the sliding scale, 4,958 and 19,506 for the 3 percent discount rate, and 2,582 and 9,502 for the 7 percent discount rate [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 763,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant answered the question with specific table values that are not present in the provided corpus reference snippet.",
+      "stream_error": ""
+    },
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The retrieved documents provide two different figures: one passage states that **30%** of Black residents believe climate change will impact some communities more than others [1], whereas a survey chart (Figure 5) indicates that **27%** of Black respondents believe it will cause an unequal impact.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 86,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies the 30% figure from the text on page 18, but incorrectly attributes the 27% figure to Black respondents (27% is actually the figure for Latino/a respondents).",
+      "stream_error": ""
+    },
+    {
+      "id": "n173",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What quality rating is assigned to the muddy intertidal habitat in Boston Harbor due to ongoing contamination issues?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Due to ongoing contamination issues throughout much of the harbor, the muddy intertidal habitat is given a quality rating of 2 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 566,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What quality rating is assigned to the muddy intertidal habitat in Boston Harbor due to ongoing contamination issues?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provides an accurate and direct answer supported by the correct corpus source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n174",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How will a five-foot rise in sea level impact the shallow intertidal mudfats currently located in the harbor?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Under a 5-foot rise in sea level, the majority of the shallow intertidal mudfats currently in the harbor will transform into muddy subtidal habitats [1]. At the same time, new intertidal mudfats may form in areas associated with formerly upland vegetative zones and \"drowned\" salt marshes [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 566,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How will a five-foot rise in sea level impact the shallow intertidal mudfats currently located in the harbor?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer directly and accurately reflects the findings in the corpus regarding the impact of a 5-foot sea level rise on intertidal mudfats and is properly cited.",
+      "stream_error": ""
+    },
+    {
+      "id": "n177",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The approximate total cost quantity projected for near to mid-term district-level adaptation measures in Boston ranges between $1 billion and $2.4 billion [1, 2]. Regarding funding, these costs are expected to be covered by federal and state sources, the City of Boston, other municipalities in the metro region, and private property owners.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 50,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston? (subject: Climate Adaptation Forum) funding quantity"
+        },
+        {
+          "citation": 2,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 14,
+          "evidence_id": "evidence_8",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston? (subject: Climate Adaptation Forum) funding quantity"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant directly and accurately answers the question using information from the provided corpus and properly cites the relevant sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "n185",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "By the year 2020, the MVP program had achieved an enrollment of 89% of the municipalities in the Commonwealth [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 53,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant states 89%, while the corpus snippet says 'over 80%', though it correctly cites the underlying VanDeveer paper.",
+      "stream_error": ""
+    },
+    {
+      "id": "n197",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "To help residents connect their lived experiences to the housing and climate crises, alternative creative methods suggested include community resource mapping, ethnographic adaptations of photographic expression, and body mapping [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 42,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identifies community resource mapping, photographic expression, and body mapping as creative techniques supported by the text, and correctly cites the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "n199",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "In May 2018, the Sustainable Solutions Lab released a research report authored by Paul Kirshen titled \"Feasibility of Harbor-wide Barrier Systems: Preliminary Analysis for Boston Harbor\" [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately names the May 2018 study and author, which is directly supported by the corpus reference.",
+      "stream_error": ""
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+ "single_turn": [
+  {
+   "id": "n012",
+   "question": "Who developed the Community Resilience Indicators framework suggested for monitoring neighborhood changes?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+  },
+  {
+   "id": "n022",
+   "question": "What were the primary themes identified during the analysis of the research discussions?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+  },
+  {
+   "id": "n094",
+   "question": "What specific types of training did an East Boston community organizer state that public agencies and developers currently lack?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+  },
+  {
+   "id": "n097",
+   "question": "According to the 'Financing Climate Resilience' report, which organization conducted the report on climate-related economic damage in Boston?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+  },
+  {
+   "id": "n109",
+   "question": "Who is responsible for leading the engagement with regional tribes through the Institute for New England Native American Studies?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+  },
+  {
+   "id": "n125",
+   "question": "Which researchers are collaborating on projects related to equitable climate adaptation and public perceptions on climate change?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n146",
+   "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n177",
+   "question": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n197",
+   "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  }
+ ],
+ "multi_turn": []
+}

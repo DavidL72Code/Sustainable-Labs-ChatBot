@@ -1,0 +1,297 @@
+{
+  "generated_at": "2026-09-04T23:22:55.312150+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/final7.json",
+  "summary": {
+    "total_cases": 7,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 4.0,
+      "citations": 4.0
+    },
+    "classification_counts": {
+      "answered_yes": 7,
+      "answered_no": 0,
+      "hallucinated_yes": 2,
+      "hallucinated_no": 5,
+      "right_citations_yes": 6,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "n001",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which types of professional expertise and community representation are recommended for the regional group tasked with designing climate resilience financing strategies?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "For the Boston metro region [1], the regional working group is recommended to include senior-level individuals with relevant expertise from municipalities, business sectors like insurance, finance, and accounting, as well as property developers and CDCs, alongside representatives from community groups to address equity concerns.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 268,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the recommended professional expertise and community representation for the regional working group from the corpus with a valid citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n006",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the combined total count of all registered vessels across every size category for the city of Quincy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The combined total count of all registered vessels across every size category for **Quincy** is 1,420 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 936,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the combined total count of all registered vessels across every size category for the city of Quincy?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately provides the total count of 1,420 registered vessels for Quincy, matching Table 9.2 in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "n021",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How many residents in total participated in the focus group sessions?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "70 residents participated in the program. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct according to the text (70 residents), but it cites the incorrect document.",
+      "stream_error": ""
+    },
+    {
+      "id": "n146",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The available documents do not state whether Table 7.9 is from the Feasibility of Harbor-wide Barrier Systems report. For the Mystic under 5 feet of sea level rise (2100), Table 7.9 lists the asset value of ecosystem services in millions of 2016 dollars as 7,073 and 28,413 for the sliding scale, 4,958 and 19,506 for the 3 percent discount rate, and 2,582 and 9,502 for the 7 percent discount rate [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 763,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant answered the question with specific table values that are not present in the provided corpus reference snippet.",
+      "stream_error": ""
+    },
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Thirty percent of **Black** respondents believe that climate change will impact certain communities more than others [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 86,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using information directly supported by the corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "n175",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The \"right to stay\" framework relies on three main demands: establishing legal rights for everyone displaced by climate crises, providing climate reparations to compensate Global South countries for the Global North's exploitative actions, and implementing just transitions that diversify, decentralize, and democratize economic activity while redistributing resources and power, which includes addressing Indigenous peoples' struggles for self-determination [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 45,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What are the three core demands associated with the 'right to stay' framework for managing climate-related displacement?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately lists the three core demands of the 'right to stay' framework as stated in the text and uses the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "n202",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- **Location**: Streets and gutters/sidewalks received the highest number of reported flooding observations [1].\n- **Quantity**: A quantity of 5 reported observations for each of these locations [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 33,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers? location quantity"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant incorrectly claims that streets received 5 observations (matching gutters/sidewalks), whereas the corpus chart shows that streets received 3 and gutters/sidewalks received 5.",
+      "stream_error": ""
+    }
+  ]
+}

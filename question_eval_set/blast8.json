@@ -1,0 +1,78 @@
+{
+  "single_turn": [
+    {
+      "id": "fs_062",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's undergraduate institution and her field of study there?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ]
+    },
+    {
+      "id": "fs_074",
+      "type": "specific_fact",
+      "question": "What two-part mission does SSL state for itself in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_110",
+      "type": "specific_fact",
+      "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_128",
+      "type": "specific_fact",
+      "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_129",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fs_154",
+      "type": "specific_fact",
+      "question": "What is the name of Jennifer Friedrich's consultancy and what does it span?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ],
+  "multi_turn": [
+    {
+      "id": "fm_026",
+      "type": "follow_up_climate_justice_deep_dive",
+      "turns": [
+        "What was the Climate Justice Deep Dive program that SSL hosted?",
+        "How many faculty participated and who created it?",
+        "Who were the guest speakers at the Climate Justice Deep Dive?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ]
+    },
+    {
+      "id": "fm_037",
+      "type": "follow_up_student_grace",
+      "turns": [
+        "Who are SSL's alumni students?",
+        "Tell me about Grace Derboghossian.",
+        "What faculty member is she working with and what is her research about?"
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+ "single_turn": [
+  {
+   "id": "n174",
+   "question": "How will a five-foot rise in sea level impact the shallow intertidal mudfats currently located in the harbor?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+  },
+  {
+   "id": "n177",
+   "question": "What is the approximate total cost projected for district-level adaptation measures in the near to mid-term within Boston?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+  },
+  {
+   "id": "n185",
+   "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+  },
+  {
+   "id": "n197",
+   "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+   "author": "gemini-3.5-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+  },
+  {
+   "id": "n199",
+   "question": "What study did the Sustainable Solutions Lab release in May 2018 regarding the protection of Boston Harbor?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+  }
+ ],
+ "multi_turn": []
+}

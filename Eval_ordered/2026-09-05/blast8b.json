@@ -1,0 +1,365 @@
+{
+  "generated_at": "2026-09-05T06:40:40.579256+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/blast8.json",
+  "summary": {
+    "total_cases": 8,
+    "average_scores": {
+      "clarity": 4.75,
+      "professional_tone": 4.88,
+      "correctness_vs_corpus": 4.62,
+      "citations": 4.62
+    },
+    "classification_counts": {
+      "answered_yes": 7,
+      "answered_no": 1,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 7,
+      "right_citations_yes": 7,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_062",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Isabella Gambill's undergraduate institution and her field of study there?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Isabella Gambill attended **Wellesley College** as her undergraduate institution, where she studied **environmental studies** to earn her Bachelor of Arts degree [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Isabella M. Gambill",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identifies Isabella Gambill's undergraduate institution and field of study from the corpus with a valid citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_074",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What two-part mission does SSL state for itself in the 2020-21 year in review?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Sustainable Solutions Lab (SSL) has a two-part mission to understand how climate change disproportionately impacts marginalized communities and to collaborate with them in developing equitable and sustainable solutions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What two-part mission does SSL state for itself in the 2020-21 year in review?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the exact two-part mission stated in the corpus and correctly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_110",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The guest speakers who gave lectures during the Climate Justice Deep Dive were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using information directly from the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_128",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "**Julie Wormser** is the Deputy Director of the Mystic River Watershed Association [1] and the Chief Climate Officer for the City of Cambridge [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "PARTNER TESTIMONIAL",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report? Who is Julie Wormser what did she say about SSL in the 2020-21 annual report?"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 17,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is Julie Wormser and what did she say about SSL in the 2020-21 annual report?"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The assistant only partially answered who she is (and included uncorroborated information about being Chief Climate Officer for Cambridge), and completely failed to answer what she said about SSL in the annual report.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_129",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Climate adaptation is defined as a focus on better protecting people, homes, and communities from the impacts of the climate crisis [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately provides the definition of climate adaptation found in the corpus and includes the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_154",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the name of Jennifer Friedrich's consultancy and what does it span?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement. Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the corpus text and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fm_026",
+      "kind": "multi_turn",
+      "type": "follow_up_climate_justice_deep_dive",
+      "question": "Who were the guest speakers at the Climate Justice Deep Dive?",
+      "conversation": [
+        {
+          "user": "What was the Climate Justice Deep Dive program that SSL hosted?",
+          "assistant": "The Climate Justice Deep Dive is a semester-long program created with expert and consultant Karla Tandon to seed climate justice collaborations on campus [1]. It provides a collaborative learning space for UMass Boston scholars to explore the intersections of climate change, inequality, and systemic racism, allowing participants to discuss current trends, identify research needs, and build interdisciplinary connections [1, 2]."
+        },
+        {
+          "user": "How many faculty participated and who created it?",
+          "assistant": "20 faculty participated in the program. [1]"
+        },
+        {
+          "user": "Who were the guest speakers at the Climate Justice Deep Dive?",
+          "assistant": "The guest speakers who gave lectures on climate justice topics during the program included **Zakeem Adris** and **Dina Gilio-Whitaker** [1]."
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "output": "The guest speakers who gave lectures on climate justice topics during the program included **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the guest speakers at the Climate Justice Deep Dive?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies Zakeem Adris and Dina Gilio-Whitaker as the guest speakers for the Climate Justice Deep Dive, perfectly matching the corpus and citing the correct source."
+    },
+    {
+      "id": "fm_037",
+      "kind": "multi_turn",
+      "type": "follow_up_student_grace",
+      "question": "What faculty member is she working with and what is her research about?",
+      "conversation": [
+        {
+          "user": "Who are SSL's alumni students?",
+          "assistant": "I found 12 students or interns in the matched corpus scope. 1. Nyingilanyeofori Hannah Brown [1]\n2. Levente \u201cLevi\u201d Mezo [1]\n3. Vishal Verma [1]\n4. Grace Derboghossian [1]\n5. Johnna Flahive [1]\n6. Jennifer Friedrich [1]\n7. Nick Johnson [1]\n8. Anna Matviichuk [1]\n9. Ashley Miranda Smith [1]\n10. Chidimma Ozor Commer [1]\n11. Katsyris Rivera Kientz [1]\n12. Isa Kelawili Whalen [1]"
+        },
+        {
+          "user": "Tell me about Grace Derboghossian.",
+          "assistant": "Grace Derboghossian is a nursing PhD candidate at University of Massachusetts Boston. She received her Bachelor in nursing from Lebanese American University and earned her enroute Master in nursing science from University of Massachusetts Boston. Her research interest is about social network and health behaviors among populations disproportionately affected by obesity including African American women. [1]"
+        },
+        {
+          "user": "What faculty member is she working with and what is her research about?",
+          "assistant": "Grace Derboghossian is working with professor Dr. She is working with professor Dr. Lisa Heelan Fancher on a research-based study that will examine the association between living in an environmental justice community in Boston and Suffolk County and its effect on birth outcomes. [1]"
+        }
+      ],
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Grace Derboghossian is working with professor Dr. She is working with professor Dr. Lisa Heelan Fancher on a research-based study that will examine the association between living in an environmental justice community in Boston and Suffolk County and its effect on birth outcomes. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states the faculty member and research topic based on the corpus, but contains a minor repetition/stutter (\"is working with professor Dr. She is working with professor Dr.\")."
+    }
+  ]
+}

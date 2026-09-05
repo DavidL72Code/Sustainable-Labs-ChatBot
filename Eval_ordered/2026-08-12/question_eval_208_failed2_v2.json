@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-08-12T23:30:29.155833+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/2026-07-11/questions_final_208.json",
+  "summary": {
+    "total_cases": 2,
+    "average_scores": {
+      "clarity": 4.0,
+      "professional_tone": 4.5,
+      "correctness_vs_corpus": 4.0,
+      "citations": 5.0
+    },
+    "classification_counts": {
+      "answered_yes": 2,
+      "answered_no": 0,
+      "hallucinated_yes": 1,
+      "hallucinated_no": 1,
+      "right_citations_yes": 2,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "fs_154",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the name of Jennifer Friedrich's consultancy and what does it span?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Jennifer Friedrich is an Urban Planning and Community Development Graduate Student who is disturbing the line of narrative in the planning profession by engaging in creative, culturally based ethical systems research. Her research builds on 25 years of working as an independent consultant within the communities of Southeastern Massachusetts and Cape Cod. Her Edible Yard consultancy spans from \u201cplanting the seed\u201d through participatory planning, policy development, ecological design, art and culture, land use, workforce development, affordable housing, and public engagement [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the consultancy name and its scope as described in the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_157",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Chidimma Ozor's doctoral program and year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "output": "Chidimma Ozor Commer is a second-year doctoral student in the School of Global Inclusion and Social Development [1]. The available documents do not state that requested detail.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the doctoral program and year of study from the text but then incorrectly claimed that the documents did not contain this information.",
+      "stream_error": ""
+    }
+  ]
+}

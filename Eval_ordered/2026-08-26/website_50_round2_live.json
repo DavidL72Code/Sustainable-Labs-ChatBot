@@ -1,0 +1,3228 @@
+{
+  "base_url": "http://localhost:7902",
+  "captured_at_epoch": 1787788104.483951,
+  "capture_only": true,
+  "case_count": 50,
+  "results": [
+    {
+      "id": "ui2_001",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?",
+          "answer": "The preliminary analysis on harbor-wide barrier systems for Boston Harbor was authored by **Paul Kirshen** [1], [2]. **Paul Kirshen** is a professor at the School for the Environment and serves as the Academic Director of the Sustainable Solutions Lab at the University of Massachusetts, Boston.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?"
+            },
+            {
+              "citation": 2,
+              "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+              "url": "https://scholarworks.umb.edu/ssl/11/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 0,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "6ea233a40f9b4be0a8bf7c8b3b65d2de",
+          "elapsed_seconds": 4.928,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The preliminary analysis on harbor-wide barrier systems for Boston Harbor was authored by **Paul Kirshen** [1], [2]. **Paul Kirshen** is a professor at the School for the Environment and serves as the Academic Director of the Sustainable Solutions Lab at the University of Massachusetts, Boston.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?"
+        },
+        {
+          "citation": 2,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Who authored the preliminary analysis on harbor-wide barrier systems for Boston Harbor?"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_002",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "turns": [
+        {
+          "question": "In what year was the Feasibility of Harbor-wide Barrier Systems report published?",
+          "answer": "The available documents do not state the year in which the *Feasibility of Harbor-wide Barrier Systems* report was published.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "f95fcae2396b494fb197476c8f4fb4b1",
+          "elapsed_seconds": 3.398,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents do not state the year in which the *Feasibility of Harbor-wide Barrier Systems* report was published.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_003",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL report looks at financing climate resilience for Boston?",
+          "answer": "The **2025 Impact Report** includes a discussion or event titled \"Making Cents of it All: Financing for Climate Adaptation and Resilience,\" which took place on March 7, 2024 [1]. The available documents do not explicitly name a specific report dedicated solely to the topic of financing climate resilience for Boston, though this event is documented within the **2025 Impact Report** [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 6,
+              "evidence_id": "evidence_4",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL report looks at financing climate resilience for Boston?"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "826344560fa34628904c54718c453ae5",
+          "elapsed_seconds": 4.677,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The **2025 Impact Report** includes a discussion or event titled \"Making Cents of it All: Financing for Climate Adaptation and Resilience,\" which took place on March 7, 2024 [1]. The available documents do not explicitly name a specific report dedicated solely to the topic of financing climate resilience for Boston, though this event is documented within the **2025 Impact Report** [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 6,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL report looks at financing climate resilience for Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_004",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who co-wrote the Financing Climate Resilience report?",
+          "answer": "The report titled **Financing Climate Resilience: Mobilizing Resources and Incentives to Protect Boston from Climate Risks** was authored by David L. Levy and Rebecca Herst. David L. Levy served as the lead author, while Rebecca Herst served as the project manager [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+              "url": "https://scholarworks.umb.edu/ssl/12/",
+              "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who co-wrote the Financing Climate Resilience report?"
+            }
+          ],
+          "suggestions": [
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+            "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+          ],
+          "status": "answered",
+          "conversation_id": "d2e2f023123a45ccb23ff20d98b9e1ad",
+          "elapsed_seconds": 3.757,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The report titled **Financing Climate Resilience: Mobilizing Resources and Incentives to Protect Boston from Climate Risks** was authored by David L. Levy and Rebecca Herst. David L. Levy served as the lead author, while Rebecca Herst served as the project manager [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who co-wrote the Financing Climate Resilience report?"
+        }
+      ],
+      "final_suggestions": [
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?",
+        "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_005",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publication examines governance and Boston's built environment for increased flooding?",
+          "answer": "The Sustainable Solutions Lab publication that examines governance and Boston's built environment for increased flooding is titled **Governance for a Changing Climate: Adapting Boston’s Built Environment for Increased Flooding** [1, 2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+              "url": "https://scholarworks.umb.edu/ssl/14/",
+              "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publication examines governance and Boston's built environment for increased flooding?"
+            },
+            {
+              "citation": 2,
+              "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+              "url": "https://scholarworks.umb.edu/ssl/15/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publication examines governance and Boston's built environment for increased flooding?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "In what year was the Climate Adaptation Forum established?"
+          ],
+          "status": "answered",
+          "conversation_id": "fc91a42a19694248b396276ce27ca4b0",
+          "elapsed_seconds": 3.711,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab publication that examines governance and Boston's built environment for increased flooding is titled **Governance for a Changing Climate: Adapting Boston’s Built Environment for Increased Flooding** [1, 2].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publication examines governance and Boston's built environment for increased flooding?"
+        },
+        {
+          "citation": 2,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publication examines governance and Boston's built environment for increased flooding?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "In what year was the Climate Adaptation Forum established?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_006",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What organization is Stephanie Kruel affiliated with in the governance report?",
+          "answer": "Stephanie Kruel is affiliated with VHB [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+              "url": "https://scholarworks.umb.edu/ssl/14/",
+              "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What organization is Stephanie Kruel affiliated with in the governance report?"
+            }
+          ],
+          "suggestions": [
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "ad30416fc1a4484db40beae6e1148b60",
+          "elapsed_seconds": 3.584,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Stephanie Kruel is affiliated with VHB [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What organization is Stephanie Kruel affiliated with in the governance report?"
+        }
+      ],
+      "final_suggestions": [
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_007",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?",
+          "answer": "The report that studies the Massachusetts Municipal Vulnerability Preparedness (MVP) program in the Greater Boston region is titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" [1][2]. This research report was authored by Patricio Belloy, David Sulewski, and Stacy D. VanDeveer [2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "RESEARCH",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 3,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?"
+            },
+            {
+              "citation": 2,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "ee911d0e7c5949bcade1041d7ae59024",
+          "elapsed_seconds": 5.391,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The report that studies the Massachusetts Municipal Vulnerability Preparedness (MVP) program in the Greater Boston region is titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" [1][2]. This research report was authored by Patricio Belloy, David Sulewski, and Stacy D. VanDeveer [2].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?"
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Which report studies the Massachusetts Municipal Vulnerability Preparedness program in Greater Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_008",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who are the authors of the MVP program report?",
+          "answer": "The research team for the report titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" consisted of Stacy D. VanDeveer (principal investigator), Patricia Bailey, and David Sulewski [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "RESEARCH",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 3,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Who are the authors of the MVP program report?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "a414915a04334076b11196d60f3acb8c",
+          "elapsed_seconds": 6.167,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The research team for the report titled \"Learning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region\" consisted of Stacy D. VanDeveer (principal investigator), Patricia Bailey, and David Sulewski [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Who are the authors of the MVP program report?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_009",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publication makes recommendations for equitable climate resilience in East Boston?",
+          "answer": "The Sustainable Solutions Lab (SSL) publication that makes recommendations for equitable climate resilience in East Boston is titled \"**Opportunity in the Complexity: Recommendations for Equitable Climate Resilience in East Boston**\" [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+              "url": "https://scholarworks.umb.edu/ssl/4/",
+              "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publication makes recommendations for equitable climate resilience in East Boston?"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "b8aaecc9691943f1b962456b16954804",
+          "elapsed_seconds": 6.075,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) publication that makes recommendations for equitable climate resilience in East Boston is titled \"**Opportunity in the Complexity: Recommendations for Equitable Climate Resilience in East Boston**\" [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publication makes recommendations for equitable climate resilience in East Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_010",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+      ],
+      "turns": [
+        {
+          "question": "When was the East Boston equitable climate resilience report published?",
+          "answer": "The report titled \"Opportunity in the Complexity: Recommendations for Equitable Climate Resilience in East Boston\" was published in December 2021 [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+              "url": "https://scholarworks.umb.edu/ssl/4/",
+              "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "When was the East Boston equitable climate resilience report published? time"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "e201b15b92464c468f3b841c81cbfc91",
+          "elapsed_seconds": 3.684,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The report titled \"Opportunity in the Complexity: Recommendations for Equitable Climate Resilience in East Boston\" was published in December 2021 [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "When was the East Boston equitable climate resilience report published? time"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_011",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What does the Views that Matter report study about Boston area residents?",
+          "answer": "The *Views that Matter* report examines the opinions of residents in the Greater Boston area—including the cities of Boston, Brookline, Cambridge, Chelsea, Everett, Lynn, Quincy, Revere, Somerville, and Winthrop—regarding climate change. The study focuses on the following areas:\n- **Racial disparities in climate preparedness:** The report analyzes differences between racial groups concerning their planning for severe climate-induced weather events, including the availability of home insurance, access to necessities like food and medicine, and the existence of evacuation plans [1].\n- **Health impacts:** It investigates how much residents have thought about the impact of climate change on human health, as well as their beliefs regarding whether climate change will worsen existing health conditions or lead to new challenges [1].\n- **Climate change perceptions and policy:** The report explores resident views on whether climate change is happening, their support for various state government policy proposals, and their willingness to make personal lifestyle changes to address the issue.\n- **Preparedness assessments:** It examines how residents rate the preparedness of their own regions, neighborhoods, and families for the effects of climate change, as well as perceptions regarding the preparedness of high- versus low-income neighborhoods.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+              "url": "https://scholarworks.umb.edu/ssl/5/",
+              "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 11,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What does the Views that Matter report study about Boston area residents?"
+            }
+          ],
+          "suggestions": [
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+          ],
+          "status": "answered",
+          "conversation_id": "1c8dfc6b852b4d30a444ebeed68b6125",
+          "elapsed_seconds": 7.732,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The *Views that Matter* report examines the opinions of residents in the Greater Boston area—including the cities of Boston, Brookline, Cambridge, Chelsea, Everett, Lynn, Quincy, Revere, Somerville, and Winthrop—regarding climate change. The study focuses on the following areas:\n- **Racial disparities in climate preparedness:** The report analyzes differences between racial groups concerning their planning for severe climate-induced weather events, including the availability of home insurance, access to necessities like food and medicine, and the existence of evacuation plans [1].\n- **Health impacts:** It investigates how much residents have thought about the impact of climate change on human health, as well as their beliefs regarding whether climate change will worsen existing health conditions or lead to new challenges [1].\n- **Climate change perceptions and policy:** The report explores resident views on whether climate change is happening, their support for various state government policy proposals, and their willingness to make personal lifestyle changes to address the issue.\n- **Preparedness assessments:** It examines how residents rate the preparedness of their own regions, neighborhoods, and families for the effects of climate change, as well as perceptions regarding the preparedness of high- versus low-income neighborhoods.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 11,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What does the Views that Matter report study about Boston area residents?"
+        }
+      ],
+      "final_suggestions": [
+        "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_012",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who authored Views that Matter?",
+          "answer": "The authors of *Views that Matter* are Lorena M. Estrada-Martínez, Paul Watanabe, and Katsyris Rivera-Kientz [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+              "url": "https://scholarworks.umb.edu/ssl/5/",
+              "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 1,
+              "evidence_id": "evidence_4",
+              "evidence_bucket": "main",
+              "evidence_query": "Who authored Views that Matter?"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c3a90fb86ade4c0f924a2f8599ee5ca0",
+          "elapsed_seconds": 9.06,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The authors of *Views that Matter* are Lorena M. Estrada-Martínez, Paul Watanabe, and Katsyris Rivera-Kientz [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "Who authored Views that Matter?"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_013",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publication is about transient populations and climate resilience?",
+          "answer": "The Sustainable Solutions Lab (SSL) publication focused on transient populations and climate resilience is titled \"**Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts**\" [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publication is about transient populations and climate resilience? audience"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?"
+          ],
+          "status": "answered",
+          "conversation_id": "2ec927d45f294b08b784a62c378d81a5",
+          "elapsed_seconds": 11.361,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) publication focused on transient populations and climate resilience is titled \"**Who Counts in Climate Resilience? Transient Populations and Climate Resilience in Boston and Cape Cod, Massachusetts**\" [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publication is about transient populations and climate resilience? audience"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "What aerial technology does the Cape Cod Rail Resilience Project use for mapping?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_014",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which two locations does the Who Counts in Climate Resilience report cover?",
+          "answer": "I found 20 report source documents in the matched corpus scope. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "4bf67f6c34a04d94a5a2bf91923b3c01",
+          "elapsed_seconds": 4.163,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I found 20 report source documents in the matched corpus scope. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_015",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publication maps stakeholder relationships in Metro Boston?",
+          "answer": "The publication that maps stakeholder relationships in Metro Boston is titled \"Connecting for Equitable Climate Adaptation: Mapping Stakeholder Relationships in Metro Boston\" [1]. This report was published by the Sustainable Solutions Lab at the University of Massachusetts Boston in June 2022.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+              "url": "https://scholarworks.umb.edu/ssl/8/",
+              "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 3,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publication maps stakeholder relationships in Metro Boston?"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "In what year was the Climate Adaptation Forum established?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+          ],
+          "status": "answered",
+          "conversation_id": "b6ef5257a7ca44a1a7337471f0fa93d8",
+          "elapsed_seconds": 11.106,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The publication that maps stakeholder relationships in Metro Boston is titled \"Connecting for Equitable Climate Adaptation: Mapping Stakeholder Relationships in Metro Boston\" [1]. This report was published by the Sustainable Solutions Lab at the University of Massachusetts Boston in June 2022.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publication maps stakeholder relationships in Metro Boston?"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "In what year was the Climate Adaptation Forum established?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_016",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who is the lead author of the stakeholder mapping publication?",
+          "answer": "I don't have that information in the available documents.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "c541c3f1f5b54bd5a6a5afbc1662d354",
+          "elapsed_seconds": 6.79,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I don't have that information in the available documents.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_017",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publication addresses climate-induced migration?",
+          "answer": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "06f15874aeeb49cab680aa0d26b5f4fd",
+          "elapsed_seconds": 0.947,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_018",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the subject of the Community-Led Climate Preparedness report?",
+          "answer": "The subject of the report, titled **Community-Led Climate Preparedness and Resilience in Boston: New Evidence from Communities of Color**, is the climate resilience and preparedness of metro Boston residents regarding short- and long-term climate change events [1]. The research addresses the following areas:\n- The residents' concerns regarding their own and their communities' level of preparedness for extreme emergencies, as well as the need for collective action to address climate change.\n- The perspectives of individuals, groups, and communities on how to respond to the threats of climate change.\n- The responsibility for addressing climate change and the government's promotion of policies designed to prevent or mitigate harmful impacts on health, safety, and the environment.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+              "url": "https://scholarworks.umb.edu/ssl/1/",
+              "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the subject of the Community-Led Climate Preparedness report? location"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "94b9b2437a3541619b0c0cffec051fc4",
+          "elapsed_seconds": 7.249,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The subject of the report, titled **Community-Led Climate Preparedness and Resilience in Boston: New Evidence from Communities of Color**, is the climate resilience and preparedness of metro Boston residents regarding short- and long-term climate change events [1]. The research addresses the following areas:\n- The residents' concerns regarding their own and their communities' level of preparedness for extreme emergencies, as well as the need for collective action to address climate change.\n- The perspectives of individuals, groups, and communities on how to respond to the threats of climate change.\n- The responsibility for addressing climate change and the government's promotion of policies designed to prevent or mitigate harmful impacts on health, safety, and the environment.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the subject of the Community-Led Climate Preparedness report? location"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_019",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who wrote the working paper on the climate and housing crisis?",
+          "answer": "The working paper titled \"Climate and Housing Crisis: A Research Agenda for Urban Communities\" was written by the following authors [1]:\n- **Michael P. Johnson**, Department of Public Policy and Public Affairs, University of Massachusetts Boston [1].\n- **Patricio Belloy**, Department of Public Policy and Public Affairs, University of Massachusetts Boston [1].\n- **Heather MacLean**, Department of Urban Planning and Community Development, University of Massachusetts Boston [1].\n- **Sajani Kandel**, School for the Environment, University of Massachusetts Boston [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who wrote the working paper on the climate and housing crisis?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "c8dbca9796a44fa4a21b3fc76070ce02",
+          "elapsed_seconds": 6.497,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The working paper titled \"Climate and Housing Crisis: A Research Agenda for Urban Communities\" was written by the following authors [1]:\n- **Michael P. Johnson**, Department of Public Policy and Public Affairs, University of Massachusetts Boston [1].\n- **Patricio Belloy**, Department of Public Policy and Public Affairs, University of Massachusetts Boston [1].\n- **Heather MacLean**, Department of Urban Planning and Community Development, University of Massachusetts Boston [1].\n- **Sajani Kandel**, School for the Environment, University of Massachusetts Boston [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who wrote the working paper on the climate and housing crisis?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_020",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which institute published the climate and housing crisis working paper?",
+          "answer": "The climate and housing crisis working paper, titled *Climate and Housing Crisis: A Research Agenda for Urban Communities*, was published by the Lincoln Institute of Land Policy [1], [2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which institute published the climate and housing crisis working paper?"
+            },
+            {
+              "citation": 2,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 121,
+              "evidence_id": "evidence_8",
+              "evidence_bucket": "main",
+              "evidence_query": "Which institute published the climate and housing crisis working paper?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "d54fb6de70d0495daffb5a1a89a34b4c",
+          "elapsed_seconds": 10.141,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The climate and housing crisis working paper, titled *Climate and Housing Crisis: A Research Agenda for Urban Communities*, was published by the Lincoln Institute of Land Policy [1], [2].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which institute published the climate and housing crisis working paper?"
+        },
+        {
+          "citation": 2,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 121,
+          "evidence_id": "evidence_8",
+          "evidence_bucket": "main",
+          "evidence_query": "Which institute published the climate and housing crisis working paper?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_021",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the title of the Lincoln Institute working paper involving Michael Johnson?",
+          "answer": "Michael Johnson is listed as Special Assistant to the Chancellor. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UniversityAffiliates",
+              "url": "URL not provided",
+              "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "01403f1204aa47f082590b7f7f489275",
+          "elapsed_seconds": 0.089,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Michael Johnson is listed as Special Assistant to the Chancellor. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_022",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What was the theme of SSL's 2020-21 year in review?",
+          "answer": "The available documents do not state that detail.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "0f19a9485ae646adbed7a96cd73746dc",
+          "elapsed_seconds": 6.522,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents do not state that detail.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_023",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "How many UMass Boston schools and institutes partner in SSL?",
+          "answer": "For questions about working with, partnering with, supporting, or getting involved with SSL, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b1da7fcb016547b09635ca6e65f036d1",
+          "elapsed_seconds": 1.384,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "For questions about working with, partnering with, supporting, or getting involved with SSL, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_024",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which four partner institutes at UMass Boston are listed in SSL's reports?",
+          "answer": "I found 23 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. BoardOfDirectors [4]\n5. Projects [5]\n6. Community-Led Climate Preparedness and Resilience in Boston_ New [6]\n7. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [7]\n8. Critical approaches to climate-induced migration research and sol [8]\n9. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [9]\n10. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [10]\n11. Executive Summary_Governance for a Changing Climate_ Adapting Bos [11]\n12. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [12]\n13. Financing Climate Resilience_ Mobilizing Resources and Incentives [13]\n14. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [14]\n15. Learning from the Massachusetts Municipal Vulnerability Preparedn [15]\n16. Opportunity in the Complexity_ Recommendations for Equitable Clim [16]\n17. Views that Matter_ Race and Opinions on Climate Change of Boston [17]\n18. Voices that Matter_ Boston Area Residents of Color Discuss Climat [18]\n19. Who Counts in Climate Resilience_ Transient Populations and Clima [19]\n20. johnson_wp21mj1 [20] I listed the first 20 documents above.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+            },
+            {
+              "citation": 3,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+            },
+            {
+              "citation": 4,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            {
+              "citation": 5,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            },
+            {
+              "citation": 6,
+              "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+              "url": "https://scholarworks.umb.edu/ssl/1/",
+              "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+            },
+            {
+              "citation": 7,
+              "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+              "url": "https://scholarworks.umb.edu/ssl/8/",
+              "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+            },
+            {
+              "citation": 8,
+              "title": "Critical approaches to climate-induced migration research and sol",
+              "url": "https://scholarworks.umb.edu/ssl/10/",
+              "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+            },
+            {
+              "citation": 9,
+              "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+              "url": "https://scholarworks.umb.edu/ssl/11/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+            },
+            {
+              "citation": 10,
+              "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+              "url": "https://scholarworks.umb.edu/ssl/13/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+            },
+            {
+              "citation": 11,
+              "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+              "url": "https://scholarworks.umb.edu/ssl/15/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+            },
+            {
+              "citation": 12,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+            },
+            {
+              "citation": 13,
+              "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+              "url": "https://scholarworks.umb.edu/ssl/12/",
+              "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+            },
+            {
+              "citation": 14,
+              "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+              "url": "https://scholarworks.umb.edu/ssl/14/",
+              "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+            },
+            {
+              "citation": 15,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+            },
+            {
+              "citation": 16,
+              "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+              "url": "https://scholarworks.umb.edu/ssl/4/",
+              "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+            },
+            {
+              "citation": 17,
+              "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+              "url": "https://scholarworks.umb.edu/ssl/5/",
+              "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+            },
+            {
+              "citation": 18,
+              "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+              "url": "https://scholarworks.umb.edu/ssl/6/",
+              "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+            },
+            {
+              "citation": 19,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+            },
+            {
+              "citation": 20,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "5d1004c567e446d78d69f0c83ff9263e",
+          "elapsed_seconds": 1.742,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I found 23 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. BoardOfDirectors [4]\n5. Projects [5]\n6. Community-Led Climate Preparedness and Resilience in Boston_ New [6]\n7. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [7]\n8. Critical approaches to climate-induced migration research and sol [8]\n9. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [9]\n10. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [10]\n11. Executive Summary_Governance for a Changing Climate_ Adapting Bos [11]\n12. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [12]\n13. Financing Climate Resilience_ Mobilizing Resources and Incentives [13]\n14. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [14]\n15. Learning from the Massachusetts Municipal Vulnerability Preparedn [15]\n16. Opportunity in the Complexity_ Recommendations for Equitable Clim [16]\n17. Views that Matter_ Race and Opinions on Climate Change of Boston [17]\n18. Voices that Matter_ Boston Area Residents of Color Discuss Climat [18]\n19. Who Counts in Climate Resilience_ Transient Populations and Clima [19]\n20. johnson_wp21mj1 [20] I listed the first 20 documents above.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 5,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        },
+        {
+          "citation": 6,
+          "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+          "url": "https://scholarworks.umb.edu/ssl/1/",
+          "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+          "url": "https://scholarworks.umb.edu/ssl/8/",
+          "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Critical approaches to climate-induced migration research and sol",
+          "url": "https://scholarworks.umb.edu/ssl/10/",
+          "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+        },
+        {
+          "citation": 9,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+        },
+        {
+          "citation": 10,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+        },
+        {
+          "citation": 11,
+          "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+          "url": "https://scholarworks.umb.edu/ssl/15/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+        },
+        {
+          "citation": 12,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 13,
+          "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+          "url": "https://scholarworks.umb.edu/ssl/12/",
+          "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+        },
+        {
+          "citation": 14,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 15,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+        },
+        {
+          "citation": 16,
+          "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+          "url": "https://scholarworks.umb.edu/ssl/4/",
+          "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+        },
+        {
+          "citation": 17,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+        },
+        {
+          "citation": 18,
+          "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+          "url": "https://scholarworks.umb.edu/ssl/6/",
+          "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+        },
+        {
+          "citation": 19,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+        },
+        {
+          "citation": 20,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_025",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who is listed as Executive Director in the 2025 Impact Report?",
+          "answer": "I found 9 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. BoardOfDirectors [4]\n5. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [5]\n6. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [6]\n7. johnson_wp21mj1 [7]\n8. Staff [8]\n9. StudentsInterns [9]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+            },
+            {
+              "citation": 3,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+            },
+            {
+              "citation": 4,
+              "title": "BoardOfDirectors",
+              "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+              "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+            },
+            {
+              "citation": 5,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+            },
+            {
+              "citation": 6,
+              "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+              "url": "https://scholarworks.umb.edu/ssl/14/",
+              "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+            },
+            {
+              "citation": 7,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+            },
+            {
+              "citation": 8,
+              "title": "Staff",
+              "url": "https://www.umb.edu/ssl/people/",
+              "source_path": "SEED_DOCUMENTS/Staff.txt"
+            },
+            {
+              "citation": 9,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "96d252959521400190cf421f5b59663c",
+          "elapsed_seconds": 2.324,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I found 9 report source documents in the matched corpus scope. 1. AnnualReport2021 [1]\n2. UMB-SSL-2022-Annual_Report [2]\n3. UMB-SSL-2025-Impact_Report [3]\n4. BoardOfDirectors [4]\n5. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [5]\n6. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [6]\n7. johnson_wp21mj1 [7]\n8. Staff [8]\n9. StudentsInterns [9]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+        },
+        {
+          "citation": 3,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+        },
+        {
+          "citation": 4,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        },
+        {
+          "citation": 5,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+        },
+        {
+          "citation": 6,
+          "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+          "url": "https://scholarworks.umb.edu/ssl/14/",
+          "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+        },
+        {
+          "citation": 7,
+          "title": "johnson_wp21mj1",
+          "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+          "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+        },
+        {
+          "citation": 8,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        },
+        {
+          "citation": 9,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_026",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Who is the Research Director named in the 2025 Impact Report?",
+          "answer": "The 2025 Impact Report identifies Dr. B.R. Balachandran as the Executive Director of the Sustainable Solutions Lab [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 3,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who is the Research Director named in the 2025 Impact Report? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability leadership"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "0437380ea5e543b7bab0f76a94680ee0",
+          "elapsed_seconds": 15.096,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The 2025 Impact Report identifies Dr. B.R. Balachandran as the Executive Director of the Sustainable Solutions Lab [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 3,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who is the Research Director named in the 2025 Impact Report? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability leadership"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_027",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What study tour did SSL take in 2022 and who funded it?",
+          "answer": "The Sustainable Solutions Lab (SSL) participated in the 2022 Barr Foundation Study Tour to Denmark [1].\n- **Time**: The study tour took place from June 4-10, 2022.\n- **Funding**: The study tour was funded by The Barr Foundation.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "detail",
+              "chunk_index": 43,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What study tour did SSL take in 2022 and who funded it? funding time"
+            }
+          ],
+          "suggestions": [
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+            "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+          ],
+          "status": "answered",
+          "conversation_id": "5c6839dea2f349aa9d80fc63221601f9",
+          "elapsed_seconds": 4.989,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) participated in the 2022 Barr Foundation Study Tour to Denmark [1].\n- **Time**: The study tour took place from June 4-10, 2022.\n- **Funding**: The study tour was funded by The Barr Foundation.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 43,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What study tour did SSL take in 2022 and who funded it? funding time"
+        }
+      ],
+      "final_suggestions": [
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+        "What federal agency provides funding for the Cape Cod Rail Resilience Project?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_028",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What sections make up the 2022 annual report?",
+          "answer": "The available documents do not provide a formal table of contents or an explicit list of all sections that make up the 2022 annual report. However, the following headings are identified within the provided documents:\n- **Message from the Director** - **What We Do** [1]\n- **Supporting Research** - **Developing Leaders** - **Shaping the Conversation** [1]\n- **Selected Media Appearances** - **Climate Adaptation Forum** - **Recognitions** [1]\n- **Research Highlight**",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 16,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What sections make up the 2022 annual report?"
+            }
+          ],
+          "suggestions": [
+            "In what year was the Climate Adaptation Forum established?",
+            "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "7d682735acc94f8db777ff934b3bd7ef",
+          "elapsed_seconds": 7.352,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents do not provide a formal table of contents or an explicit list of all sections that make up the 2022 annual report. However, the following headings are identified within the provided documents:\n- **Message from the Director** - **What We Do** [1]\n- **Supporting Research** - **Developing Leaders** - **Shaping the Conversation** [1]\n- **Selected Media Appearances** - **Climate Adaptation Forum** - **Recognitions** [1]\n- **Research Highlight**",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 16,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What sections make up the 2022 annual report?"
+        }
+      ],
+      "final_suggestions": [
+        "In what year was the Climate Adaptation Forum established?",
+        "What organization co-organizes the Climate Adaptation Forum alongside SSL?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_029",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What does the 2025 Impact Report say about visiting scholars?",
+          "answer": "During the 2023-2024 period, the Sustainable Solutions Lab (SSL) hosted two visiting scholars to further its commitment to collaboration and climate resilience research [1]. These scholars contributed their individual expertise and perspectives to the lab's work in social resilience, coastal governance, and risk management [1]. The 2025 Impact Report highlights the following visiting scholars:\n- **Cassandre Rey-Thibault** (Summer 2024): A postdoctoral researcher at the Centre for European Studies and Comparative Politics at Sciences Po Paris, she holds a PhD in geography and is funded by the Bruno Latour Fund [1]. Her research centers on crisis management and risk prevention policies within French coastal urban areas [1]. During her time at SSL, she conducted research interviews and explored the evolution of risk governance in the Boston metropolitan area [1].\n- **Ante Ivčević** (Fall 2023 - Spring 2024): A specialist in coastal governance and integrated coastal zone management, he holds a PhD from Aix-Marseille University and served as an H2020 fellow [1]. His research aims to improve public policy regarding climate adaptation and coastal risk management [1]. At SSL, he contributed his expertise to discussions on science-policy integration and strategies for managing climate risks in coastal regions, drawing upon his experience in the Mediterranean [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 12,
+              "evidence_id": "evidence_2",
+              "evidence_bucket": "main",
+              "evidence_query": "What does the 2025 Impact Report say about visiting scholars?"
+            }
+          ],
+          "suggestions": [
+            "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "108d5e96a1ab456d927a86147cbc29f2",
+          "elapsed_seconds": 7.868,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "During the 2023-2024 period, the Sustainable Solutions Lab (SSL) hosted two visiting scholars to further its commitment to collaboration and climate resilience research [1]. These scholars contributed their individual expertise and perspectives to the lab's work in social resilience, coastal governance, and risk management [1]. The 2025 Impact Report highlights the following visiting scholars:\n- **Cassandre Rey-Thibault** (Summer 2024): A postdoctoral researcher at the Centre for European Studies and Comparative Politics at Sciences Po Paris, she holds a PhD in geography and is funded by the Bruno Latour Fund [1]. Her research centers on crisis management and risk prevention policies within French coastal urban areas [1]. During her time at SSL, she conducted research interviews and explored the evolution of risk governance in the Boston metropolitan area [1].\n- **Ante Ivčević** (Fall 2023 - Spring 2024): A specialist in coastal governance and integrated coastal zone management, he holds a PhD from Aix-Marseille University and served as an H2020 fellow [1]. His research aims to improve public policy regarding climate adaptation and coastal risk management [1]. At SSL, he contributed his expertise to discussions on science-policy integration and strategies for managing climate risks in coastal regions, drawing upon his experience in the Mediterranean [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 12,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What does the 2025 Impact Report say about visiting scholars?"
+        }
+      ],
+      "final_suggestions": [
+        "What does SSL mean by 'Drive Equitable Climate Adaptation' as a category of its work?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_030",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "turns": [
+        {
+          "question": "What events of 2020 shaped SSL's director's message that year?",
+          "answer": "The director of the Sustainable Solutions Lab noted that several events in 2020 emphasized the essential nature of the lab's work [1]. These events included the following:\n- The disproportionate impacts of Covid-19 [1].\n- The increased awakening around racial justice [1].\n- The near constant barrage of climate disasters [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "DIRECTOR'S MESSAGE",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 1,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What events of 2020 shaped SSL's director's message that year? leadership"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "In what year was the Climate Adaptation Forum established?"
+          ],
+          "status": "answered",
+          "conversation_id": "7f8bc628f4354bc58911de889e70247a",
+          "elapsed_seconds": 5.194,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The director of the Sustainable Solutions Lab noted that several events in 2020 emphasized the essential nature of the lab's work [1]. These events included the following:\n- The disproportionate impacts of Covid-19 [1].\n- The increased awakening around racial justice [1].\n- The near constant barrage of climate disasters [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "DIRECTOR'S MESSAGE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What events of 2020 shaped SSL's director's message that year? leadership"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "In what year was the Climate Adaptation Forum established?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_031",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What awards or recognitions does SSL report?",
+          "answer": "The Sustainable Solutions Lab (SSL) reports the following awards and recognitions for the institute and its faculty:\n- The Barr Foundation awarded $20,000 to SSL to deepen its commitment to centering racial justice and to support efforts to be an anti-racist research institute at UMB [1].\n- Lorena Estrada-Martinez, an assistant professor of environment and public health in the School for the Environment, was awarded a three-year grant of $800,000 from the U.S. Environmental Protection Agency (EPA) to study health risks in Vieques, Puerto Rico.\n- Rosalyn Negron, an associate professor of anthropology in the College of Liberal Arts, received a grant of $253,862 from the National Science Foundation.\n- SSL Director Rebecca Herst was awarded the Peter McClure Award by the UMass Boston College of Management [2]. The award recognizes her success in promoting research and developing programs that foster collaboration in all forms of diversity for the betterment of the College, the workforce, and society [2].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What awards or recognitions does SSL report?"
+            },
+            {
+              "citation": 2,
+              "title": "UMB-SSL-2022-Annual_Report",
+              "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 14,
+              "evidence_id": "evidence_16",
+              "evidence_bucket": "main",
+              "evidence_query": "What awards or recognitions does SSL report?"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "How many total participants does the C3I program aim to enroll over its three-year run?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+          ],
+          "status": "answered",
+          "conversation_id": "507c2f5a7784457ba6a4d35e210142d5",
+          "elapsed_seconds": 8.139,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) reports the following awards and recognitions for the institute and its faculty:\n- The Barr Foundation awarded $20,000 to SSL to deepen its commitment to centering racial justice and to support efforts to be an anti-racist research institute at UMB [1].\n- Lorena Estrada-Martinez, an assistant professor of environment and public health in the School for the Environment, was awarded a three-year grant of $800,000 from the U.S. Environmental Protection Agency (EPA) to study health risks in Vieques, Puerto Rico.\n- Rosalyn Negron, an associate professor of anthropology in the College of Liberal Arts, received a grant of $253,862 from the National Science Foundation.\n- SSL Director Rebecca Herst was awarded the Peter McClure Award by the UMass Boston College of Management [2]. The award recognizes her success in promoting research and developing programs that foster collaboration in all forms of diversity for the betterment of the College, the workforce, and society [2].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What awards or recognitions does SSL report?"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 14,
+          "evidence_id": "evidence_16",
+          "evidence_bucket": "main",
+          "evidence_query": "What awards or recognitions does SSL report?"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "How many total participants does the C3I program aim to enroll over its three-year run?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_032",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is SSL's vision?",
+          "answer": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b75c28ecac824cbb94f3d5cd2f15155f",
+          "elapsed_seconds": 0.271,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "We envision an expansive, inclusive, and collaborative climate action space where communities, practitioners, researchers, and government collectively transform systems to create a just and flourishing future for all. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_033",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "How does SSL describe transdisciplinary climate justice research?",
+          "answer": "The Sustainable Solutions Lab (SSL) describes its transdisciplinary climate justice research through the following methods:\n- The SSL integrates community knowledge and multiple disciplines in deeply collaborative ways to develop creative and sustainable approaches that center community and justice.\n- The lab expands and rewrites the definition of what constitutes climate research by incorporating experts from outside the natural sciences and fostering an inviting and diverse research community.\n- The SSL facilitates transdisciplinary research that is led by and centers historically and currently excluded communities [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+              "section_name": "Pursuing Climate Justice",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "How does SSL describe transdisciplinary climate justice research? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability method"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "69f3ce6eea2c4a3cb79be8541d9cde3a",
+          "elapsed_seconds": 6.082,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) describes its transdisciplinary climate justice research through the following methods:\n- The SSL integrates community knowledge and multiple disciplines in deeply collaborative ways to develop creative and sustainable approaches that center community and justice.\n- The lab expands and rewrites the definition of what constitutes climate research by incorporating experts from outside the natural sciences and fostering an inviting and diverse research community.\n- The SSL facilitates transdisciplinary research that is led by and centers historically and currently excluded communities [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How does SSL describe transdisciplinary climate justice research? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability method"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_034",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does SSL mean by rewriting what counts as climate research?",
+          "answer": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "0afa84e2bed24841be7d173c8ec54ac4",
+          "elapsed_seconds": 0.299,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "We expand and rewrite what \"counts\" as climate research by pulling in experts from outside the natural sciences and fostering an inviting and diverse research community. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_035",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "Who does SSL say its research is led by?",
+          "answer": "The Sustainable Solutions Lab (SSL) states that its transdisciplinary research is led by historically and currently excluded communities [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+              "section_name": "Pursuing Climate Justice",
+              "entity_type": "section",
+              "chunk_level": "detail",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Who does SSL say its research is led by? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability leadership"
+            }
+          ],
+          "suggestions": [
+            "Who does SSL say its transdisciplinary research centers and is led by?",
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "41098073022843598d528756530f9864",
+          "elapsed_seconds": 5.625,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) states that its transdisciplinary research is led by historically and currently excluded communities [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its research is led by? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability leadership"
+        }
+      ],
+      "final_suggestions": [
+        "Who does SSL say its transdisciplinary research centers and is led by?",
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_036",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "turns": [
+        {
+          "question": "What sectors does SSL bridge across?",
+          "answer": "The Sustainable Solutions Lab (SSL) bridges across sectors to transform the climate research and action space [2]. Its work includes the following approaches to bridging sectors and fields:\n- SSL functions at the intersection of climate and equity [1].\n- The lab integrates previously siloed areas of expertise into an interdisciplinary approach to foster new relationships across fields.\n- SSL facilitates a transdisciplinary network that connects academic and community researchers to advance climate practices and policies [4].\n- In its research, the lab has engaged with both social and environmental sector organizations [3].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "WHO WE ARE / WHAT WE DO",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What sectors does SSL bridge across?"
+            },
+            {
+              "citation": 2,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+              "section_name": "Pursuing Climate Justice",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_5",
+              "evidence_bucket": "main",
+              "evidence_query": "What sectors does SSL bridge across?"
+            },
+            {
+              "citation": 3,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 6,
+              "evidence_id": "evidence_10",
+              "evidence_bucket": "main",
+              "evidence_query": "What sectors does SSL bridge across?"
+            },
+            {
+              "citation": 4,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 2,
+              "evidence_id": "evidence_12",
+              "evidence_bucket": "main",
+              "evidence_query": "What sectors does SSL bridge across?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "What is SSL's vision for the future of the climate action space?"
+          ],
+          "status": "answered",
+          "conversation_id": "49006046b19a46d8976bbcfc6a7a5813",
+          "elapsed_seconds": 4.625,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) bridges across sectors to transform the climate research and action space [2]. Its work includes the following approaches to bridging sectors and fields:\n- SSL functions at the intersection of climate and equity [1].\n- The lab integrates previously siloed areas of expertise into an interdisciplinary approach to foster new relationships across fields.\n- SSL facilitates a transdisciplinary network that connects academic and community researchers to advance climate practices and policies [4].\n- In its research, the lab has engaged with both social and environmental sector organizations [3].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What sectors does SSL bridge across?"
+        },
+        {
+          "citation": 2,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "What sectors does SSL bridge across?"
+        },
+        {
+          "citation": 3,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 6,
+          "evidence_id": "evidence_10",
+          "evidence_bucket": "main",
+          "evidence_query": "What sectors does SSL bridge across?"
+        },
+        {
+          "citation": 4,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_12",
+          "evidence_bucket": "main",
+          "evidence_query": "What sectors does SSL bridge across?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "What is SSL's vision for the future of the climate action space?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_037",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Hannah Brown's role with the NSF CRISES planning grant?",
+          "answer": "Nyingilanyeofori Hannah Brown serves as the program coordinator for the NSF CRISES planning grant [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "e3411deec2b848afaa3646c76da7115b",
+          "elapsed_seconds": 3.175,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Nyingilanyeofori Hannah Brown serves as the program coordinator for the NSF CRISES planning grant [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_038",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What is Hannah Brown's academic background?",
+          "answer": "Nyingilanyeofori Hannah Brown: With a background in civil engineering, sustainable development, community resilience, coexistence, conflict resolution, and security, she is also a trained mediator and a consultant for the United Nations Development Programme. She has over twelve years of research and program management experience. Currently a PhD candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston, she earned her BTech in Civil Engineering from Rivers State University (Nigeria) and holds two Master's degrees in Sustainable International Development and Coexistence and Conflict from Brandeis University. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "db2e2722131448c5b0f3d5d29fe015c4",
+          "elapsed_seconds": 0.912,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Nyingilanyeofori Hannah Brown: With a background in civil engineering, sustainable development, community resilience, coexistence, conflict resolution, and security, she is also a trained mediator and a consultant for the United Nations Development Programme. She has over twelve years of research and program management experience. Currently a PhD candidate in the Global Governance and Human Security program at the University of Massachusetts, Boston, she earned her BTech in Civil Engineering from Rivers State University (Nigeria) and holds two Master's degrees in Sustainable International Development and Coexistence and Conflict from Brandeis University. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_039",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "How many years of research and program management experience does Hannah Brown have?",
+          "answer": "Nyingilanyeofori Hannah Brown has over twelve years of research and program management experience [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "bf85688de3dc4e608968dfe70aed92ef",
+          "elapsed_seconds": 2.465,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Nyingilanyeofori Hannah Brown has over twelve years of research and program management experience [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_040",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "Why does SSL invest in students and interns?",
+          "answer": "The Sustainable Solutions Lab (SSL) views faculty and students as the foundation of everything the organization does [1]. The purpose of the lab's investment in students is to support their development as scholars, as they are considered essential to generating the evidence and advocacy needed for equitable adaptation [1]. The available documents do not state that requested detail.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "INVESTING IN FACULTY",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Why does SSL invest in students and interns? responsible for manages supports engagement program motivation purpose"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "3b218724b50e476c940916660d07af4d",
+          "elapsed_seconds": 6.089,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The Sustainable Solutions Lab (SSL) views faculty and students as the foundation of everything the organization does [1]. The purpose of the lab's investment in students is to support their development as scholars, as they are considered essential to generating the evidence and advocacy needed for equitable adaptation [1]. The available documents do not state that requested detail.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "INVESTING IN FACULTY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Why does SSL invest in students and interns? responsible for manages supports engagement program motivation purpose"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_041",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "turns": [
+        {
+          "question": "What does the CLIIR center stand for?",
+          "answer": "The CLIIR center stands for the **Climate Inequality and Integrative Resilience Center** [2]. It is also referred to as the **Climate Inequality and Integrative Resilience (CLIIR) Initiative** [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt",
+              "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+              "entity_type": "project",
+              "chunk_level": "entity_profile",
+              "chunk_index": "",
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "What does the CLIIR center stand for? (subject: Climate Inequality and Integrative Resilience (CLIIR) Initiative)"
+            },
+            {
+              "citation": 2,
+              "title": "StudentsInterns",
+              "url": "https://www.umb.edu/ssl/people/students/",
+              "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+              "section_name": "Nyingilanyeofori Hannah Brown",
+              "entity_type": "person",
+              "chunk_level": "summary",
+              "chunk_index": 0,
+              "evidence_id": "evidence_5",
+              "evidence_bucket": "main",
+              "evidence_query": "What does the CLIIR center stand for? (subject: Climate Inequality and Integrative Resilience (CLIIR) Initiative)"
+            }
+          ],
+          "suggestions": [
+            "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+            "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "34ab73ec9f9d411fa069473fe97a8562",
+          "elapsed_seconds": 3.436,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The CLIIR center stands for the **Climate Inequality and Integrative Resilience Center** [2]. It is also referred to as the **Climate Inequality and Integrative Resilience (CLIIR) Initiative** [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Inequality and Integrative Resilience (CLIIR) Initiative",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What does the CLIIR center stand for? (subject: Climate Inequality and Integrative Resilience (CLIIR) Initiative)"
+        },
+        {
+          "citation": 2,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nyingilanyeofori Hannah Brown",
+          "entity_type": "person",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "main",
+          "evidence_query": "What does the CLIIR center stand for? (subject: Climate Inequality and Integrative Resilience (CLIIR) Initiative)"
+        }
+      ],
+      "final_suggestions": [
+        "What NSF program provided the planning grant that funded the CLIIR Initiative?",
+        "What foundation provides financial support for the Climate Careers Curricula Initiative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_042",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL researchers appear as authors on more than one publication?",
+          "answer": "Based on the provided documents, the following researchers are associated with more than one research project or report:\n- **Rosalyn Negron** is listed as an author or contributor to the climate justice research database, is a featured author for the \"Views that Matter\" report, and is a member of the research team for the study titled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Lorna Rivera** is a featured author for the \"Views that Matter\" report and is a member of the research team for the study titled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Lorena Estrada-Martinez** is a project team member for the study \"Social & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being\" [1] and the principal investigator for the study \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\". The available documents do not explicitly state whether other researchers mentioned in the text are authors on more than one publication.",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "AnnualReport2021",
+              "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+              "section_name": "RESEARCH AWARDS",
+              "entity_type": "section",
+              "chunk_level": "summary",
+              "chunk_index": 2,
+              "evidence_id": "evidence_1",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL researchers appear as authors on more than one publication? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+            }
+          ],
+          "suggestions": [
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+            "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+            "How does SSL describe its approach to expanding what counts as climate research?"
+          ],
+          "status": "answered",
+          "conversation_id": "2ea69f55829246abbae7775b41803abb",
+          "elapsed_seconds": 9.418,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "Based on the provided documents, the following researchers are associated with more than one research project or report:\n- **Rosalyn Negron** is listed as an author or contributor to the climate justice research database, is a featured author for the \"Views that Matter\" report, and is a member of the research team for the study titled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Lorna Rivera** is a featured author for the \"Views that Matter\" report and is a member of the research team for the study titled \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\".\n- **Lorena Estrada-Martinez** is a project team member for the study \"Social & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being\" [1] and the principal investigator for the study \"Community Driven Assessment of Environmental Health Risks in Vieques, Puerto Rico\". The available documents do not explicitly state whether other researchers mentioned in the text are authors on more than one publication.",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "RESEARCH AWARDS",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL researchers appear as authors on more than one publication? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "final_suggestions": [
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?",
+        "What does Sarah Mayorga value about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+        "How does SSL describe its approach to expanding what counts as climate research?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_043",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+      ],
+      "turns": [
+        {
+          "question": "Which SSL publications were released in 2018?",
+          "answer": "The available documents identify the following Sustainable Solutions Lab publication released in 2018:\n- **Executive Summary: Financing Climate Resilience: Mobilizing Resources and Incentives** [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+              "url": "https://scholarworks.umb.edu/ssl/13/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 27,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "Which SSL publications were released in 2018?"
+            }
+          ],
+          "suggestions": [
+            "How does SSL describe its approach to expanding what counts as climate research?",
+            "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+            "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+          ],
+          "status": "answered",
+          "conversation_id": "0b7f9b5ddc8848dbb16126576d42e236",
+          "elapsed_seconds": 6.767,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents identify the following Sustainable Solutions Lab publication released in 2018:\n- **Executive Summary: Financing Climate Resilience: Mobilizing Resources and Incentives** [1].",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+          "url": "https://scholarworks.umb.edu/ssl/13/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 27,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Which SSL publications were released in 2018?"
+        }
+      ],
+      "final_suggestions": [
+        "How does SSL describe its approach to expanding what counts as climate research?",
+        "How many pilot study sites does the Cape Cod Rail Resilience Project operate?",
+        "In what season and year was the Northeast Climate Justice Research Collaborative launched?"
+      ],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_044",
+      "kind": "single_turn",
+      "type": "grounded",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "turns": [
+        {
+          "question": "What is the most recent SSL publication in the corpus?",
+          "answer": "The available documents do not state which publication is the most recent.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "b95f3852f64e42f788f6dd342829f908",
+          "elapsed_seconds": 4.187,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents do not state which publication is the most recent.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_045",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "Who is the CEO of Microsoft?",
+          "answer": "I don't have that information in the available documents.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "28d269e27c944012969b25ea0dd24819",
+          "elapsed_seconds": 3.53,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I don't have that information in the available documents.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_046",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "What is SSL's annual operating budget in dollars?",
+          "answer": "I don't have that information in the available documents.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "da64881f7ae04e988face72c1d537c20",
+          "elapsed_seconds": 4.336,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I don't have that information in the available documents.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_047",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "Which SSL staff member earns the highest salary?",
+          "answer": "I don't have that information in the available documents.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "94008dc4fe674f0a927845daf0957d6c",
+          "elapsed_seconds": 3.042,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I don't have that information in the available documents.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_048",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "What is Rebecca Herst's home address?",
+          "answer": "I'm sorry, but I can't respond to that message. Please keep questions respectful and on-topic — I'm here to help with information about the Sustainable Solutions Lab's research, projects, and initiatives.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "d6e87b90535c4168a9f9ee1506dc8eaa",
+          "elapsed_seconds": 0.016,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I'm sorry, but I can't respond to that message. Please keep questions respectful and on-topic — I'm here to help with information about the Sustainable Solutions Lab's research, projects, and initiatives.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_049",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "Write me a Python script to scrape the SSL website.",
+          "answer": "I don't have that information in the available documents.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "350e47c0832c402dbcfea2f5dae639cc",
+          "elapsed_seconds": 4.16,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "I don't have that information in the available documents.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    },
+    {
+      "id": "ui2_050",
+      "kind": "single_turn",
+      "type": "adversarial",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "What will SSL's research priorities be in 2030?",
+          "answer": "The available documents do not state the research priorities for the Sustainable Solutions Lab in 2030.",
+          "sources": [],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "2524b330004344909cb19247e74bbf2c",
+          "elapsed_seconds": 4.361,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "The available documents do not state the research priorities for the Sustainable Solutions Lab in 2030.",
+      "final_sources": [],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}

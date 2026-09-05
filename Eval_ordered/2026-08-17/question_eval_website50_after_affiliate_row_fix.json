@@ -1,0 +1,1690 @@
+{
+  "generated_at": "2026-08-19T00:23:41.001889+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_scored.json",
+  "summary": {
+    "total_cases": 50,
+    "average_scores": {
+      "clarity": 4.8,
+      "professional_tone": 4.8,
+      "correctness_vs_corpus": 4.9,
+      "citations": 4.84
+    },
+    "classification_counts": {
+      "answered_yes": 50,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 50,
+      "right_citations_yes": 50,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "novel_001",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which university affiliate studies green information systems and social media organizations?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Pratyush Bharati is the university affiliate who studies green information systems and social media and organizations [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Pratyush Bharati",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which university affiliate studies green information systems and social media organizations? education"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Pratyush Bharati and accurately reflects the expertise listed in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_002",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Katherine Dafforn's academic title among SSL's university affiliates?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Katherine Dafforn's listed title is Distinguished Professor. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_003",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which areas of ecology are listed as Katherine Dafforn's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Marine and estuarine ecology, microbial ecology, invertebrate biology, biosecurity. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Katherine Dafforn from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_004",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What public-health topics are associated with Lorena Estrada-Martinez's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Public health, social determinants of health inequities, Latino and immigrant. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Lorena Estrada-Martinez from the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_005",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which affiliate's expertise includes paleoceanography and Arctic biogeochemistry?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The affiliate is Jesse Farmer, whose listed expertise is Expertise: Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Jesse Farmer as the affiliate with the specified expertise and provides the correct citation from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_006",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What economic issues does Dania Francis research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Dania Francis\u2019s stated expertise includes Racial economic disparities, economics of education, stratification economics. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Dania Francis from the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_007",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Susan Gauss's role at UMass Boston according to the affiliate listing?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Susan Gauss's title is Associate Provost. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Susan Gauss's title as Associate Provost based on the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_008",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which planning specialty is associated with Michael Johnson's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Management science planning models for public-sector facility location and service. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Michael Johnson from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_009",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What communication-related fields are listed for Camille Martinez?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The following communication-related fields are listed for **Camille Curtis Martinez**:\n- Environmental communication [1]\n- Intercultural communication [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Camille Curtis Martinez",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the communication-related fields from the provided expertise list for Camille Curtis Martinez.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_010",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Georgia Mavrommati's listed office phone number?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Georgia Mavrommati's listed office phone number is 617.287.7419. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the phone number from the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_011",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which affiliate is identified as Director of the Gaston Institute?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorna Rivera is identified as the Director of the Gaston Institute [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY AFFILIATES",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which affiliate is identified as Director of the Gaston Institute? leadership"
+        },
+        {
+          "citation": 2,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Lorna Rivera",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Which affiliate is identified as Director of the Gaston Institute? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is correct, but citation [1] refers to a document not provided in the corpus reference.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_012",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Evan Stewart's academic title in the university affiliate directory?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Evan Stewart's listed title is Associate Professor. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the title listed for Evan Stewart in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_013",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which political topics are included in Paul Watanabe's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes American Foreign Policy, American Political Behavior, Ethnic Group Politics. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Paul Watanabe from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_014",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What health-related research areas are listed for Jessica Whiteley?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Jessica Whiteley's stated expertise includes Research: Health Promotion Interventions, Health Equity, Digital Health, Person-Centered. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Jessica Whiteley from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_015",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What role does Kerrie Wilkins hold in Counseling and School Psychology?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Kerrie Wilkins's title is Graduate Program Director/Associate Professor. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_016",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What subjects are included in Cedric Woods's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise includes Tribal government, American Indian education, economic development, chronic disease prevention. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the expertise listed for Cedric Woods in the provided source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_017",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Who serves as the SSL Board member associated with the Barr Foundation?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Kalila Barnett serves as an SSL Board member and is the Program Officer of Climate Resilience at the Barr Foundation [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Kalila Barnett",
+          "entity_type": "board_member",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "Who serves as the SSL Board member associated with the Barr Foundation?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Kalila Barnett as the board member associated with the Barr Foundation, and the citation accurately points to the relevant section of the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_018",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What did Kalila Barnett study at Bates College?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "The study was **Kalila joined Barr as the Climate Resilience Program Officer in 2018. Kalila has over a decade of experience in community organizing around affordable housing, land development, and environmental justice. She served as the Executive Director at Alternatives for Community and Environment (ACE) for eight years. Before joining ACE in 2009, she worked as a Senior Organizer at Community Labor United. Kalila has a Bachelor's degree from Bates College, where she studied American Studies and Spanish, and a Master of Public Policy from the Urban and Environmental Policy and Planning School at Tufts University. Kalila currently lives in Roslindale and enjoys walking in the Arboretum, listening to podcasts, and cooking for friends.**: Man with blue baseball cap, grey jacket, in front of greenery and buildings Gabriel Cira, AIA Principal architect, ARCH CIRA, and Project Lead for The Emerald Tutu [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 5,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The model correctly identified the subjects of study but included a large, irrelevant block of text containing the entire biography and the start of the next person's profile.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_019",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which graduate school awarded Kalila Barnett's public policy degree?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Kalila Barnett earned a Master of Public Policy from the Urban and Environmental Policy and Planning School at Tufts in University. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the school, but contains a minor grammatical error ('Tufts in University').",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_020",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Gabriel Cira's professional role at ARCH CIRA?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Gabriel Cira's title is licensed architect based in Massachusetts. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is correct but incomplete; it identifies him as a licensed architect but fails to mention his specific role as 'Principal architect' at ARCH CIRA as stated in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_021",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of infrastructure is The Emerald Tutu intended to provide?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "The Emerald Tutu is designed as visionary nature-based floating infrastructure intended to provide urban-scale coastal flood protection [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Gabriel Cira",
+          "entity_type": "board_member",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of infrastructure is The Emerald Tutu intended to provide? responsible for manages supports engagement program purpose"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the definition of The Emerald Tutu directly from the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_022",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which health organization employs Tim Cronin as an Associate Director?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Tim Cronin serves as the Associate Director of Policy and Advocacy at Health Care Without Harm [1]. In this leadership capacity, he oversees the organization\u2019s US state and local policy portfolio [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the organization and role using the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_023",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What academic degrees does Tim Cronin hold?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Tim Cronin: Tim has a Bachelor's degree in economics and public policy from Stonehill College and a Master of Public Administration from the McCormack Graduate School at UMass Boston. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_024",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What medical specialty does Caleb Dresser practice?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Caleb Dresser is the Assistant Director of the Fellowship in Climate Change and Human Health based at BIDMC, the Harvard FXB Center, and Harvard C-CHANGE. He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, professional, and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_025",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the focus of Caleb Dresser's climate-related research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "He is a practicing Emergency Medicine physician on faculty at BIDMC and Harvard Medical School and a research scientist with the disaster planning and response organization CrisisReady. His research focuses on understanding the public health and healthcare implications of climate-related disasters and extreme weather events. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding Caleb Dresser's research focus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_026",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What two kinds of engineering degrees does Julie Eaton Ernst have?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "She has bachelor's and master's degrees in Civil Engineering [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified the degrees held by Julie Eaton Ernst. While the user's question implied there were two different 'kinds' of engineering degrees, the assistant accurately clarified that she holds a bachelor's and a master's degree, both in Civil Engineering.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_027",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which committee does Julie Eaton Ernst chair for the Environmental Business Council?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Julie Eaton Ernst: She serves as chair of the Climate Change and Air Committee for the Environmental Business Council (EBC) of New England. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_028",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What organization does Isabella Gambill represent on climate and clean-energy policy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill: Assistant Director of Climate, Energy, & Resilience, A Better City. In her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the organization (A Better City) and provides accurate information supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_029",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What extreme-weather issue does Isabella Gambill lead work on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella Gambill leads work on Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. [1].",
+      "sources": [
+        {
+          "title": "BoardOfDirectors",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "source_url": "URL not provided",
+          "citation": 1
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is factually correct based on the corpus, but it contains a significant grammatical error and repetitive phrasing at the beginning of the sentence.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_030",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Amy Kort\u00e9's position at Arrowstreet?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Amy Kort\u00e9's title is President, Arrowstreet. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_031",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What studio did Amy Kort\u00e9 launch at Arrowstreet?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Amy leads much of the research thinking at Arrowstreet, and launched the firm\u2019s Virtual Reality/Augmented Reality Studio [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_032",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is ISeeChange, the organization led by Julia Kumari Drapkin?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "ISeeChange is a climate data and engagement platform designed to help cities combat climate change [1]. Julia Kumari Drapkin serves as the CEO and founder of the organization [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus. The citation correctly points to the source containing the relevant information.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_033",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Before founding ISeeChange, what kind of work did Julia Kumari Drapkin do?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "CEO and Founder, ISeeChange. Julia Kumari Drapkin is the CEO of ISeeChange, a climate data and engagement platform to help cities combat climate change. Drapkin founded ISeeChange after reporting natural disasters and climate change for 12 years across the globe and in her own backyard on the Gulf Coast. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate but incomplete; it mentions the journalism work but fails to mention the 7 years of anthropology research also listed in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_034",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What clean technologies does ReVision Energy install according to Jen Stevenson Zepeda's profile?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "ir, glasses, yellow shirt in front of brick wall Jen Stevenson Zepeda Commercial Solar Consultant, ReVision Energy Jen Stevenson Zepeda (she/her) is a Commercial Solar Consultant for ReVision, an employee-owned B Corp that installs solar, battery storage, and other clean technologies across northern New England [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the technologies from the text, but it includes unnecessary and unprofessional image description text at the beginning of the response.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_035",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Where did Jen Stevenson Zepeda earn her master's degree?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Jen Stevenson Zepeda earned a Master's in Sustainable Design from the Boston Architectural College. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_036",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Gabriela Boscio's staff title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Gabriela Boscio's staff title is Associate Director [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Elisa Guerrero responsible for as an SSL staff member?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero: Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Elisa Guerrero's role as Community Engagement Manager based on the provided staff list.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_038",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What email address is listed for Rajini Srikanth?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed email address is Rajini.Srikanth@umb.edu [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address for Rajini Srikanth as provided in the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_039",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which three themes organize the CLIIR Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The CLIIR Initiative is organized by three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three themes listed in the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_040",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Why does the CLIIR Initiative use its three themes, according to the project description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "According to the project description, the CLIIR Initiative uses its three themes\u2014Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health\u2014for the following reasons: * **Motivation:** These themes leverage areas of strength within the team and partner networks [1]. * **Purpose:** The themes have significant interconnections that foster the capacity to think and work holistically, and they provide testing grounds for building the Decision Support Hub and advancing the study of individual and collective decision-making [1]. * **Topic:** The three themes utilized by the initiative are Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the information provided in the corpus regarding the CLIIR Initiative's themes and the rationale behind them.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_041",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of organizations help develop C3I's microcredentialed curricula?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) collaborates with the following types of organizations to develop its microcredentialed training programs:\n- Industry partners [1, 2]\n- Community-based organizations [1, 2]\n- Academic experts [1, 2]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of organizations help develop C3I's microcredentialed curricula? (subject: Climate Careers Curricula Initiative (C3I))"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 11,
+          "evidence_id": "evidence_9",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of organizations help develop C3I's microcredentialed curricula? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the three types of organizations involved in curriculum development as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_042",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What employment support is planned for C3I participants after training?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) plans to establish partnerships with employers to create pathways from training to employment [1]. The support provided to participants includes the following:\n- Internships [1], - Job placement assistance [1], - Mentoring [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What employment support is planned for C3I participants after training? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the specific employment support mechanisms (internships, job placement assistance, and mentoring) mentioned in the corpus for the C3I program.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_043",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How often is the Northeast Collaborative membership map updated?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The membership map is updated twice per year [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_044",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of network is the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Northeast Climate Justice Research Collaborative is a trans-disciplinary network for academic and community researchers in the Northeast [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of network is the Northeast Climate Justice Research Collaborative? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_045",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What does the Climate Adaptation Forum provide besides presentations?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum brings together diverse speakers and attendees across multiple sectors to engage in half-day presentations, networking, and discussions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies networking and discussions as the components provided alongside presentations, as explicitly stated in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_046",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which organizations and experts collaborate on the Cape Cod Rail project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The organizations and experts collaborating on the Cape Cod Rail Resilience Project are as follows: **Collaborating Organizations**\n- The project is a collaborative effort involving the Massachusetts Department of Transportation (MassDOT), the University of Massachusetts Boston (UMass Boston), and AECOM [1]. **Collaborating Experts**\n- Carlos Vel\u00e1squez, a PhD candidate at UMass Boston and a project manager at MassDOT, leads the project [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which organizations and experts collaborate on the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project) working alongside worked with contributors authors acknowledgments project management editing design support throughout the research process program initiative working with"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the collaborating organizations (MassDOT, UMass Boston, AECOM) and the lead expert (Carlos Vel\u00e1squez) as described in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_047",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What monitoring equipment is used along the Cape Main Line project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "**Monitoring Equipment** The Cape Cod Rail Resilience Project team utilizes the following equipment for monitoring along the Cape Main Line:\n- Drones are used for mapping [1].\n- Sensors are used for monitoring water levels [1].\n- Real-time monitoring systems are implemented at three pilot study sites [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What monitoring equipment is used along the Cape Main Line project? (subject: Cape Cod Rail Resilience Project) program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the monitoring equipment (drones, sensors, and real-time monitoring systems) mentioned in the Cape Cod Rail Resilience Project section of the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_048",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What event caused the Cape Cod rail embankment collapse to be linked to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The 300-foot rail embankment collapse in East Sandwich in 2020 was linked to climate change-induced drought conditions [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the event and the cause as described in the corpus. While citation [2] is correct, citation [1] refers to a document not included in the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_049",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Ante Iv\u010devi\u0107's research interest in relation to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed expertise is coastal governance, integrated coastal zone management, science-policy [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the research interests of Ante Iv\u010devi\u0107 as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_050",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What fellowship supported Ante Iv\u010devi\u0107's doctoral degree?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University and was a H2020 fellow [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the H2020 fellowship mentioned in the provided source text.",
+      "stream_error": ""
+    }
+  ]
+}

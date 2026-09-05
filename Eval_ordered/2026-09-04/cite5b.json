@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-09-05T03:32:15.780231+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/cite5.json",
+  "summary": {
+    "total_cases": 5,
+    "average_scores": {
+      "clarity": 4.8,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 3.0,
+      "citations": 3.6
+    },
+    "classification_counts": {
+      "answered_yes": 5,
+      "answered_no": 0,
+      "hallucinated_yes": 2,
+      "hallucinated_no": 3,
+      "right_citations_yes": 3,
+      "right_citations_no": 2
+    }
+  },
+  "results": [
+    {
+      "id": "n139",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is the projected range for relative sea level rise in the Boston area by the year 2100?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The projected relative sea level rise in the Boston area by the year 2100 ranges from 3 to 6 feet [2], with another source projecting a range of 1.8 to 7.3 feet [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+          "url": "https://scholarworks.umb.edu/ssl/11/",
+          "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected range for relative sea level rise in the Boston area by the year 2100?"
+        },
+        {
+          "citation": 2,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 440,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the projected range for relative sea level rise in the Boston area by the year 2100?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The corpus reference (Executive Summary) supports the 1.8 to 7.3 feet range by 2100. The 3 to 6 feet range is attributed to source 2, whose full text was not provided in the corpus reference snippet.",
+      "stream_error": ""
+    },
+    {
+      "id": "n146",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "For the Mystic under 5 feet of sea level rise (2100), Table 7.9 lists the asset value of ecosystem services in millions of 2016 dollars as 7,073 and 28,413 for the sliding scale, 4,958 and 19,506 for the 3 percent discount rate [1], and 2,582 and 9,502 for the 7 percent discount rate [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+          "url": "https://scholarworks.umb.edu/ssl/2/",
+          "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 763,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "In the Feasibility of Harbor-wide Barrier Systems report, what does Table 7.9 give as the asset value of ecosystem services for the Mystic under 5 feet of sea level rise?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "no"
+      },
+      "notes": "The provided corpus reference does not contain the data from Table 7.9, making the specific figures provided by the assistant unsupported by the reference.",
+      "stream_error": ""
+    },
+    {
+      "id": "n156",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which percentage of Black respondents in the survey believe that the impacts of climate change will be distributed unequally among different groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Thirty percent of Black residents believe that climate change will impact some communities more than others [1], and survey chart data indicates that 27% of Black respondents expect climate change to cause an unequal impact.",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+          "url": "https://scholarworks.umb.edu/ssl/5/",
+          "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 86,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 4,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "yes",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant answers the question but cites incorrect figures (stating 30% and 27% while Figure 4 reports 33% for Black respondents).",
+      "stream_error": ""
+    },
+    {
+      "id": "n185",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "By the year 2020, the MVP program had achieved an enrollment rate of 89% of municipalities throughout the Commonwealth [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+          "url": "https://scholarworks.umb.edu/ssl/3/",
+          "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 53,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "What percentage of Massachusetts cities and towns had participated in the MVP program by the year 2020?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 3,
+        "citations": 2
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer provides a specific percentage (89%) while the corpus reference states 'over 80%'. Furthermore, it cites an external document rather than the expected corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "n202",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- Location: Gutter/sidewalks [1]\n- Quantity: 5 [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+          "url": "https://scholarworks.umb.edu/ssl/7/",
+          "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 42,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which specific type of location received the highest number of reported flooding observations from participating H-2b workers? location quantity"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies gutter/sidewalks with a quantity of 5 based on the chart in Appendix B of the corpus.",
+      "stream_error": ""
+    }
+  ]
+}

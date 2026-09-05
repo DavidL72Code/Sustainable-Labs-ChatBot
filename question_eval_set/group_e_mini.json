@@ -1,0 +1,49 @@
+{
+  "single_turn": [
+    {
+      "id": "n030",
+      "question": "Which organization authored the research note concerning the requirement for emergency rental assistance during the recent economic and health crisis?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n082",
+      "question": "Which municipal entity published findings in 2021 regarding how climate resilience regulations can negatively impact housing supply?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n124",
+      "question": "Which specific population groups does the research suggest should be prioritized in policy interventions to ensure that efforts to address climate change do not lead to further displacement or inequality?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n189",
+      "question": "Which academic institution are all four co-authors affiliated with?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    },
+    {
+      "id": "n197",
+      "question": "What creative techniques are suggested as alternatives to help residents connect their lived experiences to the housing and climate crises?",
+      "author": "gemini-3.5-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+    }
+  ]
+}

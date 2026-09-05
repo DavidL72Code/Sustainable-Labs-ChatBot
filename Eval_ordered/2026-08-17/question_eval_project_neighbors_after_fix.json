@@ -1,0 +1,557 @@
+{
+  "generated_at": "2026-08-18T18:33:47.447001+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_scored.json",
+  "summary": {
+    "total_cases": 15,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 5.0,
+      "citations": 4.93
+    },
+    "classification_counts": {
+      "answered_yes": 15,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 15,
+      "right_citations_yes": 15,
+      "right_citations_no": 0
+    }
+  },
+  "results": [
+    {
+      "id": "novel_036",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Gabriela Boscio's staff title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Gabriela Boscio's title is Associate Director [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Elisa Guerrero responsible for as an SSL staff member?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero: Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Elisa Guerrero's role as Community Engagement Manager based on the provided staff list.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_038",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What email address is listed for Rajini Srikanth?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed email address is Rajini.Srikanth@umb.edu [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address for Rajini Srikanth as provided in the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_039",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which three themes organize the CLIIR Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The CLIIR Initiative is organized around three main themes: Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three themes of the CLIIR Initiative as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_040",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Why does the CLIIR Initiative use its three themes, according to the project description?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The CLIIR Initiative utilizes the themes of Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health for the following reasons [1]: * **Topic:** These three themes serve as the focal points of the initiative\u2019s work under the umbrella of climate resilience and inequality [1]. * **Motivation:** The initiative uses these themes because they leverage areas of strength within their team and partner networks [1]. * **Purpose:** These themes have significant interconnections that foster the capacity to think and work holistically, and they provide testing grounds for building the Decision Support Hub and advancing the study of individual and collective decision-making [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the reasons for the CLIIR Initiative's themes directly from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_041",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of organizations help develop C3I's microcredentialed curricula?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) collaborates with the following types of organizations to develop its microcredentialed training programs:\n- Industry partners [1, 2]\n- Community-based organizations [1, 2]\n- Academic experts [1, 2]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of organizations help develop C3I's microcredentialed curricula? (subject: Climate Careers Curricula Initiative (C3I))"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 11,
+          "evidence_id": "evidence_9",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of organizations help develop C3I's microcredentialed curricula? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the three types of organizations involved in curriculum development as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_042",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What employment support is planned for C3I participants after training?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Careers Curricula Initiative (C3I) plans to provide employment support to participants through the establishment of partnerships with employers [1]. These partnerships are intended to create pathways from training to employment, which include the following forms of support:\n- Internships [1]\n- Job placement assistance [1]\n- Mentoring [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What employment support is planned for C3I participants after training? (subject: Climate Careers Curricula Initiative (C3I))"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the employment support details directly from the provided corpus text regarding the C3I project.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_043",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "How often is the Northeast Collaborative membership map updated?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The membership map is updated twice per year [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_044",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What kind of network is the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Northeast Climate Justice Research Collaborative is a trans-disciplinary network for academic and community researchers in the Northeast [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Northeast Climate Justice Research Collaborative",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What kind of network is the Northeast Climate Justice Research Collaborative? scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate, concise, and directly supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_045",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What does the Climate Adaptation Forum provide besides presentations?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Climate Adaptation Forum brings together diverse speakers and attendees across multiple sectors to engage in half-day presentations, networking, and discussions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies networking and discussions as the components provided alongside presentations, as explicitly stated in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_046",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which organizations and experts collaborate on the Cape Cod Rail project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The organizations and experts collaborating on the Cape Cod Rail Resilience Project are as follows: **Organizations**\nThe organizations involved in this project include the Sustainable Solutions Lab (SSL), MassDOT, UMass Boston, and AECOM [1]. **Experts**\nCarlos Vel\u00e1squez, a PhD candidate at UMass Boston and a project manager at MassDOT, leads the project [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which organizations and experts collaborate on the Cape Cod Rail project? (subject: Cape Cod Rail Resilience Project) working alongside worked with contributors authors acknowledgments project management editing design support throughout the research process program initiative working with"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the organizations (SSL, MassDOT, UMass Boston, AECOM) and the lead expert (Carlos Vel\u00e1squez) as described in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_047",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What monitoring equipment is used along the Cape Main Line project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The Cape Cod Rail Resilience Project utilizes the following equipment for monitoring along the Cape Main Line:\n- Drones are used for mapping [1].\n- Sensors are used for monitoring water levels [1].\n- Real-time monitoring systems are utilized at three pilot study sites [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What monitoring equipment is used along the Cape Main Line project? (subject: Cape Cod Rail Resilience Project) program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the monitoring equipment (drones, sensors, and real-time monitoring systems) directly from the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_048",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What event caused the Cape Cod rail embankment collapse to be linked to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The 300-foot rail embankment collapse in East Sandwich in 2020 was linked to climate change-induced drought conditions [1, 2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the event and the cause as described in the corpus. While citation [2] is correct, citation [1] refers to a document not included in the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_049",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Ante Iv\u010devi\u0107's research interest in relation to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed expertise is coastal governance, integrated coastal zone management, science-policy [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the research interests of Ante Iv\u010devi\u0107 as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_050",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What fellowship supported Ante Iv\u010devi\u0107's doctoral degree?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University and was a H2020 fellow [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the H2020 fellowship mentioned in the provided source text.",
+      "stream_error": ""
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-08-18T01:34:22.370784+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_scored.json",
+  "summary": {
+    "total_cases": 4,
+    "average_scores": {
+      "clarity": 3.25,
+      "professional_tone": 3.75,
+      "correctness_vs_corpus": 3.75,
+      "citations": 4.0
+    },
+    "classification_counts": {
+      "answered_yes": 3,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 4,
+      "right_citations_yes": 3,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "novel_005",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which affiliate's expertise includes paleoceanography and Arctic biogeochemistry?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The affiliate is Jesse Farmer, whose listed expertise is Expertise: Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Jesse Farmer as the affiliate with the specified expertise and provides the correct citation from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_010",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Georgia Mavrommati's listed office phone number?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed phone number is 617.287.7419 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the phone number for Georgia Mavrommati from the provided corpus document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_029",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What extreme-weather issue does Isabella Gambill lead work on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "I can answer questions about the Sustainable Solutions Lab's research, projects, publications, staff, and initiatives.",
+      "sources": [],
+      "scores": {
+        "clarity": 1,
+        "professional_tone": 3,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The assistant failed to answer the question and did not retrieve the relevant information from the provided corpus, which explicitly states that Isabella Gambill leads work on extreme heat.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_049",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Ante Iv\u010devi\u0107's research interest in relation to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "ult-942a1b112/ Man with short beard and short hair wearing brown jacket, standing in front of waterAnte Iv\u010devi\u0107 (Fall 2023 - Spring 2024) Ante Iv\u010devi\u0107 (Fall 2023 - Spring 2024) Focus: coastal governance, integrated coastal zone management, science-policy Bio: My fundamental research interest is coastal governance in light of the accelerated global climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer contains significant irrelevant metadata and formatting noise (image descriptions and repeated text), which degrades the quality, although the factual information provided is correct.",
+      "stream_error": ""
+    }
+  ]
+}

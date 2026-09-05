@@ -1,0 +1,23 @@
+{
+ "single_turn": [
+  {
+   "id": "n022",
+   "question": "What were the primary themes identified during the analysis of the research discussions?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+  },
+  {
+   "id": "n061",
+   "question": "Who are the researchers associated with the Sustainable Solutions Lab that authored the report on transient populations and climate resilience?",
+   "author": "gemini-3.1-flash-lite",
+   "target_sources": [
+    "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+   ],
+   "corpus_reference": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+  }
+ ],
+ "multi_turn": []
+}

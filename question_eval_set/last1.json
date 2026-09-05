@@ -1,0 +1,14 @@
+{
+  "single_turn": [
+    {
+      "id": "n208",
+      "question": "What specific technology did the authors employ to organize and prepare the initial draft of their commentary?",
+      "author": "gemini-3.1-flash-lite",
+      "target_sources": [
+        "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+      ],
+      "corpus_reference": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+    }
+  ],
+  "multi_turn": []
+}

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-08-13T03:54:21.736220+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_live.json",
+  "summary": {
+    "total_cases": 1,
+    "average_scores": {
+      "clarity": 5.0,
+      "professional_tone": 5.0,
+      "correctness_vs_corpus": 1.0,
+      "citations": 1.0
+    },
+    "classification_counts": {
+      "answered_yes": 0,
+      "answered_no": 1,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 1,
+      "right_citations_yes": 0,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "novel_045",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What does the Climate Adaptation Forum provide besides presentations?",
+      "target_sources": [],
+      "output": "The Climate Adaptation Forum is a quarterly, half-day series co-organized by SSL and the Environmental Business Council of New England. It brings experts and participants together to discuss climate adaptation and resilience. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 1
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer fails to address the specific question regarding what the forum provides besides presentations, and the provided source is irrelevant to the query.",
+      "stream_error": ""
+    }
+  ]
+}

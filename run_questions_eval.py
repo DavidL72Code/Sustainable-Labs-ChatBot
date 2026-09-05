@@ -25,6 +25,9 @@ call_gemini = None
 create_chatbot = None
 LAST_GEMINI_CALL_AT = 0.0
 MIN_GEMINI_INTERVAL_SECONDS = float(os.getenv("EVAL_MIN_GEMINI_INTERVAL_SECONDS", "4.5"))
+# The judge must stay fixed while GEMINI_MODEL varies, or a model comparison
+# also swaps the grader and the two effects cannot be separated.
+JUDGE_MODEL = os.getenv("EVAL_JUDGE_MODEL", "").strip() or None
 
 
 def load_dotenv_simple(env_path: Path) -> None:
@@ -62,6 +65,22 @@ def list_folder_inventory(folder_path: Path) -> list[str]:
     )
 
 
+_PDF_TEXT_CACHE: dict[str, str] = {}
+
+
+def _pdf_text(path: Path) -> str:
+    """Extract and cache PDF text so the judge can verify answers against it."""
+    key = str(path)
+    if key not in _PDF_TEXT_CACHE:
+        try:
+            from Chatbot import extract_pdf_text
+            _PDF_TEXT_CACHE[key] = extract_pdf_text(path) or ""
+        except Exception as exc:
+            print(f"Could not read {path.name}: {exc}", flush=True)
+            _PDF_TEXT_CACHE[key] = ""
+    return _PDF_TEXT_CACHE[key]
+
+
 def build_corpus_reference(target_sources: list[str]) -> str:
     blocks: list[str] = []
 
@@ -90,9 +109,16 @@ def build_corpus_reference(target_sources: list[str]) -> str:
             # sources like the annual reports (~50k chars), so facts stated later in the
             # document were invisible to the judge and correct answers were wrongly
             # flagged as hallucinations.
-            blocks.append(f"Source: {source}\n{text[:200000]}")
+            blocks.append(f"Source: {source}\n{text[:CORPUS_REFERENCE_CHARS]}")
         else:
-            blocks.append(f"Source: {source}\nBinary/PDF source document. Use file title/path as inventory evidence.")
+            # Extract PDF text rather than telling the judge to grade on the
+            # filename alone. Without this, every answer drawn from a PDF looks
+            # unverifiable and correct facts get marked as hallucinated.
+            text = _pdf_text(source_path)
+            if text:
+                blocks.append(f"Source: {source}\n{text[:CORPUS_REFERENCE_CHARS]}")
+            else:
+                blocks.append(f"Source: {source}\nPDF text could not be extracted. Use file title/path as inventory evidence.")
 
     return "\n\n" + ("\n\n".join(blocks) if blocks else "No target source references provided.")
 
@@ -127,8 +153,18 @@ Scoring rules:
 - professional_tone: 1-5
 - correctness_vs_corpus: 1-5, based only on the provided corpus reference
 - citations: 1-5, based on whether the provided sources are useful/relevant support
-- answered_question: yes if it directly answers the question asked
+- answered_question: yes if it directly answers the question asked. If the
+  conversation context shows the assistant asked a clarifying question because
+  the question was ambiguous, and the user answered it, judge the FINAL answer
+  only. Asking a reasonable clarifying question is correct behaviour and must
+  not on its own count as failing to answer.
 - hallucinated: yes if it states unsupported or clearly incorrect facts
+- If the corpus reference genuinely does not contain what the question asks for,
+  a clear refusal ("the available documents do not state this") is the CORRECT
+  answer: score answered_question yes, hallucinated no, right_citations yes, and
+  correctness_vs_corpus 5. Do not penalise an accurate refusal for returning no
+  sources. Only score it as failing if the answer IS present in the corpus
+  reference and the assistant missed it.
 - right_citations: yes if the returned sources match the relevant corpus sources well enough
 
 Prompt kind: {prompt_kind}
@@ -161,13 +197,33 @@ Corpus reference:
                 + "\n\nYour previous response could not be parsed as JSON. "
                 + "Return only one valid JSON object with the exact schema and no markdown."
             )
-        raw_judgment = gemini_call_with_retry(prompt, temperature=0.0)
+        raw_judgment = gemini_call_with_retry(prompt, temperature=0.0, model=JUDGE_MODEL)
         try:
             parsed = extract_json_block(raw_judgment)
             break
         except json.JSONDecodeError:
             if attempt == 3:
-                raise
+                # Never lose a whole run to one bad judge response. Generation is
+                # greedy with a fixed seed, so all three attempts return the same
+                # truncated JSON and the run died at question 8 of 11 with the
+                # other 10 verdicts already computed. Record the failure as its
+                # own outcome instead — a scoring gap is visible in the results
+                # and costs one question, not the entire run.
+                print(
+                    f"Judge returned unparseable JSON after 3 attempts; "
+                    f"recording as judge_error: {raw_judgment[:120]!r}",
+                    flush=True,
+                )
+                return {
+                    "clarity": 0,
+                    "professional_tone": 0,
+                    "correctness_vs_corpus": 0,
+                    "citations": 0,
+                    "answered_question": "judge_error",
+                    "hallucinated": "judge_error",
+                    "right_citations": "judge_error",
+                    "notes": f"Judge response could not be parsed as JSON: {raw_judgment[:400]}",
+                }
 
     assert parsed is not None
 
@@ -192,9 +248,31 @@ def run_stream_answer(chatbot: Any, question: str, conversation: list[dict[str, 
     status = "answered"
     response_mode = ""
     needs_clarification = False
+    clarification_options: list[Any] = []
+    conversation_state: dict[str, Any] | None = None
     stream_error = ""
 
-    for frame in chatbot.answer_stream(question, recent_history=conversation or []):
+    # answer_stream generates through call_gemini_stream, which does not go via
+    # gemini_call_with_retry, so a transient 503 or 429 from Google would abort
+    # the whole eval. Retry the question instead of losing the run.
+    frames: list[str] = []
+    for attempt in range(1, 7):
+        try:
+            frames = list(chatbot.answer_stream(question, recent_history=conversation or []))
+            break
+        except Exception as exc:
+            message = str(exc).lower()
+            transient = any(
+                marker in message
+                for marker in ("429", "quota", "503", "unavailable", "500", "internal error", "deadline", "timeout")
+            )
+            if not transient or attempt == 6:
+                raise
+            delay = min(60, 5 * (2 ** (attempt - 1)))
+            print(f"  transient error, retrying in {delay}s: {str(exc)[:70]}", flush=True)
+            time.sleep(delay)
+
+    for frame in frames:
         for line in str(frame).splitlines():
             if not line.startswith("data: "):
                 continue
@@ -208,6 +286,7 @@ def run_stream_answer(chatbot: Any, question: str, conversation: list[dict[str, 
                 status = event.get("status", status)
                 response_mode = event.get("response_mode", response_mode)
                 needs_clarification = bool(event.get("needs_clarification", False))
+                clarification_options = event.get("clarification_options", []) or clarification_options
             elif event.get("type") == "delta":
                 answer_parts.append(str(event.get("delta", "")))
             elif event.get("type") == "error":
@@ -220,6 +299,9 @@ def run_stream_answer(chatbot: Any, question: str, conversation: list[dict[str, 
                 status = event.get("status", status)
                 response_mode = event.get("response_mode", response_mode)
                 needs_clarification = bool(event.get("needs_clarification", False))
+                clarification_options = event.get("clarification_options", []) or clarification_options
+                if isinstance(event.get("conversation_state"), dict):
+                    conversation_state = event["conversation_state"]
 
     return {
         "reply": "".join(answer_parts).strip(),
@@ -228,14 +310,79 @@ def run_stream_answer(chatbot: Any, question: str, conversation: list[dict[str, 
         "status": status,
         "response_mode": response_mode,
         "needs_clarification": needs_clarification,
+        "clarification_options": clarification_options,
+        "conversation_state": conversation_state,
         "stream_error": stream_error,
     }
+
+
+MAX_CLARIFICATION_ROUNDS = int(os.getenv("EVAL_MAX_CLARIFICATION_ROUNDS", "2"))
+# The judge grades against this text, so truncating it invents failures. The
+# Feasibility report is 695k chars; at the old 200k cap the judge saw 29% of it
+# and marked correct answers "not in the corpus" — n142/n173/n174 sit at offsets
+# 378k/250k/262k, past the cut. Large enough to hold the biggest document whole.
+CORPUS_REFERENCE_CHARS = int(os.getenv("EVAL_CORPUS_REFERENCE_CHARS", "750000"))
+# The harness paces judge calls (MIN_GEMINI_INTERVAL_SECONDS) but the chatbot's
+# planner, selector and generation calls fire back-to-back, which bursts past the
+# free tier's per-minute cap and kills a run two questions in with "Evidence
+# selector RPM limit". Pace whole questions instead.
+QUESTION_DELAY_SECONDS = float(os.getenv("EVAL_QUESTION_DELAY_SECONDS", "0"))
+
+
+def document_label(source_path: str) -> str:
+    """Readable report name for a corpus path, for the simulated user reply."""
+    stem = Path(str(source_path or "")).stem
+    stem = re.sub(r"(?i)^executive\s+summary[_\s-]*", "", stem)
+    stem = stem.split("_")[0].strip() or stem
+    return re.sub(r"\s+", " ", stem).strip()
+
+
+def simulated_clarification_reply(item: dict[str, Any], result: dict[str, Any]) -> str:
+    """What the user who asked this question would say when asked to narrow it.
+
+    The eval knows which document the question was written from, which is the
+    scope a real user carries in their head — not the answer. Supplying it lets
+    the run continue instead of scoring a reasonable clarifying question as a
+    failure to answer.
+    """
+    targets = [document_label(path) for path in item.get("target_sources", []) if str(path).strip()]
+    options = [
+        str(option.get("label") or option.get("value") or option)
+        if isinstance(option, dict) else str(option)
+        for option in (result.get("clarification_options") or [])
+        if option
+    ]
+    for option in options:
+        if any(target and target.lower() in option.lower() for target in targets):
+            return option
+    if targets:
+        return f"I mean the {targets[0]} report."
+    return "Please answer using whichever source is most relevant."
 
 
 def run_single_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
     question = item["question"]
     target_sources = item.get("target_sources", [])
+    conversation: list[dict[str, str]] = []
+    transcript: list[dict[str, str]] = []
     result = run_stream_answer(chatbot, question, conversation=[])
+    asked = question
+    # A clarifying question is a correct response to an ambiguous question, not a
+    # refusal to answer. Resolve it the way the user would and grade what comes
+    # back, with the whole exchange handed to the judge.
+    rounds = 0
+    while result.get("needs_clarification") and rounds < MAX_CLARIFICATION_ROUNDS:
+        rounds += 1
+        transcript.append({"user": asked, "assistant": result["reply"]})
+        turn = ConversationTurn(user=asked, assistant=result["reply"])
+        state = result.get("conversation_state")
+        if isinstance(state, dict):
+            turn["state"] = state
+        conversation.append(turn)
+        asked = simulated_clarification_reply(item, result)
+        print(f"  clarification round {rounds}: {asked[:70]}", flush=True)
+        result = run_stream_answer(chatbot, asked, conversation=conversation)
+    transcript.append({"user": asked, "assistant": result["reply"]})
     corpus_reference = build_corpus_reference(target_sources)
     judgment = judge_response(
         prompt_kind=item.get("type", "single_turn"),
@@ -244,6 +391,7 @@ def run_single_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
         sources=result.get("sources", []),
         target_sources=target_sources,
         corpus_reference=corpus_reference,
+        conversation=transcript if rounds else None,
     )
     return {
         "id": item["id"],
@@ -251,6 +399,8 @@ def run_single_turn(chatbot: Any, item: dict[str, Any]) -> dict[str, Any]:
         "type": item.get("type", "single_turn"),
         "question": question,
         "target_sources": target_sources,
+        "clarification_rounds": rounds,
+        "transcript": transcript if rounds else [],
         "output": result["reply"],
         "sources": result.get("sources", []),
         "scores": {
@@ -478,6 +628,8 @@ def main() -> None:
             print(f"Skipping {item['id']} (already completed)...")
             continue
         print(f"Running {item['id']}...")
+        if QUESTION_DELAY_SECONDS:
+            time.sleep(QUESTION_DELAY_SECONDS)
         result = run_single_turn(chatbot, item)
         results.append(result)
         save_results(results)

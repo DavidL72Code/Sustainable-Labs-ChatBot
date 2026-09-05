@@ -1,0 +1,536 @@
+{
+  "generated_at": "2026-08-18T02:30:26.779181+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "question_file": "question_eval_set/website/website_50_novel_scored.json",
+  "summary": {
+    "total_cases": 15,
+    "average_scores": {
+      "clarity": 4.8,
+      "professional_tone": 4.8,
+      "correctness_vs_corpus": 4.93,
+      "citations": 4.8
+    },
+    "classification_counts": {
+      "answered_yes": 15,
+      "answered_no": 0,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 15,
+      "right_citations_yes": 14,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "novel_004",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What public-health topics are associated with Lorena Estrada-Martinez's expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed expertise is Public health, social determinants of health inequities, Latino and immigrant... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Lorena Estrada-Martinez from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_005",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which affiliate's expertise includes paleoceanography and Arctic biogeochemistry?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The affiliate is Jesse Farmer, whose listed expertise is Expertise: Paleoceanography, paleoclimatology, ocean biogeochemistry, carbon cycle, nitrogen cycle,&nbsp;Arctic... [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Jesse Farmer as the affiliate with the specified expertise and provides the correct citation from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_006",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What economic issues does Dania Francis research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Dania Francis\u2019s stated expertise includes Racial economic disparities, economics of education, stratification economics. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the expertise listed for Dania Francis from the provided source.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_009",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What communication-related fields are listed for Camille Martinez?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "**Communication-related fields** The communication-related fields listed for Camille Martinez are environmental communication and intercultural communication [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Camille Curtis Martinez",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the communication-related fields listed in the corpus for Camille Martinez.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_010",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Georgia Mavrommati's listed office phone number?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "The listed phone number is 617.287.7419 [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the phone number for Georgia Mavrommati from the provided corpus document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_011",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which affiliate is identified as Director of the Gaston Institute?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "output": "Lorna Rivera is identified as the Director of the Mauricio Gaston Institute for Latino Community [1], [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "FACULTY AFFILIATES",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Which affiliate is identified as Director of the Gaston Institute? leadership"
+        },
+        {
+          "citation": 2,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt",
+          "section_name": "Lorna Rivera",
+          "entity_type": "affiliate",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_3",
+          "evidence_bucket": "main",
+          "evidence_query": "Which affiliate is identified as Director of the Gaston Institute? leadership"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly addresses the question. It cites the correct source (UniversityAffiliates.txt), though it also includes an additional citation that was not strictly necessary based on the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_028",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What organization does Isabella Gambill represent on climate and clean-energy policy?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella M. Gambill: Assistant Director of Climate, Energy, & Resilience, A Better City. In her role representing A Better City\u2019s 130 member business organizations, Isabella works to move equitable climate and clean energy policy agendas forward at the city and state levels in Massachusetts. Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the organization (A Better City) and provides accurate information supported by the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_029",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What extreme-weather issue does Isabella Gambill lead work on?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Isabella Gambill leads work on Isabella also leads A Better City\u2019s extreme heat work with a focus on community resilience and participates in a variety of policy coalitions. [1].",
+      "sources": [
+        {
+          "title": "BoardOfDirectors",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "source_url": "URL not provided",
+          "citation": 1
+        }
+      ],
+      "scores": {
+        "clarity": 2,
+        "professional_tone": 2,
+        "correctness_vs_corpus": 4,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is factually correct based on the corpus, but it contains a significant grammatical error and repetitive phrasing at the beginning of the sentence.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_030",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Amy Kort\u00e9's position at Arrowstreet?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "output": "Amy Kort\u00e9's title is President, Arrowstreet. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer is accurate and directly supported by the provided corpus document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_037",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Elisa Guerrero responsible for as an SSL staff member?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Elisa Guerrero: Community Engagement Manager. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies Elisa Guerrero's role as Community Engagement Manager based on the provided staff list.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_038",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What email address is listed for Rajini Srikanth?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed email address is Rajini.Srikanth@umb.edu [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies the email address for Rajini Srikanth as provided in the source document.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_039",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "Which three themes organize the CLIIR Initiative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The three themes that organize the CLIIR Initiative are Indigenous Knowledge and Governance, Climate Migration, and Climate Change and Health [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three themes of the CLIIR Initiative as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_048",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What event caused the Cape Cod rail embankment collapse to be linked to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "output": "The 300-foot rail embankment collapse in East Sandwich in 2020 was linked to climate change-induced drought conditions [1], [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2025-Impact_Report",
+          "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        },
+        {
+          "citation": 2,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_5",
+          "evidence_bucket": "subject_2",
+          "evidence_query": "Cape Cod Rail Resilience Project: What event caused the Cape Cod rail embankment collapse to be linked to climate change? program initiative working with research assistant team includes"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is factually correct and directly addresses the question. However, it cites two sources, while only the 'Projects.txt' source contains the relevant information; the 'UMB-SSL-2025-Impact_Report' was unnecessary.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_049",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What is Ante Iv\u010devi\u0107's research interest in relation to climate change?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "The listed expertise is coastal governance, integrated coastal zone management, science-policy [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the research interests of Ante Iv\u010devi\u0107 as stated in the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "novel_050",
+      "kind": "single_turn",
+      "type": "single_turn",
+      "question": "What fellowship supported Ante Iv\u010devi\u0107's doctoral degree?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "output": "Ante Iv\u010devi\u0107 holds a PhD from Aix-Marseille University and was a H2020 fellow [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the H2020 fellowship mentioned in the provided source text.",
+      "stream_error": ""
+    }
+  ]
+}

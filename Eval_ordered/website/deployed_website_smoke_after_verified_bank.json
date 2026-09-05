@@ -1,0 +1,255 @@
+{
+  "base_url": "https://davidl72code-umb-sustainable-chatbot.hf.space",
+  "captured_at_epoch": 1786418428.4325461,
+  "capture_only": true,
+  "case_count": 1,
+  "results": [
+    {
+      "id": "website_railway_publications_interns",
+      "kind": "multi_turn",
+      "type": "deployed_website_quality_smoke",
+      "target_sources": [],
+      "turns": [
+        {
+          "question": "What publications has SSL produced?",
+          "answer": "I found 15 publication source documents in the matched corpus scope. 1. Community-Led Climate Preparedness and Resilience in Boston_ New [1]\n2. Connecting for Equitable Climate Adaptation_ Mapping Stakeholder [2]\n3. Critical approaches to climate-induced migration research and sol [3]\n4. Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre [4]\n5. Executive Summary_Financing Climate Resilience_ Mobilizing Resour [5]\n6. Executive Summary_Governance for a Changing Climate_ Adapting Bos [6]\n7. Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis [7]\n8. Financing Climate Resilience_ Mobilizing Resources and Incentives [8]\n9. Governance for a Changing Climate_ Adapting Boston_s Built Enviro [9]\n10. Learning from the Massachusetts Municipal Vulnerability Preparedn [10]\n11. Opportunity in the Complexity_ Recommendations for Equitable Clim [11]\n12. Views that Matter_ Race and Opinions on Climate Change of Boston [12]\n13. Voices that Matter_ Boston Area Residents of Color Discuss Climat [13]\n14. Who Counts in Climate Resilience_ Transient Populations and Clima [14]\n15. johnson_wp21mj1 [15]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Community-Led Climate Preparedness and Resilience in Boston_ New",
+              "url": "https://scholarworks.umb.edu/ssl/1/",
+              "source_path": "SEED_DOCUMENTS/Publications/Community-Led Climate Preparedness and Resilience in Boston_ New.pdf"
+            },
+            {
+              "citation": 2,
+              "title": "Connecting for Equitable Climate Adaptation_ Mapping Stakeholder",
+              "url": "https://scholarworks.umb.edu/ssl/8/",
+              "source_path": "SEED_DOCUMENTS/Publications/Connecting for Equitable Climate Adaptation_ Mapping Stakeholder.pdf"
+            },
+            {
+              "citation": 3,
+              "title": "Critical approaches to climate-induced migration research and sol",
+              "url": "https://scholarworks.umb.edu/ssl/10/",
+              "source_path": "SEED_DOCUMENTS/Publications/Critical approaches to climate-induced migration research and sol.pdf"
+            },
+            {
+              "citation": 4,
+              "title": "Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre",
+              "url": "https://scholarworks.umb.edu/ssl/11/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Feasibility of Harbor-wide Barrier Systems_ Pre.pdf"
+            },
+            {
+              "citation": 5,
+              "title": "Executive Summary_Financing Climate Resilience_ Mobilizing Resour",
+              "url": "https://scholarworks.umb.edu/ssl/13/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Financing Climate Resilience_ Mobilizing Resour.pdf"
+            },
+            {
+              "citation": 6,
+              "title": "Executive Summary_Governance for a Changing Climate_ Adapting Bos",
+              "url": "https://scholarworks.umb.edu/ssl/15/",
+              "source_path": "SEED_DOCUMENTS/Publications/Executive Summary_Governance for a Changing Climate_ Adapting Bos.pdf"
+            },
+            {
+              "citation": 7,
+              "title": "Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis",
+              "url": "https://scholarworks.umb.edu/ssl/2/",
+              "source_path": "SEED_DOCUMENTS/Publications/Feasibility of Harbor-wide Barrier Systems_ Preliminary Analysis.pdf"
+            },
+            {
+              "citation": 8,
+              "title": "Financing Climate Resilience_ Mobilizing Resources and Incentives",
+              "url": "https://scholarworks.umb.edu/ssl/12/",
+              "source_path": "SEED_DOCUMENTS/Publications/Financing Climate Resilience_ Mobilizing Resources and Incentives.pdf"
+            },
+            {
+              "citation": 9,
+              "title": "Governance for a Changing Climate_ Adapting Boston_s Built Enviro",
+              "url": "https://scholarworks.umb.edu/ssl/14/",
+              "source_path": "SEED_DOCUMENTS/Publications/Governance for a Changing Climate_ Adapting Boston_s Built Enviro.pdf"
+            },
+            {
+              "citation": 10,
+              "title": "Learning from the Massachusetts Municipal Vulnerability Preparedn",
+              "url": "https://scholarworks.umb.edu/ssl/3/",
+              "source_path": "SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"
+            },
+            {
+              "citation": 11,
+              "title": "Opportunity in the Complexity_ Recommendations for Equitable Clim",
+              "url": "https://scholarworks.umb.edu/ssl/4/",
+              "source_path": "SEED_DOCUMENTS/Publications/Opportunity in the Complexity_ Recommendations for Equitable Clim.pdf"
+            },
+            {
+              "citation": 12,
+              "title": "Views that Matter_ Race and Opinions on Climate Change of Boston",
+              "url": "https://scholarworks.umb.edu/ssl/5/",
+              "source_path": "SEED_DOCUMENTS/Publications/Views that Matter_ Race and Opinions on Climate Change of Boston.pdf"
+            },
+            {
+              "citation": 13,
+              "title": "Voices that Matter_ Boston Area Residents of Color Discuss Climat",
+              "url": "https://scholarworks.umb.edu/ssl/6/",
+              "source_path": "SEED_DOCUMENTS/Publications/Voices that Matter_ Boston Area Residents of Color Discuss Climat.pdf"
+            },
+            {
+              "citation": 14,
+              "title": "Who Counts in Climate Resilience_ Transient Populations and Clima",
+              "url": "https://scholarworks.umb.edu/ssl/7/",
+              "source_path": "SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"
+            },
+            {
+              "citation": 15,
+              "title": "johnson_wp21mj1",
+              "url": "https://www.umb.edu/media/umassboston/content-assets/documents/johnson_wp21mj1.pdf",
+              "source_path": "SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 0.62,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What is the railway initiative?",
+          "answer": "The Sustainable Solutions Lab (SSL) is collaborating with the Massachusetts Department of Transportation (MassDOT), UMass Boston, and AECOM experts on the Cape Cod Rail Resilience Research Project [1]. This initiative is led by Carlos Velásquez, a PhD candidate at UMass Boston and project manager at MassDOT [1]. The project aims to improve rail safety and climate resilience along the Cape Main Line by integrating stakeholder-engaged research methods with advanced technology [1]. The initiative was launched in response to a 300-foot rail embankment collapse in East Sandwich in 2020, which was linked to climate change-induced drought conditions [1]. Utilizing funding from the United States Department of Transportation (USDOT), the team employs aerial surveys, hydrological drought analysis, and real-time monitoring systems, including drones for mapping and sensors for water level monitoring, at three pilot study sites [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 10,
+              "evidence_id": "evidence_3",
+              "evidence_bucket": "main",
+              "evidence_query": "What is the railway initiative? (subject: SSL publications)"
+            }
+          ],
+          "suggestions": [
+            "Who is leading the Cape Cod Rail Resilience Research Project?",
+            "What event prompted the launch of the Cape Cod Rail Resilience Research Project?",
+            "What technologies are being used for the Cape Cod Rail Resilience Research Project?"
+          ],
+          "status": "answered",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 13.25,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Who were the researchers involved in the railway initiative?",
+          "answer": "The Sustainable Solutions Lab (SSL) is collaborating with the Massachusetts Department of Transportation (MassDOT), UMass Boston, and AECOM experts on the Cape Cod Rail Resilience Research Project [1].",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "UMB-SSL-2025-Impact_Report",
+              "url": "https://liveumb-my.sharepoint.com/:b:/g/personal/ssl_umb_edu/ETKR2wqSPjFCjF5uXnDkTRQBq3i7QKoAe1b0j8zEPAPQdw?e=2Gm8VY",
+              "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2025-Impact_Report.pdf",
+              "section_name": "",
+              "entity_type": "",
+              "chunk_level": "summary",
+              "chunk_index": 9,
+              "evidence_id": "evidence_14",
+              "evidence_bucket": "main",
+              "evidence_query": "Who were the researchers involved in the railway initiative? (subject: SSL publications) scholarship research position visiting faculty urban and regional planning post-disaster recovery disaster mitigation sustainability"
+            }
+          ],
+          "suggestions": [
+            "What organization is partnering with SSL and MassDOT on the railway project?",
+            "What is the name of the railway research project involving SSL?",
+            "Which academic institution is involved in the Cape Cod Rail Resilience Research Project?"
+          ],
+          "status": "answered",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 12.399,
+          "event_types": [
+            "meta",
+            "delta",
+            "done",
+            "suggestions"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Is there a contact person for the railway initiative?",
+          "answer": "For public SSL inquiries, use SSL's public email: ssl@umb.edu. The lab is located in Healey Library, 10th Floor, Room 13, at UMass Boston. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "SSLAbout",
+              "url": "https://www.umb.edu/ssl/",
+              "source_path": "SEED_DOCUMENTS/SSLAbout.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 1.271,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "Can students apply to be interns with the railway initiative?",
+          "answer": "The assistant did not return a response. Please try again.",
+          "sources": [],
+          "suggestions": [],
+          "status": "error",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 3.714,
+          "event_types": [
+            "meta",
+            "delta",
+            "done"
+          ],
+          "stream_error": null
+        },
+        {
+          "question": "What are the specific goals of the railway initiatives?",
+          "answer": "SSL's major current projects and initiatives include:\n1. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Velásquez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]",
+          "sources": [
+            {
+              "citation": 1,
+              "title": "Projects",
+              "url": "https://www.umb.edu/ssl/projects/",
+              "source_path": "SEED_DOCUMENTS/Projects.txt"
+            }
+          ],
+          "suggestions": [],
+          "status": "answered",
+          "conversation_id": "ea823c4eb19f49a1b5a8b8637acabbb5",
+          "elapsed_seconds": 0.678,
+          "event_types": [
+            "done"
+          ],
+          "stream_error": null
+        }
+      ],
+      "final_answer": "SSL's major current projects and initiatives include:\n1. Cape Cod Rail Resilience Project: The Sustainable Solutions Lab (SSL) is proud to be part of the Cape Cod Rail Resilience Project, led by Carlos Velásquez, a PhD candidate at UMass Boston and project manager at MassDOT. [1]",
+      "final_sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "final_suggestions": [],
+      "final_status": "answered",
+      "failed_transport": false
+    }
+  ]
+}
