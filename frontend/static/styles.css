@@ -746,13 +746,18 @@ body {
 }
 
 .account-button {
-  background: none;
-  /* .header-ssl-link is styled for the yellow pills, whose dark text is
-     invisible on this transparent variant. */
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Match the yellow header pills. This used to be a transparent chip with a
+     white border, and `font: inherit` also discarded the pill's 13px/600, so
+     the control sat next to "Visit SSL" at a different size, weight and
+     colour. A <button> only needs its native font and line-height neutralised;
+     everything else comes from .header-ssl-link. */
   cursor: pointer;
-  font: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .account-button:hover {
