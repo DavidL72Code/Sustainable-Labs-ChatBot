@@ -21173,6 +21173,19 @@ def create_app() -> Flask:
             str(payload.get("email", "")).strip(), str(payload.get("password", ""))
         )
         if not result:
+            # An unconfirmed account fails password sign-in, and Supabase
+            # reports that as "Invalid login credentials" — identical to a
+            # wrong password. Surfacing the unconfirmed case specifically is
+            # the difference between "you typed it wrong" and "check your
+            # inbox"; every other failure stays deliberately vague so this
+            # cannot be used to test whether an address is registered.
+            detail = str(getattr(supabase_store, "last_error", "") or "")
+            if "confirm" in detail.lower():
+                return jsonify({
+                    "error": "That account still needs its email confirmed. "
+                             "Use the confirmation link, or reset your password to activate it.",
+                    "needs_confirmation": True,
+                }), 401
             return jsonify({"error": "Invalid email or password."}), 401
         return jsonify(start_visitor_session(result))
 
