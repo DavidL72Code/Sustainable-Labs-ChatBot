@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://www.umb.edu/media/umassboston/site-assets/images/favicons/favicon_48x48.svg" type="image/svg+xml">
   <link rel="icon" href="https://www.umb.edu/media/umassboston/site-assets/images/favicons/favicon_96x96.png" type="image/png">
-  <link rel="stylesheet" href="/static/styles.css?v=cbe2f77">
+  <link rel="stylesheet" href="/static/styles.css?v=f288865">
   <script>
     // Backend URL — set this to your Hugging Face Space.
     // Vercel: override at deploy time by editing this line or injecting via
@@ -31,7 +31,7 @@
         <span class="header-logo-tagline">Pursuing Climate Justice</span>
       </div>
       <nav class="header-links" aria-label="Header navigation">
-        <a id="dashboardLink" href="#" class="header-ssl-link" hidden>Dashboard</a>
+        <a id="dashboardLink" href="#" class="header-ssl-link">Dashboard</a>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer" class="header-ssl-link">Visit SSL</a>
         <span id="accountArea" class="account-area" hidden>
           <span id="accountEmail" class="account-email"></span>
@@ -212,18 +212,11 @@
     if (dashboardBase) {
       dashboardHref.searchParams.set("api_base", dashboardBase);
     }
-    const dashboardLink = document.getElementById("dashboardLink");
-    dashboardLink.href = dashboardHref.toString();
-    // Staff-only. The link used to render for every visitor, which advertised
-    // an internal page to the public and sent them to a login they cannot pass.
-    // Reveal it only once the backend confirms a staff session.
-    fetch("/api/admin/session", { credentials: "include" })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((session) => {
-        if (session && session.authenticated) dashboardLink.hidden = false;
-      })
-      .catch(() => {});
+    // Open to everyone: the dashboard shows only the caller's own activity —
+    // this session's questions from the browser, plus their saved chats if
+    // they are signed in. The aggregate staff view stays behind admin auth.
+    document.getElementById("dashboardLink").href = dashboardHref.toString();
   </script>
-  <script src="/static/app.js?v=cbe2f77"></script>
+  <script src="/static/app.js?v=f288865"></script>
 </body>
 </html>

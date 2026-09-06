@@ -78,6 +78,37 @@ function setStatus(processing) {
 
 let conversationId = "";
 let firstMessageOfSession = "";
+let pendingTrace = {};
+let pendingStatus = "answered";
+
+const SESSION_STATS_KEY = "ssl_session_turns";
+
+function recordSessionTurn(question, sources, trace, status) {
+  // The dashboard is per-person: this session's turns live in the browser and
+  // are never sent anywhere. A signed-in visitor also has their saved chats,
+  // which the dashboard fetches separately from /api/my/dashboard.
+  try {
+    const telemetry = (trace && trace.telemetry) || {};
+    const totals = telemetry.totals || {};
+    const turns = JSON.parse(sessionStorage.getItem(SESSION_STATS_KEY) || "[]");
+    turns.push({
+      at: Date.now(),
+      question: String(question || "").slice(0, 300),
+      status: status || "answered",
+      low_confidence: Boolean((trace || {}).is_low_confidence),
+      latency_ms: Number(telemetry.total_ms || 0),
+      total_tokens: Number(totals.total_tokens || 0),
+      cost_usd: Number(totals.cost_usd || 0),
+      sources: (sources || []).map((source) => ({
+        title: source.title || "",
+        source_path: source.source_path || "",
+      })),
+    });
+    sessionStorage.setItem(SESSION_STATS_KEY, JSON.stringify(turns.slice(-200)));
+  } catch {
+    /* Stats are a nicety; never let them break the chat. */
+  }
+}
 
 const suggestedQuestionsEl = document.getElementById("suggestedQuestions");
 if (suggestedQuestionsEl) {
@@ -463,6 +494,8 @@ async function submitMessageFlow(message, displayMessage = message) {
         fullReply = event.reply;
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
+        pendingTrace = event.trace || {};
+        pendingStatus = event.status || "answered";
       } else if (event.type === "delta") {
         fullReply += event.delta || "";
         if (!streaming) {
@@ -475,6 +508,7 @@ async function submitMessageFlow(message, displayMessage = message) {
           streaming.finalize(pendingSources);
           streaming = null;
         }
+        recordSessionTurn(message, pendingSources, pendingTrace, pendingStatus);
         // Unlock UI immediately — suggestions will still arrive after this
         setStatus(false);
         sendButton.disabled = false;

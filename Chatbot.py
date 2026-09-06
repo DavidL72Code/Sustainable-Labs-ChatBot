@@ -21089,6 +21089,52 @@ def create_app() -> Flask:
             admin_username=session.get("admin_username", ""),
         )
 
+    @app.get("/api/my/dashboard")
+    def my_dashboard():
+        """The caller's own history — no admin login, and no one else's data.
+
+        The staff dashboard at /api/dashboard aggregates every visitor's
+        chats and stays behind admin auth. This one is scoped to whoever is
+        asking: a signed-in visitor gets their saved conversations, and an
+        anonymous caller gets nothing, because nothing was saved for them.
+        The current session's own stats are held in the browser and never
+        needed a server round trip.
+        """
+        token = visitor_token()
+        if not token:
+            return jsonify({"signed_in": False, "conversations": []})
+        conversations = supabase_store.list_visitor_conversations(token)
+        if not conversations:
+            refreshed = refresh_visitor_token()
+            if refreshed:
+                token = refreshed
+                conversations = supabase_store.list_visitor_conversations(token)
+        summary = []
+        for conversation in conversations or []:
+            conversation_id = str(conversation.get("id", ""))
+            if not conversation_id:
+                continue
+            messages = supabase_store.fetch_visitor_messages(token, conversation_id)
+            questions = [m for m in messages if str(m.get("role")) == "user"]
+            sources: list[dict] = []
+            for message in messages:
+                for source in (message.get("sources") or []):
+                    if isinstance(source, dict):
+                        sources.append({
+                            "title": source.get("title", ""),
+                            "source_path": source.get("source_path", ""),
+                        })
+            summary.append({
+                "id": conversation_id,
+                "title": conversation.get("title", "Saved chat"),
+                "updated_at": conversation.get("updated_at", ""),
+                "message_count": len(messages),
+                "question_count": len(questions),
+                "questions": [str(m.get("content", ""))[:300] for m in questions],
+                "sources": sources,
+            })
+        return jsonify({"signed_in": True, "conversations": summary})
+
     @app.get("/api/dashboard")
     @admin_required(api=True)
     def dashboard_api():

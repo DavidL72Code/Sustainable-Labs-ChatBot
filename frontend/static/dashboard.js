@@ -253,21 +253,108 @@ function renderEval(evalPayload) {
   });
 }
 
+const SESSION_STATS_KEY = "ssl_session_turns";
+
+function readSessionTurns() {
+  try {
+    const turns = JSON.parse(sessionStorage.getItem(SESSION_STATS_KEY) || "[]");
+    return Array.isArray(turns) ? turns : [];
+  } catch {
+    return [];
+  }
+}
+
+async function readSavedHistory() {
+  // Only ever the caller's own saved chats. Anonymous visitors get nothing
+  // back, which is correct: nothing of theirs was stored.
+  try {
+    const response = await fetch(dashboardApiUrl("/api/my/dashboard"), { credentials: "include" });
+    if (!response.ok) return { signed_in: false, conversations: [] };
+    return await response.json();
+  } catch {
+    return { signed_in: false, conversations: [] };
+  }
+}
+
+async function buildPersonalDashboard() {
+  // This dashboard is per-person, not the staff view. The current session's
+  // turns come from the browser and are never sent anywhere; a signed-in
+  // visitor also sees their saved chats. The aggregate staff dashboard stays
+  // behind admin auth on /api/dashboard.
+  const turns = readSessionTurns();
+  const saved = await readSavedHistory();
+
+  const answered = turns.length;
+  const sum = (pick) => turns.reduce((total, turn) => total + (Number(pick(turn)) || 0), 0);
+  const totalTokens = sum((t) => t.total_tokens);
+  const totalCost = sum((t) => t.cost_usd);
+  const totalLatency = sum((t) => t.latency_ms);
+
+  const sourceCounts = new Map();
+  const countSource = (source) => {
+    const label = source.title || source.source_path || "Unknown source";
+    sourceCounts.set(label, (sourceCounts.get(label) || 0) + 1);
+  };
+  turns.forEach((turn) => (turn.sources || []).forEach(countSource));
+  (saved.conversations || []).forEach((c) => (c.sources || []).forEach(countSource));
+
+  const savedQuestions = (saved.conversations || []).reduce(
+    (total, c) => total + (Number(c.question_count) || 0), 0
+  );
+
+  const history = turns.slice().reverse().map((turn, index) => ({
+    id: `session-${turns.length - index}`,
+    display_label: turn.question || "Question",
+    question: turn.question || "",
+    status: turn.status || "answered",
+    is_low_confidence: Boolean(turn.low_confidence),
+    latency_ms: turn.latency_ms,
+    total_tokens: turn.total_tokens,
+    cost_usd: turn.cost_usd,
+    session_only: true,
+  }));
+
+  (saved.conversations || []).forEach((c) => {
+    (c.questions || []).forEach((question, index) => {
+      history.push({
+        id: `${c.id}-${index}`,
+        display_label: question,
+        question,
+        status: "answered",
+        saved: true,
+      });
+    });
+  });
+
+  return {
+    signed_in: Boolean(saved.signed_in),
+    stats: {
+      total: answered + savedQuestions,
+      clarifications: turns.filter((t) => t.status === "clarification").length,
+      low_confidence: turns.filter((t) => t.low_confidence).length,
+      blocked: turns.filter((t) => t.status === "blocked").length,
+      errors: turns.filter((t) => t.status === "error").length,
+      avg_latency_ms: answered ? totalLatency / answered : 0,
+      total_tokens: totalTokens,
+      avg_tokens: answered ? Math.round(totalTokens / answered) : 0,
+      total_cost_usd: totalCost,
+      avg_cost_usd: answered ? totalCost / answered : 0,
+    },
+    // renderRankedList destructures each item as [label, count], so send
+    // entry pairs — objects render as blanks and throw on the spread.
+    source_usage: [...sourceCounts.entries()].sort((a, b) => b[1] - a[1]),
+    category_usage: [],
+    problem_events: [],
+    chat_history: history,
+  };
+}
+
 async function loadDashboardPage() {
   const body = document.getElementById("historyTableBody");
   if (!body) return;
 
   try {
-    const response = await fetch(dashboardApiUrl("/api/dashboard"), { credentials: "include" });
-    if (response.status === 401) {
-      const login = new URL("/admin-login.html", window.location.origin);
-      const base = resolvedApiBase();
-      if (base !== window.location.origin) login.searchParams.set("api_base", base);
-      window.location.replace(login.toString());
-      return;
-    }
-    if (!response.ok) throw new Error(`Dashboard request failed (${response.status})`);
-    const dashboard = await response.json();
+    const dashboard = await buildPersonalDashboard();
 
     setText("metricTotal", String(dashboard.stats?.total ?? 0));
     setText("metricClarifications", String(dashboard.stats?.clarifications ?? 0));
@@ -346,6 +433,14 @@ async function loadDashboardPage() {
         row.append(statusCell, mappingCell, confidenceCell, pathCell, sourceCell, retrievalCell, tokenCell, costCell, latencyCell);
         body.appendChild(row);
       });
+    }
+
+    // Say plainly whose data this is, and whether it will survive the tab.
+    const scopeNote = document.getElementById("scopeNote");
+    if (scopeNote) {
+      scopeNote.textContent = dashboard.signed_in
+        ? "Your activity — this session plus your saved chats"
+        : "Your activity this session only — sign in to keep it";
     }
 
     renderRankedList("sourceUsageList", "sourceUsageEmpty", dashboard.source_usage || []);

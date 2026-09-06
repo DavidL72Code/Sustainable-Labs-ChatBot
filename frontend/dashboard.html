@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/dashboard.css?v=cbe2f77">
+  <link rel="stylesheet" href="/static/dashboard.css?v=f288865">
   <script>
     const defaultApiBase = "";
     const dashboardParams = new URLSearchParams(window.location.search);
@@ -35,7 +35,7 @@
       </div>
       <nav class="header-actions" aria-label="Dashboard navigation">
         <a href="/">Chat</a>
-        <button id="logoutButton" type="button">Sign out</button>
+        <button id="logoutButton" type="button" hidden>Sign out</button>
         <a href="https://www.umb.edu/ssl/" target="_blank" rel="noreferrer">Visit SSL</a>
       </nav>
     </div>
@@ -83,7 +83,7 @@
       <article class="panel panel-wide">
         <div class="panel-header">
           <h2>Chat History</h2>
-          <span>Staff-only operational summary</span>
+          <span id="scopeNote">Your activity this session</span>
         </div>
         <div class="history-table-wrap">
           <table class="history-table">
@@ -178,6 +178,6 @@
     </section>
   </main>
 
-  <script src="/static/dashboard.js?v=cbe2f77"></script>
+  <script src="/static/dashboard.js?v=f288865"></script>
 </body>
 </html>
