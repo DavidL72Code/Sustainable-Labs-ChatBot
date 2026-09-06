@@ -88,7 +88,15 @@ class ChatbotConfig:
     document_neighbor_count: int = int(os.getenv("DOCUMENT_NEIGHBOR_COUNT", "2"))
     document_neighbor_limit: int = int(os.getenv("DOCUMENT_NEIGHBOR_LIMIT", "8"))
     recent_history_turns: int = int(os.getenv("RECENT_HISTORY_TURNS", "6"))
-    always_llm_query_planning: bool = os.getenv("ALWAYS_LLM_QUERY_PLANNING", "1").lower() in {"1", "true", "yes"}
+    # Off by default, deliberately. This read "1" for a long time, but every
+    # planner call was failing on a 400 the caller swallowed, so the effective
+    # behaviour was off and both 208-question benchmarks were measured that way.
+    # Repairing the call (see _MODELS_WITHOUT_THINKING) made the planner
+    # authoritative again and changed 5 of 20 spot-check answers, two of them
+    # regressions: entity questions rerouted from the entity registry to the
+    # document registry and started listing filenames instead of people.
+    # Leave this off until a full 208 run with it on beats the current baseline.
+    always_llm_query_planning: bool = os.getenv("ALWAYS_LLM_QUERY_PLANNING", "0").lower() in {"1", "true", "yes"}
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
     rewrite_model: str = os.getenv("REWRITE_MODEL", "gemma-4-26b-a4b-it")
@@ -6247,7 +6255,11 @@ Available entity names:
             rewrite_callable = getattr(self, "rewrite_llm_callable", self.llm_callable)
             raw_plan = rewrite_callable(planning_prompt).strip()
             parsed_plan = self.parse_json_object(raw_plan)
-        except Exception:
+        except Exception as exc:
+            # Loud on purpose. This swallowed a 400 from the rewrite model for
+            # every question, and the only visible symptom was that no answer
+            # ever had facets.
+            _warn_once(f"Query planner failed ({type(exc).__name__}: {str(exc)[:160]}); using the local route.")
             default_route = self.default_query_route(retrieval_query)
             default_route.update(
                 {
@@ -6690,12 +6702,52 @@ Available entity names:
             return compact or cleaned
         return cleaned
 
+    _WRAP_SENTENCE_END = re.compile(r"""[.!?:;]['")\]]?$""")
+    _WRAP_LIST_START = re.compile(r"^\s*(?:[-*\u2022\u2013]|\d+[.)]|\([0-9a-z]+\))\s")
+    _WRAP_HEADING = re.compile(r"^[^a-z]{3,}$")
+
+    @classmethod
+    def unwrap_fixed_width_text(cls, text: str) -> str:
+        """Rejoin lines that a fixed-width text export split mid-sentence.
+
+        AnnualReport2021.txt is wrapped at ~76 columns, which leaves 247 of its
+        lines ending mid-sentence. Registry extractors read line by line, so
+        without this they return a whole line that is half a sentence — the
+        mission answer came back as "...at UMass Boston is an applied [1]."
+        A line is only joined onto the previous one when the previous line has
+        no terminal punctuation and this line is neither a list item nor a
+        heading, so real paragraph and list breaks survive.
+        """
+        joined: list[str] = []
+        for raw in (text or "").splitlines():
+            stripped = raw.strip()
+            if not stripped:
+                joined.append("")
+                continue
+            if (
+                joined
+                and joined[-1]
+                and not cls._WRAP_SENTENCE_END.search(joined[-1])
+                and not cls._WRAP_LIST_START.match(raw)
+                and not cls._WRAP_HEADING.match(stripped)
+                # Only a lowercase start is unambiguously a continuation. A
+                # capitalised start is far more often a title-case heading
+                # sitting above its body ("Northeast Climate Justice Research
+                # Collaborative" / "Launched in the Spring of 2022...") and
+                # gluing those together duplicates the heading into the answer.
+                and stripped[:1].islower()
+            ):
+                joined[-1] = f"{joined[-1]} {stripped}"
+            else:
+                joined.append(stripped)
+        return "\n".join(joined)
+
     def best_registry_text(self, entity: dict) -> str:
         text_options = [
             self.strip_embedding_labels(entity.get("summary_text", "")),
             self.strip_embedding_labels(entity.get("detail_text", "")),
         ]
-        return max(text_options, key=len).strip()
+        return self.unwrap_fixed_width_text(max(text_options, key=len).strip())
 
     def focused_registry_text(self, entity: dict) -> str:
         options = [
@@ -16192,11 +16244,26 @@ Retrieved context:
                 "trace": {},
             }
 
-        if any(term in lowered_user_message for term in (
+        # "work at ssl" and friends are not on their own an employment question —
+        # "How many people work at SSL?" is a headcount. Bare context words only
+        # count when the message also carries an application intent.
+        employment_phrases = (
             "apply for a job", "job application", "employment application", "how do i apply",
-            "job at ssl", "work at ssl", "employment at ssl", "career at ssl", "get a job at ssl",
-            "apply to work with ssl", "apply to work at ssl", "apply to join ssl",
-        )):
+            "get a job at ssl", "apply to work with ssl", "apply to work at ssl", "apply to join ssl",
+        )
+        # Bare "hire" is left out on purpose: "Who did SSL hire in 2022?" is a
+        # roster question, not someone looking for work.
+        employment_intent = (
+            "apply", "applicant", "hiring", "vacancy", "vacancies",
+            "job opening", "job openings", "openings", "recruit", "resume", "r\u00e9sum\u00e9",
+        )
+        employment_context = (
+            "ssl", "sustainable solutions lab",
+        )
+        if any(term in lowered_user_message for term in employment_phrases) or (
+            any(term in lowered_user_message for term in employment_intent)
+            and any(term in lowered_user_message for term in employment_context)
+        ):
             return {
                 "reply": "The SSL corpus does not provide job application guidance. For employment questions, please contact UMass Boston through its official careers resources.",
                 "sources": [],
@@ -19659,7 +19726,34 @@ _DEFAULT_SAFETY_SETTINGS = [
 GEMINI_SEED = int(os.getenv("GEMINI_SEED", "7"))
 
 
-def _gemini_gen_config(temperature: float, thinking_budget: int = 1024) -> "genai_types.GenerateContentConfig":
+# Models that reject a thinking_config outright (Gemma, for one). Populated the
+# first time a model 400s on it, so the probe costs one failed call per process
+# rather than one per question.
+_MODELS_WITHOUT_THINKING: set[str] = set()
+
+
+def _rejects_thinking(exc: Exception) -> bool:
+    message = str(exc)
+    return "INVALID_ARGUMENT" in message and "hinking" in message
+
+
+_WARNED_ONCE: set[str] = set()
+
+
+def _warn_once(message: str) -> None:
+    """Log a recurring failure once per process so it cannot hide, without
+    printing the same line on every request."""
+    if message in _WARNED_ONCE:
+        return
+    _WARNED_ONCE.add(message)
+    print(f"[warn] {message}", file=sys.stderr, flush=True)
+
+
+def _gemini_gen_config(
+    temperature: float,
+    thinking_budget: int = 1024,
+    include_thinking: bool = True,
+) -> "genai_types.GenerateContentConfig":
     deterministic = float(temperature or 0.0) <= 0.0
     return genai_types.GenerateContentConfig(
         temperature=temperature,
@@ -19672,7 +19766,9 @@ def _gemini_gen_config(temperature: float, thinking_budget: int = 1024) -> "gena
         # cost n146 a verdict on an answer it had already scored 5/5. Raising
         # the ceiling cannot change a response that already fit.
         max_output_tokens=int(os.getenv("GEMINI_MAX_OUTPUT_TOKENS", "4096")),
-        thinking_config=genai_types.ThinkingConfig(thinking_budget=thinking_budget),
+        thinking_config=(
+            genai_types.ThinkingConfig(thinking_budget=thinking_budget) if include_thinking else None
+        ),
         safety_settings=_DEFAULT_SAFETY_SETTINGS,
     )
 
@@ -19684,22 +19780,29 @@ def call_gemini(prompt: str, model: Optional[str] = None, temperature: Optional[
     temp = temperature if temperature is not None else cfg.gemini_temperature
     stage = _caller_stage()
     started_at = time.perf_counter()
+    supports_thinking = model_name not in _MODELS_WITHOUT_THINKING
     try:
         response = client.models.generate_content(
             model=model_name,
             contents=prompt,
-            config=_gemini_gen_config(temp, thinking_budget=thinking_budget),
+            config=_gemini_gen_config(
+                temp, thinking_budget=thinking_budget, include_thinking=supports_thinking
+            ),
         )
     except Exception as exc:
-        # Newer models reject thinking_budget=0 outright. Retrying with the
-        # default budget keeps a model swap from breaking the fast rewrite
-        # path, at the cost of a few thinking tokens on that call.
-        if thinking_budget != 0 or "INVALID_ARGUMENT" not in str(exc):
+        # Some models reject thinking_budget=0 and some reject a thinking_config
+        # at all — Gemma raises "Thinking budget is not supported for this
+        # model." Retrying with the *default* budget only helps the first case;
+        # the second needs the field dropped entirely. Getting this wrong meant
+        # every planner call failed silently and no question was ever split into
+        # facets, so multi-part questions only ever answered their first half.
+        if not (supports_thinking and _rejects_thinking(exc)):
             raise
+        _MODELS_WITHOUT_THINKING.add(model_name)
         response = client.models.generate_content(
             model=model_name,
             contents=prompt,
-            config=_gemini_gen_config(temp),
+            config=_gemini_gen_config(temp, include_thinking=False),
         )
     record_llm_call(
         model=model_name,
