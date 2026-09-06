@@ -21028,18 +21028,39 @@ def create_app() -> Flask:
 
     threading.Thread(target=initialize_chatbot, daemon=True).start()
 
+    # The container ships the API only — no templates/ and no static/. The UI is
+    # deployed separately (Vercel serves frontend/). Locally both directories are
+    # present, so the server-rendered staff pages still work for development.
+    server_rendered_ui_available = (Path(__file__).resolve().parent / "templates").is_dir()
+
+    def server_ui_unavailable():
+        return (
+            jsonify(
+                {
+                    "error": "This deployment serves the API only; the server-rendered UI is not bundled.",
+                    "endpoints": ["/api/health", "/api/chat", "/api/suggestions"],
+                }
+            ),
+            404,
+        )
+
     @app.get("/")
     def index():
+        endpoints = ["/api/health", "/api/chat", "/api/suggestions"]
+        if server_rendered_ui_available:
+            endpoints.append("/dashboard")
         return jsonify(
             {
                 "service": "ssl-chatbot-api",
                 "status": "ok",
-                "endpoints": ["/api/health", "/api/chat", "/api/suggestions", "/dashboard"],
+                "endpoints": endpoints,
             }
         )
 
     @app.route("/admin/login", methods=["GET", "POST"])
     def admin_login():
+        if not server_rendered_ui_available:
+            return server_ui_unavailable()
         if not admin_auth_configured():
             return render_template("admin_login.html", error="Admin authentication is not configured on this deployment."), 503
 
@@ -21104,6 +21125,8 @@ def create_app() -> Flask:
     @app.get("/dashboard")
     @admin_required()
     def dashboard():
+        if not server_rendered_ui_available:
+            return server_ui_unavailable()
         return render_template(
             "dashboard.html",
             dashboard=build_dashboard_payload(),
@@ -21113,6 +21136,8 @@ def create_app() -> Flask:
     @app.get("/dashboard/interaction/<event_id>")
     @admin_required()
     def dashboard_interaction(event_id: str):
+        if not server_rendered_ui_available:
+            return server_ui_unavailable()
         append_admin_audit_event("view_interaction", str(session.get("admin_username", "")), event_id)
         return render_template(
             "dashboard_detail.html",

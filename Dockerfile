@@ -28,8 +28,8 @@ COPY Chatbot.py ./
 COPY conversation_state.py ./
 COPY supabase_store.py ./
 COPY verified_question_bank.json ./
-COPY templates/ ./templates/
-COPY static/ ./static/
+
+# API only — no templates/ or static/. Vercel serves the UI from frontend/.
 
 # Include the prebuilt vector store so startup can skip first-run indexing
 COPY chroma_db/ ./chroma_db/
