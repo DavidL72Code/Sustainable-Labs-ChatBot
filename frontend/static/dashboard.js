@@ -221,38 +221,6 @@ function renderProblemEvents(events) {
   });
 }
 
-function renderEval(evalPayload) {
-  const model = document.getElementById("evalModel");
-  const grid = document.getElementById("evalGrid");
-  const empty = document.getElementById("evalEmpty");
-  const problems = document.getElementById("evalProblems");
-  if (!model || !grid || !empty || !problems) return;
-
-  model.textContent = evalPayload?.model || "";
-  problems.innerHTML = "";
-
-  if (!evalPayload?.summary) {
-    grid.hidden = true;
-    empty.hidden = false;
-    return;
-  }
-
-  grid.hidden = false;
-  empty.hidden = true;
-  setText("evalTotalCases", String(evalPayload.summary.total_cases ?? "-"));
-  setText("evalCorrectness", String(evalPayload.summary.average_scores?.correctness_vs_corpus ?? "-"));
-  setText("evalCitations", String(evalPayload.summary.average_scores?.citations ?? "-"));
-  setText("evalHallucinated", String(evalPayload.summary.classification_counts?.hallucinated_yes ?? "-"));
-
-  (evalPayload.problem_cases || []).slice(0, 5).forEach((item) => {
-    const p = document.createElement("p");
-    const strong = document.createElement("strong");
-    strong.textContent = item.id || "case";
-    p.append(strong, ` ${item.notes || ""}`);
-    problems.appendChild(p);
-  });
-}
-
 const SESSION_STATS_KEY = "ssl_session_turns";
 
 function readSessionTurns() {
@@ -352,7 +320,6 @@ async function buildPersonalDashboard() {
     problem_events: turns
       .filter((t) => t.low_confidence || t.status === "error" || t.status === "clarification")
       .map((t) => ({ id: t.question || "question", notes: t.low_confidence ? "low confidence" : t.status })),
-    eval: saved.eval || {},
     chat_history: history,
   };
 }
@@ -454,11 +421,10 @@ async function loadDashboardPage() {
     renderRankedList("sourceUsageList", "sourceUsageEmpty", dashboard.source_usage || []);
     renderRankedList("categoryUsageList", "categoryUsageEmpty", dashboard.category_usage || []);
     renderProblemEvents(dashboard.problem_events || []);
-    renderEval(dashboard.eval || {});
   } catch (error) {
     body.innerHTML = "";
     body.appendChild(renderEmptyRow(error.message || "Unable to load dashboard."));
-    const emptyIds = ["sourceUsageEmpty", "categoryUsageEmpty", "problemEventsEmpty", "evalEmpty"];
+    const emptyIds = ["sourceUsageEmpty", "categoryUsageEmpty", "problemEventsEmpty"];
     emptyIds.forEach((id) => {
       const node = document.getElementById(id);
       if (node) {

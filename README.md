@@ -134,7 +134,7 @@ The chatbot answers questions about SSL research projects, publications, staff, 
 - **Content filter** — blocks profanity, hate speech, threats, and SSL/UMB-targeted harassment with a custom whitelist for legitimate academic terms (e.g. `assessment`, `massachusetts`, bird species) and a custom block list for org-specific phrases.
 - **Friendly error handling** — Gemini 503/429 errors surface as "high demand, try again" instead of raw stack traces.
 - **Citation-aware answers** — citations are normalized against the final answer and filtered to sources actually shown to the user.
-- **Personal analytics dashboard** at `/dashboard`, open without a login and scoped to the caller's own activity: latency, tokens, cost, retrieval path, cited sources, corpus coverage, low-confidence cases, and the pipeline's evaluation summary. Anonymous visitors see the current session only; signed-in visitors also see their saved chats. The aggregate staff view over every visitor's chats stays behind an admin session.
+- **Personal analytics dashboard** at `/dashboard`, open without a login and scoped to the caller's own activity: latency, tokens, cost, retrieval path, cited sources, corpus coverage, and low-confidence cases. Anonymous visitors see the current session only; signed-in visitors also see their saved chats. The aggregate staff view over every visitor's chats stays behind an admin session.
 - **Optional visitor accounts** — signing in only controls whether a visitor's own history is saved; answers are identical either way.
 
 ### Document Ingestion
@@ -204,7 +204,7 @@ documented above.
 
 What the demo does instead is expose a **separate personal dashboard** that
 carries the same operational depth — latency, tokens, cost, retrieval path,
-cited sources, corpus coverage, low-confidence cases, evaluation summary — but
+cited sources, corpus coverage, low-confidence cases — but
 scoped to whoever is looking. That way a reviewer can see how the observability
 works without being handed admin credentials, and without anyone's
 conversations being published.

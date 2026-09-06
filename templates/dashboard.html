@@ -273,57 +273,6 @@
         {% endif %}
       </article>
 
-      <article class="panel">
-        <div class="panel-header">
-          <h2>Evaluation Summary</h2>
-          {% if dashboard.eval.model %}<span>{{ dashboard.eval.model }}</span>{% endif %}
-        </div>
-        {% if dashboard.eval.summary %}
-          <dl class="eval-grid">
-            <div><dt>Total Cases</dt><dd>{{ dashboard.eval.summary.total_cases }}</dd></div>
-            <div><dt>Correctness</dt><dd>{{ dashboard.eval.summary.average_scores.correctness_vs_corpus }}</dd></div>
-            <div><dt>Citations</dt><dd>{{ dashboard.eval.summary.average_scores.citations }}</dd></div>
-            <div><dt>Hallucinated</dt><dd>{{ dashboard.eval.summary.classification_counts.hallucinated_yes }}</dd></div>
-          </dl>
-          {% if dashboard.eval.problem_cases %}
-            <div class="eval-problems">
-              {% for case in dashboard.eval.problem_cases[:5] %}
-                <p><strong>{{ case.id }}</strong> {{ case.notes }}</p>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% else %}
-          <p class="empty-state">Run the eval script to populate question_eval_results.json.</p>
-        {% endif %}
-      </article>
-
-      <article class="panel">
-        <div class="panel-header">
-          <h2>Score Key</h2>
-        </div>
-        <dl class="score-key">
-          <div>
-            <dt>correctness_vs_corpus</dt>
-            <dd>1-5 rating for how well the answer matches the provided SSL corpus reference.</dd>
-          </div>
-          <div>
-            <dt>citations</dt>
-            <dd>1-5 rating for whether returned sources are useful and relevant support.</dd>
-          </div>
-          <div>
-            <dt>hallucinated</dt>
-            <dd>Yes means the evaluator found unsupported or clearly incorrect facts.</dd>
-          </div>
-          <div>
-            <dt>answered_question</dt>
-            <dd>Yes means the answer directly addressed the question that was asked.</dd>
-          </div>
-          <div>
-            <dt>right_citations</dt>
-            <dd>Yes means the cited or returned sources match the relevant corpus sources.</dd>
-          </div>
-        </dl>
-      </article>
     </section>
   </main>
 </body>

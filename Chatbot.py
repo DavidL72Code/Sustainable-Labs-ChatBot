@@ -144,7 +144,6 @@ class ConversationTurn(dict):
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 CHAT_LOG_PATH = PROJECT_ROOT / "logs" / "chat_events.jsonl"
-EVAL_RESULTS_PATH = PROJECT_ROOT / "question_eval_results.json"
 _ACTIVE_QUERY_PLAN: ContextVar[Optional[dict]] = ContextVar("active_query_plan", default=None)
 
 
@@ -20147,30 +20146,6 @@ def load_chat_events(limit: Optional[int] = None) -> list[dict]:
     return events[:limit] if limit else events
 
 
-def load_eval_summary() -> dict:
-    if not EVAL_RESULTS_PATH.exists():
-        return {}
-
-    try:
-        with EVAL_RESULTS_PATH.open("r", encoding="utf-8") as file:
-            payload = json.load(file)
-    except json.JSONDecodeError:
-        return {}
-
-    return {
-        "generated_at": payload.get("generated_at", ""),
-        "model": payload.get("model", ""),
-        "summary": payload.get("summary", {}),
-        "problem_cases": [
-            result
-            for result in payload.get("results", [])
-            if result.get("classification", {}).get("answered_question") == "no"
-            or result.get("classification", {}).get("hallucinated") == "yes"
-            or result.get("classification", {}).get("right_citations") == "no"
-        ][:10],
-    }
-
-
 def dashboard_exposes_private_trace() -> bool:
     return ChatbotConfig.dashboard_trace_mode not in {"public", "safe", "redacted"}
 
@@ -20406,7 +20381,6 @@ def build_supabase_dashboard_payload() -> dict:
         "daily": daily,
         "source_usage": source_counts.most_common(12),
         "category_usage": category_counts.most_common(8),
-        "eval": load_eval_summary(),
     }
 
 
@@ -20465,7 +20439,6 @@ def build_dashboard_payload() -> dict:
         "problem_events": problem_events[:12],
         "source_usage": source_counts.most_common(12),
         "category_usage": category_counts.most_common(8),
-        "eval": load_eval_summary(),
     }
 
 
@@ -21163,8 +21136,7 @@ def create_app() -> Flask:
             return jsonify({
                 "signed_in": False,
                 "conversations": [],
-                "eval": load_eval_summary(),
-            })
+                    })
         conversations = supabase_store.list_visitor_conversations(token)
         if not conversations:
             refreshed = refresh_visitor_token()
@@ -21198,8 +21170,7 @@ def create_app() -> Flask:
         return jsonify({
             "signed_in": True,
             "conversations": summary,
-            "eval": load_eval_summary(),
-        })
+            })
 
     @app.get("/api/dashboard")
     @admin_required(api=True)

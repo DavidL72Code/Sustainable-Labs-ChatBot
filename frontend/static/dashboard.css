@@ -433,7 +433,6 @@ h3 {
   line-height: 1.5;
 }
 
-.eval-grid,
 .detail-stats {
   margin: 0;
   display: grid;
@@ -445,7 +444,6 @@ h3 {
   grid-template-columns: 1fr;
 }
 
-.eval-grid div,
 .detail-stats div {
   padding: 12px;
   border: 1px solid var(--line);
@@ -466,41 +464,6 @@ dd {
   color: var(--brand-dark);
   font-size: 20px;
   font-weight: 800;
-}
-
-.eval-problems {
-  margin-top: 14px;
-}
-
-.eval-problems p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.score-key {
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
-
-.score-key div {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #edf1f5;
-}
-
-.score-key div:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.score-key dd {
-  margin: 4px 0 0;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.45;
 }
 
 .mapping-strip {

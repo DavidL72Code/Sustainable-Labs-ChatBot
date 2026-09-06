@@ -133,48 +133,6 @@
         <p class="empty-state" id="problemEventsEmpty" hidden>No blocked, error, clarification, or low-confidence cases logged.</p>
       </article>
 
-      <article class="panel">
-        <div class="panel-header">
-          <h2>Evaluation Summary</h2>
-          <span id="evalModel"></span>
-        </div>
-        <dl class="eval-grid" id="evalGrid" hidden>
-          <div><dt>Total Cases</dt><dd id="evalTotalCases">-</dd></div>
-          <div><dt>Correctness</dt><dd id="evalCorrectness">-</dd></div>
-          <div><dt>Citations</dt><dd id="evalCitations">-</dd></div>
-          <div><dt>Hallucinated</dt><dd id="evalHallucinated">-</dd></div>
-        </dl>
-        <div class="eval-problems" id="evalProblems"></div>
-        <p class="empty-state" id="evalEmpty">Run the eval script to populate question_eval_results.json.</p>
-      </article>
-
-      <article class="panel">
-        <div class="panel-header">
-          <h2>Score Key</h2>
-        </div>
-        <dl class="score-key">
-          <div>
-            <dt>correctness_vs_corpus</dt>
-            <dd>1-5 rating for how well the answer matches the provided SSL corpus reference.</dd>
-          </div>
-          <div>
-            <dt>citations</dt>
-            <dd>1-5 rating for whether returned sources are useful and relevant support.</dd>
-          </div>
-          <div>
-            <dt>hallucinated</dt>
-            <dd>Yes means the evaluator found unsupported or clearly incorrect facts.</dd>
-          </div>
-          <div>
-            <dt>answered_question</dt>
-            <dd>Yes means the answer directly addressed the question that was asked.</dd>
-          </div>
-          <div>
-            <dt>right_citations</dt>
-            <dd>Yes means the cited or returned sources match the relevant corpus sources.</dd>
-          </div>
-        </dl>
-      </article>
     </section>
   </main>
 
