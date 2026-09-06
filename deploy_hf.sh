@@ -58,7 +58,9 @@ done
 printf '%s\n\n' "$HEADER" | cat - README.md > README.hf.tmp
 mv README.hf.tmp README.md
 
-git add -A
+# Stage only what this script changed. `git add -A` would sweep in whatever
+# untracked scratch files happen to be sitting in the worktree.
+git add -- .gitignore README.md
 if git diff --cached --quiet; then
   echo "hf-deploy already matches $SRC_BRANCH ($SRC_SHA); nothing to push."
   exit 0
