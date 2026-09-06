@@ -108,14 +108,24 @@ Vercel serves only static HTML/CSS/JS. Hugging Face runs the Dockerized Flask ba
 The repo is already wired up for this:
 - [`Dockerfile`](Dockerfile) — installs deps, pre-downloads the embedding model, exposes port `7860`, runs `python Chatbot.py`.
 - [`.dockerignore`](.dockerignore) — excludes dev/benchmark artifacts from the image.
-- README frontmatter at the top of this file declares `sdk: docker` + `app_port: 7860`.
+- [`.hf/space-header.md`](.hf/space-header.md) holds the README frontmatter the Space needs (`sdk: docker`, `app_port: 7860`). It is kept out of the GitHub README, which renders frontmatter as a stray table.
 - [`Chatbot.py`](Chatbot.py) wires up `flask-cors` and reads `CORS_ORIGINS` from env.
 - [`verified_question_bank.json`](verified_question_bank.json) is copied into the image so production suggestion chips use the same curated bank as local tests.
 
 Steps:
 
 1. Create a new Hugging Face Space and pick **Docker** as the SDK.
-2. Push this repo to the Space's git remote.
+2. Push to the Space with [`./deploy_hf.sh`](deploy_hf.sh) — never `git push hf main` directly.
+
+   ```bash
+   ./deploy_hf.sh
+   ```
+
+   It rebuilds the `hf-deploy` branch from `main`, prepends the Space header to
+   the README, drops `Eval_ordered/` and `question_eval_set/` so the run
+   artifacts stay on GitHub and out of the image, and pushes to the Space.
+   `hf-deploy` is derived, so do not edit it by hand — the next run overwrites
+   it. `HF_DEPLOY_DRY_RUN=1 ./deploy_hf.sh` builds the branch without pushing.
 3. In **Space Settings → Variables and secrets**, set:
    - `GEMINI_API_KEY` — your Gemini key (secret).
    - `CORS_ORIGINS` — comma-separated list of allowed origins, e.g. `https://your-app.vercel.app,http://localhost:5173`. Cross-origin API access is disabled if unset.

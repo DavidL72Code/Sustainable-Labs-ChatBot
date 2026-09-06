@@ -1,18 +1,6 @@
----
-title: SSL Research Assistant
-emoji: 🌱
-colorFrom: blue
-colorTo: yellow
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # Sustainable Labs ChatBot
 
 A RAG (Retrieval-Augmented Generation) chatbot for the UMass Boston Sustainable Solutions Lab. Built by Team 1 "RAG's to Riches".
-
-> The YAML frontmatter above is consumed by Hugging Face Spaces (Docker SDK). GitHub treats it as metadata and ignores it in rendering.
 
 ## 1. Why We Built This
 
@@ -60,11 +48,6 @@ flowchart LR
 
 Every branch below exists because a specific class of question failed without it.
 
-**Request lifecycle.** The local router always runs and always produces a
-route. The planner is a separate, optional step: it is only called when that
-route is not confident enough, which is what the dashed line skips — the model
-call, not the routing.
-
 ```mermaid
 flowchart TB
     Q(["User question"]) --> G{"Safety and<br/>rate limit"}
@@ -72,30 +55,22 @@ flowchart TB
     G -->|ok| ST["<b>Conversation state</b><br/>resolve pronouns against the active subject"]
     ST --> LR["<b>Local router</b> — always runs<br/>classifies the question and scopes it<br/>from the entity and document registries"]
 
-    LR --> GATE{"Route confident<br/>enough?"}
-    GATE -.->|"yes — skip the planner call"| ROUTE["<b>Query route</b><br/>scope · question type · facets"]
-    GATE -->|"no — ambiguous or multi-part"| PL["<b>LLM planner</b> (1 call)<br/>rewrite to a standalone query<br/>split into facets"]
+    LR --> GATE{"Spend a<br/>planner call?"}
+    GATE -.->|"no — router is confident"| ROUTE["<b>Query route</b><br/>scope · question type · facets"]
+    GATE -->|"yes — ambiguous or multi-part"| PL["<b>LLM planner</b> (1 call)<br/>rewrite to a standalone query<br/>split into facets"]
     PL --> ROUTE
 
-    ROUTE --> F{"What does the<br/>route point at?"}
-    F -->|"a registry row or field fact"| EX["<b>Deterministic extractor</b><br/>staff rows, contacts, field lookups<br/><i>no generation needed</i>"]
+    ROUTE --> F{"Evidence<br/>from where?"}
+    F -->|"a registry row"| EX["<b>Deterministic extractor</b><br/>staff rows, contacts, field lookups<br/><i>answer composed in code</i>"]
     F -->|"the document corpus"| RET["<b>Hybrid retrieval</b><br/>dense + BM25 + rare-term, per facet<br/><i>detailed below</i>"]
 
     RET --> SEL["<b>Evidence selector</b> (1 call)<br/>pick the answer-bearing blocks<br/>out of ~28 candidates"]
     SEL --> GEN["<b>Generation</b> (1 call)<br/>evidence-only prompt<br/>greedy decode, fixed seed"]
 
-    EX --> VAL["<b>Validation</b><br/>numbers · contract · citations"]
-    GEN --> VAL
+    EX -->|"no generation call"| VAL["<b>Validation</b><br/>numbers · contract · citations"]
+    GEN -->|"written by the model"| VAL
     VAL --> OUT(["SSE to the browser<br/>allowlisted fields only"])
 ```
-
-Two forks are easy to confuse, so to be explicit:
-
-* **Route confident enough?** decides whether to *spend a model call* refining
-  the route. A registry miss is never treated as a final answer.
-* **What does the route point at?** decides *where the evidence comes from* —
-  a structured registry row, or the document corpus.
-
 
 **Inside hybrid retrieval.** Three retrievers cover each other's blind spots,
 then the candidate set is narrowed without letting one document dominate.
@@ -203,14 +178,6 @@ calls, which lands around **$0.004 per answer** — about 250 questions per
 dollar. The dashboard reports the real figure per answer rather than an
 estimate, computed from the token counts the API returns.
 
-Override the table per deployment with `LLM_PRICE_TABLE_JSON`, e.g.
-`{"gemini-3.1-flash-lite": {"input": 0.25, "output": 1.5}}`.
-
-> The rates above were previously hardcoded at a flat $0.10/$0.40 for every
-> lite model, which understated output on `gemini-3.5-flash-lite` by 6.25x.
-> Worth stating plainly, because a cost dashboard that is quietly wrong is
-> worse than no cost dashboard.
-
 ## 6. Security Model
 
 | Concern | How it is handled |
@@ -248,106 +215,45 @@ staff role, and sign in at `/admin/login`.
 
 ## 7. Tech Stack
 
-### Backend
-| Technology | Role |
-|---|---|
-| **Python 3** | Language |
-| **Flask** | Web server, REST API, SSE streaming |
-| **Google Gemini** (`google-genai`) | LLM for answer generation and query planning. Default model: `gemini-3.5-flash-lite` |
-| **ChromaDB** | Local vector store for embeddings + metadata |
-| **sentence-transformers** (`all-MiniLM-L6-v2`) | Local embedding model — runs on CPU, no API calls |
-| **BM25** (custom implementation) | Sparse lexical retrieval, paired with dense for hybrid search |
-| **langchain-text-splitters** | `RecursiveCharacterTextSplitter` for chunking |
-| **pypdf** | PDF document ingestion |
-| **better-profanity** | Content filtering with custom whitelist/blocklist |
-| **python-dotenv** | Local environment variable loading |
+**Backend** — Python 3 · Flask (REST + SSE) · Google Gemini (`google-genai`) ·
+ChromaDB · sentence-transformers (`BAAI/bge-base-en-v1.5`) · custom BM25 ·
+langchain-text-splitters · pypdf · better-profanity · python-dotenv
 
-### Frontend
-| Technology | Role |
-|---|---|
-| **HTML / CSS / vanilla JS** | No frameworks — keeps the UI fast and dependency-free |
-| **Server-Sent Events (SSE)** | Token-by-token streaming from Gemini |
-| **`fetch` + `ReadableStream`** | Client-side stream consumption |
-| **Markdown rendering** | Applied once a streamed response completes |
-| **UMass Boston / SSL color scheme** | Navy/blue gradient header, yellow accents, UMB logo |
+**Frontend** — HTML / CSS / vanilla JS, no framework · Server-Sent Events ·
+`fetch` + `ReadableStream` · client-side Markdown rendering
 
-### Dev & Evaluation
-| Technology | Role |
-|---|---|
-| **`run_questions_eval.py`** | Batch evaluation harness over `questions.json` |
-| **`benchmark_planner.py`, `benchmark_stream.py`, `benchmark_suggestions.py`** | Performance benchmarks for planner, streaming, and suggestion latency |
-| **`question_eval_set/`** | Date-organized question sets used for eval runs |
-| **`Eval_ordered/`** | Date-organized evaluation outputs, with `main`, `citation_fix`, and `failed_subset` subfolders |
-| **`question_eval_iter*.json`** | Legacy iterative evaluation snapshots used to track regressions and improvements |
-| **`verified_question_bank.json`** | Curated source-backed follow-up questions used for production suggestion chips |
-| **Analytics dashboard** | Staff diagnostics: per-interaction question/answer preview, trace JSON, retrieval diagnostics, source usage, corpus coverage, problem cases (blocked, clarification, error, low-confidence), evaluation summary with score key |
+**Auth and data** — Supabase Auth and Postgres, row-level security
 
-### Evaluation Folders
+**Hosting** — Hugging Face Spaces (Docker) · Vercel (static frontend, `/api` proxy)
 
-Use these folders to trace how the benchmark evolved over time:
+---
 
-- `[question_eval_set/](/Users/davidle/Documents/AI_Sustainable_labs/question_eval_set/)` stores the question files, grouped by date.
-- `[Eval_ordered/](/Users/davidle/Documents/AI_Sustainable_labs/Eval_ordered/)` stores the corresponding eval outputs, also grouped by date.
-- Within each date, `main` is for standard runs, `citation_fix` for citation-focused fixes, and `failed_subset` for regression or failure subsets.
-- Files are ordered by production date so it is easier to compare progression across runs.
+## 8. Evaluation
 
-### Evaluation Score Key
-- `correctness_vs_corpus`: 1–5 rating for how well the answer matches the SSL corpus reference.
-- `citations`: 1–5 rating for whether returned sources are useful and relevant support.
-- `hallucinated`: `yes` means the evaluator found unsupported or clearly incorrect facts.
-- `answered_question`: `yes` means the answer directly addressed the question that was asked.
-- `right_citations`: `yes` means the cited or returned sources match the relevant corpus sources.
+Tuning ran against targeted failure subsets, not aggregate scores, with
+chunk-level tracing on every run so we could see which chunks retrieval
+returned and which stage lost the answer. Larger subsets and full runs then
+showed where overall performance actually stood. Every failure we fixed turned
+out to be a structural bug — evidence mangled before the prompt, a dedupe that
+deleted the longer chunk, a validator misreading `2020-21` as an invented
+number — not a tuning gap.
 
-### How to Run and Interpret an Evaluation
-
-The evaluation process is designed to find failures before a full benchmark hides them in an aggregate score:
-
-1. **Run the targeted failure set first.** After a change, run the questions that previously failed plus nearby regression questions. Inspect the actual answer, sources, rewritten query, route, and retrieval trace—not just the judge score.
-2. **Run focused category subsets.** Use subsets for multi-turn context, multi-facet answers, citations, registry fallback, freshness, and routing. This shows whether a fix solved a class of failures or only one example.
-3. **Run the full 208-question set.** The canonical questions live in `question_eval_set/2026-07-11/questions_final_208.json`. The runner sends each question or conversation to the chatbot, then uses a separate judge pass to score the answer against the supplied corpus references.
-4. **Resume instead of repeating completed work.** If an API quota or transient provider error interrupts a run, save the completed artifact, compute the remaining IDs, and run only those IDs after the quota resets or a key is rotated. Merge segments only after checking for duplicate IDs.
-5. **Group failures by root cause.** Separate unanswered questions, hallucinations, wrong citations, incomplete facets, subject-resolution errors, stale-source errors, and contract violations. Fix the shared pipeline stage, then rerun the failed subset and its regression neighbors.
-6. **Require a clean final benchmark.** A passing result requires every question to be answered, no hallucinations, and correct citations. A high average score is not enough if even one question is incomplete or unsupported.
-
-Example targeted run:
-
-```bash
-EVAL_QUESTIONS_FILE=question_eval_set/2026-07-11/questions_final_208.json \
-EVAL_OUTPUT_FILE=Eval_ordered/2026-07-27/main/question_eval_targeted.json \
-EVAL_CASE_IDS=fs_123,fs_139 \
-EVAL_OVERWRITE=true \
-python3 run_questions_eval.py
-```
-
-Each result records the question, answer, sources, rewritten query, route, retrieval diagnostics, confidence, scores, and classification flags. This makes an evaluation an explainable debugging artifact rather than only a pass/fail number.
-
-### Final Phase Summary
-
-The final phase focused on making answers come from the right source more consistently. We expanded people-lookup retrieval, cleaned up mixed or truncated bio text, strengthened reranking for exact entity matches, and added hard routing for ambiguous questions like grants, projects, and SSL self-description queries. After the last key rotation, we reran the full 208-question benchmark and then organized both the question sets and eval outputs by date so the progression is easier to review.
-
-A later pass ran both benchmark sets end to end. Every failure traced to a
-structural bug rather than a tuning gap:
+Two 208-question sets, scored by a separate Gemini judge pass on correctness
+against the corpus, citations, hallucination, and whether every part of the
+question was answered. The scores below count correctness failures; a further
+13 answers on the newer set were correct but cited a different valid source
+than the one the question expected.
 
 | Set | Before | After |
 | --- | --- | --- |
 | `2026-07-11` — 160 single-turn + 48 multi-turn | 202/208 | **208/208** (48/48 multi-turn) |
-| `2026-08-29` — 208 single-turn | 175 → 205/208 | **205/208** |
+| `2026-08-29` — 208 single-turn | 175 | **205/208** |
 
-The defects behind those numbers:
-
-* `build_prompt` cleaned evidence with the wrong helper, mangling the block
-  wrapper and passing the generator 103 characters of a 942-character block. It
-  answered "the documents do not state this" while holding the answer.
-* The containment dedupe divided by `min()`, so a short chunk made the **longer**
-  chunk that contained it a duplicate and deleted it.
-* Backward completion added the preceding chunk as a separate numbered block,
-  splitting quotations from their attribution.
-* `unsupported_numbers` read `21` out of "2020-21" as an invented figure, and the
-  contract check matched clause terms as substrings — `"she"` inside
-  `"Watershed"` counted as answering "what did she say".
-
-Two remaining failures on the newer set are judge disagreements, verified by
-hand: the bot's figure is the one the source states.
+The three residual failures were checked by hand. Two are judge mistakes: one
+where the judge swapped two rows of a bar chart, one where the answer is right
+but drawn from a different valid document than the expected reference. The
+third is a real miss — a dollar figure that only exists inside a chart image,
+where the extracted text interleaves the values with axis labels and body prose.
 
 Generation is greedy with a fixed seed, but the planner and evidence selector
 are separate model calls that can fall back on a 503, so a single run moves by
@@ -355,7 +261,7 @@ about ±1 question. Compare full runs, not individual questions.
 
 ---
 
-## 8. Running It
+## 9. Running It
 
 ```bash
 pip install -r requirements.txt
