@@ -114,57 +114,26 @@ Each one exists because a specific wrong answer got through without it.
 | 4 | Chunk-boundary repair | A quotation split from its attribution across two chunks, so the model declined to attribute it |
 | 5 | Citations match shown sources | Markers pointing at evidence the user was never shown |
 
-### What each stage prevents
+### What each step does, and why it is there
 
-| Stage | Failure it prevents |
-| --- | --- |
-| Conversation state resolver | "What did she study?" retrieving on the pronoun instead of the person |
-| Local router first | Spending a model call on a question the registry answers exactly |
-| Facet buckets | One easy sub-question consuming the whole evidence budget, so the second half goes unanswered |
-| Dense + BM25 + rare-term | Each covers the others' blind spot: paraphrases, exact names, and single sentences diluted across a long chunk |
-| Containment dedupe | Two granularities of the same passage spending two slots — while keeping the *richer* chunk, not the shorter one |
-| Diverse seeds | A 358-chunk document owning the entire context window |
-| Evidence selector | 86% of measured failures had the right document in context and the model used a topically similar block instead |
-| Chunk-boundary repair | A quotation split from its attribution, or a list split from its lead-in, reading as "the documents do not state this" |
-| Number check | Invented figures — the model reported "88%, 87%, 86%" for a corpus that says "8 in 10" |
-| Answer contract | A two-part question silently answered in one part |
+| Step | What it does | Why |
+| --- | --- | --- |
+| Safety + rate limit | Screens the question before anything is retrieved | Blocks abuse without spending retrieval or tokens on it |
+| Conversation state | Resolves pronouns and follow-ups against the active subject | "What did she study?" would otherwise retrieve on the pronoun |
+| Local router | Classifies the question and scopes it using the entity and document registries | Answers obvious questions with no model call at all |
+| LLM planner | Rewrites into a standalone query and splits multi-part questions into facets | A registry miss is not a final answer, and one clause should not swallow the other |
+| Deterministic extractor | Pulls field-style facts — names, titles, emails, counts — straight from evidence | These are already structured; generating them adds cost and risk |
+| Dense + BM25 + rare-term | Three retrievers per facet | Each covers the others' blind spot: paraphrases, exact names, and single sentences diluted across 600 words |
+| RRF fusion + rerank | Merges the three lists, then boosts on source, section and freshness | Fuses without needing a trained reranker |
+| Dedupe + diverse seeds | Drops a chunk only when it adds nothing over one already kept, and caps any one document's share | Stops a 358-chunk document owning the whole context window |
+| Neighbour expansion | Adds adjacent chunks from the same document unit | Facts span chunk boundaries |
+| Evidence selector | Picks the answer-bearing blocks from ~28 candidates | 86% of measured failures had the right document in context and used a topically similar block instead |
+| Chunk-boundary repair | Prepends a cut lead-in, finishes a cut sentence | A quotation split from its attribution reads as "the documents do not state this" |
+| Grounded generation | Composes from the selected evidence only, greedy with a fixed seed | Same question and evidence gives the same answer, so a change can be told from noise |
+| Validation | The five checks above | Retrieval finding the right text does not mean the answer used it correctly |
+| Suggestions | Follow-up chips drawn from `verified_question_bank.json` | Curated and answerable, rather than invented live |
 
-### The design rationale, stage by stage
-
-1. **Conversation state comes first.** The state machine records the active subject, source scope, candidate subjects, and recent turns. This allows a follow-up to refer to a person, project, book, event, or organization even when that subject is not in the entity registry.
-2. **The rewrite is not the answer.** The LLM turns a contextual message into a standalone retrieval query and identifies the subject, intent, facets, and possible route. The original user question remains available for answer wording.
-3. **The plan controls retrieval.** The router chooses registry lookup, document lookup, or corpus retrieval. A registry miss is not treated as a final answer; the system falls back to retrieval when the corpus may still contain the fact.
-4. **Hybrid retrieval covers different failure modes.** Dense search handles paraphrases and concepts; BM25 handles exact names, titles, acronyms, and phrases. Metadata reranking then favors the correct source and section.
-5. **Deterministic extraction handles fragile facts.** Repeated field-style facts such as names, titles, emails, affiliate expertise, program year, committee counts, or source-listed totals are extracted directly from evidence when possible. This avoids spending an LLM call on facts that are already present in a predictable structure.
-6. **Evidence is scoped before generation.** The system keeps facet buckets separate, expands neighbors only within the same document unit, filters unrelated people or projects, and favors newer sources for current questions while preserving historical sources for dated questions.
-7. **The answer is validated after generation.** Citations are restricted to returned evidence. The answer contract checks requested counts, retrieval-only locator details, missing facets, unsupported caveats, and raw retrieval-label leaks before the response reaches the UI.
-8. **Suggestions are verified-bank based.** Follow-up chips are selected from `verified_question_bank.json` instead of being invented live. Runtime ranking is intentionally cheap so suggestions do not drag the answer stream.
-
-This architecture prevents the common RAG failure where retrieval found the right text but the final model mixed evidence, answered an unasked clause, omitted a facet, or ignored a constraint.
-
-### Core Techniques and Methods
-
-| Technique | Where it is used | Why it matters |
-|---|---|---|
-| **Conversation-state resolution** | Follow-up handling before retrieval | Keeps pronouns and short follow-ups attached to the right person, project, source, or prior question. |
-| **Local route classifier** | Fast first-pass routing | Avoids unnecessary planner calls for obvious questions and applies source scopes early. |
-| **LLM query planning** | Ambiguous or multi-facet questions | Rewrites contextual questions into standalone retrieval queries and separates requested facts into facets. |
-| **Hybrid retrieval** | Corpus search | Combines semantic vector retrieval with BM25 exact-match retrieval so paraphrases, names, acronyms, and titles are all recoverable. |
-| **Reciprocal Rank Fusion** | Candidate merge | Fuses dense and sparse candidate lists without needing a trained reranker. |
-| **Metadata-aware reranking** | Candidate ordering | Boosts candidates matching route title, category, folder, source path, section name, and exact query anchors. |
-| **Facet-bucket retrieval** | Multi-part questions | Retrieves each requested sub-question separately so one easy fact does not crowd out another. |
-| **Document-unit neighbor expansion** | Evidence repair | Adds adjacent chunks from the same source unit when a fact spans chunk boundaries. |
-| **Entity and document registries** | People, projects, sections, field facts | Gives the system structured fallback paths when vector retrieval is too broad or too narrow. |
-| **Deterministic evidence extractors** | Field facts, counts, roster details, contact info | Produces stable answers for source-stated facts without relying on generative wording. |
-| **Answer contract validation** | Post-generation guardrail | Checks that the answer addresses the requested facets, counts, scope, and locator constraints. |
-| **Citation normalization** | Final response packaging | Filters sources to cited evidence, renumbers citations, and prevents citations from pointing to unused or unrelated sources. |
-| **Display cleanup** | Final streamed text | Removes backend retrieval labels, malformed punctuation, citation-only fragments, and leaked stream sentinels. |
-| **Verified question bank suggestions** | Post-answer follow-up chips | Recommends only curated answerable questions and avoids slow live retrieval over every candidate by default. |
-| **Admin-session dashboard** | Staff diagnostics | Protects traces and chat diagnostics behind login while preserving debug visibility for maintainers. |
-
----
-
-## 4. Features and Retrieval Detail
+## 4. Features
 
 The chatbot answers questions about SSL research projects, publications, staff, initiatives, funding, and community partnerships using only the lab's own source documents. Everything the model says is grounded in retrieved chunks — no free-form invention.
 
@@ -179,76 +148,6 @@ The chatbot answers questions about SSL research projects, publications, staff, 
 - **Citation-aware answers** — citations are normalized against the final answer and filtered to sources actually shown to the user.
 - **Personal analytics dashboard** at `/dashboard`, open without a login and scoped to the caller's own activity: latency, tokens, cost, retrieval path, cited sources, corpus coverage, low-confidence cases, and the pipeline's evaluation summary. Anonymous visitors see the current session only; signed-in visitors also see their saved chats. The aggregate staff view over every visitor's chats stays behind an admin session.
 - **Optional visitor accounts** — signing in only controls whether a visitor's own history is saved; answers are identical either way.
-
-### The Retrieval Pipeline
-
-The interesting work happens *before* the LLM is called. A user question goes through these stages:
-
-#### a) Intent Classification & Query Routing
-
-When a question comes in, the chatbot first figures out **what kind of question it is** and **which slice of the corpus is most relevant**. This is done in layers:
-
-1. **Keyword-based local router** ([`detect_local_query_route`](Chatbot.py#L1388)) — a fast, deterministic classifier that tags the question with:
-   - A **question type**: `broad_overview`, `specific_fact`, `people_lookup`, `publication_inventory`, or `list_inventory`.
-   - A **scope**: which document titles, categories, and folders to filter retrieval to (e.g. "staff" → `Staff`, `SSLAbout`; "board" → `BoardOfDirectors`; "publications" → `Publications`).
-   - A **`prefer_summary` hint** that biases ranking toward short summary chunks vs. detail chunks.
-2. **Heuristic LLM-planning gate** ([`should_use_llm_planning`](Chatbot.py#L104)) — decides whether the question is ambiguous enough to deserve a more expensive LLM-powered planning call. Skips the LLM when confidence is decent, the query is short, targets are already found, or the topic is obviously clear. Saves tokens and latency on easy questions.
-3. **LLM query planner** ([`plan_query_with_llm`](Chatbot.py#L1722)) — only invoked when the gate says the heuristic wasn't enough. Given a catalog of titles, categories, folders, and entity names, Gemini picks the right routing scope itself.
-4. **Facet extraction** — multi-part questions are split into focused sub-questions so retrieval can preserve evidence for each requested fact instead of letting one dominant chunk crowd out the rest.
-
-#### b) Ensemble / Hybrid Search
-
-Retrieval runs two search engines in parallel and fuses their results:
-
-1. **Dense retrieval** ([`retrieve_dense_candidates`](Chatbot.py#L1093)) — semantic vector search over ChromaDB using `all-MiniLM-L6-v2` embeddings. Strong at paraphrase and conceptual matches.
-2. **BM25 sparse retrieval** ([`retrieve_bm25_candidates`](Chatbot.py#L1135)) — lexical keyword search. Strong at exact terms, names, and acronyms that vector search sometimes misses.
-3. **Reciprocal Rank Fusion** ([`fuse_candidates`](Chatbot.py#L1183)) — combines the two ranked lists with the RRF formula (`weight / (60 + rank)`). Weights are adaptive ([`get_hybrid_weights`](Chatbot.py#L1228)): summary-preferred queries favor dense, fact-lookup queries favor BM25, hard-routed queries weight both equally.
-4. **Metadata-aware reranking** ([`rerank_candidates`](Chatbot.py#L1308)) — boosts candidates whose source path, title, category, or folder matches the route, plus exact-term hits in body or section name. The final ordering is what gets sent to the LLM.
-
-#### c) Adaptive Candidate Pool
-
-[`choose_candidate_pool`](Chatbot.py#L141) sizes the candidate pool based on the question type: broad overviews pull more candidates for coverage, specific-fact questions pull fewer to save retrieval work (roughly 15–20% reduction over a fixed multiplier).
-
-#### d) Entity Resolution & Follow-ups
-
-A separate entity registry is built at ingest time from staff, board, affiliate, and project sections. At query time the bot tries to:
-- Match exact and phrased person/project names ([`find_phrase_matched_entities`](Chatbot.py#L2421)).
-- Resolve pronouns and "what about her?" follow-ups against recent conversation turns ([`resolve_recent_entity_follow_up`](Chatbot.py#L2179)).
-- Detect multi-group people-overview asks vs. specific-entity-detail asks so the response shape matches the question.
-
-#### e) Deterministic Answer Paths
-
-Not every answer needs a generative model. For predictable source-stated facts, the app can answer directly from retrieved or registry evidence:
-
-- Roster fields such as title, department, institute, affiliate expertise, email, and phone.
-- Count or total facts when a source directly states the number.
-- Person/project relationship sentences that can be quoted or lightly normalized from one evidence block.
-- Structured “not stated” fallbacks when retrieval genuinely does not contain the requested fact.
-
-These paths are intentionally dynamic: they are based on source structure, field labels, requested facets, and retrieval evidence rather than hard-coded case IDs.
-
-#### f) Generation and Post-Processing
-
-Retrieved chunks are formatted into a prompt and sent to Gemini via a **singleton client** (created once at startup, reused across requests). `max_output_tokens` is set to 2048 — appropriate for RAG and still below the default 8192. The response is streamed back to the client over SSE.
-
-Before a response is shown, the answer passes through:
-
-- Citation sanitization and renumbering.
-- Answer-contract validation for missing facets, wrong counts, unsupported caveats, and malformed responses.
-- Direct-evidence fallback if the generated answer fails the contract.
-- Final Markdown/display cleanup to remove raw retrieval labels, leaked stream sentinels, citation-only fragments, and punctuation blemishes.
-
-#### g) Suggested Questions
-
-The initial page can show static starter questions. After an answered chat turn, dynamic follow-up chips are chosen from [`verified_question_bank.json`](verified_question_bank.json):
-
-1. The current question and answer are tokenized.
-2. Verified bank questions are ranked by overlap.
-3. Questions without target sources are ignored.
-4. The exact question just asked is excluded.
-5. Up to three follow-ups are sent as a separate SSE `suggestions` event after the answer is done.
-
-For production speed, runtime suggestions do **not** rerun retrieval over every candidate by default. Set `SUGGESTIONS_VERIFY_RETRIEVAL=1` to re-enable the slower retrieval-verification gate. The verified bank is copied into the Hugging Face Docker image so production has the same suggestion source as local development.
 
 ### Document Ingestion
 
@@ -413,39 +312,33 @@ Each result records the question, answer, sources, rewritten query, route, retri
 
 The final phase focused on making answers come from the right source more consistently. We expanded people-lookup retrieval, cleaned up mixed or truncated bio text, strengthened reranking for exact entity matches, and added hard routing for ambiguous questions like grants, projects, and SSL self-description queries. After the last key rotation, we reran the full 208-question benchmark and then organized both the question sets and eval outputs by date so the progression is easier to review.
 
-A later pass ran both benchmark sets end to end and fixed what they exposed.
-Every failure traced to a structural bug rather than a tuning gap:
+A later pass ran both benchmark sets end to end. Every failure traced to a
+structural bug rather than a tuning gap:
 
 | Set | Before | After |
 | --- | --- | --- |
-| `2026-07-11` (160 single-turn + 48 multi-turn) | 202/208 | **208/208** (48/48 multi-turn) |
-| `2026-08-29` (208 single-turn) | 175 → 205/208 | **205/208** |
+| `2026-07-11` — 160 single-turn + 48 multi-turn | 202/208 | **208/208** (48/48 multi-turn) |
+| `2026-08-29` — 208 single-turn | 175 → 205/208 | **205/208** |
 
-The defects behind those numbers, each found by reading the failing evidence
-rather than by tuning thresholds:
+The defects behind those numbers:
 
-* `build_prompt` cleaned evidence with `strip_embedding_labels`, which mangles
-  the `Evidence Bucket: … Document Labels: …` wrapper and returned a fragment
-  from the middle of the block — 103 characters of 942 in the measured case.
-  The generator answered "the documents do not state this" while holding the
-  answer. It now uses `evidence_body`, which unwraps correctly.
-* `drop_contained_duplicates` divided token overlap by `min()`, so a short
-  chunk whose tokens all appeared in a longer one made the **longer** chunk a
-  duplicate and deleted it. Containment now divides by the candidate's own size.
+* `build_prompt` cleaned evidence with the wrong helper, mangling the block
+  wrapper and passing the generator 103 characters of a 942-character block. It
+  answered "the documents do not state this" while holding the answer.
+* The containment dedupe divided by `min()`, so a short chunk made the **longer**
+  chunk that contained it a duplicate and deleted it.
 * Backward completion added the preceding chunk as a separate numbered block,
-  which split a quotation from its attribution; the model then declined to
-  attribute either. It is now inlined into the same block.
-* `unsupported_numbers` read `21` out of "2020-21" as an invented figure, and
-  the contract check matched clause terms as substrings, so `"she"` inside
+  splitting quotations from their attribution.
+* `unsupported_numbers` read `21` out of "2020-21" as an invented figure, and the
+  contract check matched clause terms as substrings — `"she"` inside
   `"Watershed"` counted as answering "what did she say".
 
 Two remaining failures on the newer set are judge disagreements, verified by
-hand against the corpus: the bot's figure is the one the source states.
+hand: the bot's figure is the one the source states.
 
-Determinism matters for reading these numbers. Generation is greedy with a
-fixed seed, but the planner and evidence selector are separate model calls that
-can fall back on a 503, so a single run moves by roughly ±1 question. Compare
-full runs, not individual questions.
+Generation is greedy with a fixed seed, but the planner and evidence selector
+are separate model calls that can fall back on a 503, so a single run moves by
+about ±1 question. Compare full runs, not individual questions.
 
 ---
 
@@ -469,34 +362,6 @@ full runs, not individual questions.
 5. Open `http://localhost:7860/dashboard` for the analytics dashboard.
 
 The default port is `7860` (Hugging Face Spaces convention). Override with `PORT` or `CHATBOT_PORT` if needed. Set `CHATBOT_HOST=127.0.0.1` to bind to localhost only.
-
-### Dashboards: personal (open) and staff (admin-only)
-
-There are two dashboards, and the split is deliberate.
-
-**The personal dashboard is open to everyone** at `/dashboard`. It shows only
-the caller's own activity, so it can be public without exposing anybody:
-
-* **Anonymous visitors** see the current session, held in their own browser and
-  never sent to the server. It disappears when the tab closes.
-* **Signed-in visitors** additionally see their saved chats, so the view
-  survives a logout and returns on the next sign-in.
-* **Everyone** sees the pipeline's evaluation summary and the corpus categories
-  their own questions drew on. Those describe the system, not any person.
-
-It reports per-answer latency, token count, cost, retrieval path, cited
-sources, corpus coverage, and low-confidence or clarification cases — the same
-operational detail the staff view carries, scoped to one person.
-
-**The staff dashboard aggregates every visitor's chats** and stays behind an
-admin session: `/api/dashboard`, `/api/dashboard/interaction/<id>`, and their
-HTML pages all require one. That boundary matters — dropping it to make the
-personal view public would have published other people's conversations.
-
-What the browser is allowed to receive is an allowlist, not a blocklist
-(`_PUBLIC_CHAT_EVENT_FIELDS`). Prompts, evidence text, retrieval traces, chunk
-scores, and routing decisions never leave the server, so a new internal field
-cannot leak by being forgotten.
 
 ### Admin Dashboard Authentication
 
