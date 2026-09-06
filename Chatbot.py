@@ -153,14 +153,23 @@ _ACTIVE_QUERY_PLAN: ContextVar[Optional[dict]] = ContextVar("active_query_plan",
 # ---------------------------------------------------------------------------
 _ACTIVE_TELEMETRY: ContextVar[Optional[dict]] = ContextVar("active_telemetry", default=None)
 
-# USD per 1M tokens. Override per deployment with LLM_PRICE_TABLE_JSON, e.g.
-# {"gemini-3.1-flash-lite": {"input": 0.1, "output": 0.4}}
+# USD per 1M tokens, paid tier, from the published Gemini API pricing
+# (ai.google.dev/gemini-api/docs/pricing, checked 2026-09-05). Override per
+# deployment with LLM_PRICE_TABLE_JSON, e.g.
+# {"gemini-3.1-flash-lite": {"input": 0.25, "output": 1.5}}
+#
+# These were previously a flat 0.10/0.40 for every lite model, which
+# understated output on gemini-3.5-flash-lite by 6.25x and made the dashboard's
+# cost figure meaningless. Thinking tokens bill at the output rate, which
+# estimate_call_cost already does.
 _DEFAULT_LLM_PRICES: dict[str, dict[str, float]] = {
-    "gemini-3.5-flash-lite": {"input": 0.10, "output": 0.40},
-    "gemini-3.5-flash": {"input": 0.30, "output": 2.50},
-    "gemini-3.1-flash-lite": {"input": 0.10, "output": 0.40},
-    "gemini-3.1-flash": {"input": 0.30, "output": 2.50},
-    "gemini-3.1-pro": {"input": 1.25, "output": 10.00},
+    "gemini-3.5-flash-lite": {"input": 0.30, "output": 2.50, "cached": 0.03},
+    "gemini-3.5-flash": {"input": 1.50, "output": 9.00, "cached": 0.15},
+    # 3.1-flash promotional rates run through 2026-12-31, then double.
+    "gemini-3.1-flash-lite": {"input": 0.25, "output": 1.50, "cached": 0.025},
+    "gemini-3.1-flash": {"input": 0.75, "output": 3.75, "cached": 0.075},
+    # 3.1-pro: the higher tier applies to prompts over 200k tokens.
+    "gemini-3.1-pro": {"input": 2.00, "output": 12.00, "cached": 0.20},
     "gemma": {"input": 0.0, "output": 0.0},
 }
 
