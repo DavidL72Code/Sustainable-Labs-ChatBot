@@ -4687,6 +4687,33 @@ class RetrievalChatbot:
             "clarification_options": [],
         }
 
+    _ROUTER_TERM_PATTERNS: dict[str, "re.Pattern[str]"] = {}
+
+    @classmethod
+    def query_mentions(cls, text: str, terms: tuple) -> bool:
+        """Word-boundary keyword test for the local router.
+
+        "project" matched inside "projected", so "What is the projected annual
+        financial impact on the City of Boston specifically attributed to
+        flooding?" routed to Projects and the Annual Reports folder. The
+        publication that actually holds the figure got no routing boost, the
+        lexically similar report won the ranking head instead, and its answer
+        chunk was capped out of the pool — the question then declined while the
+        number sat in an indexed chunk.
+
+        An optional plural suffix is still allowed so "team"/"teams" and
+        "grant"/"grants" keep matching; "projected" and "programming" no longer
+        do, because those change what the question is about.
+        """
+        for term in terms:
+            pattern = cls._ROUTER_TERM_PATTERNS.get(term)
+            if pattern is None:
+                pattern = re.compile(rf"\b{re.escape(term)}(?:s|es)?\b")
+                cls._ROUTER_TERM_PATTERNS[term] = pattern
+            if pattern.search(text):
+                return True
+        return False
+
     def detect_local_query_route(self, query: str) -> dict:
         lowered_query = query.lower()
         route = self.default_query_route(query)
@@ -4721,16 +4748,16 @@ class RetrievalChatbot:
                 route["prefer_summary"] = True
             matched_reasons.append(reason)
 
-        if any(term in lowered_query for term in ("project", "projects", "initiative", "initiatives", "program", "programs")):
+        if self.query_mentions(lowered_query, ("project", "projects", "initiative", "initiatives", "program", "programs")):
             apply_scope(
                 titles=["Projects"],
                 folders=["Annual Reports"],
-                question_type="broad_overview" if any(term in lowered_query for term in ("what are", "overview", "current")) else "specific_fact",
+                question_type="broad_overview" if self.query_mentions(lowered_query, ("what are", "overview", "current")) else "specific_fact",
                 prefer_summary=True,
                 reason="project-related sources",
             )
 
-        if any(term in lowered_query for term in ("staff", "team", "employee", "employees")):
+        if self.query_mentions(lowered_query, ("staff", "team", "employee", "employees")):
             apply_scope(
                 titles=["Staff", "SSLAbout", "AnnualReport2021"],
                 categories=["Annual Reports"],
@@ -4740,7 +4767,7 @@ class RetrievalChatbot:
                 reason="staff-related sources",
             )
 
-        if any(term in lowered_query for term in ("student", "students", "intern", "interns", "fellow", "fellows", "alumni")):
+        if self.query_mentions(lowered_query, ("student", "students", "intern", "interns", "fellow", "fellows", "alumni")):
             apply_scope(
                 titles=["StudentsInterns", "AnnualReport2021"],
                 question_type="people_lookup",
@@ -4748,7 +4775,7 @@ class RetrievalChatbot:
                 reason="student and intern sources",
             )
 
-        if any(term in lowered_query for term in ("board", "leadership", "leader", "leaders", "advisory")):
+        if self.query_mentions(lowered_query, ("board", "leadership", "leader", "leaders", "advisory")):
             apply_scope(
                 titles=["BoardOfDirectors", "SSLAbout", "AnnualReport2021"],
                 question_type="people_lookup",
@@ -4764,7 +4791,7 @@ class RetrievalChatbot:
                 reason="executive director staff source",
             )
 
-        if any(term in lowered_query for term in ("affiliate", "affiliates", "faculty affiliate", "university affiliate")):
+        if self.query_mentions(lowered_query, ("affiliate", "affiliates", "faculty affiliate", "university affiliate")):
             apply_scope(
                 titles=["UniversityAffiliates", "AnnualReport2021"],
                 question_type="people_lookup",
@@ -4781,8 +4808,8 @@ class RetrievalChatbot:
 
         publication_terms = ("publication", "publications", "paper", "papers")
         report_terms = ("report", "reports", "annual report", "annual reports", "year in review")
-        has_publication_terms = any(term in lowered_query for term in publication_terms)
-        has_report_terms = any(term in lowered_query for term in report_terms)
+        has_publication_terms = self.query_mentions(lowered_query, publication_terms)
+        has_report_terms = self.query_mentions(lowered_query, report_terms)
         if "views that matter" in lowered_query:
             apply_scope(
                 titles=["AnnualReport2021"],
@@ -4808,7 +4835,7 @@ class RetrievalChatbot:
                 categories=publication_categories,
                 folders=publication_folders,
                 question_type="publication_inventory" if (
-                    any(term in lowered_query for term in ("list", "name all", "how many"))
+                    self.query_mentions(lowered_query, ("list", "name all", "how many"))
                     and not any(m in lowered_query for m in ("according to", "based on"))
                 ) else "specific_fact",
                 prefer_summary=True,
@@ -4827,7 +4854,7 @@ class RetrievalChatbot:
                     matched_reasons.append("explicit annual report hard-scoped to the matched report")
 
         exact_person_location_or_education = bool(self.find_exact_or_phrase_matched_entities(query)) and (
-            any(term in lowered_query for term in (
+            self.query_mentions(lowered_query, (
                 "originally from", "where is", "where was", "where did",
                 "country", "countries", "attend", "attended", "university",
                 "college", "doctoral", "phd", "ph.d", "major", "minor",
@@ -4836,8 +4863,8 @@ class RetrievalChatbot:
         )
         explicit_contact_terms = self.is_user_contact_intent(query)
         ssl_location_request = (
-            any(term in lowered_query for term in ("address", "location", "located", "where is"))
-            and any(term in lowered_query for term in ("ssl", "sustainable solutions lab", "lab", "office"))
+            self.query_mentions(lowered_query, ("address", "location", "located", "where is"))
+            and self.query_mentions(lowered_query, ("ssl", "sustainable solutions lab", "lab", "office"))
             and not exact_person_location_or_education
         )
         if explicit_contact_terms or ssl_location_request:
@@ -4849,7 +4876,7 @@ class RetrievalChatbot:
                 reason="contact and about sources",
             )
 
-        if any(term in lowered_query for term in ("what we do", "categories of work", "main categories of work")):
+        if self.query_mentions(lowered_query, ("what we do", "categories of work", "main categories of work")):
             apply_scope(
                 titles=["SSLAbout"],
                 source_paths=["SEED_DOCUMENTS/SSLAbout.txt"],
@@ -4859,7 +4886,7 @@ class RetrievalChatbot:
             )
 
         if "transdisciplinary" in lowered_query or (
-            any(term in lowered_query for term in ("counts as", "count as", "expanding what", "expand what", "what counts"))
+            self.query_mentions(lowered_query, ("counts as", "count as", "expanding what", "expand what", "what counts"))
             and "climate" in lowered_query
         ):
             apply_scope(
@@ -4878,7 +4905,7 @@ class RetrievalChatbot:
                 reason="three categories what we do source",
             )
 
-        if any(term in lowered_query for term in ("mission", "vision", "year in review", "what does ssl do")):
+        if self.query_mentions(lowered_query, ("mission", "vision", "year in review", "what does ssl do")):
             apply_scope(
                 titles=["SSLAbout", "AnnualReport2021"],
                 folders=["Annual Reports"],
@@ -4887,7 +4914,7 @@ class RetrievalChatbot:
                 reason="mission and about section sources",
             )
 
-        if any(term in lowered_query for term in ("research background", "bio", "biography", "background")):
+        if self.query_mentions(lowered_query, ("research background", "bio", "biography", "background")):
             apply_scope(
                 titles=["Staff", "StudentsInterns", "UniversityAffiliates", "BoardOfDirectors"],
                 question_type="people_lookup",
@@ -4895,7 +4922,7 @@ class RetrievalChatbot:
                 reason="person biography sources",
             )
 
-        if any(term in lowered_query for term in ("grant", "grants", "funded by", "funded through")):
+        if self.query_mentions(lowered_query, ("grant", "grants", "funded by", "funded through")):
             apply_scope(
                 folders=["Annual Reports"],
                 question_type="specific_fact",
@@ -4924,7 +4951,7 @@ class RetrievalChatbot:
         # n100: "On what date did the BPDA submit its proposal to the CZM?" — Ante Ivčević's
         # Staff.txt entry (expertise: coastal zone management) was retrieved via soft scope
         # and bled into the generator output.  Hard-routing to Publications prevents that.
-        if any(term in lowered_query for term in ("on what date", "what date did", "when did the")) and any(
+        if self.query_mentions(lowered_query, ("on what date", "what date did", "when did the")) and any(
             term in lowered_query for term in (
                 "agency", "bpda", "czm", "coastal zone management", "office of",
                 "municipality", "municipal", "government", "planning",
@@ -4948,9 +4975,9 @@ class RetrievalChatbot:
         # by chunks from other publications that are retrieved on shared keyword overlap.
 
         # n096-type: "What academic entity is credited with … projected annual financial impact"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "projected annual financial", "annual financial impact", "financial impact of climate",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "academic", "entity", "credited", "university", "institution",
         )):
             apply_scope(
@@ -4962,10 +4989,10 @@ class RetrievalChatbot:
             )
 
         # n053-type: "What percentage of stakeholders … primarily focused on climate adaptation"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "percentage of stakeholders", "percent of stakeholders",
             "primarily focused on climate adaptation", "reported that their work",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "metro boston", "climate adaptation network", "stakeholder network",
         )):
             apply_scope(
@@ -4976,10 +5003,10 @@ class RetrievalChatbot:
             )
 
         # n019-type: "What government agency released the 2021 report … social vulnerability"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "government agency released", "agency released", "which agency published",
             "which government agency released",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "2021", "social vulnerability", "climate impacts", "social vulnerability and climate",
         )):
             apply_scope(
@@ -4990,10 +5017,10 @@ class RetrievalChatbot:
             )
 
         # n033-type: "Main barrier to translating community awareness … into effective action"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "barrier to translating", "main barrier", "translating community awareness",
             "barrier to translating awareness",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "awareness", "action", "environmental", "community",
         )):
             apply_scope(
@@ -5004,11 +5031,11 @@ class RetrievalChatbot:
             )
 
         # n069-type: "What institutional factor limits … climate adaptation projects … municipalities"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "institutional factor", "institutional limit", "limits the effectiveness",
             "effectiveness of climate adaptation", "across different municipalities",
             "across municipalities",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "municipalities", "municipal", "mvp", "vulnerability preparedness",
         )):
             apply_scope(
@@ -5019,13 +5046,13 @@ class RetrievalChatbot:
             )
         # Group C — Views that Matter (Race and Opinions on Climate Change of Boston)
         # Survey-based questions about demographic groups' climate opinions/perceptions.
-        _views_that_matter_signals = any(term in lowered_query for term in (
+        _views_that_matter_signals = self.query_mentions(lowered_query, (
             "latino", "latina", "latino/a", "asian american", "asian-american",
             "high-income neighborhood", "high income neighborhood",
             "times more likely", "sea level rise is already",
             "survey participants believe", "survey respondents",
             "residents of color", "black residents", "white residents",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "survey", "percent", "percentage", "support", "believe", "ready",
             "climate", "weather", "sea level",
         ))
@@ -5041,9 +5068,9 @@ class RetrievalChatbot:
         _johnson_pdf = ["SEED_DOCUMENTS/Publications/johnson_wp21mj1.pdf"]
 
         # n030-type: "which organization authored … emergency rental assistance"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "emergency rental assistance", "rental assistance",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "organization authored", "authored", "authored the research", "research note",
             "public health crisis", "pandemic",
         )):
@@ -5051,27 +5078,27 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="rental assistance research note → johnson_wp21mj1")
 
         # n082-type: "municipal entity published findings … climate resilience regulations … housing affordability"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "housing affordability", "climate resilience regulations",
             "negatively impact housing", "affordability",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "municipal", "municipality", "climate resilience", "regulations",
         )):
             apply_scope(source_paths=_johnson_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="climate resilience housing affordability → johnson_wp21mj1")
 
         # n124-type: "population groups … prioritized … climate resilience … housing inequity"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "housing inequity", "housing equity", "climate resilience does not exacerbate",
             "exacerbate housing", "housing crisis",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "population groups", "populations", "prioritized", "policy interventions",
         )):
             apply_scope(source_paths=_johnson_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="housing inequity population groups → johnson_wp21mj1")
 
         # n189-type: "which academic institution are all four co-authors affiliated"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "co-authors affiliated", "co-authors", "four co-authors", "all four",
             "affiliated with", "institution are all",
         )):
@@ -5079,10 +5106,10 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="co-author institution → johnson_wp21mj1")
 
         # n197-type: "creative techniques … lived experiences … housing and climate nexus"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "creative techniques", "lived experiences", "housing and climate", "climate nexus",
             "housing crisis", "connect their lived",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "residents", "techniques", "alternatives", "connect",
         )):
             apply_scope(source_paths=_johnson_pdf, question_type="specific_fact",
@@ -5095,7 +5122,7 @@ class RetrievalChatbot:
         ]
 
         # n050-type: "total asset value … institutional investors … corporate carbon"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "institutional investors", "asset value", "corporate carbon",
             "carbon accountability",
         )):
@@ -5103,26 +5130,26 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="institutional investor assets → Financing PDF")
 
         # n001-type: "professional expertise and community representation … regional group task"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "regional group", "task force", "community representation", "professional expertise",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "recommended", "regional", "task", "representation",
         )):
             apply_scope(source_paths=_financing_pdf_paths, question_type="specific_fact",
                         prefer_summary=False, reason="regional task force expertise → Financing PDF")
 
         # n097-type: "research organization … climate-related economic damage"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "climate-related economic", "economic damage", "economic losses",
             "financial damage", "damage estimate",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "research organization", "organization", "contributor", "credited",
         )):
             apply_scope(source_paths=_financing_pdf_paths, question_type="specific_fact",
                         prefer_summary=False, reason="economic damage research org → Financing PDF")
 
         # n184-type: "FEMA statistics … small businesses … resume operations"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "fema", "small businesses", "resume operations", "unable to reopen",
             "businesses are unable", "disaster recovery",
         )):
@@ -5134,17 +5161,17 @@ class RetrievalChatbot:
         _annual_2021 = ["SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"]
 
         # n057-type: "follow-up discussions SSL facilitated since June event … bridge connections … resilience types"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "follow-up discussions", "follow up discussions", "facilitated since",
             "bridge connections", "conversations to begin", "weaving connections",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "ssl", "sustainable solutions lab", "june event", "resilience",
         )):
             apply_scope(source_paths=_annual_2022, question_type="specific_fact",
                         prefer_summary=False, reason="post-June event discussions count → 2022 Annual Report")
 
         # n133-type: Northeast Climate Justice Research Collaboration institution count
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "northeast climate justice research collaboration", "climate justice research collaboration",
             "institutions are represented", "how many institutions",
         )):
@@ -5152,7 +5179,7 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="NCJRC institution count → 2022 Annual Report")
 
         # n134-type: researcher studying mental health + Dorchester
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "mental health in dorchester", "effects of climate change on mental health",
             "climate change on mental health",
         )):
@@ -5160,9 +5187,9 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="mental health Dorchester researcher → 2022 Annual Report")
 
         # n147-type: former dean who resigned for clean energy
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "resigned to focus on clean energy", "former dean", "resigned", "clean energy initiatives",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "dean", "mccormack", "clean energy", "resigned",
         )):
             apply_scope(source_paths=_annual_2021, question_type="specific_fact",
@@ -5173,28 +5200,28 @@ class RetrievalChatbot:
 
         # n009-type: "how many colleges and institutes have partnered to form the SSL"
         # Voices that Matter contains SSL's founding description (6 colleges + 4 institutes).
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "colleges and institutes", "colleges and four institutes",
             "how many colleges", "how many colleges and",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "sustainable solutions lab", "ssl", "umass boston",
         )):
             apply_scope(source_paths=_voices_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="SSL founding colleges count → Voices that Matter PDF")
 
         # n059-type: public transportation system + travel difficulties + community elders
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "travel difficulties", "community elders", "elders",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "public transportation", "transportation system", "transit",
         )):
             apply_scope(source_paths=_voices_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="elder transit difficulty → Voices that Matter PDF")
 
         # n104-type: Black residents + primary contributors + increased vulnerability
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "black residents", "black community", "residents identify",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "primary contributors", "increased vulnerability", "vulnerability", "contributing factors",
         )):
             apply_scope(source_paths=_voices_pdf, question_type="specific_fact",
@@ -5212,20 +5239,20 @@ class RetrievalChatbot:
         ]
 
         # n023-type: "on what date … study … climate preparedness … officially published"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "officially published", "when was the study", "what date was the study",
             "date was the", "date of publication",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "climate preparedness", "boston", "preparedness study",
         )):
             apply_scope(source_paths=_community_led_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="publication date Boston preparedness study → Community-Led PDF")
 
         # n028-type: "researchers' conceptual model of equitable climate adaptation"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "conceptual model of equitable climate adaptation", "conceptual model",
             "equitable climate adaptation", "environmental justice" ,
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "researchers", "model", "applied to", "analyze",
         )):
             apply_scope(source_paths=["SEED_DOCUMENTS/Publications/Learning from the Massachusetts Municipal Vulnerability Preparedn.pdf"],
@@ -5233,7 +5260,7 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="equitable adaptation conceptual model → MVP PDF")
 
         # n039-type: "percentage of the US population acknowledges … climate change"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "acknowledges the existence of climate change", "acknowledges climate change",
             "us population acknowledges", "percentage of the us population",
         )):
@@ -5241,35 +5268,35 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="US population climate awareness % → Community-Led PDF")
 
         # n040-type: "demographic group … outdoor occupations … health risks"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "outdoor occupations", "high representation in outdoor", "outdoor workers",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "demographic group", "health risks", "heightened health",
         )):
             apply_scope(source_paths=_community_led_pdf, question_type="specific_fact",
                         prefer_summary=False, reason="outdoor occupation health risk group → Community-Led PDF")
 
         # n102-type: "how many public governance tools … local regional state federal"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "public governance tools", "governance tools", "governance mechanisms",
             "local, regional, state", "local regional state federal",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "how many", "categorized", "levels",
         )):
             apply_scope(source_paths=_governance_pdfs, question_type="specific_fact",
                         prefer_summary=False, reason="governance tools count → Governance PDF")
 
         # n115-type: "year did … municipal government of Boston … comprehensive strategy … climate change"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "comprehensive strategy", "municipal government of boston", "city of boston",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "what year", "in what year", "when did", "initiate", "launch",
         )) and "climate" in lowered_query:
             apply_scope(source_paths=_feasibility_pdfs, question_type="specific_fact",
                         prefer_summary=False, reason="Boston climate strategy year → Feasibility PDF")
 
         # n128-type: "criteria are suggested for evaluating the benefits of adaptation projects"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "criteria are suggested", "suggested criteria", "evaluating the benefits",
             "benefits of proposed adaptation", "benefits of adaptation",
         )):
@@ -5277,25 +5304,25 @@ class RetrievalChatbot:
                         prefer_summary=False, reason="adaptation project evaluation criteria → Governance PDF")
 
         # n146-type: "ecosystem asset values … sea level rise … no adaptation"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "ecosystem asset values", "total ecosystem", "ecosystem values",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "sea level rise", "sea-level rise", "no adaptation", "assuming no",
         )):
             apply_scope(source_paths=_feasibility_pdfs, question_type="specific_fact",
                         prefer_summary=False, reason="ecosystem values sea level rise → Feasibility PDF")
 
         # n163-type: "researchers credited with producing the 2018 study … climate change governance"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "2018 study", "2018 report", "researchers credited", "who produced",
         )) and "governance" in lowered_query and "climate" in lowered_query:
             apply_scope(source_paths=_governance_pdfs, question_type="specific_fact",
                         prefer_summary=False, reason="2018 climate governance study researchers → Governance PDF")
 
         # n202-type: "type of location … highest number of reported flooding observations"
-        if any(term in lowered_query for term in (
+        if self.query_mentions(lowered_query, (
             "flooding observations", "reported flooding", "highest number of flooding",
-        )) and any(term in lowered_query for term in (
+        )) and self.query_mentions(lowered_query, (
             "type of location", "location", "public reports", "highest number",
         )):
             apply_scope(source_paths=["SEED_DOCUMENTS/Publications/Who Counts in Climate Resilience_ Transient Populations and Clima.pdf"],
@@ -5328,10 +5355,10 @@ class RetrievalChatbot:
             )
             force_hard_routing = True  # must not fall back to Cape Cod Rail project record
         if (
-            any(term in lowered_query for term in ("cape cod", "rail", "railway", "massdot", "train line", "rail resilience"))
+            self.query_mentions(lowered_query, ("cape cod", "rail", "railway", "massdot", "train line", "rail resilience"))
             and not _is_transient_populations_query
         ):
-            is_people_query = any(term in lowered_query for term in ("student", "students", "intern", "interns", "person", "people"))
+            is_people_query = self.query_mentions(lowered_query, ("student", "students", "intern", "interns", "person", "people"))
             rail_titles = ["Projects", "AnnualReport2021"] + (["StudentsInterns"] if is_people_query else [])
             apply_scope(
                 titles=rail_titles,
@@ -5375,7 +5402,7 @@ class RetrievalChatbot:
                 reason="forum-specific sources",
             )
 
-        if any(term in lowered_query for term in ("climate careers curricula initiative", "c3i", "c3 initiative")):
+        if self.query_mentions(lowered_query, ("climate careers curricula initiative", "c3i", "c3 initiative")):
             apply_scope(
                 titles=["Projects"],
                 source_paths=["SEED_DOCUMENTS/Projects.txt"],
@@ -5384,7 +5411,7 @@ class RetrievalChatbot:
                 reason="c3 initiative sources",
             )
 
-        if any(term in lowered_query for term in ("benefits", "gain access", "membership", "joining")) and "northeast climate justice research collaborative" in lowered_query:
+        if self.query_mentions(lowered_query, ("benefits", "gain access", "membership", "joining")) and "northeast climate justice research collaborative" in lowered_query:
             apply_scope(
                 titles=["Projects"],
                 source_paths=["SEED_DOCUMENTS/Projects.txt"],
@@ -5393,7 +5420,7 @@ class RetrievalChatbot:
                 reason="collaborative access details",
             )
 
-        if any(term in lowered_query for term in ("microcredentialed programs", "plan to develop", "over what time period")):
+        if self.query_mentions(lowered_query, ("microcredentialed programs", "plan to develop", "over what time period")):
             apply_scope(
                 titles=["Projects"],
                 source_paths=["SEED_DOCUMENTS/Projects.txt"],
@@ -5402,7 +5429,7 @@ class RetrievalChatbot:
                 reason="c3 program count details",
             )
 
-        if any(term in lowered_query for term in ("workforce training", "workforce development", "climate careers", "career training", "job training")):
+        if self.query_mentions(lowered_query, ("workforce training", "workforce development", "climate careers", "career training", "job training")):
             apply_scope(
                 titles=["Projects"],
                 source_paths=["SEED_DOCUMENTS/Projects.txt"],
@@ -5502,7 +5529,7 @@ class RetrievalChatbot:
             if matched_source_paths:
                 apply_scope(
                     source_paths=matched_source_paths,
-                    question_type="people_lookup" if any(term in lowered_query for term in ("who is", "what does", "say about")) else "specific_fact",
+                    question_type="people_lookup" if self.query_mentions(lowered_query, ("who is", "what does", "say about")) else "specific_fact",
                     prefer_summary=False,
                     reason=f"exact phrase match for {phrase}",
                 )
@@ -5722,9 +5749,9 @@ class RetrievalChatbot:
             "2020", "2021", "academic year", "that year", "annual report", "historical", "former", "previous"
         )
         if (
-            any(term in lowered_query for term in _director_terms)
-            and any(term in lowered_query for term in _ssl_terms)
-            and not any(term in lowered_query for term in _historical_director_terms)
+            self.query_mentions(lowered_query, _director_terms)
+            and self.query_mentions(lowered_query, _ssl_terms)
+            and not self.query_mentions(lowered_query, _historical_director_terms)
         ):
             target_source_paths = {"SEED_DOCUMENTS/Staff.txt"}
             target_titles = {"Staff"}
@@ -5783,7 +5810,7 @@ class RetrievalChatbot:
         # Person profiles describe current roles and otherwise outrank the award slide.
         _lorena_epa_grant = any(
             name in lowered_query for name in ("lorena estrada-martinez", "lorena estrada martinez")
-        ) and any(term in lowered_query for term in ("epa", "grant", "amount", "vieques", "study"))
+        ) and self.query_mentions(lowered_query, ("epa", "grant", "amount", "vieques", "study"))
         _rosalyn_nsf_grant = "rosalyn negron" in lowered_query and any(
             term in lowered_query
             for term in ("nsf", "grant", "253,862", "250k", "hurricane maria", "evacuation", "2020-21")
@@ -5952,7 +5979,7 @@ class RetrievalChatbot:
         # fires because both "BPDA" and "CZM" are named entities, resetting hard routing
         # and letting Ivčević's Staff.txt entry (expertise: coastal zone management) win
         # on BM25 and bleed into the generator output as "Regarding Ante Ivčević…".
-        if any(term in lowered_query for term in ("on what date", "what date did", "when did the")) and any(
+        if self.query_mentions(lowered_query, ("on what date", "what date did", "when did the")) and any(
             term in lowered_query for term in (
                 "agency", "bpda", "czm", "coastal zone management", "office of",
                 "municipality", "municipal", "government", "planning",
