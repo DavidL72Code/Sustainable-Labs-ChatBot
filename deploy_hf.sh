@@ -41,13 +41,21 @@ trap 'git checkout --quiet "$START_BRANCH"' EXIT
 
 git checkout --quiet "$DEPLOY_BRANCH"
 
-# Take the source tree wholesale so the deploy branch cannot drift.
+# Take the source tree wholesale so the deploy branch cannot drift. Files the
+# index knows about but the source tree does not are removed from the worktree,
+# so refuse to run if anything untracked has been staged by mistake.
+if [ -n "$(git diff --cached --name-only)" ]; then
+  echo "error: the index is not clean; refusing to reset the worktree." >&2
+  git diff --cached --name-only >&2
+  exit 1
+fi
 git read-tree -u --reset "$SRC_BRANCH"
 
-# Eval artifacts stay on GitHub.
+# Eval artifacts stay on GitHub. Drop them from the index and from git's view
+# of the worktree, but never `rm -rf` the directories: they also hold untracked
+# local run output that git cannot restore afterwards.
 for path in "${EXCLUDE[@]}"; do
   git rm -r --quiet --cached --ignore-unmatch -- "$path" >/dev/null
-  rm -rf -- "$path"
 done
 {
   printf '\n# Deploy branch: eval artifacts stay on GitHub, not in the Space image.\n'
