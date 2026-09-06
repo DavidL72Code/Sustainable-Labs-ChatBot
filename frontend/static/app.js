@@ -482,7 +482,7 @@ async function submitMessageFlow(message, displayMessage = message) {
       } else if (event.type === "session_full") {
         // The answer was still delivered; only saving stopped. Offer the new
         // session rather than letting history silently stop being recorded.
-        openSessionFullDialog(event.limit);
+        openSessionFullDialog();
       } else if (event.type === "suggestions") {
         if (suggestionAnchor && event.suggestions && event.suggestions.length > 0) {
           renderSuggestions(event.suggestions, suggestionAnchor);
@@ -618,15 +618,8 @@ function closeConfirmDialog() {
   if (confirmOverlay) confirmOverlay.hidden = true;
 }
 
-function openSessionFullDialog(limit) {
+function openSessionFullDialog() {
   if (!sessionFullOverlay) return;
-  const body = document.getElementById("sessionFullBody");
-  if (body && limit) {
-    body.textContent =
-      `This chat has reached its limit of ${limit} saved messages, so new ` +
-      `messages in it will not be saved. Start a new chat to keep saving your ` +
-      `history — this conversation stays in your sidebar.`;
-  }
   sessionFullOverlay.hidden = false;
   sessionFullNew?.focus();
 }
