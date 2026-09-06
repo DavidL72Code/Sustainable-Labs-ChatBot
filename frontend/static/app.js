@@ -25,34 +25,50 @@ function assistantLabelMarkup(label) {
   `;
 }
 
-function addSidebarEntry(text, messageId) {
-  if (!sidebarList) return null;
-
-  const empty = sidebarList.querySelector(".sidebar-empty");
-  if (empty) empty.remove();
-
+function sidebarSessionRow(id, title) {
+  // One row per session, labelled with the first message of that session —
+  // the same shape the server already stores (visitor_conversations.title).
   const item = document.createElement("li");
   item.className = "sidebar-item";
+  item.dataset.conversationId = id;
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "sidebar-link";
-  button.title = text;
-  button.textContent = text;
-  button.addEventListener("click", () => {
-    const target = document.getElementById(messageId);
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  const open = document.createElement("button");
+  open.type = "button";
+  open.className = "sidebar-link";
+  open.title = title;
+  open.textContent = title;
+  open.addEventListener("click", () => openSavedConversation(id));
+
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.className = "sidebar-delete";
+  remove.title = "Delete this chat";
+  remove.setAttribute("aria-label", `Delete ${title}`);
+  remove.textContent = "\u00d7";
+  remove.addEventListener("click", async (event) => {
+    event.stopPropagation();
+    if (!window.confirm(`Delete "${title}"?\n\nThis cannot be undone.`)) return;
+    const done = await fetch(apiUrl(`/api/visitor/conversations/${encodeURIComponent(id)}`), {
+      method: "DELETE",
+      credentials: "include",
+    }).catch(() => null);
+    if (!done || !done.ok) return;
+    item.remove();
+    if (conversationId === id) startNewConversation();
+    if (!sidebarList.querySelector(".sidebar-item")) restoreSidebarPlaceholder();
   });
 
-  item.appendChild(button);
-  sidebarList.prepend(item);
-
-  const items = sidebarList.querySelectorAll(".sidebar-item");
-  if (items.length > 10) {
-    items[items.length - 1].remove();
-  }
-
+  item.append(open, remove);
   return item;
+}
+
+function addSessionToSidebar(id, title) {
+  if (!sidebarList || !id) return;
+  if (sidebarList.querySelector(`[data-conversation-id="${CSS.escape(id)}"]`)) return;
+  const empty = sidebarList.querySelector(".sidebar-empty");
+  if (empty) empty.remove();
+  sidebarList.prepend(sidebarSessionRow(id, title || "New chat"));
+  markActiveConversation(id);
 }
 
 function setStatus(processing) {
@@ -61,6 +77,7 @@ function setStatus(processing) {
 }
 
 let conversationId = "";
+let firstMessageOfSession = "";
 
 const suggestedQuestionsEl = document.getElementById("suggestedQuestions");
 if (suggestedQuestionsEl) {
@@ -227,9 +244,11 @@ function appendMessage(role, label, content, sources = [], clarificationOptions 
 
   let sidebarItem = null;
   if (role === "user") {
-    const id = `msg-${++messageCounter}`;
-    messageNode.id = id;
-    sidebarItem = addSidebarEntry(content, id);
+    // Anchor for in-page scrolling only. The sidebar lists sessions, not
+    // individual questions: it used to prepend a row per message and cap at
+    // ten, which meant a signed-in visitor's saved sessions were pushed out by
+    // their own questions as soon as they started typing.
+    messageNode.id = `msg-${++messageCounter}`;
   }
   if (role === "assistant") {
     labelNode.innerHTML = assistantLabelMarkup(label);
@@ -335,6 +354,9 @@ function renderSuggestions(suggestions, targetNode) {
 
 
 async function streamMessage(message, onEvent) {
+  // The message that opens a session becomes its sidebar title, the same way
+  // the server titles visitor_conversations.
+  if (!conversationId) firstMessageOfSession = message;
   const response = await fetch((window.API_BASE || "") + "/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -346,7 +368,13 @@ async function streamMessage(message, onEvent) {
 
   const responseConversationId = response.headers.get("X-Conversation-Id");
   if (responseConversationId) {
+    const isNewSession = responseConversationId && responseConversationId !== conversationId;
     conversationId = responseConversationId;
+    // A brand-new session appears in the sidebar straight away, titled with
+    // the message that started it — matching how the server titles it.
+    if (isNewSession && signedIn) {
+      addSessionToSidebar(responseConversationId, firstMessageOfSession || "New chat");
+    }
   }
 
   if (!response.ok) {
@@ -622,6 +650,7 @@ function startNewConversation() {
   // A fresh session: clear the id so the backend allocates a new one, empty
   // the transcript, and drop the active highlight. The saved chats stay.
   conversationId = "";
+  firstMessageOfSession = "";
   if (chatMessages) chatMessages.innerHTML = "";
   markActiveConversation("");
 }
@@ -635,42 +664,9 @@ async function loadSavedConversations() {
     if (!conversations.length) return;
     sidebarList.innerHTML = "";
     conversations.forEach((conversation) => {
-      const item = document.createElement("li");
-      item.className = "sidebar-item";
-      item.dataset.conversationId = conversation.id;
-
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "sidebar-link";
-      button.title = conversation.title || "Saved chat";
-      button.textContent = conversation.title || "Saved chat";
-      button.addEventListener("click", () => openSavedConversation(conversation.id));
-
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "sidebar-delete";
-      remove.title = "Delete this saved chat";
-      remove.setAttribute("aria-label", `Delete ${conversation.title || "saved chat"}`);
-      remove.textContent = "×";
-      remove.addEventListener("click", async (event) => {
-        event.stopPropagation();
-        const label = conversation.title || "this saved chat";
-        // Deleting was immediate and irreversible on a single stray click.
-        if (!window.confirm(`Delete "${label}"?\n\nThis cannot be undone.`)) return;
-        const deleted = await fetch(
-          apiUrl(`/api/visitor/conversations/${encodeURIComponent(conversation.id)}`),
-          { method: "DELETE", credentials: "include" }
-        ).catch(() => null);
-        if (!deleted || !deleted.ok) return;
-        item.remove();
-        // If the open chat was the one removed, don't leave it on screen
-        // still accepting replies against a conversation that is gone.
-        if (conversationId === conversation.id) startNewConversation();
-        if (!sidebarList.querySelector(".sidebar-item")) restoreSidebarPlaceholder();
-      });
-
-      item.append(button, remove);
-      sidebarList.appendChild(item);
+      sidebarList.appendChild(
+        sidebarSessionRow(conversation.id, conversation.title || "Saved chat")
+      );
     });
     markActiveConversation(conversationId);
   } catch {

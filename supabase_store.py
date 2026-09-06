@@ -305,12 +305,31 @@ class SupabaseStore:
         )
         return result is not None
 
-    def fetch_visitor_messages(self, access_token: str, conversation_id: str) -> list[dict]:
-        query = urllib.parse.urlencode(
-            {"select": "*", "conversation_id": f"eq.{conversation_id}", "order": "created_at.asc"}
-        )
+    # A session keeps its most recent turns rather than growing without limit.
+    # Opening a long chat should not pull thousands of rows into the browser,
+    # and the useful part of a conversation is its recent end.
+    VISITOR_MESSAGE_CAP = 100
+
+    def fetch_visitor_messages(
+        self, access_token: str, conversation_id: str, limit: int = 0
+    ) -> list[dict]:
+        """The most recent messages of a session, oldest first.
+
+        Fetched newest-first with a limit and then reversed, so the cap keeps
+        the end of the conversation. Ordering ascending with a limit would keep
+        the beginning and silently hide everything the visitor last said.
+        """
+        cap = max(1, limit or self.VISITOR_MESSAGE_CAP)
+        query = urllib.parse.urlencode({
+            "select": "*",
+            "conversation_id": f"eq.{conversation_id}",
+            "order": "created_at.desc",
+            "limit": cap,
+        })
         result = self._as_visitor("GET", f"/rest/v1/visitor_messages?{query}", access_token)
-        return result if isinstance(result, list) else []
+        if not isinstance(result, list):
+            return []
+        return list(reversed(result))
 
     def touch_visitor_conversation(self, access_token: str, conversation_id: str) -> None:
         query = urllib.parse.urlencode({"id": f"eq.{conversation_id}"})
