@@ -494,6 +494,16 @@ async function submitMessageFlow(message, displayMessage = message) {
         );
 
         fullReply = event.reply;
+        // Registry answers, clarifications and refusals end here instead of
+        // emitting a {type:"done"} frame, so record the turn on this path too —
+        // otherwise none of them ever reach the dashboard.
+        recordSessionTurn(
+          message,
+          event.needs_clarification ? [] : (event.sources || []),
+          event.usage || {},
+          event.categories || [],
+          event.blocked ? "blocked" : (event.status || "answered")
+        );
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
         // trace is stripped by the server's allowlist and never arrives; the

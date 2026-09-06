@@ -19001,7 +19001,8 @@ Retrieved context:
 
         stream_field_answer = self.extract_corpus_field_answer(user_message)
         if stream_field_answer:
-            yield f"data: {json.dumps({'type': 'meta', 'sources': stream_field_answer.get('sources', []), 'trace': {}, 'status': 'answered', 'response_mode': 'corpus_field_evidence', 'needs_clarification': False, 'clarification_options': []})}\n\n"
+            _field_trace = self.with_telemetry({}, response_mode="corpus_field_evidence")
+            yield f"data: {json.dumps({'type': 'meta', 'sources': stream_field_answer.get('sources', []), 'trace': _field_trace, 'usage': public_usage_from_trace(_field_trace), 'categories': [], 'status': 'answered', 'response_mode': 'corpus_field_evidence', 'needs_clarification': False, 'clarification_options': []})}\n\n"
             yield f"data: {json.dumps({'type': 'delta', 'delta': stream_field_answer.get('reply', '')})}\n\n"
             yield f"data: {json.dumps({'type': 'done'})}\n\n"
             return
@@ -19041,7 +19042,11 @@ Retrieved context:
                         self.sanitize_third_person_voice(user_message, str(result.get("reply", "")))
                     ),
                 )
-            yield f"data: {json.dumps({**result, 'done': True})}\n\n"
+            _early_trace = result.get("trace", {}) or {}
+            # Registry and clarification answers skip generation but still spend
+            # planner and suggestion calls, so they carry real cost. Without this
+            # the dashboard silently under-counts every non-generated answer.
+            yield f"data: {json.dumps({**result, 'done': True, 'usage': public_usage_from_trace(_early_trace), 'categories': public_categories_from_trace(_early_trace)})}\n\n"
             return
 
         trace = result.get("trace", {}) or {}
@@ -19211,20 +19216,8 @@ Retrieved context:
             # Which block the model bound its answer to, kept for the staff
             # dashboard and for measuring grounding accuracy.
             trace["evidence_selection"] = evidence_selection
-        _telemetry = (trace or {}).get("telemetry") or {}
-        _totals = _telemetry.get("totals") or {}
-        _public_usage = {
-            "total_tokens": int(_totals.get("total_tokens") or 0),
-            "cost_usd": float(_totals.get("cost_usd") or 0.0),
-            "call_count": int(_totals.get("call_count") or 0),
-            "latency_ms": float(_telemetry.get("total_ms") or 0.0),
-            "low_confidence": bool((trace or {}).get("is_low_confidence")),
-        }
-        _public_categories = sorted({
-            str((meta or {}).get("category") or (meta or {}).get("folder_label") or "").strip()
-            for meta in ((trace or {}).get("retrieved_metadata") or [])
-            if (meta or {}).get("category") or (meta or {}).get("folder_label")
-        })
+        _public_usage = public_usage_from_trace(trace)
+        _public_categories = public_categories_from_trace(trace)
         yield f"data: {json.dumps({'type': 'meta', 'sources': normalized_sources, 'trace': trace, 'usage': _public_usage, 'categories': _public_categories, 'status': stream_status, 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': [], 'conversation_state': result.get('conversation_state', empty_state())})}\n\n"
         yield f"data: {json.dumps({'type': 'delta', 'delta': normalized_answer})}\n\n"
 
@@ -19783,6 +19776,33 @@ def format_recent_history(recent_history: list[ConversationTurn]) -> str:
         for index, turn in enumerate(recent_history, start=1)
         if turn.get("user") and turn.get("assistant")
     )
+
+
+def public_usage_from_trace(trace: dict) -> dict:
+    """The caller's own cost for this request. Totals only — see the allowlist below.
+
+    Keys must match what summarize_request_telemetry actually returns: the
+    rolled-up counters live under "token_usage", and there is no single total
+    latency field, only the per-kind breakdown.
+    """
+    telemetry = (trace or {}).get("telemetry") or {}
+    totals = telemetry.get("token_usage") or {}
+    latency = telemetry.get("latency_breakdown") or {}
+    return {
+        "total_tokens": int(totals.get("total_tokens") or 0),
+        "cost_usd": float(totals.get("cost_usd") or 0.0),
+        "call_count": int(totals.get("call_count") or 0),
+        "latency_ms": round(sum(float(value or 0.0) for value in latency.values()), 2),
+        "low_confidence": bool((trace or {}).get("is_low_confidence")),
+    }
+
+
+def public_categories_from_trace(trace: dict) -> list:
+    return sorted({
+        str((meta or {}).get("category") or (meta or {}).get("folder_label") or "").strip()
+        for meta in ((trace or {}).get("retrieved_metadata") or [])
+        if (meta or {}).get("category") or (meta or {}).get("folder_label")
+    })
 
 
 # Fields the chat client is allowed to receive. Retrieval traces, telemetry,
