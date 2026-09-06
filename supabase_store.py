@@ -307,8 +307,9 @@ class SupabaseStore:
 
     # A session keeps its most recent turns rather than growing without limit.
     # Opening a long chat should not pull thousands of rows into the browser,
-    # and the useful part of a conversation is its recent end.
-    VISITOR_MESSAGE_CAP = 100
+    # and the useful part of a conversation is its recent end. Counts user and
+    # assistant rows together, so 200 is roughly 100 exchanges.
+    VISITOR_MESSAGE_CAP = 200
 
     def fetch_visitor_messages(
         self, access_token: str, conversation_id: str, limit: int = 0
