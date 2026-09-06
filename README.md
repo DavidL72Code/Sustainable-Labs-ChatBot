@@ -102,11 +102,12 @@ The chatbot answers questions about SSL research projects, publications, staff, 
 - **Grounded answers** drawn directly from SSL source documents (annual reports, project pages, publications, staff bios).
 - **Streaming responses** — text appears token by token as Gemini generates it, using Server-Sent Events.
 - **Suggested questions** — starter buttons on first load plus verified follow-up chips after some answers.
-- **Recent questions sidebar** — in-session navigation that scrolls the chat back to a previous question on click.
+- **Saved sessions sidebar** — one row per session, titled with the message that opened it. Clicking a row reopens that session and continues it; **+ New** starts a fresh one, and deleting asks first. Signed-in visitors keep their sessions across logins, capped at 200 saved messages each.
 - **Content filter** — blocks profanity, hate speech, threats, and SSL/UMB-targeted harassment with a custom whitelist for legitimate academic terms (e.g. `assessment`, `massachusetts`, bird species) and a custom block list for org-specific phrases.
 - **Friendly error handling** — Gemini 503/429 errors surface as "high demand, try again" instead of raw stack traces.
 - **Citation-aware answers** — citations are normalized against the final answer and filtered to sources actually shown to the user.
-- **Analytics dashboard** at `/dashboard` for reviewing chat history, source mappings, retrieval diagnostics, confidence scores, latency, and evaluation results.
+- **Personal analytics dashboard** at `/dashboard`, open without a login and scoped to the caller's own activity: latency, tokens, cost, retrieval path, cited sources, corpus coverage, low-confidence cases, and the pipeline's evaluation summary. Anonymous visitors see the current session only; signed-in visitors also see their saved chats. The aggregate staff view over every visitor's chats stays behind an admin session.
+- **Optional visitor accounts** — signing in only controls whether a visitor's own history is saved; answers are identical either way.
 
 ### The Retrieval Pipeline
 
@@ -269,6 +270,40 @@ Each result records the question, answer, sources, rewritten query, route, retri
 
 The final phase focused on making answers come from the right source more consistently. We expanded people-lookup retrieval, cleaned up mixed or truncated bio text, strengthened reranking for exact entity matches, and added hard routing for ambiguous questions like grants, projects, and SSL self-description queries. After the last key rotation, we reran the full 208-question benchmark and then organized both the question sets and eval outputs by date so the progression is easier to review.
 
+A later pass ran both benchmark sets end to end and fixed what they exposed.
+Every failure traced to a structural bug rather than a tuning gap:
+
+| Set | Before | After |
+| --- | --- | --- |
+| `2026-07-11` (160 single-turn + 48 multi-turn) | 202/208 | **208/208** (48/48 multi-turn) |
+| `2026-08-29` (208 single-turn) | 175 → 205/208 | **205/208** |
+
+The defects behind those numbers, each found by reading the failing evidence
+rather than by tuning thresholds:
+
+* `build_prompt` cleaned evidence with `strip_embedding_labels`, which mangles
+  the `Evidence Bucket: … Document Labels: …` wrapper and returned a fragment
+  from the middle of the block — 103 characters of 942 in the measured case.
+  The generator answered "the documents do not state this" while holding the
+  answer. It now uses `evidence_body`, which unwraps correctly.
+* `drop_contained_duplicates` divided token overlap by `min()`, so a short
+  chunk whose tokens all appeared in a longer one made the **longer** chunk a
+  duplicate and deleted it. Containment now divides by the candidate's own size.
+* Backward completion added the preceding chunk as a separate numbered block,
+  which split a quotation from its attribution; the model then declined to
+  attribute either. It is now inlined into the same block.
+* `unsupported_numbers` read `21` out of "2020-21" as an invented figure, and
+  the contract check matched clause terms as substrings, so `"she"` inside
+  `"Watershed"` counted as answering "what did she say".
+
+Two remaining failures on the newer set are judge disagreements, verified by
+hand against the corpus: the bot's figure is the one the source states.
+
+Determinism matters for reading these numbers. Generation is greedy with a
+fixed seed, but the planner and evidence selector are separate model calls that
+can fall back on a 503, so a single run moves by roughly ±1 question. Compare
+full runs, not individual questions.
+
 ---
 
 ## 3. Deployment
@@ -292,9 +327,38 @@ The final phase focused on making answers come from the right source more consis
 
 The default port is `7860` (Hugging Face Spaces convention). Override with `PORT` or `CHATBOT_PORT` if needed. Set `CHATBOT_HOST=127.0.0.1` to bind to localhost only.
 
+### Dashboards: personal (open) and staff (admin-only)
+
+There are two dashboards, and the split is deliberate.
+
+**The personal dashboard is open to everyone** at `/dashboard`. It shows only
+the caller's own activity, so it can be public without exposing anybody:
+
+* **Anonymous visitors** see the current session, held in their own browser and
+  never sent to the server. It disappears when the tab closes.
+* **Signed-in visitors** additionally see their saved chats, so the view
+  survives a logout and returns on the next sign-in.
+* **Everyone** sees the pipeline's evaluation summary and the corpus categories
+  their own questions drew on. Those describe the system, not any person.
+
+It reports per-answer latency, token count, cost, retrieval path, cited
+sources, corpus coverage, and low-confidence or clarification cases — the same
+operational detail the staff view carries, scoped to one person.
+
+**The staff dashboard aggregates every visitor's chats** and stays behind an
+admin session: `/api/dashboard`, `/api/dashboard/interaction/<id>`, and their
+HTML pages all require one. That boundary matters — dropping it to make the
+personal view public would have published other people's conversations.
+
+What the browser is allowed to receive is an allowlist, not a blocklist
+(`_PUBLIC_CHAT_EVENT_FIELDS`). Prompts, evidence text, retrieval traces, chunk
+scores, and routing decisions never leave the server, so a new internal field
+cannot leak by being forgotten.
+
 ### Admin Dashboard Authentication
 
-Dashboard HTML and API routes require an authenticated admin session. Configure these deployment secrets; authentication fails closed when any are missing:
+The staff dashboard requires an authenticated admin session. Configure these
+deployment secrets; authentication fails closed when any are missing:
 
 ```bash
 export ADMIN_USERNAME=admin
@@ -314,6 +378,39 @@ python3 -c "from werkzeug.security import generate_password_hash; print(generate
 Set `SESSION_COOKIE_SECURE=0` only for local HTTP development. Never expose dashboard routes without configuring the admin credentials and session secret.
 
 Bare hostnames such as `your-frontend.example` are also accepted and normalized to `https://your-frontend.example`; wildcards and paths are rejected.
+
+`CORS_ORIGINS` must match the browser's `Origin` exactly. A trailing slash is
+normalized away, because a browser never sends one and the mismatch produced no
+`Access-Control-Allow-Credentials`, which silently dropped the session cookie.
+`/api/health` reports whether credentialed CORS initialised, so a
+misconfiguration is visible rather than looking like a login bug.
+
+#### Creating staff accounts
+
+Two routes, checked in this order:
+
+1. **Supabase Auth** — add the user under Authentication → Users, then mark them
+   staff. A valid login is not sufficient; the account needs
+   `app_metadata.role = "staff"`, which is writable only with the service role
+   key, so a visitor cannot promote themselves:
+
+   ```sql
+   update auth.users
+   set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"role":"staff"}'::jsonb
+   where email = 'employee@example.edu';
+   ```
+
+   Staff can be added or removed from the Supabase dashboard with no redeploy.
+
+2. **`ADMIN_USERS_JSON`** — one account per person, no Supabase required:
+
+   ```bash
+   python3 make_admin_users.py alice bob carol      # prompts for each password
+   pbpaste | python3 make_admin_users.py --merge dave   # add someone later
+   ```
+
+   Paste the output into the Space as a **Secret** named `ADMIN_USERS_JSON`.
+   Only pbkdf2 hashes are stored. Changes need a Space restart.
 
 ### Split Deployment: Hugging Face (backend) + Vercel (frontend)
 
@@ -460,6 +557,15 @@ saved. Nothing about the chatbot's answers changes.
   content-free numbers in `chat_metrics`.
 * **A signed-in visitor gets their own history**, in `visitor_conversations`
   and `visitor_messages`, and can delete it at any time.
+* **The sidebar lists sessions, not questions.** One row per session, titled
+  with the message that opened it. Clicking a row reopens that session and
+  adopts its id, so the next message continues the thread rather than starting
+  a new one. **+ New** begins a fresh session; deleting asks first.
+* **A session holds at most `VISITOR_MESSAGE_CAP` (200) saved messages**, user
+  and assistant rows counted together. On reaching it the answer still streams
+  back and only saving stops: the server emits `session_full` and the UI asks
+  the visitor to start a new session. Chosen over silently dropping the oldest
+  turns to make room, or letting one session grow without bound.
 * **Visitors can only ever see their own.** These tables are read and written
   with the visitor's own access token, never the service role key, and their
   policies are `auth.uid() = user_id`. Postgres does the enforcing, so a bug in
@@ -467,7 +573,8 @@ saved. Nothing about the chatbot's answers changes.
 * **Staff see flagged answers from everyone, and no visitor identity.**
   `flagged_chats` carries the question and the retrieval trace but no user id or
   email, so quality review cannot become a way to read one named person's chat
-  history. The dashboard never queries the visitor tables.
+  history. The staff dashboard never queries the visitor tables; the personal
+  dashboard reads them only with the caller's own token.
 
 Visitor endpoints: `POST /api/visitor/signup`, `POST /api/visitor/login`,
 `POST /api/visitor/logout`, `GET /api/visitor/session`,

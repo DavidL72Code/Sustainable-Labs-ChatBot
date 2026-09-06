@@ -19203,7 +19203,21 @@ Retrieved context:
             # Which block the model bound its answer to, kept for the staff
             # dashboard and for measuring grounding accuracy.
             trace["evidence_selection"] = evidence_selection
-        yield f"data: {json.dumps({'type': 'meta', 'sources': normalized_sources, 'trace': trace, 'status': stream_status, 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': [], 'conversation_state': result.get('conversation_state', empty_state())})}\n\n"
+        _telemetry = (trace or {}).get("telemetry") or {}
+        _totals = _telemetry.get("totals") or {}
+        _public_usage = {
+            "total_tokens": int(_totals.get("total_tokens") or 0),
+            "cost_usd": float(_totals.get("cost_usd") or 0.0),
+            "call_count": int(_totals.get("call_count") or 0),
+            "latency_ms": float(_telemetry.get("total_ms") or 0.0),
+            "low_confidence": bool((trace or {}).get("is_low_confidence")),
+        }
+        _public_categories = sorted({
+            str((meta or {}).get("category") or (meta or {}).get("folder_label") or "").strip()
+            for meta in ((trace or {}).get("retrieved_metadata") or [])
+            if (meta or {}).get("category") or (meta or {}).get("folder_label")
+        })
+        yield f"data: {json.dumps({'type': 'meta', 'sources': normalized_sources, 'trace': trace, 'usage': _public_usage, 'categories': _public_categories, 'status': stream_status, 'response_mode': result.get('response_mode', 'gemini_rag'), 'needs_clarification': False, 'clarification_options': [], 'conversation_state': result.get('conversation_state', empty_state())})}\n\n"
         yield f"data: {json.dumps({'type': 'delta', 'delta': normalized_answer})}\n\n"
 
         yield f"data: {json.dumps({'type': 'done'})}\n\n"
@@ -19779,6 +19793,14 @@ _PUBLIC_CHAT_EVENT_FIELDS = frozenset(
         "suggestions",
         "error",
         "conversation_id",
+        # The caller's own request cost and which corpus categories answered
+        # it. Deliberately narrow: totals and category labels only, never the
+        # prompt, the evidence text, chunk scores or routing decisions, which
+        # is why this stays an allowlist rather than stripping known-bad keys.
+        "usage",
+        "categories",
+        "session_full",
+        "limit",
     }
 )
 
@@ -21102,7 +21124,13 @@ def create_app() -> Flask:
         """
         token = visitor_token()
         if not token:
-            return jsonify({"signed_in": False, "conversations": []})
+            # The evaluation summary describes the pipeline, not any visitor,
+            # so it is shown to everyone. Nothing here is per-person.
+            return jsonify({
+                "signed_in": False,
+                "conversations": [],
+                "eval": load_eval_summary(),
+            })
         conversations = supabase_store.list_visitor_conversations(token)
         if not conversations:
             refreshed = refresh_visitor_token()
@@ -21133,7 +21161,11 @@ def create_app() -> Flask:
                 "questions": [str(m.get("content", ""))[:300] for m in questions],
                 "sources": sources,
             })
-        return jsonify({"signed_in": True, "conversations": summary})
+        return jsonify({
+            "signed_in": True,
+            "conversations": summary,
+            "eval": load_eval_summary(),
+        })
 
     @app.get("/api/dashboard")
     @admin_required(api=True)

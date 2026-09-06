@@ -290,6 +290,11 @@ async function buildPersonalDashboard() {
   const totalCost = sum((t) => t.cost_usd);
   const totalLatency = sum((t) => t.latency_ms);
 
+  const categoryCounts = new Map();
+  turns.forEach((turn) => (turn.categories || []).forEach((category) => {
+    categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+  }));
+
   const sourceCounts = new Map();
   const countSource = (source) => {
     const label = source.title || source.source_path || "Unknown source";
@@ -343,8 +348,11 @@ async function buildPersonalDashboard() {
     // renderRankedList destructures each item as [label, count], so send
     // entry pairs — objects render as blanks and throw on the spread.
     source_usage: [...sourceCounts.entries()].sort((a, b) => b[1] - a[1]),
-    category_usage: [],
-    problem_events: [],
+    category_usage: [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]),
+    problem_events: turns
+      .filter((t) => t.low_confidence || t.status === "error" || t.status === "clarification")
+      .map((t) => ({ id: t.question || "question", notes: t.low_confidence ? "low confidence" : t.status })),
+    eval: saved.eval || {},
     chat_history: history,
   };
 }

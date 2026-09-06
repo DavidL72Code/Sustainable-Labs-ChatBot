@@ -78,27 +78,29 @@ function setStatus(processing) {
 
 let conversationId = "";
 let firstMessageOfSession = "";
-let pendingTrace = {};
+let pendingUsage = {};
+let pendingCategories = [];
 let pendingStatus = "answered";
 
 const SESSION_STATS_KEY = "ssl_session_turns";
 
-function recordSessionTurn(question, sources, trace, status) {
+function recordSessionTurn(question, sources, usage, categories, status) {
   // The dashboard is per-person: this session's turns live in the browser and
   // are never sent anywhere. A signed-in visitor also has their saved chats,
   // which the dashboard fetches separately from /api/my/dashboard.
   try {
-    const telemetry = (trace && trace.telemetry) || {};
-    const totals = telemetry.totals || {};
+    const stats = usage || {};
     const turns = JSON.parse(sessionStorage.getItem(SESSION_STATS_KEY) || "[]");
     turns.push({
       at: Date.now(),
       question: String(question || "").slice(0, 300),
       status: status || "answered",
-      low_confidence: Boolean((trace || {}).is_low_confidence),
-      latency_ms: Number(telemetry.total_ms || 0),
-      total_tokens: Number(totals.total_tokens || 0),
-      cost_usd: Number(totals.cost_usd || 0),
+      low_confidence: Boolean(stats.low_confidence),
+      latency_ms: Number(stats.latency_ms || 0),
+      total_tokens: Number(stats.total_tokens || 0),
+      cost_usd: Number(stats.cost_usd || 0),
+      call_count: Number(stats.call_count || 0),
+      categories: Array.isArray(categories) ? categories : [],
       sources: (sources || []).map((source) => ({
         title: source.title || "",
         source_path: source.source_path || "",
@@ -494,7 +496,10 @@ async function submitMessageFlow(message, displayMessage = message) {
         fullReply = event.reply;
       } else if (event.type === "meta") {
         pendingSources = event.sources || [];
-        pendingTrace = event.trace || {};
+        // trace is stripped by the server's allowlist and never arrives; the
+        // per-request usage and category labels do.
+        pendingUsage = event.usage || {};
+        pendingCategories = event.categories || [];
         pendingStatus = event.status || "answered";
       } else if (event.type === "delta") {
         fullReply += event.delta || "";
@@ -508,7 +513,7 @@ async function submitMessageFlow(message, displayMessage = message) {
           streaming.finalize(pendingSources);
           streaming = null;
         }
-        recordSessionTurn(message, pendingSources, pendingTrace, pendingStatus);
+        recordSessionTurn(message, pendingSources, pendingUsage, pendingCategories, pendingStatus);
         // Unlock UI immediately — suggestions will still arrive after this
         setStatus(false);
         sendButton.disabled = false;
