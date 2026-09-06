@@ -479,6 +479,10 @@ async function submitMessageFlow(message, displayMessage = message) {
         setStatus(false);
         sendButton.disabled = false;
         suggestionAnchor = chatMessages.lastElementChild;
+      } else if (event.type === "session_full") {
+        // The answer was still delivered; only saving stopped. Offer the new
+        // session rather than letting history silently stop being recorded.
+        openSessionFullDialog(event.limit);
       } else if (event.type === "suggestions") {
         if (suggestionAnchor && event.suggestions && event.suggestions.length > 0) {
           renderSuggestions(event.suggestions, suggestionAnchor);
@@ -515,6 +519,9 @@ chatForm.addEventListener("submit", async (event) => {
 const accountArea = document.getElementById("accountArea");
 const newChatButton = document.getElementById("newChatButton");
 const confirmOverlay = document.getElementById("confirmOverlay");
+const sessionFullOverlay = document.getElementById("sessionFullOverlay");
+const sessionFullClose = document.getElementById("sessionFullClose");
+const sessionFullNew = document.getElementById("sessionFullNew");
 const confirmClose = document.getElementById("confirmClose");
 const confirmOk = document.getElementById("confirmOk");
 const accountEmail = document.getElementById("accountEmail");
@@ -609,6 +616,23 @@ function openConfirmDialog() {
 
 function closeConfirmDialog() {
   if (confirmOverlay) confirmOverlay.hidden = true;
+}
+
+function openSessionFullDialog(limit) {
+  if (!sessionFullOverlay) return;
+  const body = document.getElementById("sessionFullBody");
+  if (body && limit) {
+    body.textContent =
+      `This chat has reached its limit of ${limit} saved messages, so new ` +
+      `messages in it will not be saved. Start a new chat to keep saving your ` +
+      `history — this conversation stays in your sidebar.`;
+  }
+  sessionFullOverlay.hidden = false;
+  sessionFullNew?.focus();
+}
+
+function closeSessionFullDialog() {
+  if (sessionFullOverlay) sessionFullOverlay.hidden = true;
 }
 
 function renderAccountState(email) {
@@ -784,13 +808,25 @@ authForm?.addEventListener("submit", async (event) => {
   }
 });
 
+sessionFullNew?.addEventListener("click", () => {
+  closeSessionFullDialog();
+  startNewConversation();
+  messageInput?.focus();
+});
+sessionFullClose?.addEventListener("click", closeSessionFullDialog);
+sessionFullOverlay?.addEventListener("click", (event) => {
+  if (event.target === sessionFullOverlay) closeSessionFullDialog();
+});
+
 confirmOk?.addEventListener("click", closeConfirmDialog);
 confirmClose?.addEventListener("click", closeConfirmDialog);
 confirmOverlay?.addEventListener("click", (event) => {
   if (event.target === confirmOverlay) closeConfirmDialog();
 });
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && confirmOverlay && !confirmOverlay.hidden) closeConfirmDialog();
+  if (event.key !== "Escape") return;
+  if (confirmOverlay && !confirmOverlay.hidden) closeConfirmDialog();
+  if (sessionFullOverlay && !sessionFullOverlay.hidden) closeSessionFullDialog();
 });
 
 newChatButton?.addEventListener("click", () => {

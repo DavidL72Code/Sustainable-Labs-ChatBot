@@ -331,6 +331,23 @@ class SupabaseStore:
             return []
         return list(reversed(result))
 
+    def visitor_session_is_full(self, access_token: str, conversation_id: str) -> bool:
+        """True when a session has reached VISITOR_MESSAGE_CAP saved messages.
+
+        Asks for at most cap ids rather than a count so one round trip answers
+        it. A full session stops accepting new saves; the visitor is asked to
+        start a new one instead of having older turns silently dropped.
+        """
+        query = urllib.parse.urlencode({
+            "select": "id",
+            "conversation_id": f"eq.{conversation_id}",
+            "limit": self.VISITOR_MESSAGE_CAP,
+        })
+        result = self._as_visitor("GET", f"/rest/v1/visitor_messages?{query}", access_token)
+        if not isinstance(result, list):
+            return False
+        return len(result) >= self.VISITOR_MESSAGE_CAP
+
     def touch_visitor_conversation(self, access_token: str, conversation_id: str) -> None:
         query = urllib.parse.urlencode({"id": f"eq.{conversation_id}"})
         self._as_visitor(

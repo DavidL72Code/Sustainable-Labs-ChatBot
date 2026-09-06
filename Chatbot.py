@@ -21463,7 +21463,17 @@ def create_app() -> Flask:
                         response_mode=response_mode,
                         query_route=trace.get("query_route"),
                     )
+                session_full = False
                 if visitor_conversation_id and final_answer and not blocked:
+                    # A hard cap, checked before writing. Once a session holds
+                    # VISITOR_MESSAGE_CAP messages nothing more is saved to it
+                    # and the visitor is told to start a new one — better than
+                    # quietly dropping their oldest turns to make room, or
+                    # letting one session grow without limit.
+                    session_full = supabase_store.visitor_session_is_full(
+                        visitor_access_token, visitor_conversation_id
+                    )
+                if visitor_conversation_id and final_answer and not blocked and not session_full:
                     # The visitor's own history, saved because they asked for
                     # it. Written with their token, so it is readable only by
                     # them and never appears on the staff dashboard.
@@ -21487,6 +21497,17 @@ def create_app() -> Flask:
                     )
                     supabase_store.touch_visitor_conversation(
                         visitor_access_token, visitor_conversation_id
+                    )
+                if session_full:
+                    # Emitted after the answer, so the reply is never withheld:
+                    # the turn still happens, it just is not saved.
+                    yield (
+                        "data: "
+                        + json.dumps({
+                            "type": "session_full",
+                            "limit": supabase_store.VISITOR_MESSAGE_CAP,
+                        })
+                        + "\n\n"
                     )
                 append_chat_log(
                     {
