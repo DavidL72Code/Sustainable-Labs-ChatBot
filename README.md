@@ -55,10 +55,8 @@ flowchart TB
     G -->|ok| ST["<b>Conversation state</b><br/>resolve pronouns against the active subject"]
     ST --> LR["<b>Local router</b> — always runs<br/>classifies the question and scopes it<br/>from the entity and document registries"]
 
-    LR --> GATE{"Spend a<br/>planner call?"}
-    GATE -.->|"no — router is confident"| ROUTE["<b>Query route</b><br/>scope · question type · facets"]
-    GATE -->|"yes — ambiguous or multi-part"| PL["<b>LLM planner</b> (1 call)<br/>rewrite to a standalone query<br/>split into facets"]
-    PL --> ROUTE
+    LR --> ROUTE["<b>Query route</b><br/>scope · question type · facets"]
+    PL["<b>LLM planner</b> (1 call)<br/>rewrite · split into facets<br/><i>supported, currently disabled</i>"] -.->|"not enabled"| ROUTE
 
     ROUTE --> F{"Evidence<br/>from where?"}
     F -->|"a registry row"| EX["<b>Deterministic extractor</b><br/>staff rows, contacts, field lookups<br/><i>answer composed in code</i>"]
@@ -95,7 +93,7 @@ Each one exists because a specific wrong answer got through without it.
 
 | # | Check | The failure it caught |
 | --- | --- | --- |
-| 1 | Numbers appear in the evidence | The model reported "88%, 87%, 86%" for a corpus that says "8 in 10". Percentages are checked *as percentages* — a bare `27` on a page number used to satisfy a `27%` claim |
+| 1 | Numbers appear in the evidence | A figure in the answer that appears nowhere in the selected evidence is dropped. Percentages are checked *as percentages* — a bare `27` on a page number used to satisfy a `27%` claim |
 | 2 | Answer contract | A two-part question answered in one part. "Who is X **and** what did she say?" returned only the identity |
 | 3 | Drop false negatives | "The documents do not state this" while the evidence plainly stated it |
 | 4 | Chunk-boundary repair | A quotation split from its attribution across two chunks, so the model declined to attribute it |
@@ -108,8 +106,7 @@ Each one exists because a specific wrong answer got through without it.
 | Safety + rate limit | Screens the question before anything is retrieved | Blocks abuse without spending retrieval or tokens on it |
 | Conversation state | Resolves pronouns and follow-ups against the active subject | "What did she study?" would otherwise retrieve on the pronoun |
 | Local router | Always runs. Classifies the question and scopes it from the entity and document registries | Produces a usable route without any model call |
-| Planner gate | Decides whether that route is confident enough to use as-is | An easy question should not pay for a planning call |
-| LLM planner | Only when the gate says no: rewrites into a standalone query and splits multi-part questions into facets | Ambiguous and multi-part questions need the rewrite; a registry miss is never a final answer |
+| LLM planner *(disabled)* | Would rewrite into a standalone query and split multi-part questions into facets | Supported but not enabled; every benchmark number here was measured without it |
 | Deterministic extractor | Pulls field-style facts — names, titles, emails, counts — straight from evidence | These are already structured; generating them adds cost and risk |
 | Dense + BM25 + rare-term | Three retrievers per facet | Each covers the others' blind spot: paraphrases, exact names, and single sentences diluted across 600 words |
 | RRF fusion + rerank | Merges the three lists, then boosts on source, section and freshness | Fuses without needing a trained reranker |
@@ -151,12 +148,18 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 
 ## 5. Models and Cost per Answer
 
-Three model calls per answer in production. The work is deliberately split
-across two tiers so the expensive model only does what needs it.
+Two model calls per answer in production. The work is split across two tiers so
+the expensive model only does what needs it.
+
+The LLM planner is a third stage the pipeline supports but does not currently
+run: `ALWAYS_LLM_QUERY_PLANNING` defaults to off, because enabling it changed
+5 of 20 spot-check answers and two of those were regressions. Both 208-question
+benchmarks were measured with it off, so the numbers below and in §8 describe
+the two-call pipeline.
 
 | Stage | Model | Why this tier |
 | --- | --- | --- |
-| Query planner | `gemini-3.5-flash-lite` | Rewrites a contextual question into a standalone query and splits facets. Skipped entirely when the local router is already confident |
+| Query planner *(off by default)* | `gemma-4-26b-a4b-it` | Would rewrite a contextual question into a standalone query and split facets. Not enabled — see above |
 | Evidence selector | `gemini-3.1-flash-lite` | Picks the answer-bearing blocks from ~28 candidates. A cheaper tier is enough — it chooses between texts, it does not write |
 | Generation | `gemini-3.5-flash-lite` | Composes the grounded answer, greedy decode with a fixed seed |
 | Judge *(offline only)* | `gemini-3.1-flash-lite` | Scores benchmark runs. Never called in production |
@@ -173,7 +176,7 @@ Thinking tokens bill at the output rate:
 | `gemini-3.1-flash` | $0.75 | $3.75 | $0.075 |
 | `gemini-3.1-pro` | $2.00 | $12.00 | $0.20 |
 
-A typical answer runs roughly 9k input and 750 output tokens across the three
+A typical answer runs roughly 9k input and 750 output tokens across the two
 calls, which lands around **$0.004 per answer** — about 250 questions per
 dollar. The dashboard reports the real figure per answer rather than an
 estimate, computed from the token counts the API returns.
