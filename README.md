@@ -36,7 +36,7 @@ flowchart LR
         API --> RAG --> VS
     end
     subgraph Ext["External services"]
-        GEM["Gemini API<br/>planner · selector · generator"]
+        GEM["Gemini API<br/>selector · generator"]
         SUP[("Supabase<br/>auth · visitor history · metrics")]
     end
     UI --> CDN --> API
@@ -56,7 +56,6 @@ flowchart TB
     ST --> LR["<b>Local router</b> — always runs<br/>classifies the question and scopes it<br/>from the entity and document registries"]
 
     LR --> ROUTE["<b>Query route</b><br/>scope · question type · facets"]
-    PL["<b>LLM planner</b> (1 call)<br/>rewrite · split into facets<br/><i>supported, currently disabled</i>"] -.->|"not enabled"| ROUTE
 
     ROUTE --> F{"Evidence<br/>from where?"}
     F -->|"a registry row"| EX["<b>Deterministic extractor</b><br/>staff rows, contacts, field lookups<br/><i>answer composed in code</i>"]
@@ -106,7 +105,6 @@ Each one exists because a specific wrong answer got through without it.
 | Safety + rate limit | Screens the question before anything is retrieved | Blocks abuse without spending retrieval or tokens on it |
 | Conversation state | Resolves pronouns and follow-ups against the active subject | "What did she study?" would otherwise retrieve on the pronoun |
 | Local router | Always runs. Classifies the question and scopes it from the entity and document registries | Produces a usable route without any model call |
-| LLM planner *(disabled)* | Would rewrite into a standalone query and split multi-part questions into facets | Supported but not enabled; every benchmark number here was measured without it |
 | Deterministic extractor | Pulls field-style facts — names, titles, emails, counts — straight from evidence | These are already structured; generating them adds cost and risk |
 | Dense + BM25 + rare-term | Three retrievers per facet | Each covers the others' blind spot: paraphrases, exact names, and single sentences diluted across 600 words |
 | RRF fusion + rerank | Merges the three lists, then boosts on source, section and freshness | Fuses without needing a trained reranker |
@@ -148,18 +146,12 @@ Each chunk is embedded and stored in ChromaDB with rich metadata (title, categor
 
 ## 5. Models and Cost per Answer
 
-Two model calls per answer in production. The work is split across two tiers so
-the expensive model only does what needs it.
-
-The LLM planner is a third stage the pipeline supports but does not currently
-run: `ALWAYS_LLM_QUERY_PLANNING` defaults to off, because enabling it changed
-5 of 20 spot-check answers and two of those were regressions. Both 208-question
-benchmarks were measured with it off, so the numbers below and in §8 describe
-the two-call pipeline.
+Two model calls per answer. The work is split across two tiers so the expensive
+model only does what needs it. A third LLM planning stage exists in the code but
+is disabled — enabling it regressed 4 of 50 benchmark questions and fixed none.
 
 | Stage | Model | Why this tier |
 | --- | --- | --- |
-| Query planner *(off by default)* | `gemma-4-26b-a4b-it` | Would rewrite a contextual question into a standalone query and split facets. Not enabled — see above |
 | Evidence selector | `gemini-3.1-flash-lite` | Picks the answer-bearing blocks from ~28 candidates. A cheaper tier is enough — it chooses between texts, it does not write |
 | Generation | `gemini-3.5-flash-lite` | Composes the grounded answer, greedy decode with a fixed seed |
 | Judge *(offline only)* | `gemini-3.1-flash-lite` | Scores benchmark runs. Never called in production |
@@ -239,28 +231,47 @@ returned and which stage lost the answer. Larger subsets and full runs then
 showed where overall performance actually stood. Every failure we fixed turned
 out to be a structural bug — evidence mangled before the prompt, a dedupe that
 deleted the longer chunk, a validator misreading `2020-21` as an invented
-number — not a tuning gap.
+number, a router matching `project` inside `projected` — not a tuning gap.
 
 Two 208-question sets, scored by a separate Gemini judge pass on correctness
 against the corpus, citations, hallucination, and whether every part of the
-question was answered. The scores below count correctness failures; a further
-13 answers on the newer set were correct but cited a different valid source
-than the one the question expected.
+question was answered. The scores count correctness failures; citation-only
+mismatches, where the answer is right but cites a different valid source than
+the question expected, are listed separately.
 
-| Set | Before | After |
-| --- | --- | --- |
-| `2026-07-11` — 160 single-turn + 48 multi-turn | 202/208 | **208/208** (48/48 multi-turn) |
-| `2026-08-29` — 208 single-turn | 175 | **205/208** |
+| Set | Before | Judge score | Citation-only | Verified defects |
+| --- | --- | --- | --- | --- |
+| `2026-07-11` — 160 single-turn + 48 multi-turn | 202/208 | **207/208** (48/48 multi-turn) | 3 | 0 |
+| `2026-08-29` — 208 single-turn | 175 | **205/208** | 10 | 0 |
 
-The three residual failures were checked by hand. Two are judge mistakes: one
-where the judge swapped two rows of a bar chart, one where the answer is right
-but drawn from a different valid document than the expected reference. The
-third is a real miss — a dollar figure that only exists inside a chart image,
-where the extracted text interleaves the values with axis labels and body prose.
+**Every remaining failure is a judge disagreement, each checked against the
+source by hand:**
 
-Generation is greedy with a fixed seed, but the planner and evidence selector
-are separate model calls that can fall back on a 503, so a single run moves by
-about ±1 question. Compare full runs, not individual questions.
+* `fs_111` — the per-group figures 88%, 87%, 86% are on page 32 of *Views that
+  Matter*, under "has probably been happening".
+* `n146` — Table 7.9's asset values are on page 134 of the cited report, and the
+  same numbers passed in the previous run.
+* `n156` — Figure 4 lists its four labels then its four value rows in the same
+  order, giving Black 27%; the judge swapped Black and Latino/a.
+* `n199` — the answer is right but drawn from a different valid document than
+  the expected reference.
+
+The first three share one cause: the judge is handed a corpus excerpt that does
+not contain the passage the answer came from, so a correct answer scores 1 out
+of 5. That is a limitation of the harness, not of the pipeline, which has no
+known unfixed defect on either set.
+
+The last one fixed was `n168`, which asked for Boston's projected annualized
+flood losses and answered that the documents did not state them. They were in an
+indexed chunk of the target publication all along: the router matched `project`
+inside `projected`, scoped the question to the projects registry, and the answer
+chunk was capped out of the pool for source diversity. Word-boundary matching
+fixed it with no measured cost — 416 questions re-run, one newly passing, no
+regressions.
+
+Generation is greedy with a fixed seed, but the evidence selector is a separate
+model call that can fall back on a 503, so a single run moves by about ±1
+question. Compare full runs, not individual questions.
 
 ---
 
