@@ -39,6 +39,18 @@ SRC_SHA="$(git rev-parse --short "$SRC_BRANCH")"
 START_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 trap 'git checkout --quiet "$START_BRANCH"' EXIT
 
+# Rebase the deploy branch onto whatever the Space actually has before building.
+# Without this the build sits on a stale local tip and the push is rejected as a
+# non-fast-forward — which is what happens after any manual `git branch -f` on
+# this branch, and the error gives no hint that a fetch is the fix.
+git fetch --quiet "$REMOTE" \
+  || { echo "error: could not fetch $REMOTE." >&2; exit 1; }
+if git rev-parse --verify --quiet "refs/remotes/$REMOTE/main" >/dev/null; then
+  git branch -f "$DEPLOY_BRANCH" "$REMOTE/main" >/dev/null
+elif ! git rev-parse --verify --quiet "$DEPLOY_BRANCH" >/dev/null; then
+  git branch "$DEPLOY_BRANCH" "$SRC_BRANCH" >/dev/null
+fi
+
 git checkout --quiet "$DEPLOY_BRANCH"
 
 # Take the source tree wholesale so the deploy branch cannot drift. Files the
