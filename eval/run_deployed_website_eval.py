@@ -148,7 +148,7 @@ def main() -> None:
         "case_count": len(results),
         "results": results,
     }
-    output = args.output or Path("Eval_ordered/website/deployed_website_smoke.json")
+    output = args.output or Path(__file__).resolve().parent / "runs" / "website-live" / "deployed_website_smoke.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Saved {output}")
