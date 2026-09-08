@@ -289,4 +289,4 @@ the committed Chroma index.
 Deployed as a Hugging Face Space (Docker, backend + vector store) with the
 static frontend on Vercel, which proxies `/api` to the Space so session cookies
 stay first-party. Environment variables, the Supabase schema, staff accounts
-and the full deploy steps are in **[DEPLOYMENT.md](DEPLOYMENT.md)**.
+and the full deploy steps are in **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**.

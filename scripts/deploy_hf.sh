@@ -5,7 +5,7 @@
 # The Space needs two things GitHub should not have:
 #   * YAML frontmatter at the top of README.md declaring sdk/app_port —
 #     GitHub renders it as a stray table, HF needs it to build.
-#   * no Eval_ordered/ or question_eval_set/ — hundreds of MB of run artifacts
+#   * no eval/ — hundreds of MB of benchmark questions and run artifacts
 #     that belong in the repo but not in the container image.
 #
 # So hf-deploy is a *derived* branch: this script rebuilds it from the source
@@ -17,7 +17,7 @@ SRC_BRANCH="${1:-main}"
 DEPLOY_BRANCH="hf-deploy"
 REMOTE="hf"
 HEADER_PATH=".hf/space-header.md"
-EXCLUDE=(Eval_ordered question_eval_set)
+EXCLUDE=(eval)
 
 cd "$(git rev-parse --show-toplevel)"
 

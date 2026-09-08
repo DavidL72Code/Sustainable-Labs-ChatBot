@@ -1,0 +1,1889 @@
+{
+  "generated_at": "2026-09-07T04:15:38.782202+00:00",
+  "model": "gemini-3.5-flash-lite",
+  "question_file": "question_eval_set/2026-09-06/planner_test_50.json",
+  "summary": {
+    "total_cases": 50,
+    "average_scores": {
+      "clarity": 4.88,
+      "professional_tone": 4.94,
+      "correctness_vs_corpus": 4.7,
+      "citations": 4.86
+    },
+    "classification_counts": {
+      "answered_yes": 46,
+      "answered_no": 4,
+      "hallucinated_yes": 0,
+      "hallucinated_no": 50,
+      "right_citations_yes": 49,
+      "right_citations_no": 1
+    }
+  },
+  "results": [
+    {
+      "id": "fs_001",
+      "kind": "single_turn",
+      "type": "broad_overview",
+      "question": "What is SSL's vision for the future of the climate action space?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The available documents do not explicitly state a formal vision statement for the future of the climate action space. However, they note that the **Sustainable Solutions Lab** transforms this space by bridging sectors, convening collaborators, and facilitating transdisciplinary research centered and led by historically and currently excluded communities [1]. Additionally, it transforms how researchers connect with one another and the public to inform climate change policies at local, state, and national levels [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the Sustainable Solutions Lab's (SSL) vision for the future of the climate action space? SSL's vision for the future of the climate action space"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 29,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the Sustainable Solutions Lab's (SSL) vision for the future of the climate action space? SSL's vision for the future of the climate action space"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 1,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The corpus explicitly contains an 'Our Vision' section in SSLAbout.txt, but the assistant incorrectly claimed the documents do not state a formal vision statement.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_004",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who does SSL say its transdisciplinary research centers and is led by?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Pursuing Climate Justice\nThe Sustainable Solutions Lab (SSL) at UMass Boston transforms the climate research and action space by bridging across sectors, convening collaborators, and facilitating transdisciplinary research that centers and is led by historically and currently excluded communities. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "Pursuing Climate Justice",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who does SSL say its transdisciplinary research centers and is led by?"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant directly and accurately answers the question using the provided corpus and includes the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_006",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does Sarah Mayorga, Associate Professor at Brandeis University, say she values about her work with SSL and the Northeast Climate Justice Research Collaborative?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Regarding her work with the Sustainable Solutions Lab (SSL), **Sarah Mayorga** values the opportunity to act as both an expert and a novice [1]. Regarding her work with the Northeast Climate Justice Research Collaborative, she values that her training and research are appreciated and that there is room for curiosity and exploration, which has enabled her to connect climate change and racial justice [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "summary",
+          "chunk_index": 10,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What are Sarah Mayorga's values regarding her work with the Sustainable Solutions Lab (SSL) and the Northeast Climate Justice Research Collaborative? values regarding work with SSL values regarding work with the Northeast Climate Justice Research Collaborative"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant's answer accurately captures Sarah Mayorga's stated values regarding both SSL and the Northeast Climate Justice Research Collaborative, matching the corpus text precisely.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_007",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How does SSL describe its approach to expanding what 'counts' as climate research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/SSLAbout.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Sustainable Solutions Lab (SSL) approaches the expansion of climate research definitions by incorporating experts from outside the natural sciences and cultivating an inviting and diverse research community [1]. Broadening this definition helps drive novel approaches and research breakthroughs [2], while ensuring that individuals who bring novel or historically sidelined perspectives can engage with and influence the climate adaptation field [2].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "SSLAbout",
+          "url": "https://www.umb.edu/ssl/",
+          "source_path": "SEED_DOCUMENTS/SSLAbout.txt",
+          "section_name": "What We Do",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How does the Sustainable Solutions Lab (SSL) describe its approach to expanding the definition of what counts as climate research? SSL's approach to expanding the definition of climate research"
+        },
+        {
+          "citation": 2,
+          "title": "UMB-SSL-2022-Annual_Report",
+          "url": "https://liveumb-my.sharepoint.com/personal/ssl_umb_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports%2FUMB%2DSSL%2D2022%2DAnnual%5FReport%2Epdf&parent=%2Fpersonal%2Fssl%5Fumb%5Fedu%2FDocuments%2FFiles%20for%20Website%2FAnnual%20Reports&ga=1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/UMB-SSL-2022-Annual_Report.pdf",
+          "section_name": "",
+          "entity_type": "",
+          "chunk_level": "detail",
+          "chunk_index": 10,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "How does the Sustainable Solutions Lab (SSL) describe its approach to expanding the definition of what counts as climate research? SSL's approach to expanding the definition of climate research"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 4,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "no"
+      },
+      "notes": "The answer is clear and professional, correctly using source 1, but unnecessarily includes source 2 which was not in the expected target sources.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_011",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "In what year was the Climate Adaptation Forum established?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Adaptation Forum was established in 2017. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states the year the Climate Adaptation Forum was established based on the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_014",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What percentage of C3I participants are expected to come from underrepresented groups?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Careers Curricula Initiative (C3I) expects 75% of its enrolled participants to come from underrepresented groups [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "detail",
+          "chunk_index": 4,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What percentage of participants in the Climate Careers Curricula Initiative (C3I) are expected to come from underrepresented groups? percentage of C3I participants from underrepresented groups"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the percentage from the corpus text and uses the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_015",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What specific event triggered the launch of the Cape Cod Rail Resilience Project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Cape Cod Rail Resilience Project was initiated as a direct response to a 300-foot rail embankment collapse that occurred in East Sandwich in 2020, which was connected to drought conditions driven by climate change [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Cape Cod Rail Resilience Project",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What specific event triggered the launch of the Cape Cod Rail Resilience Project? event that triggered the launch of the Cape Cod Rail Resilience Project"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately and clearly answers the question using the correct information and citation from the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_021",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three types of jobs are mentioned as examples of areas the C3I microcredentialed programs will cover?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Careers Curricula Initiative (C3I) microcredentialed programs are planned to cover areas such as solar installation, energy auditing, and nature-based solutions [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "summary",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What three types of jobs are mentioned as examples of areas the Climate Careers Curricula Initiative (C3I) microcredentialed programs will cover? three types of jobs mentioned as examples for C3I microcredentialed programs"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the correct information from the corpus and properly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_024",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How frequently does the Climate Adaptation Forum meet and how long are its events?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Adaptation Forum is a quarterly series of half-day events. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the corpus and includes the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_026",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Elisa Guerrero's role at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Elisa Guerrero is listed as Entity Type: staff_member [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 2,
+        "citations": 3
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant stated she is a staff member, missing her specific role as Community Engagement Manager which was present in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_027",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Rajini Srikanth's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Rajini Srikanth is listed as Entity Type: staff_member [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 1,
+        "citations": 4
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant failed to provide Rajini Srikanth's actual title (Dean of Faculty and Inter-Faculty Initiatives) from the corpus, providing internal metadata instead.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_030",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Johnna Flahive's stated research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Johnna Flahive\u2019s Focus field as listed on the SSL website is: Coastal vulnerability, adaptation, and resilience, human and natural systems, and Transdisciplinary research. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states Johnna Flahive's research focus as found in the corpus and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_031",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What two organizations funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The two organizations that funded Johnna Flahive's research on coastal inundation impacts on unhoused and seasonal workers in Massachusetts are the Sustainable Solutions Lab (SSL) and the National Oceanic and Atmospheric Administration\u2019s (NOAA) Adaptation Sciences (AdSci) program [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_040",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What river basin in India is a primary focus of Vishal Verma's research?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "**Vishal Verma** centers his research in India on the **Kosi River Basin** located in Bihar [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Vishal Verma",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the Kosi River Basin in Bihar as Vishal Verma's research focus, fully supported by the provided corpus and citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_044",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What tasks does Anna Matviichuk perform as a Communications Fellow at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- **Tasks performed**: **Anna Matviichuk** produces and releases monthly newsletters, creates digital art elements, and manages the organization's social media accounts [1].\n- **Responsibilities as Communications Fellow**: Her responsibilities in this role include producing and releasing monthly newsletters, creating digital art elements, and managing the organization's social media accounts [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Anna Matviichuk",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately and completely details Anna Matviichuk's tasks based directly on the provided corpus text, using correct citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_045",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Ashley Miranda's role at SSL, and which SSL staff member does she work with to produce monthly newsletters?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Ashley Miranda is listed as Ashley Miranda Smith is a Senior at UMass Boston, majoring in Communication and double minoring in Cinema Studies and Professional and New Media Writing. Since her freshman year, she has worked within SSL as a Communications Fellow; a role that includes managing the institute\u2019s social media, editing SSL\u2019s website content, and working alongside Associate Director Gabriela Boscio Santos to produce and release SSL\u2019s monthly newsletters [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies Ashley Miranda's role and the staff member she works with using the provided corpus, with accurate citations.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_048",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "Who is Isa Whalen working with at SSL and on what specific research topic?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Isa Kelawili Whalen is working with Dr. Cedric Woods on Traditional Ecological Knowledge and Climate Justice in New England and Quintana Roo. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_051",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Tim Cronin's current title and employer?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Tim Cronin is listed as Entity Type: board_member [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 3,
+        "professional_tone": 4,
+        "correctness_vs_corpus": 2,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "no",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provided the entity type instead of Tim Cronin's actual title and employer.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_058",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jen Stevenson Zepeda's current employer and what type of company is it?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Jen Stevenson Zepeda works as a Commercial Solar Consultant for her current employer, ReVision Energy, which is an employee-owned B Corp [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Jen Stevenson Zepeda",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus reference, correctly identifying the employer and company type.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_061",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "At which hospital and medical school does Caleb Dresser work as an Emergency Medicine physician?",
+      "target_sources": [
+        "SEED_DOCUMENTS/BoardOfDirectors.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "As an Emergency Medicine physician, **Caleb Dresser** is affiliated with Beth Israel Deaconess Medical Center (BIDMC) for his hospital affiliation and Harvard Medical School for his medical school affiliation [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "BoardOfDirectors",
+          "url": "https://www.umb.edu/ssl/people/board-of-directors/",
+          "source_path": "SEED_DOCUMENTS/BoardOfDirectors.txt",
+          "section_name": "Caleb Dresser",
+          "entity_type": "board_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus reference, identifying both Beth Israel Deaconess Medical Center and Harvard Medical School, and correctly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_066",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Dania Francis's area of expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The listed expertise includes Racial economic disparities, economics of education, stratification economics. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Dania Francis's area of expertise from the corpus with proper citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_067",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Evan Stewart's academic specialty?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Evan Stewart: Title: Associate Professor. The listed expertise includes Political Sociology, Cultural Sociology, Sociology of Religion, Quantitative, Computational. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts Evan Stewart's expertise from the corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_070",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What does Cedric Woods direct at UMass Boston and what is his listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Cedric Woods's listed title is Director, INENAS. the listed expertise includes Tribal government, American Indian education, economic development, chronic disease prevention. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers what Cedric Woods directs and lists his expertise based directly on the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_071",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Jessica Whiteley's expertise according to the SSL university affiliates list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The listed expertise includes Research: Health Promotion Interventions, Health Equity, Digital Health, Person-Centered. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects Jessica Whiteley's expertise as stated in the corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_072",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What institute does Lorna Rivera direct and what is her listed expertise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Lorna Rivera is listed as Director, Gaston Institute. the listed expertise includes Latina/o studies, Social Determinants of Health, Adult Literacy education, Education. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "URL not provided",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_077",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What NSF grant did Rosalyn Negron receive in the 2020-21 period, how large was it, and what was the research focus?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The National Science Foundation awarded Rosalyn Negron $253,862 for \u201cSocial & Moral Factors in Post-Hurricane Maria Evacuation Decisions: Implications for Puerto Ricans well-being.\u201d The study examines factors that shaped Puerto Ricans' evacuation decisions after Hurricane Maria. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant's answer accurately provides the NSF grant name, amount, and research focus based directly on the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_079",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What percentage of SSL's funding comes from external sources, and what percentage goes directly into climate justice research, according to the 2020-21 report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Nearly 100% of the Sustainable Solutions Lab's funding is derived from external sources [1]. Furthermore, nearly 100% of the funding goes directly toward climate justice research [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "SUPPORT SSL / SUPPORT CLIMATE JUSTICE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What percentage of SSL's funding comes from external sources and what percentage is allocated to climate justice research according to the AnnualReport2021? percentage of external funding percentage of funding for climate justice research"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states that nearly 100% of funding comes from external sources and nearly 100% goes directly to climate justice research, matching the 2020-21 report and citing the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_090",
+      "kind": "single_turn",
+      "type": "people_lookup",
+      "question": "What is Fabian Torres-Ardila's role at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/UniversityAffiliates.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Fabian Torres-Ardila's title is Associate Director Gaston Institute. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "UniversityAffiliates",
+          "url": "https://www.umb.edu/ssl/people/university-affiliates/",
+          "source_path": "SEED_DOCUMENTS/UniversityAffiliates.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately states Fabian Torres-Ardila's role based on the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_091",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Where did Katsyris Rivera Kientz complete her undergraduate education and what was the program?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Katsyris Rivera Kientz completed her undergraduate education at the University of Puerto Rico in Cayey [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Katsyris Rivera Kientz",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identified where she completed her undergraduate education from the corpus. The corpus does not mention her undergraduate program, so omitting it or only providing the available information is correct.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_093",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Which two SSL-affiliated professors is Katsyris Rivera Kientz working with, and on what project?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Katsyris Rivera Kientz is working with Professor Paul Watanabe and Professor Lorena Estrada Martinez on a project that will explore how different Greater Bostonians understand and experience climate change differently. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus, correctly identifying both professors and the project.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_096",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What doctoral program is Nick Johnson enrolled in at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "**Nick Johnson** is enrolled in the Global Inclusion and Social Development Program as a third-year doctoral student [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Nick Johnson",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant correctly identifies Nick Johnson's doctoral program based on the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_097",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Levente Mezo's minor at UMass Boston, and what additional interests does he list?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "**Levente \u201cLevi\u201d Mezo** has a minor in Community Development at UMass Boston [1]. His additional interests include urban planning, transportation planning, affordable housing advocacy, listening to music, drawing, and reading [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Levente \u201cLevi\u201d Mezo",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states Levente Mezo's minor and additional interests based precisely on the provided corpus text.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_098",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three areas of study did Isa Whalen pursue in her undergraduate degree at the University of Washington?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "During her undergraduate degree, **Isa Kelawili Whalen** pursued a Bachelor of Arts with three areas of study: **Honors Anthropology**, **Oceania and Pacific Islander Studies**, and **Diversity** at the **University of Washington Seattle** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Isa Kelawili Whalen",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states the three areas of study from the corpus reference and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_106",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "According to the 2020-21 annual report, how does Boston rank globally in terms of vulnerability to sea-level rise?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Globally, Boston ranks as the 8th most vulnerable city to sea-level rise [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "WHO WE ARE / WHAT WE DO",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How does Boston rank globally in terms of vulnerability to sea-level rise according to the 2020-21 annual report? Boston's global rank in sea-level rise vulnerability"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately states Boston's global vulnerability ranking to sea-level rise based on the 2020-21 annual report and correctly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_109",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who co-created the Climate Justice Deep Dive program with SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Justice Deep Dive program was co-created with **Karla Tandon**, a climate justice expert and consultant [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who co-created the Climate Justice Deep Dive program with the Sustainable Solutions Lab (SSL)? co-creator of Climate Justice Deep Dive"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_110",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "Who were the two guest speakers at SSL's Climate Justice Deep Dive?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The two guest speakers who presented at the Climate Justice Deep Dive were **Zakeem Adris** and **Dina Gilio-Whitaker** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE JUSTICE DEEP DIVE",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 2,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "Who were the two guest speakers at the Sustainable Solutions Lab (SSL) Climate Justice Deep Dive event? names of the two guest speakers at the Climate Justice Deep Dive"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer correctly identifies Zakeem Adris and Dina Gilio-Whitaker as the guest speakers using the appropriate corpus source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_112",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What does the Views that Matter report say about white respondents' views on whether climate change impacts some people more than others?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to the Views That Matter report in the 2020-21 SSL Annual Report (Slides 11\u201312), white respondents are the least inclined to view climate change impacts as affecting some people more than others. Respondents of color are more inclined than whites to believe that the effects are shared \u201cequally.\u201d [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_114",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- **Grant amount for 2020-21**: SSL received $20,000 from the **Barr Foundation** [1].\n- **Stated purpose of the grant**: The funds were provided to deepen the institute's commitment to centering racial justice in its work and to support efforts to be an anti-racist research institute at UMB [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "BARR FOUNDATION AWARDS ADDITIONAL FUNDS TO SUPPORT FACULTY OF COLOR",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "How much did the Barr Foundation grant SSL in 2020-21, and what was the stated purpose of that grant? grant amount for 2020-21 stated purpose of the grant"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the exact details from the corpus and properly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_117",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "How many projects received SSL's Summer Anti-Racism Research Funding in 2020-21?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 31), SSL received $20,000 from the Barr Foundation and provided Summer Anti-Racism Research Funding to seven projects led by affiliated faculty, with grants of up to $2,500 each. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question based on the provided corpus (Slide 31 mentions seven projects).",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_126",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What Boston Globe article did Rebecca Herst co-author in April 2021, and who was her co-author?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "In April 2021, **Rebecca Herst** co-authored the Boston Globe article titled \"Infrastructure investments move us toward an equitable climate resilient future\" [1]. Her co-author for that article was **Alex Papali** [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "THOUGHT LEADERSHIP",
+          "entity_type": "section",
+          "chunk_level": "detail",
+          "chunk_index": 1,
+          "evidence_id": "evidence_2",
+          "evidence_bucket": "main",
+          "evidence_query": "What Boston Globe article did Rebecca Herst co-author in April 2021, and who was her co-author? Boston Globe article title co-authored by Rebecca Herst in April 2021 Name of Rebecca Herst's co-author for that article"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately identifies both the Boston Globe article title and Rebecca Herst's co-author using the provided corpus reference.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_129",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is the definition of 'climate adaptation' given in SSL's 2020-21 annual report?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to SSL's 2020-21 annual report terminology, climate adaptation is defined as focusing on better protecting people, homes [1], and communities from the impacts of the climate crisis [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt",
+          "section_name": "CLIMATE ACTION TERMINOLOGY",
+          "entity_type": "section",
+          "chunk_level": "summary",
+          "chunk_index": 0,
+          "evidence_id": "evidence_4",
+          "evidence_bucket": "main",
+          "evidence_query": "What is the definition of 'climate adaptation' in the SSL 2020-21 Annual Report? definition of 'climate adaptation'"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant provides an accurate definition based directly on the corpus text and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_133",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Stacy D. VanDeveer's title as listed in the 2020-21 SSL annual report core team?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "In the 2020-21 SSL Annual Report core team listing, Stacy D. VanDeveer is listed as Professor and Chair, Department of Conflict Resolution, Human Security, Global Governance, McCormack Graduate School. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately provides Stacy D. VanDeveer's title and department from the core team section using the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_135",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What was Stacy D. VanDeveer's research on the Massachusetts MVP program about?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to the 2020-21 SSL Annual Report (Slides 16\u201317), Stacy D. VanDeveer led research on \u201cLearning from the Massachusetts Municipal Vulnerability Preparedness (MVP) Program in the Greater Boston Region,\u201d with Patricia Bailey and David Sulewski as co-researchers. The study examined conditions in and across municipalities; by 2020, over 80% of Massachusetts cities and towns had participated in the MVP program, and the findings are being used to improve program design for equitable inclusion. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately describes Stacy D. VanDeveer's research on the Massachusetts MVP program using details directly from the corpus and properly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_137",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Pratyush Bharati's topic for the SSL Summer Anti-Racism Research Funding?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "According to the 2020-21 SSL Annual Report (Slide 32), Pratyush Bharati, Professor of Management Information Systems at the College of Management, received Summer Anti-Racism Research Funding for research on data analytics and artificial intelligence (AI) techniques to improve climate assessment. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "AnnualReport2021",
+          "url": "https://www.canva.com/design/DAElrtCJpE4/ZwQPafzyrr2f9CavCPBPhw/view?utm_content=DAElrtCJpE4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1",
+          "source_path": "SEED_DOCUMENTS/Annual Reports/AnnualReport2021.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the provided corpus and cites the correct source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_145",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What populations does the C3I program specifically focus on serving?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Projects.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "The Climate Careers Curricula Initiative (C3I) program specifically focuses on serving underrepresented groups, placing a particular emphasis on vulnerable young adults, people of color, and low-income adults coming from environmental justice communities [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Projects",
+          "url": "https://www.umb.edu/ssl/projects/",
+          "source_path": "SEED_DOCUMENTS/Projects.txt",
+          "section_name": "Climate Careers Curricula Initiative (C3I)",
+          "entity_type": "project",
+          "chunk_level": "entity_profile",
+          "chunk_index": "",
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": "What populations does the Climate Careers Curricula Initiative (C3I) program specifically focus on serving? target populations of the C3I program"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately reflects the corpus details regarding the C3I program's target populations and provides the correct citation.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_150",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What three universities did Patricio Belloy attend and in which countries are the European ones located?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Patricio Belloy attended UMass Boston, Leipzig University, and Wroc\u0142aw University [1]. The European universities he attended are located in Germany (Leipzig University) and Poland (Wroc\u0142aw University) [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "Patricio Belloy",
+          "entity_type": "affiliate",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately identifies the three universities and the countries where the European ones are located, with full support from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_151",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are Ante Iv\u010devi\u0107's three focus areas as listed on the SSL website?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Ante Iv\u010devi\u0107's listed focus is coastal governance, integrated coastal zone management, science-policy. [1]",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt"
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The answer accurately extracts the three focus areas for Ante Iv\u010devi\u0107 directly from the provided corpus.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_152",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What are the two major and two minor fields Ashley Miranda studies at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "- **Ashley Miranda Smith** studies Communication as her major field of study, though the available documents do not state a second major [1].\n- Her two minor fields of study are Cinema Studies and Professional and New Media Writing [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Ashley Miranda Smith",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question based on the corpus, correctly identifying the single major and two minor fields while noting the absence of a second major.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_157",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is Chidimma Ozor's doctoral program and year of study at UMass Boston?",
+      "target_sources": [
+        "SEED_DOCUMENTS/StudentsInterns.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "Chidimma Ozor Commer's doctoral program is the School of Global Inclusion and Social Development, and her year of study is the second year [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "StudentsInterns",
+          "url": "https://www.umb.edu/ssl/people/students/",
+          "source_path": "SEED_DOCUMENTS/StudentsInterns.txt",
+          "section_name": "Chidimma Ozor Commer",
+          "entity_type": "person",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately provides Chidimma Ozor's doctoral program and year of study based on the corpus and correctly cites the source.",
+      "stream_error": ""
+    },
+    {
+      "id": "fs_160",
+      "kind": "single_turn",
+      "type": "specific_fact",
+      "question": "What is B.R. Balachandran's title at SSL?",
+      "target_sources": [
+        "SEED_DOCUMENTS/Staff.txt"
+      ],
+      "clarification_rounds": 0,
+      "transcript": [],
+      "output": "At the Sustainable Solutions Lab (SSL), **B. R. Balachandran** holds the title of Executive Director [1].",
+      "sources": [
+        {
+          "citation": 1,
+          "title": "Staff",
+          "url": "https://www.umb.edu/ssl/people/",
+          "source_path": "SEED_DOCUMENTS/Staff.txt",
+          "section_name": "B. R. Balachandran",
+          "entity_type": "staff_member",
+          "chunk_level": "full_bio",
+          "chunk_index": 0,
+          "evidence_id": "evidence_1",
+          "evidence_bucket": "main",
+          "evidence_query": ""
+        }
+      ],
+      "scores": {
+        "clarity": 5,
+        "professional_tone": 5,
+        "correctness_vs_corpus": 5,
+        "citations": 5
+      },
+      "classification": {
+        "answered_question": "yes",
+        "hallucinated": "no",
+        "right_citations": "yes"
+      },
+      "notes": "The assistant accurately answers the question using the correct title from the provided corpus and properly cites the source.",
+      "stream_error": ""
+    }
+  ]
+}

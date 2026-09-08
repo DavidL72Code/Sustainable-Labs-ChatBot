@@ -1,3 +1,5 @@
+import sys as _sys, pathlib as _pathlib
+_sys.path.insert(0, str(_pathlib.Path(__file__).resolve().parent.parent))
 from __future__ import annotations
 
 import json
@@ -72,7 +74,7 @@ def fmt(value: float | None) -> str:
 
 
 def main() -> None:
-    load_dotenv_simple(Path(__file__).resolve().parent / ".env")
+    load_dotenv_simple(Path(__file__).resolve().parent.parent / ".env")
     import Chatbot
     Chatbot.ChatbotConfig.gemini_api_key = os.environ.get("GEMINI_API_KEY", "")
     cfg = Chatbot.ChatbotConfig()

@@ -1,3 +1,5 @@
+import sys as _sys, pathlib as _pathlib
+_sys.path.insert(0, str(_pathlib.Path(__file__).resolve().parent.parent))
 from __future__ import annotations
 
 import json
@@ -8,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS_PATH = PROJECT_ROOT / os.getenv("EVAL_QUESTIONS_FILE", "questions.json")
 OUTPUT_PATH = PROJECT_ROOT / os.getenv("EVAL_OUTPUT_FILE", "question_eval_results.json")
 OVERWRITE_RESULTS = os.getenv("EVAL_OVERWRITE", "").lower() in {"1", "true", "yes"}

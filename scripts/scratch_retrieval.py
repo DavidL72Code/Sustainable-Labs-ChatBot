@@ -1,3 +1,5 @@
+import sys as _sys, pathlib as _pathlib
+_sys.path.insert(0, str(_pathlib.Path(__file__).resolve().parent.parent))
 from pathlib import Path
 from run_questions_eval import load_dotenv_simple, load_chatbot_symbols
 import run_questions_eval as R

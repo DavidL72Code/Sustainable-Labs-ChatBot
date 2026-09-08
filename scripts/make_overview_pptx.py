@@ -271,7 +271,7 @@ def main() -> None:
     set_text(foot.text_frame, "RAG over the SSL document corpus  ·  Flask + Chroma + Gemini  ·  Streaming SSE with parallel suggestion generation",
              size=10, color=NAVY, align=PP_ALIGN.CENTER)
 
-    out_path = Path(__file__).resolve().parent / "SSL_Chatbot_System_Overview.pptx"
+    out_path = Path(__file__).resolve().parent.parent / "docs" / "SSL_Chatbot_System_Overview.pptx"
     prs.save(out_path)
     print(f"Wrote {out_path}")
 

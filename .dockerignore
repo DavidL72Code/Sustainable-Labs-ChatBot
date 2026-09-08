@@ -16,13 +16,11 @@ logs/
 .pycache/
 
 # Large dev-only artifacts — exclude unless explicitly committed
-Eval_ordered/
+eval/
 chroma_db_backup/
 benchmark_*.py
 development_loop_log/
-run_questions_eval.py
 make_overview_pptx.py
-question_eval_set/
 question_eval_*.json
 questions_iter*.json
 questions_failing_subset.json
