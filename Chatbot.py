@@ -119,6 +119,37 @@ from telemetry import (  # noqa: F401
 class RetrievalChatbot:
     MAX_CHROMA_BATCH_SIZE = 5000
 
+    # Section map, in file order. Banners below mark each boundary.
+    #
+    #   Setup, collection and index lifecycle
+    #   Person-name heuristics
+    #   Document structuring, chunking and indexing
+    #   Retrievers: dense, BM25, rare-term passage
+    #   Neighbour expansion, RRF fusion, freshness
+    #   Candidate narrowing and evidence selection
+    #   Reranking
+    #   Direct answer extractors: people, projects, affiliates
+    #   Query routing and LLM planning
+    #   Registry text access and entity matching
+    #   Conversation anchors and follow-up resolution
+    #   Entity field extraction
+    #   Registry answering: hardcoded, section, entity, document
+    #   Answer contract and validation
+    #   Answer sanitizers and evidence repair
+    #   Prompt construction
+    #   Confidence, trace and source attribution
+    #   Conversation turn resolution
+    #   The main answer path
+    #   Streaming
+    #   Post-processing: citations, markdown, suggestions
+    #
+    # 240 methods; 71% of internal self.<method> calls cross these
+    # boundaries, so treat them as a reading aid, not as subsystems.
+
+
+    # ------------------------------------------------------------------------
+    # Setup, collection and index lifecycle
+    # ------------------------------------------------------------------------
     def __init__(self, llm_callable: LLMCallable, config: Optional[ChatbotConfig] = None) -> None:
         self.config = config or ChatbotConfig()
         self.llm_callable = llm_callable
@@ -269,6 +300,9 @@ class RetrievalChatbot:
         paragraphs = [paragraph.strip() for paragraph in re.split(r"\n\s*\n+", text) if paragraph.strip()]
         return [paragraph for paragraph in paragraphs if paragraph]
 
+    # ------------------------------------------------------------------------
+    # Person-name heuristics
+    # ------------------------------------------------------------------------
     def is_probable_person_name(self, value: str) -> bool:
         candidate = re.sub(r"\([^)]*\)", "", value).strip(" ,.;:-")
         if not candidate or ":" in candidate or len(candidate) > 90:
@@ -519,6 +553,9 @@ class RetrievalChatbot:
 
         return max(ranked_candidates)[-1]
 
+    # ------------------------------------------------------------------------
+    # Document structuring, chunking and indexing
+    # ------------------------------------------------------------------------
     def build_structured_unit(
         self,
         document: SourceDocument,
@@ -1199,6 +1236,9 @@ class RetrievalChatbot:
             ),
         )
 
+    # ------------------------------------------------------------------------
+    # Retrievers: dense, BM25, rare-term passage
+    # ------------------------------------------------------------------------
     def tokenize_for_bm25(self, text: str) -> list[str]:
         return re.findall(r"\b\w+\b", text.lower())
 
@@ -1622,6 +1662,9 @@ class RetrievalChatbot:
         numeric = sum(1 for token in tokens if self.NUMERIC_TOKEN.match(token))
         return numeric / len(tokens) >= 0.12
 
+    # ------------------------------------------------------------------------
+    # Neighbour expansion, RRF fusion, freshness
+    # ------------------------------------------------------------------------
     def expand_document_neighbors(
         self,
         candidates: list[dict],
@@ -2701,6 +2744,9 @@ class RetrievalChatbot:
 
         return context_blocks, metadata_blocks, diagnostics
 
+    # ------------------------------------------------------------------------
+    # Candidate narrowing and evidence selection
+    # ------------------------------------------------------------------------
     def expand_registry_candidate_sources(self, query: str, query_route: dict) -> dict:
         """Add facet-matching sources to a registry-backed retrieval route."""
         route = dict(query_route or {})
@@ -3399,6 +3445,9 @@ class RetrievalChatbot:
                 return False
         return True
 
+    # ------------------------------------------------------------------------
+    # Reranking
+    # ------------------------------------------------------------------------
     def _rebalance_routing_boosts(self, ranked: list[dict]) -> list[dict]:
         if not ranked:
             return ranked
@@ -3610,6 +3659,9 @@ class RetrievalChatbot:
         reranked.sort(key=lambda candidate: candidate["score"], reverse=True)
         return self._rebalance_routing_boosts(reranked)
 
+    # ------------------------------------------------------------------------
+    # Direct answer extractors: people, projects, affiliates
+    # ------------------------------------------------------------------------
     def default_query_route(self, query: str) -> dict:
         lowered_query = query.lower()
         broad_markers = (
@@ -4422,6 +4474,9 @@ class RetrievalChatbot:
 
     _ROUTER_TERM_PATTERNS: dict[str, "re.Pattern[str]"] = {}
 
+    # ------------------------------------------------------------------------
+    # Query routing and LLM planning
+    # ------------------------------------------------------------------------
     @classmethod
     def query_mentions(cls, text: str, terms: tuple) -> bool:
         """Word-boundary keyword test for the local router.
@@ -6343,6 +6398,9 @@ Available entity names:
             plan["routing_mode"] = "hard"
         return plan
 
+    # ------------------------------------------------------------------------
+    # Registry text access and entity matching
+    # ------------------------------------------------------------------------
     def filter_records_by_route(self, query_route: Optional[dict]) -> list[dict]:
         """Routing ranks evidence; it must never make evidence unreachable.
 
@@ -6907,6 +6965,9 @@ Available entity names:
 
         return "\n".join(lines) if lines else "No recent entity memory."
 
+    # ------------------------------------------------------------------------
+    # Conversation anchors and follow-up resolution
+    # ------------------------------------------------------------------------
     def resolve_generic_context_anchor(self, user_message: str, recent_history: Optional[list[ConversationTurn]]) -> Optional[dict]:
         if not recent_history or not self.is_ambiguous_query(user_message):
             return None
@@ -7766,6 +7827,9 @@ Return valid JSON only:
 
         return list(collapsed_entities.values())
 
+    # ------------------------------------------------------------------------
+    # Entity field extraction
+    # ------------------------------------------------------------------------
     def clean_entity_role_fragment(self, role: str) -> str:
         cleaned = re.sub(r"\s+", " ", role).strip(" ,;.")
         cleaned = re.split(
@@ -8303,6 +8367,9 @@ Return valid JSON only:
             return f"{entity_name} {cleaned}".strip()
         return f"{entity_name}: {cleaned}".strip()
 
+    # ------------------------------------------------------------------------
+    # Registry answering: hardcoded, section, entity, document
+    # ------------------------------------------------------------------------
     def _get_hardcoded_fact(self, lowered_query: str) -> Optional[dict]:
         """Return a direct hardcoded answer for queries where vector retrieval consistently fails."""
         ar_entity = next(
@@ -11086,6 +11153,9 @@ Entity record:
             "clarification_options": [],
         }
 
+    # ------------------------------------------------------------------------
+    # Answer contract and validation
+    # ------------------------------------------------------------------------
     def build_answer_contract(self, user_message: str) -> dict:
         lowered = user_message.lower()
         number_words = {
@@ -11528,6 +11598,9 @@ Entity record:
                 )
         return None
 
+    # ------------------------------------------------------------------------
+    # Answer sanitizers and evidence repair
+    # ------------------------------------------------------------------------
     def drop_scope_disclaimers(self, question: str, reply: str) -> str:
         """Remove a sentence that disclaims the question's own scoping phrase.
 
@@ -13464,6 +13537,9 @@ Entity record:
             compact = " ".join(words[:210]).rstrip(" ,;:") + "."
         return compact
 
+    # ------------------------------------------------------------------------
+    # Prompt construction
+    # ------------------------------------------------------------------------
     def build_prompt(
         self,
         user_message: str,
@@ -13692,6 +13768,9 @@ Retrieved context:
 </user_question>
 """.strip()
 
+    # ------------------------------------------------------------------------
+    # Confidence, trace and source attribution
+    # ------------------------------------------------------------------------
     def assess_retrieval_confidence(
         self,
         user_message: str,
@@ -14023,6 +14102,9 @@ Retrieved context:
                 return entity
         return None
 
+    # ------------------------------------------------------------------------
+    # Conversation turn resolution
+    # ------------------------------------------------------------------------
     def get_conversation_state(self, recent_history: Optional[list[ConversationTurn]]) -> dict:
         if not recent_history:
             return empty_state()
@@ -15696,6 +15778,9 @@ Retrieved context:
             })
         return context_blocks, metadata_blocks
 
+    # ------------------------------------------------------------------------
+    # The main answer path
+    # ------------------------------------------------------------------------
     def answer(
         self,
         user_message: str,
@@ -18818,6 +18903,9 @@ Retrieved context:
         )
         return trace
 
+    # ------------------------------------------------------------------------
+    # Streaming
+    # ------------------------------------------------------------------------
     def answer_stream(self, user_message: str, recent_history: Optional[list] = None):
         """Generator yielding SSE-formatted strings. Runs all retrieval/routing
         synchronously, then streams only the final LLM generation."""
@@ -19061,6 +19149,9 @@ Retrieved context:
                 yield f"data: {json.dumps({'type': 'suggestions', 'suggestions': suggestions})}\n\n"
 
 
+    # ------------------------------------------------------------------------
+    # Post-processing: citations, markdown, suggestions
+    # ------------------------------------------------------------------------
     def choose_top_k(self, query_route: Optional[dict] = None) -> int:
         # Every branch here narrowed the pool below config.top_k, which is the
         # budget the retrieval quality was tuned against. The comments claimed
