@@ -24,9 +24,10 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copy the app
-COPY Chatbot.py ./
-COPY conversation_state.py ./
-COPY supabase_store.py ./
+# Every root-level module, not a hand-maintained list. Naming them one by one
+# already shipped an image without supabase_store.py once, and splitting
+# Chatbot.py into modules makes that mistake easy to repeat.
+COPY *.py ./
 COPY verified_question_bank.json ./
 
 # API only — no templates/ or static/. Vercel serves the UI from frontend/.
