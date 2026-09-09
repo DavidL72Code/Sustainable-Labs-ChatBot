@@ -143,6 +143,22 @@ class SupabaseStore:
         self._insert_async("admin_audit_events", row)
 
     # -- reads -------------------------------------------------------------
+    def ping(self) -> bool:
+        """Run the cheapest possible real query, for keepalive health checks.
+
+        Supabase pauses free-tier projects after 7 days without activity, so
+        something has to touch the database on a schedule. This asks for a
+        single id and discards it: enough to be a genuine Postgres round-trip,
+        small enough to sit behind an uptime monitor hitting it every 5
+        minutes. Returns False when the project is unreachable so the caller
+        can fail the health check rather than report a false green.
+        """
+        if not self.enabled:
+            return False
+        query = urllib.parse.urlencode({"select": "id", "limit": 1})
+        result = self._request("GET", f"/rest/v1/chat_metrics?{query}", key=self.service_key)
+        return isinstance(result, list)
+
     def fetch_flagged_chats(self, limit: int = 50) -> list[dict]:
         if not self.enabled:
             return []

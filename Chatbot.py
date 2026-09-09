@@ -20644,6 +20644,23 @@ def create_app() -> Flask:
         if error:
             payload["error"] = error
         status_code = 503 if status == "error" else 200
+
+        # ?deep=1 additionally proves the database is reachable. It is kept off
+        # the default path because load balancers and the Space's own probe hit
+        # /api/health constantly, and neither should drag a Postgres round-trip
+        # along or start failing when Supabase hiccups. The uptime monitor that
+        # keeps the free tier from pausing is the intended caller, so a failed
+        # read has to surface as 503 -- a green check while the database drifts
+        # toward a pause is the exact failure this endpoint exists to catch.
+        if request.args.get("deep", "").strip().lower() not in ("", "0", "false", "no"):
+            if not supabase_store.enabled:
+                payload["database"] = "not configured"
+            elif supabase_store.ping():
+                payload["database"] = "ok"
+            else:
+                payload["database"] = "unreachable"
+                status_code = 503
+
         return jsonify(payload), status_code
 
     @app.post("/api/chat")
