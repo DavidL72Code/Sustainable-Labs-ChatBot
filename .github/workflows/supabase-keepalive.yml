@@ -1,0 +1,47 @@
+name: Supabase keepalive
+
+# Supabase pauses free-tier projects after 7 days without activity. A daily
+# read keeps the project awake; daily (rather than weekly) leaves room for the
+# runs GitHub drops under load without ever approaching the 7-day deadline.
+on:
+  schedule:
+    # 09:17 UTC daily. Deliberately off the hour: jobs scheduled at :00 sit in
+    # the longest queue and are the most likely to be skipped entirely.
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Query Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "::error::SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set as repository secrets."
+            exit 1
+          fi
+
+          url="${SUPABASE_URL%/}/rest/v1/chat_metrics?select=id&limit=1"
+
+          # --fail is deliberately omitted so a non-2xx still yields a body to log.
+          status=$(curl -sS -o /tmp/body.txt -w '%{http_code}' \
+            --max-time 30 --retry 3 --retry-delay 10 --retry-connrefused \
+            -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+            "$url")
+
+          echo "HTTP $status from /rest/v1/chat_metrics"
+
+          if [ "$status" != "200" ]; then
+            echo "::error::Keepalive ping failed with HTTP $status. Response:"
+            cat /tmp/body.txt
+            exit 1
+          fi
+
+          echo "Project is awake."
