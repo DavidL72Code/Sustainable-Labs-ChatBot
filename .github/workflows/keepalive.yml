@@ -16,9 +16,12 @@ name: Keep the Space and Supabase awake
 # brings it back. Keep both.
 on:
   schedule:
-    # Every 30 minutes. Not for the 48h window -- that is covered many times
-    # over -- but to cap any eviction at ~30min instead of a day.
-    - cron: "*/30 * * * *"
+    # Every 15 minutes. Not for the 48h window -- that is covered many times
+    # over -- but because this workflow is the only thing that can recover a
+    # slept Space: UptimeRobot's 60s ceiling is below the cold start, so its
+    # probes start a wake and abandon it. A 14h outage on 2026-09-20 ended
+    # only when a request finally waited the full boot. This caps that at ~15m.
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 jobs:
