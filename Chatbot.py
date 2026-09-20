@@ -24,10 +24,18 @@ from urllib.parse import urlsplit
 from conversation_state import ConversationStateMachine, empty_state, normalize_state, unique_subjects
 from supabase_store import SupabaseStore
 
-import chromadb
-from chromadb.api.models.Collection import Collection
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from sentence_transformers import SentenceTransformer
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:  # annotations only -- `from __future__ import annotations` keeps these out of the runtime path
+    from chromadb.api.models.Collection import Collection
+
+# chromadb, sentence_transformers (which pulls torch) and langchain_text_splitters
+# cost ~41s to import and are only needed once the index is being built. Importing
+# them here would block Flask from binding for that whole time, which is most of a
+# ~66s cold start -- long enough that UptimeRobot's 60s ceiling abandons the wake
+# and the Space never comes back. RetrievalChatbot is already constructed on a
+# background thread, so these now load there instead and /api/health answers in
+# seconds with status "starting".
 
 try:
     from flask import Flask, Response, jsonify, request, session, stream_with_context
@@ -159,6 +167,9 @@ class RetrievalChatbot:
             temperature=0.0,
             thinking_budget=0,
         )
+        import chromadb
+        from sentence_transformers import SentenceTransformer
+
         self.embedder = SentenceTransformer(self.config.embedding_model_name)
         self.client = chromadb.PersistentClient(path=self.config.persist_directory)
         self.collection = self._get_or_create_collection()
@@ -276,6 +287,8 @@ class RetrievalChatbot:
         self.refresh_search_index()
 
     def chunk_documents(self, documents: list[str]) -> list[str]:
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.config.chunk_size,
             chunk_overlap=self.config.chunk_overlap,
@@ -284,6 +297,8 @@ class RetrievalChatbot:
         return splitter.split_text("\n\n".join(documents))
 
     def split_document_into_chunks(self, text: str, chunk_size: int, chunk_overlap: int) -> list[str]:
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
