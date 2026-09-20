@@ -1,0 +1,72 @@
+name: Keep the Space and Supabase awake
+
+# Two problems, one request.
+#
+#   1. The HF Space (free cpu-basic) sleeps after 48h and is evicted by the
+#      platform at other times. Waking it is a ~70-110s cold start.
+#   2. Supabase pauses free projects after 7 days without a database query.
+#
+# /api/health?deep=1 runs a real SELECT, so a single successful GET proves the
+# Space is up AND leaves activity on the database. No secrets are needed: the
+# endpoint is public and the service role key stays on the Space.
+#
+# This exists because UptimeRobot cannot do it. Its timeout caps at 60s, which
+# is shorter than the cold start, so every probe abandons the wake partway and
+# the Space never finishes booting. UptimeRobot tells you it is down; this
+# brings it back. Keep both.
+on:
+  schedule:
+    # Every 30 minutes. Not for the 48h window -- that is covered many times
+    # over -- but to cap any eviction at ~30min instead of a day.
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Wake the Space and touch the database
+        run: |
+          set -uo pipefail
+
+          SPACE="https://davidl72code-umb-sustainable-chatbot.hf.space"
+          API="https://huggingface.co/api/spaces/DavidL72Code/UMB_Sustainable_Chatbot"
+
+          stage() {
+            curl -sS --max-time 30 "$API" 2>/dev/null \
+              | python3 -c "import json,sys; print(json.load(sys.stdin).get('runtime',{}).get('stage','unknown'))" 2>/dev/null \
+              || echo "unreachable"
+          }
+
+          echo "stage before: $(stage)"
+
+          # --max-time 300 is the whole point: long enough to sit through a
+          # cold start instead of abandoning it. 5 attempts covers a boot that
+          # runs several minutes or a container evicted mid-wake.
+          for attempt in 1 2 3 4 5; do
+            code=$(curl -sS -o /tmp/body.txt -w '%{http_code}' \
+              --max-time 300 "$SPACE/api/health?deep=1" 2>/dev/null || echo 000)
+            echo "attempt $attempt: HTTP $code"
+
+            if [ "$code" = "200" ]; then
+              # A 200 alone only proves the Space answered. The database key is
+              # what proves the request reached Postgres -- without it we are
+              # keeping the Space warm while Supabase drifts toward a pause.
+              if grep -q '"database"' /tmp/body.txt; then
+                echo "response: $(head -c 200 /tmp/body.txt)"
+                echo "stage after: $(stage)"
+                echo "Space is awake and the database was queried."
+                exit 0
+              fi
+              echo "::warning::200 but no database field -- deployed code predates ?deep=1"
+              echo "response: $(head -c 200 /tmp/body.txt)"
+            elif [ -s /tmp/body.txt ]; then
+              echo "body: $(head -c 200 /tmp/body.txt)"
+            fi
+
+            [ "$attempt" -lt 5 ] && sleep 30
+          done
+
+          echo "::error::Space did not come up after 5 attempts (last HTTP $code, stage $(stage))."
+          exit 1
