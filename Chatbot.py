@@ -20736,17 +20736,25 @@ def create_app() -> Flask:
             chatbot_error = str(chatbot_state["error"])
 
         if chatbot is None:
+            # This text is the entire experience for anyone who arrives while the
+            # Space is warming up, and the frontend renders it as a plain reply
+            # rather than an error banner. "Please retry shortly" gave no reason
+            # and no timeframe, so the rational move was to leave. Say what is
+            # happening, how long it takes, and exactly what to do.
             if chatbot_status == "error":
                 friendly = (
-                    "The assistant is temporarily unavailable because startup failed. "
-                    "Please try again in a minute."
+                    "I could not finish starting up, so I cannot answer questions right now. "
+                    "This usually clears by itself within a few minutes -- please send your "
+                    "question again shortly. If it keeps happening, email ssl@umb.edu and "
+                    "someone will take a look."
                 )
                 if chatbot_error:
                     print(f"Chat request received while chatbot startup is failed: {chatbot_error}", flush=True)
             else:
                 friendly = (
-                    "The assistant is still loading the prebuilt search index. "
-                    "Please retry shortly."
+                    "I am waking up and loading the Sustainable Solutions Lab documents. "
+                    "This takes about a minute after a quiet period, and only happens on the "
+                    "first question. Send your question again in a moment and I will answer it."
                 )
 
             def warming_stream():
