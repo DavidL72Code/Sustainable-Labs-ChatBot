@@ -1000,3 +1000,45 @@ body {
 .auth-field[hidden] {
   display: none;
 }
+
+/* ---- Warming notice -----------------------------------------------------
+   The Space sleeps after a quiet period and needs a few seconds to load its
+   index on the next visit. That is rare, so this stays hidden unless the
+   backend actually reports it -- no spinner flash for the usual warm case. */
+.warming-notice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 16px 10px;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--brand-light);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.warming-notice[hidden] { display: none; }
+
+.warming-spinner {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(0, 90, 139, 0.25);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: warming-spin 750ms linear infinite;
+}
+
+@keyframes warming-spin { to { transform: rotate(360deg); } }
+
+.composer input:disabled,
+.composer button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .warming-spinner { animation-duration: 2.4s; }
+}

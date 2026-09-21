@@ -915,3 +915,53 @@ signOutButton?.addEventListener("click", async () => {
 });
 
 if (!handleRecoveryRedirect()) refreshAccountState();
+
+// ---- Warm-up state --------------------------------------------------------
+// The Space sleeps after a quiet period and needs a few seconds to load its
+// index on the next visit. That is uncommon, so this stays invisible unless the
+// backend says otherwise: the composer starts enabled and is only locked once a
+// health check actually reports "starting". A warm visitor sees nothing at all.
+(function trackWarmup() {
+  const notice = document.getElementById("warmingNotice");
+  if (!notice || !messageInput || !sendButton) return;
+
+  let locked = false;
+  const started = Date.now();
+
+  function lock() {
+    if (locked) return;
+    locked = true;
+    notice.hidden = false;
+    messageInput.disabled = true;
+    sendButton.disabled = true;
+  }
+
+  function unlock() {
+    notice.hidden = true;
+    messageInput.disabled = false;
+    sendButton.disabled = false;
+    if (locked) messageInput.focus();
+    locked = false;
+  }
+
+  (function poll() {
+    // No credentials: this needs no cookies, and sending them fails CORS
+    // preflight anywhere the frontend is not same-origin.
+    fetch(apiUrl("/api/health"))
+      .then((r) => r.json())
+      .then((d) => {
+        if (d && d.status === "ready") { unlock(); return; }
+        lock();
+        // Give up after two minutes and let people through regardless -- a
+        // permanently disabled composer is worse than one slow answer.
+        if (Date.now() - started > 120000) { unlock(); return; }
+        setTimeout(poll, 1000);
+      })
+      .catch(() => {
+        // A failed probe usually means the container is still booting.
+        lock();
+        if (Date.now() - started > 120000) { unlock(); return; }
+        setTimeout(poll, 2000);
+      });
+  })();
+})();

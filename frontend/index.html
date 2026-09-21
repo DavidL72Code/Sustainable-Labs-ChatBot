@@ -94,6 +94,14 @@
           </div>
         </div>
 
+        <!-- Only shown when the backend reports it is still loading, which is
+             rare: the Space is usually warm. Hidden by default so the common
+             case never sees a flash. -->
+        <div id="warmingNotice" class="warming-notice" role="status" aria-live="polite" hidden>
+          <span class="warming-spinner" aria-hidden="true"></span>
+          <span>Warming up &mdash; loading SSL documents. This takes a few seconds.</span>
+        </div>
+
         <form id="chatForm" class="composer" novalidate>
           <label class="sr-only" for="messageInput">Ask a question</label>
           <input
